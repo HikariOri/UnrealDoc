@@ -1,0 +1,27 @@
+var _audio_device_8cpp =
+[
+    [ "AudioDeviceUtils::FVirtualLoopPair", "df/da8/namespace_audio_device_utils.html#a0a77bf8456ee2562e8e8e89536f244f8", null ],
+    [ "Audio::CreateSoundAssetDecoder", "dc/d26/namespace_audio.html#ae880dd9b6d27c171a3de8278ba3cf829", null ],
+    [ "Audio::GetTransmitterID", "dc/d26/namespace_audio.html#a90ccaf5ef4edc56d0b12619302bf876d", null ],
+    [ "AudioDeviceUtils::AverageNativeLength", "df/da8/namespace_audio_device_utils.html#a8b50a29aec1af8e0f2dd0b9e5d60e10e", null ],
+    [ "CVarBakedAnalysisEnabledCVar", "d2/d2d/_audio_device_8cpp.html#a2ffffa2c878afff4d87f8449248d8c16", null ],
+    [ "CVarDisableAppVolume", "d2/d2d/_audio_device_8cpp.html#a197de8b9a1cc39412bebaf732b2ad789", null ],
+    [ "CVarDisableAutomaticPrecache", "d2/d2d/_audio_device_8cpp.html#a57b828d3d42351c37e8fe42166bd3816", null ],
+    [ "CVarDisableBinauralSpatialization", "d2/d2d/_audio_device_8cpp.html#a11f7313624e617ac4d56b68804254f70", null ],
+    [ "CVarDisableLegacyReverb", "d2/d2d/_audio_device_8cpp.html#a4c591e3ca3e60e691fc4f603155497e9", null ],
+    [ "CVarDisableStoppingVoices", "d2/d2d/_audio_device_8cpp.html#aeb04228b88f7224bbb5b314d8fe25a51", null ],
+    [ "CVarEnableBinauralAudioForAllSpatialSounds", "d2/d2d/_audio_device_8cpp.html#aa8f464c6d25f4e12f47ec2c82ff72528", null ],
+    [ "CVarEnableRelativeRenderCostVoiceLimit", "d2/d2d/_audio_device_8cpp.html#a3a386f2a07b61bfe1c19d772edb56d94", null ],
+    [ "CVarFlushAudioRenderThreadOnGC", "d2/d2d/_audio_device_8cpp.html#a72f22685739e765326ca5f8c593e0459", null ],
+    [ "CVarNumPrecacheFrames", "d2/d2d/_audio_device_8cpp.html#a5ac23ceeaea967efc6a95a9b46218671", null ],
+    [ "CVarSetAudioChannelCount", "d2/d2d/_audio_device_8cpp.html#aa14ab7b4c4d6a3a98b9cb93209d12cae", null ],
+    [ "CVarSetAudioChannelScaleCount", "d2/d2d/_audio_device_8cpp.html#addbf176e05454a9c1984cca66e0d9bab", null ],
+    [ "CVarSetAudioMaxDistance", "d2/d2d/_audio_device_8cpp.html#a433e8bace2978d4a66479f22ffe001c5", null ],
+    [ "CVarSoundDistanceOptimizationLength", "d2/d2d/_audio_device_8cpp.html#a7df90fef805992108a0f01abbb9ecc49", null ],
+    [ "CVarWaitForSoundWaveToLoad", "d2/d2d/_audio_device_8cpp.html#ab39f6430591fbd86c115125c5187fc89", null ],
+    [ "AudioDeviceUtils::NativeChannelCount", "df/da8/namespace_audio_device_utils.html#a5b3bad8ed877c6c1294a0fb8abd7e45d", null ],
+    [ "AudioDeviceUtils::NativeSampleRateCount", "df/da8/namespace_audio_device_utils.html#a7e178d384495bf15f7f6d489bbdd5ac6", null ],
+    [ "AudioDeviceUtils::PrecachedNative", "df/da8/namespace_audio_device_utils.html#a6b72799bdc48a0b9a4600acadde90aef", null ],
+    [ "AudioDeviceUtils::PrecachedRealtime", "df/da8/namespace_audio_device_utils.html#a2016cb9dbb49df7ba425a2bccb94ef06", null ],
+    [ "AudioDeviceUtils::TotalNativeSize", "df/da8/namespace_audio_device_utils.html#a9b6d4c7be736e682e9117493e5d42948", null ]
+];

@@ -1,0 +1,25 @@
+var class_u_e_1_1_c_a_d_kernel_1_1_t_polyline_approximator =
+[
+    [ "TPolylineApproximator", "d2/d76/class_u_e_1_1_c_a_d_kernel_1_1_t_polyline_approximator.html#a22dc389a53690fa22f0c45bf512e11d4", null ],
+    [ "ApproximatePoint", "d2/d76/class_u_e_1_1_c_a_d_kernel_1_1_t_polyline_approximator.html#a37b977ce7d1131387efd6d4bbc646ced", null ],
+    [ "ApproximatePoint", "d2/d76/class_u_e_1_1_c_a_d_kernel_1_1_t_polyline_approximator.html#acc6db7564a5d98425d6d122d5fc966d1", null ],
+    [ "ApproximatePoints", "d2/d76/class_u_e_1_1_c_a_d_kernel_1_1_t_polyline_approximator.html#a15f4c1645af9d07f4b91a86f6665b66d", null ],
+    [ "ApproximatePoints", "d2/d76/class_u_e_1_1_c_a_d_kernel_1_1_t_polyline_approximator.html#ad89b5b1f54a55430df9902f2dc22715b", null ],
+    [ "ComputeBoundingBox", "d2/d76/class_u_e_1_1_c_a_d_kernel_1_1_t_polyline_approximator.html#a2d85f2c26b9b00be93508509db5b0540", null ],
+    [ "ComputeCurvilinearCoordinatesOfPolyline", "d2/d76/class_u_e_1_1_c_a_d_kernel_1_1_t_polyline_approximator.html#ab4f7b4111b60d319b51537d83dc3f764", null ],
+    [ "ComputeLength", "d2/d76/class_u_e_1_1_c_a_d_kernel_1_1_t_polyline_approximator.html#a8baf3aa3afad76621be87e5a5e76bbeb", null ],
+    [ "ComputeLengthOfSubPolyline", "d2/d76/class_u_e_1_1_c_a_d_kernel_1_1_t_polyline_approximator.html#a6abaef520cb00556624c5a8c9acb193a", null ],
+    [ "ComputeLengthOfSubPolyline", "d2/d76/class_u_e_1_1_c_a_d_kernel_1_1_t_polyline_approximator.html#a5ee10413ce58135d65911bfda04616e6", null ],
+    [ "ComputePoint", "d2/d76/class_u_e_1_1_c_a_d_kernel_1_1_t_polyline_approximator.html#a0e1dab5bf050cdae484d6389ead243cc", null ],
+    [ "GetStartEndIndex", "d2/d76/class_u_e_1_1_c_a_d_kernel_1_1_t_polyline_approximator.html#a93036a73ed152ec20f427a7fa4b49048", null ],
+    [ "GetSubPolyline", "d2/d76/class_u_e_1_1_c_a_d_kernel_1_1_t_polyline_approximator.html#a2d44c675c7d6892275e981047808838f", null ],
+    [ "GetSubPolyline", "d2/d76/class_u_e_1_1_c_a_d_kernel_1_1_t_polyline_approximator.html#adc7c6845c56b0820a629f00587082610", null ],
+    [ "ProjectCoincidentalPolyline", "d2/d76/class_u_e_1_1_c_a_d_kernel_1_1_t_polyline_approximator.html#ac24a7353c5c8ce47a04d53dea84e4e58", null ],
+    [ "ProjectPointsToPolyline", "d2/d76/class_u_e_1_1_c_a_d_kernel_1_1_t_polyline_approximator.html#aa36b7e318817fac1cc136ab2b4215f60", null ],
+    [ "ProjectPointToPolyline", "d2/d76/class_u_e_1_1_c_a_d_kernel_1_1_t_polyline_approximator.html#a0f31e61c0d0c85f0cd84ce5d13361105", null ],
+    [ "ProjectPointToPolyline", "d2/d76/class_u_e_1_1_c_a_d_kernel_1_1_t_polyline_approximator.html#aa80039f040bfc4c932a0178886290736", null ],
+    [ "SamplePolyline", "d2/d76/class_u_e_1_1_c_a_d_kernel_1_1_t_polyline_approximator.html#a15f17e145d5193da7f8679428437a6e5", null ],
+    [ "UpdateSubPolylineBBox", "d2/d76/class_u_e_1_1_c_a_d_kernel_1_1_t_polyline_approximator.html#a4c9e60db333ed419745d30032e5a3edb", null ],
+    [ "PolylineCoordinates", "d2/d76/class_u_e_1_1_c_a_d_kernel_1_1_t_polyline_approximator.html#aab4384a8d679cd4770559bfbd1f7a26e", null ],
+    [ "PolylinePoints", "d2/d76/class_u_e_1_1_c_a_d_kernel_1_1_t_polyline_approximator.html#a77f1d94cef1f1058a8a467b1a240e175", null ]
+];

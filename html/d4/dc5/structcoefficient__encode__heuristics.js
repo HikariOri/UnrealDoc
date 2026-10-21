@@ -1,0 +1,26 @@
+var structcoefficient__encode__heuristics =
+[
+    [ "band_count_exponent", "d4/dc5/structcoefficient__encode__heuristics.html#ac731e406b9471a96e4ad0a85eb037f28", null ],
+    [ "band_exponent_base", "d4/dc5/structcoefficient__encode__heuristics.html#ac7868317ee4d4e15b3cf698193dbbd05", null ],
+    [ "expectation_base", "d4/dc5/structcoefficient__encode__heuristics.html#a4dcd481735452b02c0bae1781f5db97e", null ],
+    [ "expectation_scale", "d4/dc5/structcoefficient__encode__heuristics.html#a19be22e58d641a5f80175b349e2638b6", null ],
+    [ "large_boost_median_test", "d4/dc5/structcoefficient__encode__heuristics.html#ab002f739d04b93a1b61c6ab8c91c617c", null ],
+    [ "mid_side_max_bad_bands", "d4/dc5/structcoefficient__encode__heuristics.html#a4b07b83e05fa256f978774a6643d2c4d", null ],
+    [ "mid_side_offset", "d4/dc5/structcoefficient__encode__heuristics.html#a005f5cfb88c018ec9d764cef1ab45097", null ],
+    [ "mid_side_threshold", "d4/dc5/structcoefficient__encode__heuristics.html#ae45720a1df5e826b50de6fe9f9d29961", null ],
+    [ "mid_side_tiny", "d4/dc5/structcoefficient__encode__heuristics.html#ac3882b4071f746f49e4419892688208d", null ],
+    [ "pulse_quality", "d4/dc5/structcoefficient__encode__heuristics.html#ae020c93c7c39824d83e935d04b145ddb", null ],
+    [ "quality_weight_low", "d4/dc5/structcoefficient__encode__heuristics.html#a1dc899d1b798d57aba6a64310abb3b05", null ],
+    [ "short_block_pulse_scale", "d4/dc5/structcoefficient__encode__heuristics.html#a4c611fff71a6c7e7f24d0a431709c21a", null ],
+    [ "short_overlap_scale1", "d4/dc5/structcoefficient__encode__heuristics.html#aa87a5adbc05abf76af892f4ba91bba33", null ],
+    [ "short_overlap_scale2", "d4/dc5/structcoefficient__encode__heuristics.html#a4164da00845bd673bedf6c2d5c542606", null ],
+    [ "side_exp_end", "d4/dc5/structcoefficient__encode__heuristics.html#aee1af9c3ae81e52a805c8df214ee328e", null ],
+    [ "side_exp_end_all", "d4/dc5/structcoefficient__encode__heuristics.html#a233b505013ea8ac1f2e224a5a32dcd38", null ],
+    [ "side_exp_start", "d4/dc5/structcoefficient__encode__heuristics.html#a9b374b9951f70530fba299de150bd208", null ],
+    [ "side_exp_start2", "d4/dc5/structcoefficient__encode__heuristics.html#a89a1f29862896d7b9c47d64ec4895d5b", null ],
+    [ "side_exp_start2_all", "d4/dc5/structcoefficient__encode__heuristics.html#a35e89bc96cee2df9770058243aa9a09b", null ],
+    [ "side_exp_start_all", "d4/dc5/structcoefficient__encode__heuristics.html#acd4d271ffaf08123f49f824960f30fd8", null ],
+    [ "side_exp_threshold", "d4/dc5/structcoefficient__encode__heuristics.html#a30034925124b4bd84c2ecd86dcaebfa2", null ],
+    [ "side_exp_threshold_all", "d4/dc5/structcoefficient__encode__heuristics.html#a1eae7966015e852abc0b92785f80fcd8", null ],
+    [ "small_boost_median_test", "d4/dc5/structcoefficient__encode__heuristics.html#a8027b8a77a1803a85cc2b6f3130fe430", null ]
+];

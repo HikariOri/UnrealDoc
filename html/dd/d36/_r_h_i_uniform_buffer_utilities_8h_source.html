@@ -1,0 +1,510 @@
+<!-- HTML header for doxygen 1.15.0-->
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh">
+<head>
+  <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=11" />
+  <meta name="generator" content="Doxygen 1.15.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>UE 5.8.4: Engine/Source/Runtime/RHI/Internal/RHIUniformBufferUtilities.h 源文件</title>
+  <link rel="icon" href="../../EdIconDefault.bmp" type="image/x-icon" />
+  <link href="../../tabs.css" rel="stylesheet" type="text/css" />
+  <script type="text/javascript" src="../../jquery.js"></script>
+  <script type="text/javascript" src="../../dynsections.js"></script>
+  <link href="../../navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../navtreedata.js"></script>
+<script type="text/javascript" src="../../navtree.js"></script>
+<script type="text/javascript" src="../../cookie.js"></script>
+  <link href="../../search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../search/searchdata.js"></script>
+<script type="text/javascript" src="../../search/search.js"></script>
+  <link href="../../doxygen.css" rel="stylesheet" type="text/css" />
+  <link href="../../doxygen-awesome.css" rel="stylesheet" type="text/css"/>
+<link href="../../doxygen-awesome-sidebar-only.css" rel="stylesheet" type="text/css"/>
+<link href="../../doxygen-awesome-sidebar-only-darkmode-toggle.css" rel="stylesheet" type="text/css"/>
+  <!-- ... other metadata & script includes ... -->
+  <script type="text/javascript" src="../../doxygen-awesome-darkmode-toggle.js"></script>
+  <script type="text/javascript">
+    DoxygenAwesomeDarkModeToggle.title = "Zwischen hellem/dunklem Modus wechseln"
+    DoxygenAwesomeDarkModeToggle.lightModeIcon = '🌞'
+    // icon from https://fonts.google.com/icons
+    DoxygenAwesomeDarkModeToggle.darkModeIcon = `<svg xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 24 24" height="24px" viewBox="0 0 24 24" width="24px" fill="#009793"><g><rect fill="none" height="24" width="24"/></g><g><g><path d="M8.1,14.15C9.77,14.63,11,16.17,11,18c0,0.68-0.19,1.31-0.48,1.87c0.48,0.09,0.97,0.14,1.48,0.14 c1.48,0,2.9-0.41,4.13-1.15c-2.62-0.92-5.23-2.82-6.8-5.86C7.74,9.94,7.78,7.09,8.29,4.9c-2.57,1.33-4.3,4.01-4.3,7.1c0,0,0,0,0,0 c0.01,0,0.01,0,0.02,0C5.66,12,7.18,12.83,8.1,14.15z" opacity=".3"/><path d="M19.78,17.51c-2.47,0-6.57-1.33-8.68-5.43C8.77,7.57,10.6,3.6,11.63,2.01C6.27,2.2,1.98,6.59,1.98,12 c0,0.14,0.02,0.28,0.02,0.42C2.61,12.16,3.28,12,3.98,12c0,0,0,0,0,0c0-3.09,1.73-5.77,4.3-7.1C7.78,7.09,7.74,9.94,9.32,13 c1.57,3.04,4.18,4.95,6.8,5.86c-1.23,0.74-2.65,1.15-4.13,1.15c-0.5,0-1-0.05-1.48-0.14c-0.37,0.7-0.94,1.27-1.64,1.64 c0.98,0.32,2.03,0.5,3.11,0.5c3.5,0,6.58-1.8,8.37-4.52C20.18,17.5,19.98,17.51,19.78,17.51z"/><path d="M7,16l-0.18,0C6.4,14.84,5.3,14,4,14c-1.66,0-3,1.34-3,3s1.34,3,3,3c0.62,0,2.49,0,3,0c1.1,0,2-0.9,2-2 C9,16.9,8.1,16,7,16z"/></g></g></svg>`
+    DoxygenAwesomeDarkModeToggle.init()
+  </script>
+  <script type="text/javascript" src="../../doxygen-awesome-fragment-copy-button.js"></script>
+  <script type="text/javascript">
+    DoxygenAwesomeFragmentCopyButton.title = "In die Zwischenablage kopieren"
+    // DoxygenAwesomeFragmentCopyButton.copyIcon = `<svg ...>`
+    // DoxygenAwesomeFragmentCopyButton.successIcon = `<svg ...>`
+    DoxygenAwesomeFragmentCopyButton.init()
+  </script>
+  <script type="text/javascript" src="../../doxygen-awesome-paragraph-link.js"></script>
+  <script type="text/javascript">
+    DoxygenAwesomeParagraphLink.title = "Abschnitt verknüpfen"
+    DoxygenAwesomeParagraphLink.icon = "¶"
+    DoxygenAwesomeParagraphLink.init()
+  </script>
+  <script type="text/javascript" src="../../doxygen-awesome-interactive-toc.js"></script>
+  <script type="text/javascript">
+    DoxygenAwesomeInteractiveToc.topOffset = 45
+    DoxygenAwesomeInteractiveToc.hideMobileMenu = false
+    DoxygenAwesomeInteractiveToc.init()
+  </script>
+</head>
+<body>
+    <div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+      <div id="titlearea">
+        <table cellspacing="0" cellpadding="0">
+          <tbody>
+            <tr id="projectrow">
+              <td id="projectlogo"><img alt="Logo" src="../../EdIconDefault.bmp"  /></td>
+              <td id="projectalign">
+                <div id="projectname">UE 5.8.4
+                </div>
+                <div id="projectbrief">Unreal Engine</div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <!-- end header part -->
+<!-- 制作者 Doxygen 1.15.0 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "../../search/",'.html');
+</script>
+<script type="text/javascript">
+$(function() { codefold.init(); });
+</script>
+<script type="text/javascript" src="../../menudata.js"></script>
+<script type="text/javascript" src="../../menu.js"></script>
+<script type="text/javascript">
+$(function() {
+  initMenu('../../',true,false,'search.php','搜索',true);
+  $(function() { init_search(); });
+});
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(function(){initNavTree('dd/d36/_r_h_i_uniform_buffer_utilities_8h_source.html','../../',''); });
+</script>
+<div id="container">
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">载入中...</div>
+<div class="SRStatus" id="Searching">搜索中...</div>
+<div class="SRStatus" id="NoMatches">未找到</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">RHIUniformBufferUtilities.h</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="../../dd/d36/_r_h_i_uniform_buffer_utilities_8h.html">浏览该文件的文档.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="comment">// Copyright Epic Games, Inc. All Rights Reserved.</span></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span> </div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="preprocessor">#pragma once</span></div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span> </div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="preprocessor">#include &quot;<a class="code" href="../../db/d04/_core_types_8h.html">CoreTypes.h</a>&quot;</span></div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="preprocessor">#include &quot;<a class="code" href="../../d4/d75/_assertion_macros_8h.html">Misc/AssertionMacros.h</a>&quot;</span></div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="preprocessor">#include &quot;<a class="code" href="../../d9/d11/_app_8h.html">Misc/App.h</a>&quot;</span></div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="preprocessor">#include &quot;<a class="code" href="../../da/dca/_r_h_i_definitions_8h.html">RHIDefinitions.h</a>&quot;</span></div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="preprocessor">#include &quot;<a class="code" href="../../db/dec/_r_h_i_resources_8h.html">RHIResources.h</a>&quot;</span></div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="preprocessor">#include &quot;<a class="code" href="../../d0/d6c/_r_h_i_resource_collection_8h.html">RHIResourceCollection.h</a>&quot;</span></div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="preprocessor">#include &quot;<a class="code" href="../../d9/d49/_r_h_i_texture_reference_8h.html">RHITextureReference.h</a>&quot;</span></div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span> </div>
+<div class="foldopen" id="foldopen00013" data-start="{" data-end="}">
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno"><a class="line" href="../../d6/d49/namespace_u_e_1_1_r_h_i.html">   13</a></span><span class="keyword">namespace </span><a class="code hl_namespace" href="../../d9/d56/namespace_u_e_1_1_r_h_i_1_1_private.html">UE::RHI::Private</a></div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span>{</div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span> </div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno"><a class="line" href="../../d8/de2/struct_u_e_1_1_r_h_i_1_1_private_1_1_t_resource_type_str.html">   16</a></span><span class="keyword">template</span>&lt;<span class="keyword">typename</span> TResourceType&gt; <span class="keyword">struct </span><a class="code hl_struct" href="../../d8/de2/struct_u_e_1_1_r_h_i_1_1_private_1_1_t_resource_type_str.html">TResourceTypeStr</a> {};</div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno"><a class="line" href="../../db/d08/struct_u_e_1_1_r_h_i_1_1_private_1_1_t_resource_type_str_3_01_f_r_h_i_sampler_state_01_4.html#afbe8b35bc9130f89966d72a2ab1d4209">   17</a></span><span class="keyword">template</span>&lt;&gt; <span class="keyword">struct </span><a class="code hl_struct" href="../../d8/de2/struct_u_e_1_1_r_h_i_1_1_private_1_1_t_resource_type_str.html">TResourceTypeStr</a>&lt;<a class="code hl_class" href="../../d3/d38/class_f_r_h_i_sampler_state.html">FRHISamplerState</a>&gt; { <span class="keyword">static</span> <span class="keyword">constexpr</span> TCHAR <a class="code hl_variable" href="../../db/d08/struct_u_e_1_1_r_h_i_1_1_private_1_1_t_resource_type_str_3_01_f_r_h_i_sampler_state_01_4.html#afbe8b35bc9130f89966d72a2ab1d4209">String</a>[] = <a class="code hl_define" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(<span class="stringliteral">&quot;Sampler State&quot;</span>); };</div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno"><a class="line" href="../../d4/d6a/struct_u_e_1_1_r_h_i_1_1_private_1_1_t_resource_type_str_3_01_f_r_h_i_texture_01_4.html#a50a7f449924fa8efc74b1cc611e147d0">   18</a></span><span class="keyword">template</span>&lt;&gt; <span class="keyword">struct </span><a class="code hl_struct" href="../../d8/de2/struct_u_e_1_1_r_h_i_1_1_private_1_1_t_resource_type_str.html">TResourceTypeStr</a>&lt;<a class="code hl_class" href="../../d3/d6d/class_f_r_h_i_texture.html">FRHITexture</a>&gt; { <span class="keyword">static</span> <span class="keyword">constexpr</span> TCHAR <a class="code hl_variable" href="../../d4/d6a/struct_u_e_1_1_r_h_i_1_1_private_1_1_t_resource_type_str_3_01_f_r_h_i_texture_01_4.html#a50a7f449924fa8efc74b1cc611e147d0">String</a>[] = <a class="code hl_define" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(<span class="stringliteral">&quot;Texture&quot;</span>); };</div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno"><a class="line" href="../../df/d72/struct_u_e_1_1_r_h_i_1_1_private_1_1_t_resource_type_str_3_01_f_r_h_i_shader_resource_view_01_4.html#a768575ac980b8bf689735236f8fc8eb1">   19</a></span><span class="keyword">template</span>&lt;&gt; <span class="keyword">struct </span><a class="code hl_struct" href="../../d8/de2/struct_u_e_1_1_r_h_i_1_1_private_1_1_t_resource_type_str.html">TResourceTypeStr</a>&lt;<a class="code hl_class" href="../../dd/d14/class_f_r_h_i_shader_resource_view.html">FRHIShaderResourceView</a>&gt; { <span class="keyword">static</span> <span class="keyword">constexpr</span> TCHAR <a class="code hl_variable" href="../../df/d72/struct_u_e_1_1_r_h_i_1_1_private_1_1_t_resource_type_str_3_01_f_r_h_i_shader_resource_view_01_4.html#a768575ac980b8bf689735236f8fc8eb1">String</a>[] = <a class="code hl_define" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(<span class="stringliteral">&quot;Shader Resource View&quot;</span>); };</div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno"><a class="line" href="../../d9/d84/struct_u_e_1_1_r_h_i_1_1_private_1_1_t_resource_type_str_3_01_f_r_h_i_unordered_access_view_01_4.html#a0d387b57ea148504d5c9c6b3cecc6de1">   20</a></span><span class="keyword">template</span>&lt;&gt; <span class="keyword">struct </span><a class="code hl_struct" href="../../d8/de2/struct_u_e_1_1_r_h_i_1_1_private_1_1_t_resource_type_str.html">TResourceTypeStr</a>&lt;<a class="code hl_class" href="../../d2/dab/class_f_r_h_i_unordered_access_view.html">FRHIUnorderedAccessView</a>&gt; { <span class="keyword">static</span> <span class="keyword">constexpr</span> TCHAR <a class="code hl_variable" href="../../d9/d84/struct_u_e_1_1_r_h_i_1_1_private_1_1_t_resource_type_str_3_01_f_r_h_i_unordered_access_view_01_4.html#a0d387b57ea148504d5c9c6b3cecc6de1">String</a>[] = <a class="code hl_define" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(<span class="stringliteral">&quot;Unordered Access View&quot;</span>); };</div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno"><a class="line" href="../../de/dcb/struct_u_e_1_1_r_h_i_1_1_private_1_1_t_resource_type_str_3_01_f_r_h_i_resource_collection_01_4.html#a72f60fe6877dd1f589067f5bbf2d9c09">   21</a></span><span class="keyword">template</span>&lt;&gt; <span class="keyword">struct </span><a class="code hl_struct" href="../../d8/de2/struct_u_e_1_1_r_h_i_1_1_private_1_1_t_resource_type_str.html">TResourceTypeStr</a>&lt;<a class="code hl_class" href="../../d2/def/class_f_r_h_i_resource_collection.html">FRHIResourceCollection</a>&gt; { <span class="keyword">static</span> <span class="keyword">constexpr</span> TCHAR <a class="code hl_variable" href="../../de/dcb/struct_u_e_1_1_r_h_i_1_1_private_1_1_t_resource_type_str_3_01_f_r_h_i_resource_collection_01_4.html#a72f60fe6877dd1f589067f5bbf2d9c09">String</a>[] = <a class="code hl_define" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(<span class="stringliteral">&quot;Resource Collection&quot;</span>); };</div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span> </div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span><span class="keyword">template</span>&lt;<span class="keyword">typename</span> TResourceType, <span class="keyword">typename</span> TCallback&gt;</div>
+<div class="foldopen" id="foldopen00024" data-start="{" data-end="}">
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno"><a class="line" href="../../d9/d56/namespace_u_e_1_1_r_h_i_1_1_private.html#a82872eafabaeb6584b2acc85288e6380">   24</a></span><span class="keyword">inline</span> <span class="keywordtype">void</span> <a class="code hl_function" href="../../d9/d56/namespace_u_e_1_1_r_h_i_1_1_private.html#a82872eafabaeb6584b2acc85288e6380">EnumerateUniformBufferResources</a>(<span class="keyword">const</span> <a class="code hl_class" href="../../da/df0/class_f_r_h_i_uniform_buffer.html">FRHIUniformBuffer</a>* <a class="code hl_define" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#aae3356b63849abbe8789dd41648ee90a">RESTRICT</a> <a class="code hl_enumvalue" href="../../d5/db6/_pixel_format_8h.html#a1ccf6fb7a1e0dcfacee1fa2b02a70b53a7e62bc342f41c946868f0ea6f0b712d8">Buffer</a>, <a class="code hl_typedef" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a8dbb3cd84ca9fd010dadfc3815eefa5d">int32</a> BufferIndex, <span class="keyword">const</span> <a class="code hl_typedef" href="../../dd/de9/preprocessor_8c.html#a1134b580f8da4de94ca6b1de4d37975e">uint32</a>* <a class="code hl_define" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#aae3356b63849abbe8789dd41648ee90a">RESTRICT</a> ResourceMap, TCallback &amp;&amp; Callback)</div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>{</div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>    <span class="keyword">const</span> <a class="code hl_class" href="../../d7/d10/class_t_ref_count_ptr.html">TRefCountPtr&lt;FRHIResource&gt;</a>* <a class="code hl_define" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#aae3356b63849abbe8789dd41648ee90a">RESTRICT</a> Resources = <a class="code hl_enumvalue" href="../../d5/db6/_pixel_format_8h.html#a1ccf6fb7a1e0dcfacee1fa2b02a70b53a7e62bc342f41c946868f0ea6f0b712d8">Buffer</a>-&gt;GetResourceTable().GetData();</div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span> </div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>    <a class="code hl_typedef" href="../../dd/de9/preprocessor_8c.html#a1134b580f8da4de94ca6b1de4d37975e">uint32</a> BufferOffset = ResourceMap[BufferIndex];</div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>    <span class="keywordflow">if</span> (BufferOffset &gt; 0)</div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>    {</div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>        <span class="keyword">const</span> <a class="code hl_typedef" href="../../dd/de9/preprocessor_8c.html#a1134b580f8da4de94ca6b1de4d37975e">uint32</a>* <a class="code hl_define" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#aae3356b63849abbe8789dd41648ee90a">RESTRICT</a> ResourceInfos = &amp;ResourceMap[BufferOffset];</div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>        <a class="code hl_typedef" href="../../dd/de9/preprocessor_8c.html#a1134b580f8da4de94ca6b1de4d37975e">uint32</a> ResourceInfo = *ResourceInfos++;</div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>        <span class="keywordflow">do</span></div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>        {</div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>            <a class="code hl_define" href="../../d4/d75/_assertion_macros_8h.html#a12ff33b2f8cbad5116bd85ca93de5cb2">checkSlow</a>(<a class="code hl_function" href="../../df/dd5/struct_f_r_h_i_resource_table_entry.html#ab27f8ed2a13dec5693c3d7ba1f31e2ca">FRHIResourceTableEntry::GetUniformBufferIndex</a>(ResourceInfo) == BufferIndex);</div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span> </div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>            <span class="keyword">const</span> <a class="code hl_typedef" href="../../dd/de9/preprocessor_8c.html#a05f6b0ae8f6a6e135b0e290c25fe0e4e">uint16</a> ResourceIndex = <a class="code hl_function" href="../../df/dd5/struct_f_r_h_i_resource_table_entry.html#af18e7f87e83f8c7a7cf16f3272490500">FRHIResourceTableEntry::GetResourceIndex</a>(ResourceInfo);</div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>            <span class="keyword">const</span> <a class="code hl_typedef" href="../../dd/de9/preprocessor_8c.html#adde6aaee8457bee49c2a92621fe22b79">uint8</a> BindIndex = <a class="code hl_function" href="../../df/dd5/struct_f_r_h_i_resource_table_entry.html#a9b87310d8cb894deb7f08e29b744d7b9">FRHIResourceTableEntry::GetBindIndex</a>    (ResourceInfo);</div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span> </div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>            TResourceType* Resource = <span class="keyword">static_cast&lt;</span>TResourceType*<span class="keyword">&gt;</span>(Resources[ResourceIndex].<a class="code hl_function" href="../../d7/d10/class_t_ref_count_ptr.html#a5d03dbab290fa66195c70cbc94eaeebe">GetReference</a>());</div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>            <a class="code hl_define" href="../../d4/d75/_assertion_macros_8h.html#adda76c7007d2e32f3aa142897f5702a2">checkf</a>(Resource</div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>                   , <a class="code hl_define" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(<span class="stringliteral">&quot;Null %s (resource %d bind %d) on UB Layout %s&quot;</span>)</div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>                   , <a class="code hl_struct" href="../../d8/de2/struct_u_e_1_1_r_h_i_1_1_private_1_1_t_resource_type_str.html">TResourceTypeStr&lt;TResourceType&gt;::String</a></div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>                   , ResourceIndex</div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>                   , BindIndex</div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>                   , *<a class="code hl_enumvalue" href="../../d5/db6/_pixel_format_8h.html#a1ccf6fb7a1e0dcfacee1fa2b02a70b53a7e62bc342f41c946868f0ea6f0b712d8">Buffer</a>-&gt;GetLayout().GetDebugName()</div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>                   );</div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span> </div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>            Callback(Resource, BindIndex);</div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span> </div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>            ResourceInfo = *ResourceInfos++;</div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>        } <span class="keywordflow">while</span> (<a class="code hl_function" href="../../df/dd5/struct_f_r_h_i_resource_table_entry.html#ab27f8ed2a13dec5693c3d7ba1f31e2ca">FRHIResourceTableEntry::GetUniformBufferIndex</a>(ResourceInfo) == BufferIndex);</div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>    }</div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>}</div>
+</div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span> </div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span><span class="preprocessor">#if PLATFORM_SUPPORTS_BINDLESS_RENDERING</span></div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span><span class="comment">// Helper to call the respective setters for each FRHIResource contained inside the provided uniform buffer.</span></div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span><span class="keyword">template</span>&lt;<span class="keyword">typename</span> TBinder&gt;</div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span><span class="keywordtype">void</span> SetAllUniformBufferResourcesForBindless(TBinder&amp;&amp; Binder, <span class="keyword">const</span> <a class="code hl_class" href="../../da/df0/class_f_r_h_i_uniform_buffer.html">FRHIUniformBuffer</a>* <a class="code hl_enumvalue" href="../../d5/db6/_pixel_format_8h.html#a1ccf6fb7a1e0dcfacee1fa2b02a70b53a7e62bc342f41c946868f0ea6f0b712d8">Buffer</a>)</div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>{</div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>    <span class="keywordtype">double</span> CurrentTimeForTextureTimes = <a class="code hl_function" href="../../d5/d42/class_f_app_time.html#a3a23f4904dcf99af5deda59d31d58865">FAppTime::GetApproximateCurrentTime</a>();</div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span> </div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>    <span class="keywordflow">for</span> (<span class="keyword">const</span> <a class="code hl_class" href="../../d7/d10/class_t_ref_count_ptr.html">TRefCountPtr&lt;FRHIResource&gt;</a>&amp; Resource : <a class="code hl_enumvalue" href="../../d5/db6/_pixel_format_8h.html#a1ccf6fb7a1e0dcfacee1fa2b02a70b53a7e62bc342f41c946868f0ea6f0b712d8">Buffer</a>-&gt;GetResourceTable())</div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>    {</div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>        <span class="keywordflow">if</span> (Resource)</div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span>        {</div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>            <span class="keyword">const</span> <a class="code hl_enumeration" href="../../da/dca/_r_h_i_definitions_8h.html#a2a49892819f9c4556e6547820ab85b83">ERHIResourceType</a> ResourceType = Resource-&gt;GetType();</div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>            <span class="keywordflow">switch</span> (ResourceType)</div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>            {</div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>            <span class="keywordflow">case</span> <a class="code hl_enumvalue" href="../../da/dca/_r_h_i_definitions_8h.html#a2a49892819f9c4556e6547820ab85b83ac839ebb92f338258f9bc7ac49361ff25">RRT_Texture</a>:</div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>                <span class="keyword">static_cast&lt;</span><a class="code hl_class" href="../../d3/d6d/class_f_r_h_i_texture.html">FRHITexture</a>*<span class="keyword">&gt;</span>(Resource.GetReference())-&gt;<a class="code hl_function" href="../../d3/d6d/class_f_r_h_i_texture.html#abfbee2e5db17b1711770ba3a3a201673">SetLastRenderTime</a>(CurrentTimeForTextureTimes);</div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>                Binder.SetTexture(<span class="keyword">static_cast&lt;</span><a class="code hl_class" href="../../d3/d6d/class_f_r_h_i_texture.html">FRHITexture</a>*<span class="keyword">&gt;</span>(Resource.GetReference()), 0);</div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>                <span class="keywordflow">break</span>;</div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>            <span class="keywordflow">case</span> <a class="code hl_enumvalue" href="../../da/dca/_r_h_i_definitions_8h.html#a2a49892819f9c4556e6547820ab85b83a54aa32ae0f11ac0b172ea4d8caa3946c">RRT_TextureReference</a>:</div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>                <span class="keyword">static_cast&lt;</span><a class="code hl_class" href="../../d0/d85/class_f_r_h_i_texture_reference.html">FRHITextureReference</a>*<span class="keyword">&gt;</span>(Resource.GetReference())-&gt;<a class="code hl_function" href="../../d3/d6d/class_f_r_h_i_texture.html#abfbee2e5db17b1711770ba3a3a201673">SetLastRenderTime</a>(CurrentTimeForTextureTimes);</div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>                Binder.SetTexture(<span class="keyword">static_cast&lt;</span><a class="code hl_class" href="../../d0/d85/class_f_r_h_i_texture_reference.html">FRHITextureReference</a>*<span class="keyword">&gt;</span>(Resource.GetReference()), 0);</div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span>                <span class="keywordflow">break</span>;</div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>            <span class="keywordflow">case</span> <a class="code hl_enumvalue" href="../../da/dca/_r_h_i_definitions_8h.html#a2a49892819f9c4556e6547820ab85b83ad9995ae164ab442acd3114973e254b17">RRT_ShaderResourceView</a>:</div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>                Binder.SetSRV(<span class="keyword">static_cast&lt;</span><a class="code hl_class" href="../../dd/d14/class_f_r_h_i_shader_resource_view.html">FRHIShaderResourceView</a>*<span class="keyword">&gt;</span>(Resource.GetReference()), 0);</div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>                <span class="keywordflow">break</span>;</div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>            <span class="keywordflow">case</span> <a class="code hl_enumvalue" href="../../da/dca/_r_h_i_definitions_8h.html#a2a49892819f9c4556e6547820ab85b83ad7ccf53e14615ec2ca2a034e56de2505">RRT_UnorderedAccessView</a>:</div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span>                Binder.SetUAV(<span class="keyword">static_cast&lt;</span><a class="code hl_class" href="../../d2/dab/class_f_r_h_i_unordered_access_view.html">FRHIUnorderedAccessView</a>*<span class="keyword">&gt;</span>(Resource.GetReference()), 0);</div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span>                <span class="keywordflow">break</span>;</div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span>            <span class="keywordflow">case</span> <a class="code hl_enumvalue" href="../../da/dca/_r_h_i_definitions_8h.html#a2a49892819f9c4556e6547820ab85b83aad38ca03e0c932b84f8436b1a9c5f95b">RRT_ResourceCollection</a>:</div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span>                Binder.SetResourceCollection(<span class="keyword">static_cast&lt;</span><a class="code hl_class" href="../../d2/def/class_f_r_h_i_resource_collection.html">FRHIResourceCollection</a>*<span class="keyword">&gt;</span>(Resource.GetReference()), 0);</div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span>                <span class="keywordflow">break</span>;</div>
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span>            <span class="keywordflow">case</span> <a class="code hl_enumvalue" href="../../da/dca/_r_h_i_definitions_8h.html#a2a49892819f9c4556e6547820ab85b83a024eb38ecf701931a1084a493f55172f">RRT_SamplerState</a>:</div>
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span>                Binder.SetSampler(<span class="keyword">static_cast&lt;</span><a class="code hl_class" href="../../d3/d38/class_f_r_h_i_sampler_state.html">FRHISamplerState</a>*<span class="keyword">&gt;</span>(Resource.GetReference()), 0);</div>
+<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span>                <span class="keywordflow">break</span>;</div>
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span>            }</div>
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span>        }</div>
+<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span>    }</div>
+<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span>}</div>
+<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span><span class="preprocessor">#endif</span></div>
+<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span> </div>
+<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span><span class="keyword">template</span>&lt;<span class="keyword">typename</span> TBinder, <span class="keyword">typename</span> TUniformBufferArrayType, <span class="keyword">typename</span> TBitMaskType, <span class="keywordtype">bool</span> bFullyBindless = false&gt;</div>
+<div class="foldopen" id="foldopen00097" data-start="{" data-end="}">
+<div class="line"><a id="l00097" name="l00097"></a><span class="lineno"><a class="line" href="../../d9/d56/namespace_u_e_1_1_r_h_i_1_1_private.html#ae45684f8f90655dd028e26f2174aebc6">   97</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="../../d9/d56/namespace_u_e_1_1_r_h_i_1_1_private.html#ae45684f8f90655dd028e26f2174aebc6">SetUniformBufferResourcesFromTables</a>(TBinder &amp;&amp; Binder, <a class="code hl_class" href="../../db/d66/class_f_r_h_i_shader.html">FRHIShader</a> <span class="keyword">const</span>&amp; <a class="code hl_namespace" href="../../d9/d04/namespace_u_e_1_1_shader.html">Shader</a>, TBitMaskType&amp; DirtyUniformBuffers, TUniformBufferArrayType <span class="keyword">const</span>&amp; BoundUniformBuffers</div>
+<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span>                                         #<span class="keywordflow">if</span> <a class="code hl_define" href="../../d9/d44/_build_8h.html#a9761d1c57b7c42192e22a4adbbab0f6b">ENABLE_RHI_VALIDATION</a></div>
+<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span>                                         , RHIValidation::FTracker* <a class="code hl_enumvalue" href="../../d5/de6/_head_mounted_display_types_8h.html#aef2f455b476d14ba0e23e0d7d6898ec3a26b8a5f8cbb692e906c8eed4b88cc0bd">Tracker</a></div>
+<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span>                                         #endif</div>
+<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span>                                         )</div>
+<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span>{</div>
+<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span>    <span class="keywordtype">double</span> CurrentTimeForTextureTimes = <a class="code hl_function" href="../../d5/d42/class_f_app_time.html#a3a23f4904dcf99af5deda59d31d58865">FAppTime::GetApproximateCurrentTime</a>();</div>
+<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span>    <a class="code hl_struct" href="../../d8/d9b/struct_f_shader_resource_table.html">FShaderResourceTable</a> <span class="keyword">const</span>&amp; SRT = <a class="code hl_namespace" href="../../d9/d04/namespace_u_e_1_1_shader.html">Shader</a>.GetShaderResourceTable();</div>
+<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span> </div>
+<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span>    <span class="comment">// Mask the dirty bits by those buffers from which the shader has bound resources.</span></div>
+<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span>    <a class="code hl_typedef" href="../../dd/de9/preprocessor_8c.html#a1134b580f8da4de94ca6b1de4d37975e">uint32</a> DirtyBits = SRT.<a class="code hl_variable" href="../../d8/d9b/struct_f_shader_resource_table.html#a1712256dd9f7b8d12b8021b238e397e4">ResourceTableBits</a> &amp; DirtyUniformBuffers;</div>
+<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span> </div>
+<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span><span class="preprocessor">    #if PLATFORM_SUPPORTS_BINDLESS_RENDERING &amp;&amp; !ENABLE_RHI_VALIDATION</span></div>
+<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span>    <span class="keywordflow">if</span> <span class="keyword">constexpr</span> (bFullyBindless)</div>
+<div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span>    {</div>
+<div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span>        <span class="keywordflow">while</span> (DirtyBits)</div>
+<div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span>        {</div>
+<div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span>            <span class="comment">// Scan for the lowest set bit, compute its index, clear it in the set of dirty bits.</span></div>
+<div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span>            <span class="keyword">const</span> <a class="code hl_typedef" href="../../dd/de9/preprocessor_8c.html#a1134b580f8da4de94ca6b1de4d37975e">uint32</a> LowestBitMask = (DirtyBits) &amp; (-(<a class="code hl_typedef" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a8dbb3cd84ca9fd010dadfc3815eefa5d">int32</a>)DirtyBits);</div>
+<div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span>            <span class="keyword">const</span> <a class="code hl_typedef" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a8dbb3cd84ca9fd010dadfc3815eefa5d">int32</a> BufferIndex = FMath::CountTrailingZeros(LowestBitMask); <span class="comment">// todo: This has a branch on zero, we know it could never be zero...</span></div>
+<div class="line"><a id="l00117" name="l00117"></a><span class="lineno">  117</span>            DirtyBits ^= LowestBitMask;</div>
+<div class="line"><a id="l00118" name="l00118"></a><span class="lineno">  118</span> </div>
+<div class="line"><a id="l00119" name="l00119"></a><span class="lineno">  119</span>            <a class="code hl_function" href="../../d9/d56/namespace_u_e_1_1_r_h_i_1_1_private.html#a82872eafabaeb6584b2acc85288e6380">EnumerateUniformBufferResources&lt;FRHITexture&gt;</a>(BoundUniformBuffers[BufferIndex], BufferIndex, SRT.<a class="code hl_variable" href="../../d8/d9b/struct_f_shader_resource_table.html#a60863ceca5fc54e6412122e93a5c3fdf">TextureMap</a>.<a class="code hl_function" href="../../d6/db1/class_t_array.html#a24e3479cade18eb8efd5477e70a28899">GetData</a>(),</div>
+<div class="line"><a id="l00120" name="l00120"></a><span class="lineno">  120</span>                [&amp;](<a class="code hl_class" href="../../d3/d6d/class_f_r_h_i_texture.html">FRHITexture</a>* <a class="code hl_enumvalue" href="../../d3/d05/_datasmith_facade_u_e_pbr_material_8h.html#ad335a2268449994142a5913295b8b652aa3e8ae43188ae76d38f414b2bdb0077b">Texture</a>, <a class="code hl_typedef" href="../../dd/de9/preprocessor_8c.html#adde6aaee8457bee49c2a92621fe22b79">uint8</a> <a class="code hl_typedef" href="../../df/dd5/radfft_8cpp.html#a353b84469a01fbe28e2db978bdf1fb86">Index</a>)</div>
+<div class="line"><a id="l00121" name="l00121"></a><span class="lineno">  121</span>                {</div>
+<div class="line"><a id="l00122" name="l00122"></a><span class="lineno">  122</span>                    Texture-&gt;SetLastRenderTime(CurrentTimeForTextureTimes);</div>
+<div class="line"><a id="l00123" name="l00123"></a><span class="lineno">  123</span>                });</div>
+<div class="line"><a id="l00124" name="l00124"></a><span class="lineno">  124</span>        }</div>
+<div class="line"><a id="l00125" name="l00125"></a><span class="lineno">  125</span> </div>
+<div class="line"><a id="l00126" name="l00126"></a><span class="lineno">  126</span>        DirtyUniformBuffers = TBitMaskType(0);</div>
+<div class="line"><a id="l00127" name="l00127"></a><span class="lineno">  127</span> </div>
+<div class="line"><a id="l00128" name="l00128"></a><span class="lineno">  128</span>        <span class="keywordflow">return</span>;</div>
+<div class="line"><a id="l00129" name="l00129"></a><span class="lineno">  129</span>    }</div>
+<div class="line"><a id="l00130" name="l00130"></a><span class="lineno">  130</span><span class="preprocessor">    #endif</span></div>
+<div class="line"><a id="l00131" name="l00131"></a><span class="lineno">  131</span> </div>
+<div class="line"><a id="l00132" name="l00132"></a><span class="lineno">  132</span>    <span class="keywordflow">while</span> (DirtyBits)</div>
+<div class="line"><a id="l00133" name="l00133"></a><span class="lineno">  133</span>    {</div>
+<div class="line"><a id="l00134" name="l00134"></a><span class="lineno">  134</span>        <span class="comment">// Scan for the lowest set bit, compute its index, clear it in the set of dirty bits.</span></div>
+<div class="line"><a id="l00135" name="l00135"></a><span class="lineno">  135</span>        <span class="keyword">const</span> <a class="code hl_typedef" href="../../dd/de9/preprocessor_8c.html#a1134b580f8da4de94ca6b1de4d37975e">uint32</a> LowestBitMask = (DirtyBits) &amp; (-(<a class="code hl_typedef" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a8dbb3cd84ca9fd010dadfc3815eefa5d">int32</a>)DirtyBits);</div>
+<div class="line"><a id="l00136" name="l00136"></a><span class="lineno">  136</span>        <span class="keyword">const</span> <a class="code hl_typedef" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a8dbb3cd84ca9fd010dadfc3815eefa5d">int32</a> BufferIndex = FMath::CountTrailingZeros(LowestBitMask); <span class="comment">// todo: This has a branch on zero, we know it could never be zero...</span></div>
+<div class="line"><a id="l00137" name="l00137"></a><span class="lineno">  137</span>        DirtyBits ^= LowestBitMask;</div>
+<div class="line"><a id="l00138" name="l00138"></a><span class="lineno">  138</span> </div>
+<div class="line"><a id="l00139" name="l00139"></a><span class="lineno">  139</span>        <a class="code hl_define" href="../../d4/d75/_assertion_macros_8h.html#a586e110623cde145b8a5bdefb429e144">check</a>(BufferIndex &lt; SRT.<a class="code hl_variable" href="../../d8/d9b/struct_f_shader_resource_table.html#a1fe90812b2ba93aa61b22a3881d60fdc">ResourceTableLayoutHashes</a>.<a class="code hl_function" href="../../d6/db1/class_t_array.html#a1518d29c2cbcefd7b7a3a26e8d39b4c5">Num</a>());</div>
+<div class="line"><a id="l00140" name="l00140"></a><span class="lineno">  140</span> </div>
+<div class="line"><a id="l00141" name="l00141"></a><span class="lineno">  141</span>        <a class="code hl_class" href="../../da/df0/class_f_r_h_i_uniform_buffer.html">FRHIUniformBuffer</a>* <a class="code hl_enumvalue" href="../../d5/db6/_pixel_format_8h.html#a1ccf6fb7a1e0dcfacee1fa2b02a70b53a7e62bc342f41c946868f0ea6f0b712d8">Buffer</a> = BoundUniformBuffers[BufferIndex];</div>
+<div class="line"><a id="l00142" name="l00142"></a><span class="lineno">  142</span> </div>
+<div class="line"><a id="l00143" name="l00143"></a><span class="lineno">  143</span><span class="preprocessor">        #if DO_CHECK</span></div>
+<div class="line"><a id="l00144" name="l00144"></a><span class="lineno">  144</span> </div>
+<div class="line"><a id="l00145" name="l00145"></a><span class="lineno">  145</span>        <span class="keywordflow">if</span> (!<a class="code hl_enumvalue" href="../../d5/db6/_pixel_format_8h.html#a1ccf6fb7a1e0dcfacee1fa2b02a70b53a7e62bc342f41c946868f0ea6f0b712d8">Buffer</a>)</div>
+<div class="line"><a id="l00146" name="l00146"></a><span class="lineno">  146</span>        {</div>
+<div class="line"><a id="l00147" name="l00147"></a><span class="lineno">  147</span>            <a class="code hl_define" href="../../d7/dcd/_log_macros_8h.html#a2b7439f43220057d491f6ab6cbeb3a32">UE_LOGF</a>(LogRHI, <a class="code hl_enumvalue" href="../../dd/dc3/_print_stale_references_options_8h.html#ae6d6357437ad87a0f40468af1629dd6ea882384ec38ce8d9582b57e70861730e4">Fatal</a>, <span class="stringliteral">&quot;Shader expected a uniform buffer at slot %u but got null instead (Shader=&#39;%ls&#39; UB=&#39;%ls&#39;). Rendering code needs to set a valid uniform buffer for this slot.&quot;</span></div>
+<div class="line"><a id="l00148" name="l00148"></a><span class="lineno">  148</span>                   , BufferIndex</div>
+<div class="line"><a id="l00149" name="l00149"></a><span class="lineno">  149</span>                   , <a class="code hl_namespace" href="../../d9/d04/namespace_u_e_1_1_shader.html">Shader</a>.GetShaderName()</div>
+<div class="line"><a id="l00150" name="l00150"></a><span class="lineno">  150</span>                   , *<a class="code hl_namespace" href="../../d9/d04/namespace_u_e_1_1_shader.html">Shader</a>.GetUniformBufferName(BufferIndex)</div>
+<div class="line"><a id="l00151" name="l00151"></a><span class="lineno">  151</span>                   );</div>
+<div class="line"><a id="l00152" name="l00152"></a><span class="lineno">  152</span>        }</div>
+<div class="line"><a id="l00153" name="l00153"></a><span class="lineno">  153</span>        <span class="keywordflow">else</span> <span class="keywordflow">if</span> (<a class="code hl_enumvalue" href="../../d5/db6/_pixel_format_8h.html#a1ccf6fb7a1e0dcfacee1fa2b02a70b53a7e62bc342f41c946868f0ea6f0b712d8">Buffer</a>-&gt;GetLayout().GetHash() != SRT.<a class="code hl_variable" href="../../d8/d9b/struct_f_shader_resource_table.html#a1fe90812b2ba93aa61b22a3881d60fdc">ResourceTableLayoutHashes</a>[BufferIndex])</div>
+<div class="line"><a id="l00154" name="l00154"></a><span class="lineno">  154</span>        {</div>
+<div class="line"><a id="l00155" name="l00155"></a><span class="lineno">  155</span>            <a class="code hl_struct" href="../../d5/d12/struct_f_r_h_i_uniform_buffer_layout.html">FRHIUniformBufferLayout</a> <span class="keyword">const</span>&amp; BufferLayout = <a class="code hl_enumvalue" href="../../d5/db6/_pixel_format_8h.html#a1ccf6fb7a1e0dcfacee1fa2b02a70b53a7e62bc342f41c946868f0ea6f0b712d8">Buffer</a>-&gt;GetLayout();</div>
+<div class="line"><a id="l00156" name="l00156"></a><span class="lineno">  156</span> </div>
+<div class="line"><a id="l00157" name="l00157"></a><span class="lineno">  157</span>            <a class="code hl_variable" href="../../d2/d8e/_s_anim_notify_panel_8h.html#a7483aa7f043c623f8990a95320be654d">FString</a> ResourcesString;</div>
+<div class="line"><a id="l00158" name="l00158"></a><span class="lineno">  158</span>            <span class="keywordflow">for</span> (<a class="code hl_struct" href="../../d8/d39/struct_f_r_h_i_uniform_buffer_resource.html">FRHIUniformBufferResource</a> <span class="keyword">const</span>&amp; Resource : BufferLayout.<a class="code hl_variable" href="../../d5/d12/struct_f_r_h_i_uniform_buffer_layout.html#a31ebaa4f87a6c760ea4baa722877579c">Resources</a>)</div>
+<div class="line"><a id="l00159" name="l00159"></a><span class="lineno">  159</span>            {</div>
+<div class="line"><a id="l00160" name="l00160"></a><span class="lineno">  160</span>                ResourcesString += FString::Printf(<a class="code hl_define" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(<span class="stringliteral">&quot;%s%d&quot;</span>)</div>
+<div class="line"><a id="l00161" name="l00161"></a><span class="lineno">  161</span>                                                   , ResourcesString.Len() ? <a class="code hl_define" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(<span class="stringliteral">&quot; &quot;</span>) : <a class="code hl_define" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(<span class="stringliteral">&quot;&quot;</span>)</div>
+<div class="line"><a id="l00162" name="l00162"></a><span class="lineno">  162</span>                                                   , Resource.<a class="code hl_variable" href="../../d8/d39/struct_f_r_h_i_uniform_buffer_resource.html#ad1a89e49d54be236a13d1fc4c0e8c8c2">MemberType</a></div>
+<div class="line"><a id="l00163" name="l00163"></a><span class="lineno">  163</span>                                                   );</div>
+<div class="line"><a id="l00164" name="l00164"></a><span class="lineno">  164</span>            }</div>
+<div class="line"><a id="l00165" name="l00165"></a><span class="lineno">  165</span> </div>
+<div class="line"><a id="l00166" name="l00166"></a><span class="lineno">  166</span>            <span class="comment">// This might mean you are accessing a data you haven&#39;t bound e.g. GBuffer</span></div>
+<div class="line"><a id="l00167" name="l00167"></a><span class="lineno">  167</span>            <a class="code hl_define" href="../../d7/dcd/_log_macros_8h.html#a2b7439f43220057d491f6ab6cbeb3a32">UE_LOGF</a>(LogRHI, <a class="code hl_enumvalue" href="../../dd/dc3/_print_stale_references_options_8h.html#ae6d6357437ad87a0f40468af1629dd6ea882384ec38ce8d9582b57e70861730e4">Fatal</a>,</div>
+<div class="line"><a id="l00168" name="l00168"></a><span class="lineno">  168</span>                   <span class="stringliteral">&quot;Uniform buffer bound to slot %u is not what the shader expected:\n&quot;</span> <span class="stringliteral">&quot;\tBound                : Uniform Buffer[%ls] with Hash[0x%08x]\n&quot;</span> <span class="stringliteral">&quot;\tExpected             : Uniform Buffer[%ls] with Hash[0x%08x]\n&quot;</span> <span class="stringliteral">&quot;\tShader Name          : %ls\n&quot;</span> <span class="stringliteral">&quot;\tLayout CB Size       : %d\n&quot;</span> <span class="stringliteral">&quot;\tLayout Num Resources : %d\n&quot;</span> <span class="stringliteral">&quot;\tResource Types       : %ls\n&quot;</span></div>
+<div class="line"><a id="l00169" name="l00169"></a><span class="lineno">  169</span>                   , BufferIndex</div>
+<div class="line"><a id="l00170" name="l00170"></a><span class="lineno">  170</span>                   , *BufferLayout.<a class="code hl_function" href="../../d5/d12/struct_f_r_h_i_uniform_buffer_layout.html#a226a7fc2f7c6cd32428c257571600265">GetDebugName</a>(), BufferLayout.<a class="code hl_function" href="../../d5/d12/struct_f_r_h_i_uniform_buffer_layout.html#a4d5217757af7ce2d1ed9e8ebdb4af979">GetHash</a>()</div>
+<div class="line"><a id="l00171" name="l00171"></a><span class="lineno">  171</span>                   , *<a class="code hl_namespace" href="../../d9/d04/namespace_u_e_1_1_shader.html">Shader</a>.GetUniformBufferName(BufferIndex), SRT.<a class="code hl_variable" href="../../d8/d9b/struct_f_shader_resource_table.html#a1fe90812b2ba93aa61b22a3881d60fdc">ResourceTableLayoutHashes</a>[BufferIndex]</div>
+<div class="line"><a id="l00172" name="l00172"></a><span class="lineno">  172</span>                   , <a class="code hl_namespace" href="../../d9/d04/namespace_u_e_1_1_shader.html">Shader</a>.GetShaderName()</div>
+<div class="line"><a id="l00173" name="l00173"></a><span class="lineno">  173</span>                   , BufferLayout.<a class="code hl_variable" href="../../d5/d12/struct_f_r_h_i_uniform_buffer_layout.html#a16c7368e978514b521fb7785be6973db">ConstantBufferSize</a></div>
+<div class="line"><a id="l00174" name="l00174"></a><span class="lineno">  174</span>                   , BufferLayout.<a class="code hl_variable" href="../../d5/d12/struct_f_r_h_i_uniform_buffer_layout.html#a31ebaa4f87a6c760ea4baa722877579c">Resources</a>.<a class="code hl_function" href="../../d6/db1/class_t_array.html#a1518d29c2cbcefd7b7a3a26e8d39b4c5">Num</a>()</div>
+<div class="line"><a id="l00175" name="l00175"></a><span class="lineno">  175</span>                   , *ResourcesString</div>
+<div class="line"><a id="l00176" name="l00176"></a><span class="lineno">  176</span>                   );</div>
+<div class="line"><a id="l00177" name="l00177"></a><span class="lineno">  177</span>        }</div>
+<div class="line"><a id="l00178" name="l00178"></a><span class="lineno">  178</span> </div>
+<div class="line"><a id="l00179" name="l00179"></a><span class="lineno">  179</span><span class="preprocessor">        #endif </span><span class="comment">// DO_CHECK</span></div>
+<div class="line"><a id="l00180" name="l00180"></a><span class="lineno">  180</span> </div>
+<div class="line"><a id="l00181" name="l00181"></a><span class="lineno">  181</span>        <span class="comment">// Textures</span></div>
+<div class="line"><a id="l00182" name="l00182"></a><span class="lineno">  182</span>        <a class="code hl_function" href="../../d9/d56/namespace_u_e_1_1_r_h_i_1_1_private.html#a82872eafabaeb6584b2acc85288e6380">EnumerateUniformBufferResources&lt;FRHITexture&gt;</a>(<a class="code hl_enumvalue" href="../../d5/db6/_pixel_format_8h.html#a1ccf6fb7a1e0dcfacee1fa2b02a70b53a7e62bc342f41c946868f0ea6f0b712d8">Buffer</a>, BufferIndex, SRT.<a class="code hl_variable" href="../../d8/d9b/struct_f_shader_resource_table.html#a60863ceca5fc54e6412122e93a5c3fdf">TextureMap</a>.<a class="code hl_function" href="../../d6/db1/class_t_array.html#a24e3479cade18eb8efd5477e70a28899">GetData</a>(),</div>
+<div class="line"><a id="l00183" name="l00183"></a><span class="lineno">  183</span>            [&amp;](<a class="code hl_class" href="../../d3/d6d/class_f_r_h_i_texture.html">FRHITexture</a>* <a class="code hl_enumvalue" href="../../d3/d05/_datasmith_facade_u_e_pbr_material_8h.html#ad335a2268449994142a5913295b8b652aa3e8ae43188ae76d38f414b2bdb0077b">Texture</a>, <a class="code hl_typedef" href="../../dd/de9/preprocessor_8c.html#adde6aaee8457bee49c2a92621fe22b79">uint8</a> <a class="code hl_typedef" href="../../df/dd5/radfft_8cpp.html#a353b84469a01fbe28e2db978bdf1fb86">Index</a>)</div>
+<div class="line"><a id="l00184" name="l00184"></a><span class="lineno">  184</span>            {</div>
+<div class="line"><a id="l00185" name="l00185"></a><span class="lineno">  185</span>                #if ENABLE_RHI_VALIDATION</div>
+<div class="line"><a id="l00186" name="l00186"></a><span class="lineno">  186</span>                if (Tracker)</div>
+<div class="line"><a id="l00187" name="l00187"></a><span class="lineno">  187</span>                {</div>
+<div class="line"><a id="l00188" name="l00188"></a><span class="lineno">  188</span>                    ERHIAccess Access = IsComputeShaderFrequency(Shader.GetFrequency())</div>
+<div class="line"><a id="l00189" name="l00189"></a><span class="lineno">  189</span>                    ? ERHIAccess::SRVCompute</div>
+<div class="line"><a id="l00190" name="l00190"></a><span class="lineno">  190</span>                    : Shader.GetFrequency() == SF_Pixel</div>
+<div class="line"><a id="l00191" name="l00191"></a><span class="lineno">  191</span>                    ? ERHIAccess::SRVGraphicsPixel</div>
+<div class="line"><a id="l00192" name="l00192"></a><span class="lineno">  192</span>                    : ERHIAccess::SRVGraphicsNonPixel;</div>
+<div class="line"><a id="l00193" name="l00193"></a><span class="lineno">  193</span> </div>
+<div class="line"><a id="l00194" name="l00194"></a><span class="lineno">  194</span>                    <span class="comment">// Textures bound here only have their &quot;common&quot; plane accessible. Stencil etc is ignored.</span></div>
+<div class="line"><a id="l00195" name="l00195"></a><span class="lineno">  195</span>                    <span class="comment">// (i.e. only access the color plane of a color texture, or depth plane of a depth texture)</span></div>
+<div class="line"><a id="l00196" name="l00196"></a><span class="lineno">  196</span>                    Tracker-&gt;Assert(Texture-&gt;GetViewIdentity(0, 0, 0, 0, uint32(RHIValidation::EResourcePlane::Common), 1), Access);</div>
+<div class="line"><a id="l00197" name="l00197"></a><span class="lineno">  197</span>                }</div>
+<div class="line"><a id="l00198" name="l00198"></a><span class="lineno">  198</span>                #endif</div>
+<div class="line"><a id="l00199" name="l00199"></a><span class="lineno">  199</span>                <a class="code hl_enumvalue" href="../../d3/d05/_datasmith_facade_u_e_pbr_material_8h.html#ad335a2268449994142a5913295b8b652aa3e8ae43188ae76d38f414b2bdb0077b">Texture</a>-&gt;SetLastRenderTime(CurrentTimeForTextureTimes);</div>
+<div class="line"><a id="l00200" name="l00200"></a><span class="lineno">  200</span>                Binder.SetTexture(<a class="code hl_enumvalue" href="../../d3/d05/_datasmith_facade_u_e_pbr_material_8h.html#ad335a2268449994142a5913295b8b652aa3e8ae43188ae76d38f414b2bdb0077b">Texture</a>, <a class="code hl_typedef" href="../../df/dd5/radfft_8cpp.html#a353b84469a01fbe28e2db978bdf1fb86">Index</a>);</div>
+<div class="line"><a id="l00201" name="l00201"></a><span class="lineno">  201</span>            });</div>
+<div class="line"><a id="l00202" name="l00202"></a><span class="lineno">  202</span> </div>
+<div class="line"><a id="l00203" name="l00203"></a><span class="lineno">  203</span>        <span class="comment">// SRVs</span></div>
+<div class="line"><a id="l00204" name="l00204"></a><span class="lineno">  204</span>        <a class="code hl_function" href="../../d9/d56/namespace_u_e_1_1_r_h_i_1_1_private.html#a82872eafabaeb6584b2acc85288e6380">EnumerateUniformBufferResources&lt;FRHIShaderResourceView&gt;</a>(<a class="code hl_enumvalue" href="../../d5/db6/_pixel_format_8h.html#a1ccf6fb7a1e0dcfacee1fa2b02a70b53a7e62bc342f41c946868f0ea6f0b712d8">Buffer</a>, BufferIndex, SRT.<a class="code hl_variable" href="../../d8/d9b/struct_f_shader_resource_table.html#a69134a142099f74957c9acd6943c9d04">ShaderResourceViewMap</a>.<a class="code hl_function" href="../../d6/db1/class_t_array.html#a24e3479cade18eb8efd5477e70a28899">GetData</a>(),</div>
+<div class="line"><a id="l00205" name="l00205"></a><span class="lineno">  205</span>            [&amp;](<a class="code hl_class" href="../../dd/d14/class_f_r_h_i_shader_resource_view.html">FRHIShaderResourceView</a>* <a class="code hl_enumvalue" href="../../d9/d13/_shader_core_8h.html#a6d230be62d5487fc6e85be38ccdada8dab71ecf0b186ac1b938e15483f792b7db">SRV</a>, <a class="code hl_typedef" href="../../dd/de9/preprocessor_8c.html#adde6aaee8457bee49c2a92621fe22b79">uint8</a> <a class="code hl_typedef" href="../../df/dd5/radfft_8cpp.html#a353b84469a01fbe28e2db978bdf1fb86">Index</a>)</div>
+<div class="line"><a id="l00206" name="l00206"></a><span class="lineno">  206</span>            {</div>
+<div class="line"><a id="l00207" name="l00207"></a><span class="lineno">  207</span>                #if ENABLE_RHI_VALIDATION</div>
+<div class="line"><a id="l00208" name="l00208"></a><span class="lineno">  208</span>                if (Tracker)</div>
+<div class="line"><a id="l00209" name="l00209"></a><span class="lineno">  209</span>                {</div>
+<div class="line"><a id="l00210" name="l00210"></a><span class="lineno">  210</span>                    ERHIAccess Access = IsComputeShaderFrequency(Shader.GetFrequency())</div>
+<div class="line"><a id="l00211" name="l00211"></a><span class="lineno">  211</span>                    ? ERHIAccess::SRVCompute</div>
+<div class="line"><a id="l00212" name="l00212"></a><span class="lineno">  212</span>                    : Shader.GetFrequency() == SF_Pixel</div>
+<div class="line"><a id="l00213" name="l00213"></a><span class="lineno">  213</span>                    ? ERHIAccess::SRVGraphicsPixel</div>
+<div class="line"><a id="l00214" name="l00214"></a><span class="lineno">  214</span>                    : ERHIAccess::SRVGraphicsNonPixel;</div>
+<div class="line"><a id="l00215" name="l00215"></a><span class="lineno">  215</span> </div>
+<div class="line"><a id="l00216" name="l00216"></a><span class="lineno">  216</span>                    Tracker-&gt;Assert(SRV-&gt;GetViewIdentity(), Access);</div>
+<div class="line"><a id="l00217" name="l00217"></a><span class="lineno">  217</span>                }</div>
+<div class="line"><a id="l00218" name="l00218"></a><span class="lineno">  218</span>                <a class="code hl_function" href="../../d3/db8/binka__ue__decode__test_8cpp.html#a374eb3a41808f317fb77da75985c3204">if</a> (<a class="code hl_variable" href="../../d0/d87/_r_h_i_validation_common_8h.html#a30c1b2cbb65f61011f5aab845d86ac0c">GRHIValidationEnabled</a>)</div>
+<div class="line"><a id="l00219" name="l00219"></a><span class="lineno">  219</span>                {</div>
+<div class="line"><a id="l00220" name="l00220"></a><span class="lineno">  220</span>                    RHIValidation::ValidateShaderResourceView(&amp;<a class="code hl_namespace" href="../../d9/d04/namespace_u_e_1_1_shader.html">Shader</a>, <a class="code hl_typedef" href="../../df/dd5/radfft_8cpp.html#a353b84469a01fbe28e2db978bdf1fb86">Index</a>, <a class="code hl_enumvalue" href="../../d9/d13/_shader_core_8h.html#a6d230be62d5487fc6e85be38ccdada8dab71ecf0b186ac1b938e15483f792b7db">SRV</a>);</div>
+<div class="line"><a id="l00221" name="l00221"></a><span class="lineno">  221</span>                }</div>
+<div class="line"><a id="l00222" name="l00222"></a><span class="lineno">  222</span><span class="preprocessor">                #endif</span></div>
+<div class="line"><a id="l00223" name="l00223"></a><span class="lineno">  223</span>                Binder.SetSRV(<a class="code hl_enumvalue" href="../../d9/d13/_shader_core_8h.html#a6d230be62d5487fc6e85be38ccdada8dab71ecf0b186ac1b938e15483f792b7db">SRV</a>, <a class="code hl_typedef" href="../../df/dd5/radfft_8cpp.html#a353b84469a01fbe28e2db978bdf1fb86">Index</a>);</div>
+<div class="line"><a id="l00224" name="l00224"></a><span class="lineno">  224</span>            });</div>
+<div class="line"><a id="l00225" name="l00225"></a><span class="lineno">  225</span> </div>
+<div class="line"><a id="l00226" name="l00226"></a><span class="lineno">  226</span><span class="preprocessor">        #if PLATFORM_SUPPORTS_BINDLESS_RENDERING</span></div>
+<div class="line"><a id="l00227" name="l00227"></a><span class="lineno">  227</span>        <a class="code hl_function" href="../../d9/d56/namespace_u_e_1_1_r_h_i_1_1_private.html#a82872eafabaeb6584b2acc85288e6380">EnumerateUniformBufferResources&lt;FRHIResourceCollection&gt;</a>(<a class="code hl_enumvalue" href="../../d5/db6/_pixel_format_8h.html#a1ccf6fb7a1e0dcfacee1fa2b02a70b53a7e62bc342f41c946868f0ea6f0b712d8">Buffer</a>, BufferIndex, SRT.ResourceCollectionMap.GetData(),</div>
+<div class="line"><a id="l00228" name="l00228"></a><span class="lineno">  228</span>            [&amp;](<a class="code hl_class" href="../../d2/def/class_f_r_h_i_resource_collection.html">FRHIResourceCollection</a>* <a class="code hl_enumvalue" href="../../da/dca/_r_h_i_definitions_8h.html#aaa1363a45733f75a18e3e5debc4935c2a95aeae2231ed8cd2a9a2c6aaa3a1b7e0">ResourceCollection</a>, <a class="code hl_typedef" href="../../dd/de9/preprocessor_8c.html#adde6aaee8457bee49c2a92621fe22b79">uint8</a> <a class="code hl_typedef" href="../../df/dd5/radfft_8cpp.html#a353b84469a01fbe28e2db978bdf1fb86">Index</a>)</div>
+<div class="line"><a id="l00229" name="l00229"></a><span class="lineno">  229</span>            {</div>
+<div class="line"><a id="l00230" name="l00230"></a><span class="lineno">  230</span>                #if ENABLE_RHI_VALIDATION</div>
+<div class="line"><a id="l00231" name="l00231"></a><span class="lineno">  231</span>                <span class="comment">// todo: christopher.waters - ResourceCollection validation</span></div>
+<div class="line"><a id="l00232" name="l00232"></a><span class="lineno">  232</span>                #endif</div>
+<div class="line"><a id="l00233" name="l00233"></a><span class="lineno">  233</span>                Binder.SetResourceCollection(ResourceCollection, Index);</div>
+<div class="line"><a id="l00234" name="l00234"></a><span class="lineno">  234</span>            });</div>
+<div class="line"><a id="l00235" name="l00235"></a><span class="lineno">  235</span><span class="preprocessor">        #endif </span><span class="comment">// PLATFORM_SUPPORTS_BINDLESS_RENDERING</span></div>
+<div class="line"><a id="l00236" name="l00236"></a><span class="lineno">  236</span> </div>
+<div class="line"><a id="l00237" name="l00237"></a><span class="lineno">  237</span>        <span class="comment">// Samplers</span></div>
+<div class="line"><a id="l00238" name="l00238"></a><span class="lineno">  238</span>        <a class="code hl_function" href="../../d9/d56/namespace_u_e_1_1_r_h_i_1_1_private.html#a82872eafabaeb6584b2acc85288e6380">EnumerateUniformBufferResources&lt;FRHISamplerState&gt;</a>(<a class="code hl_enumvalue" href="../../d5/db6/_pixel_format_8h.html#a1ccf6fb7a1e0dcfacee1fa2b02a70b53a7e62bc342f41c946868f0ea6f0b712d8">Buffer</a>, BufferIndex, SRT.SamplerMap.GetData(),</div>
+<div class="line"><a id="l00239" name="l00239"></a><span class="lineno">  239</span>            [&amp;](<a class="code hl_class" href="../../d3/d38/class_f_r_h_i_sampler_state.html">FRHISamplerState</a>* <a class="code hl_enumvalue" href="../../d9/d13/_shader_core_8h.html#a6d230be62d5487fc6e85be38ccdada8da5bca2f066df1fe641b2b779db2a63c0a">Sampler</a>, <a class="code hl_typedef" href="../../dd/de9/preprocessor_8c.html#adde6aaee8457bee49c2a92621fe22b79">uint8</a> <a class="code hl_typedef" href="../../df/dd5/radfft_8cpp.html#a353b84469a01fbe28e2db978bdf1fb86">Index</a>)</div>
+<div class="line"><a id="l00240" name="l00240"></a><span class="lineno">  240</span>            {</div>
+<div class="line"><a id="l00241" name="l00241"></a><span class="lineno">  241</span>                Binder.SetSampler(Sampler, Index);</div>
+<div class="line"><a id="l00242" name="l00242"></a><span class="lineno">  242</span>            });</div>
+<div class="line"><a id="l00243" name="l00243"></a><span class="lineno">  243</span> </div>
+<div class="line"><a id="l00244" name="l00244"></a><span class="lineno">  244</span>        <span class="comment">// UAVs</span></div>
+<div class="line"><a id="l00245" name="l00245"></a><span class="lineno">  245</span>        <a class="code hl_function" href="../../d9/d56/namespace_u_e_1_1_r_h_i_1_1_private.html#a82872eafabaeb6584b2acc85288e6380">EnumerateUniformBufferResources&lt;FRHIUnorderedAccessView&gt;</a>(<a class="code hl_enumvalue" href="../../d5/db6/_pixel_format_8h.html#a1ccf6fb7a1e0dcfacee1fa2b02a70b53a7e62bc342f41c946868f0ea6f0b712d8">Buffer</a>, BufferIndex, SRT.UnorderedAccessViewMap.GetData(),</div>
+<div class="line"><a id="l00246" name="l00246"></a><span class="lineno">  246</span>            [&amp;](<a class="code hl_class" href="../../d2/dab/class_f_r_h_i_unordered_access_view.html">FRHIUnorderedAccessView</a>* <a class="code hl_enumvalue" href="../../d5/db6/_pixel_format_8h.html#a1ccf6fb7a1e0dcfacee1fa2b02a70b53a6902d76cea698982754404da77e5e08a">UAV</a>, <a class="code hl_typedef" href="../../dd/de9/preprocessor_8c.html#adde6aaee8457bee49c2a92621fe22b79">uint8</a> <a class="code hl_typedef" href="../../df/dd5/radfft_8cpp.html#a353b84469a01fbe28e2db978bdf1fb86">Index</a>)</div>
+<div class="line"><a id="l00247" name="l00247"></a><span class="lineno">  247</span>            {</div>
+<div class="line"><a id="l00248" name="l00248"></a><span class="lineno">  248</span>                #if ENABLE_RHI_VALIDATION</div>
+<div class="line"><a id="l00249" name="l00249"></a><span class="lineno">  249</span>                if (Tracker)</div>
+<div class="line"><a id="l00250" name="l00250"></a><span class="lineno">  250</span>                {</div>
+<div class="line"><a id="l00251" name="l00251"></a><span class="lineno">  251</span>                    ERHIAccess Access = IsComputeShaderFrequency(Shader.GetFrequency())</div>
+<div class="line"><a id="l00252" name="l00252"></a><span class="lineno">  252</span>                    ? ERHIAccess::UAVCompute</div>
+<div class="line"><a id="l00253" name="l00253"></a><span class="lineno">  253</span>                    : ERHIAccess::UAVGraphics;</div>
+<div class="line"><a id="l00254" name="l00254"></a><span class="lineno">  254</span> </div>
+<div class="line"><a id="l00255" name="l00255"></a><span class="lineno">  255</span>                    Tracker-&gt;AssertUAV(UAV, Access, Index);</div>
+<div class="line"><a id="l00256" name="l00256"></a><span class="lineno">  256</span>                }</div>
+<div class="line"><a id="l00257" name="l00257"></a><span class="lineno">  257</span>                #endif</div>
+<div class="line"><a id="l00258" name="l00258"></a><span class="lineno">  258</span>                Binder.SetUAV(<a class="code hl_enumvalue" href="../../d5/db6/_pixel_format_8h.html#a1ccf6fb7a1e0dcfacee1fa2b02a70b53a6902d76cea698982754404da77e5e08a">UAV</a>, <a class="code hl_typedef" href="../../df/dd5/radfft_8cpp.html#a353b84469a01fbe28e2db978bdf1fb86">Index</a>);</div>
+<div class="line"><a id="l00259" name="l00259"></a><span class="lineno">  259</span>            });</div>
+<div class="line"><a id="l00260" name="l00260"></a><span class="lineno">  260</span>    }</div>
+<div class="line"><a id="l00261" name="l00261"></a><span class="lineno">  261</span> </div>
+<div class="line"><a id="l00262" name="l00262"></a><span class="lineno">  262</span>    DirtyUniformBuffers = TBitMaskType(0);</div>
+<div class="line"><a id="l00263" name="l00263"></a><span class="lineno">  263</span>}</div>
+</div>
+<div class="line"><a id="l00264" name="l00264"></a><span class="lineno">  264</span> </div>
+<div class="line"><a id="l00265" name="l00265"></a><span class="lineno">  265</span> </div>
+<div class="line"><a id="l00266" name="l00266"></a><span class="lineno">  266</span><span class="keyword">template</span>&lt;<span class="keyword">typename</span> TBinder, <span class="keyword">typename</span> TUniformBufferArrayType, <span class="keyword">typename</span> TBitMaskType&gt;</div>
+<div class="foldopen" id="foldopen00267" data-start="{" data-end="}">
+<div class="line"><a id="l00267" name="l00267"></a><span class="lineno"><a class="line" href="../../d9/d56/namespace_u_e_1_1_r_h_i_1_1_private.html#ab73d2c08dec58ca97d1f752716c82a45">  267</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="../../d9/d56/namespace_u_e_1_1_r_h_i_1_1_private.html#ab73d2c08dec58ca97d1f752716c82a45">SetFullyBindlessUniformBufferResourcesFromTables</a>(TBinder &amp;&amp; Binder, <span class="keyword">const</span> <a class="code hl_class" href="../../db/d66/class_f_r_h_i_shader.html">FRHIShader</a>&amp; <a class="code hl_namespace" href="../../d9/d04/namespace_u_e_1_1_shader.html">Shader</a>, TBitMaskType&amp; DirtyUniformBuffers, <span class="keyword">const</span> TUniformBufferArrayType&amp; BoundUniformBuffers</div>
+<div class="line"><a id="l00268" name="l00268"></a><span class="lineno">  268</span>                                                      #<span class="keywordflow">if</span> <a class="code hl_define" href="../../d9/d44/_build_8h.html#a9761d1c57b7c42192e22a4adbbab0f6b">ENABLE_RHI_VALIDATION</a></div>
+<div class="line"><a id="l00269" name="l00269"></a><span class="lineno">  269</span>                                                      , RHIValidation::FTracker* <a class="code hl_enumvalue" href="../../d5/de6/_head_mounted_display_types_8h.html#aef2f455b476d14ba0e23e0d7d6898ec3a26b8a5f8cbb692e906c8eed4b88cc0bd">Tracker</a></div>
+<div class="line"><a id="l00270" name="l00270"></a><span class="lineno">  270</span>                                                      #endif</div>
+<div class="line"><a id="l00271" name="l00271"></a><span class="lineno">  271</span>                                                      )</div>
+<div class="line"><a id="l00272" name="l00272"></a><span class="lineno">  272</span>{</div>
+<div class="line"><a id="l00273" name="l00273"></a><span class="lineno">  273</span>    SetUniformBufferResourcesFromTables &lt; TBinder, TUniformBufferArrayType, TBitMaskType, true &gt; (</div>
+<div class="line"><a id="l00274" name="l00274"></a><span class="lineno">  274</span>        <a class="code hl_function" href="../../d2/dd1/_unreal_template_8h.html#af9d82a97e855a2ee1464cc020639d843">MoveTemp</a>(Binder)</div>
+<div class="line"><a id="l00275" name="l00275"></a><span class="lineno">  275</span>        , <a class="code hl_namespace" href="../../d9/d04/namespace_u_e_1_1_shader.html">Shader</a></div>
+<div class="line"><a id="l00276" name="l00276"></a><span class="lineno">  276</span>        , DirtyUniformBuffers</div>
+<div class="line"><a id="l00277" name="l00277"></a><span class="lineno">  277</span>        , BoundUniformBuffers</div>
+<div class="line"><a id="l00278" name="l00278"></a><span class="lineno">  278</span>        #<span class="keywordflow">if</span> <a class="code hl_define" href="../../d9/d44/_build_8h.html#a9761d1c57b7c42192e22a4adbbab0f6b">ENABLE_RHI_VALIDATION</a></div>
+<div class="line"><a id="l00279" name="l00279"></a><span class="lineno">  279</span>        , <a class="code hl_enumvalue" href="../../d5/de6/_head_mounted_display_types_8h.html#aef2f455b476d14ba0e23e0d7d6898ec3a26b8a5f8cbb692e906c8eed4b88cc0bd">Tracker</a></div>
+<div class="line"><a id="l00280" name="l00280"></a><span class="lineno">  280</span>        #endif</div>
+<div class="line"><a id="l00281" name="l00281"></a><span class="lineno">  281</span>    );</div>
+<div class="line"><a id="l00282" name="l00282"></a><span class="lineno">  282</span>}</div>
+</div>
+<div class="line"><a id="l00283" name="l00283"></a><span class="lineno">  283</span> </div>
+<div class="line"><a id="l00284" name="l00284"></a><span class="lineno">  284</span>} </div>
+</div>
+<div class="ttc" id="a_app_8h_html"><div class="ttname"><a href="../../d9/d11/_app_8h.html">App.h</a></div></div>
+<div class="ttc" id="a_assertion_macros_8h_html"><div class="ttname"><a href="../../d4/d75/_assertion_macros_8h.html">AssertionMacros.h</a></div></div>
+<div class="ttc" id="a_assertion_macros_8h_html_a12ff33b2f8cbad5116bd85ca93de5cb2"><div class="ttname"><a href="../../d4/d75/_assertion_macros_8h.html#a12ff33b2f8cbad5116bd85ca93de5cb2">checkSlow</a></div><div class="ttdeci">#define checkSlow(expr)</div><div class="ttdef"><b>定义</b> AssertionMacros.h:337</div></div>
+<div class="ttc" id="a_assertion_macros_8h_html_a586e110623cde145b8a5bdefb429e144"><div class="ttname"><a href="../../d4/d75/_assertion_macros_8h.html#a586e110623cde145b8a5bdefb429e144">check</a></div><div class="ttdeci">#define check(expr)</div><div class="ttdef"><b>定义</b> AssertionMacros.h:319</div></div>
+<div class="ttc" id="a_assertion_macros_8h_html_adda76c7007d2e32f3aa142897f5702a2"><div class="ttname"><a href="../../d4/d75/_assertion_macros_8h.html#adda76c7007d2e32f3aa142897f5702a2">checkf</a></div><div class="ttdeci">#define checkf(expr, format,...)</div><div class="ttdef"><b>定义</b> AssertionMacros.h:320</div></div>
+<div class="ttc" id="a_build_8h_html_a9761d1c57b7c42192e22a4adbbab0f6b"><div class="ttname"><a href="../../d9/d44/_build_8h.html#a9761d1c57b7c42192e22a4adbbab0f6b">ENABLE_RHI_VALIDATION</a></div><div class="ttdeci">#define ENABLE_RHI_VALIDATION</div><div class="ttdef"><b>定义</b> Build.h:475</div></div>
+<div class="ttc" id="a_core_2_public_2_h_a_l_2_platform_8h_html_a2978f60d40d64f3605b5a99f66f292a9"><div class="ttname"><a href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a></div><div class="ttdeci">#define TEXT(x)</div><div class="ttdef"><b>定义</b> Platform.h:1332</div></div>
+<div class="ttc" id="a_core_2_public_2_h_a_l_2_platform_8h_html_a8dbb3cd84ca9fd010dadfc3815eefa5d"><div class="ttname"><a href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a8dbb3cd84ca9fd010dadfc3815eefa5d">int32</a></div><div class="ttdeci">FPlatformTypes::int32 int32</div><div class="ttdoc">A 32-bit signed integer.</div><div class="ttdef"><b>定义</b> Platform.h:1190</div></div>
+<div class="ttc" id="a_core_2_public_2_h_a_l_2_platform_8h_html_aae3356b63849abbe8789dd41648ee90a"><div class="ttname"><a href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#aae3356b63849abbe8789dd41648ee90a">RESTRICT</a></div><div class="ttdeci">#define RESTRICT</div><div class="ttdef"><b>定义</b> Platform.h:758</div></div>
+<div class="ttc" id="a_core_types_8h_html"><div class="ttname"><a href="../../db/d04/_core_types_8h.html">CoreTypes.h</a></div></div>
+<div class="ttc" id="a_datasmith_facade_u_e_pbr_material_8h_html_ad335a2268449994142a5913295b8b652aa3e8ae43188ae76d38f414b2bdb0077b"><div class="ttname"><a href="../../d3/d05/_datasmith_facade_u_e_pbr_material_8h.html#ad335a2268449994142a5913295b8b652aa3e8ae43188ae76d38f414b2bdb0077b">EDatasmithFacadeMaterialExpressionType::Texture</a></div><div class="ttdeci">@ Texture</div><div class="ttdef"><b>定义</b> DatasmithFacadeUEPbrMaterial.h:59</div></div>
+<div class="ttc" id="a_head_mounted_display_types_8h_html_aef2f455b476d14ba0e23e0d7d6898ec3a26b8a5f8cbb692e906c8eed4b88cc0bd"><div class="ttname"><a href="../../d5/de6/_head_mounted_display_types_8h.html#aef2f455b476d14ba0e23e0d7d6898ec3a26b8a5f8cbb692e906c8eed4b88cc0bd">EXRTrackedDeviceType::Tracker</a></div><div class="ttdeci">@ Tracker</div><div class="ttdef"><b>定义</b> HeadMountedDisplayTypes.h:243</div></div>
+<div class="ttc" id="a_log_macros_8h_html_a2b7439f43220057d491f6ab6cbeb3a32"><div class="ttname"><a href="../../d7/dcd/_log_macros_8h.html#a2b7439f43220057d491f6ab6cbeb3a32">UE_LOGF</a></div><div class="ttdeci">#define UE_LOGF(CategoryName, Verbosity, Format,...)</div><div class="ttdef"><b>定义</b> LogMacros.h:291</div></div>
+<div class="ttc" id="a_pixel_format_8h_html_a1ccf6fb7a1e0dcfacee1fa2b02a70b53a6902d76cea698982754404da77e5e08a"><div class="ttname"><a href="../../d5/db6/_pixel_format_8h.html#a1ccf6fb7a1e0dcfacee1fa2b02a70b53a6902d76cea698982754404da77e5e08a">EPixelFormatCapabilities::UAV</a></div><div class="ttdeci">@ UAV</div><div class="ttdef"><b>定义</b> PixelFormat.h:258</div></div>
+<div class="ttc" id="a_pixel_format_8h_html_a1ccf6fb7a1e0dcfacee1fa2b02a70b53a7e62bc342f41c946868f0ea6f0b712d8"><div class="ttname"><a href="../../d5/db6/_pixel_format_8h.html#a1ccf6fb7a1e0dcfacee1fa2b02a70b53a7e62bc342f41c946868f0ea6f0b712d8">EPixelFormatCapabilities::Buffer</a></div><div class="ttdeci">@ Buffer</div><div class="ttdef"><b>定义</b> PixelFormat.h:251</div></div>
+<div class="ttc" id="a_print_stale_references_options_8h_html_ae6d6357437ad87a0f40468af1629dd6ea882384ec38ce8d9582b57e70861730e4"><div class="ttname"><a href="../../dd/dc3/_print_stale_references_options_8h.html#ae6d6357437ad87a0f40468af1629dd6ea882384ec38ce8d9582b57e70861730e4">EPrintStaleReferencesOptions::Fatal</a></div><div class="ttdeci">@ Fatal</div><div class="ttdef"><b>定义</b> PrintStaleReferencesOptions.h:16</div></div>
+<div class="ttc" id="a_r_h_i_definitions_8h_html"><div class="ttname"><a href="../../da/dca/_r_h_i_definitions_8h.html">RHIDefinitions.h</a></div></div>
+<div class="ttc" id="a_r_h_i_definitions_8h_html_a2a49892819f9c4556e6547820ab85b83"><div class="ttname"><a href="../../da/dca/_r_h_i_definitions_8h.html#a2a49892819f9c4556e6547820ab85b83">ERHIResourceType</a></div><div class="ttdeci">ERHIResourceType</div><div class="ttdef"><b>定义</b> RHIDefinitions.h:1024</div></div>
+<div class="ttc" id="a_r_h_i_definitions_8h_html_a2a49892819f9c4556e6547820ab85b83a024eb38ecf701931a1084a493f55172f"><div class="ttname"><a href="../../da/dca/_r_h_i_definitions_8h.html#a2a49892819f9c4556e6547820ab85b83a024eb38ecf701931a1084a493f55172f">RRT_SamplerState</a></div><div class="ttdeci">@ RRT_SamplerState</div><div class="ttdef"><b>定义</b> RHIDefinitions.h:1027</div></div>
+<div class="ttc" id="a_r_h_i_definitions_8h_html_a2a49892819f9c4556e6547820ab85b83a54aa32ae0f11ac0b172ea4d8caa3946c"><div class="ttname"><a href="../../da/dca/_r_h_i_definitions_8h.html#a2a49892819f9c4556e6547820ab85b83a54aa32ae0f11ac0b172ea4d8caa3946c">RRT_TextureReference</a></div><div class="ttdeci">@ RRT_TextureReference</div><div class="ttdef"><b>定义</b> RHIDefinitions.h:1051</div></div>
+<div class="ttc" id="a_r_h_i_definitions_8h_html_a2a49892819f9c4556e6547820ab85b83aad38ca03e0c932b84f8436b1a9c5f95b"><div class="ttname"><a href="../../da/dca/_r_h_i_definitions_8h.html#a2a49892819f9c4556e6547820ab85b83aad38ca03e0c932b84f8436b1a9c5f95b">RRT_ResourceCollection</a></div><div class="ttdeci">@ RRT_ResourceCollection</div><div class="ttdef"><b>定义</b> RHIDefinitions.h:1070</div></div>
+<div class="ttc" id="a_r_h_i_definitions_8h_html_a2a49892819f9c4556e6547820ab85b83ac839ebb92f338258f9bc7ac49361ff25"><div class="ttname"><a href="../../da/dca/_r_h_i_definitions_8h.html#a2a49892819f9c4556e6547820ab85b83ac839ebb92f338258f9bc7ac49361ff25">RRT_Texture</a></div><div class="ttdeci">@ RRT_Texture</div><div class="ttdef"><b>定义</b> RHIDefinitions.h:1046</div></div>
+<div class="ttc" id="a_r_h_i_definitions_8h_html_a2a49892819f9c4556e6547820ab85b83ad7ccf53e14615ec2ca2a034e56de2505"><div class="ttname"><a href="../../da/dca/_r_h_i_definitions_8h.html#a2a49892819f9c4556e6547820ab85b83ad7ccf53e14615ec2ca2a034e56de2505">RRT_UnorderedAccessView</a></div><div class="ttdeci">@ RRT_UnorderedAccessView</div><div class="ttdef"><b>定义</b> RHIDefinitions.h:1057</div></div>
+<div class="ttc" id="a_r_h_i_definitions_8h_html_a2a49892819f9c4556e6547820ab85b83ad9995ae164ab442acd3114973e254b17"><div class="ttname"><a href="../../da/dca/_r_h_i_definitions_8h.html#a2a49892819f9c4556e6547820ab85b83ad9995ae164ab442acd3114973e254b17">RRT_ShaderResourceView</a></div><div class="ttdeci">@ RRT_ShaderResourceView</div><div class="ttdef"><b>定义</b> RHIDefinitions.h:1058</div></div>
+<div class="ttc" id="a_r_h_i_definitions_8h_html_aaa1363a45733f75a18e3e5debc4935c2a95aeae2231ed8cd2a9a2c6aaa3a1b7e0"><div class="ttname"><a href="../../da/dca/_r_h_i_definitions_8h.html#aaa1363a45733f75a18e3e5debc4935c2a95aeae2231ed8cd2a9a2c6aaa3a1b7e0">EShaderCodeResourceBindingType::ResourceCollection</a></div><div class="ttdeci">@ ResourceCollection</div><div class="ttdef"><b>定义</b> RHIDefinitions.h:572</div></div>
+<div class="ttc" id="a_r_h_i_resource_collection_8h_html"><div class="ttname"><a href="../../d0/d6c/_r_h_i_resource_collection_8h.html">RHIResourceCollection.h</a></div></div>
+<div class="ttc" id="a_r_h_i_resources_8h_html"><div class="ttname"><a href="../../db/dec/_r_h_i_resources_8h.html">RHIResources.h</a></div></div>
+<div class="ttc" id="a_r_h_i_texture_reference_8h_html"><div class="ttname"><a href="../../d9/d49/_r_h_i_texture_reference_8h.html">RHITextureReference.h</a></div></div>
+<div class="ttc" id="a_r_h_i_validation_common_8h_html_a30c1b2cbb65f61011f5aab845d86ac0c"><div class="ttname"><a href="../../d0/d87/_r_h_i_validation_common_8h.html#a30c1b2cbb65f61011f5aab845d86ac0c">GRHIValidationEnabled</a></div><div class="ttdeci">const bool GRHIValidationEnabled</div><div class="ttdef"><b>定义</b> RHIValidationCommon.h:20</div></div>
+<div class="ttc" id="a_s_anim_notify_panel_8h_html_a7483aa7f043c623f8990a95320be654d"><div class="ttname"><a href="../../d2/d8e/_s_anim_notify_panel_8h.html#a7483aa7f043c623f8990a95320be654d">FString</a></div><div class="ttdeci">FOnGetScrubValue FString</div><div class="ttdef"><b>定义</b> SAnimNotifyPanel.h:38</div></div>
+<div class="ttc" id="a_shader_core_8h_html_a6d230be62d5487fc6e85be38ccdada8da5bca2f066df1fe641b2b779db2a63c0a"><div class="ttname"><a href="../../d9/d13/_shader_core_8h.html#a6d230be62d5487fc6e85be38ccdada8da5bca2f066df1fe641b2b779db2a63c0a">EShaderParameterType::Sampler</a></div><div class="ttdeci">@ Sampler</div><div class="ttdef"><b>定义</b> ShaderCore.h:250</div></div>
+<div class="ttc" id="a_shader_core_8h_html_a6d230be62d5487fc6e85be38ccdada8dab71ecf0b186ac1b938e15483f792b7db"><div class="ttname"><a href="../../d9/d13/_shader_core_8h.html#a6d230be62d5487fc6e85be38ccdada8dab71ecf0b186ac1b938e15483f792b7db">EShaderParameterType::SRV</a></div><div class="ttdeci">@ SRV</div><div class="ttdef"><b>定义</b> ShaderCore.h:251</div></div>
+<div class="ttc" id="a_unreal_template_8h_html_af9d82a97e855a2ee1464cc020639d843"><div class="ttname"><a href="../../d2/dd1/_unreal_template_8h.html#af9d82a97e855a2ee1464cc020639d843">MoveTemp</a></div><div class="ttdeci">UE_INTRINSIC_CAST UE_REWRITE constexpr std::remove_reference_t&lt; T &gt; &amp;&amp; MoveTemp(T &amp;&amp;Obj) noexcept</div><div class="ttdef"><b>定义</b> UnrealTemplate.h:530</div></div>
+<div class="ttc" id="abinka__ue__decode__test_8cpp_html_a374eb3a41808f317fb77da75985c3204"><div class="ttname"><a href="../../d3/db8/binka__ue__decode__test_8cpp.html#a374eb3a41808f317fb77da75985c3204">if</a></div><div class="ttdeci">if(Failed) console_printf(&quot;Failed.\n&quot;)</div></div>
+<div class="ttc" id="aclass_f_app_time_html_a3a23f4904dcf99af5deda59d31d58865"><div class="ttname"><a href="../../d5/d42/class_f_app_time.html#a3a23f4904dcf99af5deda59d31d58865">FAppTime::GetApproximateCurrentTime</a></div><div class="ttdeci">static double GetApproximateCurrentTime()</div><div class="ttdef"><b>定义</b> AppTime.h:201</div></div>
+<div class="ttc" id="aclass_f_r_h_i_resource_collection_html"><div class="ttname"><a href="../../d2/def/class_f_r_h_i_resource_collection.html">FRHIResourceCollection</a></div><div class="ttdef"><b>定义</b> RHIResourceCollection.h:46</div></div>
+<div class="ttc" id="aclass_f_r_h_i_sampler_state_html"><div class="ttname"><a href="../../d3/d38/class_f_r_h_i_sampler_state.html">FRHISamplerState</a></div><div class="ttdef"><b>定义</b> RHIResources.h:634</div></div>
+<div class="ttc" id="aclass_f_r_h_i_shader_html"><div class="ttname"><a href="../../db/d66/class_f_r_h_i_shader.html">FRHIShader</a></div><div class="ttdef"><b>定义</b> RHIResources.h:843</div></div>
+<div class="ttc" id="aclass_f_r_h_i_shader_resource_view_html"><div class="ttname"><a href="../../dd/d14/class_f_r_h_i_shader_resource_view.html">FRHIShaderResourceView</a></div><div class="ttdef"><b>定义</b> RHIResources.h:3370</div></div>
+<div class="ttc" id="aclass_f_r_h_i_texture_html"><div class="ttname"><a href="../../d3/d6d/class_f_r_h_i_texture.html">FRHITexture</a></div><div class="ttdef"><b>定义</b> RHIResources.h:2171</div></div>
+<div class="ttc" id="aclass_f_r_h_i_texture_html_abfbee2e5db17b1711770ba3a3a201673"><div class="ttname"><a href="../../d3/d6d/class_f_r_h_i_texture.html#abfbee2e5db17b1711770ba3a3a201673">FRHITexture::SetLastRenderTime</a></div><div class="ttdeci">void SetLastRenderTime(double InLastRenderTime)</div><div class="ttdef"><b>定义</b> RHIResources.h:2318</div></div>
+<div class="ttc" id="aclass_f_r_h_i_texture_reference_html"><div class="ttname"><a href="../../d0/d85/class_f_r_h_i_texture_reference.html">FRHITextureReference</a></div><div class="ttdef"><b>定义</b> RHITextureReference.h:8</div></div>
+<div class="ttc" id="aclass_f_r_h_i_uniform_buffer_html"><div class="ttname"><a href="../../da/df0/class_f_r_h_i_uniform_buffer.html">FRHIUniformBuffer</a></div><div class="ttdef"><b>定义</b> RHIResources.h:1266</div></div>
+<div class="ttc" id="aclass_f_r_h_i_unordered_access_view_html"><div class="ttname"><a href="../../d2/dab/class_f_r_h_i_unordered_access_view.html">FRHIUnorderedAccessView</a></div><div class="ttdef"><b>定义</b> RHIResources.h:3360</div></div>
+<div class="ttc" id="aclass_t_array_html_a1518d29c2cbcefd7b7a3a26e8d39b4c5"><div class="ttname"><a href="../../d6/db1/class_t_array.html#a1518d29c2cbcefd7b7a3a26e8d39b4c5">TArray::Num</a></div><div class="ttdeci">UE_REWRITE SizeType Num() const</div><div class="ttdef"><b>定义</b> Array.h:1388</div></div>
+<div class="ttc" id="aclass_t_array_html_a24e3479cade18eb8efd5477e70a28899"><div class="ttname"><a href="../../d6/db1/class_t_array.html#a24e3479cade18eb8efd5477e70a28899">TArray::GetData</a></div><div class="ttdeci">UE_NODEBUG UE_FORCEINLINE_HINT ElementType * GetData() UE_LIFETIMEBOUND</div><div class="ttdef"><b>定义</b> Array.h:1271</div></div>
+<div class="ttc" id="aclass_t_ref_count_ptr_html"><div class="ttname"><a href="../../d7/d10/class_t_ref_count_ptr.html">TRefCountPtr</a></div><div class="ttdef"><b>定义</b> RefCounting.h:290</div></div>
+<div class="ttc" id="aclass_t_ref_count_ptr_html_a5d03dbab290fa66195c70cbc94eaeebe"><div class="ttname"><a href="../../d7/d10/class_t_ref_count_ptr.html#a5d03dbab290fa66195c70cbc94eaeebe">TRefCountPtr::GetReference</a></div><div class="ttdeci">UE_FORCEINLINE_HINT ReferencedType * GetReference() const</div><div class="ttdef"><b>定义</b> RefCounting.h:420</div></div>
+<div class="ttc" id="anamespace_u_e_1_1_r_h_i_1_1_private_html"><div class="ttname"><a href="../../d9/d56/namespace_u_e_1_1_r_h_i_1_1_private.html">UE::RHI::Private</a></div><div class="ttdef"><b>定义</b> RHIUniformBufferUtilities.h:14</div></div>
+<div class="ttc" id="anamespace_u_e_1_1_r_h_i_1_1_private_html_a82872eafabaeb6584b2acc85288e6380"><div class="ttname"><a href="../../d9/d56/namespace_u_e_1_1_r_h_i_1_1_private.html#a82872eafabaeb6584b2acc85288e6380">UE::RHI::Private::EnumerateUniformBufferResources</a></div><div class="ttdeci">void EnumerateUniformBufferResources(const FRHIUniformBuffer *RESTRICT Buffer, int32 BufferIndex, const uint32 *RESTRICT ResourceMap, TCallback &amp;&amp;Callback)</div><div class="ttdef"><b>定义</b> RHIUniformBufferUtilities.h:24</div></div>
+<div class="ttc" id="anamespace_u_e_1_1_r_h_i_1_1_private_html_ab73d2c08dec58ca97d1f752716c82a45"><div class="ttname"><a href="../../d9/d56/namespace_u_e_1_1_r_h_i_1_1_private.html#ab73d2c08dec58ca97d1f752716c82a45">UE::RHI::Private::SetFullyBindlessUniformBufferResourcesFromTables</a></div><div class="ttdeci">void SetFullyBindlessUniformBufferResourcesFromTables(TBinder &amp;&amp;Binder, const FRHIShader &amp;Shader, TBitMaskType &amp;DirtyUniformBuffers, const TUniformBufferArrayType &amp;BoundUniformBuffers)</div><div class="ttdef"><b>定义</b> RHIUniformBufferUtilities.h:267</div></div>
+<div class="ttc" id="anamespace_u_e_1_1_r_h_i_1_1_private_html_ae45684f8f90655dd028e26f2174aebc6"><div class="ttname"><a href="../../d9/d56/namespace_u_e_1_1_r_h_i_1_1_private.html#ae45684f8f90655dd028e26f2174aebc6">UE::RHI::Private::SetUniformBufferResourcesFromTables</a></div><div class="ttdeci">void SetUniformBufferResourcesFromTables(TBinder &amp;&amp;Binder, FRHIShader const &amp;Shader, TBitMaskType &amp;DirtyUniformBuffers, TUniformBufferArrayType const &amp;BoundUniformBuffers)</div><div class="ttdef"><b>定义</b> RHIUniformBufferUtilities.h:97</div></div>
+<div class="ttc" id="anamespace_u_e_1_1_shader_html"><div class="ttname"><a href="../../d9/d04/namespace_u_e_1_1_shader.html">UE::Shader</a></div><div class="ttdef"><b>定义</b> MaterialGraphSchema.h:17</div></div>
+<div class="ttc" id="apreprocessor_8c_html_a05f6b0ae8f6a6e135b0e290c25fe0e4e"><div class="ttname"><a href="../../dd/de9/preprocessor_8c.html#a05f6b0ae8f6a6e135b0e290c25fe0e4e">uint16</a></div><div class="ttdeci">unsigned short uint16</div><div class="ttdef"><b>定义</b> preprocessor.c:68</div></div>
+<div class="ttc" id="apreprocessor_8c_html_a1134b580f8da4de94ca6b1de4d37975e"><div class="ttname"><a href="../../dd/de9/preprocessor_8c.html#a1134b580f8da4de94ca6b1de4d37975e">uint32</a></div><div class="ttdeci">unsigned int uint32</div><div class="ttdef"><b>定义</b> preprocessor.c:67</div></div>
+<div class="ttc" id="apreprocessor_8c_html_adde6aaee8457bee49c2a92621fe22b79"><div class="ttname"><a href="../../dd/de9/preprocessor_8c.html#adde6aaee8457bee49c2a92621fe22b79">uint8</a></div><div class="ttdeci">unsigned char uint8</div><div class="ttdef"><b>定义</b> preprocessor.c:65</div></div>
+<div class="ttc" id="aradfft_8cpp_html_a353b84469a01fbe28e2db978bdf1fb86"><div class="ttname"><a href="../../df/dd5/radfft_8cpp.html#a353b84469a01fbe28e2db978bdf1fb86">Index</a></div><div class="ttdeci">U16 Index</div><div class="ttdef"><b>定义</b> radfft.cpp:71</div></div>
+<div class="ttc" id="astruct_f_r_h_i_resource_table_entry_html_a9b87310d8cb894deb7f08e29b744d7b9"><div class="ttname"><a href="../../df/dd5/struct_f_r_h_i_resource_table_entry.html#a9b87310d8cb894deb7f08e29b744d7b9">FRHIResourceTableEntry::GetBindIndex</a></div><div class="ttdeci">static uint16 GetBindIndex(uint32 Data)</div><div class="ttdef"><b>定义</b> RHIDefinitions.h:755</div></div>
+<div class="ttc" id="astruct_f_r_h_i_resource_table_entry_html_ab27f8ed2a13dec5693c3d7ba1f31e2ca"><div class="ttname"><a href="../../df/dd5/struct_f_r_h_i_resource_table_entry.html#ab27f8ed2a13dec5693c3d7ba1f31e2ca">FRHIResourceTableEntry::GetUniformBufferIndex</a></div><div class="ttdeci">static uint16 GetUniformBufferIndex(uint32 Data)</div><div class="ttdef"><b>定义</b> RHIDefinitions.h:745</div></div>
+<div class="ttc" id="astruct_f_r_h_i_resource_table_entry_html_af18e7f87e83f8c7a7cf16f3272490500"><div class="ttname"><a href="../../df/dd5/struct_f_r_h_i_resource_table_entry.html#af18e7f87e83f8c7a7cf16f3272490500">FRHIResourceTableEntry::GetResourceIndex</a></div><div class="ttdeci">static uint16 GetResourceIndex(uint32 Data)</div><div class="ttdef"><b>定义</b> RHIDefinitions.h:750</div></div>
+<div class="ttc" id="astruct_f_r_h_i_uniform_buffer_layout_html"><div class="ttname"><a href="../../d5/d12/struct_f_r_h_i_uniform_buffer_layout.html">FRHIUniformBufferLayout</a></div><div class="ttdef"><b>定义</b> RHIResources.h:1184</div></div>
+<div class="ttc" id="astruct_f_r_h_i_uniform_buffer_layout_html_a16c7368e978514b521fb7785be6973db"><div class="ttname"><a href="../../d5/d12/struct_f_r_h_i_uniform_buffer_layout.html#a16c7368e978514b521fb7785be6973db">FRHIUniformBufferLayout::ConstantBufferSize</a></div><div class="ttdeci">const uint32 ConstantBufferSize</div><div class="ttdef"><b>定义</b> RHIResources.h:1238</div></div>
+<div class="ttc" id="astruct_f_r_h_i_uniform_buffer_layout_html_a226a7fc2f7c6cd32428c257571600265"><div class="ttname"><a href="../../d5/d12/struct_f_r_h_i_uniform_buffer_layout.html#a226a7fc2f7c6cd32428c257571600265">FRHIUniformBufferLayout::GetDebugName</a></div><div class="ttdeci">const FString &amp; GetDebugName() const</div><div class="ttdef"><b>定义</b> RHIResources.h:1189</div></div>
+<div class="ttc" id="astruct_f_r_h_i_uniform_buffer_layout_html_a31ebaa4f87a6c760ea4baa722877579c"><div class="ttname"><a href="../../d5/d12/struct_f_r_h_i_uniform_buffer_layout.html#a31ebaa4f87a6c760ea4baa722877579c">FRHIUniformBufferLayout::Resources</a></div><div class="ttdeci">const TArray&lt; FRHIUniformBufferResource &gt; Resources</div><div class="ttdef"><b>定义</b> RHIResources.h:1218</div></div>
+<div class="ttc" id="astruct_f_r_h_i_uniform_buffer_layout_html_a4d5217757af7ce2d1ed9e8ebdb4af979"><div class="ttname"><a href="../../d5/d12/struct_f_r_h_i_uniform_buffer_layout.html#a4d5217757af7ce2d1ed9e8ebdb4af979">FRHIUniformBufferLayout::GetHash</a></div><div class="ttdeci">uint32 GetHash() const</div><div class="ttdef"><b>定义</b> RHIResources.h:1194</div></div>
+<div class="ttc" id="astruct_f_r_h_i_uniform_buffer_resource_html"><div class="ttname"><a href="../../d8/d39/struct_f_r_h_i_uniform_buffer_resource.html">FRHIUniformBufferResource</a></div><div class="ttdef"><b>定义</b> RHIResources.h:1163</div></div>
+<div class="ttc" id="astruct_f_r_h_i_uniform_buffer_resource_html_ad1a89e49d54be236a13d1fc4c0e8c8c2"><div class="ttname"><a href="../../d8/d39/struct_f_r_h_i_uniform_buffer_resource.html#ad1a89e49d54be236a13d1fc4c0e8c8c2">FRHIUniformBufferResource::MemberType</a></div><div class="ttdeci">EUniformBufferBaseType MemberType</div><div class="ttdef"><b>定义</b> RHIResources.h:1168</div></div>
+<div class="ttc" id="astruct_f_shader_resource_table_html"><div class="ttname"><a href="../../d8/d9b/struct_f_shader_resource_table.html">FShaderResourceTable</a></div><div class="ttdef"><b>定义</b> RHIResources.h:718</div></div>
+<div class="ttc" id="astruct_f_shader_resource_table_html_a1712256dd9f7b8d12b8021b238e397e4"><div class="ttname"><a href="../../d8/d9b/struct_f_shader_resource_table.html#a1712256dd9f7b8d12b8021b238e397e4">FShaderResourceTable::ResourceTableBits</a></div><div class="ttdeci">uint32 ResourceTableBits</div><div class="ttdef"><b>定义</b> RHIResources.h:720</div></div>
+<div class="ttc" id="astruct_f_shader_resource_table_html_a1fe90812b2ba93aa61b22a3881d60fdc"><div class="ttname"><a href="../../d8/d9b/struct_f_shader_resource_table.html#a1fe90812b2ba93aa61b22a3881d60fdc">FShaderResourceTable::ResourceTableLayoutHashes</a></div><div class="ttdeci">TArray&lt; uint32 &gt; ResourceTableLayoutHashes</div><div class="ttdef"><b>定义</b> RHIResources.h:732</div></div>
+<div class="ttc" id="astruct_f_shader_resource_table_html_a60863ceca5fc54e6412122e93a5c3fdf"><div class="ttname"><a href="../../d8/d9b/struct_f_shader_resource_table.html#a60863ceca5fc54e6412122e93a5c3fdf">FShaderResourceTable::TextureMap</a></div><div class="ttdeci">TArray&lt; uint32 &gt; TextureMap</div><div class="ttdef"><b>定义</b> RHIResources.h:735</div></div>
+<div class="ttc" id="astruct_f_shader_resource_table_html_a69134a142099f74957c9acd6943c9d04"><div class="ttname"><a href="../../d8/d9b/struct_f_shader_resource_table.html#a69134a142099f74957c9acd6943c9d04">FShaderResourceTable::ShaderResourceViewMap</a></div><div class="ttdeci">TArray&lt; uint32 &gt; ShaderResourceViewMap</div><div class="ttdef"><b>定义</b> RHIResources.h:723</div></div>
+<div class="ttc" id="astruct_u_e_1_1_r_h_i_1_1_private_1_1_t_resource_type_str_3_01_f_r_h_i_resource_collection_01_4_html_a72f60fe6877dd1f589067f5bbf2d9c09"><div class="ttname"><a href="../../de/dcb/struct_u_e_1_1_r_h_i_1_1_private_1_1_t_resource_type_str_3_01_f_r_h_i_resource_collection_01_4.html#a72f60fe6877dd1f589067f5bbf2d9c09">UE::RHI::Private::TResourceTypeStr&lt; FRHIResourceCollection &gt;::String</a></div><div class="ttdeci">static constexpr TCHAR String[]</div><div class="ttdef"><b>定义</b> RHIUniformBufferUtilities.h:21</div></div>
+<div class="ttc" id="astruct_u_e_1_1_r_h_i_1_1_private_1_1_t_resource_type_str_3_01_f_r_h_i_sampler_state_01_4_html_afbe8b35bc9130f89966d72a2ab1d4209"><div class="ttname"><a href="../../db/d08/struct_u_e_1_1_r_h_i_1_1_private_1_1_t_resource_type_str_3_01_f_r_h_i_sampler_state_01_4.html#afbe8b35bc9130f89966d72a2ab1d4209">UE::RHI::Private::TResourceTypeStr&lt; FRHISamplerState &gt;::String</a></div><div class="ttdeci">static constexpr TCHAR String[]</div><div class="ttdef"><b>定义</b> RHIUniformBufferUtilities.h:17</div></div>
+<div class="ttc" id="astruct_u_e_1_1_r_h_i_1_1_private_1_1_t_resource_type_str_3_01_f_r_h_i_shader_resource_view_01_4_html_a768575ac980b8bf689735236f8fc8eb1"><div class="ttname"><a href="../../df/d72/struct_u_e_1_1_r_h_i_1_1_private_1_1_t_resource_type_str_3_01_f_r_h_i_shader_resource_view_01_4.html#a768575ac980b8bf689735236f8fc8eb1">UE::RHI::Private::TResourceTypeStr&lt; FRHIShaderResourceView &gt;::String</a></div><div class="ttdeci">static constexpr TCHAR String[]</div><div class="ttdef"><b>定义</b> RHIUniformBufferUtilities.h:19</div></div>
+<div class="ttc" id="astruct_u_e_1_1_r_h_i_1_1_private_1_1_t_resource_type_str_3_01_f_r_h_i_texture_01_4_html_a50a7f449924fa8efc74b1cc611e147d0"><div class="ttname"><a href="../../d4/d6a/struct_u_e_1_1_r_h_i_1_1_private_1_1_t_resource_type_str_3_01_f_r_h_i_texture_01_4.html#a50a7f449924fa8efc74b1cc611e147d0">UE::RHI::Private::TResourceTypeStr&lt; FRHITexture &gt;::String</a></div><div class="ttdeci">static constexpr TCHAR String[]</div><div class="ttdef"><b>定义</b> RHIUniformBufferUtilities.h:18</div></div>
+<div class="ttc" id="astruct_u_e_1_1_r_h_i_1_1_private_1_1_t_resource_type_str_3_01_f_r_h_i_unordered_access_view_01_4_html_a0d387b57ea148504d5c9c6b3cecc6de1"><div class="ttname"><a href="../../d9/d84/struct_u_e_1_1_r_h_i_1_1_private_1_1_t_resource_type_str_3_01_f_r_h_i_unordered_access_view_01_4.html#a0d387b57ea148504d5c9c6b3cecc6de1">UE::RHI::Private::TResourceTypeStr&lt; FRHIUnorderedAccessView &gt;::String</a></div><div class="ttdeci">static constexpr TCHAR String[]</div><div class="ttdef"><b>定义</b> RHIUniformBufferUtilities.h:20</div></div>
+<div class="ttc" id="astruct_u_e_1_1_r_h_i_1_1_private_1_1_t_resource_type_str_html"><div class="ttname"><a href="../../d8/de2/struct_u_e_1_1_r_h_i_1_1_private_1_1_t_resource_type_str.html">UE::RHI::Private::TResourceTypeStr</a></div><div class="ttdef"><b>定义</b> RHIUniformBufferUtilities.h:16</div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+</div><!-- container -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a href="../../dir_0b6ee6e7e9547e675db4add2e5de97da.html">Engine</a></li><li class="navelem"><a href="../../dir_9579d1ecb2c7bf48cbe1049c41745cb4.html">Source</a></li><li class="navelem"><a href="../../dir_9f04efef762572853abdf73f62bebfcc.html">Runtime</a></li><li class="navelem"><a href="../../dir_17e95c33057ffb10235013ccaac986bc.html">RHI</a></li><li class="navelem"><a href="../../dir_d8f1b2f4a6ccacbf07c17681a7f47bae.html">Internal</a></li><li class="navelem"><a href="../../dd/d36/_r_h_i_uniform_buffer_utilities_8h.html">RHIUniformBufferUtilities.h</a></li>
+    <li class="footer">制作者 <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.15.0 </li>
+  </ul>
+</div>
+</body>
+</html>

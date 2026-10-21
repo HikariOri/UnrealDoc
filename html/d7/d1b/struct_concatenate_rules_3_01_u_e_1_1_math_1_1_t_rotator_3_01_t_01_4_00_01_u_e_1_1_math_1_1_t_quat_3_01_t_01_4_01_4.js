@@ -1,0 +1,4 @@
+var struct_concatenate_rules_3_01_u_e_1_1_math_1_1_t_rotator_3_01_t_01_4_00_01_u_e_1_1_math_1_1_t_quat_3_01_t_01_4_01_4 =
+[
+    [ "ResultType", "d7/d1b/struct_concatenate_rules_3_01_u_e_1_1_math_1_1_t_rotator_3_01_t_01_4_00_01_u_e_1_1_math_1_1_t_quat_3_01_t_01_4_01_4.html#ab2a7eac2f9c9add8c1efd2ed94795409", null ]
+];

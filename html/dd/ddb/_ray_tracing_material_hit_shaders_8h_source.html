@@ -1,0 +1,538 @@
+<!-- HTML header for doxygen 1.15.0-->
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh">
+<head>
+  <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=11" />
+  <meta name="generator" content="Doxygen 1.15.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>UE 5.8.4: Engine/Source/Runtime/Renderer/Private/RayTracing/RayTracingMaterialHitShaders.h 源文件</title>
+  <link rel="icon" href="../../EdIconDefault.bmp" type="image/x-icon" />
+  <link href="../../tabs.css" rel="stylesheet" type="text/css" />
+  <script type="text/javascript" src="../../jquery.js"></script>
+  <script type="text/javascript" src="../../dynsections.js"></script>
+  <link href="../../navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../navtreedata.js"></script>
+<script type="text/javascript" src="../../navtree.js"></script>
+<script type="text/javascript" src="../../cookie.js"></script>
+  <link href="../../search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../search/searchdata.js"></script>
+<script type="text/javascript" src="../../search/search.js"></script>
+  <link href="../../doxygen.css" rel="stylesheet" type="text/css" />
+  <link href="../../doxygen-awesome.css" rel="stylesheet" type="text/css"/>
+<link href="../../doxygen-awesome-sidebar-only.css" rel="stylesheet" type="text/css"/>
+<link href="../../doxygen-awesome-sidebar-only-darkmode-toggle.css" rel="stylesheet" type="text/css"/>
+  <!-- ... other metadata & script includes ... -->
+  <script type="text/javascript" src="../../doxygen-awesome-darkmode-toggle.js"></script>
+  <script type="text/javascript">
+    DoxygenAwesomeDarkModeToggle.title = "Zwischen hellem/dunklem Modus wechseln"
+    DoxygenAwesomeDarkModeToggle.lightModeIcon = '🌞'
+    // icon from https://fonts.google.com/icons
+    DoxygenAwesomeDarkModeToggle.darkModeIcon = `<svg xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 24 24" height="24px" viewBox="0 0 24 24" width="24px" fill="#009793"><g><rect fill="none" height="24" width="24"/></g><g><g><path d="M8.1,14.15C9.77,14.63,11,16.17,11,18c0,0.68-0.19,1.31-0.48,1.87c0.48,0.09,0.97,0.14,1.48,0.14 c1.48,0,2.9-0.41,4.13-1.15c-2.62-0.92-5.23-2.82-6.8-5.86C7.74,9.94,7.78,7.09,8.29,4.9c-2.57,1.33-4.3,4.01-4.3,7.1c0,0,0,0,0,0 c0.01,0,0.01,0,0.02,0C5.66,12,7.18,12.83,8.1,14.15z" opacity=".3"/><path d="M19.78,17.51c-2.47,0-6.57-1.33-8.68-5.43C8.77,7.57,10.6,3.6,11.63,2.01C6.27,2.2,1.98,6.59,1.98,12 c0,0.14,0.02,0.28,0.02,0.42C2.61,12.16,3.28,12,3.98,12c0,0,0,0,0,0c0-3.09,1.73-5.77,4.3-7.1C7.78,7.09,7.74,9.94,9.32,13 c1.57,3.04,4.18,4.95,6.8,5.86c-1.23,0.74-2.65,1.15-4.13,1.15c-0.5,0-1-0.05-1.48-0.14c-0.37,0.7-0.94,1.27-1.64,1.64 c0.98,0.32,2.03,0.5,3.11,0.5c3.5,0,6.58-1.8,8.37-4.52C20.18,17.5,19.98,17.51,19.78,17.51z"/><path d="M7,16l-0.18,0C6.4,14.84,5.3,14,4,14c-1.66,0-3,1.34-3,3s1.34,3,3,3c0.62,0,2.49,0,3,0c1.1,0,2-0.9,2-2 C9,16.9,8.1,16,7,16z"/></g></g></svg>`
+    DoxygenAwesomeDarkModeToggle.init()
+  </script>
+  <script type="text/javascript" src="../../doxygen-awesome-fragment-copy-button.js"></script>
+  <script type="text/javascript">
+    DoxygenAwesomeFragmentCopyButton.title = "In die Zwischenablage kopieren"
+    // DoxygenAwesomeFragmentCopyButton.copyIcon = `<svg ...>`
+    // DoxygenAwesomeFragmentCopyButton.successIcon = `<svg ...>`
+    DoxygenAwesomeFragmentCopyButton.init()
+  </script>
+  <script type="text/javascript" src="../../doxygen-awesome-paragraph-link.js"></script>
+  <script type="text/javascript">
+    DoxygenAwesomeParagraphLink.title = "Abschnitt verknüpfen"
+    DoxygenAwesomeParagraphLink.icon = "¶"
+    DoxygenAwesomeParagraphLink.init()
+  </script>
+  <script type="text/javascript" src="../../doxygen-awesome-interactive-toc.js"></script>
+  <script type="text/javascript">
+    DoxygenAwesomeInteractiveToc.topOffset = 45
+    DoxygenAwesomeInteractiveToc.hideMobileMenu = false
+    DoxygenAwesomeInteractiveToc.init()
+  </script>
+</head>
+<body>
+    <div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+      <div id="titlearea">
+        <table cellspacing="0" cellpadding="0">
+          <tbody>
+            <tr id="projectrow">
+              <td id="projectlogo"><img alt="Logo" src="../../EdIconDefault.bmp"  /></td>
+              <td id="projectalign">
+                <div id="projectname">UE 5.8.4
+                </div>
+                <div id="projectbrief">Unreal Engine</div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <!-- end header part -->
+<!-- 制作者 Doxygen 1.15.0 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "../../search/",'.html');
+</script>
+<script type="text/javascript">
+$(function() { codefold.init(); });
+</script>
+<script type="text/javascript" src="../../menudata.js"></script>
+<script type="text/javascript" src="../../menu.js"></script>
+<script type="text/javascript">
+$(function() {
+  initMenu('../../',true,false,'search.php','搜索',true);
+  $(function() { init_search(); });
+});
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(function(){initNavTree('dd/ddb/_ray_tracing_material_hit_shaders_8h_source.html','../../',''); });
+</script>
+<div id="container">
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">载入中...</div>
+<div class="SRStatus" id="Searching">搜索中...</div>
+<div class="SRStatus" id="NoMatches">未找到</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">RayTracingMaterialHitShaders.h</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="../../dd/ddb/_ray_tracing_material_hit_shaders_8h.html">浏览该文件的文档.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="comment">// Copyright Epic Games, Inc. All Rights Reserved.</span></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span> </div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="preprocessor">#pragma once</span></div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span> </div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="preprocessor">#include &quot;<a class="code" href="../../da/dca/_r_h_i_definitions_8h.html">RHIDefinitions.h</a>&quot;</span></div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span> </div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="preprocessor">#if RHI_RAYTRACING</span></div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span> </div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="preprocessor">#include &quot;<a class="code" href="../../d8/df3/_data_driven_shader_platform_info_8h.html">DataDrivenShaderPlatformInfo.h</a>&quot;</span></div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="preprocessor">#include &quot;<a class="code" href="../../d0/d0a/_light_map_rendering_8h.html">LightMapRendering.h</a>&quot;</span></div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="preprocessor">#include &quot;<a class="code" href="../../d8/db2/_material_domain_8h.html">MaterialDomain.h</a>&quot;</span></div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="preprocessor">#include &quot;<a class="code" href="../../d7/dbc/_mesh_material_shader_8h.html">MeshMaterialShader.h</a>&quot;</span></div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="preprocessor">#include &quot;<a class="code" href="../../d3/d4c/_mesh_pass_processor_8inl.html">MeshPassProcessor.inl</a>&quot;</span></div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="preprocessor">#include &quot;<a class="code" href="../../d8/d99/_ray_tracing_mesh_draw_commands_8h.html">RayTracingMeshDrawCommands.h</a>&quot;</span></div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span><span class="preprocessor">#include &quot;<a class="code" href="../../d4/d1f/_ray_tracing_instance_mask_8h.html">RayTracingInstanceMask.h</a>&quot;</span></div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span><span class="preprocessor">#include &quot;RayTracingPayloadType.h&quot;</span></div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span><span class="preprocessor">#include &quot;<a class="code" href="../../dd/dab/_ray_tracing_8h.html">RayTracing/RayTracing.h</a>&quot;</span></div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span><span class="preprocessor">#include &quot;<a class="code" href="../../de/d64/_shader_parameter_struct_8h.html">ShaderParameterStruct.h</a>&quot;</span></div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span><span class="preprocessor">#include &quot;<a class="code" href="../../d6/dda/_scene_rendering_8h.html">SceneRendering.h</a>&quot;</span></div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span><span class="preprocessor">#include &lt;type_traits&gt;</span></div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span> </div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span><a class="code hl_class" href="../../da/daa/class_f_r_h_i_ray_tracing_shader.html">FRHIRayTracingShader</a>* GetRayTracingDefaultMissShader(<span class="keyword">const</span> <a class="code hl_class" href="../../d0/d61/class_f_global_shader_map.html">FGlobalShaderMap</a>* ShaderMap);</div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span><a class="code hl_class" href="../../da/daa/class_f_r_h_i_ray_tracing_shader.html">FRHIRayTracingShader</a>* GetRayTracingDefaultOpaqueShader(<span class="keyword">const</span> <a class="code hl_class" href="../../d0/d61/class_f_global_shader_map.html">FGlobalShaderMap</a>* ShaderMap);</div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span><a class="code hl_class" href="../../da/daa/class_f_r_h_i_ray_tracing_shader.html">FRHIRayTracingShader</a>* GetRayTracingDefaultHiddenShader(<span class="keyword">const</span> <a class="code hl_class" href="../../d0/d61/class_f_global_shader_map.html">FGlobalShaderMap</a>* ShaderMap);</div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span> </div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span><span class="keyword">class </span>FRayTracingMeshProcessor</div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>{</div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>    RENDERER_API FRayTracingMeshProcessor(FRayTracingMeshCommandContext* InCommandContext, <span class="keyword">const</span> FScene* InScene, <span class="keyword">const</span> FSceneView* InViewIfDynamicMeshCommand, ERayTracingType InRayTracingType);</div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>    RENDERER_API ~FRayTracingMeshProcessor();</div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span> </div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>    RENDERER_API <span class="keywordtype">void</span> AddMeshBatch(<span class="keyword">const</span> FMeshBatch&amp; <a class="code hl_define" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#aae3356b63849abbe8789dd41648ee90a">RESTRICT</a> MeshBatch, <a class="code hl_typedef" href="../../dd/de9/preprocessor_8c.html#abc0f5bc07737e498f287334775dff2b6">uint64</a> BatchElementMask, <span class="keyword">const</span> FPrimitiveSceneProxy* <a class="code hl_define" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#aae3356b63849abbe8789dd41648ee90a">RESTRICT</a> PrimitiveSceneProxy);</div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span> </div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span><span class="keyword">private</span>:</div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>    FRayTracingMeshCommandContext* CommandContext;</div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>    <span class="keyword">const</span> FScene* <a class="code hl_enumvalue" href="../../d0/ddb/_datasmith_definitions_8h.html#a53c0bc858a7263a3651d29218934fa19a9ead0d38e06ec253ca0ecbf6ea56e59b">Scene</a>;</div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>    <span class="keyword">const</span> FSceneView* ViewIfDynamicMeshCommand;</div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>    <a class="code hl_enumeration" href="../../dc/dcf/namespace_e_r_h_i_feature_level.html#a04bc2ae8f7bf478747a40da91e1753dd">ERHIFeatureLevel::Type</a> FeatureLevel;</div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>    ERayTracingType RayTracingType;</div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span> </div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>    <span class="keywordtype">bool</span> <a class="code hl_enumvalue" href="../../de/d44/_type_container_8h.html#aab218920b7bd8650b70f0b0c898c13c1ab6ec7abeb6ae29cc35a4b47475e12afe">Process</a>(</div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>        <span class="keyword">const</span> FMeshBatch&amp; <a class="code hl_define" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#aae3356b63849abbe8789dd41648ee90a">RESTRICT</a> MeshBatch,</div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>        <a class="code hl_typedef" href="../../dd/de9/preprocessor_8c.html#abc0f5bc07737e498f287334775dff2b6">uint64</a> BatchElementMask,</div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>        <span class="keyword">const</span> FPrimitiveSceneProxy* <a class="code hl_define" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#aae3356b63849abbe8789dd41648ee90a">RESTRICT</a> PrimitiveSceneProxy,</div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>        <span class="keyword">const</span> FMaterialRenderProxy&amp; <a class="code hl_define" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#aae3356b63849abbe8789dd41648ee90a">RESTRICT</a> MaterialRenderProxy,</div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>        <span class="keyword">const</span> FMaterial&amp; <a class="code hl_define" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#aae3356b63849abbe8789dd41648ee90a">RESTRICT</a> MaterialResource,</div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>        <span class="keyword">const</span> FUniformLightMapPolicy&amp; <a class="code hl_define" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#aae3356b63849abbe8789dd41648ee90a">RESTRICT</a> LightMapPolicy);</div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span> </div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>    <span class="keyword">template</span>&lt;<span class="keyword">typename</span> RayTracingShaderType, <span class="keyword">typename</span> ShaderElementDataType&gt;</div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>    <span class="keywordtype">void</span> BuildRayTracingMeshCommands(</div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>        <span class="keyword">const</span> FMeshBatch&amp; <a class="code hl_define" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#aae3356b63849abbe8789dd41648ee90a">RESTRICT</a> MeshBatch,</div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>        <a class="code hl_typedef" href="../../dd/de9/preprocessor_8c.html#abc0f5bc07737e498f287334775dff2b6">uint64</a> BatchElementMask,</div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>        <span class="keyword">const</span> FPrimitiveSceneProxy* <a class="code hl_define" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#aae3356b63849abbe8789dd41648ee90a">RESTRICT</a> PrimitiveSceneProxy,</div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>        <span class="keyword">const</span> FMaterialRenderProxy&amp; <a class="code hl_define" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#aae3356b63849abbe8789dd41648ee90a">RESTRICT</a> MaterialRenderProxy,</div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>        <span class="keyword">const</span> FMaterial&amp; <a class="code hl_define" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#aae3356b63849abbe8789dd41648ee90a">RESTRICT</a> MaterialResource,</div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>        <span class="keyword">const</span> <a class="code hl_typedef" href="../../d8/d34/_shader_8h.html#ab6739264464426458ad868ca8d8cc420">TShaderRef&lt;RayTracingShaderType&gt;</a>&amp; RayTracingShader,</div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>        <span class="keyword">const</span> ShaderElementDataType&amp; ShaderElementData)</div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>    {</div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>        <span class="keyword">const</span> FVertexFactory* <a class="code hl_define" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#aae3356b63849abbe8789dd41648ee90a">RESTRICT</a> <a class="code hl_enumvalue" href="../../d9/d77/_skeletal_render_public_8h.html#aa2d48f9879759ecd564d862f23266475ad48b9573fbcd9840c7cc305a8dac2c7e">VertexFactory</a> = MeshBatch.VertexFactory;</div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span> </div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>        FRayTracingMeshCommand SharedCommand;</div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span> </div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>        SetupRayTracingMeshCommandMaskAndStatus(SharedCommand, MeshBatch, PrimitiveSceneProxy, MaterialResource, RayTracingType);</div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span> </div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>        <span class="keywordflow">if</span> (<a class="code hl_define" href="../../dd/db5/_r_h_i_globals_8h.html#af719139e4633fcb68f42c96445c1ea60">GRHISupportsRayTracingShaders</a>)</div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span>        {</div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>            SharedCommand.<a class="code hl_function" href="../../d3/d57/class_f_ray_tracing_mesh_command.html#a1ce9fac038efe220f197019f60d50c29">SetShader</a>(RayTracingShader);</div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>        }</div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span> </div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>        <a class="code hl_typedef" href="../../d5/d36/_vertex_factory_8h.html#a282023f316890e979691760dd5716f43">FVertexInputStreamArray</a> VertexStreams;</div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>        <a class="code hl_enumvalue" href="../../d9/d77/_skeletal_render_public_8h.html#aa2d48f9879759ecd564d862f23266475ad48b9573fbcd9840c7cc305a8dac2c7e">VertexFactory</a>-&gt;GetStreams(FeatureLevel, <a class="code hl_enumvalue" href="../../d5/d36/_vertex_factory_8h.html#a2b08c0b703e04411471e1a18eb898a4ca7a1920d61156abc05a60135aefe8bc67">EVertexInputStreamType::Default</a>, VertexStreams);</div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span> </div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>        <span class="keywordflow">if</span> (RayTracingShader.<a class="code hl_function" href="../../d5/d77/class_t_shader_ref_base.html#aadddc6ef622d882d57910fa12d949ebd">IsValid</a>())</div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>        {</div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>            FMeshDrawSingleShaderBindings ShaderBindings = SharedCommand.<a class="code hl_variable" href="../../d3/d57/class_f_ray_tracing_mesh_command.html#a6fb9df78c5122a09448bbf1e98b69191">ShaderBindings</a>.<a class="code hl_function" href="../../d8/d2b/class_f_mesh_draw_shader_bindings.html#a4dd974764ca8a7c0dffaf33f9a57ad3e">GetSingleShaderBindings</a>(<a class="code hl_enumvalue" href="../../da/dca/_r_h_i_definitions_8h.html#a0a3cc83cb6ebc79b66b43fae3ffee64eab5693255b8715ee983ad19897394034b">SF_RayHitGroup</a>);</div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>            RayTracingShader-&gt;GetShaderBindings(<a class="code hl_enumvalue" href="../../d0/ddb/_datasmith_definitions_8h.html#a53c0bc858a7263a3651d29218934fa19a9ead0d38e06ec253ca0ecbf6ea56e59b">Scene</a>, FeatureLevel, PrimitiveSceneProxy, MaterialRenderProxy, MaterialResource, ShaderElementData, ShaderBindings);</div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span>        }</div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span> </div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>        <span class="keyword">const</span> <a class="code hl_typedef" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a8dbb3cd84ca9fd010dadfc3815eefa5d">int32</a> NumElements = MeshBatch.Elements.<a class="code hl_function" href="../../d6/db1/class_t_array.html#a1518d29c2cbcefd7b7a3a26e8d39b4c5">Num</a>();</div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span> </div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>        <span class="keywordflow">for</span> (<a class="code hl_typedef" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a8dbb3cd84ca9fd010dadfc3815eefa5d">int32</a> BatchElementIndex = 0; BatchElementIndex &lt; NumElements; BatchElementIndex++)</div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span>        {</div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span>            <span class="keywordflow">if</span> ((1ull &lt;&lt; BatchElementIndex) &amp; BatchElementMask)</div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span>            {</div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span>                <span class="keyword">const</span> FMeshBatchElement&amp; BatchElement = MeshBatch.Elements[BatchElementIndex];</div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span>                FRayTracingMeshCommand&amp; RayTracingMeshCommand = CommandContext-&gt;<a class="code hl_function" href="../../df/d56/class_f_ray_tracing_mesh_command_context.html#ab3184be845d402dec30a42094e715d9e">AddCommand</a>(SharedCommand);</div>
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span> </div>
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span>                <span class="keywordflow">if</span> (RayTracingShader.<a class="code hl_function" href="../../d5/d77/class_t_shader_ref_base.html#aadddc6ef622d882d57910fa12d949ebd">IsValid</a>())</div>
+<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span>                {</div>
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span>                    FMeshDrawSingleShaderBindings RayHitGroupShaderBindings = RayTracingMeshCommand.<a class="code hl_variable" href="../../d3/d57/class_f_ray_tracing_mesh_command.html#a6fb9df78c5122a09448bbf1e98b69191">ShaderBindings</a>.<a class="code hl_function" href="../../d8/d2b/class_f_mesh_draw_shader_bindings.html#a4dd974764ca8a7c0dffaf33f9a57ad3e">GetSingleShaderBindings</a>(<a class="code hl_enumvalue" href="../../da/dca/_r_h_i_definitions_8h.html#a0a3cc83cb6ebc79b66b43fae3ffee64eab5693255b8715ee983ad19897394034b">SF_RayHitGroup</a>);</div>
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span>                    <a class="code hl_function" href="../../d8/dfc/class_f_mesh_material_shader.html#aec538cb47fefb7afafb4e69e099c3e4b">FMeshMaterialShader::GetElementShaderBindings</a>(RayTracingShader, <a class="code hl_enumvalue" href="../../d0/ddb/_datasmith_definitions_8h.html#a53c0bc858a7263a3651d29218934fa19a9ead0d38e06ec253ca0ecbf6ea56e59b">Scene</a>, ViewIfDynamicMeshCommand, <a class="code hl_enumvalue" href="../../d9/d77/_skeletal_render_public_8h.html#aa2d48f9879759ecd564d862f23266475ad48b9573fbcd9840c7cc305a8dac2c7e">VertexFactory</a>, <a class="code hl_enumvalue" href="../../d5/d36/_vertex_factory_8h.html#a2b08c0b703e04411471e1a18eb898a4ca7a1920d61156abc05a60135aefe8bc67">EVertexInputStreamType::Default</a>, FeatureLevel, PrimitiveSceneProxy, MeshBatch, BatchElement, ShaderElementData, RayHitGroupShaderBindings, VertexStreams);</div>
+<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span>                }</div>
+<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span> </div>
+<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span>                <span class="comment">// Command can only be cached if no global/static uniform buffers are used - if all platforms use SBTLayout for all RT shaders then this could be a check</span></div>
+<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span>                RayTracingMeshCommand.<a class="code hl_variable" href="../../d3/d57/class_f_ray_tracing_mesh_command.html#a13820c300441d158ecf2034611ae82af">bCanBeCached</a> = !RayTracingMeshCommand.<a class="code hl_function" href="../../d3/d57/class_f_ray_tracing_mesh_command.html#a4267c74e6d6dc9d97292ce25d84b36fb">HasGlobalUniformBufferBindings</a>();</div>
+<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span> </div>
+<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span>                RayTracingMeshCommand.<a class="code hl_variable" href="../../d3/d57/class_f_ray_tracing_mesh_command.html#a086c2a293dde02a54c753ac3cced52f9">GeometrySegmentIndex</a> = <a class="code hl_typedef" href="../../dd/de9/preprocessor_8c.html#a1134b580f8da4de94ca6b1de4d37975e">uint32</a>(MeshBatch.SegmentIndex) + BatchElementIndex;</div>
+<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span>                RayTracingMeshCommand.<a class="code hl_variable" href="../../d3/d57/class_f_ray_tracing_mesh_command.html#a71cea883e1841bcd1fcf904c5435acf2">bIsTranslucent</a> = MeshBatch.IsTranslucent(MaterialResource.GetFeatureLevel());</div>
+<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span>                CommandContext-&gt;<a class="code hl_function" href="../../df/d56/class_f_ray_tracing_mesh_command_context.html#ad9d9e7a40f1c56ee3b2dd11641f49565">FinalizeCommand</a>(RayTracingMeshCommand);</div>
+<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span>            }</div>
+<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span>        }</div>
+<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span>    }</div>
+<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span> </div>
+<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span>    <span class="keywordtype">bool</span> ProcessPathTracing(</div>
+<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span>        <span class="keyword">const</span> FMeshBatch&amp; <a class="code hl_define" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#aae3356b63849abbe8789dd41648ee90a">RESTRICT</a> MeshBatch,</div>
+<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span>        <a class="code hl_typedef" href="../../dd/de9/preprocessor_8c.html#abc0f5bc07737e498f287334775dff2b6">uint64</a> BatchElementMask,</div>
+<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span>        <span class="keyword">const</span> FPrimitiveSceneProxy* <a class="code hl_define" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#aae3356b63849abbe8789dd41648ee90a">RESTRICT</a> PrimitiveSceneProxy,</div>
+<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span>        <span class="keyword">const</span> FMaterialRenderProxy&amp; <a class="code hl_define" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#aae3356b63849abbe8789dd41648ee90a">RESTRICT</a> MaterialRenderProxy,</div>
+<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span>        <span class="keyword">const</span> FMaterial&amp; <a class="code hl_define" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#aae3356b63849abbe8789dd41648ee90a">RESTRICT</a> MaterialResource);</div>
+<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span> </div>
+<div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span>    <span class="keywordtype">bool</span> TryAddMeshBatch(</div>
+<div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span>        <span class="keyword">const</span> FMeshBatch&amp; <a class="code hl_define" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#aae3356b63849abbe8789dd41648ee90a">RESTRICT</a> MeshBatch,</div>
+<div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span>        <a class="code hl_typedef" href="../../dd/de9/preprocessor_8c.html#abc0f5bc07737e498f287334775dff2b6">uint64</a> BatchElementMask,</div>
+<div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span>        <span class="keyword">const</span> FPrimitiveSceneProxy* <a class="code hl_define" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#aae3356b63849abbe8789dd41648ee90a">RESTRICT</a> PrimitiveSceneProxy,</div>
+<div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span>        <a class="code hl_typedef" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a8dbb3cd84ca9fd010dadfc3815eefa5d">int32</a> StaticMeshId,</div>
+<div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span>        <span class="keyword">const</span> FMaterialRenderProxy&amp; MaterialRenderProxy,</div>
+<div class="line"><a id="l00117" name="l00117"></a><span class="lineno">  117</span>        <span class="keyword">const</span> FMaterial&amp; <a class="code hl_enumvalue" href="../../d7/d56/_datasmith_facade_variant_8h.html#aa3a5b5093cf1206faefe4382ac3aa1c9ad92a8333dd3ccb895cc65f7455b71206">Material</a></div>
+<div class="line"><a id="l00118" name="l00118"></a><span class="lineno">  118</span>    );</div>
+<div class="line"><a id="l00119" name="l00119"></a><span class="lineno">  119</span>};</div>
+<div class="line"><a id="l00120" name="l00120"></a><span class="lineno">  120</span> </div>
+<div class="line"><a id="l00121" name="l00121"></a><span class="lineno">  121</span><span class="keyword">class </span>FHiddenMaterialHitGroup : <span class="keyword">public</span> <a class="code hl_class" href="../../de/dcc/class_f_global_shader.html">FGlobalShader</a></div>
+<div class="line"><a id="l00122" name="l00122"></a><span class="lineno">  122</span>{</div>
+<div class="line"><a id="l00123" name="l00123"></a><span class="lineno">  123</span>    <a class="code hl_define" href="../../dd/d5a/_global_shader_8h.html#ae5afdf3dc014a81ccd64ffea79cc083a">DECLARE_EXPORTED_GLOBAL_SHADER</a>(FHiddenMaterialHitGroup, RENDERER_API)</div>
+<div class="line"><a id="l00124" name="l00124"></a><span class="lineno">  124</span>    <a class="code hl_define" href="../../de/d64/_shader_parameter_struct_8h.html#adc001722ecb180dc32b68dfcdd7afbc8">SHADER_USE_ROOT_PARAMETER_STRUCT</a>(FHiddenMaterialHitGroup, FGlobalShader)</div>
+<div class="line"><a id="l00125" name="l00125"></a><span class="lineno">  125</span> </div>
+<div class="line"><a id="l00126" name="l00126"></a><span class="lineno">  126</span>    <span class="keyword">static</span> <span class="keywordtype">bool</span> <a class="code hl_function" href="../../de/dcc/class_f_global_shader.html#affe09d742f849dde4db924a194641135">ShouldCompilePermutation</a>(<span class="keyword">const</span> FGlobalShaderPermutationParameters&amp; Parameters)</div>
+<div class="line"><a id="l00127" name="l00127"></a><span class="lineno">  127</span>    {</div>
+<div class="line"><a id="l00128" name="l00128"></a><span class="lineno">  128</span>        <span class="keywordflow">return</span> <a class="code hl_function" href="../../d6/d4c/_render_utils_8cpp.html#a9fcc0bcc428d4a9c2ae54c982d2e6a2a">ShouldCompileRayTracingShadersForProject</a>(Parameters.<a class="code hl_variable" href="../../de/de9/struct_f_shader_permutation_parameters.html#a8322db37c9d01c1fa112e48270c00b94">Platform</a>);</div>
+<div class="line"><a id="l00129" name="l00129"></a><span class="lineno">  129</span>    }</div>
+<div class="line"><a id="l00130" name="l00130"></a><span class="lineno">  130</span> </div>
+<div class="line"><a id="l00131" name="l00131"></a><span class="lineno">  131</span>    <span class="keyword">static</span> ERayTracingPayloadType <a class="code hl_function" href="../../dd/d3a/class_f_shader.html#a44dd6ce03b7a07572370b943415a28e7">GetRayTracingPayloadType</a>(<span class="keyword">const</span> <a class="code hl_typedef" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a8dbb3cd84ca9fd010dadfc3815eefa5d">int32</a> PermutationId)</div>
+<div class="line"><a id="l00132" name="l00132"></a><span class="lineno">  132</span>    {</div>
+<div class="line"><a id="l00133" name="l00133"></a><span class="lineno">  133</span>        <span class="keywordflow">return</span> ERayTracingPayloadType::RayTracingMaterial;</div>
+<div class="line"><a id="l00134" name="l00134"></a><span class="lineno">  134</span>    }</div>
+<div class="line"><a id="l00135" name="l00135"></a><span class="lineno">  135</span> </div>
+<div class="line"><a id="l00136" name="l00136"></a><span class="lineno">  136</span>    <span class="keyword">static</span> <span class="keyword">const</span> FShaderBindingLayout* <a class="code hl_function" href="../../dd/d3a/class_f_shader.html#aaaf661e8688c9f2c92d9aa78f0ee00b2">GetShaderBindingLayout</a>(<span class="keyword">const</span> FShaderPermutationParameters&amp; Parameters)</div>
+<div class="line"><a id="l00137" name="l00137"></a><span class="lineno">  137</span>    {</div>
+<div class="line"><a id="l00138" name="l00138"></a><span class="lineno">  138</span>        <span class="keywordflow">return</span> RayTracing::GetShaderBindingLayout(Parameters.<a class="code hl_variable" href="../../de/de9/struct_f_shader_permutation_parameters.html#a8322db37c9d01c1fa112e48270c00b94">Platform</a>);</div>
+<div class="line"><a id="l00139" name="l00139"></a><span class="lineno">  139</span>    }</div>
+<div class="line"><a id="l00140" name="l00140"></a><span class="lineno">  140</span> </div>
+<div class="line"><a id="l00141" name="l00141"></a><span class="lineno">  141</span>    <span class="keyword">using </span>FParameters = FEmptyShaderParameters;</div>
+<div class="line"><a id="l00142" name="l00142"></a><span class="lineno">  142</span>};</div>
+<div class="line"><a id="l00143" name="l00143"></a><span class="lineno">  143</span> </div>
+<div class="line"><a id="l00144" name="l00144"></a><span class="lineno">  144</span><span class="keyword">class </span>FOpaqueShadowHitGroup : <span class="keyword">public</span> <a class="code hl_class" href="../../de/dcc/class_f_global_shader.html">FGlobalShader</a></div>
+<div class="line"><a id="l00145" name="l00145"></a><span class="lineno">  145</span>{</div>
+<div class="line"><a id="l00146" name="l00146"></a><span class="lineno">  146</span>    <a class="code hl_define" href="../../dd/d5a/_global_shader_8h.html#ae5afdf3dc014a81ccd64ffea79cc083a">DECLARE_EXPORTED_GLOBAL_SHADER</a>(FOpaqueShadowHitGroup, RENDERER_API)</div>
+<div class="line"><a id="l00147" name="l00147"></a><span class="lineno">  147</span>    <a class="code hl_define" href="../../de/d64/_shader_parameter_struct_8h.html#adc001722ecb180dc32b68dfcdd7afbc8">SHADER_USE_ROOT_PARAMETER_STRUCT</a>(FOpaqueShadowHitGroup, FGlobalShader)</div>
+<div class="line"><a id="l00148" name="l00148"></a><span class="lineno">  148</span> </div>
+<div class="line"><a id="l00149" name="l00149"></a><span class="lineno">  149</span>    <span class="keyword">static</span> <span class="keywordtype">bool</span> <a class="code hl_function" href="../../de/dcc/class_f_global_shader.html#affe09d742f849dde4db924a194641135">ShouldCompilePermutation</a>(<span class="keyword">const</span> FGlobalShaderPermutationParameters&amp; Parameters)</div>
+<div class="line"><a id="l00150" name="l00150"></a><span class="lineno">  150</span>    {</div>
+<div class="line"><a id="l00151" name="l00151"></a><span class="lineno">  151</span>        <span class="keywordflow">return</span> <a class="code hl_function" href="../../d6/d4c/_render_utils_8cpp.html#a9fcc0bcc428d4a9c2ae54c982d2e6a2a">ShouldCompileRayTracingShadersForProject</a>(Parameters.<a class="code hl_variable" href="../../de/de9/struct_f_shader_permutation_parameters.html#a8322db37c9d01c1fa112e48270c00b94">Platform</a>);</div>
+<div class="line"><a id="l00152" name="l00152"></a><span class="lineno">  152</span>    }</div>
+<div class="line"><a id="l00153" name="l00153"></a><span class="lineno">  153</span> </div>
+<div class="line"><a id="l00154" name="l00154"></a><span class="lineno">  154</span>    <span class="keyword">static</span> ERayTracingPayloadType <a class="code hl_function" href="../../dd/d3a/class_f_shader.html#a44dd6ce03b7a07572370b943415a28e7">GetRayTracingPayloadType</a>(<span class="keyword">const</span> <a class="code hl_typedef" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a8dbb3cd84ca9fd010dadfc3815eefa5d">int32</a> PermutationId)</div>
+<div class="line"><a id="l00155" name="l00155"></a><span class="lineno">  155</span>    {</div>
+<div class="line"><a id="l00156" name="l00156"></a><span class="lineno">  156</span>        <span class="keywordflow">return</span> ERayTracingPayloadType::RayTracingMaterial;</div>
+<div class="line"><a id="l00157" name="l00157"></a><span class="lineno">  157</span>    }</div>
+<div class="line"><a id="l00158" name="l00158"></a><span class="lineno">  158</span> </div>
+<div class="line"><a id="l00159" name="l00159"></a><span class="lineno">  159</span>    <span class="keyword">static</span> <span class="keyword">const</span> FShaderBindingLayout* <a class="code hl_function" href="../../dd/d3a/class_f_shader.html#aaaf661e8688c9f2c92d9aa78f0ee00b2">GetShaderBindingLayout</a>(<span class="keyword">const</span> FShaderPermutationParameters&amp; Parameters)</div>
+<div class="line"><a id="l00160" name="l00160"></a><span class="lineno">  160</span>    {</div>
+<div class="line"><a id="l00161" name="l00161"></a><span class="lineno">  161</span>        <span class="keywordflow">return</span> RayTracing::GetShaderBindingLayout(Parameters.<a class="code hl_variable" href="../../de/de9/struct_f_shader_permutation_parameters.html#a8322db37c9d01c1fa112e48270c00b94">Platform</a>);</div>
+<div class="line"><a id="l00162" name="l00162"></a><span class="lineno">  162</span>    }</div>
+<div class="line"><a id="l00163" name="l00163"></a><span class="lineno">  163</span> </div>
+<div class="line"><a id="l00164" name="l00164"></a><span class="lineno">  164</span>    <span class="keyword">using </span>FParameters = FEmptyShaderParameters;</div>
+<div class="line"><a id="l00165" name="l00165"></a><span class="lineno">  165</span>};</div>
+<div class="line"><a id="l00166" name="l00166"></a><span class="lineno">  166</span> </div>
+<div class="line"><a id="l00167" name="l00167"></a><span class="lineno">  167</span><span class="keyword">class </span>FDefaultCallableShader : <span class="keyword">public</span> <a class="code hl_class" href="../../de/dcc/class_f_global_shader.html">FGlobalShader</a></div>
+<div class="line"><a id="l00168" name="l00168"></a><span class="lineno">  168</span>{</div>
+<div class="line"><a id="l00169" name="l00169"></a><span class="lineno">  169</span>    <a class="code hl_define" href="../../dd/d5a/_global_shader_8h.html#ae5afdf3dc014a81ccd64ffea79cc083a">DECLARE_EXPORTED_GLOBAL_SHADER</a>(FDefaultCallableShader, RENDERER_API)</div>
+<div class="line"><a id="l00170" name="l00170"></a><span class="lineno">  170</span>    <a class="code hl_define" href="../../de/d64/_shader_parameter_struct_8h.html#adc001722ecb180dc32b68dfcdd7afbc8">SHADER_USE_ROOT_PARAMETER_STRUCT</a>(FDefaultCallableShader, FGlobalShader)</div>
+<div class="line"><a id="l00171" name="l00171"></a><span class="lineno">  171</span> </div>
+<div class="line"><a id="l00172" name="l00172"></a><span class="lineno">  172</span>    <span class="keyword">static</span> <span class="keywordtype">bool</span> <a class="code hl_function" href="../../de/dcc/class_f_global_shader.html#affe09d742f849dde4db924a194641135">ShouldCompilePermutation</a>(<span class="keyword">const</span> FGlobalShaderPermutationParameters&amp; Parameters)</div>
+<div class="line"><a id="l00173" name="l00173"></a><span class="lineno">  173</span>    {</div>
+<div class="line"><a id="l00174" name="l00174"></a><span class="lineno">  174</span>        <span class="keywordflow">return</span> <a class="code hl_function" href="../../d6/d4c/_render_utils_8cpp.html#a06a4f914b9259c04aaaa3e2747a2a1f2">ShouldCompileRayTracingCallableShadersForProject</a>(Parameters.<a class="code hl_variable" href="../../de/de9/struct_f_shader_permutation_parameters.html#a8322db37c9d01c1fa112e48270c00b94">Platform</a>);</div>
+<div class="line"><a id="l00175" name="l00175"></a><span class="lineno">  175</span>    }</div>
+<div class="line"><a id="l00176" name="l00176"></a><span class="lineno">  176</span> </div>
+<div class="line"><a id="l00177" name="l00177"></a><span class="lineno">  177</span>    <span class="keyword">static</span> ERayTracingPayloadType <a class="code hl_function" href="../../dd/d3a/class_f_shader.html#a44dd6ce03b7a07572370b943415a28e7">GetRayTracingPayloadType</a>(<span class="keyword">const</span> <a class="code hl_typedef" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a8dbb3cd84ca9fd010dadfc3815eefa5d">int32</a> PermutationId)</div>
+<div class="line"><a id="l00178" name="l00178"></a><span class="lineno">  178</span>    {</div>
+<div class="line"><a id="l00179" name="l00179"></a><span class="lineno">  179</span>        <span class="keywordflow">return</span> ERayTracingPayloadType::Decals;</div>
+<div class="line"><a id="l00180" name="l00180"></a><span class="lineno">  180</span>    }</div>
+<div class="line"><a id="l00181" name="l00181"></a><span class="lineno">  181</span> </div>
+<div class="line"><a id="l00182" name="l00182"></a><span class="lineno">  182</span>    <span class="keyword">static</span> <span class="keyword">const</span> FShaderBindingLayout* <a class="code hl_function" href="../../dd/d3a/class_f_shader.html#aaaf661e8688c9f2c92d9aa78f0ee00b2">GetShaderBindingLayout</a>(<span class="keyword">const</span> FShaderPermutationParameters&amp; Parameters)</div>
+<div class="line"><a id="l00183" name="l00183"></a><span class="lineno">  183</span>    {</div>
+<div class="line"><a id="l00184" name="l00184"></a><span class="lineno">  184</span>        <span class="keywordflow">return</span> RayTracing::GetShaderBindingLayout(Parameters.<a class="code hl_variable" href="../../de/de9/struct_f_shader_permutation_parameters.html#a8322db37c9d01c1fa112e48270c00b94">Platform</a>);</div>
+<div class="line"><a id="l00185" name="l00185"></a><span class="lineno">  185</span>    }</div>
+<div class="line"><a id="l00186" name="l00186"></a><span class="lineno">  186</span> </div>
+<div class="line"><a id="l00187" name="l00187"></a><span class="lineno">  187</span>    <span class="keyword">using </span>FParameters = FEmptyShaderParameters;</div>
+<div class="line"><a id="l00188" name="l00188"></a><span class="lineno">  188</span>};</div>
+<div class="line"><a id="l00189" name="l00189"></a><span class="lineno">  189</span> </div>
+<div class="line"><a id="l00190" name="l00190"></a><span class="lineno">  190</span><span class="keyword">class </span>FRayTracingLocalShaderBindingWriter</div>
+<div class="line"><a id="l00191" name="l00191"></a><span class="lineno">  191</span>{</div>
+<div class="line"><a id="l00192" name="l00192"></a><span class="lineno">  192</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00193" name="l00193"></a><span class="lineno">  193</span> </div>
+<div class="line"><a id="l00194" name="l00194"></a><span class="lineno">  194</span>    FRayTracingLocalShaderBindingWriter()</div>
+<div class="line"><a id="l00195" name="l00195"></a><span class="lineno">  195</span>    {}</div>
+<div class="line"><a id="l00196" name="l00196"></a><span class="lineno">  196</span> </div>
+<div class="line"><a id="l00197" name="l00197"></a><span class="lineno">  197</span>    FRayTracingLocalShaderBindingWriter(<span class="keyword">const</span> FRayTracingLocalShaderBindingWriter&amp;) = <span class="keyword">delete</span>;</div>
+<div class="line"><a id="l00198" name="l00198"></a><span class="lineno">  198</span>    FRayTracingLocalShaderBindingWriter&amp; operator = (<span class="keyword">const</span> FRayTracingLocalShaderBindingWriter&amp;) = <span class="keyword">delete</span>;</div>
+<div class="line"><a id="l00199" name="l00199"></a><span class="lineno">  199</span>    FRayTracingLocalShaderBindingWriter(FRayTracingLocalShaderBindingWriter&amp;&amp;) = <span class="keyword">delete</span>;</div>
+<div class="line"><a id="l00200" name="l00200"></a><span class="lineno">  200</span>    FRayTracingLocalShaderBindingWriter&amp; operator = (FRayTracingLocalShaderBindingWriter&amp;&amp;) = <span class="keyword">delete</span>;</div>
+<div class="line"><a id="l00201" name="l00201"></a><span class="lineno">  201</span> </div>
+<div class="line"><a id="l00202" name="l00202"></a><span class="lineno">  202</span>    ~FRayTracingLocalShaderBindingWriter() = <span class="keywordflow">default</span>;</div>
+<div class="line"><a id="l00203" name="l00203"></a><span class="lineno">  203</span> </div>
+<div class="line"><a id="l00204" name="l00204"></a><span class="lineno">  204</span>    FRayTracingLocalShaderBindings&amp; AddWithInlineParameters(<a class="code hl_typedef" href="../../dd/de9/preprocessor_8c.html#a1134b580f8da4de94ca6b1de4d37975e">uint32</a> NumUniformBuffers, <a class="code hl_typedef" href="../../dd/de9/preprocessor_8c.html#a1134b580f8da4de94ca6b1de4d37975e">uint32</a> LooseDataSize = 0)</div>
+<div class="line"><a id="l00205" name="l00205"></a><span class="lineno">  205</span>    {</div>
+<div class="line"><a id="l00206" name="l00206"></a><span class="lineno">  206</span>        FRayTracingLocalShaderBindings* <a class="code hl_enumeration" href="../../d8/d2b/namespace_f_property_access.html#aa16d54ba56779d9aec31de05d8660f14">Result</a> = AllocateInternal();</div>
+<div class="line"><a id="l00207" name="l00207"></a><span class="lineno">  207</span> </div>
+<div class="line"><a id="l00208" name="l00208"></a><span class="lineno">  208</span>        <span class="keywordflow">if</span> (NumUniformBuffers)</div>
+<div class="line"><a id="l00209" name="l00209"></a><span class="lineno">  209</span>        {</div>
+<div class="line"><a id="l00210" name="l00210"></a><span class="lineno">  210</span>            <a class="code hl_typedef" href="../../dd/de9/preprocessor_8c.html#a1134b580f8da4de94ca6b1de4d37975e">uint32</a> AllocSize = <span class="keyword">sizeof</span>(FRHIUniformBuffer*) * NumUniformBuffers;</div>
+<div class="line"><a id="l00211" name="l00211"></a><span class="lineno">  211</span>            <a class="code hl_enumeration" href="../../d8/d2b/namespace_f_property_access.html#aa16d54ba56779d9aec31de05d8660f14">Result</a>-&gt;UniformBuffers = (FRHIUniformBuffer**)ParameterMemory.Alloc(AllocSize, <span class="keyword">alignof</span>(FRHIUniformBuffer*));</div>
+<div class="line"><a id="l00212" name="l00212"></a><span class="lineno">  212</span>            <a class="code hl_function" href="../../df/da4/struct_f_memory.html#adb6079cf462eba4b740bf94ab27c4a7f">FMemory::Memset</a>(<a class="code hl_enumeration" href="../../d8/d2b/namespace_f_property_access.html#aa16d54ba56779d9aec31de05d8660f14">Result</a>-&gt;UniformBuffers, 0, AllocSize);</div>
+<div class="line"><a id="l00213" name="l00213"></a><span class="lineno">  213</span>        }</div>
+<div class="line"><a id="l00214" name="l00214"></a><span class="lineno">  214</span>        <a class="code hl_enumeration" href="../../d8/d2b/namespace_f_property_access.html#aa16d54ba56779d9aec31de05d8660f14">Result</a>-&gt;NumUniformBuffers = NumUniformBuffers;</div>
+<div class="line"><a id="l00215" name="l00215"></a><span class="lineno">  215</span> </div>
+<div class="line"><a id="l00216" name="l00216"></a><span class="lineno">  216</span>        <span class="keywordflow">if</span> (LooseDataSize)</div>
+<div class="line"><a id="l00217" name="l00217"></a><span class="lineno">  217</span>        {</div>
+<div class="line"><a id="l00218" name="l00218"></a><span class="lineno">  218</span>            <a class="code hl_enumeration" href="../../d8/d2b/namespace_f_property_access.html#aa16d54ba56779d9aec31de05d8660f14">Result</a>-&gt;LooseParameterData = (<a class="code hl_typedef" href="../../dd/de9/preprocessor_8c.html#adde6aaee8457bee49c2a92621fe22b79">uint8</a>*)ParameterMemory.Alloc(LooseDataSize, <span class="keyword">alignof</span>(<span class="keywordtype">void</span>*));</div>
+<div class="line"><a id="l00219" name="l00219"></a><span class="lineno">  219</span>        }</div>
+<div class="line"><a id="l00220" name="l00220"></a><span class="lineno">  220</span>        <a class="code hl_enumeration" href="../../d8/d2b/namespace_f_property_access.html#aa16d54ba56779d9aec31de05d8660f14">Result</a>-&gt;LooseParameterDataSize = LooseDataSize;</div>
+<div class="line"><a id="l00221" name="l00221"></a><span class="lineno">  221</span> </div>
+<div class="line"><a id="l00222" name="l00222"></a><span class="lineno">  222</span>        <span class="keywordflow">return</span> *<a class="code hl_enumeration" href="../../d8/d2b/namespace_f_property_access.html#aa16d54ba56779d9aec31de05d8660f14">Result</a>;</div>
+<div class="line"><a id="l00223" name="l00223"></a><span class="lineno">  223</span>    }</div>
+<div class="line"><a id="l00224" name="l00224"></a><span class="lineno">  224</span> </div>
+<div class="line"><a id="l00225" name="l00225"></a><span class="lineno">  225</span>    FRayTracingLocalShaderBindings&amp; AddWithExternalParameters()</div>
+<div class="line"><a id="l00226" name="l00226"></a><span class="lineno">  226</span>    {</div>
+<div class="line"><a id="l00227" name="l00227"></a><span class="lineno">  227</span>        <span class="keywordflow">return</span> *AllocateInternal();</div>
+<div class="line"><a id="l00228" name="l00228"></a><span class="lineno">  228</span>    }</div>
+<div class="line"><a id="l00229" name="l00229"></a><span class="lineno">  229</span> </div>
+<div class="line"><a id="l00230" name="l00230"></a><span class="lineno">  230</span>    <span class="keywordtype">void</span> Commit(FRHICommandList&amp; RHICmdList, FRHIShaderBindingTable* SBT, FRayTracingPipelineState* <a class="code hl_enumvalue" href="../../d3/d4a/_shader_compiler_core_8h.html#a5928a96ed4c4bf8d62533d1eb26579ccaaeaeaec51b4e6b88122f10ad96a8de72">Pipeline</a>, <span class="keywordtype">bool</span> bCopyDataToInlineStorage)<span class="keyword"> const</span></div>
+<div class="line"><a id="l00231" name="l00231"></a><span class="lineno">  231</span><span class="keyword">    </span>{</div>
+<div class="line"><a id="l00232" name="l00232"></a><span class="lineno">  232</span>        <span class="keyword">const</span> FChunk* <a class="code hl_enumvalue" href="../../db/d28/namespace_storage_server.html#a8b7ee401e94b2cd138ff628eea7dc7fda88255d7e6104ae03101ff725ce36cbb6">Chunk</a> = FirstChunk;</div>
+<div class="line"><a id="l00233" name="l00233"></a><span class="lineno">  233</span>        <span class="keywordflow">while</span> (Chunk)</div>
+<div class="line"><a id="l00234" name="l00234"></a><span class="lineno">  234</span>        {</div>
+<div class="line"><a id="l00235" name="l00235"></a><span class="lineno">  235</span>            RHICmdList.<a class="code hl_function" href="../../d9/dfe/class_f_r_h_i_command_list.html#a4ddc243a678b06ac7da878fc7044b0a6">SetRayTracingHitGroups</a>(SBT, <a class="code hl_enumvalue" href="../../d3/d4a/_shader_compiler_core_8h.html#a5928a96ed4c4bf8d62533d1eb26579ccaaeaeaec51b4e6b88122f10ad96a8de72">Pipeline</a>, <a class="code hl_enumvalue" href="../../db/d28/namespace_storage_server.html#a8b7ee401e94b2cd138ff628eea7dc7fda88255d7e6104ae03101ff725ce36cbb6">Chunk</a>-&gt;Num, <a class="code hl_enumvalue" href="../../db/d28/namespace_storage_server.html#a8b7ee401e94b2cd138ff628eea7dc7fda88255d7e6104ae03101ff725ce36cbb6">Chunk</a>-&gt;Bindings, bCopyDataToInlineStorage);</div>
+<div class="line"><a id="l00236" name="l00236"></a><span class="lineno">  236</span>            <a class="code hl_enumvalue" href="../../db/d28/namespace_storage_server.html#a8b7ee401e94b2cd138ff628eea7dc7fda88255d7e6104ae03101ff725ce36cbb6">Chunk</a> = <a class="code hl_enumvalue" href="../../db/d28/namespace_storage_server.html#a8b7ee401e94b2cd138ff628eea7dc7fda88255d7e6104ae03101ff725ce36cbb6">Chunk</a>-&gt;Next;</div>
+<div class="line"><a id="l00237" name="l00237"></a><span class="lineno">  237</span>        }</div>
+<div class="line"><a id="l00238" name="l00238"></a><span class="lineno">  238</span>    }</div>
+<div class="line"><a id="l00239" name="l00239"></a><span class="lineno">  239</span> </div>
+<div class="line"><a id="l00240" name="l00240"></a><span class="lineno">  240</span>    <span class="keyword">struct </span>FChunk</div>
+<div class="line"><a id="l00241" name="l00241"></a><span class="lineno">  241</span>    {</div>
+<div class="line"><a id="l00242" name="l00242"></a><span class="lineno">  242</span>        <span class="keyword">static</span> <span class="keyword">constexpr</span> <a class="code hl_typedef" href="../../dd/de9/preprocessor_8c.html#a1134b580f8da4de94ca6b1de4d37975e">uint32</a> MaxNum = 1024;</div>
+<div class="line"><a id="l00243" name="l00243"></a><span class="lineno">  243</span> </div>
+<div class="line"><a id="l00244" name="l00244"></a><span class="lineno">  244</span>        <span class="comment">// Note: constructors for elements of this array are called explicitly in AllocateInternal(). Destructors are not called.</span></div>
+<div class="line"><a id="l00245" name="l00245"></a><span class="lineno">  245</span>        <span class="keyword">static_assert</span>(std::is_trivially_destructible_v&lt;FRayTracingLocalShaderBindings&gt;, <span class="stringliteral">&quot;FRayTracingLocalShaderBindings must be trivially destructible, as no destructor will be called.&quot;</span>);</div>
+<div class="line"><a id="l00246" name="l00246"></a><span class="lineno">  246</span>        FRayTracingLocalShaderBindings Bindings[MaxNum];</div>
+<div class="line"><a id="l00247" name="l00247"></a><span class="lineno">  247</span>        FChunk* <a class="code hl_enumvalue" href="../../d4/d8f/_anim_node___random_player_8h.html#a44040536c5887425d1741165af9cd6a1a10ac3d04253ef7e1ddc73e6091c0cd55">Next</a>;</div>
+<div class="line"><a id="l00248" name="l00248"></a><span class="lineno">  248</span>        <a class="code hl_typedef" href="../../dd/de9/preprocessor_8c.html#a1134b580f8da4de94ca6b1de4d37975e">uint32</a> <a class="code hl_enumvalue" href="../../d8/df1/_metal_r_h_i_private_8h.html#a8377b95bbf59edd1a902638208b8ed47a2baa9ca0e7468d1f502764b4899c4f26">Num</a>;</div>
+<div class="line"><a id="l00249" name="l00249"></a><span class="lineno">  249</span>    };</div>
+<div class="line"><a id="l00250" name="l00250"></a><span class="lineno">  250</span> </div>
+<div class="line"><a id="l00251" name="l00251"></a><span class="lineno">  251</span>    <span class="keyword">const</span> FChunk* GetFirstChunk()<span class="keyword"> const</span></div>
+<div class="line"><a id="l00252" name="l00252"></a><span class="lineno">  252</span><span class="keyword">    </span>{</div>
+<div class="line"><a id="l00253" name="l00253"></a><span class="lineno">  253</span>        <span class="keywordflow">return</span> FirstChunk;</div>
+<div class="line"><a id="l00254" name="l00254"></a><span class="lineno">  254</span>    }</div>
+<div class="line"><a id="l00255" name="l00255"></a><span class="lineno">  255</span> </div>
+<div class="line"><a id="l00256" name="l00256"></a><span class="lineno">  256</span><span class="keyword">private</span>:</div>
+<div class="line"><a id="l00257" name="l00257"></a><span class="lineno">  257</span> </div>
+<div class="line"><a id="l00258" name="l00258"></a><span class="lineno">  258</span>    FChunk* FirstChunk = <span class="keyword">nullptr</span>;</div>
+<div class="line"><a id="l00259" name="l00259"></a><span class="lineno">  259</span>    FChunk* CurrentChunk = <span class="keyword">nullptr</span>;</div>
+<div class="line"><a id="l00260" name="l00260"></a><span class="lineno">  260</span> </div>
+<div class="line"><a id="l00261" name="l00261"></a><span class="lineno">  261</span>    FMemStackBase ParameterMemory;</div>
+<div class="line"><a id="l00262" name="l00262"></a><span class="lineno">  262</span> </div>
+<div class="line"><a id="l00263" name="l00263"></a><span class="lineno">  263</span>    <span class="keyword">friend</span> <span class="keyword">class </span>FRHICommandList;</div>
+<div class="line"><a id="l00264" name="l00264"></a><span class="lineno">  264</span> </div>
+<div class="line"><a id="l00265" name="l00265"></a><span class="lineno">  265</span>    FRayTracingLocalShaderBindings* AllocateInternal()</div>
+<div class="line"><a id="l00266" name="l00266"></a><span class="lineno">  266</span>    {</div>
+<div class="line"><a id="l00267" name="l00267"></a><span class="lineno">  267</span>        <span class="keywordflow">if</span> (!CurrentChunk || CurrentChunk-&gt;Num == FChunk::MaxNum)</div>
+<div class="line"><a id="l00268" name="l00268"></a><span class="lineno">  268</span>        {</div>
+<div class="line"><a id="l00269" name="l00269"></a><span class="lineno">  269</span>            FChunk* OldChunk = CurrentChunk;</div>
+<div class="line"><a id="l00270" name="l00270"></a><span class="lineno">  270</span> </div>
+<div class="line"><a id="l00271" name="l00271"></a><span class="lineno">  271</span>            <span class="keyword">static_assert</span>(std::is_trivially_destructible_v&lt;FChunk&gt;, <span class="stringliteral">&quot;Chunk must be trivially destructible, as no destructor will be called.&quot;</span>);</div>
+<div class="line"><a id="l00272" name="l00272"></a><span class="lineno">  272</span>            CurrentChunk = (FChunk*)ParameterMemory.<a class="code hl_function" href="../../df/d4b/class_f_mem_stack_base.html#a343b55833ea8e7f32ffdd612e3e039c7">Alloc</a>(<span class="keyword">sizeof</span>(FChunk), <span class="keyword">alignof</span>(FChunk));</div>
+<div class="line"><a id="l00273" name="l00273"></a><span class="lineno">  273</span>            CurrentChunk-&gt;Next = <span class="keyword">nullptr</span>;</div>
+<div class="line"><a id="l00274" name="l00274"></a><span class="lineno">  274</span>            CurrentChunk-&gt;Num = 0;</div>
+<div class="line"><a id="l00275" name="l00275"></a><span class="lineno">  275</span> </div>
+<div class="line"><a id="l00276" name="l00276"></a><span class="lineno">  276</span>            <span class="keywordflow">if</span> (FirstChunk == <span class="keyword">nullptr</span>)</div>
+<div class="line"><a id="l00277" name="l00277"></a><span class="lineno">  277</span>            {</div>
+<div class="line"><a id="l00278" name="l00278"></a><span class="lineno">  278</span>                FirstChunk = CurrentChunk;</div>
+<div class="line"><a id="l00279" name="l00279"></a><span class="lineno">  279</span>            }</div>
+<div class="line"><a id="l00280" name="l00280"></a><span class="lineno">  280</span> </div>
+<div class="line"><a id="l00281" name="l00281"></a><span class="lineno">  281</span>            <span class="keywordflow">if</span> (OldChunk)</div>
+<div class="line"><a id="l00282" name="l00282"></a><span class="lineno">  282</span>            {</div>
+<div class="line"><a id="l00283" name="l00283"></a><span class="lineno">  283</span>                OldChunk-&gt;Next = CurrentChunk;</div>
+<div class="line"><a id="l00284" name="l00284"></a><span class="lineno">  284</span>            }</div>
+<div class="line"><a id="l00285" name="l00285"></a><span class="lineno">  285</span>        }</div>
+<div class="line"><a id="l00286" name="l00286"></a><span class="lineno">  286</span> </div>
+<div class="line"><a id="l00287" name="l00287"></a><span class="lineno">  287</span>        FRayTracingLocalShaderBindings* ResultMemory = &amp;CurrentChunk-&gt;Bindings[CurrentChunk-&gt;Num++];</div>
+<div class="line"><a id="l00288" name="l00288"></a><span class="lineno">  288</span>        <span class="keywordflow">return</span> <span class="keyword">new</span>(ResultMemory) FRayTracingLocalShaderBindings;</div>
+<div class="line"><a id="l00289" name="l00289"></a><span class="lineno">  289</span>    }</div>
+<div class="line"><a id="l00290" name="l00290"></a><span class="lineno">  290</span>};</div>
+<div class="line"><a id="l00291" name="l00291"></a><span class="lineno">  291</span> </div>
+<div class="line"><a id="l00292" name="l00292"></a><span class="lineno">  292</span><span class="keyword">template</span> &lt;<span class="keyword">typename</span> FunctionType&gt;</div>
+<div class="line"><a id="l00293" name="l00293"></a><span class="lineno">  293</span><span class="keywordtype">void</span> AddRayTracingLocalShaderBindingWriterTasks(</div>
+<div class="line"><a id="l00294" name="l00294"></a><span class="lineno">  294</span>    <a class="code hl_class" href="../../d3/d85/class_f_r_d_g_builder.html">FRDGBuilder</a>&amp; GraphBuilder,</div>
+<div class="line"><a id="l00295" name="l00295"></a><span class="lineno">  295</span>    TConstArrayView&lt;FRayTracingShaderBindingData&gt; DirtyPersistentRayTracingShaderBindings,</div>
+<div class="line"><a id="l00296" name="l00296"></a><span class="lineno">  296</span>    <a class="code hl_class" href="../../d6/db1/class_t_array.html">TArray&lt;FRayTracingLocalShaderBindingWriter*, SceneRenderingAllocator&gt;</a>&amp; ShaderBindingWriters,</div>
+<div class="line"><a id="l00297" name="l00297"></a><span class="lineno">  297</span>    FunctionType SetupBindingsFunction)</div>
+<div class="line"><a id="l00298" name="l00298"></a><span class="lineno">  298</span>{   </div>
+<div class="line"><a id="l00299" name="l00299"></a><span class="lineno">  299</span>    <span class="keyword">const</span> <a class="code hl_typedef" href="../../dd/de9/preprocessor_8c.html#a1134b580f8da4de94ca6b1de4d37975e">uint32</a> NumTotalDirtyBindings = DirtyPersistentRayTracingShaderBindings.Num();</div>
+<div class="line"><a id="l00300" name="l00300"></a><span class="lineno">  300</span>    <span class="keyword">const</span> <a class="code hl_typedef" href="../../dd/de9/preprocessor_8c.html#a1134b580f8da4de94ca6b1de4d37975e">uint32</a> TargetBindingsPerTask = 1024;</div>
+<div class="line"><a id="l00301" name="l00301"></a><span class="lineno">  301</span>    <span class="keyword">const</span> <a class="code hl_typedef" href="../../dd/de9/preprocessor_8c.html#a1134b580f8da4de94ca6b1de4d37975e">uint32</a> NumTasks = FMath::Max(1u, <a class="code hl_function" href="../../d1/d85/struct_f_math.html#a30ca3da4d963221c8548765deba8bd10">FMath::DivideAndRoundUp</a>(NumTotalDirtyBindings, TargetBindingsPerTask));</div>
+<div class="line"><a id="l00302" name="l00302"></a><span class="lineno">  302</span>    <span class="keyword">const</span> <a class="code hl_typedef" href="../../dd/de9/preprocessor_8c.html#a1134b580f8da4de94ca6b1de4d37975e">uint32</a> BindingsPerTask = <a class="code hl_function" href="../../d1/d85/struct_f_math.html#a30ca3da4d963221c8548765deba8bd10">FMath::DivideAndRoundUp</a>(NumTotalDirtyBindings, NumTasks); <span class="comment">// Evenly divide commands between tasks (avoiding potential short last task)</span></div>
+<div class="line"><a id="l00303" name="l00303"></a><span class="lineno">  303</span> </div>
+<div class="line"><a id="l00304" name="l00304"></a><span class="lineno">  304</span>    ShaderBindingWriters.<a class="code hl_function" href="../../d6/db1/class_t_array.html#a6d4b92d0b79ce6147684387ae1749c7e">SetNum</a>(NumTasks);</div>
+<div class="line"><a id="l00305" name="l00305"></a><span class="lineno">  305</span> </div>
+<div class="line"><a id="l00306" name="l00306"></a><span class="lineno">  306</span>    <span class="keywordflow">for</span> (<a class="code hl_typedef" href="../../dd/de9/preprocessor_8c.html#a1134b580f8da4de94ca6b1de4d37975e">uint32</a> TaskIndex = 0; TaskIndex &lt; NumTasks; ++TaskIndex)</div>
+<div class="line"><a id="l00307" name="l00307"></a><span class="lineno">  307</span>    {</div>
+<div class="line"><a id="l00308" name="l00308"></a><span class="lineno">  308</span>        <span class="keyword">const</span> <a class="code hl_typedef" href="../../dd/de9/preprocessor_8c.html#a1134b580f8da4de94ca6b1de4d37975e">uint32</a> FirstTaskBindingIndex = TaskIndex * BindingsPerTask;</div>
+<div class="line"><a id="l00309" name="l00309"></a><span class="lineno">  309</span>        <span class="keyword">const</span> <a class="code hl_class" href="../../dd/d4d/class_f_ray_tracing_shader_binding_data.html">FRayTracingShaderBindingData</a>* RTShaderBindings = DirtyPersistentRayTracingShaderBindings.GetData() + FirstTaskBindingIndex;</div>
+<div class="line"><a id="l00310" name="l00310"></a><span class="lineno">  310</span>        <span class="keyword">const</span> <a class="code hl_typedef" href="../../dd/de9/preprocessor_8c.html#a1134b580f8da4de94ca6b1de4d37975e">uint32</a> NumBindings = FMath::Min(BindingsPerTask, NumTotalDirtyBindings - FirstTaskBindingIndex);</div>
+<div class="line"><a id="l00311" name="l00311"></a><span class="lineno">  311</span> </div>
+<div class="line"><a id="l00312" name="l00312"></a><span class="lineno">  312</span>        FRayTracingLocalShaderBindingWriter* BindingWriter = <span class="keyword">new</span> FRayTracingLocalShaderBindingWriter();</div>
+<div class="line"><a id="l00313" name="l00313"></a><span class="lineno">  313</span>        ShaderBindingWriters[TaskIndex] = BindingWriter;</div>
+<div class="line"><a id="l00314" name="l00314"></a><span class="lineno">  314</span> </div>
+<div class="line"><a id="l00315" name="l00315"></a><span class="lineno">  315</span>        GraphBuilder.<a class="code hl_function" href="../../d3/d85/class_f_r_d_g_builder.html#ad6f6b2593d535e017c1cdcc443948d78">AddSetupTask</a>(</div>
+<div class="line"><a id="l00316" name="l00316"></a><span class="lineno">  316</span>            [BindingWriter, RTShaderBindings, NumBindings, SetupBindingsFunction]()</div>
+<div class="line"><a id="l00317" name="l00317"></a><span class="lineno">  317</span>            {</div>
+<div class="line"><a id="l00318" name="l00318"></a><span class="lineno">  318</span>                <a class="code hl_define" href="../../df/d7e/_cpu_profiler_trace_8h.html#a7e0870a4fda1d2063a0690a95c6bc92f">TRACE_CPUPROFILER_EVENT_SCOPE</a>(BuildRayTracingMaterialBindingsTask);</div>
+<div class="line"><a id="l00319" name="l00319"></a><span class="lineno">  319</span> </div>
+<div class="line"><a id="l00320" name="l00320"></a><span class="lineno">  320</span>                <span class="keywordflow">for</span> (<a class="code hl_typedef" href="../../dd/de9/preprocessor_8c.html#a1134b580f8da4de94ca6b1de4d37975e">uint32</a> BindingIndex = 0; BindingIndex &lt; NumBindings; ++BindingIndex)</div>
+<div class="line"><a id="l00321" name="l00321"></a><span class="lineno">  321</span>                {</div>
+<div class="line"><a id="l00322" name="l00322"></a><span class="lineno">  322</span>                    <span class="keyword">const</span> <a class="code hl_class" href="../../dd/d4d/class_f_ray_tracing_shader_binding_data.html">FRayTracingShaderBindingData</a>&amp; RTShaderBindingData = RTShaderBindings[BindingIndex];</div>
+<div class="line"><a id="l00323" name="l00323"></a><span class="lineno">  323</span>                    SetupBindingsFunction(RTShaderBindingData, BindingWriter);</div>
+<div class="line"><a id="l00324" name="l00324"></a><span class="lineno">  324</span>                }</div>
+<div class="line"><a id="l00325" name="l00325"></a><span class="lineno">  325</span>            });</div>
+<div class="line"><a id="l00326" name="l00326"></a><span class="lineno">  326</span>    }</div>
+<div class="line"><a id="l00327" name="l00327"></a><span class="lineno">  327</span>}</div>
+<div class="line"><a id="l00328" name="l00328"></a><span class="lineno">  328</span> </div>
+<div class="line"><a id="l00329" name="l00329"></a><span class="lineno">  329</span><span class="keywordtype">void</span> SetRayTracingShaderBindings(<a class="code hl_class" href="../../d9/dfe/class_f_r_h_i_command_list.html">FRHICommandList</a>&amp; RHICmdList, <a class="code hl_typedef" href="../../d1/d68/_scene_rendering_allocator_8h.html#a5bec8fbb87bdaa33f3c460b97373a8d4">FSceneRenderingBulkObjectAllocator</a>&amp; <a class="code hl_enumvalue" href="../../d6/de8/_render_graph_definitions_8h.html#a2a79e6d685affd4f2fa2bc1eb19048a4afb1925517296a258d34f3c05e78ce0b2">Allocator</a>, FViewInfo::FRayTracingData&amp; RayTracingData);</div>
+<div class="line"><a id="l00330" name="l00330"></a><span class="lineno">  330</span> </div>
+<div class="line"><a id="l00331" name="l00331"></a><span class="lineno">  331</span><span class="preprocessor">#endif </span><span class="comment">// RHI_RAYTRACING</span></div>
+<div class="ttc" id="a_anim_node___random_player_8h_html_a44040536c5887425d1741165af9cd6a1a10ac3d04253ef7e1ddc73e6091c0cd55"><div class="ttname"><a href="../../d4/d8f/_anim_node___random_player_8h.html#a44040536c5887425d1741165af9cd6a1a10ac3d04253ef7e1ddc73e6091c0cd55">ERandomDataIndexType::Next</a></div><div class="ttdeci">@ Next</div><div class="ttdef"><b>定义</b> AnimNode_RandomPlayer.h:17</div></div>
+<div class="ttc" id="a_core_2_public_2_h_a_l_2_platform_8h_html_a8dbb3cd84ca9fd010dadfc3815eefa5d"><div class="ttname"><a href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a8dbb3cd84ca9fd010dadfc3815eefa5d">int32</a></div><div class="ttdeci">FPlatformTypes::int32 int32</div><div class="ttdoc">A 32-bit signed integer.</div><div class="ttdef"><b>定义</b> Platform.h:1190</div></div>
+<div class="ttc" id="a_core_2_public_2_h_a_l_2_platform_8h_html_aae3356b63849abbe8789dd41648ee90a"><div class="ttname"><a href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#aae3356b63849abbe8789dd41648ee90a">RESTRICT</a></div><div class="ttdeci">#define RESTRICT</div><div class="ttdef"><b>定义</b> Platform.h:758</div></div>
+<div class="ttc" id="a_cpu_profiler_trace_8h_html_a7e0870a4fda1d2063a0690a95c6bc92f"><div class="ttname"><a href="../../df/d7e/_cpu_profiler_trace_8h.html#a7e0870a4fda1d2063a0690a95c6bc92f">TRACE_CPUPROFILER_EVENT_SCOPE</a></div><div class="ttdeci">#define TRACE_CPUPROFILER_EVENT_SCOPE(Name)</div><div class="ttdef"><b>定义</b> CpuProfilerTrace.h:532</div></div>
+<div class="ttc" id="a_data_driven_shader_platform_info_8h_html"><div class="ttname"><a href="../../d8/df3/_data_driven_shader_platform_info_8h.html">DataDrivenShaderPlatformInfo.h</a></div></div>
+<div class="ttc" id="a_datasmith_definitions_8h_html_a53c0bc858a7263a3651d29218934fa19a9ead0d38e06ec253ca0ecbf6ea56e59b"><div class="ttname"><a href="../../d0/ddb/_datasmith_definitions_8h.html#a53c0bc858a7263a3651d29218934fa19a9ead0d38e06ec253ca0ecbf6ea56e59b">EDatasmithElementType::Scene</a></div><div class="ttdeci">@ Scene</div><div class="ttdef"><b>定义</b> DatasmithDefinitions.h:41</div></div>
+<div class="ttc" id="a_datasmith_facade_variant_8h_html_aa3a5b5093cf1206faefe4382ac3aa1c9ad92a8333dd3ccb895cc65f7455b71206"><div class="ttname"><a href="../../d7/d56/_datasmith_facade_variant_8h.html#aa3a5b5093cf1206faefe4382ac3aa1c9ad92a8333dd3ccb895cc65f7455b71206">EDatasmithFacadePropertyCategory::Material</a></div><div class="ttdeci">@ Material</div><div class="ttdef"><b>定义</b> DatasmithFacadeVariant.h:27</div></div>
+<div class="ttc" id="a_global_shader_8h_html_ae5afdf3dc014a81ccd64ffea79cc083a"><div class="ttname"><a href="../../dd/d5a/_global_shader_8h.html#ae5afdf3dc014a81ccd64ffea79cc083a">DECLARE_EXPORTED_GLOBAL_SHADER</a></div><div class="ttdeci">#define DECLARE_EXPORTED_GLOBAL_SHADER(ShaderClass, RequiredAPI)</div><div class="ttdef"><b>定义</b> GlobalShader.h:432</div></div>
+<div class="ttc" id="a_light_map_rendering_8h_html"><div class="ttname"><a href="../../d0/d0a/_light_map_rendering_8h.html">LightMapRendering.h</a></div></div>
+<div class="ttc" id="a_material_domain_8h_html"><div class="ttname"><a href="../../d8/db2/_material_domain_8h.html">MaterialDomain.h</a></div></div>
+<div class="ttc" id="a_mesh_material_shader_8h_html"><div class="ttname"><a href="../../d7/dbc/_mesh_material_shader_8h.html">MeshMaterialShader.h</a></div></div>
+<div class="ttc" id="a_mesh_pass_processor_8inl_html"><div class="ttname"><a href="../../d3/d4c/_mesh_pass_processor_8inl.html">MeshPassProcessor.inl</a></div></div>
+<div class="ttc" id="a_metal_r_h_i_private_8h_html_a8377b95bbf59edd1a902638208b8ed47a2baa9ca0e7468d1f502764b4899c4f26"><div class="ttname"><a href="../../d8/df1/_metal_r_h_i_private_8h.html#a8377b95bbf59edd1a902638208b8ed47a2baa9ca0e7468d1f502764b4899c4f26">Num</a></div><div class="ttdeci">@ Num</div><div class="ttdef"><b>定义</b> MetalRHIPrivate.h:238</div></div>
+<div class="ttc" id="a_r_h_i_definitions_8h_html"><div class="ttname"><a href="../../da/dca/_r_h_i_definitions_8h.html">RHIDefinitions.h</a></div></div>
+<div class="ttc" id="a_r_h_i_definitions_8h_html_a0a3cc83cb6ebc79b66b43fae3ffee64eab5693255b8715ee983ad19897394034b"><div class="ttname"><a href="../../da/dca/_r_h_i_definitions_8h.html#a0a3cc83cb6ebc79b66b43fae3ffee64eab5693255b8715ee983ad19897394034b">SF_RayHitGroup</a></div><div class="ttdeci">@ SF_RayHitGroup</div><div class="ttdef"><b>定义</b> RHIDefinitions.h:198</div></div>
+<div class="ttc" id="a_r_h_i_globals_8h_html_af719139e4633fcb68f42c96445c1ea60"><div class="ttname"><a href="../../dd/db5/_r_h_i_globals_8h.html#af719139e4633fcb68f42c96445c1ea60">GRHISupportsRayTracingShaders</a></div><div class="ttdeci">#define GRHISupportsRayTracingShaders</div><div class="ttdef"><b>定义</b> RHIGlobals.h:908</div></div>
+<div class="ttc" id="a_ray_tracing_8h_html"><div class="ttname"><a href="../../dd/dab/_ray_tracing_8h.html">RayTracing.h</a></div></div>
+<div class="ttc" id="a_ray_tracing_instance_mask_8h_html"><div class="ttname"><a href="../../d4/d1f/_ray_tracing_instance_mask_8h.html">RayTracingInstanceMask.h</a></div></div>
+<div class="ttc" id="a_ray_tracing_mesh_draw_commands_8h_html"><div class="ttname"><a href="../../d8/d99/_ray_tracing_mesh_draw_commands_8h.html">RayTracingMeshDrawCommands.h</a></div></div>
+<div class="ttc" id="a_render_graph_definitions_8h_html_a2a79e6d685affd4f2fa2bc1eb19048a4afb1925517296a258d34f3c05e78ce0b2"><div class="ttname"><a href="../../d6/de8/_render_graph_definitions_8h.html#a2a79e6d685affd4f2fa2bc1eb19048a4afb1925517296a258d34f3c05e78ce0b2">ERDGHandleRegistryDestructPolicy::Allocator</a></div><div class="ttdeci">@ Allocator</div><div class="ttdef"><b>定义</b> RenderGraphDefinitions.h:441</div></div>
+<div class="ttc" id="a_render_utils_8cpp_html_a06a4f914b9259c04aaaa3e2747a2a1f2"><div class="ttname"><a href="../../d6/d4c/_render_utils_8cpp.html#a06a4f914b9259c04aaaa3e2747a2a1f2">ShouldCompileRayTracingCallableShadersForProject</a></div><div class="ttdeci">bool ShouldCompileRayTracingCallableShadersForProject(EShaderPlatform ShaderPlatform)</div><div class="ttdef"><b>定义</b> RenderUtils.cpp:1898</div></div>
+<div class="ttc" id="a_render_utils_8cpp_html_a9fcc0bcc428d4a9c2ae54c982d2e6a2a"><div class="ttname"><a href="../../d6/d4c/_render_utils_8cpp.html#a9fcc0bcc428d4a9c2ae54c982d2e6a2a">ShouldCompileRayTracingShadersForProject</a></div><div class="ttdeci">bool ShouldCompileRayTracingShadersForProject(EShaderPlatform ShaderPlatform)</div><div class="ttdef"><b>定义</b> RenderUtils.cpp:1886</div></div>
+<div class="ttc" id="a_scene_rendering_8h_html"><div class="ttname"><a href="../../d6/dda/_scene_rendering_8h.html">SceneRendering.h</a></div></div>
+<div class="ttc" id="a_scene_rendering_allocator_8h_html_a5bec8fbb87bdaa33f3c460b97373a8d4"><div class="ttname"><a href="../../d1/d68/_scene_rendering_allocator_8h.html#a5bec8fbb87bdaa33f3c460b97373a8d4">FSceneRenderingBulkObjectAllocator</a></div><div class="ttdeci">TConcurrentLinearBulkObjectAllocator&lt; FSceneRenderingBlockAllocationTag &gt; FSceneRenderingBulkObjectAllocator</div><div class="ttdef"><b>定义</b> SceneRenderingAllocator.h:18</div></div>
+<div class="ttc" id="a_shader_8h_html_ab6739264464426458ad868ca8d8cc420"><div class="ttname"><a href="../../d8/d34/_shader_8h.html#ab6739264464426458ad868ca8d8cc420">TShaderRef</a></div><div class="ttdeci">TShaderRefBase&lt; ShaderType, FShaderMapPointerTable &gt; TShaderRef</div><div class="ttdef"><b>定义</b> Shader.h:1217</div></div>
+<div class="ttc" id="a_shader_compiler_core_8h_html_a5928a96ed4c4bf8d62533d1eb26579ccaaeaeaec51b4e6b88122f10ad96a8de72"><div class="ttname"><a href="../../d3/d4a/_shader_compiler_core_8h.html#a5928a96ed4c4bf8d62533d1eb26579ccaaeaeaec51b4e6b88122f10ad96a8de72">EShaderCompileJobType::Pipeline</a></div><div class="ttdeci">@ Pipeline</div><div class="ttdef"><b>定义</b> ShaderCompilerCore.h:807</div></div>
+<div class="ttc" id="a_shader_parameter_struct_8h_html"><div class="ttname"><a href="../../de/d64/_shader_parameter_struct_8h.html">ShaderParameterStruct.h</a></div></div>
+<div class="ttc" id="a_shader_parameter_struct_8h_html_adc001722ecb180dc32b68dfcdd7afbc8"><div class="ttname"><a href="../../de/d64/_shader_parameter_struct_8h.html#adc001722ecb180dc32b68dfcdd7afbc8">SHADER_USE_ROOT_PARAMETER_STRUCT</a></div><div class="ttdeci">#define SHADER_USE_ROOT_PARAMETER_STRUCT(ShaderClass, ShaderParentClass)</div><div class="ttdef"><b>定义</b> ShaderParameterStruct.h:79</div></div>
+<div class="ttc" id="a_skeletal_render_public_8h_html_aa2d48f9879759ecd564d862f23266475ad48b9573fbcd9840c7cc305a8dac2c7e"><div class="ttname"><a href="../../d9/d77/_skeletal_render_public_8h.html#aa2d48f9879759ecd564d862f23266475ad48b9573fbcd9840c7cc305a8dac2c7e">EBoneTransformAllocationMode::VertexFactory</a></div><div class="ttdeci">@ VertexFactory</div><div class="ttdef"><b>定义</b> SkeletalRenderPublic.h:90</div></div>
+<div class="ttc" id="a_type_container_8h_html_aab218920b7bd8650b70f0b0c898c13c1ab6ec7abeb6ae29cc35a4b47475e12afe"><div class="ttname"><a href="../../de/d44/_type_container_8h.html#aab218920b7bd8650b70f0b0c898c13c1ab6ec7abeb6ae29cc35a4b47475e12afe">ETypeContainerScope::Process</a></div><div class="ttdeci">@ Process</div><div class="ttdef"><b>定义</b> TypeContainer.h:25</div></div>
+<div class="ttc" id="a_vertex_factory_8h_html_a282023f316890e979691760dd5716f43"><div class="ttname"><a href="../../d5/d36/_vertex_factory_8h.html#a282023f316890e979691760dd5716f43">FVertexInputStreamArray</a></div><div class="ttdeci">TArray&lt; FVertexInputStream, TInlineAllocator&lt; 7 &gt; &gt; FVertexInputStreamArray</div><div class="ttdef"><b>定义</b> VertexFactory.h:123</div></div>
+<div class="ttc" id="a_vertex_factory_8h_html_a2b08c0b703e04411471e1a18eb898a4ca7a1920d61156abc05a60135aefe8bc67"><div class="ttname"><a href="../../d5/d36/_vertex_factory_8h.html#a2b08c0b703e04411471e1a18eb898a4ca7a1920d61156abc05a60135aefe8bc67">EVertexInputStreamType::Default</a></div><div class="ttdeci">@ Default</div><div class="ttdef"><b>定义</b> VertexFactory.h:129</div></div>
+<div class="ttc" id="aclass_f_global_shader_html"><div class="ttname"><a href="../../de/dcc/class_f_global_shader.html">FGlobalShader</a></div><div class="ttdef"><b>定义</b> GlobalShader.h:283</div></div>
+<div class="ttc" id="aclass_f_global_shader_html_affe09d742f849dde4db924a194641135"><div class="ttname"><a href="../../de/dcc/class_f_global_shader.html#affe09d742f849dde4db924a194641135">FGlobalShader::ShouldCompilePermutation</a></div><div class="ttdeci">static bool ShouldCompilePermutation(const FShaderPermutationParameters &amp;)</div><div class="ttdef"><b>定义</b> Shader.h:848</div></div>
+<div class="ttc" id="aclass_f_global_shader_map_html"><div class="ttname"><a href="../../d0/d61/class_f_global_shader_map.html">FGlobalShaderMap</a></div><div class="ttdef"><b>定义</b> GlobalShader.h:182</div></div>
+<div class="ttc" id="aclass_f_mem_stack_base_html_a343b55833ea8e7f32ffdd612e3e039c7"><div class="ttname"><a href="../../df/d4b/class_f_mem_stack_base.html#a343b55833ea8e7f32ffdd612e3e039c7">FMemStackBase::Alloc</a></div><div class="ttdeci">void * Alloc(size_t AllocSize, size_t Alignment)</div><div class="ttdef"><b>定义</b> MemStack.h:132</div></div>
+<div class="ttc" id="aclass_f_mesh_draw_shader_bindings_html_a4dd974764ca8a7c0dffaf33f9a57ad3e"><div class="ttname"><a href="../../d8/d2b/class_f_mesh_draw_shader_bindings.html#a4dd974764ca8a7c0dffaf33f9a57ad3e">FMeshDrawShaderBindings::GetSingleShaderBindings</a></div><div class="ttdeci">FORCEINLINE FMeshDrawSingleShaderBindings GetSingleShaderBindings(EShaderFrequency Frequency, int32 &amp;DataOffset)</div><div class="ttdef"><b>定义</b> MeshPassProcessor.h:1037</div></div>
+<div class="ttc" id="aclass_f_mesh_material_shader_html_aec538cb47fefb7afafb4e69e099c3e4b"><div class="ttname"><a href="../../d8/dfc/class_f_mesh_material_shader.html#aec538cb47fefb7afafb4e69e099c3e4b">FMeshMaterialShader::GetElementShaderBindings</a></div><div class="ttdeci">RENDERER_API void GetElementShaderBindings(const FShaderMapPointerTable &amp;PointerTable, const FScene *Scene, const FSceneView *ViewIfDynamicMeshCommand, const FVertexFactory *VertexFactory, const EVertexInputStreamType InputStreamType, const FStaticFeatureLevel FeatureLevel, const FPrimitiveSceneProxy *PrimitiveSceneProxy, const FMeshBatch &amp;MeshBatch, const FMeshBatchElement &amp;BatchElement, const FMeshMaterialShaderElementData &amp;ShaderElementData, FMeshDrawSingleShaderBindings &amp;ShaderBindings, FVertexInputStreamArray &amp;VertexStreams) const</div><div class="ttdef"><b>定义</b> ShaderBaseClasses.cpp:480</div></div>
+<div class="ttc" id="aclass_f_r_d_g_builder_html"><div class="ttname"><a href="../../d3/d85/class_f_r_d_g_builder.html">FRDGBuilder</a></div><div class="ttdef"><b>定义</b> RenderGraphBuilder.h:52</div></div>
+<div class="ttc" id="aclass_f_r_d_g_builder_html_ad6f6b2593d535e017c1cdcc443948d78"><div class="ttname"><a href="../../d3/d85/class_f_r_d_g_builder.html#ad6f6b2593d535e017c1cdcc443948d78">FRDGBuilder::AddSetupTask</a></div><div class="ttdeci">UE::Tasks::FTask AddSetupTask(TaskLambda &amp;&amp;Task, bool bCondition=true, ERDGSetupTaskWaitPoint WaitPoint=ERDGSetupTaskWaitPoint::Compile)</div></div>
+<div class="ttc" id="aclass_f_r_h_i_command_list_html"><div class="ttname"><a href="../../d9/dfe/class_f_r_h_i_command_list.html">FRHICommandList</a></div><div class="ttdef"><b>定义</b> RHICommandList.h:3591</div></div>
+<div class="ttc" id="aclass_f_r_h_i_command_list_html_a4ddc243a678b06ac7da878fc7044b0a6"><div class="ttname"><a href="../../d9/dfe/class_f_r_h_i_command_list.html#a4ddc243a678b06ac7da878fc7044b0a6">FRHICommandList::SetRayTracingHitGroups</a></div><div class="ttdeci">void SetRayTracingHitGroups(FRHIShaderBindingTable *SBT, FRayTracingPipelineState *Pipeline, uint32 NumBindings, const FRayTracingLocalShaderBindings *Bindings, bool bCopyDataToInlineStorage=true)</div><div class="ttdef"><b>定义</b> RHICommandList.h:4209</div></div>
+<div class="ttc" id="aclass_f_r_h_i_ray_tracing_shader_html"><div class="ttname"><a href="../../da/daa/class_f_r_h_i_ray_tracing_shader.html">FRHIRayTracingShader</a></div><div class="ttdef"><b>定义</b> RHIResources.h:1018</div></div>
+<div class="ttc" id="aclass_f_ray_tracing_mesh_command_context_html_ab3184be845d402dec30a42094e715d9e"><div class="ttname"><a href="../../df/d56/class_f_ray_tracing_mesh_command_context.html#ab3184be845d402dec30a42094e715d9e">FRayTracingMeshCommandContext::AddCommand</a></div><div class="ttdeci">virtual FRayTracingMeshCommand &amp; AddCommand(const FRayTracingMeshCommand &amp;Initializer)=0</div></div>
+<div class="ttc" id="aclass_f_ray_tracing_mesh_command_context_html_ad9d9e7a40f1c56ee3b2dd11641f49565"><div class="ttname"><a href="../../df/d56/class_f_ray_tracing_mesh_command_context.html#ad9d9e7a40f1c56ee3b2dd11641f49565">FRayTracingMeshCommandContext::FinalizeCommand</a></div><div class="ttdeci">virtual void FinalizeCommand(FRayTracingMeshCommand &amp;RayTracingMeshCommand)=0</div></div>
+<div class="ttc" id="aclass_f_ray_tracing_mesh_command_html_a086c2a293dde02a54c753ac3cced52f9"><div class="ttname"><a href="../../d3/d57/class_f_ray_tracing_mesh_command.html#a086c2a293dde02a54c753ac3cced52f9">FRayTracingMeshCommand::GeometrySegmentIndex</a></div><div class="ttdeci">uint32 GeometrySegmentIndex</div><div class="ttdef"><b>定义</b> RayTracingMeshDrawCommands.h:76</div></div>
+<div class="ttc" id="aclass_f_ray_tracing_mesh_command_html_a13820c300441d158ecf2034611ae82af"><div class="ttname"><a href="../../d3/d57/class_f_ray_tracing_mesh_command.html#a13820c300441d158ecf2034611ae82af">FRayTracingMeshCommand::bCanBeCached</a></div><div class="ttdeci">bool bCanBeCached</div><div class="ttdef"><b>定义</b> RayTracingMeshDrawCommands.h:88</div></div>
+<div class="ttc" id="aclass_f_ray_tracing_mesh_command_html_a1ce9fac038efe220f197019f60d50c29"><div class="ttname"><a href="../../d3/d57/class_f_ray_tracing_mesh_command.html#a1ce9fac038efe220f197019f60d50c29">FRayTracingMeshCommand::SetShader</a></div><div class="ttdeci">RENDERER_API void SetShader(const TShaderRef&lt; FShader &gt; &amp;Shader)</div></div>
+<div class="ttc" id="aclass_f_ray_tracing_mesh_command_html_a4267c74e6d6dc9d97292ce25d84b36fb"><div class="ttname"><a href="../../d3/d57/class_f_ray_tracing_mesh_command.html#a4267c74e6d6dc9d97292ce25d84b36fb">FRayTracingMeshCommand::HasGlobalUniformBufferBindings</a></div><div class="ttdeci">bool HasGlobalUniformBufferBindings() const</div><div class="ttdef"><b>定义</b> RayTracingMeshDrawCommands.h:108</div></div>
+<div class="ttc" id="aclass_f_ray_tracing_mesh_command_html_a6fb9df78c5122a09448bbf1e98b69191"><div class="ttname"><a href="../../d3/d57/class_f_ray_tracing_mesh_command.html#a6fb9df78c5122a09448bbf1e98b69191">FRayTracingMeshCommand::ShaderBindings</a></div><div class="ttdeci">FMeshDrawShaderBindings ShaderBindings</div><div class="ttdef"><b>定义</b> RayTracingMeshDrawCommands.h:72</div></div>
+<div class="ttc" id="aclass_f_ray_tracing_mesh_command_html_a71cea883e1841bcd1fcf904c5435acf2"><div class="ttname"><a href="../../d3/d57/class_f_ray_tracing_mesh_command.html#a71cea883e1841bcd1fcf904c5435acf2">FRayTracingMeshCommand::bIsTranslucent</a></div><div class="ttdeci">bool bIsTranslucent</div><div class="ttdef"><b>定义</b> RayTracingMeshDrawCommands.h:84</div></div>
+<div class="ttc" id="aclass_f_ray_tracing_shader_binding_data_html"><div class="ttname"><a href="../../dd/d4d/class_f_ray_tracing_shader_binding_data.html">FRayTracingShaderBindingData</a></div><div class="ttdef"><b>定义</b> RayTracingMeshDrawCommands.h:166</div></div>
+<div class="ttc" id="aclass_f_shader_html_a44dd6ce03b7a07572370b943415a28e7"><div class="ttname"><a href="../../dd/d3a/class_f_shader.html#a44dd6ce03b7a07572370b943415a28e7">FShader::GetRayTracingPayloadType</a></div><div class="ttdeci">static ERayTracingPayloadType GetRayTracingPayloadType(const int32 PermutationId)</div><div class="ttdef"><b>定义</b> Shader.h:861</div></div>
+<div class="ttc" id="aclass_f_shader_html_aaaf661e8688c9f2c92d9aa78f0ee00b2"><div class="ttname"><a href="../../dd/d3a/class_f_shader.html#aaaf661e8688c9f2c92d9aa78f0ee00b2">FShader::GetShaderBindingLayout</a></div><div class="ttdeci">static const FShaderBindingLayout * GetShaderBindingLayout(const FShaderPermutationParameters &amp;)</div><div class="ttdef"><b>定义</b> Shader.h:845</div></div>
+<div class="ttc" id="aclass_t_array_html"><div class="ttname"><a href="../../d6/db1/class_t_array.html">TArray</a></div><div class="ttdef"><b>定义</b> Array.h:768</div></div>
+<div class="ttc" id="aclass_t_array_html_a1518d29c2cbcefd7b7a3a26e8d39b4c5"><div class="ttname"><a href="../../d6/db1/class_t_array.html#a1518d29c2cbcefd7b7a3a26e8d39b4c5">TArray::Num</a></div><div class="ttdeci">UE_REWRITE SizeType Num() const</div><div class="ttdef"><b>定义</b> Array.h:1388</div></div>
+<div class="ttc" id="aclass_t_array_html_a6d4b92d0b79ce6147684387ae1749c7e"><div class="ttname"><a href="../../d6/db1/class_t_array.html#a6d4b92d0b79ce6147684387ae1749c7e">TArray::SetNum</a></div><div class="ttdeci">void SetNum(SizeType NewNum, EAllowShrinking AllowShrinking=UE::Core::Private::AllowShrinkingByDefault&lt; AllocatorType &gt;())</div><div class="ttdef"><b>定义</b> Array.h:2531</div></div>
+<div class="ttc" id="aclass_t_shader_ref_base_html_aadddc6ef622d882d57910fa12d949ebd"><div class="ttname"><a href="../../d5/d77/class_t_shader_ref_base.html#aadddc6ef622d882d57910fa12d949ebd">TShaderRefBase::IsValid</a></div><div class="ttdeci">bool IsValid() const</div><div class="ttdef"><b>定义</b> Shader.h:1043</div></div>
+<div class="ttc" id="anamespace_e_r_h_i_feature_level_html_a04bc2ae8f7bf478747a40da91e1753dd"><div class="ttname"><a href="../../dc/dcf/namespace_e_r_h_i_feature_level.html#a04bc2ae8f7bf478747a40da91e1753dd">ERHIFeatureLevel::Type</a></div><div class="ttdeci">Type</div><div class="ttdef"><b>定义</b> RHIFeatureLevel.h:20</div></div>
+<div class="ttc" id="anamespace_f_property_access_html_aa16d54ba56779d9aec31de05d8660f14"><div class="ttname"><a href="../../d8/d2b/namespace_f_property_access.html#aa16d54ba56779d9aec31de05d8660f14">FPropertyAccess::Result</a></div><div class="ttdeci">Result</div><div class="ttdef"><b>定义</b> PropertyEditorModule.h:58</div></div>
+<div class="ttc" id="anamespace_storage_server_html_a8b7ee401e94b2cd138ff628eea7dc7fda88255d7e6104ae03101ff725ce36cbb6"><div class="ttname"><a href="../../db/d28/namespace_storage_server.html#a8b7ee401e94b2cd138ff628eea7dc7fda88255d7e6104ae03101ff725ce36cbb6">StorageServer::EPageType::Chunk</a></div><div class="ttdeci">@ Chunk</div><div class="ttdef"><b>定义</b> CacheJournalSectioned.h:17</div></div>
+<div class="ttc" id="apreprocessor_8c_html_a1134b580f8da4de94ca6b1de4d37975e"><div class="ttname"><a href="../../dd/de9/preprocessor_8c.html#a1134b580f8da4de94ca6b1de4d37975e">uint32</a></div><div class="ttdeci">unsigned int uint32</div><div class="ttdef"><b>定义</b> preprocessor.c:67</div></div>
+<div class="ttc" id="apreprocessor_8c_html_abc0f5bc07737e498f287334775dff2b6"><div class="ttname"><a href="../../dd/de9/preprocessor_8c.html#abc0f5bc07737e498f287334775dff2b6">uint64</a></div><div class="ttdeci">uint64_t uint64</div><div class="ttdef"><b>定义</b> preprocessor.c:75</div></div>
+<div class="ttc" id="apreprocessor_8c_html_adde6aaee8457bee49c2a92621fe22b79"><div class="ttname"><a href="../../dd/de9/preprocessor_8c.html#adde6aaee8457bee49c2a92621fe22b79">uint8</a></div><div class="ttdeci">unsigned char uint8</div><div class="ttdef"><b>定义</b> preprocessor.c:65</div></div>
+<div class="ttc" id="astruct_f_math_html_a30ca3da4d963221c8548765deba8bd10"><div class="ttname"><a href="../../d1/d85/struct_f_math.html#a30ca3da4d963221c8548765deba8bd10">FMath::DivideAndRoundUp</a></div><div class="ttdeci">static constexpr UE_FORCEINLINE_HINT T DivideAndRoundUp(T Dividend, T Divisor)</div><div class="ttdef"><b>定义</b> UnrealMathUtility.h:694</div></div>
+<div class="ttc" id="astruct_f_memory_html_adb6079cf462eba4b740bf94ab27c4a7f"><div class="ttname"><a href="../../df/da4/struct_f_memory.html#adb6079cf462eba4b740bf94ab27c4a7f">FMemory::Memset</a></div><div class="ttdeci">static UE_FORCEINLINE_HINT void * Memset(void *Dest, uint8 Char, SIZE_T Count)</div><div class="ttdef"><b>定义</b> UnrealMemory.h:118</div></div>
+<div class="ttc" id="astruct_f_shader_permutation_parameters_html_a8322db37c9d01c1fa112e48270c00b94"><div class="ttname"><a href="../../de/de9/struct_f_shader_permutation_parameters.html#a8322db37c9d01c1fa112e48270c00b94">FShaderPermutationParameters::Platform</a></div><div class="ttdeci">const EShaderPlatform Platform</div><div class="ttdef"><b>定义</b> ShaderPermutation.h:31</div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+</div><!-- container -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a href="../../dir_0b6ee6e7e9547e675db4add2e5de97da.html">Engine</a></li><li class="navelem"><a href="../../dir_9579d1ecb2c7bf48cbe1049c41745cb4.html">Source</a></li><li class="navelem"><a href="../../dir_9f04efef762572853abdf73f62bebfcc.html">Runtime</a></li><li class="navelem"><a href="../../dir_5ed6327f04b0f38d3f6fe5caa38b0445.html">Renderer</a></li><li class="navelem"><a href="../../dir_e317dc6f09036e33460f39c550131623.html">Private</a></li><li class="navelem"><a href="../../dir_382a037944cb5f067881e9d512d80aee.html">RayTracing</a></li><li class="navelem"><a href="../../dd/ddb/_ray_tracing_material_hit_shaders_8h.html">RayTracingMaterialHitShaders.h</a></li>
+    <li class="footer">制作者 <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.15.0 </li>
+  </ul>
+</div>
+</body>
+</html>

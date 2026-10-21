@@ -1,0 +1,25 @@
+var _anim_encoding_8h =
+[
+    [ "BoneTrackPair", "d1/d69/struct_bone_track_pair.html", "d1/d69/struct_bone_track_pair" ],
+    [ "AnimEncoding", "d6/d0b/class_anim_encoding.html", null ],
+    [ "AnimEncodingLegacyBase", "d2/d22/class_anim_encoding_legacy_base.html", "d2/d22/class_anim_encoding_legacy_base" ],
+    [ "AC_UnalignedSwap", "d7/d7d/_anim_encoding_8h.html#a24d5435a86a4ff845bae292bec992454", null ],
+    [ "ANIMATION_ENCODING_PACKAGE_ORIGINAL", "d7/d7d/_anim_encoding_8h.html#a32b15b29a86234a9d08fe00098337855", null ],
+    [ "CURRENT_ANIMATION_ENCODING_PACKAGE_VERSION", "d7/d7d/_anim_encoding_8h.html#aafe531915cab9be97b56953159397418", null ],
+    [ "MAX_BONES", "d7/d7d/_anim_encoding_8h.html#abdb86b63a3ac2d2b3d6ad946ea404087", null ],
+    [ "USE_ANIMATION_CODEC_BATCH_SOLVER", "d7/d7d/_anim_encoding_8h.html#ac485475ed392c08eb74887f673140ba0", null ],
+    [ "BoneTrackArray", "d7/d7d/_anim_encoding_8h.html#aadb0d208dcc27e17f268e77bc80ba305", null ],
+    [ "FTransformArray", "d7/d7d/_anim_encoding_8h.html#afc04fd4f03d7121bbb647d40d4d2df68", null ],
+    [ "AnimationFormat_GetStats", "d7/d7d/_anim_encoding_8h.html#a1ba70abc6f5c8e6ca86ac3ac8538ad32", null ],
+    [ "AnimationFormat_SetInterfaceLinks", "d7/d7d/_anim_encoding_8h.html#a6eeb8601654af01ab1a0861b8403657c", null ],
+    [ "FindLowKeyIndex", "d7/d7d/_anim_encoding_8h.html#a9881230c47defb8c095af27ed66872f0", null ],
+    [ "PadMemoryReader", "d7/d7d/_anim_encoding_8h.html#aabe2bf2e9145d7678cb44e02446298f2", null ],
+    [ "PadMemoryWriter", "d7/d7d/_anim_encoding_8h.html#a4bc565e9f1efee0a42dca4cc66f9e63c", null ],
+    [ "CompressedRotationNum", "d7/d7d/_anim_encoding_8h.html#a6a15a9a3eaa83058f5d75d45b7b9bc51", null ],
+    [ "CompressedRotationStrides", "d7/d7d/_anim_encoding_8h.html#afce8f90cd281a0a9864c22306a4a5025", null ],
+    [ "CompressedScaleNum", "d7/d7d/_anim_encoding_8h.html#a6b864276608c1beafc7ff46eb3cd8acc", null ],
+    [ "CompressedScaleStrides", "d7/d7d/_anim_encoding_8h.html#a477615972346a41c98e01380eb066c63", null ],
+    [ "CompressedTranslationNum", "d7/d7d/_anim_encoding_8h.html#a0cd7d7c7fed2fa25dc5a3e6e02609e89", null ],
+    [ "CompressedTranslationStrides", "d7/d7d/_anim_encoding_8h.html#a8b1f22b0d8471fcef2171286435c6d50", null ],
+    [ "PerTrackNumComponentTable", "d7/d7d/_anim_encoding_8h.html#a1a007e5adf637a643e8a20eecfe89184", null ]
+];

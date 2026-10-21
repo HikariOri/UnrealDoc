@@ -1,0 +1,27 @@
+var class_u_e_1_1_cook_1_1_i_worker_requests =
+[
+    [ "~IWorkerRequests", "d8/df4/class_u_e_1_1_cook_1_1_i_worker_requests.html#aaa7fa306280051737851bfee3c5960f7", null ],
+    [ "AddCookOnTheFlyCallback", "d8/df4/class_u_e_1_1_cook_1_1_i_worker_requests.html#aa0ab06e1b9187cc60fdd0bb98a3e120e", null ],
+    [ "AddCookOnTheFlyRequest", "d8/df4/class_u_e_1_1_cook_1_1_i_worker_requests.html#ade59931852a41cd1c1c9b398ce31972a", null ],
+    [ "AddEditorActionCallback", "d8/df4/class_u_e_1_1_cook_1_1_i_worker_requests.html#a3282a24a0bd2749a4d8b14ab511cb0d0", null ],
+    [ "AddPublicInterfaceRequest", "d8/df4/class_u_e_1_1_cook_1_1_i_worker_requests.html#a170168d9aa8aee215da7571f924aed7d", null ],
+    [ "AddStartCookByTheBookRequest", "d8/df4/class_u_e_1_1_cook_1_1_i_worker_requests.html#ab684fe23689be0319af6ed363226193a", null ],
+    [ "DequeueAllExternal", "d8/df4/class_u_e_1_1_cook_1_1_i_worker_requests.html#a39d1a8074a694bd32a9c76a6ea02a8da", null ],
+    [ "DequeueNextCluster", "d8/df4/class_u_e_1_1_cook_1_1_i_worker_requests.html#af5aa5415ee2b074bf1c521ad03b77ec0", null ],
+    [ "DequeueSchedulerCallbacks", "d8/df4/class_u_e_1_1_cook_1_1_i_worker_requests.html#a59b210a8b2161cdc970d8a05c18c073e", null ],
+    [ "EndQueueGeneratedPackages", "d8/df4/class_u_e_1_1_cook_1_1_i_worker_requests.html#a2f1b73abb7d1bb50c8d18187bcbe2d36", null ],
+    [ "GetBeginCookConfigSettings", "d8/df4/class_u_e_1_1_cook_1_1_i_worker_requests.html#a0a0fa80d8c97e7ba9d67f6db79f0673c", null ],
+    [ "GetBeginCookIncrementalFlags", "d8/df4/class_u_e_1_1_cook_1_1_i_worker_requests.html#abeafba2d1d31302259b030747be9ba3b", null ],
+    [ "GetDirectorCookMode", "d8/df4/class_u_e_1_1_cook_1_1_i_worker_requests.html#a06922469c93aa79fe8a95b0f5977a25a", null ],
+    [ "GetInitializeConfigSettings", "d8/df4/class_u_e_1_1_cook_1_1_i_worker_requests.html#afaa979a78108387ed712a63675ea2de5", null ],
+    [ "GetNumExternalRequests", "d8/df4/class_u_e_1_1_cook_1_1_i_worker_requests.html#aa13000ed2f175aa890a220e9e98ca796", null ],
+    [ "HasExternalRequests", "d8/df4/class_u_e_1_1_cook_1_1_i_worker_requests.html#a6b78a3bac697eca64a86c42278777240", null ],
+    [ "InitializeCookOnTheFly", "d8/df4/class_u_e_1_1_cook_1_1_i_worker_requests.html#a0199f29264abfc039cadf3594b0e18bd", null ],
+    [ "LogAllRequestedFiles", "d8/df4/class_u_e_1_1_cook_1_1_i_worker_requests.html#a66430e07b32584d9a362a31092fac94e", null ],
+    [ "OnRemoveSessionPlatform", "d8/df4/class_u_e_1_1_cook_1_1_i_worker_requests.html#acd35b35712507c53fe63a58915b24cc7", null ],
+    [ "QueueDiscoveredPackage", "d8/df4/class_u_e_1_1_cook_1_1_i_worker_requests.html#aa66f71f6faf9dae0ef357e09b69babd7", null ],
+    [ "RemapTargetPlatforms", "d8/df4/class_u_e_1_1_cook_1_1_i_worker_requests.html#a3c5f8f68df0b2698685eb046417b5966", null ],
+    [ "ReportDemotion", "d8/df4/class_u_e_1_1_cook_1_1_i_worker_requests.html#af1e300040772e167fb78ba48a5616a4f", null ],
+    [ "ReportPromoteToSaveComplete", "d8/df4/class_u_e_1_1_cook_1_1_i_worker_requests.html#ac170aab490567252a0d0bc701c524a6d", null ],
+    [ "WaitForCookOnTheFlyEvents", "d8/df4/class_u_e_1_1_cook_1_1_i_worker_requests.html#adc5cf9b8bc9d56bde8f7e5f3f9240c2d", null ]
+];

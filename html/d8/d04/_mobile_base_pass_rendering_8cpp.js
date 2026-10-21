@@ -1,0 +1,27 @@
+var _mobile_base_pass_rendering_8cpp =
+[
+    [ "IMPLEMENT_MOBILE_SHADING_BASEPASS_LIGHTMAPPED_PIXEL_SHADER_TYPE", "d8/d04/_mobile_base_pass_rendering_8cpp.html#a81da787a60bb3e32faafdb0f3be6d90b", null ],
+    [ "IMPLEMENT_MOBILE_SHADING_BASEPASS_LIGHTMAPPED_SHADER_TYPE", "d8/d04/_mobile_base_pass_rendering_8cpp.html#ad59e10e3f722b800de01ecdc3a2f9c58", null ],
+    [ "IMPLEMENT_MOBILE_SHADING_BASEPASS_LIGHTMAPPED_VERTEX_SHADER_TYPE", "d8/d04/_mobile_base_pass_rendering_8cpp.html#ae7c69a7297bbeaeb6d4dd9d6d89da905", null ],
+    [ "CreateMobileBasePassUniformBuffer", "d8/d04/_mobile_base_pass_rendering_8cpp.html#aacdeaf7cb6a360b55bd3f9ae7dfcb353", null ],
+    [ "IMPLEMENT_MOBILE_SHADING_BASEPASS_LIGHTMAPPED_SHADER_TYPE", "d8/d04/_mobile_base_pass_rendering_8cpp.html#ab8bc2a29771a963695acf992b119e20d", null ],
+    [ "IMPLEMENT_MOBILE_SHADING_BASEPASS_LIGHTMAPPED_SHADER_TYPE", "d8/d04/_mobile_base_pass_rendering_8cpp.html#a7dc193ab0b42f6110b05548af1185b8e", null ],
+    [ "IMPLEMENT_MOBILE_SHADING_BASEPASS_LIGHTMAPPED_SHADER_TYPE", "d8/d04/_mobile_base_pass_rendering_8cpp.html#a9f8c3505128198f6ebe649a67ded439b", null ],
+    [ "IMPLEMENT_MOBILE_SHADING_BASEPASS_LIGHTMAPPED_SHADER_TYPE", "d8/d04/_mobile_base_pass_rendering_8cpp.html#abaa2784c7fdbf41a82ec349c79db9db1", null ],
+    [ "IMPLEMENT_MOBILE_SHADING_BASEPASS_LIGHTMAPPED_SHADER_TYPE", "d8/d04/_mobile_base_pass_rendering_8cpp.html#a87aeeb5c33afd2f8c514c9fe82d7d10a", null ],
+    [ "IMPLEMENT_MOBILE_SHADING_BASEPASS_LIGHTMAPPED_SHADER_TYPE", "d8/d04/_mobile_base_pass_rendering_8cpp.html#ab540e63c198deef0e6cffd17f7049301", null ],
+    [ "IMPLEMENT_MOBILE_SHADING_BASEPASS_LIGHTMAPPED_SHADER_TYPE", "d8/d04/_mobile_base_pass_rendering_8cpp.html#ab13dd31fdcc99c4700197a3acb356f33", null ],
+    [ "IMPLEMENT_MOBILE_SHADING_BASEPASS_LIGHTMAPPED_SHADER_TYPE", "d8/d04/_mobile_base_pass_rendering_8cpp.html#aa5d7eb511cf8249963aa746766855045", null ],
+    [ "IMPLEMENT_MOBILE_SHADING_BASEPASS_LIGHTMAPPED_SHADER_TYPE", "d8/d04/_mobile_base_pass_rendering_8cpp.html#af10d34194e27103ab52e1a44c669094d", null ],
+    [ "IMPLEMENT_STATIC_UNIFORM_BUFFER_STRUCT", "d8/d04/_mobile_base_pass_rendering_8cpp.html#a9debfc5a8c2b40209014541cb79d9068", null ],
+    [ "MaterialRequiresColorTransmittanceBlending", "d8/d04/_mobile_base_pass_rendering_8cpp.html#a6163eb193d8336511bcfc9a1f8ff7159", null ],
+    [ "MaterialRequiresColorTransmittanceBlending", "d8/d04/_mobile_base_pass_rendering_8cpp.html#ae19da6b0fbebf7868468ea6a3328a41e", null ],
+    [ "MobileActiveTranslucentColorTransmittanceMode", "d8/d04/_mobile_base_pass_rendering_8cpp.html#a19054e39a14937038e6213ea589f3f31", null ],
+    [ "MobileBasePassModifyCompilationEnvironment", "d8/d04/_mobile_base_pass_rendering_8cpp.html#ac466d495b07a8e3c3179c401cf4679fb", null ],
+    [ "MobileDefaultTranslucentColorTransmittanceMode", "d8/d04/_mobile_base_pass_rendering_8cpp.html#ab5c020d694f085d3601dcc08fa1e9290", null ],
+    [ "SetForwardLightUniformParametersFromView", "d8/d04/_mobile_base_pass_rendering_8cpp.html#a6716f3cf3ecefb54de50cd361bf3f4bf", null ],
+    [ "SetupMobileBasePassUniformParameters", "d8/d04/_mobile_base_pass_rendering_8cpp.html#a74cfd82db5309b1b480e00d19d0d323f", null ],
+    [ "SetupMobileDirectionalLightUniformParameters", "d8/d04/_mobile_base_pass_rendering_8cpp.html#aa6a2f760d94fb8ea2105ea9917e37ff5", null ],
+    [ "SetupMobileSkyReflectionUniformParameters", "d8/d04/_mobile_base_pass_rendering_8cpp.html#aa8cb66b642daabd607032284e44b8e34", null ],
+    [ "ShouldCacheShaderForColorTransmittanceFallback", "d8/d04/_mobile_base_pass_rendering_8cpp.html#ae7e65b1b4bdef814340ec507aa4a7551", null ]
+];

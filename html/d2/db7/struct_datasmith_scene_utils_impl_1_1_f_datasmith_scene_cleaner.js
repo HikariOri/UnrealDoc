@@ -1,0 +1,28 @@
+var struct_datasmith_scene_utils_impl_1_1_f_datasmith_scene_cleaner =
+[
+    [ "FDatasmithSceneCleaner", "d2/db7/struct_datasmith_scene_utils_impl_1_1_f_datasmith_scene_cleaner.html#a68d62db353ee29fb0e4d8084d2a073c9", null ],
+    [ "Clean", "d2/db7/struct_datasmith_scene_utils_impl_1_1_f_datasmith_scene_cleaner.html#a3e2d308c20e301e8a590240964057ac4", null ],
+    [ "CleanUpLevelSequences", "d2/db7/struct_datasmith_scene_utils_impl_1_1_f_datasmith_scene_cleaner.html#aed488c5138f85c333dd0fe22a17d48eb", null ],
+    [ "Initialize", "d2/db7/struct_datasmith_scene_utils_impl_1_1_f_datasmith_scene_cleaner.html#a533567ed5d732f82bf00d553ec11e8b4", null ],
+    [ "OptimizeTransformFrames", "d2/db7/struct_datasmith_scene_utils_impl_1_1_f_datasmith_scene_cleaner.html#ab0a268ee80f1422ca798cbd18c07f101", null ],
+    [ "ParseSceneActor", "d2/db7/struct_datasmith_scene_utils_impl_1_1_f_datasmith_scene_cleaner.html#aa953003f2d26cb2737d35ffbd133c3e6", null ],
+    [ "ScanCompositeTexture", "d2/db7/struct_datasmith_scene_utils_impl_1_1_f_datasmith_scene_cleaner.html#a324ca5d3152e9b8991d0f2e655b2c231", null ],
+    [ "ScanDecalActorElement", "d2/db7/struct_datasmith_scene_utils_impl_1_1_f_datasmith_scene_cleaner.html#aeb579591ce0183c42684a38d132f473d", null ],
+    [ "ScanDecalMaterialElement", "d2/db7/struct_datasmith_scene_utils_impl_1_1_f_datasmith_scene_cleaner.html#aa4d7858c4f74d98a892c9e515fd096ed", null ],
+    [ "ScanLegacyMaterialElement", "d2/db7/struct_datasmith_scene_utils_impl_1_1_f_datasmith_scene_cleaner.html#a3667988aca8147197beaf88904faa18d", null ],
+    [ "ScanLevelVariantSet", "d2/db7/struct_datasmith_scene_utils_impl_1_1_f_datasmith_scene_cleaner.html#a26838609def42b4b4dddf752f51d4dae", null ],
+    [ "ScanLightActorElement", "d2/db7/struct_datasmith_scene_utils_impl_1_1_f_datasmith_scene_cleaner.html#a5172465223599bcb640521b419d57cac", null ],
+    [ "ScanMaterialIDElement", "d2/db7/struct_datasmith_scene_utils_impl_1_1_f_datasmith_scene_cleaner.html#a94753529e73ec95dac9da17173bd7707", null ],
+    [ "ScanMaterialInstanceElement", "d2/db7/struct_datasmith_scene_utils_impl_1_1_f_datasmith_scene_cleaner.html#a073537a752196fa043c9cd1eb7867dd6", null ],
+    [ "ScanMeshActorElement", "d2/db7/struct_datasmith_scene_utils_impl_1_1_f_datasmith_scene_cleaner.html#a0aea811513104c3409f87a62e618b595", null ],
+    [ "ScanMeshElement", "d2/db7/struct_datasmith_scene_utils_impl_1_1_f_datasmith_scene_cleaner.html#a99db0555b0e312314aaa0b1f3c9556eb", null ],
+    [ "ScanPbrMaterialElement", "d2/db7/struct_datasmith_scene_utils_impl_1_1_f_datasmith_scene_cleaner.html#abe1a37f0be23be8836dc108ec5ffb1ff", null ],
+    [ "ScanVariant", "d2/db7/struct_datasmith_scene_utils_impl_1_1_f_datasmith_scene_cleaner.html#a91ebc693ccedd95919733141b91ce52b", null ],
+    [ "ActorsInScene", "d2/db7/struct_datasmith_scene_utils_impl_1_1_f_datasmith_scene_cleaner.html#a018ab82779be77b0969f9744f5556126", null ],
+    [ "AssetElementMapping", "d2/db7/struct_datasmith_scene_utils_impl_1_1_f_datasmith_scene_cleaner.html#af025188d84c7fb7bef03c9e49d714bc8", null ],
+    [ "FunctionMaterials", "d2/db7/struct_datasmith_scene_utils_impl_1_1_f_datasmith_scene_cleaner.html#af7ea68bda3fbba297ef302a3b5b77ecd", null ],
+    [ "ReferencedMaterials", "d2/db7/struct_datasmith_scene_utils_impl_1_1_f_datasmith_scene_cleaner.html#a475450f40e8ed6d1b019621c1cdc4b0f", null ],
+    [ "ReferencedMeshes", "d2/db7/struct_datasmith_scene_utils_impl_1_1_f_datasmith_scene_cleaner.html#a18eeef9b3c6396ee9ee1db4f1efc7063", null ],
+    [ "ReferencedTextures", "d2/db7/struct_datasmith_scene_utils_impl_1_1_f_datasmith_scene_cleaner.html#a07268dbf90d42e1e442715916703b94d", null ],
+    [ "Scene", "d2/db7/struct_datasmith_scene_utils_impl_1_1_f_datasmith_scene_cleaner.html#ae66aff2eefb320c78aebc18a11ff8923", null ]
+];

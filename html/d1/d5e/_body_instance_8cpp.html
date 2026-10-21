@@ -1,0 +1,1576 @@
+<!-- HTML header for doxygen 1.15.0-->
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh">
+<head>
+  <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=11" />
+  <meta name="generator" content="Doxygen 1.15.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>UE 5.8.4: Engine/Source/Runtime/Engine/Private/PhysicsEngine/BodyInstance.cpp 文件参考</title>
+  <link rel="icon" href="../../EdIconDefault.bmp" type="image/x-icon" />
+  <link href="../../tabs.css" rel="stylesheet" type="text/css" />
+  <script type="text/javascript" src="../../jquery.js"></script>
+  <script type="text/javascript" src="../../dynsections.js"></script>
+  <link href="../../navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../navtreedata.js"></script>
+<script type="text/javascript" src="../../navtree.js"></script>
+<script type="text/javascript" src="../../cookie.js"></script>
+  <link href="../../search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../search/searchdata.js"></script>
+<script type="text/javascript" src="../../search/search.js"></script>
+  <script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  extensions: ["tex2jax.js"],
+  jax: ["input/TeX","output/HTML-CSS"],
+});
+</script>
+<script type="text/javascript" async="async" src="https://cdn.jsdelivr.net/npm/mathjax@2/MathJax.js"></script>
+  <link href="../../doxygen.css" rel="stylesheet" type="text/css" />
+  <link href="../../doxygen-awesome.css" rel="stylesheet" type="text/css"/>
+<link href="../../doxygen-awesome-sidebar-only.css" rel="stylesheet" type="text/css"/>
+<link href="../../doxygen-awesome-sidebar-only-darkmode-toggle.css" rel="stylesheet" type="text/css"/>
+  <!-- ... other metadata & script includes ... -->
+  <script type="text/javascript" src="../../doxygen-awesome-darkmode-toggle.js"></script>
+  <script type="text/javascript">
+    DoxygenAwesomeDarkModeToggle.title = "Zwischen hellem/dunklem Modus wechseln"
+    DoxygenAwesomeDarkModeToggle.lightModeIcon = '🌞'
+    // icon from https://fonts.google.com/icons
+    DoxygenAwesomeDarkModeToggle.darkModeIcon = `<svg xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 24 24" height="24px" viewBox="0 0 24 24" width="24px" fill="#009793"><g><rect fill="none" height="24" width="24"/></g><g><g><path d="M8.1,14.15C9.77,14.63,11,16.17,11,18c0,0.68-0.19,1.31-0.48,1.87c0.48,0.09,0.97,0.14,1.48,0.14 c1.48,0,2.9-0.41,4.13-1.15c-2.62-0.92-5.23-2.82-6.8-5.86C7.74,9.94,7.78,7.09,8.29,4.9c-2.57,1.33-4.3,4.01-4.3,7.1c0,0,0,0,0,0 c0.01,0,0.01,0,0.02,0C5.66,12,7.18,12.83,8.1,14.15z" opacity=".3"/><path d="M19.78,17.51c-2.47,0-6.57-1.33-8.68-5.43C8.77,7.57,10.6,3.6,11.63,2.01C6.27,2.2,1.98,6.59,1.98,12 c0,0.14,0.02,0.28,0.02,0.42C2.61,12.16,3.28,12,3.98,12c0,0,0,0,0,0c0-3.09,1.73-5.77,4.3-7.1C7.78,7.09,7.74,9.94,9.32,13 c1.57,3.04,4.18,4.95,6.8,5.86c-1.23,0.74-2.65,1.15-4.13,1.15c-0.5,0-1-0.05-1.48-0.14c-0.37,0.7-0.94,1.27-1.64,1.64 c0.98,0.32,2.03,0.5,3.11,0.5c3.5,0,6.58-1.8,8.37-4.52C20.18,17.5,19.98,17.51,19.78,17.51z"/><path d="M7,16l-0.18,0C6.4,14.84,5.3,14,4,14c-1.66,0-3,1.34-3,3s1.34,3,3,3c0.62,0,2.49,0,3,0c1.1,0,2-0.9,2-2 C9,16.9,8.1,16,7,16z"/></g></g></svg>`
+    DoxygenAwesomeDarkModeToggle.init()
+  </script>
+  <script type="text/javascript" src="../../doxygen-awesome-fragment-copy-button.js"></script>
+  <script type="text/javascript">
+    DoxygenAwesomeFragmentCopyButton.title = "In die Zwischenablage kopieren"
+    // DoxygenAwesomeFragmentCopyButton.copyIcon = `<svg ...>`
+    // DoxygenAwesomeFragmentCopyButton.successIcon = `<svg ...>`
+    DoxygenAwesomeFragmentCopyButton.init()
+  </script>
+  <script type="text/javascript" src="../../doxygen-awesome-paragraph-link.js"></script>
+  <script type="text/javascript">
+    DoxygenAwesomeParagraphLink.title = "Abschnitt verknüpfen"
+    DoxygenAwesomeParagraphLink.icon = "¶"
+    DoxygenAwesomeParagraphLink.init()
+  </script>
+  <script type="text/javascript" src="../../doxygen-awesome-interactive-toc.js"></script>
+  <script type="text/javascript">
+    DoxygenAwesomeInteractiveToc.topOffset = 45
+    DoxygenAwesomeInteractiveToc.hideMobileMenu = false
+    DoxygenAwesomeInteractiveToc.init()
+  </script>
+</head>
+<body>
+    <div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+      <div id="titlearea">
+        <table cellspacing="0" cellpadding="0">
+          <tbody>
+            <tr id="projectrow">
+              <td id="projectlogo"><img alt="Logo" src="../../EdIconDefault.bmp"  /></td>
+              <td id="projectalign">
+                <div id="projectname">UE 5.8.4
+                </div>
+                <div id="projectbrief">Unreal Engine</div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <!-- end header part -->
+<!-- 制作者 Doxygen 1.15.0 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "../../search/",'.html');
+</script>
+<script type="text/javascript">
+$(function() { codefold.init(); });
+</script>
+<script type="text/javascript" src="../../menudata.js"></script>
+<script type="text/javascript" src="../../menu.js"></script>
+<script type="text/javascript">
+$(function() {
+  initMenu('../../',true,false,'search.php','搜索',true);
+  $(function() { init_search(); });
+});
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(function(){initNavTree('d1/d5e/_body_instance_8cpp.html','../../',''); });
+</script>
+<div id="container">
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">载入中...</div>
+<div class="SRStatus" id="Searching">搜索中...</div>
+<div class="SRStatus" id="NoMatches">未找到</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">BodyInstance.cpp 文件参考</div></div>
+</div><!--header-->
+<div class="contents">
+<div class="textblock"><code>#include &quot;<a class="el" href="../../df/d3f/_body_instance_8h_source.html">PhysicsEngine/BodyInstance.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d4/da6/_body_setup_enums_8h_source.html">BodySetupEnums.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d8/d33/_static_mesh_component_8h_source.html">Components/StaticMeshComponent.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../de/d1a/_collision_convex_mesh_8h_source.html">Chaos/CollisionConvexMesh.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d3/d4f/_runtime_2_engine_2_classes_2_engine_2_engine_8h_source.html">Engine/Engine.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../de/d30/_skeletal_mesh_component_8h_source.html">Components/SkeletalMeshComponent.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../df/d3c/_shape_component_8h_source.html">Components/ShapeComponent.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../de/deb/_actor_8h_source.html">GameFramework/Actor.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d5/d6b/_collision_profile_8h_source.html">Engine/CollisionProfile.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d8/db5/_overlap_result_8h_source.html">Engine/OverlapResult.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d8/d86/_world_8h_source.html">Engine/World.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d3/d73/_primitive_drawing_utils_8h_source.html">PrimitiveDrawingUtils.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d9/d87/_collision_8h_source.html">Collision.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../da/d7c/_material_interface_8h_source.html">Materials/MaterialInterface.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d2/dde/_physics_filtering_8h_source.html">Physics/PhysicsFiltering.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d4/dee/_phys_scene___chaos_8h_source.html">Physics/Experimental/PhysScene_Chaos.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d9/d1e/_constraint_instance_8h_source.html">PhysicsEngine/ConstraintInstance.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d7/d02/_physics_interface_types_8h_source.html">Physics/PhysicsInterfaceTypes.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d3/db0/_convex_elem_8h_source.html">PhysicsEngine/ConvexElem.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../da/d09/_box_elem_8h_source.html">PhysicsEngine/BoxElem.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../da/d2c/_level_set_elem_8h_source.html">PhysicsEngine/LevelSetElem.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d7/db1/_sphere_elem_8h_source.html">PhysicsEngine/SphereElem.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d1/d15/_sphyl_elem_8h_source.html">PhysicsEngine/SphylElem.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d6/d44/_body_setup_8h_source.html">PhysicsEngine/BodySetup.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d8/d2d/_body_utils_8h_source.html">PhysicsEngine/BodyUtils.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d6/d65/_physics_body_instance_owner_interface_8h_source.html">PhysicsEngine/PhysicsBodyInstanceOwnerInterface.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d6/d36/_message_log_8h_source.html">Logging/MessageLog.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../dc/db2/_capsule_8h_source.html">Chaos/Capsule.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d8/d36/_convex_8h_source.html">Chaos/Convex.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d7/ddc/_triangle_mesh_implicit_object_8h_source.html">Chaos/TriangleMeshImplicitObject.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d7/d14/_async_init_body_helper_8h_source.html">Chaos/AsyncInitBodyHelper.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d8/d8c/_chaos_interface_utils_8h_source.html">Physics/Experimental/ChaosInterfaceUtils.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../df/d8a/_tapered_capsule_elem_8h_source.html">PhysicsEngine/TaperedCapsuleElem.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d6/d20/_single_particle_physics_proxy_8h_source.html">PhysicsProxy/SingleParticlePhysicsProxy.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../db/dad/_brush_component_8h_source.html">Components/BrushComponent.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d9/d08/_physical_material_8h_source.html">PhysicalMaterials/PhysicalMaterial.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d6/d12/_physical_material_mask_8h_source.html">PhysicalMaterials/PhysicalMaterialMask.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d0/de6/_physics_settings_8h_source.html">PhysicsEngine/PhysicsSettings.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d8/d36/_chaos_engine_interface_8h_source.html">Chaos/ChaosEngineInterface.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d9/d93/_chaos_scoped_scene_lock_8h_source.html">Physics/Experimental/ChaosScopedSceneLock.h</a>&quot;</code><br />
+</div><div class="textblock"><div class="dynheader">
+BodyInstance.cpp 的引用(Include)关系图:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d8/d5e/_body_instance_8cpp__incl.svg" width="5514" height="582"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+</div><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-namespaces" class="groupheader"><a id="namespaces" name="namespaces"></a>
+命名空间</h2></td></tr>
+<tr class="memitem:UE" id="r_UE"><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/de5/namespace_u_e.html">UE</a></td></tr>
+<tr class="memitem:UE_3A_3APrivate" id="r_UE_3A_3APrivate"><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d38/namespace_u_e_1_1_private.html">UE::Private</a></td></tr>
+<tr class="memitem:Chaos" id="r_Chaos"><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d0f/namespace_chaos.html">Chaos</a></td></tr>
+<tr class="memitem:Chaos_3A_3APrivate" id="r_Chaos_3A_3APrivate"><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/d10/namespace_chaos_1_1_private.html">Chaos::Private</a></td></tr>
+<tr class="memitem:EScaleMode" id="r_EScaleMode"><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/d4d/namespace_e_scale_mode.html">EScaleMode</a></td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-define-members" class="groupheader"><a id="define-members" name="define-members"></a>
+宏定义</h2></td></tr>
+<tr class="memitem:a0de3ae51f3a629a8e5d113f1b9390da7" id="r_a0de3ae51f3a629a8e5d113f1b9390da7"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a0de3ae51f3a629a8e5d113f1b9390da7">LOCTEXT_NAMESPACE</a>&#160;&#160;&#160;&quot;BodyInstance&quot;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-typedef-members" class="groupheader"><a id="typedef-members" name="typedef-members"></a>
+类型定义</h2></td></tr>
+<tr class="memitem:a13cc1e303a5855640774b9ce72d2aad1" id="r_a13cc1e303a5855640774b9ce72d2aad1"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a13cc1e303a5855640774b9ce72d2aad1">BodyInstanceSingleElementArrayInlineAllocator</a> = <a class="el" href="../../dc/d3d/_container_allocation_policies_8h.html#a955ebaff17aade3efe4ecd32109bedea">TInlineAllocator</a>&lt;1&gt;</td></tr>
+<tr class="memitem:a93b990cb0ec45d667301b2669e273cd9" id="r_a93b990cb0ec45d667301b2669e273cd9"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a93b990cb0ec45d667301b2669e273cd9">FInitSingleBodyHelperStatic</a> = <a class="el" href="../../d3/d5f/struct_f_init_bodies_helper.html">FInitBodiesHelper</a>&lt;<a class="el" href="../../d3/df7/radaudio__common_8h.html#ade27a78a51a66a5cfb6f09cf36bcfde9a08f175a5505a10b9ed657defeb050e4b">true</a>, <a class="el" href="#a13cc1e303a5855640774b9ce72d2aad1">BodyInstanceSingleElementArrayInlineAllocator</a>&gt;</td></tr>
+<tr class="memitem:a6d945ab9a9dd20a3128f374a0babad3f" id="r_a6d945ab9a9dd20a3128f374a0babad3f"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6d945ab9a9dd20a3128f374a0babad3f">FInitSingleBodyHelperDynamic</a> = <a class="el" href="../../d3/d5f/struct_f_init_bodies_helper.html">FInitBodiesHelper</a>&lt;<a class="el" href="../../d3/df7/radaudio__common_8h.html#ade27a78a51a66a5cfb6f09cf36bcfde9ae9de385ef6fe9bf3360d1038396b884c">false</a>, <a class="el" href="#a13cc1e303a5855640774b9ce72d2aad1">BodyInstanceSingleElementArrayInlineAllocator</a>&gt;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-enum-members" class="groupheader"><a id="enum-members" name="enum-members"></a>
+枚举</h2></td></tr>
+<tr class="memitem:aafaeda23dc6b5872ed7af9431ceaf261" id="r_aafaeda23dc6b5872ed7af9431ceaf261"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/d4d/namespace_e_scale_mode.html#aafaeda23dc6b5872ed7af9431ceaf261">EScaleMode::Type</a> { <a class="el" href="../../db/d4d/namespace_e_scale_mode.html#aafaeda23dc6b5872ed7af9431ceaf261a375fe0904928e7ff38c30fb06a70cff8">EScaleMode::Free</a>
+, <a class="el" href="../../db/d4d/namespace_e_scale_mode.html#aafaeda23dc6b5872ed7af9431ceaf261a47434922cc25e06aca3dc8bcbdec82d7">EScaleMode::LockedXY</a>
+, <a class="el" href="../../db/d4d/namespace_e_scale_mode.html#aafaeda23dc6b5872ed7af9431ceaf261a11607095b23dff0058fd234ba39c0cb4">EScaleMode::LockedXYZ</a>
+ }</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-func-members" class="groupheader"><a id="func-members" name="func-members"></a>
+函数</h2></td></tr>
+<tr class="memitem:ac855d77f579bf160ed73a950603016cd" id="r_ac855d77f579bf160ed73a950603016cd"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac855d77f579bf160ed73a950603016cd">DECLARE_CYCLE_STAT</a> (<a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;Init Body&quot;), STAT_InitBody, STATGROUP_Physics)</td></tr>
+<tr class="memitem:af9d2284a49d162b77260e682d865b879" id="r_af9d2284a49d162b77260e682d865b879"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af9d2284a49d162b77260e682d865b879">DECLARE_CYCLE_STAT</a> (<a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;Init Body Debug&quot;), STAT_InitBodyDebug, STATGROUP_Physics)</td></tr>
+<tr class="memitem:a80814e54e78db17bec9d24862355c687" id="r_a80814e54e78db17bec9d24862355c687"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a80814e54e78db17bec9d24862355c687">DECLARE_CYCLE_STAT</a> (<a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;Init Body Scene Interaction&quot;), STAT_InitBodySceneInteraction, STATGROUP_Physics)</td></tr>
+<tr class="memitem:a54912cdb9f27148d84578eb86733086a" id="r_a54912cdb9f27148d84578eb86733086a"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a54912cdb9f27148d84578eb86733086a">DECLARE_CYCLE_STAT</a> (<a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;Init Body Aggregate&quot;), STAT_InitBodyAggregate, STATGROUP_Physics)</td></tr>
+<tr class="memitem:ac6463242ac2f737ab9da18722520c2b8" id="r_ac6463242ac2f737ab9da18722520c2b8"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac6463242ac2f737ab9da18722520c2b8">DECLARE_CYCLE_STAT</a> (<a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;Init Body Add&quot;), STAT_InitBodyAdd, STATGROUP_Physics)</td></tr>
+<tr class="memitem:a67c2a1364bffdce96f276725714bc4d5" id="r_a67c2a1364bffdce96f276725714bc4d5"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a67c2a1364bffdce96f276725714bc4d5">DECLARE_CYCLE_STAT</a> (<a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;Init Body Post <a class="el" href="../../d1/da0/_s_c_file_8h.html#a7cf34971141f1a32c586f089f467879ba0d592a4b562059bc283e00b3704865c9">Add</a> to Scene&quot;), STAT_InitBodyPostAdd, STATGROUP_Physics)</td></tr>
+<tr class="memitem:a10c117462e4ae2a88f3d2012751eab8e" id="r_a10c117462e4ae2a88f3d2012751eab8e"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a10c117462e4ae2a88f3d2012751eab8e">DECLARE_CYCLE_STAT</a> (<a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;Term Body&quot;), STAT_TermBody, STATGROUP_Physics)</td></tr>
+<tr class="memitem:a2bc6a715b09327daaf5569172d022ae9" id="r_a2bc6a715b09327daaf5569172d022ae9"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2bc6a715b09327daaf5569172d022ae9">DECLARE_CYCLE_STAT</a> (<a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;Update Materials&quot;), STAT_UpdatePhysMats, STATGROUP_Physics)</td></tr>
+<tr class="memitem:ac63341a9868b878fa4b0c254bd02f582" id="r_ac63341a9868b878fa4b0c254bd02f582"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac63341a9868b878fa4b0c254bd02f582">DECLARE_CYCLE_STAT</a> (<a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;Update Materials Scene Interaction&quot;), STAT_UpdatePhysMatsSceneInteraction, STATGROUP_Physics)</td></tr>
+<tr class="memitem:ad61324b0fc5b596daeba584b86cf732a" id="r_ad61324b0fc5b596daeba584b86cf732a"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad61324b0fc5b596daeba584b86cf732a">DECLARE_CYCLE_STAT_WITH_FLAGS</a> (<a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;Filter Update&quot;), STAT_UpdatePhysFilter, STATGROUP_Physics, <a class="el" href="../../d6/d23/_stats_common_8h.html#a965969449070f3dfdfca275aa1946c78ad4a9fa383ab700c5bdd6f31cf7df0faf">EStatFlags::Verbose</a>)</td></tr>
+<tr class="memitem:a7cf8320b4a1b4fdfd32cd0063ab4e42a" id="r_a7cf8320b4a1b4fdfd32cd0063ab4e42a"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7cf8320b4a1b4fdfd32cd0063ab4e42a">DECLARE_CYCLE_STAT</a> (<a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;Filter Update (PhysX Code)&quot;), STAT_UpdatePhysFilterPhysX, STATGROUP_Physics)</td></tr>
+<tr class="memitem:adc3a6ce2a27485b31cc0af60a9440279" id="r_adc3a6ce2a27485b31cc0af60a9440279"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#adc3a6ce2a27485b31cc0af60a9440279">DECLARE_CYCLE_STAT</a> (<a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;Init Bodies&quot;), STAT_InitBodies, STATGROUP_Physics)</td></tr>
+<tr class="memitem:a138be609ec392a4e99fb7735b11dc65f" id="r_a138be609ec392a4e99fb7735b11dc65f"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a138be609ec392a4e99fb7735b11dc65f">DECLARE_CYCLE_STAT</a> (<a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;Bulk Body Scene Add&quot;), STAT_BulkSceneAdd, STATGROUP_Physics)</td></tr>
+<tr class="memitem:a8f761dc9c7f8ed1535ba1bf54e19d65f" id="r_a8f761dc9c7f8ed1535ba1bf54e19d65f"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8f761dc9c7f8ed1535ba1bf54e19d65f">DECLARE_CYCLE_STAT</a> (<a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;Static <a class="el" href="../../d9/dcd/_lock_free_list_8h.html#aa047b58bcb6849c4d471a2ce95fc901e">Init</a> Bodies&quot;), STAT_StaticInitBodies, STATGROUP_Physics)</td></tr>
+<tr class="memitem:a4cb8cfa2bbade4bcf37eae68b2615ea2" id="r_a4cb8cfa2bbade4bcf37eae68b2615ea2"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4cb8cfa2bbade4bcf37eae68b2615ea2">DECLARE_CYCLE_STAT</a> (<a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;UpdateBodyScale&quot;), STAT_BodyInstanceUpdateBodyScale, STATGROUP_Physics)</td></tr>
+<tr class="memitem:a9fa1633282392ba58eff40e65628a66c" id="r_a9fa1633282392ba58eff40e65628a66c"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9fa1633282392ba58eff40e65628a66c">DECLARE_CYCLE_STAT</a> (<a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;CreatePhysicsShapesAndActors&quot;), STAT_CreatePhysicsShapesAndActors, STATGROUP_Physics)</td></tr>
+<tr class="memitem:ae1b750abb03190207508e2dda8a42709" id="r_ae1b750abb03190207508e2dda8a42709"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae1b750abb03190207508e2dda8a42709">DECLARE_CYCLE_STAT</a> (<a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;CreatePhysicsShapes&quot;), STAT_CreatePhysicsShapes, STATGROUP_Physics)</td></tr>
+<tr class="memitem:a8f08e4ece905edd8a8bc0ac9813dd338" id="r_a8f08e4ece905edd8a8bc0ac9813dd338"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8f08e4ece905edd8a8bc0ac9813dd338">DECLARE_CYCLE_STAT</a> (<a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;CreatePhysicsActor&quot;), STAT_CreatePhysicsActor, STATGROUP_Physics)</td></tr>
+<tr class="memitem:a61850ba4acafe9b42ca131c6b8060dea" id="r_a61850ba4acafe9b42ca131c6b8060dea"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a61850ba4acafe9b42ca131c6b8060dea">DECLARE_CYCLE_STAT_WITH_FLAGS</a> (<a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;BodyInstance SetCollisionProfileName&quot;), STAT_BodyInst_SetCollisionProfileName, STATGROUP_Physics, <a class="el" href="../../d6/d23/_stats_common_8h.html#a965969449070f3dfdfca275aa1946c78ad4a9fa383ab700c5bdd6f31cf7df0faf">EStatFlags::Verbose</a>)</td></tr>
+<tr class="memitem:a2747024d741e2b31841b597faa369ad9" id="r_a2747024d741e2b31841b597faa369ad9"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2747024d741e2b31841b597faa369ad9">DECLARE_CYCLE_STAT</a> (<a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;Phys SetBodyTransform&quot;), STAT_SetBodyTransform, STATGROUP_Physics)</td></tr>
+<tr class="memitem:aa803f72ce3351c14645f0e9fe18b113d" id="r_aa803f72ce3351c14645f0e9fe18b113d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa803f72ce3351c14645f0e9fe18b113d">IsRigidBodyKinematic_AssumesLocked</a> (const <a class="el" href="../../de/d64/_physics_interface_declares_core_8h.html#a53691955d496f23ec477c6900f30e1bf">FPhysicsActorHandle</a> &amp;InActorRef)</td></tr>
+<tr class="memitem:a7f198c1adebbad6e0d899c4271742fb7" id="r_a7f198c1adebbad6e0d899c4271742fb7"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a8dbb3cd84ca9fd010dadfc3815eefa5d">int32</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7f198c1adebbad6e0d899c4271742fb7">FillInlineShapeArray_AssumesLocked</a> (<a class="el" href="../../df/d20/namespace_physics_interface_types.html#a384adc294700fcf642c47fdc56cac4d5">PhysicsInterfaceTypes::FInlineShapeArray</a> &amp;Array, const <a class="el" href="../../de/d64/_physics_interface_declares_core_8h.html#a53691955d496f23ec477c6900f30e1bf">FPhysicsActorHandle</a> &amp;<a class="el" href="../../d3/d19/_navigation_system_types_8h.html#ae8c1bf4a26d11a08931a9268c317cf04">Actor</a>)</td></tr>
+<tr class="memitem:a180426e8b8d848f2b43b81d55e9a80c4" id="r_a180426e8b8d848f2b43b81d55e9a80c4"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../db/d79/class_f_archive.html">FArchive</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a180426e8b8d848f2b43b81d55e9a80c4">operator&lt;&lt;</a> (<a class="el" href="../../db/d79/class_f_archive.html">FArchive</a> &amp;Ar, <a class="el" href="../../d8/d15/struct_f_body_instance.html">FBodyInstance</a> &amp;BodyInst)</td></tr>
+<tr class="memitem:a56793ea295353fa187d8ed4faef0d479" id="r_a56793ea295353fa187d8ed4faef0d479"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d8/d15/struct_f_body_instance.html">FBodyInstance</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a56793ea295353fa187d8ed4faef0d479">FindParentBodyInstance</a> (<a class="el" href="../../d5/dd5/class_f_name.html">FName</a> BodyName, USkeletalMeshComponent *SkelMeshComp)</td></tr>
+<tr class="memitem:ab69d64e3df6c388253f8302c8f2ab93a" id="r_ab69d64e3df6c388253f8302c8f2ab93a"><td class="memTemplParams" colspan="2">template&lt;typename InAllocatorType&gt; </td></tr>
+<tr class="memitem:ab69d64e3df6c388253f8302c8f2ab93a template"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="../../d2/d8e/_s_anim_notify_panel_8h.html#a7483aa7f043c623f8990a95320be654d">FString</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab69d64e3df6c388253f8302c8f2ab93a">GetBodyInstanceDebugName</a> (<a class="el" href="../../d0/d76/struct_t_init_bodies_helper_base.html">TInitBodiesHelperBase</a>&lt; InAllocatorType &gt; &amp;<a class="el" href="../../da/d3f/_managed_array_8h.html#a3f9671a8b7cabc0fc06ba1da59eb3e17">InitHelper</a>)</td></tr>
+<tr class="memitem:a6d545ab49129dd74128c52245d28ff8c" id="r_a6d545ab49129dd74128c52245d28ff8c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6d545ab49129dd74128c52245d28ff8c">ValidateTransformScale</a> (const <a class="el" href="../../d0/df6/_math_fwd_8h.html#a532fe2b7d7e9b59259adebff28450bef">FTransform</a> &amp;Transform, const <a class="el" href="../../d2/d8e/_s_anim_notify_panel_8h.html#a7483aa7f043c623f8990a95320be654d">FString</a> &amp;DebugName)</td></tr>
+<tr class="memitem:a35742aa956a479b8ba7e1783534bd159" id="r_a35742aa956a479b8ba7e1783534bd159"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a35742aa956a479b8ba7e1783534bd159">ValidateTransformMirror</a> (const <a class="el" href="../../d0/df6/_math_fwd_8h.html#a532fe2b7d7e9b59259adebff28450bef">FTransform</a> &amp;Transform, const <a class="el" href="../../d2/d8e/_s_anim_notify_panel_8h.html#a7483aa7f043c623f8990a95320be654d">FString</a> &amp;DebugName, <a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a> bGenerateMirroredCollision, <a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a> bGenerateNonMirroredCollision)</td></tr>
+<tr class="memitem:af7c00e0ad89470dac4a343bc5f6234d0" id="r_af7c00e0ad89470dac4a343bc5f6234d0"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af7c00e0ad89470dac4a343bc5f6234d0">ValidateTransformNaN</a> (const <a class="el" href="../../d0/df6/_math_fwd_8h.html#a532fe2b7d7e9b59259adebff28450bef">FTransform</a> &amp;Transform, const <a class="el" href="../../d2/d8e/_s_anim_notify_panel_8h.html#a7483aa7f043c623f8990a95320be654d">FString</a> &amp;DebugName, const <a class="el" href="../../d5/dd5/class_f_name.html">FName</a> &amp;BoneName)</td></tr>
+<tr class="memitem:a6e0daab350980be8ff492f21f58ea120" id="r_a6e0daab350980be8ff492f21f58ea120"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d0/df6/_math_fwd_8h.html#adda141358ecae99df7ba663b9e637078">FVector</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6e0daab350980be8ff492f21f58ea120">GetInitialLinearVelocity</a> (const <a class="el" href="../../db/d32/class_a_actor.html">AActor</a> *OwningActor, <a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a> &amp;bComponentAwake)</td></tr>
+<tr class="memitem:afde057190a864fd89cf98d937967505e" id="r_afde057190a864fd89cf98d937967505e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../df/d2a/_s_anim_notify_shared_8h.html#ac7c94e837fed3f8e4bb3dd94d7bd2ecf">float</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#afde057190a864fd89cf98d937967505e">AdjustForSmallThreshold</a> (<a class="el" href="../../df/d2a/_s_anim_notify_shared_8h.html#ac7c94e837fed3f8e4bb3dd94d7bd2ecf">float</a> NewVal, <a class="el" href="../../df/d2a/_s_anim_notify_shared_8h.html#ac7c94e837fed3f8e4bb3dd94d7bd2ecf">float</a> OldVal)</td></tr>
+<tr class="memitem:a2ea04f9ff9da8d6b8531ed68652ee571" id="r_a2ea04f9ff9da8d6b8531ed68652ee571"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../df/d63/_typed_element_query_capabilities_8inl.html#a72343342ce64c0755563ee6c5e27868d">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2ea04f9ff9da8d6b8531ed68652ee571">ComputeScalingVectors</a> (<a class="el" href="../../db/d4d/namespace_e_scale_mode.html#aafaeda23dc6b5872ed7af9431ceaf261">EScaleMode::Type</a> ScaleMode, const <a class="el" href="../../d0/df6/_math_fwd_8h.html#adda141358ecae99df7ba663b9e637078">FVector</a> &amp;InScale3D, <a class="el" href="../../d0/df6/_math_fwd_8h.html#adda141358ecae99df7ba663b9e637078">FVector</a> &amp;OutScale3D, <a class="el" href="../../d0/df6/_math_fwd_8h.html#adda141358ecae99df7ba663b9e637078">FVector</a> &amp;OutScale3DAbs)</td></tr>
+<tr class="memitem:a5bcbccc70d6ff58e48329ff3db22191f" id="r_a5bcbccc70d6ff58e48329ff3db22191f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../db/d4d/namespace_e_scale_mode.html#aafaeda23dc6b5872ed7af9431ceaf261">EScaleMode::Type</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5bcbccc70d6ff58e48329ff3db22191f">ComputeScaleMode</a> (const <a class="el" href="../../d6/db1/class_t_array.html">TArray</a>&lt; <a class="el" href="../../de/d64/_physics_interface_declares_core_8h.html#a8858a1213334ce150b688bb3cc09f81e">FPhysicsShapeHandle</a> &gt; &amp;Shapes)</td></tr>
+<tr class="memitem:a3e4c9f9bf333ed3e4f5d2e86bcae3277" id="r_a3e4c9f9bf333ed3e4f5d2e86bcae3277"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d0/df6/_math_fwd_8h.html#a532fe2b7d7e9b59259adebff28450bef">FTransform</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a3e4c9f9bf333ed3e4f5d2e86bcae3277">GetUnrealWorldTransformImp_AssumesLocked</a> (const <a class="el" href="../../d8/d15/struct_f_body_instance.html">FBodyInstance</a> *BodyInstance, <a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a> bWithProjection, <a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a> bGlobalPose)</td></tr>
+<tr class="memitem:aa10ae0d607e6daeed3b783469960f815" id="r_aa10ae0d607e6daeed3b783469960f815"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="../../db/d4b/class_i_physics_body_instance_owner.html">IPhysicsBodyInstanceOwner</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d38/namespace_u_e_1_1_private.html#aa10ae0d607e6daeed3b783469960f815">UE::Private::GetEffectiveBodyInstanceOwner</a> (const <a class="el" href="../../d3/d3c/struct_t_weak_object_ptr.html">TWeakObjectPtr</a>&lt; UPrimitiveComponent &gt; &amp;InOwnerComp, <a class="el" href="../../db/d4b/class_i_physics_body_instance_owner.html">IPhysicsBodyInstanceOwner</a> *InBodyInstanceOwner)</td></tr>
+<tr class="memitem:a00db26623c63257b661df97f8dda9e86" id="r_a00db26623c63257b661df97f8dda9e86"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a8dbb3cd84ca9fd010dadfc3815eefa5d">int32</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a00db26623c63257b661df97f8dda9e86">GetNumSimShapes_AssumesLocked</a> (const <a class="el" href="../../de/d64/_physics_interface_declares_core_8h.html#a53691955d496f23ec477c6900f30e1bf">FPhysicsActorHandle</a> &amp;ActorRef)</td></tr>
+<tr class="memitem:a8b5a4ae8f7e65ce270c8b71a0b5149ce" id="r_a8b5a4ae8f7e65ce270c8b71a0b5149ce"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d0/df6/_math_fwd_8h.html#a532fe2b7d7e9b59259adebff28450bef">FTransform</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8b5a4ae8f7e65ce270c8b71a0b5149ce">RootSpaceToWeldedSpace</a> (const <a class="el" href="../../d8/d15/struct_f_body_instance.html">FBodyInstance</a> *BI, const <a class="el" href="../../d0/df6/_math_fwd_8h.html#a532fe2b7d7e9b59259adebff28450bef">FTransform</a> &amp;RootTM)</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-var-members" class="groupheader"><a id="var-members" name="var-members"></a>
+变量</h2></td></tr>
+<tr class="memitem:ad1404a62ad07d8649de6462c9955dfe2" id="r_ad1404a62ad07d8649de6462c9955dfe2"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d5/d78/class_t_auto_console_variable.html">TAutoConsoleVariable</a>&lt; <a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a8dbb3cd84ca9fd010dadfc3815eefa5d">int32</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad1404a62ad07d8649de6462c9955dfe2">CVarEnableDynamicPerBodyFilterHacks</a> (<a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;p.EnableDynamicPerBodyFilterHacks&quot;), 0, <a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;Enables/Disables the use of a set of game focused hacks - allowing users to modify skel body collision dynamically (changes the behavior of per-body collision filtering).&quot;), ECVF_ReadOnly)</td></tr>
+<tr class="memitem:a20162f12d948f1caa22a9e6c6a6c7bd2" id="r_a20162f12d948f1caa22a9e6c6a6c7bd2"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d5/d78/class_t_auto_console_variable.html">TAutoConsoleVariable</a>&lt; <a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a8dbb3cd84ca9fd010dadfc3815eefa5d">int32</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a20162f12d948f1caa22a9e6c6a6c7bd2">CVarIgnoreAnalyticCollisionsOverride</a> (<a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;p.IgnoreAnalyticCollisionsOverride&quot;), 0, <a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;Overrides the default <a class="el" href="../../d3/db8/binka__ue__decode__test_8cpp.html#ac1ee511585a5c7a2d58c146185895b72">for</a> ignroing analytic collsions.&quot;), <a class="el" href="../../d4/dd9/_i_console_manager_8h.html#a7f594f23c2b2c5687f1a502ebb3ba105ae46c8f2e23889626e29de22874c4cf1d">ECVF_ReadOnly</a>)</td></tr>
+<tr class="memitem:a112bd25e3ba9f46433d2a6b8e9b6e807" id="r_a112bd25e3ba9f46433d2a6b8e9b6e807"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a112bd25e3ba9f46433d2a6b8e9b6e807">bPreventInvalidBodyInstanceTransforms</a> = <a class="el" href="../../d3/df7/radaudio__common_8h.html#ade27a78a51a66a5cfb6f09cf36bcfde9a08f175a5505a10b9ed657defeb050e4b">true</a></td></tr>
+<tr class="memitem:a985e7b0e3aa8e5d0b0b5b5ab33102b8d" id="r_a985e7b0e3aa8e5d0b0b5b5ab33102b8d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d2/d79/class_f_auto_console_variable_ref.html">FAutoConsoleVariableRef</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a985e7b0e3aa8e5d0b0b5b5ab33102b8d">CVarbPreventInvalidBodyInstanceTransforms</a> (<a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;p.PreventInvalidBodyInstanceTransforms&quot;), <a class="el" href="#a112bd25e3ba9f46433d2a6b8e9b6e807">bPreventInvalidBodyInstanceTransforms</a>, <a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;If <a class="el" href="../../d3/df7/radaudio__common_8h.html#ade27a78a51a66a5cfb6f09cf36bcfde9a08f175a5505a10b9ed657defeb050e4b">true</a>, an attempt to create a BodyInstance with an invalid transform will fail with a warning&quot;))</td></tr>
+<tr class="memitem:af2201a2073bacd68d739161f9df5d003" id="r_af2201a2073bacd68d739161f9df5d003"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af2201a2073bacd68d739161f9df5d003">bEnableOverrideSolverDeltaTime</a> = <a class="el" href="../../d3/df7/radaudio__common_8h.html#ade27a78a51a66a5cfb6f09cf36bcfde9a08f175a5505a10b9ed657defeb050e4b">true</a></td></tr>
+<tr class="memitem:aa770bb4710ab809f6dfa2949f910b231" id="r_aa770bb4710ab809f6dfa2949f910b231"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d2/d79/class_f_auto_console_variable_ref.html">FAutoConsoleVariableRef</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa770bb4710ab809f6dfa2949f910b231">CVarbEnableOverrideSolverDeltaTime</a> (<a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;p.EnableOverrideSolverDeltaTime&quot;), <a class="el" href="#af2201a2073bacd68d739161f9df5d003">bEnableOverrideSolverDeltaTime</a>, <a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;If <a class="el" href="../../d3/df7/radaudio__common_8h.html#ade27a78a51a66a5cfb6f09cf36bcfde9a08f175a5505a10b9ed657defeb050e4b">true</a>, setting <a class="el" href="../../d3/db8/binka__ue__decode__test_8cpp.html#ac1ee511585a5c7a2d58c146185895b72">for</a> override solver delta <a class="el" href="../../d8/d06/_android_open_g_l_functions_8h.html#a6e841fea5c7df7e45984ec9ef968eabe">time</a> can be used.  False will disable this feature.&quot;))</td></tr>
+<tr class="memitem:a0bea3a3c2505262a664442b3ab63ddcd" id="r_a0bea3a3c2505262a664442b3ab63ddcd"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a0bea3a3c2505262a664442b3ab63ddcd">bSkipShapeCreationForEmptyBodySetup</a> = <a class="el" href="../../d3/df7/radaudio__common_8h.html#ade27a78a51a66a5cfb6f09cf36bcfde9ae9de385ef6fe9bf3360d1038396b884c">false</a></td></tr>
+<tr class="memitem:a8b5323aa36a7b5c98c76070d410f8829" id="r_a8b5323aa36a7b5c98c76070d410f8829"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d2/d79/class_f_auto_console_variable_ref.html">FAutoConsoleVariableRef</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8b5323aa36a7b5c98c76070d410f8829">CVarSkipShapeCreationForEmptyBodySetup</a> (<a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;p.SkipShapeCreationForEmptyBodySetup&quot;), <a class="el" href="#a0bea3a3c2505262a664442b3ab63ddcd">bSkipShapeCreationForEmptyBodySetup</a>, <a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;If <a class="el" href="../../d3/df7/radaudio__common_8h.html#ade27a78a51a66a5cfb6f09cf36bcfde9a08f175a5505a10b9ed657defeb050e4b">true</a>, CreateShapesAndActors will not try to create actors and shapes <a class="el" href="../../d3/db8/binka__ue__decode__test_8cpp.html#ac1ee511585a5c7a2d58c146185895b72">for</a> all instances <a class="el" href="../../d3/db8/binka__ue__decode__test_8cpp.html#a374eb3a41808f317fb77da75985c3204">if</a> the body setup doesn't have any geometry.&quot;))</td></tr>
+<tr class="memitem:a8824377b135adff146d3528903e17921" id="r_a8824377b135adff146d3528903e17921"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../df/d2a/_s_anim_notify_shared_8h.html#ac7c94e837fed3f8e4bb3dd94d7bd2ecf">float</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8824377b135adff146d3528903e17921">SensitiveSleepThresholdMultiplier</a> = 1.0f/20.0f</td></tr>
+<tr class="memitem:a9609f52ae5cd4f0789a64ef22d70c3eb" id="r_a9609f52ae5cd4f0789a64ef22d70c3eb"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d2/d79/class_f_auto_console_variable_ref.html">FAutoConsoleVariableRef</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9609f52ae5cd4f0789a64ef22d70c3eb">CVarSensitiveSleepThresholdMultiplier</a> (<a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;p.SensitiveSleepThresholdMultiplier&quot;), <a class="el" href="#a8824377b135adff146d3528903e17921">SensitiveSleepThresholdMultiplier</a>, <a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;The sleep threshold multiplier to use <a class="el" href="../../d3/db8/binka__ue__decode__test_8cpp.html#ac1ee511585a5c7a2d58c146185895b72">for</a> bodies using the Sensitive sleep family.&quot;))</td></tr>
+<tr class="memitem:ad2fe82bb6d569b7d12d549876ba5e3c3" id="r_ad2fe82bb6d569b7d12d549876ba5e3c3"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad2fe82bb6d569b7d12d549876ba5e3c3">bClearPerShapeOverridesOnTerminate</a> = <a class="el" href="../../d3/df7/radaudio__common_8h.html#ade27a78a51a66a5cfb6f09cf36bcfde9a08f175a5505a10b9ed657defeb050e4b">true</a></td></tr>
+<tr class="memitem:a4290bc40aec9bba2edbbbc02ed685d17" id="r_a4290bc40aec9bba2edbbbc02ed685d17"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d2/d79/class_f_auto_console_variable_ref.html">FAutoConsoleVariableRef</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4290bc40aec9bba2edbbbc02ed685d17">CVarClearPerShapeOverridesOnTerminate</a> (<a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;p.ClearPerShapeOverridesOnTerminate&quot;), <a class="el" href="#ad2fe82bb6d569b7d12d549876ba5e3c3">bClearPerShapeOverridesOnTerminate</a>, <a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;Whether shape overrides are cleared in between recreations of a body instance&quot;))</td></tr>
+<tr class="memitem:a2810a3d060397107a4b7c5edb0d88a65" id="r_a2810a3d060397107a4b7c5edb0d88a65"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d5/d78/class_t_auto_console_variable.html">TAutoConsoleVariable</a>&lt; <a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a8dbb3cd84ca9fd010dadfc3815eefa5d">int32</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2810a3d060397107a4b7c5edb0d88a65">CDisableQueryOnlyActors</a> (<a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;p.DisableQueryOnlyActors&quot;), 0, <a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;If QueryOnly is used, actors are marked as simulation disabled. This is NOT compatible with origin shifting at the moment.&quot;))</td></tr>
+<tr class="memitem:a55ac115f07933b208891fbfc10840b34" id="r_a55ac115f07933b208891fbfc10840b34"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a8dbb3cd84ca9fd010dadfc3815eefa5d">int32</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a55ac115f07933b208891fbfc10840b34">EnsureUnweldModifiesGTOnly</a> = 0</td></tr>
+<tr class="memitem:a28c234a15cde6197d5cb890df0f58770" id="r_a28c234a15cde6197d5cb890df0f58770"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d2/d79/class_f_auto_console_variable_ref.html">FAutoConsoleVariableRef</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a28c234a15cde6197d5cb890df0f58770">CVarEnsureUnweldModifiesGTOnly</a> (<a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;p.EnsureUnweldModifiesGTOnly&quot;), <a class="el" href="#a55ac115f07933b208891fbfc10840b34">EnsureUnweldModifiesGTOnly</a>, <a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;Ensure <a class="el" href="../../d3/db8/binka__ue__decode__test_8cpp.html#a374eb3a41808f317fb77da75985c3204">if</a> unweld modifies geometry shared with physics thread&quot;))</td></tr>
+<tr class="memitem:aa1d0da5b52504577b111624adf1fb946" id="r_aa1d0da5b52504577b111624adf1fb946"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a8dbb3cd84ca9fd010dadfc3815eefa5d">int32</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa1d0da5b52504577b111624adf1fb946">SimCollisionEnabled</a> = 1</td></tr>
+<tr class="memitem:aaed121415ffb7c3677cc3ddada05b8dc" id="r_aaed121415ffb7c3677cc3ddada05b8dc"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d2/d79/class_f_auto_console_variable_ref.html">FAutoConsoleVariableRef</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aaed121415ffb7c3677cc3ddada05b8dc">CVarSimCollisionEnabled</a> (<a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;p.SimCollisionEnabled&quot;), <a class="el" href="#aa1d0da5b52504577b111624adf1fb946">SimCollisionEnabled</a>, <a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;If 0 no sim collision will be used&quot;))</td></tr>
+</table>
+<a name="doc-define-members" id="doc-define-members"></a><h2 id="header-doc-define-members" class="groupheader">宏定义说明</h2>
+<a id="a0de3ae51f3a629a8e5d113f1b9390da7" name="a0de3ae51f3a629a8e5d113f1b9390da7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0de3ae51f3a629a8e5d113f1b9390da7">&#9670;&#160;</a></span>LOCTEXT_NAMESPACE</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define LOCTEXT_NAMESPACE&#160;&#160;&#160;&quot;BodyInstance&quot;</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a name="doc-typedef-members" id="doc-typedef-members"></a><h2 id="header-doc-typedef-members" class="groupheader">类型定义说明</h2>
+<a id="a13cc1e303a5855640774b9ce72d2aad1" name="a13cc1e303a5855640774b9ce72d2aad1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a13cc1e303a5855640774b9ce72d2aad1">&#9670;&#160;</a></span>BodyInstanceSingleElementArrayInlineAllocator</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">using <a class="el" href="#a13cc1e303a5855640774b9ce72d2aad1">BodyInstanceSingleElementArrayInlineAllocator</a> = <a class="el" href="../../dc/d3d/_container_allocation_policies_8h.html#a955ebaff17aade3efe4ecd32109bedea">TInlineAllocator</a>&lt;1&gt;</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a6d945ab9a9dd20a3128f374a0babad3f" name="a6d945ab9a9dd20a3128f374a0babad3f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6d945ab9a9dd20a3128f374a0babad3f">&#9670;&#160;</a></span>FInitSingleBodyHelperDynamic</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">using <a class="el" href="#a6d945ab9a9dd20a3128f374a0babad3f">FInitSingleBodyHelperDynamic</a> = <a class="el" href="../../d3/d5f/struct_f_init_bodies_helper.html">FInitBodiesHelper</a>&lt;<a class="el" href="../../d3/df7/radaudio__common_8h.html#ade27a78a51a66a5cfb6f09cf36bcfde9ae9de385ef6fe9bf3360d1038396b884c">false</a>, <a class="el" href="#a13cc1e303a5855640774b9ce72d2aad1">BodyInstanceSingleElementArrayInlineAllocator</a>&gt;</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a93b990cb0ec45d667301b2669e273cd9" name="a93b990cb0ec45d667301b2669e273cd9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a93b990cb0ec45d667301b2669e273cd9">&#9670;&#160;</a></span>FInitSingleBodyHelperStatic</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">using <a class="el" href="#a93b990cb0ec45d667301b2669e273cd9">FInitSingleBodyHelperStatic</a> = <a class="el" href="../../d3/d5f/struct_f_init_bodies_helper.html">FInitBodiesHelper</a>&lt;<a class="el" href="../../d3/df7/radaudio__common_8h.html#ade27a78a51a66a5cfb6f09cf36bcfde9a08f175a5505a10b9ed657defeb050e4b">true</a>, <a class="el" href="#a13cc1e303a5855640774b9ce72d2aad1">BodyInstanceSingleElementArrayInlineAllocator</a>&gt;</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">函数说明</h2>
+<a id="afde057190a864fd89cf98d937967505e" name="afde057190a864fd89cf98d937967505e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afde057190a864fd89cf98d937967505e">&#9670;&#160;</a></span>AdjustForSmallThreshold()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../df/d2a/_s_anim_notify_shared_8h.html#ac7c94e837fed3f8e4bb3dd94d7bd2ecf">float</a> AdjustForSmallThreshold </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../df/d2a/_s_anim_notify_shared_8h.html#ac7c94e837fed3f8e4bb3dd94d7bd2ecf">float</a></td>          <td class="paramname"><span class="paramname"><em>NewVal</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../df/d2a/_s_anim_notify_shared_8h.html#ac7c94e837fed3f8e4bb3dd94d7bd2ecf">float</a></td>          <td class="paramname"><span class="paramname"><em>OldVal</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a5bcbccc70d6ff58e48329ff3db22191f" name="a5bcbccc70d6ff58e48329ff3db22191f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5bcbccc70d6ff58e48329ff3db22191f">&#9670;&#160;</a></span>ComputeScaleMode()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../db/d4d/namespace_e_scale_mode.html#aafaeda23dc6b5872ed7af9431ceaf261">EScaleMode::Type</a> ComputeScaleMode </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="../../d6/db1/class_t_array.html">TArray</a>&lt; <a class="el" href="../../de/d64/_physics_interface_declares_core_8h.html#a8858a1213334ce150b688bb3cc09f81e">FPhysicsShapeHandle</a> &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>Shapes</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a2ea04f9ff9da8d6b8531ed68652ee571" name="a2ea04f9ff9da8d6b8531ed68652ee571"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2ea04f9ff9da8d6b8531ed68652ee571">&#9670;&#160;</a></span>ComputeScalingVectors()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../df/d63/_typed_element_query_capabilities_8inl.html#a72343342ce64c0755563ee6c5e27868d">void</a> ComputeScalingVectors </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../db/d4d/namespace_e_scale_mode.html#aafaeda23dc6b5872ed7af9431ceaf261">EScaleMode::Type</a></td>          <td class="paramname"><span class="paramname"><em>ScaleMode</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="../../d0/df6/_math_fwd_8h.html#adda141358ecae99df7ba663b9e637078">FVector</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>InScale3D</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d0/df6/_math_fwd_8h.html#adda141358ecae99df7ba663b9e637078">FVector</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>OutScale3D</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d0/df6/_math_fwd_8h.html#adda141358ecae99df7ba663b9e637078">FVector</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>OutScale3DAbs</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a138be609ec392a4e99fb7735b11dc65f" name="a138be609ec392a4e99fb7735b11dc65f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a138be609ec392a4e99fb7735b11dc65f">&#9670;&#160;</a></span>DECLARE_CYCLE_STAT() <span class="overload">[1/18]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">DECLARE_CYCLE_STAT </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;Bulk Body Scene Add&quot;)</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">STAT_BulkSceneAdd</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">STATGROUP_Physics</td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a8f08e4ece905edd8a8bc0ac9813dd338" name="a8f08e4ece905edd8a8bc0ac9813dd338"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8f08e4ece905edd8a8bc0ac9813dd338">&#9670;&#160;</a></span>DECLARE_CYCLE_STAT() <span class="overload">[2/18]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">DECLARE_CYCLE_STAT </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;CreatePhysicsActor&quot;)</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">STAT_CreatePhysicsActor</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">STATGROUP_Physics</td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ae1b750abb03190207508e2dda8a42709" name="ae1b750abb03190207508e2dda8a42709"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae1b750abb03190207508e2dda8a42709">&#9670;&#160;</a></span>DECLARE_CYCLE_STAT() <span class="overload">[3/18]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">DECLARE_CYCLE_STAT </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;CreatePhysicsShapes&quot;)</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">STAT_CreatePhysicsShapes</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">STATGROUP_Physics</td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a9fa1633282392ba58eff40e65628a66c" name="a9fa1633282392ba58eff40e65628a66c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9fa1633282392ba58eff40e65628a66c">&#9670;&#160;</a></span>DECLARE_CYCLE_STAT() <span class="overload">[4/18]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">DECLARE_CYCLE_STAT </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;CreatePhysicsShapesAndActors&quot;)</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">STAT_CreatePhysicsShapesAndActors</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">STATGROUP_Physics</td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a7cf8320b4a1b4fdfd32cd0063ab4e42a" name="a7cf8320b4a1b4fdfd32cd0063ab4e42a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7cf8320b4a1b4fdfd32cd0063ab4e42a">&#9670;&#160;</a></span>DECLARE_CYCLE_STAT() <span class="overload">[5/18]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">DECLARE_CYCLE_STAT </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;Filter Update (PhysX Code)&quot;)</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">STAT_UpdatePhysFilterPhysX</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">STATGROUP_Physics</td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="adc3a6ce2a27485b31cc0af60a9440279" name="adc3a6ce2a27485b31cc0af60a9440279"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adc3a6ce2a27485b31cc0af60a9440279">&#9670;&#160;</a></span>DECLARE_CYCLE_STAT() <span class="overload">[6/18]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">DECLARE_CYCLE_STAT </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;Init Bodies&quot;)</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">STAT_InitBodies</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">STATGROUP_Physics</td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ac6463242ac2f737ab9da18722520c2b8" name="ac6463242ac2f737ab9da18722520c2b8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac6463242ac2f737ab9da18722520c2b8">&#9670;&#160;</a></span>DECLARE_CYCLE_STAT() <span class="overload">[7/18]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">DECLARE_CYCLE_STAT </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;Init Body Add&quot;)</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">STAT_InitBodyAdd</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">STATGROUP_Physics</td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a54912cdb9f27148d84578eb86733086a" name="a54912cdb9f27148d84578eb86733086a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a54912cdb9f27148d84578eb86733086a">&#9670;&#160;</a></span>DECLARE_CYCLE_STAT() <span class="overload">[8/18]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">DECLARE_CYCLE_STAT </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;Init Body Aggregate&quot;)</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">STAT_InitBodyAggregate</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">STATGROUP_Physics</td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="af9d2284a49d162b77260e682d865b879" name="af9d2284a49d162b77260e682d865b879"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af9d2284a49d162b77260e682d865b879">&#9670;&#160;</a></span>DECLARE_CYCLE_STAT() <span class="overload">[9/18]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">DECLARE_CYCLE_STAT </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;Init Body Debug&quot;)</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">STAT_InitBodyDebug</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">STATGROUP_Physics</td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a67c2a1364bffdce96f276725714bc4d5" name="a67c2a1364bffdce96f276725714bc4d5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a67c2a1364bffdce96f276725714bc4d5">&#9670;&#160;</a></span>DECLARE_CYCLE_STAT() <span class="overload">[10/18]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">DECLARE_CYCLE_STAT </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;Init Body Post <a class="el" href="../../d1/da0/_s_c_file_8h.html#a7cf34971141f1a32c586f089f467879ba0d592a4b562059bc283e00b3704865c9">Add</a> to Scene&quot;)</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">STAT_InitBodyPostAdd</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">STATGROUP_Physics</td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a80814e54e78db17bec9d24862355c687" name="a80814e54e78db17bec9d24862355c687"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a80814e54e78db17bec9d24862355c687">&#9670;&#160;</a></span>DECLARE_CYCLE_STAT() <span class="overload">[11/18]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">DECLARE_CYCLE_STAT </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;Init Body Scene Interaction&quot;)</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">STAT_InitBodySceneInteraction</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">STATGROUP_Physics</td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ac855d77f579bf160ed73a950603016cd" name="ac855d77f579bf160ed73a950603016cd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac855d77f579bf160ed73a950603016cd">&#9670;&#160;</a></span>DECLARE_CYCLE_STAT() <span class="overload">[12/18]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">DECLARE_CYCLE_STAT </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;Init Body&quot;)</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">STAT_InitBody</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">STATGROUP_Physics</td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a2747024d741e2b31841b597faa369ad9" name="a2747024d741e2b31841b597faa369ad9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2747024d741e2b31841b597faa369ad9">&#9670;&#160;</a></span>DECLARE_CYCLE_STAT() <span class="overload">[13/18]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">DECLARE_CYCLE_STAT </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;Phys SetBodyTransform&quot;)</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">STAT_SetBodyTransform</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">STATGROUP_Physics</td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a8f761dc9c7f8ed1535ba1bf54e19d65f" name="a8f761dc9c7f8ed1535ba1bf54e19d65f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8f761dc9c7f8ed1535ba1bf54e19d65f">&#9670;&#160;</a></span>DECLARE_CYCLE_STAT() <span class="overload">[14/18]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">DECLARE_CYCLE_STAT </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;Static <a class="el" href="../../d9/dcd/_lock_free_list_8h.html#aa047b58bcb6849c4d471a2ce95fc901e">Init</a> Bodies&quot;)</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">STAT_StaticInitBodies</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">STATGROUP_Physics</td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a10c117462e4ae2a88f3d2012751eab8e" name="a10c117462e4ae2a88f3d2012751eab8e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a10c117462e4ae2a88f3d2012751eab8e">&#9670;&#160;</a></span>DECLARE_CYCLE_STAT() <span class="overload">[15/18]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">DECLARE_CYCLE_STAT </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;Term Body&quot;)</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">STAT_TermBody</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">STATGROUP_Physics</td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ac63341a9868b878fa4b0c254bd02f582" name="ac63341a9868b878fa4b0c254bd02f582"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac63341a9868b878fa4b0c254bd02f582">&#9670;&#160;</a></span>DECLARE_CYCLE_STAT() <span class="overload">[16/18]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">DECLARE_CYCLE_STAT </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;Update Materials Scene Interaction&quot;)</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">STAT_UpdatePhysMatsSceneInteraction</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">STATGROUP_Physics</td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a2bc6a715b09327daaf5569172d022ae9" name="a2bc6a715b09327daaf5569172d022ae9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2bc6a715b09327daaf5569172d022ae9">&#9670;&#160;</a></span>DECLARE_CYCLE_STAT() <span class="overload">[17/18]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">DECLARE_CYCLE_STAT </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;Update Materials&quot;)</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">STAT_UpdatePhysMats</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">STATGROUP_Physics</td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a4cb8cfa2bbade4bcf37eae68b2615ea2" name="a4cb8cfa2bbade4bcf37eae68b2615ea2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4cb8cfa2bbade4bcf37eae68b2615ea2">&#9670;&#160;</a></span>DECLARE_CYCLE_STAT() <span class="overload">[18/18]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">DECLARE_CYCLE_STAT </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;UpdateBodyScale&quot;)</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">STAT_BodyInstanceUpdateBodyScale</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">STATGROUP_Physics</td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a61850ba4acafe9b42ca131c6b8060dea" name="a61850ba4acafe9b42ca131c6b8060dea"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a61850ba4acafe9b42ca131c6b8060dea">&#9670;&#160;</a></span>DECLARE_CYCLE_STAT_WITH_FLAGS() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">DECLARE_CYCLE_STAT_WITH_FLAGS </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;BodyInstance SetCollisionProfileName&quot;)</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">STAT_BodyInst_SetCollisionProfileName</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">STATGROUP_Physics</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d6/d23/_stats_common_8h.html#a965969449070f3dfdfca275aa1946c78ad4a9fa383ab700c5bdd6f31cf7df0faf">EStatFlags::Verbose</a></td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ad61324b0fc5b596daeba584b86cf732a" name="ad61324b0fc5b596daeba584b86cf732a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad61324b0fc5b596daeba584b86cf732a">&#9670;&#160;</a></span>DECLARE_CYCLE_STAT_WITH_FLAGS() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">DECLARE_CYCLE_STAT_WITH_FLAGS </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;Filter Update&quot;)</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">STAT_UpdatePhysFilter</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">STATGROUP_Physics</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d6/d23/_stats_common_8h.html#a965969449070f3dfdfca275aa1946c78ad4a9fa383ab700c5bdd6f31cf7df0faf">EStatFlags::Verbose</a></td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a7f198c1adebbad6e0d899c4271742fb7" name="a7f198c1adebbad6e0d899c4271742fb7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7f198c1adebbad6e0d899c4271742fb7">&#9670;&#160;</a></span>FillInlineShapeArray_AssumesLocked()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a8dbb3cd84ca9fd010dadfc3815eefa5d">int32</a> FillInlineShapeArray_AssumesLocked </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../df/d20/namespace_physics_interface_types.html#a384adc294700fcf642c47fdc56cac4d5">PhysicsInterfaceTypes::FInlineShapeArray</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>Array</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="../../de/d64/_physics_interface_declares_core_8h.html#a53691955d496f23ec477c6900f30e1bf">FPhysicsActorHandle</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>Actor</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a56793ea295353fa187d8ed4faef0d479" name="a56793ea295353fa187d8ed4faef0d479"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a56793ea295353fa187d8ed4faef0d479">&#9670;&#160;</a></span>FindParentBodyInstance()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d8/d15/struct_f_body_instance.html">FBodyInstance</a> * FindParentBodyInstance </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d5/dd5/class_f_name.html">FName</a></td>          <td class="paramname"><span class="paramname"><em>BodyName</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">USkeletalMeshComponent *</td>          <td class="paramname"><span class="paramname"><em>SkelMeshComp</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Util for finding the parent bodyinstance of a specified body, using skeleton hierarchy </p>
+
+</div>
+</div>
+<a id="ab69d64e3df6c388253f8302c8f2ab93a" name="ab69d64e3df6c388253f8302c8f2ab93a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab69d64e3df6c388253f8302c8f2ab93a">&#9670;&#160;</a></span>GetBodyInstanceDebugName()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename InAllocatorType&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">const <a class="el" href="../../d2/d8e/_s_anim_notify_panel_8h.html#a7483aa7f043c623f8990a95320be654d">FString</a> &amp; GetBodyInstanceDebugName </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d0/d76/struct_t_init_bodies_helper_base.html">TInitBodiesHelperBase</a>&lt; InAllocatorType &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>InitHelper</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a6e0daab350980be8ff492f21f58ea120" name="a6e0daab350980be8ff492f21f58ea120"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6e0daab350980be8ff492f21f58ea120">&#9670;&#160;</a></span>GetInitialLinearVelocity()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d0/df6/_math_fwd_8h.html#adda141358ecae99df7ba663b9e637078">FVector</a> GetInitialLinearVelocity </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="../../db/d32/class_a_actor.html">AActor</a> *</td>          <td class="paramname"><span class="paramname"><em>OwningActor</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>bComponentAwake</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a00db26623c63257b661df97f8dda9e86" name="a00db26623c63257b661df97f8dda9e86"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a00db26623c63257b661df97f8dda9e86">&#9670;&#160;</a></span>GetNumSimShapes_AssumesLocked()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a8dbb3cd84ca9fd010dadfc3815eefa5d">int32</a> GetNumSimShapes_AssumesLocked </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="../../de/d64/_physics_interface_declares_core_8h.html#a53691955d496f23ec477c6900f30e1bf">FPhysicsActorHandle</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>ActorRef</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Util for finding the number of 'collision sim' shapes on this Actor </p>
+
+</div>
+</div>
+<a id="a3e4c9f9bf333ed3e4f5d2e86bcae3277" name="a3e4c9f9bf333ed3e4f5d2e86bcae3277"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3e4c9f9bf333ed3e4f5d2e86bcae3277">&#9670;&#160;</a></span>GetUnrealWorldTransformImp_AssumesLocked()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d0/df6/_math_fwd_8h.html#a532fe2b7d7e9b59259adebff28450bef">FTransform</a> GetUnrealWorldTransformImp_AssumesLocked </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="../../d8/d15/struct_f_body_instance.html">FBodyInstance</a> *</td>          <td class="paramname"><span class="paramname"><em>BodyInstance</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a></td>          <td class="paramname"><span class="paramname"><em>bWithProjection</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a></td>          <td class="paramname"><span class="paramname"><em>bGlobalPose</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aa803f72ce3351c14645f0e9fe18b113d" name="aa803f72ce3351c14645f0e9fe18b113d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa803f72ce3351c14645f0e9fe18b113d">&#9670;&#160;</a></span>IsRigidBodyKinematic_AssumesLocked()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a> IsRigidBodyKinematic_AssumesLocked </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="../../de/d64/_physics_interface_declares_core_8h.html#a53691955d496f23ec477c6900f30e1bf">FPhysicsActorHandle</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>InActorRef</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a180426e8b8d848f2b43b81d55e9a80c4" name="a180426e8b8d848f2b43b81d55e9a80c4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a180426e8b8d848f2b43b81d55e9a80c4">&#9670;&#160;</a></span>operator&lt;&lt;()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../db/d79/class_f_archive.html">FArchive</a> &amp; operator&lt;&lt; </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../db/d79/class_f_archive.html">FArchive</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>Ar</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d8/d15/struct_f_body_instance.html">FBodyInstance</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>BodyInst</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a8b5a4ae8f7e65ce270c8b71a0b5149ce" name="a8b5a4ae8f7e65ce270c8b71a0b5149ce"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8b5a4ae8f7e65ce270c8b71a0b5149ce">&#9670;&#160;</a></span>RootSpaceToWeldedSpace()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d0/df6/_math_fwd_8h.html#a532fe2b7d7e9b59259adebff28450bef">FTransform</a> RootSpaceToWeldedSpace </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="../../d8/d15/struct_f_body_instance.html">FBodyInstance</a> *</td>          <td class="paramname"><span class="paramname"><em>BI</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="../../d0/df6/_math_fwd_8h.html#a532fe2b7d7e9b59259adebff28450bef">FTransform</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>RootTM</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a35742aa956a479b8ba7e1783534bd159" name="a35742aa956a479b8ba7e1783534bd159"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a35742aa956a479b8ba7e1783534bd159">&#9670;&#160;</a></span>ValidateTransformMirror()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a> ValidateTransformMirror </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="../../d0/df6/_math_fwd_8h.html#a532fe2b7d7e9b59259adebff28450bef">FTransform</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>Transform</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="../../d2/d8e/_s_anim_notify_panel_8h.html#a7483aa7f043c623f8990a95320be654d">FString</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>DebugName</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a></td>          <td class="paramname"><span class="paramname"><em>bGenerateMirroredCollision</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a></td>          <td class="paramname"><span class="paramname"><em>bGenerateNonMirroredCollision</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="af7c00e0ad89470dac4a343bc5f6234d0" name="af7c00e0ad89470dac4a343bc5f6234d0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af7c00e0ad89470dac4a343bc5f6234d0">&#9670;&#160;</a></span>ValidateTransformNaN()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a> ValidateTransformNaN </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="../../d0/df6/_math_fwd_8h.html#a532fe2b7d7e9b59259adebff28450bef">FTransform</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>Transform</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="../../d2/d8e/_s_anim_notify_panel_8h.html#a7483aa7f043c623f8990a95320be654d">FString</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>DebugName</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="../../d5/dd5/class_f_name.html">FName</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>BoneName</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a6d545ab49129dd74128c52245d28ff8c" name="a6d545ab49129dd74128c52245d28ff8c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6d545ab49129dd74128c52245d28ff8c">&#9670;&#160;</a></span>ValidateTransformScale()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a> ValidateTransformScale </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="../../d0/df6/_math_fwd_8h.html#a532fe2b7d7e9b59259adebff28450bef">FTransform</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>Transform</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="../../d2/d8e/_s_anim_notify_panel_8h.html#a7483aa7f043c623f8990a95320be654d">FString</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>DebugName</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a name="doc-var-members" id="doc-var-members"></a><h2 id="header-doc-var-members" class="groupheader">变量说明</h2>
+<a id="ad2fe82bb6d569b7d12d549876ba5e3c3" name="ad2fe82bb6d569b7d12d549876ba5e3c3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad2fe82bb6d569b7d12d549876ba5e3c3">&#9670;&#160;</a></span>bClearPerShapeOverridesOnTerminate</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a> bClearPerShapeOverridesOnTerminate = <a class="el" href="../../d3/df7/radaudio__common_8h.html#ade27a78a51a66a5cfb6f09cf36bcfde9a08f175a5505a10b9ed657defeb050e4b">true</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="af2201a2073bacd68d739161f9df5d003" name="af2201a2073bacd68d739161f9df5d003"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af2201a2073bacd68d739161f9df5d003">&#9670;&#160;</a></span>bEnableOverrideSolverDeltaTime</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a> bEnableOverrideSolverDeltaTime = <a class="el" href="../../d3/df7/radaudio__common_8h.html#ade27a78a51a66a5cfb6f09cf36bcfde9a08f175a5505a10b9ed657defeb050e4b">true</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a112bd25e3ba9f46433d2a6b8e9b6e807" name="a112bd25e3ba9f46433d2a6b8e9b6e807"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a112bd25e3ba9f46433d2a6b8e9b6e807">&#9670;&#160;</a></span>bPreventInvalidBodyInstanceTransforms</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a> bPreventInvalidBodyInstanceTransforms = <a class="el" href="../../d3/df7/radaudio__common_8h.html#ade27a78a51a66a5cfb6f09cf36bcfde9a08f175a5505a10b9ed657defeb050e4b">true</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a0bea3a3c2505262a664442b3ab63ddcd" name="a0bea3a3c2505262a664442b3ab63ddcd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0bea3a3c2505262a664442b3ab63ddcd">&#9670;&#160;</a></span>bSkipShapeCreationForEmptyBodySetup</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a> bSkipShapeCreationForEmptyBodySetup = <a class="el" href="../../d3/df7/radaudio__common_8h.html#ade27a78a51a66a5cfb6f09cf36bcfde9ae9de385ef6fe9bf3360d1038396b884c">false</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a2810a3d060397107a4b7c5edb0d88a65" name="a2810a3d060397107a4b7c5edb0d88a65"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2810a3d060397107a4b7c5edb0d88a65">&#9670;&#160;</a></span>CDisableQueryOnlyActors</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d5/d78/class_t_auto_console_variable.html">TAutoConsoleVariable</a>&lt; <a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a8dbb3cd84ca9fd010dadfc3815eefa5d">int32</a> &gt; CDisableQueryOnlyActors(<a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;p.DisableQueryOnlyActors&quot;), 0, <a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;If QueryOnly is used, actors are marked as simulation disabled. This is NOT compatible with origin shifting at the moment.&quot;)) </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;p.DisableQueryOnlyActors&quot;)</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">0</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;If QueryOnly is used, actors are marked as simulation disabled. This is NOT compatible with origin shifting at the moment.&quot;)</td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aa770bb4710ab809f6dfa2949f910b231" name="aa770bb4710ab809f6dfa2949f910b231"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa770bb4710ab809f6dfa2949f910b231">&#9670;&#160;</a></span>CVarbEnableOverrideSolverDeltaTime</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d2/d79/class_f_auto_console_variable_ref.html">FAutoConsoleVariableRef</a> CVarbEnableOverrideSolverDeltaTime(<a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;p.EnableOverrideSolverDeltaTime&quot;), <a class="el" href="#af2201a2073bacd68d739161f9df5d003">bEnableOverrideSolverDeltaTime</a>, <a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;If <a class="el" href="../../d3/df7/radaudio__common_8h.html#ade27a78a51a66a5cfb6f09cf36bcfde9a08f175a5505a10b9ed657defeb050e4b">true</a>, setting <a class="el" href="../../d3/db8/binka__ue__decode__test_8cpp.html#ac1ee511585a5c7a2d58c146185895b72">for</a> override solver delta <a class="el" href="../../d8/d06/_android_open_g_l_functions_8h.html#a6e841fea5c7df7e45984ec9ef968eabe">time</a> can be used.  False will disable this feature.&quot;)) </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;p.EnableOverrideSolverDeltaTime&quot;)</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="#af2201a2073bacd68d739161f9df5d003">bEnableOverrideSolverDeltaTime</a></td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;If <a class="el" href="../../d3/df7/radaudio__common_8h.html#ade27a78a51a66a5cfb6f09cf36bcfde9a08f175a5505a10b9ed657defeb050e4b">true</a>, setting <a class="el" href="../../d3/db8/binka__ue__decode__test_8cpp.html#ac1ee511585a5c7a2d58c146185895b72">for</a> override solver delta <a class="el" href="../../d8/d06/_android_open_g_l_functions_8h.html#a6e841fea5c7df7e45984ec9ef968eabe">time</a> can be used.  False will disable this feature.&quot;)</td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a985e7b0e3aa8e5d0b0b5b5ab33102b8d" name="a985e7b0e3aa8e5d0b0b5b5ab33102b8d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a985e7b0e3aa8e5d0b0b5b5ab33102b8d">&#9670;&#160;</a></span>CVarbPreventInvalidBodyInstanceTransforms</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d2/d79/class_f_auto_console_variable_ref.html">FAutoConsoleVariableRef</a> CVarbPreventInvalidBodyInstanceTransforms(<a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;p.PreventInvalidBodyInstanceTransforms&quot;), <a class="el" href="#a112bd25e3ba9f46433d2a6b8e9b6e807">bPreventInvalidBodyInstanceTransforms</a>, <a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;If <a class="el" href="../../d3/df7/radaudio__common_8h.html#ade27a78a51a66a5cfb6f09cf36bcfde9a08f175a5505a10b9ed657defeb050e4b">true</a>, an attempt to create a BodyInstance with an invalid transform will fail with a warning&quot;)) </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;p.PreventInvalidBodyInstanceTransforms&quot;)</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="#a112bd25e3ba9f46433d2a6b8e9b6e807">bPreventInvalidBodyInstanceTransforms</a></td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;If <a class="el" href="../../d3/df7/radaudio__common_8h.html#ade27a78a51a66a5cfb6f09cf36bcfde9a08f175a5505a10b9ed657defeb050e4b">true</a>, an attempt to create a BodyInstance with an invalid transform will fail with a warning&quot;)</td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a4290bc40aec9bba2edbbbc02ed685d17" name="a4290bc40aec9bba2edbbbc02ed685d17"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4290bc40aec9bba2edbbbc02ed685d17">&#9670;&#160;</a></span>CVarClearPerShapeOverridesOnTerminate</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d2/d79/class_f_auto_console_variable_ref.html">FAutoConsoleVariableRef</a> CVarClearPerShapeOverridesOnTerminate(<a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;p.ClearPerShapeOverridesOnTerminate&quot;), <a class="el" href="#ad2fe82bb6d569b7d12d549876ba5e3c3">bClearPerShapeOverridesOnTerminate</a>, <a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;Whether shape overrides are cleared in between recreations of a body instance&quot;)) </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;p.ClearPerShapeOverridesOnTerminate&quot;)</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="#ad2fe82bb6d569b7d12d549876ba5e3c3">bClearPerShapeOverridesOnTerminate</a></td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;Whether shape overrides are cleared in between recreations of a body instance&quot;)</td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ad1404a62ad07d8649de6462c9955dfe2" name="ad1404a62ad07d8649de6462c9955dfe2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad1404a62ad07d8649de6462c9955dfe2">&#9670;&#160;</a></span>CVarEnableDynamicPerBodyFilterHacks</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d5/d78/class_t_auto_console_variable.html">TAutoConsoleVariable</a>&lt; <a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a8dbb3cd84ca9fd010dadfc3815eefa5d">int32</a> &gt; CVarEnableDynamicPerBodyFilterHacks(<a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;p.EnableDynamicPerBodyFilterHacks&quot;), 0, <a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;Enables/Disables the use of a set of game focused hacks - allowing users to modify skel body collision dynamically (changes the behavior of per-body collision filtering).&quot;), ECVF_ReadOnly) </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;p.EnableDynamicPerBodyFilterHacks&quot;)</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">0</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;Enables/Disables the use of a set of game focused hacks - allowing users to modify skel body collision dynamically (changes the behavior of per-body collision filtering).&quot;)</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d4/dd9/_i_console_manager_8h.html#a7f594f23c2b2c5687f1a502ebb3ba105ae46c8f2e23889626e29de22874c4cf1d">ECVF_ReadOnly</a></td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a28c234a15cde6197d5cb890df0f58770" name="a28c234a15cde6197d5cb890df0f58770"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a28c234a15cde6197d5cb890df0f58770">&#9670;&#160;</a></span>CVarEnsureUnweldModifiesGTOnly</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d2/d79/class_f_auto_console_variable_ref.html">FAutoConsoleVariableRef</a> CVarEnsureUnweldModifiesGTOnly(<a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;p.EnsureUnweldModifiesGTOnly&quot;), <a class="el" href="#a55ac115f07933b208891fbfc10840b34">EnsureUnweldModifiesGTOnly</a>, <a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;Ensure <a class="el" href="../../d3/db8/binka__ue__decode__test_8cpp.html#a374eb3a41808f317fb77da75985c3204">if</a> unweld modifies geometry shared with physics thread&quot;)) </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;p.EnsureUnweldModifiesGTOnly&quot;)</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="#a55ac115f07933b208891fbfc10840b34">EnsureUnweldModifiesGTOnly</a></td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;Ensure <a class="el" href="../../d3/db8/binka__ue__decode__test_8cpp.html#a374eb3a41808f317fb77da75985c3204">if</a> unweld modifies geometry shared with physics thread&quot;)</td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a20162f12d948f1caa22a9e6c6a6c7bd2" name="a20162f12d948f1caa22a9e6c6a6c7bd2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a20162f12d948f1caa22a9e6c6a6c7bd2">&#9670;&#160;</a></span>CVarIgnoreAnalyticCollisionsOverride</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d5/d78/class_t_auto_console_variable.html">TAutoConsoleVariable</a>&lt; <a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a8dbb3cd84ca9fd010dadfc3815eefa5d">int32</a> &gt; CVarIgnoreAnalyticCollisionsOverride(<a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;p.IgnoreAnalyticCollisionsOverride&quot;), 0, <a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;Overrides the default <a class="el" href="../../d3/db8/binka__ue__decode__test_8cpp.html#ac1ee511585a5c7a2d58c146185895b72">for</a> ignroing analytic collsions.&quot;), <a class="el" href="../../d4/dd9/_i_console_manager_8h.html#a7f594f23c2b2c5687f1a502ebb3ba105ae46c8f2e23889626e29de22874c4cf1d">ECVF_ReadOnly</a>) </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;p.IgnoreAnalyticCollisionsOverride&quot;)</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">0</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;Overrides the default <a class="el" href="../../d3/db8/binka__ue__decode__test_8cpp.html#ac1ee511585a5c7a2d58c146185895b72">for</a> ignroing analytic collsions.&quot;)</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d4/dd9/_i_console_manager_8h.html#a7f594f23c2b2c5687f1a502ebb3ba105ae46c8f2e23889626e29de22874c4cf1d">ECVF_ReadOnly</a></td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a9609f52ae5cd4f0789a64ef22d70c3eb" name="a9609f52ae5cd4f0789a64ef22d70c3eb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9609f52ae5cd4f0789a64ef22d70c3eb">&#9670;&#160;</a></span>CVarSensitiveSleepThresholdMultiplier</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d2/d79/class_f_auto_console_variable_ref.html">FAutoConsoleVariableRef</a> CVarSensitiveSleepThresholdMultiplier(<a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;p.SensitiveSleepThresholdMultiplier&quot;), <a class="el" href="#a8824377b135adff146d3528903e17921">SensitiveSleepThresholdMultiplier</a>, <a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;The sleep threshold multiplier to use <a class="el" href="../../d3/db8/binka__ue__decode__test_8cpp.html#ac1ee511585a5c7a2d58c146185895b72">for</a> bodies using the Sensitive sleep family.&quot;)) </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;p.SensitiveSleepThresholdMultiplier&quot;)</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="#a8824377b135adff146d3528903e17921">SensitiveSleepThresholdMultiplier</a></td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;The sleep threshold multiplier to use <a class="el" href="../../d3/db8/binka__ue__decode__test_8cpp.html#ac1ee511585a5c7a2d58c146185895b72">for</a> bodies using the Sensitive sleep family.&quot;)</td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aaed121415ffb7c3677cc3ddada05b8dc" name="aaed121415ffb7c3677cc3ddada05b8dc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aaed121415ffb7c3677cc3ddada05b8dc">&#9670;&#160;</a></span>CVarSimCollisionEnabled</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d2/d79/class_f_auto_console_variable_ref.html">FAutoConsoleVariableRef</a> CVarSimCollisionEnabled(<a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;p.SimCollisionEnabled&quot;), <a class="el" href="#aa1d0da5b52504577b111624adf1fb946">SimCollisionEnabled</a>, <a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;If 0 no sim collision will be used&quot;)) </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;p.SimCollisionEnabled&quot;)</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="#aa1d0da5b52504577b111624adf1fb946">SimCollisionEnabled</a></td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;If 0 no sim collision will be used&quot;)</td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a8b5323aa36a7b5c98c76070d410f8829" name="a8b5323aa36a7b5c98c76070d410f8829"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8b5323aa36a7b5c98c76070d410f8829">&#9670;&#160;</a></span>CVarSkipShapeCreationForEmptyBodySetup</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d2/d79/class_f_auto_console_variable_ref.html">FAutoConsoleVariableRef</a> CVarSkipShapeCreationForEmptyBodySetup(<a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;p.SkipShapeCreationForEmptyBodySetup&quot;), <a class="el" href="#a0bea3a3c2505262a664442b3ab63ddcd">bSkipShapeCreationForEmptyBodySetup</a>, <a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;If <a class="el" href="../../d3/df7/radaudio__common_8h.html#ade27a78a51a66a5cfb6f09cf36bcfde9a08f175a5505a10b9ed657defeb050e4b">true</a>, CreateShapesAndActors will not try to create actors and shapes <a class="el" href="../../d3/db8/binka__ue__decode__test_8cpp.html#ac1ee511585a5c7a2d58c146185895b72">for</a> all instances <a class="el" href="../../d3/db8/binka__ue__decode__test_8cpp.html#a374eb3a41808f317fb77da75985c3204">if</a> the body setup doesn't have any geometry.&quot;)) </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;p.SkipShapeCreationForEmptyBodySetup&quot;)</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="#a0bea3a3c2505262a664442b3ab63ddcd">bSkipShapeCreationForEmptyBodySetup</a></td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;If <a class="el" href="../../d3/df7/radaudio__common_8h.html#ade27a78a51a66a5cfb6f09cf36bcfde9a08f175a5505a10b9ed657defeb050e4b">true</a>, CreateShapesAndActors will not try to create actors and shapes <a class="el" href="../../d3/db8/binka__ue__decode__test_8cpp.html#ac1ee511585a5c7a2d58c146185895b72">for</a> all instances <a class="el" href="../../d3/db8/binka__ue__decode__test_8cpp.html#a374eb3a41808f317fb77da75985c3204">if</a> the body setup doesn't have any geometry.&quot;)</td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a55ac115f07933b208891fbfc10840b34" name="a55ac115f07933b208891fbfc10840b34"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a55ac115f07933b208891fbfc10840b34">&#9670;&#160;</a></span>EnsureUnweldModifiesGTOnly</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a8dbb3cd84ca9fd010dadfc3815eefa5d">int32</a> EnsureUnweldModifiesGTOnly = 0</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a8824377b135adff146d3528903e17921" name="a8824377b135adff146d3528903e17921"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8824377b135adff146d3528903e17921">&#9670;&#160;</a></span>SensitiveSleepThresholdMultiplier</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../df/d2a/_s_anim_notify_shared_8h.html#ac7c94e837fed3f8e4bb3dd94d7bd2ecf">float</a> SensitiveSleepThresholdMultiplier = 1.0f/20.0f</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aa1d0da5b52504577b111624adf1fb946" name="aa1d0da5b52504577b111624adf1fb946"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa1d0da5b52504577b111624adf1fb946">&#9670;&#160;</a></span>SimCollisionEnabled</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a8dbb3cd84ca9fd010dadfc3815eefa5d">int32</a> SimCollisionEnabled = 1</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<div id="page-nav" class="page-nav-panel">
+<div id="page-nav-resize-handle"></div>
+<div id="page-nav-tree">
+<div id="page-nav-contents">
+</div><!-- page-nav-contents -->
+</div><!-- page-nav-tree -->
+</div><!-- page-nav -->
+</div><!-- container -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a href="../../dir_0b6ee6e7e9547e675db4add2e5de97da.html">Engine</a></li><li class="navelem"><a href="../../dir_9579d1ecb2c7bf48cbe1049c41745cb4.html">Source</a></li><li class="navelem"><a href="../../dir_9f04efef762572853abdf73f62bebfcc.html">Runtime</a></li><li class="navelem"><a href="../../dir_750344885b5b0dabc1066bd532c992d7.html">Engine</a></li><li class="navelem"><a href="../../dir_0f80cfe80f66a90345f34a7a0d31ead6.html">Private</a></li><li class="navelem"><a href="../../dir_9771d00b2697f71bf213b2e6b4770f25.html">PhysicsEngine</a></li><li class="navelem"><a href="../../d1/d5e/_body_instance_8cpp.html">BodyInstance.cpp</a></li>
+    <li class="footer">制作者 <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.15.0 </li>
+  </ul>
+</div>
+</body>
+</html>

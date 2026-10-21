@@ -1,0 +1,46 @@
+var _fbx_automation_common_8h =
+[
+    [ "FFbxTestPlanExpectedResult", "d3/d49/struct_f_fbx_test_plan_expected_result.html", "d3/d49/struct_f_fbx_test_plan_expected_result" ],
+    [ "UFbxTestPlan", "d9/d39/class_u_fbx_test_plan.html", null ],
+    [ "EFBXExpectedResultPreset", "d0/dbf/_fbx_automation_common_8h.html#a891c8516ec07387eab15530d3b3c38fa", [
+      [ "Error_Number", "d0/dbf/_fbx_automation_common_8h.html#a891c8516ec07387eab15530d3b3c38faa473e7353d1b5f22f74b4739356b347cb", null ],
+      [ "Warning_Number", "d0/dbf/_fbx_automation_common_8h.html#a891c8516ec07387eab15530d3b3c38faac4cb2153a716d0a835892733babcc05b", null ],
+      [ "Created_Staticmesh_Number", "d0/dbf/_fbx_automation_common_8h.html#a891c8516ec07387eab15530d3b3c38faa8d9b71f654de320b1a8105c281632094", null ],
+      [ "Created_Skeletalmesh_Number", "d0/dbf/_fbx_automation_common_8h.html#a891c8516ec07387eab15530d3b3c38faa500137d54d638fefbeae702ec1c7f610", null ],
+      [ "Materials_Created_Number", "d0/dbf/_fbx_automation_common_8h.html#a891c8516ec07387eab15530d3b3c38faabf01f53c9c9f7c3fc5f44938ce641f05", null ],
+      [ "Material_Slot_Imported_Name", "d0/dbf/_fbx_automation_common_8h.html#a891c8516ec07387eab15530d3b3c38faa57949eebd84cbd0b3b0ddd15d75398be", null ],
+      [ "Vertex_Number", "d0/dbf/_fbx_automation_common_8h.html#a891c8516ec07387eab15530d3b3c38faa2d9f168798bb532df8d31be15e2d654f", null ],
+      [ "Lod_Number", "d0/dbf/_fbx_automation_common_8h.html#a891c8516ec07387eab15530d3b3c38faa8ecdff2f5f6304fc340c8ced1f5b3ef3", null ],
+      [ "Vertex_Number_Lod", "d0/dbf/_fbx_automation_common_8h.html#a891c8516ec07387eab15530d3b3c38faa0c2a93e807151adde4da237db8a2a82e", null ],
+      [ "Mesh_Materials_Number", "d0/dbf/_fbx_automation_common_8h.html#a891c8516ec07387eab15530d3b3c38faacb4c3b0c9c66c4c154d823ba29ff23ef", null ],
+      [ "Mesh_LOD_Section_Number", "d0/dbf/_fbx_automation_common_8h.html#a891c8516ec07387eab15530d3b3c38faac0f9e3e735586328538e5736713a94d7", null ],
+      [ "Mesh_LOD_Section_Vertex_Number", "d0/dbf/_fbx_automation_common_8h.html#a891c8516ec07387eab15530d3b3c38faa4eb794d9010fe7d98c1ac06673a0a8a7", null ],
+      [ "Mesh_LOD_Section_Triangle_Number", "d0/dbf/_fbx_automation_common_8h.html#a891c8516ec07387eab15530d3b3c38faa995d927ec7e0de46992667013b18aff4", null ],
+      [ "Mesh_LOD_Section_Material_Name", "d0/dbf/_fbx_automation_common_8h.html#a891c8516ec07387eab15530d3b3c38faace6e0a0eef37dae115911536869487ff", null ],
+      [ "Mesh_LOD_Section_Material_Index", "d0/dbf/_fbx_automation_common_8h.html#a891c8516ec07387eab15530d3b3c38faae9208738a9c2e2fb136aba3ee98ab187", null ],
+      [ "Mesh_LOD_Section_Material_Imported_Name", "d0/dbf/_fbx_automation_common_8h.html#a891c8516ec07387eab15530d3b3c38faa13b738733765ac6370b3ddec1c3df8ec", null ],
+      [ "Mesh_LOD_Vertex_Position", "d0/dbf/_fbx_automation_common_8h.html#a891c8516ec07387eab15530d3b3c38faaf3b692d6b44ebb7bb137c7326275b48e", null ],
+      [ "Mesh_LOD_Vertex_Normal", "d0/dbf/_fbx_automation_common_8h.html#a891c8516ec07387eab15530d3b3c38faace9a3a2c8e93c45ce792b2e9b93b697a", null ],
+      [ "LOD_UV_Channel_Number", "d0/dbf/_fbx_automation_common_8h.html#a891c8516ec07387eab15530d3b3c38faa9234ce4de4a7a3c377ac732d44b31947", null ],
+      [ "Bone_Number", "d0/dbf/_fbx_automation_common_8h.html#a891c8516ec07387eab15530d3b3c38faa93c36709735328bf9cea62ff865282ef", null ],
+      [ "Bone_Position", "d0/dbf/_fbx_automation_common_8h.html#a891c8516ec07387eab15530d3b3c38faa979aeb99ec933ec0b39ac90fd74652bc", null ],
+      [ "Animation_Frame_Number", "d0/dbf/_fbx_automation_common_8h.html#a891c8516ec07387eab15530d3b3c38faa5489aca9c3bf193025d383c918ece080", null ],
+      [ "Animation_Length", "d0/dbf/_fbx_automation_common_8h.html#a891c8516ec07387eab15530d3b3c38faafc8f978d662c4bf7996f90ba0c0f5369", null ],
+      [ "Animation_CustomCurve_KeyValue", "d0/dbf/_fbx_automation_common_8h.html#a891c8516ec07387eab15530d3b3c38faa510f8f6faf9900ea09502f1eb3a93dd9", null ],
+      [ "Animation_CustomCurve_KeyArriveTangent", "d0/dbf/_fbx_automation_common_8h.html#a891c8516ec07387eab15530d3b3c38faacd345277673869c438e59f43d0820527", null ],
+      [ "Animation_CustomCurve_KeyLeaveTangent", "d0/dbf/_fbx_automation_common_8h.html#a891c8516ec07387eab15530d3b3c38faa21e441e65607158a9bf9b19b30ea434f", null ],
+      [ "Skin_By_Bone_Vertex_Number", "d0/dbf/_fbx_automation_common_8h.html#a891c8516ec07387eab15530d3b3c38faab2e1270ee6cc96c77d7c198c9bdc1e91", null ],
+      [ "Animation_CustomCurve_KeyArriveTangentWeight", "d0/dbf/_fbx_automation_common_8h.html#a891c8516ec07387eab15530d3b3c38faa8a9cb26451da116fdef6a8dc941e2887", null ],
+      [ "Animation_CustomCurve_KeyLeaveTangentWeight", "d0/dbf/_fbx_automation_common_8h.html#a891c8516ec07387eab15530d3b3c38faa0d96a3777946ec355e464db8c2d189fc", null ]
+    ] ],
+    [ "EFBXTestPlanActionType", "d0/dbf/_fbx_automation_common_8h.html#a833d630c381197045f02bde7be450dd1", [
+      [ "Import", "d0/dbf/_fbx_automation_common_8h.html#a833d630c381197045f02bde7be450dd1a4cf54e8a3ac8056f127dcaaa762ad3c1", null ],
+      [ "Reimport", "d0/dbf/_fbx_automation_common_8h.html#a833d630c381197045f02bde7be450dd1aa4a9ade58cee914f10c7cfff76cb811d", null ],
+      [ "AddLOD", "d0/dbf/_fbx_automation_common_8h.html#a833d630c381197045f02bde7be450dd1a2edd550347e26a8685049dfedecc7c9b", null ],
+      [ "ReimportLOD", "d0/dbf/_fbx_automation_common_8h.html#a833d630c381197045f02bde7be450dd1ae14e6f64d44f6c80f02fc487732ca502", null ],
+      [ "ImportReload", "d0/dbf/_fbx_automation_common_8h.html#a833d630c381197045f02bde7be450dd1adf2fc7eb0b221b4c7b8878f1884c336f", null ],
+      [ "AddAlternateSkinnig", "d0/dbf/_fbx_automation_common_8h.html#a833d630c381197045f02bde7be450dd1a65ab9c73192ef45db53b624079574d2c", null ]
+    ] ],
+    [ "FbxAutomationTestsAPI::ReadFbxOptions", "d9/d71/namespace_fbx_automation_tests_a_p_i.html#a5f4bcf73e15fdb6b82babb857361e6cd", null ],
+    [ "FbxAutomationTestsAPI::WriteFbxOptions", "d9/d71/namespace_fbx_automation_tests_a_p_i.html#ac43bd54dba1083df701ce9c5a84b470e", null ]
+];

@@ -1,0 +1,28 @@
+var struct_f_io_store_toc_header =
+[
+    [ "CheckMagic", "d6/def/struct_f_io_store_toc_header.html#a58d8ed0c99b40a9500738405ba8c6e5b", null ],
+    [ "MakeMagic", "d6/def/struct_f_io_store_toc_header.html#a6aa346a32d186379e4614069a13c5a3e", null ],
+    [ "CompressionBlockSize", "d6/def/struct_f_io_store_toc_header.html#a16d3220978dd42a81e3eef1c99de4f0b", null ],
+    [ "CompressionMethodNameCount", "d6/def/struct_f_io_store_toc_header.html#a2b4d06c3abd4a1cade9ad4bc4d4e3275", null ],
+    [ "CompressionMethodNameLength", "d6/def/struct_f_io_store_toc_header.html#af6818216f655b64535908ebf3d1b400c", null ],
+    [ "ContainerFlags", "d6/def/struct_f_io_store_toc_header.html#aee40defd7ecf5013de61e92cede37c73", null ],
+    [ "ContainerId", "d6/def/struct_f_io_store_toc_header.html#abb8566fb7636381ebfa2bea7316e0377", null ],
+    [ "DirectoryIndexSize", "d6/def/struct_f_io_store_toc_header.html#a41be121975c84c6b56f21e71780495c1", null ],
+    [ "EncryptionKeyGuid", "d6/def/struct_f_io_store_toc_header.html#a2735d604bb1b393267fb0e7f9195155d", null ],
+    [ "PartitionCount", "d6/def/struct_f_io_store_toc_header.html#a027575b40821c79210cf4ef1d7560e32", null ],
+    [ "PartitionSize", "d6/def/struct_f_io_store_toc_header.html#a1405ced49014c216a213ddd2765fd6be", null ],
+    [ "Reserved0", "d6/def/struct_f_io_store_toc_header.html#ac6180a594f58cb40469d8d5cb441af81", null ],
+    [ "Reserved1", "d6/def/struct_f_io_store_toc_header.html#a85037d8435b3b28ebc599fa978486faa", null ],
+    [ "Reserved3", "d6/def/struct_f_io_store_toc_header.html#ac361b487913ca23ad57c333a9fbcd2a7", null ],
+    [ "Reserved4", "d6/def/struct_f_io_store_toc_header.html#a0a084c19700566ad3742e1a7b88f21f3", null ],
+    [ "Reserved7", "d6/def/struct_f_io_store_toc_header.html#aaf83cabe8184ab88275d50bd4fbd89fc", null ],
+    [ "Reserved8", "d6/def/struct_f_io_store_toc_header.html#a8d08080b6baa0d70a5f420eb3b5964a5", null ],
+    [ "TocChunkPerfectHashSeedsCount", "d6/def/struct_f_io_store_toc_header.html#a26b1d3feb12df29fd03d7d7c86323715", null ],
+    [ "TocChunksWithoutPerfectHashCount", "d6/def/struct_f_io_store_toc_header.html#a415fe1cb9d6c14fc986c1beee66f021f", null ],
+    [ "TocCompressedBlockEntryCount", "d6/def/struct_f_io_store_toc_header.html#af1777919b80f93397f73a961c85361ac", null ],
+    [ "TocCompressedBlockEntrySize", "d6/def/struct_f_io_store_toc_header.html#a6fa0e1538c43eef0f4a32c24dfd68b88", null ],
+    [ "TocEntryCount", "d6/def/struct_f_io_store_toc_header.html#a096d5b60eb45a2dd38005d6628458bbf", null ],
+    [ "TocHeaderSize", "d6/def/struct_f_io_store_toc_header.html#a6888bd3b3db76ada78c1c13020aa8f32", null ],
+    [ "TocMagic", "d6/def/struct_f_io_store_toc_header.html#ace5c22856459cd13270793dc009d2095", null ],
+    [ "Version", "d6/def/struct_f_io_store_toc_header.html#afbcd2f27c256b40bdbe4972f1cadcf36", null ]
+];

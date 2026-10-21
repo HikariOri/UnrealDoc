@@ -1,0 +1,25 @@
+var class_f_tab_manager_1_1_f_stack =
+[
+    [ "~FStack", "d9/dde/class_f_tab_manager_1_1_f_stack.html#ab4239e47a03786032975187bd2688278", null ],
+    [ "FStack", "d9/dde/class_f_tab_manager_1_1_f_stack.html#afa47330991f23ea593f2448c2033813c", null ],
+    [ "AddTab", "d9/dde/class_f_tab_manager_1_1_f_stack.html#a57b19a9b0c3dfdeb6f845ab489f9b7c4", null ],
+    [ "AddTab", "d9/dde/class_f_tab_manager_1_1_f_stack.html#a747b5319ad19be347ba89941aca6f3d3", null ],
+    [ "AddTab", "d9/dde/class_f_tab_manager_1_1_f_stack.html#aa442457c147a24e6dc64e61aeae8bfe0", null ],
+    [ "AddTab", "d9/dde/class_f_tab_manager_1_1_f_stack.html#aca81dbb147c93e463bd7963d2f0c4f0a", null ],
+    [ "AddTab", "d9/dde/class_f_tab_manager_1_1_f_stack.html#a35abd4670ab17dd1be4388fd358359d4", null ],
+    [ "AsStack", "d9/dde/class_f_tab_manager_1_1_f_stack.html#a65929c0d6276da3dbef13df0a4e61ae6", null ],
+    [ "GetExtensionId", "d9/dde/class_f_tab_manager_1_1_f_stack.html#a85e868934420e029e73e1e2126ec526f", null ],
+    [ "GetTabs", "d9/dde/class_f_tab_manager_1_1_f_stack.html#a06a65843ff67fa0666ed5bea4d927174", null ],
+    [ "SetExtensionId", "d9/dde/class_f_tab_manager_1_1_f_stack.html#aebb5408ba5e9ba9d1c143dc26bbaa52e", null ],
+    [ "SetForegroundTab", "d9/dde/class_f_tab_manager_1_1_f_stack.html#a725829eeb9699810557648299aef8a0c", null ],
+    [ "SetHideTabWell", "d9/dde/class_f_tab_manager_1_1_f_stack.html#a11544647a1c5e71db49dafdc09438197", null ],
+    [ "SetMinSize", "d9/dde/class_f_tab_manager_1_1_f_stack.html#aae5a923380e9f0e4749f00afff294041", null ],
+    [ "SetSizeCoefficient", "d9/dde/class_f_tab_manager_1_1_f_stack.html#a5e0a118672d8ae0be65b2045b55aa3e7", null ],
+    [ "FLayout", "d9/dde/class_f_tab_manager_1_1_f_stack.html#a7c1fe80c6c144986c87243553697cbc0", null ],
+    [ "FTabManager", "d9/dde/class_f_tab_manager_1_1_f_stack.html#ab96db9986dc37ba596d7f00f08a8da0b", null ],
+    [ "SDockingTabStack", "d9/dde/class_f_tab_manager_1_1_f_stack.html#a0ef14ee71cf0e5f1a05b5af6aae52024", null ],
+    [ "bHideTabWell", "d9/dde/class_f_tab_manager_1_1_f_stack.html#a20c80bb96ef04753591f437ea345883a", null ],
+    [ "ExtensionId", "d9/dde/class_f_tab_manager_1_1_f_stack.html#a40a07d7afea001669f5d273af6f7a1b1", null ],
+    [ "ForegroundTabId", "d9/dde/class_f_tab_manager_1_1_f_stack.html#a830b84f6b340784222fa3e20e21d7292", null ],
+    [ "Tabs", "d9/dde/class_f_tab_manager_1_1_f_stack.html#aa1b6d277b3c971507e00955ba0e4af56", null ]
+];

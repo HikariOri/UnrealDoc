@@ -1,0 +1,480 @@
+<!-- HTML header for doxygen 1.15.0-->
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh">
+<head>
+  <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=11" />
+  <meta name="generator" content="Doxygen 1.15.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>UE 5.8.4: Engine/Source/Runtime/Engine/Private/ODSC/ODSCThread.h 源文件</title>
+  <link rel="icon" href="../../EdIconDefault.bmp" type="image/x-icon" />
+  <link href="../../tabs.css" rel="stylesheet" type="text/css" />
+  <script type="text/javascript" src="../../jquery.js"></script>
+  <script type="text/javascript" src="../../dynsections.js"></script>
+  <link href="../../navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../navtreedata.js"></script>
+<script type="text/javascript" src="../../navtree.js"></script>
+<script type="text/javascript" src="../../cookie.js"></script>
+  <link href="../../search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../search/searchdata.js"></script>
+<script type="text/javascript" src="../../search/search.js"></script>
+  <link href="../../doxygen.css" rel="stylesheet" type="text/css" />
+  <link href="../../doxygen-awesome.css" rel="stylesheet" type="text/css"/>
+<link href="../../doxygen-awesome-sidebar-only.css" rel="stylesheet" type="text/css"/>
+<link href="../../doxygen-awesome-sidebar-only-darkmode-toggle.css" rel="stylesheet" type="text/css"/>
+  <!-- ... other metadata & script includes ... -->
+  <script type="text/javascript" src="../../doxygen-awesome-darkmode-toggle.js"></script>
+  <script type="text/javascript">
+    DoxygenAwesomeDarkModeToggle.title = "Zwischen hellem/dunklem Modus wechseln"
+    DoxygenAwesomeDarkModeToggle.lightModeIcon = '🌞'
+    // icon from https://fonts.google.com/icons
+    DoxygenAwesomeDarkModeToggle.darkModeIcon = `<svg xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 24 24" height="24px" viewBox="0 0 24 24" width="24px" fill="#009793"><g><rect fill="none" height="24" width="24"/></g><g><g><path d="M8.1,14.15C9.77,14.63,11,16.17,11,18c0,0.68-0.19,1.31-0.48,1.87c0.48,0.09,0.97,0.14,1.48,0.14 c1.48,0,2.9-0.41,4.13-1.15c-2.62-0.92-5.23-2.82-6.8-5.86C7.74,9.94,7.78,7.09,8.29,4.9c-2.57,1.33-4.3,4.01-4.3,7.1c0,0,0,0,0,0 c0.01,0,0.01,0,0.02,0C5.66,12,7.18,12.83,8.1,14.15z" opacity=".3"/><path d="M19.78,17.51c-2.47,0-6.57-1.33-8.68-5.43C8.77,7.57,10.6,3.6,11.63,2.01C6.27,2.2,1.98,6.59,1.98,12 c0,0.14,0.02,0.28,0.02,0.42C2.61,12.16,3.28,12,3.98,12c0,0,0,0,0,0c0-3.09,1.73-5.77,4.3-7.1C7.78,7.09,7.74,9.94,9.32,13 c1.57,3.04,4.18,4.95,6.8,5.86c-1.23,0.74-2.65,1.15-4.13,1.15c-0.5,0-1-0.05-1.48-0.14c-0.37,0.7-0.94,1.27-1.64,1.64 c0.98,0.32,2.03,0.5,3.11,0.5c3.5,0,6.58-1.8,8.37-4.52C20.18,17.5,19.98,17.51,19.78,17.51z"/><path d="M7,16l-0.18,0C6.4,14.84,5.3,14,4,14c-1.66,0-3,1.34-3,3s1.34,3,3,3c0.62,0,2.49,0,3,0c1.1,0,2-0.9,2-2 C9,16.9,8.1,16,7,16z"/></g></g></svg>`
+    DoxygenAwesomeDarkModeToggle.init()
+  </script>
+  <script type="text/javascript" src="../../doxygen-awesome-fragment-copy-button.js"></script>
+  <script type="text/javascript">
+    DoxygenAwesomeFragmentCopyButton.title = "In die Zwischenablage kopieren"
+    // DoxygenAwesomeFragmentCopyButton.copyIcon = `<svg ...>`
+    // DoxygenAwesomeFragmentCopyButton.successIcon = `<svg ...>`
+    DoxygenAwesomeFragmentCopyButton.init()
+  </script>
+  <script type="text/javascript" src="../../doxygen-awesome-paragraph-link.js"></script>
+  <script type="text/javascript">
+    DoxygenAwesomeParagraphLink.title = "Abschnitt verknüpfen"
+    DoxygenAwesomeParagraphLink.icon = "¶"
+    DoxygenAwesomeParagraphLink.init()
+  </script>
+  <script type="text/javascript" src="../../doxygen-awesome-interactive-toc.js"></script>
+  <script type="text/javascript">
+    DoxygenAwesomeInteractiveToc.topOffset = 45
+    DoxygenAwesomeInteractiveToc.hideMobileMenu = false
+    DoxygenAwesomeInteractiveToc.init()
+  </script>
+</head>
+<body>
+    <div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+      <div id="titlearea">
+        <table cellspacing="0" cellpadding="0">
+          <tbody>
+            <tr id="projectrow">
+              <td id="projectlogo"><img alt="Logo" src="../../EdIconDefault.bmp"  /></td>
+              <td id="projectalign">
+                <div id="projectname">UE 5.8.4
+                </div>
+                <div id="projectbrief">Unreal Engine</div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <!-- end header part -->
+<!-- 制作者 Doxygen 1.15.0 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "../../search/",'.html');
+</script>
+<script type="text/javascript">
+$(function() { codefold.init(); });
+</script>
+<script type="text/javascript" src="../../menudata.js"></script>
+<script type="text/javascript" src="../../menu.js"></script>
+<script type="text/javascript">
+$(function() {
+  initMenu('../../',true,false,'search.php','搜索',true);
+  $(function() { init_search(); });
+});
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(function(){initNavTree('dd/d6c/_o_d_s_c_thread_8h_source.html','../../',''); });
+</script>
+<div id="container">
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">载入中...</div>
+<div class="SRStatus" id="Searching">搜索中...</div>
+<div class="SRStatus" id="NoMatches">未找到</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">ODSCThread.h</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="../../dd/d6c/_o_d_s_c_thread_8h.html">浏览该文件的文档.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="comment">// Copyright Epic Games, Inc. All Rights Reserved.</span></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span> </div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="preprocessor">#pragma once</span></div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span> </div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="preprocessor">#include &quot;<a class="code" href="../../dc/d5e/_core_minimal_8h.html">CoreMinimal.h</a>&quot;</span></div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="preprocessor">#include &quot;<a class="code" href="../../dd/d22/_runnable_8h.html">HAL/Runnable.h</a>&quot;</span></div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="preprocessor">#include &quot;<a class="code" href="../../d2/d6b/_single_thread_runnable_8h.html">Misc/SingleThreadRunnable.h</a>&quot;</span></div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="preprocessor">#include &quot;<a class="code" href="../../d1/d4b/_generic_platform_file_8h.html">GenericPlatform/GenericPlatformFile.h</a>&quot;</span></div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="preprocessor">#include &quot;Containers/Queue.h&quot;</span></div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="preprocessor">#include &quot;<a class="code" href="../../d5/d25/_shader_compiler_8h.html">ShaderCompiler.h</a>&quot;</span></div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="preprocessor">#include &quot;<a class="code" href="../../da/dca/_r_h_i_definitions_8h.html">RHIDefinitions.h</a>&quot;</span></div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span> </div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="keyword">class </span><a class="code hl_class" href="../../d5/d17/class_f_event.html">FEvent</a>;</div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="keyword">class </span><a class="code hl_class" href="../../da/da5/class_f_runnable_thread.html">FRunnableThread</a>;</div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span><span class="keyword">class </span><a class="code hl_class" href="../../d4/ddc/class_f_material_shader_map.html">FMaterialShaderMap</a>;</div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span><span class="keyword">class </span><a class="code hl_class" href="../../d1/d9d/class_f_material_shader_map_id.html">FMaterialShaderMapId</a>;</div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span><span class="keyword">class </span><a class="code hl_class" href="../../d2/ded/class_f_primitive_scene_info.html">FPrimitiveSceneInfo</a>;</div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span> </div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span><span class="keyword">namespace </span><a class="code hl_namespace" href="../../da/de5/namespace_u_e.html">UE</a></div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>{</div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>    <span class="keyword">namespace </span><a class="code hl_namespace" href="../../d6/d50/namespace_u_e_1_1_cook.html">Cook</a></div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>    {</div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>        <span class="keyword">class </span><a class="code hl_class" href="../../da/dc7/class_u_e_1_1_cook_1_1_i_cook_on_the_fly_server_connection.html">ICookOnTheFlyServerConnection</a>;</div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>        <span class="keyword">class </span><a class="code hl_class" href="../../d8/df7/class_u_e_1_1_cook_1_1_f_cook_on_the_fly_message.html">FCookOnTheFlyMessage</a>;</div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>    }</div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>}</div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span> </div>
+<div class="foldopen" id="foldopen00028" data-start="{" data-end="};">
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno"><a class="line" href="../../dd/d6c/_o_d_s_c_thread_8h.html#aef1a336151f5785019e173f700f14c5e">   28</a></span><span class="keyword">enum class</span> <a class="code hl_enumeration" href="../../dd/d6c/_o_d_s_c_thread_8h.html#aef1a336151f5785019e173f700f14c5e">EODSCMetaDataType</a></div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>{</div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno"><a class="line" href="../../dd/d6c/_o_d_s_c_thread_8h.html#aef1a336151f5785019e173f700f14c5ea7a1920d61156abc05a60135aefe8bc67">   30</a></span>    <a class="code hl_enumvalue" href="../../dd/d6c/_o_d_s_c_thread_8h.html#aef1a336151f5785019e173f700f14c5ea7a1920d61156abc05a60135aefe8bc67">Default</a>=0, <span class="comment">// The material hasn&#39;t been seen by ODSCManager yet</span></div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno"><a class="line" href="../../dd/d6c/_o_d_s_c_thread_8h.html#aef1a336151f5785019e173f700f14c5eab28a720409fce49954257ffeab5f6673">   31</a></span>    <a class="code hl_enumvalue" href="../../dd/d6c/_o_d_s_c_thread_8h.html#aef1a336151f5785019e173f700f14c5eab28a720409fce49954257ffeab5f6673">IsDependentOnMaterialName</a>,</div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno"><a class="line" href="../../dd/d6c/_o_d_s_c_thread_8h.html#aef1a336151f5785019e173f700f14c5ea6037925c11cb6eb4ca087979817e52e2">   32</a></span>    <a class="code hl_enumvalue" href="../../dd/d6c/_o_d_s_c_thread_8h.html#aef1a336151f5785019e173f700f14c5ea6037925c11cb6eb4ca087979817e52e2">IsNotDependentOnMaterialName</a>,</div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>};</div>
+</div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span> </div>
+<div class="foldopen" id="foldopen00035" data-start="{" data-end="};">
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno"><a class="line" href="../../d9/d61/class_f_o_d_s_c_message_handler.html">   35</a></span><span class="keyword">class </span><a class="code hl_function" href="../../d9/d61/class_f_o_d_s_c_message_handler.html#ae6feec1beddde0cc2573ae6a2ac914ae">FODSCMessageHandler</a> : <span class="keyword">public</span> <a class="code hl_class" href="../../d2/dfd/class_i_platform_file_1_1_i_file_server_message_handler.html">IPlatformFile::IFileServerMessageHandler</a></div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>{</div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>    <a class="code hl_function" href="../../d9/d61/class_f_o_d_s_c_message_handler.html#ae6feec1beddde0cc2573ae6a2ac914ae">FODSCMessageHandler</a>(<a class="code hl_enumeration" href="../../de/d49/_r_h_i_shader_platform_8h.html#a424c00593a28eb7ade584eea91161acd">EShaderPlatform</a> InShaderPlatform, <a class="code hl_enumeration" href="../../dc/dcf/namespace_e_r_h_i_feature_level.html#a04bc2ae8f7bf478747a40da91e1753dd">ERHIFeatureLevel::Type</a> InFeatureLevel, <a class="code hl_enumeration" href="../../d9/db9/namespace_e_material_quality_level.html#a262c1ba24737f484ab17dce1cfafb0a3">EMaterialQualityLevel::Type</a> InQualityLevel, <a class="code hl_enumeration" href="../../d5/d25/_shader_compiler_8h.html#a3a255eab46e518b9b3616452192220c3">ODSCRecompileCommand</a> InRecompileCommandType);</div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>    <a class="code hl_function" href="../../d9/d61/class_f_o_d_s_c_message_handler.html#ae6feec1beddde0cc2573ae6a2ac914ae">FODSCMessageHandler</a>(</div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>        <span class="keyword">const</span> <a class="code hl_class" href="../../d6/db1/class_t_array.html">TArray&lt;FString&gt;</a>&amp; InMaterials,</div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>        <span class="keyword">const</span> <a class="code hl_variable" href="../../d2/d8e/_s_anim_notify_panel_8h.html#a7483aa7f043c623f8990a95320be654d">FString</a>&amp; ShaderTypesToLoad,</div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>        <a class="code hl_enumeration" href="../../de/d49/_r_h_i_shader_platform_8h.html#a424c00593a28eb7ade584eea91161acd">EShaderPlatform</a> InShaderPlatform,</div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>        <a class="code hl_enumeration" href="../../dc/dcf/namespace_e_r_h_i_feature_level.html#a04bc2ae8f7bf478747a40da91e1753dd">ERHIFeatureLevel::Type</a> InFeatureLevel,</div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>        <a class="code hl_enumeration" href="../../d9/db9/namespace_e_material_quality_level.html#a262c1ba24737f484ab17dce1cfafb0a3">EMaterialQualityLevel::Type</a> InQualityLevel,</div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>        <a class="code hl_enumeration" href="../../d5/d25/_shader_compiler_8h.html#a3a255eab46e518b9b3616452192220c3">ODSCRecompileCommand</a> InRecompileCommandType,</div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>        <span class="keyword">const</span> <a class="code hl_class" href="../../dc/dd1/class_f_shader_compiler_flags.html">FShaderCompilerFlags</a>&amp; InExtraCompilerFlags = <a class="code hl_class" href="../../dc/dd1/class_f_shader_compiler_flags.html">FShaderCompilerFlags</a>()</div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>    );</div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span></div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code hl_function" href="../../d9/d61/class_f_o_d_s_c_message_handler.html#a4122fae2a3723ab98e786d9f4c625c25">FillPayload</a>(<a class="code hl_class" href="../../db/d79/class_f_archive.html">FArchive</a>&amp; Payload) <span class="keyword">override</span>;</div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span></div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code hl_function" href="../../d9/d61/class_f_o_d_s_c_message_handler.html#a849e457194749c290f30bd1be4c1158c">ProcessResponse</a>(<a class="code hl_class" href="../../db/d79/class_f_archive.html">FArchive</a>&amp; Response) <span class="keyword">override</span>;</div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span> </div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="../../d9/d61/class_f_o_d_s_c_message_handler.html#a992fd19c0b56706cc52fe25d88a9da64">AddPayload</a>(<span class="keyword">const</span> <a class="code hl_struct" href="../../d1/dda/struct_f_o_d_s_c_request_payload.html">FODSCRequestPayload</a>&amp; Payload);</div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span> </div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>    <span class="keyword">const</span> <a class="code hl_class" href="../../d6/db1/class_t_array.html">TArray&lt;FString&gt;</a>&amp; <a class="code hl_function" href="../../d9/d61/class_f_o_d_s_c_message_handler.html#ace16c059ab5c086be3daed5ec2331c12">GetMaterialsToLoad</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>    <span class="keyword">const</span> <a class="code hl_class" href="../../d6/db1/class_t_array.html">TArray&lt;uint8&gt;</a>&amp; <a class="code hl_function" href="../../d9/d61/class_f_o_d_s_c_message_handler.html#a60a60eb942eb98ed48c74869f67821de">GetMeshMaterialMaps</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>    <span class="keyword">const</span> <a class="code hl_class" href="../../d6/db1/class_t_array.html">TArray&lt;uint8&gt;</a>&amp; <a class="code hl_function" href="../../d9/d61/class_f_o_d_s_c_message_handler.html#a888290a04482a6f4c763d23c1c23458b">GetGlobalShaderMap</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>    <span class="keywordtype">bool</span> <a class="code hl_function" href="../../d9/d61/class_f_o_d_s_c_message_handler.html#a0848e955e51a49e2de6f34441062dfb9">ReloadGlobalShaders</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno"><a class="line" href="../../d9/d61/class_f_o_d_s_c_message_handler.html#a4c0e8ca7f17cd02754ebb86ff049dbbf">   61</a></span>    <a class="code hl_enumeration" href="../../d5/d25/_shader_compiler_8h.html#a3a255eab46e518b9b3616452192220c3">ODSCRecompileCommand</a> <a class="code hl_function" href="../../d9/d61/class_f_o_d_s_c_message_handler.html#a4c0e8ca7f17cd02754ebb86ff049dbbf">GetRecompileCommandType</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> RecompileCommandType; };</div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno"><a class="line" href="../../d9/d61/class_f_o_d_s_c_message_handler.html#aa5642e4696c3056922637c4fdfa25ca3">   62</a></span>    <a class="code hl_typedef" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a8dbb3cd84ca9fd010dadfc3815eefa5d">int32</a> <a class="code hl_function" href="../../d9/d61/class_f_o_d_s_c_message_handler.html#aa5642e4696c3056922637c4fdfa25ca3">NumPayloads</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> RequestBatch.Num(); }</div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span> </div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span><span class="keyword">private</span>:</div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span>    <span class="keywordtype">double</span> RequestStartTime = 0.0;</div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span></div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>    <a class="code hl_class" href="../../d6/db1/class_t_array.html">TArray&lt;FString&gt;</a> MaterialsToLoad;</div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span></div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>    <a class="code hl_variable" href="../../d2/d8e/_s_anim_notify_panel_8h.html#a7483aa7f043c623f8990a95320be654d">FString</a> ShaderTypesToLoad;</div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span></div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>    <a class="code hl_enumeration" href="../../de/d49/_r_h_i_shader_platform_8h.html#a424c00593a28eb7ade584eea91161acd">EShaderPlatform</a> ShaderPlatform;</div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span></div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>    <a class="code hl_enumeration" href="../../dc/dcf/namespace_e_r_h_i_feature_level.html#a04bc2ae8f7bf478747a40da91e1753dd">ERHIFeatureLevel::Type</a> FeatureLevel;</div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span></div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>    <a class="code hl_enumeration" href="../../d9/db9/namespace_e_material_quality_level.html#a262c1ba24737f484ab17dce1cfafb0a3">EMaterialQualityLevel::Type</a> QualityLevel;</div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span></div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span>    <a class="code hl_enumeration" href="../../d5/d25/_shader_compiler_8h.html#a3a255eab46e518b9b3616452192220c3">ODSCRecompileCommand</a> RecompileCommandType = <a class="code hl_enumvalue" href="../../d5/d25/_shader_compiler_8h.html#a3a255eab46e518b9b3616452192220c3a6adf97f83acf6453d4a6a4b1070f3754">ODSCRecompileCommand::None</a>;</div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span></div>
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span>    <a class="code hl_class" href="../../dc/dd1/class_f_shader_compiler_flags.html">FShaderCompilerFlags</a> ExtraCompilerFlags = <a class="code hl_class" href="../../dc/dd1/class_f_shader_compiler_flags.html">FShaderCompilerFlags</a>();</div>
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span></div>
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span>    <a class="code hl_class" href="../../d6/db1/class_t_array.html">TArray&lt;FODSCRequestPayload&gt;</a> RequestBatch;</div>
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span></div>
+<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span>    <a class="code hl_class" href="../../d6/db1/class_t_array.html">TArray&lt;uint8&gt;</a> OutMeshMaterialMaps;</div>
+<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span></div>
+<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span>    <a class="code hl_class" href="../../d6/db1/class_t_array.html">TArray&lt;uint8&gt;</a> OutGlobalShaderMap;</div>
+<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span>};</div>
+</div>
+<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span></div>
+<div class="foldopen" id="foldopen00103" data-start="{" data-end="};">
+<div class="line"><a id="l00103" name="l00103"></a><span class="lineno"><a class="line" href="../../dc/d2b/class_f_o_d_s_c_thread.html">  103</a></span><span class="keyword">class </span><a class="code hl_function" href="../../dc/d2b/class_f_o_d_s_c_thread.html#a8d1fc2765c57919778165808b3845287">FODSCThread</a></div>
+<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span>    : <a class="code hl_class" href="../../d7/d3c/class_f_runnable.html">FRunnable</a>, <a class="code hl_class" href="../../d6/d51/class_f_single_thread_runnable.html">FSingleThreadRunnable</a></div>
+<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span>{</div>
+<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span> </div>
+<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span>    <a class="code hl_function" href="../../dc/d2b/class_f_o_d_s_c_thread.html#a8d1fc2765c57919778165808b3845287">FODSCThread</a>(<span class="keyword">const</span> <a class="code hl_variable" href="../../d2/d8e/_s_anim_notify_panel_8h.html#a7483aa7f043c623f8990a95320be654d">FString</a>&amp; HostIP);</div>
+<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span>    <span class="keyword">virtual</span> <a class="code hl_function" href="../../dc/d2b/class_f_o_d_s_c_thread.html#acc8ac6e6c5d365ef0f7416cef73761f8">~FODSCThread</a>();</div>
+<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span></div>
+<div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="../../dc/d2b/class_f_o_d_s_c_thread.html#a88ffc2a780b0b7eb358d8e7894b2655c">StartThread</a>();</div>
+<div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span></div>
+<div class="line"><a id="l00119" name="l00119"></a><span class="lineno">  119</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="../../dc/d2b/class_f_o_d_s_c_thread.html#a04ef0915e7938f1d72d1c08f201e3b22">StopThread</a>();</div>
+<div class="line"><a id="l00120" name="l00120"></a><span class="lineno">  120</span> </div>
+<div class="line"><a id="l00121" name="l00121"></a><span class="lineno">  121</span>    <span class="comment">//~ Begin FSingleThreadRunnable Interface</span></div>
+<div class="line"><a id="l00122" name="l00122"></a><span class="lineno">  122</span>    <span class="comment">// Cannot be overriden to ensure identical behavior with the threaded tick</span></div>
+<div class="line"><a id="l00123" name="l00123"></a><span class="lineno">  123</span>    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code hl_function" href="../../dc/d2b/class_f_o_d_s_c_thread.html#a9f1ede67da05a313b071c43808dd418f">Tick</a>() <span class="keyword">override</span> <span class="keyword">final</span>;</div>
+<div class="line"><a id="l00124" name="l00124"></a><span class="lineno">  124</span>    <span class="comment">//~ End FSingleThreadRunnable Interface</span></div>
+<div class="line"><a id="l00125" name="l00125"></a><span class="lineno">  125</span></div>
+<div class="line"><a id="l00136" name="l00136"></a><span class="lineno">  136</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="../../dc/d2b/class_f_o_d_s_c_thread.html#ac3ea6cbb77d90a077a0fe56307bce23b">AddRequest</a>(</div>
+<div class="line"><a id="l00137" name="l00137"></a><span class="lineno">  137</span>        <span class="keyword">const</span> <a class="code hl_class" href="../../d6/db1/class_t_array.html">TArray&lt;FString&gt;</a>&amp; MaterialsToCompile,</div>
+<div class="line"><a id="l00138" name="l00138"></a><span class="lineno">  138</span>        <span class="keyword">const</span> <a class="code hl_variable" href="../../d2/d8e/_s_anim_notify_panel_8h.html#a7483aa7f043c623f8990a95320be654d">FString</a>&amp; ShaderTypesToLoad,</div>
+<div class="line"><a id="l00139" name="l00139"></a><span class="lineno">  139</span>        <a class="code hl_enumeration" href="../../de/d49/_r_h_i_shader_platform_8h.html#a424c00593a28eb7ade584eea91161acd">EShaderPlatform</a> ShaderPlatform,</div>
+<div class="line"><a id="l00140" name="l00140"></a><span class="lineno">  140</span>        <a class="code hl_enumeration" href="../../dc/dcf/namespace_e_r_h_i_feature_level.html#a04bc2ae8f7bf478747a40da91e1753dd">ERHIFeatureLevel::Type</a> FeatureLevel,</div>
+<div class="line"><a id="l00141" name="l00141"></a><span class="lineno">  141</span>        <a class="code hl_enumeration" href="../../d9/db9/namespace_e_material_quality_level.html#a262c1ba24737f484ab17dce1cfafb0a3">EMaterialQualityLevel::Type</a> QualityLevel,</div>
+<div class="line"><a id="l00142" name="l00142"></a><span class="lineno">  142</span>        <a class="code hl_enumeration" href="../../d5/d25/_shader_compiler_8h.html#a3a255eab46e518b9b3616452192220c3">ODSCRecompileCommand</a> RecompileCommandType,</div>
+<div class="line"><a id="l00143" name="l00143"></a><span class="lineno">  143</span>        <span class="keyword">const</span> <a class="code hl_class" href="../../dc/dd1/class_f_shader_compiler_flags.html">FShaderCompilerFlags</a>&amp; ExtraCompilerFlags = <a class="code hl_class" href="../../dc/dd1/class_f_shader_compiler_flags.html">FShaderCompilerFlags</a>()</div>
+<div class="line"><a id="l00144" name="l00144"></a><span class="lineno">  144</span>    );</div>
+<div class="line"><a id="l00145" name="l00145"></a><span class="lineno">  145</span></div>
+<div class="line"><a id="l00160" name="l00160"></a><span class="lineno">  160</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="../../dc/d2b/class_f_o_d_s_c_thread.html#aaf226766480706c4843583d4883f3d75">AddShaderPipelineRequest</a>(</div>
+<div class="line"><a id="l00161" name="l00161"></a><span class="lineno">  161</span>        <a class="code hl_enumeration" href="../../de/d49/_r_h_i_shader_platform_8h.html#a424c00593a28eb7ade584eea91161acd">EShaderPlatform</a> ShaderPlatform,</div>
+<div class="line"><a id="l00162" name="l00162"></a><span class="lineno">  162</span>        <a class="code hl_enumeration" href="../../dc/dcf/namespace_e_r_h_i_feature_level.html#a04bc2ae8f7bf478747a40da91e1753dd">ERHIFeatureLevel::Type</a> FeatureLevel,</div>
+<div class="line"><a id="l00163" name="l00163"></a><span class="lineno">  163</span>        <a class="code hl_enumeration" href="../../d9/db9/namespace_e_material_quality_level.html#a262c1ba24737f484ab17dce1cfafb0a3">EMaterialQualityLevel::Type</a> QualityLevel,</div>
+<div class="line"><a id="l00164" name="l00164"></a><span class="lineno">  164</span>        <span class="keyword">const</span> <a class="code hl_class" href="../../dc/d8e/class_f_material.html">FMaterial</a>* <a class="code hl_enumvalue" href="../../d7/d56/_datasmith_facade_variant_8h.html#aa3a5b5093cf1206faefe4382ac3aa1c9ad92a8333dd3ccb895cc65f7455b71206">Material</a>,</div>
+<div class="line"><a id="l00165" name="l00165"></a><span class="lineno">  165</span>        <span class="keyword">const</span> <a class="code hl_class" href="../../d2/ded/class_f_primitive_scene_info.html">FPrimitiveSceneInfo</a>* PrimitiveSceneInfo,</div>
+<div class="line"><a id="l00166" name="l00166"></a><span class="lineno">  166</span>        <span class="keyword">const</span> <a class="code hl_variable" href="../../d2/d8e/_s_anim_notify_panel_8h.html#a7483aa7f043c623f8990a95320be654d">FString</a>&amp; VertexFactoryName,</div>
+<div class="line"><a id="l00167" name="l00167"></a><span class="lineno">  167</span>        <span class="keyword">const</span> <a class="code hl_variable" href="../../d2/d8e/_s_anim_notify_panel_8h.html#a7483aa7f043c623f8990a95320be654d">FString</a>&amp; PipelineName,</div>
+<div class="line"><a id="l00168" name="l00168"></a><span class="lineno">  168</span>        <span class="keyword">const</span> <a class="code hl_class" href="../../d6/db1/class_t_array.html">TArray&lt;FString&gt;</a>&amp; ShaderTypeNames,</div>
+<div class="line"><a id="l00169" name="l00169"></a><span class="lineno">  169</span>        <a class="code hl_typedef" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a8dbb3cd84ca9fd010dadfc3815eefa5d">int32</a> PermutationId,</div>
+<div class="line"><a id="l00170" name="l00170"></a><span class="lineno">  170</span>        <span class="keyword">const</span> <a class="code hl_class" href="../../d6/db1/class_t_array.html">TArray&lt;FShaderId&gt;</a>&amp; RequestShaderIds</div>
+<div class="line"><a id="l00171" name="l00171"></a><span class="lineno">  171</span>    );</div>
+<div class="line"><a id="l00172" name="l00172"></a><span class="lineno">  172</span></div>
+<div class="line"><a id="l00178" name="l00178"></a><span class="lineno">  178</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="../../dc/d2b/class_f_o_d_s_c_thread.html#a33358812d1c3f9ae9ff0d02f5fa7f4d7">GetCompletedRequests</a>(<a class="code hl_class" href="../../d6/db1/class_t_array.html">TArray&lt;FODSCMessageHandler*&gt;</a>&amp; OutCompletedRequests);</div>
+<div class="line"><a id="l00179" name="l00179"></a><span class="lineno">  179</span></div>
+<div class="line"><a id="l00183" name="l00183"></a><span class="lineno">  183</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="../../dc/d2b/class_f_o_d_s_c_thread.html#a7ca7d2189f2822029ff4e41b39771f6f">Wakeup</a>();</div>
+<div class="line"><a id="l00184" name="l00184"></a><span class="lineno">  184</span>    </div>
+<div class="line"><a id="l00188" name="l00188"></a><span class="lineno">  188</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="../../dc/d2b/class_f_o_d_s_c_thread.html#afe1390edb67463697a6f95f2a9eca1cd">WaitUntilAllRequestsDone</a>();</div>
+<div class="line"><a id="l00189" name="l00189"></a><span class="lineno">  189</span> </div>
+<div class="line"><a id="l00190" name="l00190"></a><span class="lineno">  190</span>    <span class="keywordtype">bool</span> <a class="code hl_function" href="../../dc/d2b/class_f_o_d_s_c_thread.html#a1f1a14993a626c3f35e2dca22a8c72da">GetPendingShaderData</a>(<span class="keywordtype">bool</span>&amp; bOutIsConnectedToODSCServer, <span class="keywordtype">bool</span>&amp; bOutHasPendingGlobalShaders, <a class="code hl_typedef" href="../../dd/de9/preprocessor_8c.html#a1134b580f8da4de94ca6b1de4d37975e">uint32</a>&amp; OutNumPendingMaterialsRecompile, <a class="code hl_typedef" href="../../dd/de9/preprocessor_8c.html#a1134b580f8da4de94ca6b1de4d37975e">uint32</a>&amp; OutNumPendingMaterialsShaders) <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00191" name="l00191"></a><span class="lineno">  191</span> </div>
+<div class="line"><a id="l00192" name="l00192"></a><span class="lineno">  192</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="../../dc/d2b/class_f_o_d_s_c_thread.html#a7e76b16efd5054aa5e230061a7e9768b">ResetMaterialsODSCData</a>(<a class="code hl_enumeration" href="../../de/d49/_r_h_i_shader_platform_8h.html#a424c00593a28eb7ade584eea91161acd">EShaderPlatform</a> InShaderPlatform);</div>
+<div class="line"><a id="l00193" name="l00193"></a><span class="lineno">  193</span> </div>
+<div class="line"><a id="l00194" name="l00194"></a><span class="lineno">  194</span>    <span class="keywordtype">bool</span> <a class="code hl_function" href="../../dc/d2b/class_f_o_d_s_c_thread.html#a2c30688bb699533adc83f2e01970811b">CheckIfRequestAlreadySent</a>(<span class="keyword">const</span> <a class="code hl_class" href="../../d6/db1/class_t_array.html">TArray&lt;FShaderId&gt;</a>&amp; RequestShaderIds, <span class="keyword">const</span> <a class="code hl_class" href="../../dc/d8e/class_f_material.html">FMaterial</a>* <a class="code hl_enumvalue" href="../../d7/d56/_datasmith_facade_variant_8h.html#aa3a5b5093cf1206faefe4382ac3aa1c9ad92a8333dd3ccb895cc65f7455b71206">Material</a>) <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00195" name="l00195"></a><span class="lineno"><a class="line" href="../../dc/d2b/class_f_o_d_s_c_thread.html#ad80f91ac76a27716d50107fad90612b6">  195</a></span>    <span class="keyword">const</span> <a class="code hl_variable" href="../../d2/d8e/_s_anim_notify_panel_8h.html#a7483aa7f043c623f8990a95320be654d">FString</a>&amp; <a class="code hl_function" href="../../dc/d2b/class_f_o_d_s_c_thread.html#ad80f91ac76a27716d50107fad90612b6">GetODSCHostIP</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> ODSCHostIP; };</div>
+<div class="line"><a id="l00196" name="l00196"></a><span class="lineno">  196</span> </div>
+<div class="line"><a id="l00197" name="l00197"></a><span class="lineno">  197</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="../../dc/d2b/class_f_o_d_s_c_thread.html#af971a36324805275fd8aeebad7a5e281">UnregisterMaterialName</a>(<span class="keyword">const</span> <a class="code hl_class" href="../../dc/d8e/class_f_material.html">FMaterial</a>* <a class="code hl_enumvalue" href="../../d7/d56/_datasmith_facade_variant_8h.html#aa3a5b5093cf1206faefe4382ac3aa1c9ad92a8333dd3ccb895cc65f7455b71206">Material</a>);</div>
+<div class="line"><a id="l00198" name="l00198"></a><span class="lineno">  198</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="../../dc/d2b/class_f_o_d_s_c_thread.html#a8a9a1d62c29ba156ebeb3c28e459b486">RegisterMaterialShaderMaps</a>(<span class="keyword">const</span> <a class="code hl_variable" href="../../d2/d8e/_s_anim_notify_panel_8h.html#a7483aa7f043c623f8990a95320be654d">FString</a>&amp; MaterialName, <span class="keyword">const</span> <a class="code hl_class" href="../../d6/db1/class_t_array.html">TArray</a>&lt;<a class="code hl_class" href="../../d7/d10/class_t_ref_count_ptr.html">TRefCountPtr&lt;FMaterialShaderMap&gt;</a>&gt;&amp; LoadedShaderMaps);</div>
+<div class="line"><a id="l00199" name="l00199"></a><span class="lineno">  199</span>    <a class="code hl_class" href="../../d4/ddc/class_f_material_shader_map.html">FMaterialShaderMap</a>* <a class="code hl_function" href="../../dc/d2b/class_f_o_d_s_c_thread.html#a6f3cb91ebe0d4eb201a5c143e9bf6135">FindMaterialShaderMap</a>(<span class="keyword">const</span> <a class="code hl_variable" href="../../d2/d8e/_s_anim_notify_panel_8h.html#a7483aa7f043c623f8990a95320be654d">FString</a>&amp; MaterialName, <span class="keyword">const</span> <a class="code hl_class" href="../../d1/d9d/class_f_material_shader_map_id.html">FMaterialShaderMapId</a>&amp; ShaderMapId) <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00200" name="l00200"></a><span class="lineno">  200</span> </div>
+<div class="line"><a id="l00201" name="l00201"></a><span class="lineno">  201</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="../../dc/d2b/class_f_o_d_s_c_thread.html#ae580055ebe314ff4bdcd053f85fd50e0">RetrieveMissedMaterials</a>(<a class="code hl_class" href="../../d6/db1/class_t_array.html">TArray&lt;FString&gt;</a>&amp; OutMaterialPaths) <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00202" name="l00202"></a><span class="lineno">  202</span> </div>
+<div class="line"><a id="l00203" name="l00203"></a><span class="lineno">  203</span><span class="keyword">protected</span>:</div>
+<div class="line"><a id="l00204" name="l00204"></a><span class="lineno">  204</span> </div>
+<div class="line"><a id="l00205" name="l00205"></a><span class="lineno">  205</span>    <span class="comment">//~ Begin FRunnable Interface</span></div>
+<div class="line"><a id="l00206" name="l00206"></a><span class="lineno">  206</span>    <span class="keyword">virtual</span> <span class="keywordtype">bool</span> <a class="code hl_function" href="../../dc/d2b/class_f_o_d_s_c_thread.html#ad493d0138f10d22a28670a42e5a4e32e">Init</a>() <span class="keyword">override</span>;</div>
+<div class="line"><a id="l00207" name="l00207"></a><span class="lineno">  207</span>    <span class="keyword">virtual</span> <a class="code hl_typedef" href="../../dd/de9/preprocessor_8c.html#a1134b580f8da4de94ca6b1de4d37975e">uint32</a> <a class="code hl_function" href="../../dc/d2b/class_f_o_d_s_c_thread.html#ab932f2aed3ce68142adfaf923e7d11fb">Run</a>() override final;</div>
+<div class="line"><a id="l00208" name="l00208"></a><span class="lineno">  208</span>    virtual <span class="keywordtype">void</span> <a class="code hl_enumvalue" href="../../dc/d16/_precomputed_volumetric_lightmap_streaming_8cpp.html#a0251905d84554c957cd7a09b2fda94b8af98d707eb4ed173ccfdbaf4eaa87100d">Stop</a>() override;</div>
+<div class="line"><a id="l00209" name="l00209"></a><span class="lineno">  209</span>    virtual <span class="keywordtype">void</span> <a class="code hl_function" href="../../dc/d2b/class_f_o_d_s_c_thread.html#ac1b3795cf8a4f0a5caa3c4b40eb07d2b">Exit</a>() override;</div>
+<div class="line"><a id="l00210" name="l00210"></a><span class="lineno">  210</span>    <span class="comment">//~ End FRunnable Interface</span></div>
+<div class="line"><a id="l00211" name="l00211"></a><span class="lineno">  211</span></div>
+<div class="line"><a id="l00213" name="l00213"></a><span class="lineno"><a class="line" href="../../dc/d2b/class_f_o_d_s_c_thread.html#a4bfef48f3d97e322184fffe2bba2a7e3">  213</a></span>    <a class="code hl_class" href="../../da/dd2/class_f_thread_safe_counter.html">FThreadSafeCounter</a> <a class="code hl_variable" href="../../dc/d2b/class_f_o_d_s_c_thread.html#a4bfef48f3d97e322184fffe2bba2a7e3">ExitRequest</a>;</div>
+<div class="line"><a id="l00214" name="l00214"></a><span class="lineno">  214</span> </div>
+<div class="line"><a id="l00215" name="l00215"></a><span class="lineno">  215</span>private:</div>
+<div class="line"><a id="l00216" name="l00216"></a><span class="lineno">  216</span></div>
+<div class="line"><a id="l00221" name="l00221"></a><span class="lineno">  221</span>    <span class="keywordtype">void</span> Process();</div>
+<div class="line"><a id="l00222" name="l00222"></a><span class="lineno">  222</span> </div>
+<div class="line"><a id="l00223" name="l00223"></a><span class="lineno">  223</span>    <span class="keywordtype">bool</span> ConnectToODSCHost();</div>
+<div class="line"><a id="l00224" name="l00224"></a><span class="lineno">  224</span>    <span class="keywordtype">bool</span> CheckODSCConnection();</div>
+<div class="line"><a id="l00225" name="l00225"></a><span class="lineno">  225</span></div>
+<div class="line"><a id="l00230" name="l00230"></a><span class="lineno">  230</span>    <a class="code hl_class" href="../../d0/dc4/class_t_queue.html">TQueue</a>&lt;<a class="code hl_class" href="../../d9/d61/class_f_o_d_s_c_message_handler.html">FODSCMessageHandler</a>*, <a class="code hl_enumeration" href="../../de/d4d/_core_2_public_2_containers_2_queue_8h.html#a6701f903de4340a446326218bcf3865b">EQueueMode</a>::<a class="code hl_enumvalue" href="../../de/d4d/_core_2_public_2_containers_2_queue_8h.html#a6701f903de4340a446326218bcf3865ba46293db41b1b8f3c2b751eba6de813f9">Mpsc</a>&gt; PendingMaterialThreadedRequests;</div>
+<div class="line"><a id="l00231" name="l00231"></a><span class="lineno">  231</span></div>
+<div class="line"><a id="l00236" name="l00236"></a><span class="lineno">  236</span>    <a class="code hl_class" href="../../d0/dc4/class_t_queue.html">TQueue</a>&lt;<a class="code hl_struct" href="../../d1/dda/struct_f_o_d_s_c_request_payload.html">FODSCRequestPayload</a>, <a class="code hl_enumeration" href="../../de/d4d/_core_2_public_2_containers_2_queue_8h.html#a6701f903de4340a446326218bcf3865b">EQueueMode</a>::<a class="code hl_enumvalue" href="../../de/d4d/_core_2_public_2_containers_2_queue_8h.html#a6701f903de4340a446326218bcf3865ba46293db41b1b8f3c2b751eba6de813f9">Mpsc</a>&gt; PendingMeshMaterialThreadedRequests;</div>
+<div class="line"><a id="l00237" name="l00237"></a><span class="lineno">  237</span></div>
+<div class="line"><a id="l00242" name="l00242"></a><span class="lineno">  242</span>    <a class="code hl_class" href="../../d0/dc4/class_t_queue.html">TQueue</a>&lt;<a class="code hl_class" href="../../d9/d61/class_f_o_d_s_c_message_handler.html">FODSCMessageHandler</a>*, <a class="code hl_enumeration" href="../../de/d4d/_core_2_public_2_containers_2_queue_8h.html#a6701f903de4340a446326218bcf3865b">EQueueMode</a>::<a class="code hl_enumvalue" href="../../de/d4d/_core_2_public_2_containers_2_queue_8h.html#a6701f903de4340a446326218bcf3865ba91456da20fa6b5daf4a756828f406fb5">Spsc</a>&gt; CompletedThreadedRequests;</div>
+<div class="line"><a id="l00243" name="l00243"></a><span class="lineno">  243</span></div>
+<div class="line"><a id="l00245" name="l00245"></a><span class="lineno">  245</span>    mutable <a class="code hl_typedef" href="../../df/d05/_critical_section_8h.html#a92cf0cedaba1fd6cdd74a8e73c4ebf79">FRWLock</a> RequestHashesRWLock;</div>
+<div class="line"><a id="l00246" name="l00246"></a><span class="lineno">  246</span>    <a class="code hl_typedef" href="../../df/d05/_critical_section_8h.html#a3493a225a68d4748d7b1c85e8ae9d0b5">FCriticalSection</a> RequestHashCriticalSection;</div>
+<div class="line"><a id="l00247" name="l00247"></a><span class="lineno">  247</span> </div>
+<div class="line"><a id="l00248" name="l00248"></a><span class="lineno">  248</span>    struct FODSCShaderId</div>
+<div class="line"><a id="l00249" name="l00249"></a><span class="lineno">  249</span>    {</div>
+<div class="line"><a id="l00250" name="l00250"></a><span class="lineno">  250</span>    <span class="keyword">public</span>:</div>
+<div class="line"><a id="l00251" name="l00251"></a><span class="lineno">  251</span>        <span class="keyword">inline</span> FODSCShaderId() {}</div>
+<div class="line"><a id="l00252" name="l00252"></a><span class="lineno">  252</span>        FODSCShaderId(<span class="keyword">const</span> <a class="code hl_class" href="../../de/da6/class_f_shader_id.html">FShaderId</a>&amp; ShaderId);</div>
+<div class="line"><a id="l00253" name="l00253"></a><span class="lineno">  253</span> </div>
+<div class="line"><a id="l00254" name="l00254"></a><span class="lineno">  254</span>        <a class="code hl_class" href="../../d4/d4a/class_f_hashed_name.html">FHashedName</a> ShaderTypeHashedName = 0;</div>
+<div class="line"><a id="l00255" name="l00255"></a><span class="lineno">  255</span>        <a class="code hl_class" href="../../d4/d4a/class_f_hashed_name.html">FHashedName</a> VFTypeHashedName = 0;</div>
+<div class="line"><a id="l00256" name="l00256"></a><span class="lineno">  256</span>        <a class="code hl_class" href="../../d4/d4a/class_f_hashed_name.html">FHashedName</a> ShaderPipelineName = 0;</div>
+<div class="line"><a id="l00257" name="l00257"></a><span class="lineno">  257</span>        <a class="code hl_typedef" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a8dbb3cd84ca9fd010dadfc3815eefa5d">int32</a> PermutationId = 0;</div>
+<div class="line"><a id="l00258" name="l00258"></a><span class="lineno">  258</span>        <a class="code hl_typedef" href="../../dd/de9/preprocessor_8c.html#a1134b580f8da4de94ca6b1de4d37975e">uint32</a> <a class="code hl_enumvalue" href="../../dd/d39/_cbor_types_8h.html#a29d4ca1c483acdb52d5031dcfaf7b8d8a419f3742e6de8e0ec4b22cce005e7630">Platform</a> : <a class="code hl_enumvalue" href="../../de/d49/_r_h_i_shader_platform_8h.html#a424c00593a28eb7ade584eea91161acda0198241436be7c96c48c2679706f35c9">SP_NumBits</a> = <a class="code hl_enumvalue" href="../../de/d49/_r_h_i_shader_platform_8h.html#a424c00593a28eb7ade584eea91161acdae66375306138ed7c0c1530b9aa0a8796">SP_NumPlatforms</a>;</div>
+<div class="line"><a id="l00259" name="l00259"></a><span class="lineno">  259</span> </div>
+<div class="line"><a id="l00260" name="l00260"></a><span class="lineno">  260</span>        <span class="keyword">friend</span> <span class="keyword">inline</span> <a class="code hl_typedef" href="../../dd/de9/preprocessor_8c.html#a1134b580f8da4de94ca6b1de4d37975e">uint32</a> <a class="code hl_function" href="../../de/d99/_datasmith_scene_exporter_8cpp.html#a68db64c6d06da556427897b819acc9e9">GetTypeHash</a>( <span class="keyword">const</span> FODSCShaderId&amp; <a class="code hl_enumvalue" href="../../dd/d14/_remote_object_types_8h.html#aa5e972c577647142aa119d4e4eab6a4ba490aa6e856ccf208a054389e47ce0d06">Id</a> )</div>
+<div class="line"><a id="l00261" name="l00261"></a><span class="lineno">  261</span>        {</div>
+<div class="line"><a id="l00262" name="l00262"></a><span class="lineno">  262</span>            <span class="keywordflow">return</span> <a class="code hl_function" href="../../dd/dd4/_type_hash_8h.html#a6e32bf5278bd0674fe161b006c21e854">HashCombine</a>(</div>
+<div class="line"><a id="l00263" name="l00263"></a><span class="lineno">  263</span>                <a class="code hl_function" href="../../de/d99/_datasmith_scene_exporter_8cpp.html#a68db64c6d06da556427897b819acc9e9">GetTypeHash</a>(<a class="code hl_enumvalue" href="../../dd/d14/_remote_object_types_8h.html#aa5e972c577647142aa119d4e4eab6a4ba490aa6e856ccf208a054389e47ce0d06">Id</a>.ShaderTypeHashedName),</div>
+<div class="line"><a id="l00264" name="l00264"></a><span class="lineno">  264</span>                <a class="code hl_function" href="../../dd/dd4/_type_hash_8h.html#a6e32bf5278bd0674fe161b006c21e854">HashCombine</a>(<a class="code hl_function" href="../../de/d99/_datasmith_scene_exporter_8cpp.html#a68db64c6d06da556427897b819acc9e9">GetTypeHash</a>(<a class="code hl_enumvalue" href="../../dd/d14/_remote_object_types_8h.html#aa5e972c577647142aa119d4e4eab6a4ba490aa6e856ccf208a054389e47ce0d06">Id</a>.VFTypeHashedName),</div>
+<div class="line"><a id="l00265" name="l00265"></a><span class="lineno">  265</span>                            <a class="code hl_function" href="../../dd/dd4/_type_hash_8h.html#a6e32bf5278bd0674fe161b006c21e854">HashCombine</a>(<a class="code hl_function" href="../../de/d99/_datasmith_scene_exporter_8cpp.html#a68db64c6d06da556427897b819acc9e9">GetTypeHash</a>(<a class="code hl_enumvalue" href="../../dd/d14/_remote_object_types_8h.html#aa5e972c577647142aa119d4e4eab6a4ba490aa6e856ccf208a054389e47ce0d06">Id</a>.ShaderPipelineName),</div>
+<div class="line"><a id="l00266" name="l00266"></a><span class="lineno">  266</span>                                        <a class="code hl_function" href="../../dd/dd4/_type_hash_8h.html#a6e32bf5278bd0674fe161b006c21e854">HashCombine</a>(<a class="code hl_function" href="../../de/d99/_datasmith_scene_exporter_8cpp.html#a68db64c6d06da556427897b819acc9e9">GetTypeHash</a>(<a class="code hl_enumvalue" href="../../dd/d14/_remote_object_types_8h.html#aa5e972c577647142aa119d4e4eab6a4ba490aa6e856ccf208a054389e47ce0d06">Id</a>.PermutationId), <a class="code hl_function" href="../../de/d99/_datasmith_scene_exporter_8cpp.html#a68db64c6d06da556427897b819acc9e9">GetTypeHash</a>(<a class="code hl_enumvalue" href="../../dd/d14/_remote_object_types_8h.html#aa5e972c577647142aa119d4e4eab6a4ba490aa6e856ccf208a054389e47ce0d06">Id</a>.Platform)))));</div>
+<div class="line"><a id="l00267" name="l00267"></a><span class="lineno">  267</span>        }</div>
+<div class="line"><a id="l00268" name="l00268"></a><span class="lineno">  268</span> </div>
+<div class="line"><a id="l00269" name="l00269"></a><span class="lineno">  269</span>        <span class="keyword">friend</span> <span class="keywordtype">bool</span> <a class="code hl_function" href="../../d8/d25/_test_harness_8h.html#aa74fbc88557e05c101d4ce432a2db84b">operator==</a>(<span class="keyword">const</span> FODSCShaderId&amp; <a class="code hl_define" href="../../dc/d9d/_s_d_c_e_token_8h.html#a8f2ffc904d927a1b8c9b7c51aeb8b79f">X</a>, <span class="keyword">const</span> FODSCShaderId&amp; <a class="code hl_enumvalue" href="../../d4/d45/_editor_project_settings_8h.html#afad612981946a8f522f20ab515bc97eea57cec4137b614c87cb4e24a3d003a3e0">Y</a>)</div>
+<div class="line"><a id="l00270" name="l00270"></a><span class="lineno">  270</span>        {</div>
+<div class="line"><a id="l00271" name="l00271"></a><span class="lineno">  271</span>            <span class="keywordflow">return</span> <a class="code hl_define" href="../../dc/d9d/_s_d_c_e_token_8h.html#a8f2ffc904d927a1b8c9b7c51aeb8b79f">X</a>.ShaderTypeHashedName == <a class="code hl_enumvalue" href="../../d4/d45/_editor_project_settings_8h.html#afad612981946a8f522f20ab515bc97eea57cec4137b614c87cb4e24a3d003a3e0">Y</a>.ShaderTypeHashedName</div>
+<div class="line"><a id="l00272" name="l00272"></a><span class="lineno">  272</span>            &amp;&amp; <a class="code hl_define" href="../../dc/d9d/_s_d_c_e_token_8h.html#a8f2ffc904d927a1b8c9b7c51aeb8b79f">X</a>.ShaderPipelineName == <a class="code hl_enumvalue" href="../../d4/d45/_editor_project_settings_8h.html#afad612981946a8f522f20ab515bc97eea57cec4137b614c87cb4e24a3d003a3e0">Y</a>.ShaderPipelineName</div>
+<div class="line"><a id="l00273" name="l00273"></a><span class="lineno">  273</span>            &amp;&amp; <a class="code hl_define" href="../../dc/d9d/_s_d_c_e_token_8h.html#a8f2ffc904d927a1b8c9b7c51aeb8b79f">X</a>.VFTypeHashedName == <a class="code hl_enumvalue" href="../../d4/d45/_editor_project_settings_8h.html#afad612981946a8f522f20ab515bc97eea57cec4137b614c87cb4e24a3d003a3e0">Y</a>.VFTypeHashedName</div>
+<div class="line"><a id="l00274" name="l00274"></a><span class="lineno">  274</span>            &amp;&amp; <a class="code hl_define" href="../../dc/d9d/_s_d_c_e_token_8h.html#a8f2ffc904d927a1b8c9b7c51aeb8b79f">X</a>.PermutationId == <a class="code hl_enumvalue" href="../../d4/d45/_editor_project_settings_8h.html#afad612981946a8f522f20ab515bc97eea57cec4137b614c87cb4e24a3d003a3e0">Y</a>.PermutationId </div>
+<div class="line"><a id="l00275" name="l00275"></a><span class="lineno">  275</span>            &amp;&amp; <a class="code hl_define" href="../../dc/d9d/_s_d_c_e_token_8h.html#a8f2ffc904d927a1b8c9b7c51aeb8b79f">X</a>.Platform == <a class="code hl_enumvalue" href="../../d4/d45/_editor_project_settings_8h.html#afad612981946a8f522f20ab515bc97eea57cec4137b614c87cb4e24a3d003a3e0">Y</a>.Platform;</div>
+<div class="line"><a id="l00276" name="l00276"></a><span class="lineno">  276</span>        }</div>
+<div class="line"><a id="l00277" name="l00277"></a><span class="lineno">  277</span> </div>
+<div class="line"><a id="l00278" name="l00278"></a><span class="lineno">  278</span>        <span class="keyword">friend</span> <span class="keywordtype">bool</span> <a class="code hl_function" href="../../d0/d6e/_developer_2_trace_services_2_private_2_tests_2_unit_tests_8cpp.html#a2e26ab314813ee5e8ab50b3fa5471a5d">operator!=</a>(<span class="keyword">const</span> FODSCShaderId&amp; <a class="code hl_define" href="../../dc/d9d/_s_d_c_e_token_8h.html#a8f2ffc904d927a1b8c9b7c51aeb8b79f">X</a>, <span class="keyword">const</span> FODSCShaderId&amp; <a class="code hl_enumvalue" href="../../d4/d45/_editor_project_settings_8h.html#afad612981946a8f522f20ab515bc97eea57cec4137b614c87cb4e24a3d003a3e0">Y</a>)</div>
+<div class="line"><a id="l00279" name="l00279"></a><span class="lineno">  279</span>        {</div>
+<div class="line"><a id="l00280" name="l00280"></a><span class="lineno">  280</span>            <span class="keywordflow">return</span> !(<a class="code hl_define" href="../../dc/d9d/_s_d_c_e_token_8h.html#a8f2ffc904d927a1b8c9b7c51aeb8b79f">X</a> == <a class="code hl_enumvalue" href="../../d4/d45/_editor_project_settings_8h.html#afad612981946a8f522f20ab515bc97eea57cec4137b614c87cb4e24a3d003a3e0">Y</a>);</div>
+<div class="line"><a id="l00281" name="l00281"></a><span class="lineno">  281</span>        }</div>
+<div class="line"><a id="l00282" name="l00282"></a><span class="lineno">  282</span>    };</div>
+<div class="line"><a id="l00283" name="l00283"></a><span class="lineno">  283</span> </div>
+<div class="line"><a id="l00284" name="l00284"></a><span class="lineno">  284</span> </div>
+<div class="line"><a id="l00285" name="l00285"></a><span class="lineno">  285</span>    <span class="keyword">struct </span>FODSCShaderMapData</div>
+<div class="line"><a id="l00286" name="l00286"></a><span class="lineno">  286</span>    {</div>
+<div class="line"><a id="l00288" name="l00288"></a><span class="lineno">  288</span>        <a class="code hl_class" href="../../d6/db1/class_t_array.html">TArray&lt;TRefCountPtr&lt;FMaterialShaderMap&gt;</a>&gt; MaterialShaderMaps;</div>
+<div class="line"><a id="l00290" name="l00290"></a><span class="lineno">  290</span>        TSet&lt;FODSCShaderId&gt; CurrentRequests;</div>
+<div class="line"><a id="l00291" name="l00291"></a><span class="lineno">  291</span>        </div>
+<div class="line"><a id="l00292" name="l00292"></a><span class="lineno">  292</span>        <a class="code hl_class" href="../../d5/dd5/class_f_name.html">FName</a> ActorPath;</div>
+<div class="line"><a id="l00293" name="l00293"></a><span class="lineno">  293</span>    };</div>
+<div class="line"><a id="l00294" name="l00294"></a><span class="lineno">  294</span></div>
+<div class="line"><a id="l00296" name="l00296"></a><span class="lineno">  296</span>    TMap&lt;FName, FODSCShaderMapData&gt; RequestHashes;</div>
+<div class="line"><a id="l00297" name="l00297"></a><span class="lineno">  297</span></div>
+<div class="line"><a id="l00299" name="l00299"></a><span class="lineno">  299</span>    TMap&lt;UPTRINT, FName&gt; ODSCPointerToNames; </div>
+<div class="line"><a id="l00300" name="l00300"></a><span class="lineno">  300</span></div>
+<div class="line"><a id="l00302" name="l00302"></a><span class="lineno">  302</span>    FRunnableThread* Thread = <span class="keyword">nullptr</span>;</div>
+<div class="line"><a id="l00303" name="l00303"></a><span class="lineno">  303</span></div>
+<div class="line"><a id="l00305" name="l00305"></a><span class="lineno">  305</span>    FEvent* WakeupEvent;</div>
+<div class="line"><a id="l00306" name="l00306"></a><span class="lineno">  306</span>    </div>
+<div class="line"><a id="l00308" name="l00308"></a><span class="lineno">  308</span>    FEvent* AllRequestsDoneEvent;</div>
+<div class="line"><a id="l00309" name="l00309"></a><span class="lineno">  309</span> </div>
+<div class="line"><a id="l00310" name="l00310"></a><span class="lineno">  310</span>    <span class="keywordtype">bool</span> SendMessageToServer(IPlatformFile::IFileServerMessageHandler* Handler);</div>
+<div class="line"><a id="l00311" name="l00311"></a><span class="lineno">  311</span> </div>
+<div class="line"><a id="l00312" name="l00312"></a><span class="lineno">  312</span>    TArray&lt;FODSCMessageHandler*&gt; PendingRequestsMaterialAndGlobal;</div>
+<div class="line"><a id="l00313" name="l00313"></a><span class="lineno">  313</span>    TArray&lt;FODSCMessageHandler*&gt; PendingRequestsPipeline;</div>
+<div class="line"><a id="l00314" name="l00314"></a><span class="lineno">  314</span></div>
+<div class="line"><a id="l00316" name="l00316"></a><span class="lineno">  316</span>    TUniquePtr&lt;UE::Cook::ICookOnTheFlyServerConnection&gt; CookOnTheFlyServerConnection;</div>
+<div class="line"><a id="l00317" name="l00317"></a><span class="lineno">  317</span> </div>
+<div class="line"><a id="l00318" name="l00318"></a><span class="lineno">  318</span>    <a class="code hl_variable" href="../../d2/d8e/_s_anim_notify_panel_8h.html#a7483aa7f043c623f8990a95320be654d">FString</a> ODSCHostIP;</div>
+<div class="line"><a id="l00319" name="l00319"></a><span class="lineno">  319</span> </div>
+<div class="line"><a id="l00320" name="l00320"></a><span class="lineno">  320</span>    <a class="code hl_typedef" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a8dbb3cd84ca9fd010dadfc3815eefa5d">int32</a> MaxPayloadPerRequests = INT32_MAX;</div>
+<div class="line"><a id="l00321" name="l00321"></a><span class="lineno">  321</span> </div>
+<div class="line"><a id="l00322" name="l00322"></a><span class="lineno">  322</span>    std::atomic&lt;bool&gt; bIsConnectedToODSCServer = <span class="keyword">false</span>;</div>
+<div class="line"><a id="l00323" name="l00323"></a><span class="lineno">  323</span>    std::atomic&lt;bool&gt; bHasPendingGlobalShaders = <span class="keyword">false</span>;</div>
+<div class="line"><a id="l00324" name="l00324"></a><span class="lineno">  324</span>    std::atomic&lt;uint32&gt; NumPendingMaterialsRecompile = 0;</div>
+<div class="line"><a id="l00325" name="l00325"></a><span class="lineno">  325</span>    std::atomic&lt;uint32&gt; NumPendingMaterialsShaders = 0;</div>
+<div class="line"><a id="l00326" name="l00326"></a><span class="lineno">  326</span>    <span class="keywordtype">bool</span> bHasDefaultConnection = <span class="keyword">false</span>;</div>
+<div class="line"><a id="l00327" name="l00327"></a><span class="lineno">  327</span>};</div>
+</div>
+<div class="ttc" id="a_cbor_types_8h_html_a29d4ca1c483acdb52d5031dcfaf7b8d8a419f3742e6de8e0ec4b22cce005e7630"><div class="ttname"><a href="../../dd/d39/_cbor_types_8h.html#a29d4ca1c483acdb52d5031dcfaf7b8d8a419f3742e6de8e0ec4b22cce005e7630">ECborEndianness::Platform</a></div><div class="ttdeci">@ Platform</div><div class="ttdef"><b>定义</b> CborTypes.h:319</div></div>
+<div class="ttc" id="a_core_2_public_2_containers_2_queue_8h_html_a6701f903de4340a446326218bcf3865b"><div class="ttname"><a href="../../de/d4d/_core_2_public_2_containers_2_queue_8h.html#a6701f903de4340a446326218bcf3865b">EQueueMode</a></div><div class="ttdeci">EQueueMode</div><div class="ttdef"><b>定义</b> Queue.h:17</div></div>
+<div class="ttc" id="a_core_2_public_2_containers_2_queue_8h_html_a6701f903de4340a446326218bcf3865ba46293db41b1b8f3c2b751eba6de813f9"><div class="ttname"><a href="../../de/d4d/_core_2_public_2_containers_2_queue_8h.html#a6701f903de4340a446326218bcf3865ba46293db41b1b8f3c2b751eba6de813f9">EQueueMode::Mpsc</a></div><div class="ttdeci">@ Mpsc</div><div class="ttdef"><b>定义</b> Queue.h:19</div></div>
+<div class="ttc" id="a_core_2_public_2_containers_2_queue_8h_html_a6701f903de4340a446326218bcf3865ba91456da20fa6b5daf4a756828f406fb5"><div class="ttname"><a href="../../de/d4d/_core_2_public_2_containers_2_queue_8h.html#a6701f903de4340a446326218bcf3865ba91456da20fa6b5daf4a756828f406fb5">EQueueMode::Spsc</a></div><div class="ttdeci">@ Spsc</div><div class="ttdef"><b>定义</b> Queue.h:22</div></div>
+<div class="ttc" id="a_core_2_public_2_h_a_l_2_platform_8h_html_a8dbb3cd84ca9fd010dadfc3815eefa5d"><div class="ttname"><a href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a8dbb3cd84ca9fd010dadfc3815eefa5d">int32</a></div><div class="ttdeci">FPlatformTypes::int32 int32</div><div class="ttdoc">A 32-bit signed integer.</div><div class="ttdef"><b>定义</b> Platform.h:1190</div></div>
+<div class="ttc" id="a_core_minimal_8h_html"><div class="ttname"><a href="../../dc/d5e/_core_minimal_8h.html">CoreMinimal.h</a></div></div>
+<div class="ttc" id="a_critical_section_8h_html_a3493a225a68d4748d7b1c85e8ae9d0b5"><div class="ttname"><a href="../../df/d05/_critical_section_8h.html#a3493a225a68d4748d7b1c85e8ae9d0b5">FCriticalSection</a></div><div class="ttdeci">UE::FPlatformRecursiveMutex FCriticalSection</div><div class="ttdef"><b>定义</b> CriticalSection.h:53</div></div>
+<div class="ttc" id="a_critical_section_8h_html_a92cf0cedaba1fd6cdd74a8e73c4ebf79"><div class="ttname"><a href="../../df/d05/_critical_section_8h.html#a92cf0cedaba1fd6cdd74a8e73c4ebf79">FRWLock</a></div><div class="ttdeci">UE::FPlatformRWLock FRWLock</div><div class="ttdef"><b>定义</b> CriticalSection.h:56</div></div>
+<div class="ttc" id="a_datasmith_facade_variant_8h_html_aa3a5b5093cf1206faefe4382ac3aa1c9ad92a8333dd3ccb895cc65f7455b71206"><div class="ttname"><a href="../../d7/d56/_datasmith_facade_variant_8h.html#aa3a5b5093cf1206faefe4382ac3aa1c9ad92a8333dd3ccb895cc65f7455b71206">EDatasmithFacadePropertyCategory::Material</a></div><div class="ttdeci">@ Material</div><div class="ttdef"><b>定义</b> DatasmithFacadeVariant.h:27</div></div>
+<div class="ttc" id="a_datasmith_scene_exporter_8cpp_html_a68db64c6d06da556427897b819acc9e9"><div class="ttname"><a href="../../de/d99/_datasmith_scene_exporter_8cpp.html#a68db64c6d06da556427897b819acc9e9">GetTypeHash</a></div><div class="ttdeci">uint32 GetTypeHash(const FMD5Hash &amp;Hash)</div><div class="ttdef"><b>定义</b> DatasmithSceneExporter.cpp:27</div></div>
+<div class="ttc" id="a_developer_2_trace_services_2_private_2_tests_2_unit_tests_8cpp_html_a2e26ab314813ee5e8ab50b3fa5471a5d"><div class="ttname"><a href="../../d0/d6e/_developer_2_trace_services_2_private_2_tests_2_unit_tests_8cpp.html#a2e26ab314813ee5e8ab50b3fa5471a5d">operator!=</a></div><div class="ttdeci">bool operator!=(const FInt32Interval &amp;lhs, const FInt32Interval &amp;rhs)</div><div class="ttdef"><b>定义</b> UnitTests.cpp:9</div></div>
+<div class="ttc" id="a_editor_project_settings_8h_html_afad612981946a8f522f20ab515bc97eea57cec4137b614c87cb4e24a3d003a3e0"><div class="ttname"><a href="../../d4/d45/_editor_project_settings_8h.html#afad612981946a8f522f20ab515bc97eea57cec4137b614c87cb4e24a3d003a3e0">ELevelEditor2DAxis::Y</a></div><div class="ttdeci">@ Y</div><div class="ttdef"><b>定义</b> EditorProjectSettings.h:161</div></div>
+<div class="ttc" id="a_generic_platform_file_8h_html"><div class="ttname"><a href="../../d1/d4b/_generic_platform_file_8h.html">GenericPlatformFile.h</a></div></div>
+<div class="ttc" id="a_o_d_s_c_thread_8h_html_aef1a336151f5785019e173f700f14c5e"><div class="ttname"><a href="../../dd/d6c/_o_d_s_c_thread_8h.html#aef1a336151f5785019e173f700f14c5e">EODSCMetaDataType</a></div><div class="ttdeci">EODSCMetaDataType</div><div class="ttdef"><b>定义</b> ODSCThread.h:29</div></div>
+<div class="ttc" id="a_o_d_s_c_thread_8h_html_aef1a336151f5785019e173f700f14c5ea6037925c11cb6eb4ca087979817e52e2"><div class="ttname"><a href="../../dd/d6c/_o_d_s_c_thread_8h.html#aef1a336151f5785019e173f700f14c5ea6037925c11cb6eb4ca087979817e52e2">EODSCMetaDataType::IsNotDependentOnMaterialName</a></div><div class="ttdeci">@ IsNotDependentOnMaterialName</div><div class="ttdef"><b>定义</b> ODSCThread.h:32</div></div>
+<div class="ttc" id="a_o_d_s_c_thread_8h_html_aef1a336151f5785019e173f700f14c5ea7a1920d61156abc05a60135aefe8bc67"><div class="ttname"><a href="../../dd/d6c/_o_d_s_c_thread_8h.html#aef1a336151f5785019e173f700f14c5ea7a1920d61156abc05a60135aefe8bc67">EODSCMetaDataType::Default</a></div><div class="ttdeci">@ Default</div><div class="ttdef"><b>定义</b> ODSCThread.h:30</div></div>
+<div class="ttc" id="a_o_d_s_c_thread_8h_html_aef1a336151f5785019e173f700f14c5eab28a720409fce49954257ffeab5f6673"><div class="ttname"><a href="../../dd/d6c/_o_d_s_c_thread_8h.html#aef1a336151f5785019e173f700f14c5eab28a720409fce49954257ffeab5f6673">EODSCMetaDataType::IsDependentOnMaterialName</a></div><div class="ttdeci">@ IsDependentOnMaterialName</div><div class="ttdef"><b>定义</b> ODSCThread.h:31</div></div>
+<div class="ttc" id="a_precomputed_volumetric_lightmap_streaming_8cpp_html_a0251905d84554c957cd7a09b2fda94b8af98d707eb4ed173ccfdbaf4eaa87100d"><div class="ttname"><a href="../../dc/d16/_precomputed_volumetric_lightmap_streaming_8cpp.html#a0251905d84554c957cd7a09b2fda94b8af98d707eb4ed173ccfdbaf4eaa87100d">Stop</a></div><div class="ttdeci">@ Stop</div><div class="ttdef"><b>定义</b> PrecomputedVolumetricLightmapStreaming.cpp:26</div></div>
+<div class="ttc" id="a_r_h_i_definitions_8h_html"><div class="ttname"><a href="../../da/dca/_r_h_i_definitions_8h.html">RHIDefinitions.h</a></div></div>
+<div class="ttc" id="a_r_h_i_shader_platform_8h_html_a424c00593a28eb7ade584eea91161acd"><div class="ttname"><a href="../../de/d49/_r_h_i_shader_platform_8h.html#a424c00593a28eb7ade584eea91161acd">EShaderPlatform</a></div><div class="ttdeci">EShaderPlatform</div><div class="ttdef"><b>定义</b> RHIShaderPlatform.h:11</div></div>
+<div class="ttc" id="a_r_h_i_shader_platform_8h_html_a424c00593a28eb7ade584eea91161acda0198241436be7c96c48c2679706f35c9"><div class="ttname"><a href="../../de/d49/_r_h_i_shader_platform_8h.html#a424c00593a28eb7ade584eea91161acda0198241436be7c96c48c2679706f35c9">SP_NumBits</a></div><div class="ttdeci">@ SP_NumBits</div><div class="ttdef"><b>定义</b> RHIShaderPlatform.h:52</div></div>
+<div class="ttc" id="a_r_h_i_shader_platform_8h_html_a424c00593a28eb7ade584eea91161acdae66375306138ed7c0c1530b9aa0a8796"><div class="ttname"><a href="../../de/d49/_r_h_i_shader_platform_8h.html#a424c00593a28eb7ade584eea91161acdae66375306138ed7c0c1530b9aa0a8796">SP_NumPlatforms</a></div><div class="ttdeci">@ SP_NumPlatforms</div><div class="ttdef"><b>定义</b> RHIShaderPlatform.h:51</div></div>
+<div class="ttc" id="a_remote_object_types_8h_html_aa5e972c577647142aa119d4e4eab6a4ba490aa6e856ccf208a054389e47ce0d06"><div class="ttname"><a href="../../dd/d14/_remote_object_types_8h.html#aa5e972c577647142aa119d4e4eab6a4ba490aa6e856ccf208a054389e47ce0d06">ERemoteIdToStringVerbosity::Id</a></div><div class="ttdeci">@ Id</div><div class="ttdef"><b>定义</b> RemoteObjectTypes.h:203</div></div>
+<div class="ttc" id="a_runnable_8h_html"><div class="ttname"><a href="../../dd/d22/_runnable_8h.html">Runnable.h</a></div></div>
+<div class="ttc" id="a_s_anim_notify_panel_8h_html_a7483aa7f043c623f8990a95320be654d"><div class="ttname"><a href="../../d2/d8e/_s_anim_notify_panel_8h.html#a7483aa7f043c623f8990a95320be654d">FString</a></div><div class="ttdeci">FOnGetScrubValue FString</div><div class="ttdef"><b>定义</b> SAnimNotifyPanel.h:38</div></div>
+<div class="ttc" id="a_s_d_c_e_token_8h_html_a8f2ffc904d927a1b8c9b7c51aeb8b79f"><div class="ttname"><a href="../../dc/d9d/_s_d_c_e_token_8h.html#a8f2ffc904d927a1b8c9b7c51aeb8b79f">X</a></div><div class="ttdeci">#define X(N, S)</div><div class="ttdef"><b>定义</b> SDCEToken.h:103</div></div>
+<div class="ttc" id="a_shader_compiler_8h_html"><div class="ttname"><a href="../../d5/d25/_shader_compiler_8h.html">ShaderCompiler.h</a></div></div>
+<div class="ttc" id="a_shader_compiler_8h_html_a3a255eab46e518b9b3616452192220c3"><div class="ttname"><a href="../../d5/d25/_shader_compiler_8h.html#a3a255eab46e518b9b3616452192220c3">ODSCRecompileCommand</a></div><div class="ttdeci">ODSCRecompileCommand</div><div class="ttdef"><b>定义</b> ShaderCompiler.h:1533</div></div>
+<div class="ttc" id="a_shader_compiler_8h_html_a3a255eab46e518b9b3616452192220c3a6adf97f83acf6453d4a6a4b1070f3754"><div class="ttname"><a href="../../d5/d25/_shader_compiler_8h.html#a3a255eab46e518b9b3616452192220c3a6adf97f83acf6453d4a6a4b1070f3754">ODSCRecompileCommand::None</a></div><div class="ttdeci">@ None</div><div class="ttdef"><b>定义</b> ShaderCompiler.h:1534</div></div>
+<div class="ttc" id="a_single_thread_runnable_8h_html"><div class="ttname"><a href="../../d2/d6b/_single_thread_runnable_8h.html">SingleThreadRunnable.h</a></div></div>
+<div class="ttc" id="a_test_harness_8h_html_aa74fbc88557e05c101d4ce432a2db84b"><div class="ttname"><a href="../../d8/d25/_test_harness_8h.html#aa74fbc88557e05c101d4ce432a2db84b">operator==</a></div><div class="ttdeci">bool operator==(const TMap&lt; KeyT, ValueT &gt; &amp;Left, const TMap&lt; KeyT, ValueT &gt; &amp;Right)</div><div class="ttdef"><b>定义</b> TestHarness.h:48</div></div>
+<div class="ttc" id="a_type_hash_8h_html_a6e32bf5278bd0674fe161b006c21e854"><div class="ttname"><a href="../../dd/dd4/_type_hash_8h.html#a6e32bf5278bd0674fe161b006c21e854">HashCombine</a></div><div class="ttdeci">constexpr uint32 HashCombine(uint32 A, uint32 C)</div><div class="ttdef"><b>定义</b> TypeHash.h:51</div></div>
+<div class="ttc" id="aclass_f_archive_html"><div class="ttname"><a href="../../db/d79/class_f_archive.html">FArchive</a></div><div class="ttdef"><b>定义</b> Archive.h:1217</div></div>
+<div class="ttc" id="aclass_f_event_html"><div class="ttname"><a href="../../d5/d17/class_f_event.html">FEvent</a></div><div class="ttdef"><b>定义</b> Event.h:22</div></div>
+<div class="ttc" id="aclass_f_hashed_name_html"><div class="ttname"><a href="../../d4/d4a/class_f_hashed_name.html">FHashedName</a></div><div class="ttdef"><b>定义</b> MemoryImage.h:855</div></div>
+<div class="ttc" id="aclass_f_material_html"><div class="ttname"><a href="../../dc/d8e/class_f_material.html">FMaterial</a></div><div class="ttdef"><b>定义</b> MaterialShared.h:2170</div></div>
+<div class="ttc" id="aclass_f_material_shader_map_html"><div class="ttname"><a href="../../d4/ddc/class_f_material_shader_map.html">FMaterialShaderMap</a></div><div class="ttdef"><b>定义</b> MaterialShared.h:1631</div></div>
+<div class="ttc" id="aclass_f_material_shader_map_id_html"><div class="ttname"><a href="../../d1/d9d/class_f_material_shader_map_id.html">FMaterialShaderMapId</a></div><div class="ttdef"><b>定义</b> MaterialShared.h:1305</div></div>
+<div class="ttc" id="aclass_f_name_html"><div class="ttname"><a href="../../d5/dd5/class_f_name.html">FName</a></div><div class="ttdef"><b>定义</b> NameTypes.h:632</div></div>
+<div class="ttc" id="aclass_f_o_d_s_c_message_handler_html"><div class="ttname"><a href="../../d9/d61/class_f_o_d_s_c_message_handler.html">FODSCMessageHandler</a></div><div class="ttdef"><b>定义</b> ODSCThread.h:36</div></div>
+<div class="ttc" id="aclass_f_o_d_s_c_message_handler_html_a0848e955e51a49e2de6f34441062dfb9"><div class="ttname"><a href="../../d9/d61/class_f_o_d_s_c_message_handler.html#a0848e955e51a49e2de6f34441062dfb9">FODSCMessageHandler::ReloadGlobalShaders</a></div><div class="ttdeci">bool ReloadGlobalShaders() const</div><div class="ttdef"><b>定义</b> ODSCThread.cpp:146</div></div>
+<div class="ttc" id="aclass_f_o_d_s_c_message_handler_html_a4122fae2a3723ab98e786d9f4c625c25"><div class="ttname"><a href="../../d9/d61/class_f_o_d_s_c_message_handler.html#a4122fae2a3723ab98e786d9f4c625c25">FODSCMessageHandler::FillPayload</a></div><div class="ttdeci">virtual void FillPayload(FArchive &amp;Payload) override</div><div class="ttdef"><b>定义</b> ODSCThread.cpp:98</div></div>
+<div class="ttc" id="aclass_f_o_d_s_c_message_handler_html_a4c0e8ca7f17cd02754ebb86ff049dbbf"><div class="ttname"><a href="../../d9/d61/class_f_o_d_s_c_message_handler.html#a4c0e8ca7f17cd02754ebb86ff049dbbf">FODSCMessageHandler::GetRecompileCommandType</a></div><div class="ttdeci">ODSCRecompileCommand GetRecompileCommandType() const</div><div class="ttdef"><b>定义</b> ODSCThread.h:61</div></div>
+<div class="ttc" id="aclass_f_o_d_s_c_message_handler_html_a60a60eb942eb98ed48c74869f67821de"><div class="ttname"><a href="../../d9/d61/class_f_o_d_s_c_message_handler.html#a60a60eb942eb98ed48c74869f67821de">FODSCMessageHandler::GetMeshMaterialMaps</a></div><div class="ttdeci">const TArray&lt; uint8 &gt; &amp; GetMeshMaterialMaps() const</div><div class="ttdef"><b>定义</b> ODSCThread.cpp:136</div></div>
+<div class="ttc" id="aclass_f_o_d_s_c_message_handler_html_a849e457194749c290f30bd1be4c1158c"><div class="ttname"><a href="../../d9/d61/class_f_o_d_s_c_message_handler.html#a849e457194749c290f30bd1be4c1158c">FODSCMessageHandler::ProcessResponse</a></div><div class="ttdeci">virtual void ProcessResponse(FArchive &amp;Response) override</div><div class="ttdef"><b>定义</b> ODSCThread.cpp:117</div></div>
+<div class="ttc" id="aclass_f_o_d_s_c_message_handler_html_a888290a04482a6f4c763d23c1c23458b"><div class="ttname"><a href="../../d9/d61/class_f_o_d_s_c_message_handler.html#a888290a04482a6f4c763d23c1c23458b">FODSCMessageHandler::GetGlobalShaderMap</a></div><div class="ttdeci">const TArray&lt; uint8 &gt; &amp; GetGlobalShaderMap() const</div><div class="ttdef"><b>定义</b> ODSCThread.cpp:141</div></div>
+<div class="ttc" id="aclass_f_o_d_s_c_message_handler_html_a992fd19c0b56706cc52fe25d88a9da64"><div class="ttname"><a href="../../d9/d61/class_f_o_d_s_c_message_handler.html#a992fd19c0b56706cc52fe25d88a9da64">FODSCMessageHandler::AddPayload</a></div><div class="ttdeci">void AddPayload(const FODSCRequestPayload &amp;Payload)</div><div class="ttdef"><b>定义</b> ODSCThread.cpp:126</div></div>
+<div class="ttc" id="aclass_f_o_d_s_c_message_handler_html_aa5642e4696c3056922637c4fdfa25ca3"><div class="ttname"><a href="../../d9/d61/class_f_o_d_s_c_message_handler.html#aa5642e4696c3056922637c4fdfa25ca3">FODSCMessageHandler::NumPayloads</a></div><div class="ttdeci">int32 NumPayloads() const</div><div class="ttdef"><b>定义</b> ODSCThread.h:62</div></div>
+<div class="ttc" id="aclass_f_o_d_s_c_message_handler_html_ace16c059ab5c086be3daed5ec2331c12"><div class="ttname"><a href="../../d9/d61/class_f_o_d_s_c_message_handler.html#ace16c059ab5c086be3daed5ec2331c12">FODSCMessageHandler::GetMaterialsToLoad</a></div><div class="ttdeci">const TArray&lt; FString &gt; &amp; GetMaterialsToLoad() const</div><div class="ttdef"><b>定义</b> ODSCThread.cpp:131</div></div>
+<div class="ttc" id="aclass_f_o_d_s_c_message_handler_html_ae6feec1beddde0cc2573ae6a2ac914ae"><div class="ttname"><a href="../../d9/d61/class_f_o_d_s_c_message_handler.html#ae6feec1beddde0cc2573ae6a2ac914ae">FODSCMessageHandler::FODSCMessageHandler</a></div><div class="ttdeci">FODSCMessageHandler(EShaderPlatform InShaderPlatform, ERHIFeatureLevel::Type InFeatureLevel, EMaterialQualityLevel::Type InQualityLevel, ODSCRecompileCommand InRecompileCommandType)</div><div class="ttdef"><b>定义</b> ODSCThread.cpp:72</div></div>
+<div class="ttc" id="aclass_f_o_d_s_c_thread_html_a04ef0915e7938f1d72d1c08f201e3b22"><div class="ttname"><a href="../../dc/d2b/class_f_o_d_s_c_thread.html#a04ef0915e7938f1d72d1c08f201e3b22">FODSCThread::StopThread</a></div><div class="ttdeci">void StopThread()</div><div class="ttdef"><b>定义</b> ODSCThread.cpp:215</div></div>
+<div class="ttc" id="aclass_f_o_d_s_c_thread_html_a1f1a14993a626c3f35e2dca22a8c72da"><div class="ttname"><a href="../../dc/d2b/class_f_o_d_s_c_thread.html#a1f1a14993a626c3f35e2dca22a8c72da">FODSCThread::GetPendingShaderData</a></div><div class="ttdeci">bool GetPendingShaderData(bool &amp;bOutIsConnectedToODSCServer, bool &amp;bOutHasPendingGlobalShaders, uint32 &amp;OutNumPendingMaterialsRecompile, uint32 &amp;OutNumPendingMaterialsShaders) const</div><div class="ttdef"><b>定义</b> ODSCThread.cpp:693</div></div>
+<div class="ttc" id="aclass_f_o_d_s_c_thread_html_a2c30688bb699533adc83f2e01970811b"><div class="ttname"><a href="../../dc/d2b/class_f_o_d_s_c_thread.html#a2c30688bb699533adc83f2e01970811b">FODSCThread::CheckIfRequestAlreadySent</a></div><div class="ttdeci">bool CheckIfRequestAlreadySent(const TArray&lt; FShaderId &gt; &amp;RequestShaderIds, const FMaterial *Material) const</div><div class="ttdef"><b>定义</b> ODSCThread.cpp:270</div></div>
+<div class="ttc" id="aclass_f_o_d_s_c_thread_html_a33358812d1c3f9ae9ff0d02f5fa7f4d7"><div class="ttname"><a href="../../dc/d2b/class_f_o_d_s_c_thread.html#a33358812d1c3f9ae9ff0d02f5fa7f4d7">FODSCThread::GetCompletedRequests</a></div><div class="ttdeci">void GetCompletedRequests(TArray&lt; FODSCMessageHandler * &gt; &amp;OutCompletedRequests)</div><div class="ttdef"><b>定义</b> ODSCThread.cpp:479</div></div>
+<div class="ttc" id="aclass_f_o_d_s_c_thread_html_a4bfef48f3d97e322184fffe2bba2a7e3"><div class="ttname"><a href="../../dc/d2b/class_f_o_d_s_c_thread.html#a4bfef48f3d97e322184fffe2bba2a7e3">FODSCThread::ExitRequest</a></div><div class="ttdeci">FThreadSafeCounter ExitRequest</div><div class="ttdef"><b>定义</b> ODSCThread.h:213</div></div>
+<div class="ttc" id="aclass_f_o_d_s_c_thread_html_a6f3cb91ebe0d4eb201a5c143e9bf6135"><div class="ttname"><a href="../../dc/d2b/class_f_o_d_s_c_thread.html#a6f3cb91ebe0d4eb201a5c143e9bf6135">FODSCThread::FindMaterialShaderMap</a></div><div class="ttdeci">FMaterialShaderMap * FindMaterialShaderMap(const FString &amp;MaterialName, const FMaterialShaderMapId &amp;ShaderMapId) const</div><div class="ttdef"><b>定义</b> ODSCThread.cpp:326</div></div>
+<div class="ttc" id="aclass_f_o_d_s_c_thread_html_a7ca7d2189f2822029ff4e41b39771f6f"><div class="ttname"><a href="../../dc/d2b/class_f_o_d_s_c_thread.html#a7ca7d2189f2822029ff4e41b39771f6f">FODSCThread::Wakeup</a></div><div class="ttdeci">void Wakeup()</div><div class="ttdef"><b>定义</b> ODSCThread.cpp:489</div></div>
+<div class="ttc" id="aclass_f_o_d_s_c_thread_html_a7e76b16efd5054aa5e230061a7e9768b"><div class="ttname"><a href="../../dc/d2b/class_f_o_d_s_c_thread.html#a7e76b16efd5054aa5e230061a7e9768b">FODSCThread::ResetMaterialsODSCData</a></div><div class="ttdeci">void ResetMaterialsODSCData(EShaderPlatform InShaderPlatform)</div><div class="ttdef"><b>定义</b> ODSCThread.cpp:230</div></div>
+<div class="ttc" id="aclass_f_o_d_s_c_thread_html_a88ffc2a780b0b7eb358d8e7894b2655c"><div class="ttname"><a href="../../dc/d2b/class_f_o_d_s_c_thread.html#a88ffc2a780b0b7eb358d8e7894b2655c">FODSCThread::StartThread</a></div><div class="ttdeci">void StartThread()</div><div class="ttdef"><b>定义</b> ODSCThread.cpp:210</div></div>
+<div class="ttc" id="aclass_f_o_d_s_c_thread_html_a8a9a1d62c29ba156ebeb3c28e459b486"><div class="ttname"><a href="../../dc/d2b/class_f_o_d_s_c_thread.html#a8a9a1d62c29ba156ebeb3c28e459b486">FODSCThread::RegisterMaterialShaderMaps</a></div><div class="ttdeci">void RegisterMaterialShaderMaps(const FString &amp;MaterialName, const TArray&lt; TRefCountPtr&lt; FMaterialShaderMap &gt; &gt; &amp;LoadedShaderMaps)</div><div class="ttdef"><b>定义</b> ODSCThread.cpp:302</div></div>
+<div class="ttc" id="aclass_f_o_d_s_c_thread_html_a8d1fc2765c57919778165808b3845287"><div class="ttname"><a href="../../dc/d2b/class_f_o_d_s_c_thread.html#a8d1fc2765c57919778165808b3845287">FODSCThread::FODSCThread</a></div><div class="ttdeci">FODSCThread(const FString &amp;HostIP)</div><div class="ttdef"><b>定义</b> ODSCThread.cpp:151</div></div>
+<div class="ttc" id="aclass_f_o_d_s_c_thread_html_a9f1ede67da05a313b071c43808dd418f"><div class="ttname"><a href="../../dc/d2b/class_f_o_d_s_c_thread.html#a9f1ede67da05a313b071c43808dd418f">FODSCThread::Tick</a></div><div class="ttdeci">virtual void Tick() override final</div><div class="ttdef"><b>定义</b> ODSCThread.cpp:225</div></div>
+<div class="ttc" id="aclass_f_o_d_s_c_thread_html_aaf226766480706c4843583d4883f3d75"><div class="ttname"><a href="../../dc/d2b/class_f_o_d_s_c_thread.html#aaf226766480706c4843583d4883f3d75">FODSCThread::AddShaderPipelineRequest</a></div><div class="ttdeci">void AddShaderPipelineRequest(EShaderPlatform ShaderPlatform, ERHIFeatureLevel::Type FeatureLevel, EMaterialQualityLevel::Type QualityLevel, const FMaterial *Material, const FPrimitiveSceneInfo *PrimitiveSceneInfo, const FString &amp;VertexFactoryName, const FString &amp;PipelineName, const TArray&lt; FString &gt; &amp;ShaderTypeNames, int32 PermutationId, const TArray&lt; FShaderId &gt; &amp;RequestShaderIds)</div><div class="ttdef"><b>定义</b> ODSCThread.cpp:382</div></div>
+<div class="ttc" id="aclass_f_o_d_s_c_thread_html_ab932f2aed3ce68142adfaf923e7d11fb"><div class="ttname"><a href="../../dc/d2b/class_f_o_d_s_c_thread.html#ab932f2aed3ce68142adfaf923e7d11fb">FODSCThread::Run</a></div><div class="ttdeci">virtual uint32 Run() override final</div><div class="ttdef"><b>定义</b> ODSCThread.cpp:505</div></div>
+<div class="ttc" id="aclass_f_o_d_s_c_thread_html_ac1b3795cf8a4f0a5caa3c4b40eb07d2b"><div class="ttname"><a href="../../dc/d2b/class_f_o_d_s_c_thread.html#ac1b3795cf8a4f0a5caa3c4b40eb07d2b">FODSCThread::Exit</a></div><div class="ttdeci">virtual void Exit() override</div><div class="ttdef"><b>定义</b> ODSCThread.cpp:523</div></div>
+<div class="ttc" id="aclass_f_o_d_s_c_thread_html_ac3ea6cbb77d90a077a0fe56307bce23b"><div class="ttname"><a href="../../dc/d2b/class_f_o_d_s_c_thread.html#ac3ea6cbb77d90a077a0fe56307bce23b">FODSCThread::AddRequest</a></div><div class="ttdeci">void AddRequest(const TArray&lt; FString &gt; &amp;MaterialsToCompile, const FString &amp;ShaderTypesToLoad, EShaderPlatform ShaderPlatform, ERHIFeatureLevel::Type FeatureLevel, EMaterialQualityLevel::Type QualityLevel, ODSCRecompileCommand RecompileCommandType, const FShaderCompilerFlags &amp;ExtraCompilerFlags=FShaderCompilerFlags())</div><div class="ttdef"><b>定义</b> ODSCThread.cpp:370</div></div>
+<div class="ttc" id="aclass_f_o_d_s_c_thread_html_acc8ac6e6c5d365ef0f7416cef73761f8"><div class="ttname"><a href="../../dc/d2b/class_f_o_d_s_c_thread.html#acc8ac6e6c5d365ef0f7416cef73761f8">FODSCThread::~FODSCThread</a></div><div class="ttdeci">virtual ~FODSCThread()</div><div class="ttdef"><b>定义</b> ODSCThread.cpp:166</div></div>
+<div class="ttc" id="aclass_f_o_d_s_c_thread_html_ad493d0138f10d22a28670a42e5a4e32e"><div class="ttname"><a href="../../dc/d2b/class_f_o_d_s_c_thread.html#ad493d0138f10d22a28670a42e5a4e32e">FODSCThread::Init</a></div><div class="ttdeci">virtual bool Init() override</div><div class="ttdef"><b>定义</b> ODSCThread.cpp:500</div></div>
+<div class="ttc" id="aclass_f_o_d_s_c_thread_html_ad80f91ac76a27716d50107fad90612b6"><div class="ttname"><a href="../../dc/d2b/class_f_o_d_s_c_thread.html#ad80f91ac76a27716d50107fad90612b6">FODSCThread::GetODSCHostIP</a></div><div class="ttdeci">const FString &amp; GetODSCHostIP() const</div><div class="ttdef"><b>定义</b> ODSCThread.h:195</div></div>
+<div class="ttc" id="aclass_f_o_d_s_c_thread_html_ae580055ebe314ff4bdcd053f85fd50e0"><div class="ttname"><a href="../../dc/d2b/class_f_o_d_s_c_thread.html#ae580055ebe314ff4bdcd053f85fd50e0">FODSCThread::RetrieveMissedMaterials</a></div><div class="ttdeci">void RetrieveMissedMaterials(TArray&lt; FString &gt; &amp;OutMaterialPaths) const</div><div class="ttdef"><b>定义</b> ODSCThread.cpp:351</div></div>
+<div class="ttc" id="aclass_f_o_d_s_c_thread_html_af971a36324805275fd8aeebad7a5e281"><div class="ttname"><a href="../../dc/d2b/class_f_o_d_s_c_thread.html#af971a36324805275fd8aeebad7a5e281">FODSCThread::UnregisterMaterialName</a></div><div class="ttdeci">void UnregisterMaterialName(const FMaterial *Material)</div><div class="ttdef"><b>定义</b> ODSCThread.cpp:296</div></div>
+<div class="ttc" id="aclass_f_o_d_s_c_thread_html_afe1390edb67463697a6f95f2a9eca1cd"><div class="ttname"><a href="../../dc/d2b/class_f_o_d_s_c_thread.html#afe1390edb67463697a6f95f2a9eca1cd">FODSCThread::WaitUntilAllRequestsDone</a></div><div class="ttdeci">void WaitUntilAllRequestsDone()</div><div class="ttdef"><b>定义</b> ODSCThread.cpp:495</div></div>
+<div class="ttc" id="aclass_f_primitive_scene_info_html"><div class="ttname"><a href="../../d2/ded/class_f_primitive_scene_info.html">FPrimitiveSceneInfo</a></div><div class="ttdef"><b>定义</b> PrimitiveSceneInfo.h:270</div></div>
+<div class="ttc" id="aclass_f_runnable_html"><div class="ttname"><a href="../../d7/d3c/class_f_runnable.html">FRunnable</a></div><div class="ttdef"><b>定义</b> Runnable.h:20</div></div>
+<div class="ttc" id="aclass_f_runnable_thread_html"><div class="ttname"><a href="../../da/da5/class_f_runnable_thread.html">FRunnableThread</a></div><div class="ttdef"><b>定义</b> RunnableThread.h:20</div></div>
+<div class="ttc" id="aclass_f_shader_compiler_flags_html"><div class="ttname"><a href="../../dc/dd1/class_f_shader_compiler_flags.html">FShaderCompilerFlags</a></div><div class="ttdef"><b>定义</b> ShaderCore.h:416</div></div>
+<div class="ttc" id="aclass_f_shader_id_html"><div class="ttname"><a href="../../de/da6/class_f_shader_id.html">FShaderId</a></div><div class="ttdef"><b>定义</b> Shader.h:683</div></div>
+<div class="ttc" id="aclass_f_single_thread_runnable_html"><div class="ttname"><a href="../../d6/d51/class_f_single_thread_runnable.html">FSingleThreadRunnable</a></div><div class="ttdef"><b>定义</b> SingleThreadRunnable.h:12</div></div>
+<div class="ttc" id="aclass_f_thread_safe_counter_html"><div class="ttname"><a href="../../da/dd2/class_f_thread_safe_counter.html">FThreadSafeCounter</a></div><div class="ttdef"><b>定义</b> ThreadSafeCounter.h:14</div></div>
+<div class="ttc" id="aclass_i_platform_file_1_1_i_file_server_message_handler_html"><div class="ttname"><a href="../../d2/dfd/class_i_platform_file_1_1_i_file_server_message_handler.html">IPlatformFile::IFileServerMessageHandler</a></div><div class="ttdef"><b>定义</b> GenericPlatformFile.h:970</div></div>
+<div class="ttc" id="aclass_t_array_html"><div class="ttname"><a href="../../d6/db1/class_t_array.html">TArray</a></div><div class="ttdef"><b>定义</b> Array.h:768</div></div>
+<div class="ttc" id="aclass_t_queue_html"><div class="ttname"><a href="../../d0/dc4/class_t_queue.html">TQueue</a></div><div class="ttdef"><b>定义</b> Queue.h:48</div></div>
+<div class="ttc" id="aclass_t_ref_count_ptr_html"><div class="ttname"><a href="../../d7/d10/class_t_ref_count_ptr.html">TRefCountPtr</a></div><div class="ttdef"><b>定义</b> RefCounting.h:290</div></div>
+<div class="ttc" id="aclass_u_e_1_1_cook_1_1_f_cook_on_the_fly_message_html"><div class="ttname"><a href="../../d8/df7/class_u_e_1_1_cook_1_1_f_cook_on_the_fly_message.html">UE::Cook::FCookOnTheFlyMessage</a></div><div class="ttdef"><b>定义</b> CookOnTheFly.h:140</div></div>
+<div class="ttc" id="aclass_u_e_1_1_cook_1_1_i_cook_on_the_fly_server_connection_html"><div class="ttname"><a href="../../da/dc7/class_u_e_1_1_cook_1_1_i_cook_on_the_fly_server_connection.html">UE::Cook::ICookOnTheFlyServerConnection</a></div><div class="ttdef"><b>定义</b> CookOnTheFly.h:302</div></div>
+<div class="ttc" id="anamespace_e_material_quality_level_html_a262c1ba24737f484ab17dce1cfafb0a3"><div class="ttname"><a href="../../d9/db9/namespace_e_material_quality_level.html#a262c1ba24737f484ab17dce1cfafb0a3">EMaterialQualityLevel::Type</a></div><div class="ttdeci">Type</div><div class="ttdef"><b>定义</b> SceneTypes.h:132</div></div>
+<div class="ttc" id="anamespace_e_r_h_i_feature_level_html_a04bc2ae8f7bf478747a40da91e1753dd"><div class="ttname"><a href="../../dc/dcf/namespace_e_r_h_i_feature_level.html#a04bc2ae8f7bf478747a40da91e1753dd">ERHIFeatureLevel::Type</a></div><div class="ttdeci">Type</div><div class="ttdef"><b>定义</b> RHIFeatureLevel.h:20</div></div>
+<div class="ttc" id="anamespace_u_e_1_1_cook_html"><div class="ttname"><a href="../../d6/d50/namespace_u_e_1_1_cook.html">UE::Cook</a></div><div class="ttdef"><b>定义</b> CookMetadata.cpp:14</div></div>
+<div class="ttc" id="anamespace_u_e_html"><div class="ttname"><a href="../../da/de5/namespace_u_e.html">UE</a></div><div class="ttdef"><b>定义</b> AITestsCommon.cpp:13</div></div>
+<div class="ttc" id="apreprocessor_8c_html_a1134b580f8da4de94ca6b1de4d37975e"><div class="ttname"><a href="../../dd/de9/preprocessor_8c.html#a1134b580f8da4de94ca6b1de4d37975e">uint32</a></div><div class="ttdeci">unsigned int uint32</div><div class="ttdef"><b>定义</b> preprocessor.c:67</div></div>
+<div class="ttc" id="astruct_f_o_d_s_c_request_payload_html"><div class="ttname"><a href="../../d1/dda/struct_f_o_d_s_c_request_payload.html">FODSCRequestPayload</a></div><div class="ttdef"><b>定义</b> ShaderCompiler.h:1481</div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+</div><!-- container -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a href="../../dir_0b6ee6e7e9547e675db4add2e5de97da.html">Engine</a></li><li class="navelem"><a href="../../dir_9579d1ecb2c7bf48cbe1049c41745cb4.html">Source</a></li><li class="navelem"><a href="../../dir_9f04efef762572853abdf73f62bebfcc.html">Runtime</a></li><li class="navelem"><a href="../../dir_750344885b5b0dabc1066bd532c992d7.html">Engine</a></li><li class="navelem"><a href="../../dir_0f80cfe80f66a90345f34a7a0d31ead6.html">Private</a></li><li class="navelem"><a href="../../dir_6e3fd8fb06c20d4d611b484f99e046b2.html">ODSC</a></li><li class="navelem"><a href="../../dd/d6c/_o_d_s_c_thread_8h.html">ODSCThread.h</a></li>
+    <li class="footer">制作者 <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.15.0 </li>
+  </ul>
+</div>
+</body>
+</html>

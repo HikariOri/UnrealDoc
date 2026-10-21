@@ -1,0 +1,322 @@
+<!-- HTML header for doxygen 1.15.0-->
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh">
+<head>
+  <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=11" />
+  <meta name="generator" content="Doxygen 1.15.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>UE 5.8.4: Engine/Source/Developer/TraceAnalysis/Private/Analysis/StreamReader.h 源文件</title>
+  <link rel="icon" href="../../EdIconDefault.bmp" type="image/x-icon" />
+  <link href="../../tabs.css" rel="stylesheet" type="text/css" />
+  <script type="text/javascript" src="../../jquery.js"></script>
+  <script type="text/javascript" src="../../dynsections.js"></script>
+  <link href="../../navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../navtreedata.js"></script>
+<script type="text/javascript" src="../../navtree.js"></script>
+<script type="text/javascript" src="../../cookie.js"></script>
+  <link href="../../search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../search/searchdata.js"></script>
+<script type="text/javascript" src="../../search/search.js"></script>
+  <link href="../../doxygen.css" rel="stylesheet" type="text/css" />
+  <link href="../../doxygen-awesome.css" rel="stylesheet" type="text/css"/>
+<link href="../../doxygen-awesome-sidebar-only.css" rel="stylesheet" type="text/css"/>
+<link href="../../doxygen-awesome-sidebar-only-darkmode-toggle.css" rel="stylesheet" type="text/css"/>
+  <!-- ... other metadata & script includes ... -->
+  <script type="text/javascript" src="../../doxygen-awesome-darkmode-toggle.js"></script>
+  <script type="text/javascript">
+    DoxygenAwesomeDarkModeToggle.title = "Zwischen hellem/dunklem Modus wechseln"
+    DoxygenAwesomeDarkModeToggle.lightModeIcon = '🌞'
+    // icon from https://fonts.google.com/icons
+    DoxygenAwesomeDarkModeToggle.darkModeIcon = `<svg xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 24 24" height="24px" viewBox="0 0 24 24" width="24px" fill="#009793"><g><rect fill="none" height="24" width="24"/></g><g><g><path d="M8.1,14.15C9.77,14.63,11,16.17,11,18c0,0.68-0.19,1.31-0.48,1.87c0.48,0.09,0.97,0.14,1.48,0.14 c1.48,0,2.9-0.41,4.13-1.15c-2.62-0.92-5.23-2.82-6.8-5.86C7.74,9.94,7.78,7.09,8.29,4.9c-2.57,1.33-4.3,4.01-4.3,7.1c0,0,0,0,0,0 c0.01,0,0.01,0,0.02,0C5.66,12,7.18,12.83,8.1,14.15z" opacity=".3"/><path d="M19.78,17.51c-2.47,0-6.57-1.33-8.68-5.43C8.77,7.57,10.6,3.6,11.63,2.01C6.27,2.2,1.98,6.59,1.98,12 c0,0.14,0.02,0.28,0.02,0.42C2.61,12.16,3.28,12,3.98,12c0,0,0,0,0,0c0-3.09,1.73-5.77,4.3-7.1C7.78,7.09,7.74,9.94,9.32,13 c1.57,3.04,4.18,4.95,6.8,5.86c-1.23,0.74-2.65,1.15-4.13,1.15c-0.5,0-1-0.05-1.48-0.14c-0.37,0.7-0.94,1.27-1.64,1.64 c0.98,0.32,2.03,0.5,3.11,0.5c3.5,0,6.58-1.8,8.37-4.52C20.18,17.5,19.98,17.51,19.78,17.51z"/><path d="M7,16l-0.18,0C6.4,14.84,5.3,14,4,14c-1.66,0-3,1.34-3,3s1.34,3,3,3c0.62,0,2.49,0,3,0c1.1,0,2-0.9,2-2 C9,16.9,8.1,16,7,16z"/></g></g></svg>`
+    DoxygenAwesomeDarkModeToggle.init()
+  </script>
+  <script type="text/javascript" src="../../doxygen-awesome-fragment-copy-button.js"></script>
+  <script type="text/javascript">
+    DoxygenAwesomeFragmentCopyButton.title = "In die Zwischenablage kopieren"
+    // DoxygenAwesomeFragmentCopyButton.copyIcon = `<svg ...>`
+    // DoxygenAwesomeFragmentCopyButton.successIcon = `<svg ...>`
+    DoxygenAwesomeFragmentCopyButton.init()
+  </script>
+  <script type="text/javascript" src="../../doxygen-awesome-paragraph-link.js"></script>
+  <script type="text/javascript">
+    DoxygenAwesomeParagraphLink.title = "Abschnitt verknüpfen"
+    DoxygenAwesomeParagraphLink.icon = "¶"
+    DoxygenAwesomeParagraphLink.init()
+  </script>
+  <script type="text/javascript" src="../../doxygen-awesome-interactive-toc.js"></script>
+  <script type="text/javascript">
+    DoxygenAwesomeInteractiveToc.topOffset = 45
+    DoxygenAwesomeInteractiveToc.hideMobileMenu = false
+    DoxygenAwesomeInteractiveToc.init()
+  </script>
+</head>
+<body>
+    <div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+      <div id="titlearea">
+        <table cellspacing="0" cellpadding="0">
+          <tbody>
+            <tr id="projectrow">
+              <td id="projectlogo"><img alt="Logo" src="../../EdIconDefault.bmp"  /></td>
+              <td id="projectalign">
+                <div id="projectname">UE 5.8.4
+                </div>
+                <div id="projectbrief">Unreal Engine</div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <!-- end header part -->
+<!-- 制作者 Doxygen 1.15.0 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "../../search/",'.html');
+</script>
+<script type="text/javascript">
+$(function() { codefold.init(); });
+</script>
+<script type="text/javascript" src="../../menudata.js"></script>
+<script type="text/javascript" src="../../menu.js"></script>
+<script type="text/javascript">
+$(function() {
+  initMenu('../../',true,false,'search.php','搜索',true);
+  $(function() { init_search(); });
+});
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(function(){initNavTree('d9/d01/_stream_reader_8h_source.html','../../',''); });
+</script>
+<div id="container">
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">载入中...</div>
+<div class="SRStatus" id="Searching">搜索中...</div>
+<div class="SRStatus" id="NoMatches">未找到</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">StreamReader.h</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="../../d9/d01/_stream_reader_8h.html">浏览该文件的文档.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="comment">// Copyright Epic Games, Inc. All Rights Reserved.</span></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span> </div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="preprocessor">#pragma once</span></div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span> </div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="preprocessor">#include &quot;<a class="code" href="../../db/d04/_core_types_8h.html">CoreTypes.h</a>&quot;</span></div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="preprocessor">#include &quot;<a class="code" href="../../df/da0/_unreal_memory_8h.html">HAL/UnrealMemory.h</a>&quot;</span></div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="preprocessor">#include &quot;<a class="code" href="../../d2/dd1/_unreal_template_8h.html">Templates/UnrealTemplate.h</a>&quot;</span></div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span> </div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="keyword">namespace </span><a class="code hl_namespace" href="../../da/de5/namespace_u_e.html">UE</a> {</div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="keyword">namespace </span><a class="code hl_namespace" href="../../df/d18/namespace_u_e_1_1_trace.html">Trace</a> {</div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span></div>
+<div class="foldopen" id="foldopen00013" data-start="{" data-end="};">
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno"><a class="line" href="../../d4/d20/class_u_e_1_1_trace_1_1_f_stream_reader.html">   13</a></span><span class="keyword">class </span><a class="code hl_class" href="../../d4/d20/class_u_e_1_1_trace_1_1_f_stream_reader.html">FStreamReader</a></div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span>{</div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span>    <span class="keyword">template</span> &lt;<span class="keyword">typename</span> Type&gt;</div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno"><a class="line" href="../../d4/d20/class_u_e_1_1_trace_1_1_f_stream_reader.html#aeed2b72e8ef04de833d051e746b12179">   17</a></span>    <a class="code hl_class" href="../../d3/d81/struct_t_decay.html">Type</a> <span class="keyword">const</span>*                 <a class="code hl_function" href="../../d4/d20/class_u_e_1_1_trace_1_1_f_stream_reader.html#aeed2b72e8ef04de833d051e746b12179">GetPointer</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>    <span class="keyword">template</span> &lt;<span class="keyword">typename</span> Type&gt;</div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno"><a class="line" href="../../d4/d20/class_u_e_1_1_trace_1_1_f_stream_reader.html#aca79372152106b56bc2730b0569f9912">   19</a></span>    <a class="code hl_class" href="../../d3/d81/struct_t_decay.html">Type</a> <span class="keyword">const</span>*                 <a class="code hl_function" href="../../d4/d20/class_u_e_1_1_trace_1_1_f_stream_reader.html#aca79372152106b56bc2730b0569f9912">GetPointerUnchecked</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>    <span class="keyword">const</span> <a class="code hl_typedef" href="../../dd/de9/preprocessor_8c.html#adde6aaee8457bee49c2a92621fe22b79">uint8</a>*                <a class="code hl_function" href="../../d4/d20/class_u_e_1_1_trace_1_1_f_stream_reader.html#aeed2b72e8ef04de833d051e746b12179">GetPointer</a>(<a class="code hl_typedef" href="../../dd/de9/preprocessor_8c.html#a1134b580f8da4de94ca6b1de4d37975e">uint32</a> <a class="code hl_variable" href="../../d0/de4/_sequence_history_8h.html#a41f48316f09703e0b7cd9ac6b643e9c8">Size</a>) <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>    <span class="keyword">const</span> <a class="code hl_typedef" href="../../dd/de9/preprocessor_8c.html#adde6aaee8457bee49c2a92621fe22b79">uint8</a>*                <a class="code hl_function" href="../../d4/d20/class_u_e_1_1_trace_1_1_f_stream_reader.html#aca79372152106b56bc2730b0569f9912">GetPointerUnchecked</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>    <span class="keywordtype">void</span>                        <a class="code hl_function" href="../../d4/d20/class_u_e_1_1_trace_1_1_f_stream_reader.html#a957fcadeee2ab1db4dc56ecaffe4e7db">Advance</a>(<a class="code hl_typedef" href="../../dd/de9/preprocessor_8c.html#a1134b580f8da4de94ca6b1de4d37975e">uint32</a> <a class="code hl_variable" href="../../d0/de4/_sequence_history_8h.html#a41f48316f09703e0b7cd9ac6b643e9c8">Size</a>);</div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>    <span class="keywordtype">bool</span>                        <a class="code hl_function" href="../../d4/d20/class_u_e_1_1_trace_1_1_f_stream_reader.html#a824c1f683bcadad79b7633f8edd65c74">IsEmpty</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>    <span class="keywordtype">bool</span>                        <a class="code hl_function" href="../../d4/d20/class_u_e_1_1_trace_1_1_f_stream_reader.html#acefcc8b69d30a8da04dac0c28dc1419a">CanMeetDemand</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>    <a class="code hl_typedef" href="../../dd/de9/preprocessor_8c.html#a1134b580f8da4de94ca6b1de4d37975e">uint32</a>                      <a class="code hl_function" href="../../d4/d20/class_u_e_1_1_trace_1_1_f_stream_reader.html#aca1c46664e84e693748b642ada882baf">GetRemaining</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>    <a class="code hl_typedef" href="../../dd/de9/preprocessor_8c.html#a1134b580f8da4de94ca6b1de4d37975e">uint32</a>                      <a class="code hl_function" href="../../d4/d20/class_u_e_1_1_trace_1_1_f_stream_reader.html#a5426fc657cf77cb6179204e6fcbf5d9c">GetBacktrackSize</a>(<span class="keyword">const</span> <a class="code hl_typedef" href="../../dd/de9/preprocessor_8c.html#adde6aaee8457bee49c2a92621fe22b79">uint8</a>* To) <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>    <span class="keywordtype">bool</span>                        <a class="code hl_function" href="../../d4/d20/class_u_e_1_1_trace_1_1_f_stream_reader.html#a703de240c9610ce85adead53cdc64e80">Backtrack</a>(<span class="keyword">const</span> <a class="code hl_typedef" href="../../dd/de9/preprocessor_8c.html#adde6aaee8457bee49c2a92621fe22b79">uint8</a>* To);</div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>    <span class="keyword">struct </span>FMark*               <a class="code hl_function" href="../../d4/d20/class_u_e_1_1_trace_1_1_f_stream_reader.html#aef94859266dfed907d44130ae88ea528">SaveMark</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>    <span class="keywordtype">void</span>                        <a class="code hl_function" href="../../d4/d20/class_u_e_1_1_trace_1_1_f_stream_reader.html#ae65df3a07ce4c27d604278087eedee25">RestoreMark</a>(<span class="keyword">struct</span> FMark* Mark);</div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span> </div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span><span class="keyword">protected</span>:</div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno"><a class="line" href="../../d4/d20/class_u_e_1_1_trace_1_1_f_stream_reader.html#a150f32ab287514f6bca6d3f360215ea8">   32</a></span>    <a class="code hl_typedef" href="../../dd/de9/preprocessor_8c.html#adde6aaee8457bee49c2a92621fe22b79">uint8</a>*                      <a class="code hl_variable" href="../../d4/d20/class_u_e_1_1_trace_1_1_f_stream_reader.html#a150f32ab287514f6bca6d3f360215ea8">Buffer</a> = <span class="keyword">nullptr</span>;</div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno"><a class="line" href="../../d4/d20/class_u_e_1_1_trace_1_1_f_stream_reader.html#a34356c6199823f2b9024ffa3c11014f6">   33</a></span>    <span class="keyword">mutable</span> <a class="code hl_typedef" href="../../dd/de9/preprocessor_8c.html#a1134b580f8da4de94ca6b1de4d37975e">uint32</a>              <a class="code hl_variable" href="../../d4/d20/class_u_e_1_1_trace_1_1_f_stream_reader.html#a34356c6199823f2b9024ffa3c11014f6">DemandHint</a> = 0;</div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno"><a class="line" href="../../d4/d20/class_u_e_1_1_trace_1_1_f_stream_reader.html#a6f539d65ea111ee1a2461bab6c5b3a72">   34</a></span>    <a class="code hl_typedef" href="../../dd/de9/preprocessor_8c.html#a1134b580f8da4de94ca6b1de4d37975e">uint32</a>                      <a class="code hl_variable" href="../../d4/d20/class_u_e_1_1_trace_1_1_f_stream_reader.html#a6f539d65ea111ee1a2461bab6c5b3a72">Cursor</a> = 0;</div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno"><a class="line" href="../../d4/d20/class_u_e_1_1_trace_1_1_f_stream_reader.html#af4a4f833794f78aef634c7e33363f641">   35</a></span>    <a class="code hl_typedef" href="../../dd/de9/preprocessor_8c.html#a1134b580f8da4de94ca6b1de4d37975e">uint32</a>                      <a class="code hl_variable" href="../../d4/d20/class_u_e_1_1_trace_1_1_f_stream_reader.html#af4a4f833794f78aef634c7e33363f641">End</a> = 0;</div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>};</div>
+</div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span></div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span><span class="keyword">template</span> &lt;<span class="keyword">typename</span> Type&gt;</div>
+<div class="foldopen" id="foldopen00040" data-start="{" data-end="}">
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno"><a class="line" href="../../d4/d20/class_u_e_1_1_trace_1_1_f_stream_reader.html#aeed2b72e8ef04de833d051e746b12179">   40</a></span><a class="code hl_class" href="../../d3/d81/struct_t_decay.html">Type</a> <span class="keyword">const</span>* <a class="code hl_function" href="../../d4/d20/class_u_e_1_1_trace_1_1_f_stream_reader.html#aeed2b72e8ef04de833d051e746b12179">FStreamReader::GetPointer</a>()<span class="keyword"> const</span></div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span><span class="keyword"></span>{</div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>    <span class="keywordflow">return</span> (<a class="code hl_class" href="../../d3/d81/struct_t_decay.html">Type</a> <span class="keyword">const</span>*)<a class="code hl_function" href="../../d4/d20/class_u_e_1_1_trace_1_1_f_stream_reader.html#aeed2b72e8ef04de833d051e746b12179">GetPointer</a>(<span class="keyword">sizeof</span>(<a class="code hl_class" href="../../d3/d81/struct_t_decay.html">Type</a>));</div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>}</div>
+</div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span></div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span><span class="keyword">template</span> &lt;<span class="keyword">typename</span> Type&gt;</div>
+<div class="foldopen" id="foldopen00047" data-start="{" data-end="}">
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno"><a class="line" href="../../d4/d20/class_u_e_1_1_trace_1_1_f_stream_reader.html#aca79372152106b56bc2730b0569f9912">   47</a></span><a class="code hl_class" href="../../d3/d81/struct_t_decay.html">Type</a> <span class="keyword">const</span>* <a class="code hl_function" href="../../d4/d20/class_u_e_1_1_trace_1_1_f_stream_reader.html#aca79372152106b56bc2730b0569f9912">FStreamReader::GetPointerUnchecked</a>()<span class="keyword"> const</span></div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span><span class="keyword"></span>{</div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>    <span class="keywordflow">return</span> (<a class="code hl_class" href="../../d3/d81/struct_t_decay.html">Type</a> <span class="keyword">const</span>*)<a class="code hl_function" href="../../d4/d20/class_u_e_1_1_trace_1_1_f_stream_reader.html#aca79372152106b56bc2730b0569f9912">GetPointerUnchecked</a>();</div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>}</div>
+</div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span></div>
+<div class="foldopen" id="foldopen00053" data-start="{" data-end="}">
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno"><a class="line" href="../../d4/d20/class_u_e_1_1_trace_1_1_f_stream_reader.html#a5684cc6e052c247126b81c89120aa18f">   53</a></span><span class="keyword">inline</span> <span class="keyword">const</span> <a class="code hl_typedef" href="../../dd/de9/preprocessor_8c.html#adde6aaee8457bee49c2a92621fe22b79">uint8</a>* <a class="code hl_function" href="../../d4/d20/class_u_e_1_1_trace_1_1_f_stream_reader.html#aca79372152106b56bc2730b0569f9912">FStreamReader::GetPointerUnchecked</a>()<span class="keyword"> const</span></div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span><span class="keyword"></span>{</div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>    <span class="keywordflow">return</span> <a class="code hl_variable" href="../../d4/d20/class_u_e_1_1_trace_1_1_f_stream_reader.html#a150f32ab287514f6bca6d3f360215ea8">Buffer</a> + <a class="code hl_variable" href="../../d4/d20/class_u_e_1_1_trace_1_1_f_stream_reader.html#a6f539d65ea111ee1a2461bab6c5b3a72">Cursor</a>;</div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>}</div>
+</div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span></div>
+<div class="foldopen" id="foldopen00058" data-start="{" data-end="}">
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno"><a class="line" href="../../d4/d20/class_u_e_1_1_trace_1_1_f_stream_reader.html#a5426fc657cf77cb6179204e6fcbf5d9c">   58</a></span><span class="keyword">inline</span> <a class="code hl_typedef" href="../../dd/de9/preprocessor_8c.html#a1134b580f8da4de94ca6b1de4d37975e">uint32</a> <a class="code hl_function" href="../../d4/d20/class_u_e_1_1_trace_1_1_f_stream_reader.html#a5426fc657cf77cb6179204e6fcbf5d9c">FStreamReader::GetBacktrackSize</a>(<span class="keyword">const</span> <a class="code hl_typedef" href="../../dd/de9/preprocessor_8c.html#adde6aaee8457bee49c2a92621fe22b79">uint8</a>* To)<span class="keyword"> const</span></div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span><span class="keyword"></span>{</div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>    <span class="keywordflow">return</span> <a class="code hl_variable" href="../../d4/d20/class_u_e_1_1_trace_1_1_f_stream_reader.html#af4a4f833794f78aef634c7e33363f641">End</a> - <a class="code hl_typedef" href="../../dd/de9/preprocessor_8c.html#a1134b580f8da4de94ca6b1de4d37975e">uint32</a>(<a class="code hl_typedef" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a9312caeb4a64708527581a5c78438b5a">UPTRINT</a>(To - <a class="code hl_variable" href="../../d4/d20/class_u_e_1_1_trace_1_1_f_stream_reader.html#a150f32ab287514f6bca6d3f360215ea8">Buffer</a>));</div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>}</div>
+</div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span> </div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span> </div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span></div>
+<div class="foldopen" id="foldopen00066" data-start="{" data-end="};">
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno"><a class="line" href="../../d0/d58/class_u_e_1_1_trace_1_1_f_stream_buffer.html">   66</a></span><span class="keyword">class </span><a class="code hl_function" href="../../d0/d58/class_u_e_1_1_trace_1_1_f_stream_buffer.html#afa24bcf091ea4effcd47128768e2026f">FStreamBuffer</a></div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>    : <span class="keyword">public</span> <a class="code hl_class" href="../../d4/d20/class_u_e_1_1_trace_1_1_f_stream_reader.html">FStreamReader</a></div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>{</div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno"><a class="line" href="../../d0/d58/class_u_e_1_1_trace_1_1_f_stream_buffer.html#afa24bcf091ea4effcd47128768e2026f">   70</a></span>                                <a class="code hl_function" href="../../d0/d58/class_u_e_1_1_trace_1_1_f_stream_buffer.html#afa24bcf091ea4effcd47128768e2026f">FStreamBuffer</a>() = <span class="keywordflow">default</span>;</div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno"><a class="line" href="../../d0/d58/class_u_e_1_1_trace_1_1_f_stream_buffer.html#a0b8b23a515a8ce646e51af0907e3302b">   71</a></span>                                <a class="code hl_function" href="../../d0/d58/class_u_e_1_1_trace_1_1_f_stream_buffer.html#a0b8b23a515a8ce646e51af0907e3302b">FStreamBuffer</a>(uint32_t InitalBufferSize);</div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>                                <a class="code hl_function" href="../../d0/d58/class_u_e_1_1_trace_1_1_f_stream_buffer.html#a2dd996bef20f6d03a1b1c4773015a237">~FStreamBuffer</a>();</div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>                                <a class="code hl_function" href="../../d0/d58/class_u_e_1_1_trace_1_1_f_stream_buffer.html#afa24bcf091ea4effcd47128768e2026f">FStreamBuffer</a>(<a class="code hl_function" href="../../d0/d58/class_u_e_1_1_trace_1_1_f_stream_buffer.html#afa24bcf091ea4effcd47128768e2026f">FStreamBuffer</a>&amp;&amp; Rhs) <span class="keyword">noexcept</span>;</div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno"><a class="line" href="../../d0/d58/class_u_e_1_1_trace_1_1_f_stream_buffer.html#aeff9807314e22bc218f10dd45a3355f0">   74</a></span>                                <a class="code hl_function" href="../../d0/d58/class_u_e_1_1_trace_1_1_f_stream_buffer.html#aeff9807314e22bc218f10dd45a3355f0">FStreamBuffer</a>(<span class="keyword">const</span> <a class="code hl_function" href="../../d0/d58/class_u_e_1_1_trace_1_1_f_stream_buffer.html#afa24bcf091ea4effcd47128768e2026f">FStreamBuffer</a>&amp;) = <span class="keywordflow">default</span>;</div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>    <a class="code hl_function" href="../../d0/d58/class_u_e_1_1_trace_1_1_f_stream_buffer.html#afa24bcf091ea4effcd47128768e2026f">FStreamBuffer</a>&amp;              <a class="code hl_function" href="../../d0/d58/class_u_e_1_1_trace_1_1_f_stream_buffer.html#acae813798cded222d471bceda27c9458">operator = </a>(<a class="code hl_function" href="../../d0/d58/class_u_e_1_1_trace_1_1_f_stream_buffer.html#afa24bcf091ea4effcd47128768e2026f">FStreamBuffer</a>&amp;&amp; Rhs) <span class="keyword">noexcept</span>;</div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno"><a class="line" href="../../d0/d58/class_u_e_1_1_trace_1_1_f_stream_buffer.html#aa64bb8b649d430014c0ad54fd2e3e78f">   76</a></span>    <a class="code hl_function" href="../../d0/d58/class_u_e_1_1_trace_1_1_f_stream_buffer.html#afa24bcf091ea4effcd47128768e2026f">FStreamBuffer</a>&amp;              <a class="code hl_function" href="../../d0/d58/class_u_e_1_1_trace_1_1_f_stream_buffer.html#acae813798cded222d471bceda27c9458">operator = </a>(<span class="keyword">const</span> <a class="code hl_function" href="../../d0/d58/class_u_e_1_1_trace_1_1_f_stream_buffer.html#afa24bcf091ea4effcd47128768e2026f">FStreamBuffer</a>&amp;)   = <span class="keyword">delete</span>;</div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span>    <span class="keyword">template</span> &lt;<span class="keyword">typename</span> Lambda&gt;</div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>    <a class="code hl_typedef" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a8dbb3cd84ca9fd010dadfc3815eefa5d">int32</a>                       <a class="code hl_function" href="../../d0/d58/class_u_e_1_1_trace_1_1_f_stream_buffer.html#afefaff283cded6abdb8cb51ad4d99446">Fill</a>(Lambda&amp;&amp; <a class="code hl_enumvalue" href="../../db/d58/_anim_pose_8h.html#a972907c8b1ee6d28bf75a946caba23a2af31bbdd1b3e85bccd652680e16935819">Source</a>);</div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>    <span class="keywordtype">void</span>                        <a class="code hl_function" href="../../d0/d58/class_u_e_1_1_trace_1_1_f_stream_buffer.html#ad2d17f5e3fc89f9163c5a883e17a3079">Append</a>(<span class="keyword">const</span> <a class="code hl_typedef" href="../../dd/de9/preprocessor_8c.html#adde6aaee8457bee49c2a92621fe22b79">uint8</a>* Data, <a class="code hl_typedef" href="../../dd/de9/preprocessor_8c.html#a1134b580f8da4de94ca6b1de4d37975e">uint32</a> <a class="code hl_variable" href="../../d0/de4/_sequence_history_8h.html#a41f48316f09703e0b7cd9ac6b643e9c8">Size</a>);</div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>    <a class="code hl_typedef" href="../../dd/de9/preprocessor_8c.html#adde6aaee8457bee49c2a92621fe22b79">uint8</a>*                      <a class="code hl_function" href="../../d0/d58/class_u_e_1_1_trace_1_1_f_stream_buffer.html#ad2d17f5e3fc89f9163c5a883e17a3079">Append</a>(<a class="code hl_typedef" href="../../dd/de9/preprocessor_8c.html#a1134b580f8da4de94ca6b1de4d37975e">uint32</a> <a class="code hl_variable" href="../../d0/de4/_sequence_history_8h.html#a41f48316f09703e0b7cd9ac6b643e9c8">Size</a>);</div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno"><a class="line" href="../../d0/d58/class_u_e_1_1_trace_1_1_f_stream_buffer.html#af42062f8b05dbaaae4332cb5f177466d">   81</a></span>    <a class="code hl_typedef" href="../../dd/de9/preprocessor_8c.html#a1134b580f8da4de94ca6b1de4d37975e">uint32</a>                      <a class="code hl_function" href="../../d0/d58/class_u_e_1_1_trace_1_1_f_stream_buffer.html#af42062f8b05dbaaae4332cb5f177466d">GetBufferSize</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> <a class="code hl_variable" href="../../d0/d58/class_u_e_1_1_trace_1_1_f_stream_buffer.html#a15191d08103b6dbc4fc594d57b47727f">BufferSize</a>; }</div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span> </div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span><span class="keyword">protected</span>:</div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span>    <span class="keywordtype">void</span>                        <a class="code hl_function" href="../../d0/d58/class_u_e_1_1_trace_1_1_f_stream_buffer.html#a317e3b48885e36e97a94e97a87597cb1">Consolidate</a>();</div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno"><a class="line" href="../../d0/d58/class_u_e_1_1_trace_1_1_f_stream_buffer.html#a15191d08103b6dbc4fc594d57b47727f">   85</a></span>    <a class="code hl_typedef" href="../../dd/de9/preprocessor_8c.html#a1134b580f8da4de94ca6b1de4d37975e">uint32</a>                      <a class="code hl_variable" href="../../d0/d58/class_u_e_1_1_trace_1_1_f_stream_buffer.html#a15191d08103b6dbc4fc594d57b47727f">BufferSize</a> = 0;</div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span>};</div>
+</div>
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span></div>
+<div class="foldopen" id="foldopen00089" data-start="{" data-end="}">
+<div class="line"><a id="l00089" name="l00089"></a><span class="lineno"><a class="line" href="../../d0/d58/class_u_e_1_1_trace_1_1_f_stream_buffer.html#a2dd996bef20f6d03a1b1c4773015a237">   89</a></span><span class="keyword">inline</span> <a class="code hl_function" href="../../d0/d58/class_u_e_1_1_trace_1_1_f_stream_buffer.html#a2dd996bef20f6d03a1b1c4773015a237">FStreamBuffer::~FStreamBuffer</a>()</div>
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span>{</div>
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span>    <a class="code hl_function" href="../../df/da4/struct_f_memory.html#a128d6bd210b904d184a2e2c72000ba0b">FMemory::Free</a>(<a class="code hl_variable" href="../../d4/d20/class_u_e_1_1_trace_1_1_f_stream_reader.html#a150f32ab287514f6bca6d3f360215ea8">Buffer</a>);</div>
+<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span>}</div>
+</div>
+<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span></div>
+<div class="foldopen" id="foldopen00095" data-start="{" data-end="}">
+<div class="line"><a id="l00095" name="l00095"></a><span class="lineno"><a class="line" href="../../d0/d58/class_u_e_1_1_trace_1_1_f_stream_buffer.html#a780389fe2cb923d87ce5568dc97d43ed">   95</a></span><span class="keyword">inline</span> <a class="code hl_function" href="../../d0/d58/class_u_e_1_1_trace_1_1_f_stream_buffer.html#afa24bcf091ea4effcd47128768e2026f">FStreamBuffer::FStreamBuffer</a>(<a class="code hl_function" href="../../d0/d58/class_u_e_1_1_trace_1_1_f_stream_buffer.html#afa24bcf091ea4effcd47128768e2026f">FStreamBuffer</a>&amp;&amp; Rhs) <span class="keyword">noexcept</span></div>
+<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span>{</div>
+<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span>    <a class="code hl_function" href="../../d7/d2a/_tuple_8h.html#a16a59ab6ecd5d48359c6a951fd1cc31e">Swap</a>(<a class="code hl_variable" href="../../d0/d58/class_u_e_1_1_trace_1_1_f_stream_buffer.html#a15191d08103b6dbc4fc594d57b47727f">BufferSize</a>, Rhs.BufferSize);</div>
+<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span>    <a class="code hl_function" href="../../d7/d2a/_tuple_8h.html#a16a59ab6ecd5d48359c6a951fd1cc31e">Swap</a>(<a class="code hl_variable" href="../../d4/d20/class_u_e_1_1_trace_1_1_f_stream_reader.html#a150f32ab287514f6bca6d3f360215ea8">Buffer</a>, Rhs.Buffer);</div>
+<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span>    <a class="code hl_function" href="../../d7/d2a/_tuple_8h.html#a16a59ab6ecd5d48359c6a951fd1cc31e">Swap</a>(<a class="code hl_variable" href="../../d4/d20/class_u_e_1_1_trace_1_1_f_stream_reader.html#a6f539d65ea111ee1a2461bab6c5b3a72">Cursor</a>, Rhs.Cursor);</div>
+<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span>    <a class="code hl_function" href="../../d7/d2a/_tuple_8h.html#a16a59ab6ecd5d48359c6a951fd1cc31e">Swap</a>(<a class="code hl_variable" href="../../d4/d20/class_u_e_1_1_trace_1_1_f_stream_reader.html#af4a4f833794f78aef634c7e33363f641">End</a>, Rhs.End);</div>
+<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span>    <a class="code hl_function" href="../../d7/d2a/_tuple_8h.html#a16a59ab6ecd5d48359c6a951fd1cc31e">Swap</a>(<a class="code hl_variable" href="../../d4/d20/class_u_e_1_1_trace_1_1_f_stream_reader.html#a34356c6199823f2b9024ffa3c11014f6">DemandHint</a>, Rhs.DemandHint);</div>
+<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span>}</div>
+</div>
+<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span></div>
+<div class="foldopen" id="foldopen00105" data-start="{" data-end="}">
+<div class="line"><a id="l00105" name="l00105"></a><span class="lineno"><a class="line" href="../../d0/d58/class_u_e_1_1_trace_1_1_f_stream_buffer.html#acae813798cded222d471bceda27c9458">  105</a></span><span class="keyword">inline</span> <a class="code hl_function" href="../../d0/d58/class_u_e_1_1_trace_1_1_f_stream_buffer.html#afa24bcf091ea4effcd47128768e2026f">FStreamBuffer</a>&amp; <a class="code hl_function" href="../../d0/d58/class_u_e_1_1_trace_1_1_f_stream_buffer.html#acae813798cded222d471bceda27c9458">FStreamBuffer::operator = </a>(<a class="code hl_function" href="../../d0/d58/class_u_e_1_1_trace_1_1_f_stream_buffer.html#afa24bcf091ea4effcd47128768e2026f">FStreamBuffer</a>&amp;&amp; Rhs) <span class="keyword">noexcept</span></div>
+<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span>{</div>
+<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span>    <a class="code hl_function" href="../../d7/d2a/_tuple_8h.html#a16a59ab6ecd5d48359c6a951fd1cc31e">Swap</a>(<a class="code hl_variable" href="../../d0/d58/class_u_e_1_1_trace_1_1_f_stream_buffer.html#a15191d08103b6dbc4fc594d57b47727f">BufferSize</a>, Rhs.BufferSize);</div>
+<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span>    <a class="code hl_function" href="../../d7/d2a/_tuple_8h.html#a16a59ab6ecd5d48359c6a951fd1cc31e">Swap</a>(<a class="code hl_variable" href="../../d4/d20/class_u_e_1_1_trace_1_1_f_stream_reader.html#a150f32ab287514f6bca6d3f360215ea8">Buffer</a>, Rhs.Buffer);</div>
+<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span>    <a class="code hl_function" href="../../d7/d2a/_tuple_8h.html#a16a59ab6ecd5d48359c6a951fd1cc31e">Swap</a>(<a class="code hl_variable" href="../../d4/d20/class_u_e_1_1_trace_1_1_f_stream_reader.html#a6f539d65ea111ee1a2461bab6c5b3a72">Cursor</a>, Rhs.Cursor);</div>
+<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span>    <a class="code hl_function" href="../../d7/d2a/_tuple_8h.html#a16a59ab6ecd5d48359c6a951fd1cc31e">Swap</a>(<a class="code hl_variable" href="../../d4/d20/class_u_e_1_1_trace_1_1_f_stream_reader.html#af4a4f833794f78aef634c7e33363f641">End</a>, Rhs.End);</div>
+<div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span>    <a class="code hl_function" href="../../d7/d2a/_tuple_8h.html#a16a59ab6ecd5d48359c6a951fd1cc31e">Swap</a>(<a class="code hl_variable" href="../../d4/d20/class_u_e_1_1_trace_1_1_f_stream_reader.html#a34356c6199823f2b9024ffa3c11014f6">DemandHint</a>, Rhs.DemandHint);</div>
+<div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span>    <span class="keywordflow">return</span> *<span class="keyword">this</span>;</div>
+<div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span>}</div>
+</div>
+<div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span></div>
+<div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span><span class="keyword">template</span> &lt;<span class="keyword">typename</span> Lambda&gt;</div>
+<div class="foldopen" id="foldopen00117" data-start="{" data-end="}">
+<div class="line"><a id="l00117" name="l00117"></a><span class="lineno"><a class="line" href="../../d0/d58/class_u_e_1_1_trace_1_1_f_stream_buffer.html#afefaff283cded6abdb8cb51ad4d99446">  117</a></span><span class="keyword">inline</span> <a class="code hl_typedef" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a8dbb3cd84ca9fd010dadfc3815eefa5d">int32</a> <a class="code hl_function" href="../../d0/d58/class_u_e_1_1_trace_1_1_f_stream_buffer.html#afefaff283cded6abdb8cb51ad4d99446">FStreamBuffer::Fill</a>(Lambda&amp;&amp; <a class="code hl_enumvalue" href="../../db/d58/_anim_pose_8h.html#a972907c8b1ee6d28bf75a946caba23a2af31bbdd1b3e85bccd652680e16935819">Source</a>)</div>
+<div class="line"><a id="l00118" name="l00118"></a><span class="lineno">  118</span>{</div>
+<div class="line"><a id="l00119" name="l00119"></a><span class="lineno">  119</span>    <a class="code hl_function" href="../../d0/d58/class_u_e_1_1_trace_1_1_f_stream_buffer.html#a317e3b48885e36e97a94e97a87597cb1">Consolidate</a>();</div>
+<div class="line"><a id="l00120" name="l00120"></a><span class="lineno">  120</span> </div>
+<div class="line"><a id="l00121" name="l00121"></a><span class="lineno">  121</span>    <a class="code hl_typedef" href="../../dd/de9/preprocessor_8c.html#adde6aaee8457bee49c2a92621fe22b79">uint8</a>* Dest = <a class="code hl_variable" href="../../d4/d20/class_u_e_1_1_trace_1_1_f_stream_reader.html#a150f32ab287514f6bca6d3f360215ea8">Buffer</a> + <a class="code hl_variable" href="../../d4/d20/class_u_e_1_1_trace_1_1_f_stream_reader.html#af4a4f833794f78aef634c7e33363f641">End</a>;</div>
+<div class="line"><a id="l00122" name="l00122"></a><span class="lineno">  122</span>    <a class="code hl_typedef" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a8dbb3cd84ca9fd010dadfc3815eefa5d">int32</a> ReadSize = <a class="code hl_enumvalue" href="../../db/d58/_anim_pose_8h.html#a972907c8b1ee6d28bf75a946caba23a2af31bbdd1b3e85bccd652680e16935819">Source</a>(Dest, <a class="code hl_variable" href="../../d0/d58/class_u_e_1_1_trace_1_1_f_stream_buffer.html#a15191d08103b6dbc4fc594d57b47727f">BufferSize</a> - <a class="code hl_variable" href="../../d4/d20/class_u_e_1_1_trace_1_1_f_stream_reader.html#af4a4f833794f78aef634c7e33363f641">End</a>);</div>
+<div class="line"><a id="l00123" name="l00123"></a><span class="lineno">  123</span>    <span class="keywordflow">if</span> (ReadSize &gt; 0)</div>
+<div class="line"><a id="l00124" name="l00124"></a><span class="lineno">  124</span>    {</div>
+<div class="line"><a id="l00125" name="l00125"></a><span class="lineno">  125</span>        <a class="code hl_variable" href="../../d4/d20/class_u_e_1_1_trace_1_1_f_stream_reader.html#af4a4f833794f78aef634c7e33363f641">End</a> += ReadSize;</div>
+<div class="line"><a id="l00126" name="l00126"></a><span class="lineno">  126</span>    }</div>
+<div class="line"><a id="l00127" name="l00127"></a><span class="lineno">  127</span> </div>
+<div class="line"><a id="l00128" name="l00128"></a><span class="lineno">  128</span>    <span class="keywordflow">return</span> ReadSize;</div>
+<div class="line"><a id="l00129" name="l00129"></a><span class="lineno">  129</span>}</div>
+</div>
+<div class="line"><a id="l00130" name="l00130"></a><span class="lineno">  130</span> </div>
+<div class="line"><a id="l00131" name="l00131"></a><span class="lineno">  131</span>} <span class="comment">// namespace Trace</span></div>
+<div class="line"><a id="l00132" name="l00132"></a><span class="lineno">  132</span>} <span class="comment">// namespace UE</span></div>
+<div class="ttc" id="a_anim_pose_8h_html_a972907c8b1ee6d28bf75a946caba23a2af31bbdd1b3e85bccd652680e16935819"><div class="ttname"><a href="../../db/d58/_anim_pose_8h.html#a972907c8b1ee6d28bf75a946caba23a2af31bbdd1b3e85bccd652680e16935819">EAnimDataEvalType::Source</a></div><div class="ttdeci">@ Source</div><div class="ttdef"><b>定义</b> AnimPose.h:44</div></div>
+<div class="ttc" id="a_core_2_public_2_h_a_l_2_platform_8h_html_a8dbb3cd84ca9fd010dadfc3815eefa5d"><div class="ttname"><a href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a8dbb3cd84ca9fd010dadfc3815eefa5d">int32</a></div><div class="ttdeci">FPlatformTypes::int32 int32</div><div class="ttdoc">A 32-bit signed integer.</div><div class="ttdef"><b>定义</b> Platform.h:1190</div></div>
+<div class="ttc" id="a_core_2_public_2_h_a_l_2_platform_8h_html_a9312caeb4a64708527581a5c78438b5a"><div class="ttname"><a href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a9312caeb4a64708527581a5c78438b5a">UPTRINT</a></div><div class="ttdeci">FPlatformTypes::UPTRINT UPTRINT</div><div class="ttdoc">An unsigned integer the same size as a pointer</div><div class="ttdef"><b>定义</b> Platform.h:1211</div></div>
+<div class="ttc" id="a_core_types_8h_html"><div class="ttname"><a href="../../db/d04/_core_types_8h.html">CoreTypes.h</a></div></div>
+<div class="ttc" id="a_sequence_history_8h_html_a41f48316f09703e0b7cd9ac6b643e9c8"><div class="ttname"><a href="../../d0/de4/_sequence_history_8h.html#a41f48316f09703e0b7cd9ac6b643e9c8">Size</a></div><div class="ttdeci">constexpr SIZE_T TSequenceHistory&lt; HistorySize &gt;::Size</div><div class="ttdef"><b>定义</b> SequenceHistory.h:69</div></div>
+<div class="ttc" id="a_tuple_8h_html_a16a59ab6ecd5d48359c6a951fd1cc31e"><div class="ttname"><a href="../../d7/d2a/_tuple_8h.html#a16a59ab6ecd5d48359c6a951fd1cc31e">Swap</a></div><div class="ttdeci">void Swap(const TTuple&lt; Types &amp;... &gt; &amp;Lhs, const TTuple&lt; Types &amp;... &gt; &amp;Rhs)</div><div class="ttdef"><b>定义</b> Tuple.h:875</div></div>
+<div class="ttc" id="a_unreal_memory_8h_html"><div class="ttname"><a href="../../df/da0/_unreal_memory_8h.html">UnrealMemory.h</a></div></div>
+<div class="ttc" id="a_unreal_template_8h_html"><div class="ttname"><a href="../../d2/dd1/_unreal_template_8h.html">UnrealTemplate.h</a></div></div>
+<div class="ttc" id="aclass_u_e_1_1_trace_1_1_f_stream_buffer_html_a0b8b23a515a8ce646e51af0907e3302b"><div class="ttname"><a href="../../d0/d58/class_u_e_1_1_trace_1_1_f_stream_buffer.html#a0b8b23a515a8ce646e51af0907e3302b">UE::Trace::FStreamBuffer::FStreamBuffer</a></div><div class="ttdeci">FStreamBuffer(uint32_t InitalBufferSize)</div></div>
+<div class="ttc" id="aclass_u_e_1_1_trace_1_1_f_stream_buffer_html_a15191d08103b6dbc4fc594d57b47727f"><div class="ttname"><a href="../../d0/d58/class_u_e_1_1_trace_1_1_f_stream_buffer.html#a15191d08103b6dbc4fc594d57b47727f">UE::Trace::FStreamBuffer::BufferSize</a></div><div class="ttdeci">uint32 BufferSize</div><div class="ttdef"><b>定义</b> StreamReader.h:85</div></div>
+<div class="ttc" id="aclass_u_e_1_1_trace_1_1_f_stream_buffer_html_a2dd996bef20f6d03a1b1c4773015a237"><div class="ttname"><a href="../../d0/d58/class_u_e_1_1_trace_1_1_f_stream_buffer.html#a2dd996bef20f6d03a1b1c4773015a237">UE::Trace::FStreamBuffer::~FStreamBuffer</a></div><div class="ttdeci">~FStreamBuffer()</div><div class="ttdef"><b>定义</b> StreamReader.h:89</div></div>
+<div class="ttc" id="aclass_u_e_1_1_trace_1_1_f_stream_buffer_html_a317e3b48885e36e97a94e97a87597cb1"><div class="ttname"><a href="../../d0/d58/class_u_e_1_1_trace_1_1_f_stream_buffer.html#a317e3b48885e36e97a94e97a87597cb1">UE::Trace::FStreamBuffer::Consolidate</a></div><div class="ttdeci">void Consolidate()</div><div class="ttdef"><b>定义</b> StreamReader.cpp:103</div></div>
+<div class="ttc" id="aclass_u_e_1_1_trace_1_1_f_stream_buffer_html_acae813798cded222d471bceda27c9458"><div class="ttname"><a href="../../d0/d58/class_u_e_1_1_trace_1_1_f_stream_buffer.html#acae813798cded222d471bceda27c9458">UE::Trace::FStreamBuffer::operator=</a></div><div class="ttdeci">FStreamBuffer &amp; operator=(FStreamBuffer &amp;&amp;Rhs) noexcept</div><div class="ttdef"><b>定义</b> StreamReader.h:105</div></div>
+<div class="ttc" id="aclass_u_e_1_1_trace_1_1_f_stream_buffer_html_ad2d17f5e3fc89f9163c5a883e17a3079"><div class="ttname"><a href="../../d0/d58/class_u_e_1_1_trace_1_1_f_stream_buffer.html#ad2d17f5e3fc89f9163c5a883e17a3079">UE::Trace::FStreamBuffer::Append</a></div><div class="ttdeci">void Append(const uint8 *Data, uint32 Size)</div><div class="ttdef"><b>定义</b> StreamReader.cpp:85</div></div>
+<div class="ttc" id="aclass_u_e_1_1_trace_1_1_f_stream_buffer_html_aeff9807314e22bc218f10dd45a3355f0"><div class="ttname"><a href="../../d0/d58/class_u_e_1_1_trace_1_1_f_stream_buffer.html#aeff9807314e22bc218f10dd45a3355f0">UE::Trace::FStreamBuffer::FStreamBuffer</a></div><div class="ttdeci">FStreamBuffer(const FStreamBuffer &amp;)=default</div></div>
+<div class="ttc" id="aclass_u_e_1_1_trace_1_1_f_stream_buffer_html_af42062f8b05dbaaae4332cb5f177466d"><div class="ttname"><a href="../../d0/d58/class_u_e_1_1_trace_1_1_f_stream_buffer.html#af42062f8b05dbaaae4332cb5f177466d">UE::Trace::FStreamBuffer::GetBufferSize</a></div><div class="ttdeci">uint32 GetBufferSize() const</div><div class="ttdef"><b>定义</b> StreamReader.h:81</div></div>
+<div class="ttc" id="aclass_u_e_1_1_trace_1_1_f_stream_buffer_html_afa24bcf091ea4effcd47128768e2026f"><div class="ttname"><a href="../../d0/d58/class_u_e_1_1_trace_1_1_f_stream_buffer.html#afa24bcf091ea4effcd47128768e2026f">UE::Trace::FStreamBuffer::FStreamBuffer</a></div><div class="ttdeci">FStreamBuffer()=default</div></div>
+<div class="ttc" id="aclass_u_e_1_1_trace_1_1_f_stream_buffer_html_afefaff283cded6abdb8cb51ad4d99446"><div class="ttname"><a href="../../d0/d58/class_u_e_1_1_trace_1_1_f_stream_buffer.html#afefaff283cded6abdb8cb51ad4d99446">UE::Trace::FStreamBuffer::Fill</a></div><div class="ttdeci">int32 Fill(Lambda &amp;&amp;Source)</div><div class="ttdef"><b>定义</b> StreamReader.h:117</div></div>
+<div class="ttc" id="aclass_u_e_1_1_trace_1_1_f_stream_reader_html"><div class="ttname"><a href="../../d4/d20/class_u_e_1_1_trace_1_1_f_stream_reader.html">UE::Trace::FStreamReader</a></div><div class="ttdef"><b>定义</b> StreamReader.h:14</div></div>
+<div class="ttc" id="aclass_u_e_1_1_trace_1_1_f_stream_reader_html_a150f32ab287514f6bca6d3f360215ea8"><div class="ttname"><a href="../../d4/d20/class_u_e_1_1_trace_1_1_f_stream_reader.html#a150f32ab287514f6bca6d3f360215ea8">UE::Trace::FStreamReader::Buffer</a></div><div class="ttdeci">uint8 * Buffer</div><div class="ttdef"><b>定义</b> StreamReader.h:32</div></div>
+<div class="ttc" id="aclass_u_e_1_1_trace_1_1_f_stream_reader_html_a34356c6199823f2b9024ffa3c11014f6"><div class="ttname"><a href="../../d4/d20/class_u_e_1_1_trace_1_1_f_stream_reader.html#a34356c6199823f2b9024ffa3c11014f6">UE::Trace::FStreamReader::DemandHint</a></div><div class="ttdeci">uint32 DemandHint</div><div class="ttdef"><b>定义</b> StreamReader.h:33</div></div>
+<div class="ttc" id="aclass_u_e_1_1_trace_1_1_f_stream_reader_html_a5426fc657cf77cb6179204e6fcbf5d9c"><div class="ttname"><a href="../../d4/d20/class_u_e_1_1_trace_1_1_f_stream_reader.html#a5426fc657cf77cb6179204e6fcbf5d9c">UE::Trace::FStreamReader::GetBacktrackSize</a></div><div class="ttdeci">uint32 GetBacktrackSize(const uint8 *To) const</div><div class="ttdef"><b>定义</b> StreamReader.h:58</div></div>
+<div class="ttc" id="aclass_u_e_1_1_trace_1_1_f_stream_reader_html_a6f539d65ea111ee1a2461bab6c5b3a72"><div class="ttname"><a href="../../d4/d20/class_u_e_1_1_trace_1_1_f_stream_reader.html#a6f539d65ea111ee1a2461bab6c5b3a72">UE::Trace::FStreamReader::Cursor</a></div><div class="ttdeci">uint32 Cursor</div><div class="ttdef"><b>定义</b> StreamReader.h:34</div></div>
+<div class="ttc" id="aclass_u_e_1_1_trace_1_1_f_stream_reader_html_a703de240c9610ce85adead53cdc64e80"><div class="ttname"><a href="../../d4/d20/class_u_e_1_1_trace_1_1_f_stream_reader.html#a703de240c9610ce85adead53cdc64e80">UE::Trace::FStreamReader::Backtrack</a></div><div class="ttdeci">bool Backtrack(const uint8 *To)</div><div class="ttdef"><b>定义</b> StreamReader.cpp:47</div></div>
+<div class="ttc" id="aclass_u_e_1_1_trace_1_1_f_stream_reader_html_a824c1f683bcadad79b7633f8edd65c74"><div class="ttname"><a href="../../d4/d20/class_u_e_1_1_trace_1_1_f_stream_reader.html#a824c1f683bcadad79b7633f8edd65c74">UE::Trace::FStreamReader::IsEmpty</a></div><div class="ttdeci">bool IsEmpty() const</div><div class="ttdef"><b>定义</b> StreamReader.cpp:41</div></div>
+<div class="ttc" id="aclass_u_e_1_1_trace_1_1_f_stream_reader_html_a957fcadeee2ab1db4dc56ecaffe4e7db"><div class="ttname"><a href="../../d4/d20/class_u_e_1_1_trace_1_1_f_stream_reader.html#a957fcadeee2ab1db4dc56ecaffe4e7db">UE::Trace::FStreamReader::Advance</a></div><div class="ttdeci">void Advance(uint32 Size)</div><div class="ttdef"><b>定义</b> StreamReader.cpp:22</div></div>
+<div class="ttc" id="aclass_u_e_1_1_trace_1_1_f_stream_reader_html_aca1c46664e84e693748b642ada882baf"><div class="ttname"><a href="../../d4/d20/class_u_e_1_1_trace_1_1_f_stream_reader.html#aca1c46664e84e693748b642ada882baf">UE::Trace::FStreamReader::GetRemaining</a></div><div class="ttdeci">uint32 GetRemaining() const</div><div class="ttdef"><b>定义</b> StreamReader.cpp:28</div></div>
+<div class="ttc" id="aclass_u_e_1_1_trace_1_1_f_stream_reader_html_aca79372152106b56bc2730b0569f9912"><div class="ttname"><a href="../../d4/d20/class_u_e_1_1_trace_1_1_f_stream_reader.html#aca79372152106b56bc2730b0569f9912">UE::Trace::FStreamReader::GetPointerUnchecked</a></div><div class="ttdeci">Type const * GetPointerUnchecked() const</div></div>
+<div class="ttc" id="aclass_u_e_1_1_trace_1_1_f_stream_reader_html_acefcc8b69d30a8da04dac0c28dc1419a"><div class="ttname"><a href="../../d4/d20/class_u_e_1_1_trace_1_1_f_stream_reader.html#acefcc8b69d30a8da04dac0c28dc1419a">UE::Trace::FStreamReader::CanMeetDemand</a></div><div class="ttdeci">bool CanMeetDemand() const</div><div class="ttdef"><b>定义</b> StreamReader.cpp:35</div></div>
+<div class="ttc" id="aclass_u_e_1_1_trace_1_1_f_stream_reader_html_ae65df3a07ce4c27d604278087eedee25"><div class="ttname"><a href="../../d4/d20/class_u_e_1_1_trace_1_1_f_stream_reader.html#ae65df3a07ce4c27d604278087eedee25">UE::Trace::FStreamReader::RestoreMark</a></div><div class="ttdeci">void RestoreMark(struct FMark *Mark)</div><div class="ttdef"><b>定义</b> StreamReader.cpp:66</div></div>
+<div class="ttc" id="aclass_u_e_1_1_trace_1_1_f_stream_reader_html_aeed2b72e8ef04de833d051e746b12179"><div class="ttname"><a href="../../d4/d20/class_u_e_1_1_trace_1_1_f_stream_reader.html#aeed2b72e8ef04de833d051e746b12179">UE::Trace::FStreamReader::GetPointer</a></div><div class="ttdeci">Type const * GetPointer() const</div></div>
+<div class="ttc" id="aclass_u_e_1_1_trace_1_1_f_stream_reader_html_aef94859266dfed907d44130ae88ea528"><div class="ttname"><a href="../../d4/d20/class_u_e_1_1_trace_1_1_f_stream_reader.html#aef94859266dfed907d44130ae88ea528">UE::Trace::FStreamReader::SaveMark</a></div><div class="ttdeci">struct FMark * SaveMark() const</div><div class="ttdef"><b>定义</b> StreamReader.cpp:60</div></div>
+<div class="ttc" id="aclass_u_e_1_1_trace_1_1_f_stream_reader_html_af4a4f833794f78aef634c7e33363f641"><div class="ttname"><a href="../../d4/d20/class_u_e_1_1_trace_1_1_f_stream_reader.html#af4a4f833794f78aef634c7e33363f641">UE::Trace::FStreamReader::End</a></div><div class="ttdeci">uint32 End</div><div class="ttdef"><b>定义</b> StreamReader.h:35</div></div>
+<div class="ttc" id="anamespace_u_e_1_1_trace_html"><div class="ttname"><a href="../../df/d18/namespace_u_e_1_1_trace.html">UE::Trace</a></div><div class="ttdef"><b>定义</b> Context.cpp:7</div></div>
+<div class="ttc" id="anamespace_u_e_html"><div class="ttname"><a href="../../da/de5/namespace_u_e.html">UE</a></div><div class="ttdef"><b>定义</b> AITestsCommon.cpp:13</div></div>
+<div class="ttc" id="apreprocessor_8c_html_a1134b580f8da4de94ca6b1de4d37975e"><div class="ttname"><a href="../../dd/de9/preprocessor_8c.html#a1134b580f8da4de94ca6b1de4d37975e">uint32</a></div><div class="ttdeci">unsigned int uint32</div><div class="ttdef"><b>定义</b> preprocessor.c:67</div></div>
+<div class="ttc" id="apreprocessor_8c_html_adde6aaee8457bee49c2a92621fe22b79"><div class="ttname"><a href="../../dd/de9/preprocessor_8c.html#adde6aaee8457bee49c2a92621fe22b79">uint8</a></div><div class="ttdeci">unsigned char uint8</div><div class="ttdef"><b>定义</b> preprocessor.c:65</div></div>
+<div class="ttc" id="astruct_f_memory_html_a128d6bd210b904d184a2e2c72000ba0b"><div class="ttname"><a href="../../df/da4/struct_f_memory.html#a128d6bd210b904d184a2e2c72000ba0b">FMemory::Free</a></div><div class="ttdeci">static FORCENOINLINE CORE_API void Free(void *Original)</div><div class="ttdef"><b>定义</b> UnrealMemory.cpp:688</div></div>
+<div class="ttc" id="astruct_t_decay_html"><div class="ttname"><a href="../../d3/d81/struct_t_decay.html">Type</a></div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+</div><!-- container -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a href="../../dir_0b6ee6e7e9547e675db4add2e5de97da.html">Engine</a></li><li class="navelem"><a href="../../dir_9579d1ecb2c7bf48cbe1049c41745cb4.html">Source</a></li><li class="navelem"><a href="../../dir_00912ccdaf80818c8f5fb6febb7aeb6c.html">Developer</a></li><li class="navelem"><a href="../../dir_0b3619e8df5a9a7cb70ac958d1f9eae1.html">TraceAnalysis</a></li><li class="navelem"><a href="../../dir_af424a4bb19d99133e0ccaba25b26665.html">Private</a></li><li class="navelem"><a href="../../dir_6940a7ba0b7cd6216bf3f4d3d90a2f35.html">Analysis</a></li><li class="navelem"><a href="../../d9/d01/_stream_reader_8h.html">StreamReader.h</a></li>
+    <li class="footer">制作者 <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.15.0 </li>
+  </ul>
+</div>
+</body>
+</html>

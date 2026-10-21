@@ -1,0 +1,1177 @@
+<!-- HTML header for doxygen 1.15.0-->
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh">
+<head>
+  <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=11" />
+  <meta name="generator" content="Doxygen 1.15.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>UE 5.8.4: Engine/Source/Runtime/CoreUObject/Private/UObject/GarbageCollection.cpp 文件参考</title>
+  <link rel="icon" href="../../EdIconDefault.bmp" type="image/x-icon" />
+  <link href="../../tabs.css" rel="stylesheet" type="text/css" />
+  <script type="text/javascript" src="../../jquery.js"></script>
+  <script type="text/javascript" src="../../dynsections.js"></script>
+  <link href="../../navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../navtreedata.js"></script>
+<script type="text/javascript" src="../../navtree.js"></script>
+<script type="text/javascript" src="../../cookie.js"></script>
+  <link href="../../search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../search/searchdata.js"></script>
+<script type="text/javascript" src="../../search/search.js"></script>
+  <script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  extensions: ["tex2jax.js"],
+  jax: ["input/TeX","output/HTML-CSS"],
+});
+</script>
+<script type="text/javascript" async="async" src="https://cdn.jsdelivr.net/npm/mathjax@2/MathJax.js"></script>
+  <link href="../../doxygen.css" rel="stylesheet" type="text/css" />
+  <link href="../../doxygen-awesome.css" rel="stylesheet" type="text/css"/>
+<link href="../../doxygen-awesome-sidebar-only.css" rel="stylesheet" type="text/css"/>
+<link href="../../doxygen-awesome-sidebar-only-darkmode-toggle.css" rel="stylesheet" type="text/css"/>
+  <!-- ... other metadata & script includes ... -->
+  <script type="text/javascript" src="../../doxygen-awesome-darkmode-toggle.js"></script>
+  <script type="text/javascript">
+    DoxygenAwesomeDarkModeToggle.title = "Zwischen hellem/dunklem Modus wechseln"
+    DoxygenAwesomeDarkModeToggle.lightModeIcon = '🌞'
+    // icon from https://fonts.google.com/icons
+    DoxygenAwesomeDarkModeToggle.darkModeIcon = `<svg xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 24 24" height="24px" viewBox="0 0 24 24" width="24px" fill="#009793"><g><rect fill="none" height="24" width="24"/></g><g><g><path d="M8.1,14.15C9.77,14.63,11,16.17,11,18c0,0.68-0.19,1.31-0.48,1.87c0.48,0.09,0.97,0.14,1.48,0.14 c1.48,0,2.9-0.41,4.13-1.15c-2.62-0.92-5.23-2.82-6.8-5.86C7.74,9.94,7.78,7.09,8.29,4.9c-2.57,1.33-4.3,4.01-4.3,7.1c0,0,0,0,0,0 c0.01,0,0.01,0,0.02,0C5.66,12,7.18,12.83,8.1,14.15z" opacity=".3"/><path d="M19.78,17.51c-2.47,0-6.57-1.33-8.68-5.43C8.77,7.57,10.6,3.6,11.63,2.01C6.27,2.2,1.98,6.59,1.98,12 c0,0.14,0.02,0.28,0.02,0.42C2.61,12.16,3.28,12,3.98,12c0,0,0,0,0,0c0-3.09,1.73-5.77,4.3-7.1C7.78,7.09,7.74,9.94,9.32,13 c1.57,3.04,4.18,4.95,6.8,5.86c-1.23,0.74-2.65,1.15-4.13,1.15c-0.5,0-1-0.05-1.48-0.14c-0.37,0.7-0.94,1.27-1.64,1.64 c0.98,0.32,2.03,0.5,3.11,0.5c3.5,0,6.58-1.8,8.37-4.52C20.18,17.5,19.98,17.51,19.78,17.51z"/><path d="M7,16l-0.18,0C6.4,14.84,5.3,14,4,14c-1.66,0-3,1.34-3,3s1.34,3,3,3c0.62,0,2.49,0,3,0c1.1,0,2-0.9,2-2 C9,16.9,8.1,16,7,16z"/></g></g></svg>`
+    DoxygenAwesomeDarkModeToggle.init()
+  </script>
+  <script type="text/javascript" src="../../doxygen-awesome-fragment-copy-button.js"></script>
+  <script type="text/javascript">
+    DoxygenAwesomeFragmentCopyButton.title = "In die Zwischenablage kopieren"
+    // DoxygenAwesomeFragmentCopyButton.copyIcon = `<svg ...>`
+    // DoxygenAwesomeFragmentCopyButton.successIcon = `<svg ...>`
+    DoxygenAwesomeFragmentCopyButton.init()
+  </script>
+  <script type="text/javascript" src="../../doxygen-awesome-paragraph-link.js"></script>
+  <script type="text/javascript">
+    DoxygenAwesomeParagraphLink.title = "Abschnitt verknüpfen"
+    DoxygenAwesomeParagraphLink.icon = "¶"
+    DoxygenAwesomeParagraphLink.init()
+  </script>
+  <script type="text/javascript" src="../../doxygen-awesome-interactive-toc.js"></script>
+  <script type="text/javascript">
+    DoxygenAwesomeInteractiveToc.topOffset = 45
+    DoxygenAwesomeInteractiveToc.hideMobileMenu = false
+    DoxygenAwesomeInteractiveToc.init()
+  </script>
+</head>
+<body>
+    <div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+      <div id="titlearea">
+        <table cellspacing="0" cellpadding="0">
+          <tbody>
+            <tr id="projectrow">
+              <td id="projectlogo"><img alt="Logo" src="../../EdIconDefault.bmp"  /></td>
+              <td id="projectalign">
+                <div id="projectname">UE 5.8.4
+                </div>
+                <div id="projectbrief">Unreal Engine</div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <!-- end header part -->
+<!-- 制作者 Doxygen 1.15.0 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "../../search/",'.html');
+</script>
+<script type="text/javascript">
+$(function() { codefold.init(); });
+</script>
+<script type="text/javascript" src="../../menudata.js"></script>
+<script type="text/javascript" src="../../menu.js"></script>
+<script type="text/javascript">
+$(function() {
+  initMenu('../../',true,false,'search.php','搜索',true);
+  $(function() { init_search(); });
+});
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(function(){initNavTree('d8/d2b/_garbage_collection_8cpp.html','../../',''); });
+</script>
+<div id="container">
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">载入中...</div>
+<div class="SRStatus" id="Searching">搜索中...</div>
+<div class="SRStatus" id="NoMatches">未找到</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">GarbageCollection.cpp 文件参考</div></div>
+</div><!--header-->
+<div class="contents">
+<div class="textblock"><code>#include &quot;<a class="el" href="../../dc/db6/_garbage_collection_8h_source.html">UObject/GarbageCollection.h</a>&quot;</code><br />
+<code>#include &quot;Algo/Find.h&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../de/d38/_unique_lock_8h_source.html">Async/UniqueLock.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../da/d83/_auto_r_t_f_m_8h_source.html">AutoRTFM.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../dd/db9/_consume_all_mpmc_queue_8h_source.html">Containers/ConsumeAllMpmcQueue.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d5/d6c/_deque_8h_source.html">Containers/Deque.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../de/d4e/_static_bit_array_8h_source.html">Containers/StaticBitArray.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../dd/d1c/_malloc_leak_detection_8h_source.html">HAL/MallocLeakDetection.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../dc/db3/_thread_safe_bool_8h_source.html">HAL/ThreadSafeBool.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d6/d57/_time_guard_8h_source.html">Misc/TimeGuard.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d4/dd9/_i_console_manager_8h_source.html">HAL/IConsoleManager.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d9/d11/_app_8h_source.html">Misc/App.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../dc/d17/_core_delegates_8h_source.html">Misc/CoreDelegates.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d1/d6d/_core_2_public_2_tasks_2_task_8h_source.html">Tasks/Task.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d7/d6c/_script_interface_8h_source.html">UObject/ScriptInterface.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d5/dbd/_u_object_allocator_8h_source.html">UObject/UObjectAllocator.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../db/d67/_u_object_base_8h_source.html">UObject/UObjectBase.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../df/d30/_object_8h_source.html">UObject/Object.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../dc/d4a/_object_handle_8h_source.html">UObject/ObjectHandle.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../dd/dc2/_object_ptr_8h_source.html">UObject/ObjectPtr.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../de/d5d/_class_8h_source.html">UObject/Class.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../de/d1c/_u_object_iterator_8h_source.html">UObject/UObjectIterator.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../de/d0c/_u_object_partials_8h_source.html">UObject/UObjectPartials.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d9/df3/_unreal_type_8h_source.html">UObject/UnrealType.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../da/dcb/_linker_load_8h_source.html">UObject/LinkerLoad.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d8/d9c/_g_c_object_8h_source.html">UObject/GCObject.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../dd/d5d/_g_c_scope_lock_8h_source.html">UObject/GCScopeLock.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d8/d18/_exception_handling_8h_source.html">HAL/ExceptionHandling.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d7/dcc/_u_object_clusters_8h_source.html">UObject/UObjectClusters.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d9/dc8/_low_level_mem_tracker_8h_source.html">HAL/LowLevelMemTracker.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d4/d7d/_garbage_collection_verification_8h_source.html">UObject/GarbageCollectionVerification.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d9/d40/_package_8h_source.html">UObject/Package.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d3/d90/_core_2_public_2_async_2_parallel_for_8h_source.html">Async/ParallelFor.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../df/dc1/_csv_profiler_8h_source.html">ProfilingDebugging/CsvProfiler.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../dd/d22/_runnable_8h_source.html">HAL/Runnable.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../dd/df4/_runnable_thread_8h_source.html">HAL/RunnableThread.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d3/d2f/_thread_heart_beat_8h_source.html">HAL/ThreadHeartBeat.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../da/d3a/_field_path_property_8h_source.html">UObject/FieldPathProperty.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d2/db1/_garbage_collection_history_8h_source.html">UObject/GarbageCollectionHistory.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d5/dd7/_garbage_collection_internal_flags_8h_source.html">UObject/GarbageCollectionInternalFlags.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d9/df7/_garbage_collection_testing_8h_source.html">UObject/GarbageCollectionTesting.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../da/dd3/_instance_data_object_utils_8h_source.html">UObject/InstanceDataObjectUtils.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../dd/d29/_property_bag_repository_8h_source.html">UObject/PropertyBagRepository.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d9/d44/_property_optional_8h_source.html">UObject/PropertyOptional.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../dd/dfa/_expanding_chunked_list_8h_source.html">UObject/ExpandingChunkedList.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d2/d8f/_reachability_analysis_state_8h_source.html">UObject/ReachabilityAnalysisState.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d9/d87/_reachability_analysis_8h_source.html">UObject/ReachabilityAnalysis.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../dc/df2/_remote_object_private_8h_source.html">UObject/RemoteObjectPrivate.h</a>&quot;</code><br />
+<code>#include &lt;atomic&gt;</code><br />
+<code>#include &quot;<a class="el" href="../../de/d87/_fast_reference_collector_8h_source.html">UObject/FastReferenceCollector.h</a>&quot;</code><br />
+</div><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-nested-classes" class="groupheader"><a id="nested-classes" name="nested-classes"></a>
+类</h2></td></tr>
+<tr class="memitem:FGCTimingInfo" id="r_FGCTimingInfo"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/dc2/struct_f_g_c_timing_info.html">FGCTimingInfo</a></td></tr>
+<tr class="memitem:FGCHashTableScopeLock" id="r_FGCHashTableScopeLock"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d8/dbf/class_f_g_c_hash_table_scope_lock.html">FGCHashTableScopeLock</a></td></tr>
+<tr class="memitem:UE_3A_3AGC_3A_3AFDetailedClassStats" id="r_UE_3A_3AGC_3A_3AFDetailedClassStats"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d8/d66/struct_u_e_1_1_g_c_1_1_f_detailed_class_stats.html">UE::GC::FDetailedClassStats</a></td></tr>
+<tr class="memitem:FObjectPurge" id="r_FObjectPurge"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/d3c/class_f_object_purge.html">FObjectPurge</a></td></tr>
+<tr class="memitem:UE_3A_3AGC_3A_3AFContextPool" id="r_UE_3A_3AGC_3A_3AFContextPool"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d2/ddc/class_u_e_1_1_g_c_1_1_f_context_pool.html">UE::GC::FContextPool</a></td></tr>
+<tr class="memitem:UE_3A_3AGC_3A_3AFContextPoolScope" id="r_UE_3A_3AGC_3A_3AFContextPoolScope"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/dfd/class_u_e_1_1_g_c_1_1_f_context_pool_scope.html">UE::GC::FContextPoolScope</a></td></tr>
+<tr class="memitem:UE_3A_3AGC_3A_3ATAddAdapter_3C_20Options_20_3E" id="r_UE_3A_3AGC_3A_3ATAddAdapter_3C_20Options_20_3E"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/d41/struct_u_e_1_1_g_c_1_1_t_add_adapter.html">UE::GC::TAddAdapter&lt; Options &gt;</a></td></tr>
+<tr class="memitem:UE_3A_3AGC_3A_3AFMutableReference" id="r_UE_3A_3AGC_3A_3AFMutableReference"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/d71/struct_u_e_1_1_g_c_1_1_f_mutable_reference.html">UE::GC::FMutableReference</a></td></tr>
+<tr class="memitem:UE_3A_3AGC_3A_3AFImmutableReference" id="r_UE_3A_3AGC_3A_3AFImmutableReference"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/d52/struct_u_e_1_1_g_c_1_1_f_immutable_reference.html">UE::GC::FImmutableReference</a></td></tr>
+<tr class="memitem:UE_3A_3AGC_3A_3AFReferenceArray" id="r_UE_3A_3AGC_3A_3AFReferenceArray"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d2/d5c/struct_u_e_1_1_g_c_1_1_f_reference_array.html">UE::GC::FReferenceArray</a></td></tr>
+<tr class="memitem:UE_3A_3AGC_3A_3AFResolvedMutableReference" id="r_UE_3A_3AGC_3A_3AFResolvedMutableReference"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/d68/struct_u_e_1_1_g_c_1_1_f_resolved_mutable_reference.html">UE::GC::FResolvedMutableReference</a></td></tr>
+<tr class="memitem:UE_3A_3AGC_3A_3AFRemoteReference" id="r_UE_3A_3AGC_3A_3AFRemoteReference"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/da4/struct_u_e_1_1_g_c_1_1_f_remote_reference.html">UE::GC::FRemoteReference</a></td></tr>
+<tr class="memitem:UE_3A_3AGC_3A_3AFResolvedRemoteReference" id="r_UE_3A_3AGC_3A_3AFResolvedRemoteReference"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/d78/struct_u_e_1_1_g_c_1_1_f_resolved_remote_reference.html">UE::GC::FResolvedRemoteReference</a></td></tr>
+<tr class="memitem:UE_3A_3AGC_3A_3AFReferenceMetadata" id="r_UE_3A_3AGC_3A_3AFReferenceMetadata"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/da1/struct_u_e_1_1_g_c_1_1_f_reference_metadata.html">UE::GC::FReferenceMetadata</a></td></tr>
+<tr class="memitem:UE_3A_3AGC_3A_3AFPageAllocator" id="r_UE_3A_3AGC_3A_3AFPageAllocator"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d5f/class_u_e_1_1_g_c_1_1_f_page_allocator.html">UE::GC::FPageAllocator</a></td></tr>
+<tr class="memitem:UE_3A_3AGC_3A_3AFBatcherBase" id="r_UE_3A_3AGC_3A_3AFBatcherBase"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/d84/class_u_e_1_1_g_c_1_1_f_batcher_base.html">UE::GC::FBatcherBase</a></td></tr>
+<tr class="memitem:UE_3A_3AGC_3A_3AFBatcherBase_3A_3ATBatchQueue_3C_20EntryType_2C_20Capacity_2C_20PrefetchCapacity_20_3E" id="r_UE_3A_3AGC_3A_3AFBatcherBase_3A_3ATBatchQueue_3C_20EntryType_2C_20Capacity_2C_20PrefetchCapacity_20_3E"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/d44/struct_u_e_1_1_g_c_1_1_f_batcher_base_1_1_t_batch_queue.html">UE::GC::FBatcherBase::TBatchQueue&lt; EntryType, Capacity, PrefetchCapacity &gt;</a></td></tr>
+<tr class="memitem:UE_3A_3AGC_3A_3AFBatcherBase_3A_3AFValidatedBitmask" id="r_UE_3A_3AGC_3A_3AFBatcherBase_3A_3AFValidatedBitmask"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/d0e/struct_u_e_1_1_g_c_1_1_f_batcher_base_1_1_f_validated_bitmask.html">UE::GC::FBatcherBase::FValidatedBitmask</a></td></tr>
+<tr class="memitem:UE_3A_3AGC_3A_3ATReferenceBatcher_3C_20UnvalidatedReferenceType_2C_20ValidatedReferenceType_2C_20ProcessorType_20_3E" id="r_UE_3A_3AGC_3A_3ATReferenceBatcher_3C_20UnvalidatedReferenceType_2C_20ValidatedReferenceType_2C_20ProcessorType_20_3E"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/d45/class_u_e_1_1_g_c_1_1_t_reference_batcher.html">UE::GC::TReferenceBatcher&lt; UnvalidatedReferenceType, ValidatedReferenceType, ProcessorType &gt;</a></td></tr>
+<tr class="memitem:UE_3A_3AGC_3A_3AFDummyReferenceBatcher" id="r_UE_3A_3AGC_3A_3AFDummyReferenceBatcher"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/da3/class_u_e_1_1_g_c_1_1_f_dummy_reference_batcher.html">UE::GC::FDummyReferenceBatcher</a></td></tr>
+<tr class="memitem:UE_3A_3AGC_3A_3AFStructArrayBlock" id="r_UE_3A_3AGC_3A_3AFStructArrayBlock"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d2/dca/struct_u_e_1_1_g_c_1_1_f_struct_array_block.html">UE::GC::FStructArrayBlock</a></td></tr>
+<tr class="memitem:UE_3A_3AGC_3A_3AFStructBlockifier" id="r_UE_3A_3AGC_3A_3AFStructBlockifier"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/def/class_u_e_1_1_g_c_1_1_f_struct_blockifier.html">UE::GC::FStructBlockifier</a></td></tr>
+<tr class="memitem:UE_3A_3AGC_3A_3AFSparseStructArray" id="r_UE_3A_3AGC_3A_3AFSparseStructArray"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/daf/struct_u_e_1_1_g_c_1_1_f_sparse_struct_array.html">UE::GC::FSparseStructArray</a></td></tr>
+<tr class="memitem:UE_3A_3AGC_3A_3AFStructArrayWithoutStride" id="r_UE_3A_3AGC_3A_3AFStructArrayWithoutStride"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/d3c/struct_u_e_1_1_g_c_1_1_f_struct_array_without_stride.html">UE::GC::FStructArrayWithoutStride</a></td></tr>
+<tr class="memitem:UE_3A_3AGC_3A_3AFStructBatcher" id="r_UE_3A_3AGC_3A_3AFStructBatcher"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d61/class_u_e_1_1_g_c_1_1_f_struct_batcher.html">UE::GC::FStructBatcher</a></td></tr>
+<tr class="memitem:UE_3A_3AGC_3A_3AFWorkerIndexAllocator" id="r_UE_3A_3AGC_3A_3AFWorkerIndexAllocator"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d2/d95/class_u_e_1_1_g_c_1_1_f_worker_index_allocator.html">UE::GC::FWorkerIndexAllocator</a></td></tr>
+<tr class="memitem:UE_3A_3AGC_3A_3AFBoundedWorkstealingQueue" id="r_UE_3A_3AGC_3A_3AFBoundedWorkstealingQueue"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/d4a/class_u_e_1_1_g_c_1_1_f_bounded_workstealing_queue.html">UE::GC::FBoundedWorkstealingQueue</a></td></tr>
+<tr class="memitem:UE_3A_3AGC_3A_3AFWorkstealingQueue" id="r_UE_3A_3AGC_3A_3AFWorkstealingQueue"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/d24/class_u_e_1_1_g_c_1_1_f_workstealing_queue.html">UE::GC::FWorkstealingQueue</a></td></tr>
+<tr class="memitem:UE_3A_3AGC_3A_3AFWorkstealingManager" id="r_UE_3A_3AGC_3A_3AFWorkstealingManager"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/d8d/struct_u_e_1_1_g_c_1_1_f_workstealing_manager.html">UE::GC::FWorkstealingManager</a></td></tr>
+<tr class="memitem:UE_3A_3AGC_3A_3AFAROBlock" id="r_UE_3A_3AGC_3A_3AFAROBlock"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/d10/struct_u_e_1_1_g_c_1_1_f_a_r_o_block.html">UE::GC::FAROBlock</a></td></tr>
+<tr class="memitem:UE_3A_3AGC_3A_3AFAROQueue" id="r_UE_3A_3AGC_3A_3AFAROQueue"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/d2c/class_u_e_1_1_g_c_1_1_f_a_r_o_queue.html">UE::GC::FAROQueue</a></td></tr>
+<tr class="memitem:UE_3A_3AGC_3A_3AFAROQueue_3A_3AFFew" id="r_UE_3A_3AGC_3A_3AFAROQueue_3A_3AFFew"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/d00/struct_u_e_1_1_g_c_1_1_f_a_r_o_queue_1_1_f_few.html">UE::GC::FAROQueue::FFew</a></td></tr>
+<tr class="memitem:UE_3A_3AGC_3A_3AFAROQueue_3A_3AFMany" id="r_UE_3A_3AGC_3A_3AFAROQueue_3A_3AFMany"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/d09/struct_u_e_1_1_g_c_1_1_f_a_r_o_queue_1_1_f_many.html">UE::GC::FAROQueue::FMany</a></td></tr>
+<tr class="memitem:UE_3A_3AGC_3A_3AFAROQueueStore" id="r_UE_3A_3AGC_3A_3AFAROQueueStore"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/d9b/class_u_e_1_1_g_c_1_1_f_a_r_o_queue_store.html">UE::GC::FAROQueueStore</a></td></tr>
+<tr class="memitem:UE_3A_3AGC_3A_3AFSlowAROManager" id="r_UE_3A_3AGC_3A_3AFSlowAROManager"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d6d/class_u_e_1_1_g_c_1_1_f_slow_a_r_o_manager.html">UE::GC::FSlowAROManager</a></td></tr>
+<tr class="memitem:UE_3A_3AGC_3A_3ATSingleton_3C_20T_20_3E" id="r_UE_3A_3AGC_3A_3ATSingleton_3C_20T_20_3E"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/db7/class_u_e_1_1_g_c_1_1_t_singleton.html">UE::GC::TSingleton&lt; T &gt;</a></td></tr>
+<tr class="memitem:UE_3A_3AGC_3A_3ATReachabilityProcessor_3C_20InOptions_20_3E" id="r_UE_3A_3AGC_3A_3ATReachabilityProcessor_3C_20InOptions_20_3E"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/d35/class_u_e_1_1_g_c_1_1_t_reachability_processor.html">UE::GC::TReachabilityProcessor&lt; InOptions &gt;</a></td></tr>
+<tr class="memitem:UE_3A_3AGC_3A_3ATBatchDispatcher_3C_20ProcessorType_20_3E" id="r_UE_3A_3AGC_3A_3ATBatchDispatcher_3C_20ProcessorType_20_3E"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/d99/struct_u_e_1_1_g_c_1_1_t_batch_dispatcher.html">UE::GC::TBatchDispatcher&lt; ProcessorType &gt;</a></td></tr>
+<tr class="memitem:UE_3A_3AGC_3A_3ATReachabilityCollectorBase_3C_20Options_20_3E" id="r_UE_3A_3AGC_3A_3ATReachabilityCollectorBase_3C_20Options_20_3E"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d06/class_u_e_1_1_g_c_1_1_t_reachability_collector_base.html">UE::GC::TReachabilityCollectorBase&lt; Options &gt;</a></td></tr>
+<tr class="memitem:UE_3A_3AGC_3A_3ATReachabilityCollector_3C_20Options_20_3E" id="r_UE_3A_3AGC_3A_3ATReachabilityCollector_3C_20Options_20_3E"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d83/class_u_e_1_1_g_c_1_1_t_reachability_collector.html">UE::GC::TReachabilityCollector&lt; Options &gt;</a></td></tr>
+<tr class="memitem:UE_3A_3AGC_3A_3ATDebugReachabilityProcessor_3C_20InOptions_20_3E" id="r_UE_3A_3AGC_3A_3ATDebugReachabilityProcessor_3C_20InOptions_20_3E"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d8/dbf/class_u_e_1_1_g_c_1_1_t_debug_reachability_processor.html">UE::GC::TDebugReachabilityProcessor&lt; InOptions &gt;</a></td></tr>
+<tr class="memitem:UE_3A_3AGC_3A_3ATDebugReachabilityCollector_3C_20Options_20_3E" id="r_UE_3A_3AGC_3A_3ATDebugReachabilityCollector_3C_20Options_20_3E"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/d37/class_u_e_1_1_g_c_1_1_t_debug_reachability_collector.html">UE::GC::TDebugReachabilityCollector&lt; Options &gt;</a></td></tr>
+<tr class="memitem:UE_3A_3AGC_3A_3AFRealtimeGC" id="r_UE_3A_3AGC_3A_3AFRealtimeGC"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/d1c/class_u_e_1_1_g_c_1_1_f_realtime_g_c.html">UE::GC::FRealtimeGC</a></td></tr>
+<tr class="memitem:UE_3A_3AGC_3A_3AFRealtimeGC_3A_3AFMarkClustersArrays" id="r_UE_3A_3AGC_3A_3AFRealtimeGC_3A_3AFMarkClustersArrays"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d7a/struct_u_e_1_1_g_c_1_1_f_realtime_g_c_1_1_f_mark_clusters_arrays.html">UE::GC::FRealtimeGC::FMarkClustersArrays</a></td></tr>
+<tr class="memitem:UE_3A_3AGC_3A_3AFWeakReferenceEliminator" id="r_UE_3A_3AGC_3A_3AFWeakReferenceEliminator"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/d2a/class_u_e_1_1_g_c_1_1_f_weak_reference_eliminator.html">UE::GC::FWeakReferenceEliminator</a></td></tr>
+<tr class="memitem:UE_3A_3AGC_3A_3AFWorkCoordinator" id="r_UE_3A_3AGC_3A_3AFWorkCoordinator"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/dad/class_u_e_1_1_g_c_1_1_f_work_coordinator.html">UE::GC::FWorkCoordinator</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">UE_BUILD_SHIPPING  <a href="../../dd/dad/class_u_e_1_1_g_c_1_1_f_work_coordinator.html#details">更多...</a><br /></td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-namespaces" class="groupheader"><a id="namespaces" name="namespaces"></a>
+命名空间</h2></td></tr>
+<tr class="memitem:UE" id="r_UE"><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/de5/namespace_u_e.html">UE</a></td></tr>
+<tr class="memitem:UE_3A_3AGC" id="r_UE_3A_3AGC"><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/da7/namespace_u_e_1_1_g_c.html">UE::GC</a></td></tr>
+<tr class="memitem:UE_3A_3AGC_3A_3APrivate" id="r_UE_3A_3AGC_3A_3APrivate"><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/d75/namespace_u_e_1_1_g_c_1_1_private.html">UE::GC::Private</a></td></tr>
+<tr class="memitem:UE_3A_3AGC_3A_3ATest" id="r_UE_3A_3AGC_3A_3ATest"><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/d25/namespace_u_e_1_1_g_c_1_1_test.html">UE::GC::Test</a></td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-define-members" class="groupheader"><a id="define-members" name="define-members"></a>
+宏定义</h2></td></tr>
+<tr class="memitem:a1289435015accc2500c26f99c45864b7" id="r_a1289435015accc2500c26f99c45864b7"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a1289435015accc2500c26f99c45864b7">PERF_DETAILED_PER_CLASS_GC_STATS</a>&#160;&#160;&#160;(<a class="el" href="../../d9/d44/_build_8h.html#a3a2d7f0a9f6e7d2da14049febd9babdb">LOOKING_FOR_PERF_ISSUES</a> || 0)</td></tr>
+<tr class="memitem:a395bf5800d73b723041a3046bf6eae21" id="r_a395bf5800d73b723041a3046bf6eae21"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a395bf5800d73b723041a3046bf6eae21">UE_LOG_FGCScopeGuard_LockAsync_Time</a>&#160;&#160;&#160;0</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-typedef-members" class="groupheader"><a id="typedef-members" name="typedef-members"></a>
+类型定义</h2></td></tr>
+<tr class="memitem:a1bd98b3b620aab71a3cb7c304e55f304" id="r_a1bd98b3b620aab71a3cb7c304e55f304"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/d75/namespace_u_e_1_1_g_c_1_1_private.html#a1bd98b3b620aab71a3cb7c304e55f304">UE::GC::Private::FGatherUnreachableObjectsState</a> = <a class="el" href="../../dd/d25/class_u_e_1_1_g_c_1_1_t_threaded_gather.html">TThreadedGather</a>&lt;<a class="el" href="../../d6/db1/class_t_array.html">TArray</a>&lt;<a class="el" href="../../d5/d2e/union_u_e_1_1_g_c_1_1_f_unreachable_object.html">UE::GC::FUnreachableObject</a>&gt;&gt;</td></tr>
+<tr class="memitem:aa05cfca7b20089e800db0ed36b0bee6b" id="r_aa05cfca7b20089e800db0ed36b0bee6b"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/da7/namespace_u_e_1_1_g_c.html#aa05cfca7b20089e800db0ed36b0bee6b">UE::GC::FStridedReferenceArray</a> = <a class="el" href="../../d9/dc2/struct_u_e_1_1_g_c_1_1_private_1_1_f_strided_reference_array.html">Private::FStridedReferenceArray</a></td></tr>
+<tr class="memitem:a9f1533c2df0fbc23da48b873175d4560" id="r_a9f1533c2df0fbc23da48b873175d4560"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/da7/namespace_u_e_1_1_g_c.html#a9f1533c2df0fbc23da48b873175d4560">UE::GC::FStridedReferenceView</a> = <a class="el" href="../../d2/d21/struct_u_e_1_1_g_c_1_1_private_1_1_f_strided_reference_view.html">Private::FStridedReferenceView</a></td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-enum-members" class="groupheader"><a id="enum-members" name="enum-members"></a>
+枚举</h2></td></tr>
+<tr class="memitem:a2de4b19a5c0793684d1d5bc038c46173" id="r_a2de4b19a5c0793684d1d5bc038c46173"><td class="memItemLeft" align="right" valign="top">enum class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/da7/namespace_u_e_1_1_g_c.html#a2de4b19a5c0793684d1d5bc038c46173">UE::GC::EKillable</a> { <a class="el" href="../../d1/da7/namespace_u_e_1_1_g_c.html#a2de4b19a5c0793684d1d5bc038c46173abafd7322c6e97d25b6299b5d6fe8920b">UE::GC::No</a>
+, <a class="el" href="../../d1/da7/namespace_u_e_1_1_g_c.html#a2de4b19a5c0793684d1d5bc038c46173a93cba07454f06a4a960172bbd6e2a435">UE::GC::Yes</a>
+ }</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-func-members" class="groupheader"><a id="func-members" name="func-members"></a>
+函数</h2></td></tr>
+<tr class="memitem:ac2145ea409bc20291642687b21265c99" id="r_ac2145ea409bc20291642687b21265c99"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac2145ea409bc20291642687b21265c99">DEFINE_LOG_CATEGORY</a> (LogGarbage)</td></tr>
+<tr class="memitem:a0fd31b1d4ce5a553e394095916fc431b" id="r_a0fd31b1d4ce5a553e394095916fc431b"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a0fd31b1d4ce5a553e394095916fc431b">CSV_DEFINE_CATEGORY_MODULE</a> (COREUOBJECT_API, GC, <a class="el" href="../../d3/df7/radaudio__common_8h.html#ade27a78a51a66a5cfb6f09cf36bcfde9a08f175a5505a10b9ed657defeb050e4b">true</a>)</td></tr>
+<tr class="memitem:a3a7eb4d6637fc140782cda3e57408548" id="r_a3a7eb4d6637fc140782cda3e57408548"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a3a7eb4d6637fc140782cda3e57408548">TSAN_ATOMIC</a> (<a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a>) GIsGarbageCollecting</td></tr>
+<tr class="memitem:a69565bdb7645bad8967c1dd1ea150e91" id="r_a69565bdb7645bad8967c1dd1ea150e91"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../df/d63/_typed_element_query_capabilities_8inl.html#a72343342ce64c0755563ee6c5e27868d">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a69565bdb7645bad8967c1dd1ea150e91">NotifyUnreachableObjects</a> (const <a class="el" href="../../d2/ddb/class_t_array_view.html">TArrayView</a>&lt; <a class="el" href="../../da/d47/struct_f_u_object_item.html">FUObjectItem</a> * &gt; &amp;UnreachableObjects)</td></tr>
+<tr class="memitem:ad3c542207518fee3c598c1bdc4d0fd0f" id="r_ad3c542207518fee3c598c1bdc4d0fd0f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad3c542207518fee3c598c1bdc4d0fd0f">IsGarbageCollectionLocked</a> ()</td></tr>
+<tr class="memitem:af722f5542d61bbbd54cfde4cfc3deaf0" id="r_af722f5542d61bbbd54cfde4cfc3deaf0"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../df/d63/_typed_element_query_capabilities_8inl.html#a72343342ce64c0755563ee6c5e27868d">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/da7/namespace_u_e_1_1_g_c.html#af722f5542d61bbbd54cfde4cfc3deaf0">UE::GC::MarkAsReachable</a> (const <a class="el" href="../../d7/d0b/class_u_object.html">UObject</a> *Obj)</td></tr>
+<tr class="memitem:a6d782b08989a3321869b47225ed9d37d" id="r_a6d782b08989a3321869b47225ed9d37d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../de/d87/_fast_reference_collector_8h.html#a9fa0bc305a096580fa009f854311e982">EGCOptions</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/da7/namespace_u_e_1_1_g_c.html#a6d782b08989a3321869b47225ed9d37d">UE::GC::GetReferenceCollectorOptions</a> (<a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a> bPerformFullPurge)</td></tr>
+<tr class="memitem:ae546e6a49327c7a4fb7ab406d5e450ab" id="r_ae546e6a49327c7a4fb7ab406d5e450ab"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d1/da7/namespace_u_e_1_1_g_c.html#a97d5715a8a14e6c8e382dbf06899ecc2">EGatherOptions</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/da7/namespace_u_e_1_1_g_c.html#ae546e6a49327c7a4fb7ab406d5e450ab">UE::GC::GetObjectGatherOptions</a> ()</td></tr>
+<tr class="memitem:a44a7006cc0ed01539c9cfe11ec189397" id="r_a44a7006cc0ed01539c9cfe11ec189397"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/da7/namespace_u_e_1_1_g_c.html#a44a7006cc0ed01539c9cfe11ec189397">UE::GC::TSAN_ATOMIC</a> (<a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a>) GIsIncrementalReachabilityPending</td></tr>
+<tr class="memitem:a0fd4649228999ce9f4f2d8e3bb9845c0" id="r_a0fd4649228999ce9f4f2d8e3bb9845c0"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../df/d63/_typed_element_query_capabilities_8inl.html#a72343342ce64c0755563ee6c5e27868d">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/d75/namespace_u_e_1_1_g_c_1_1_private.html#a0fd4649228999ce9f4f2d8e3bb9845c0">UE::GC::Private::SetSkipDestroy</a> (<a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a> bSkip)</td></tr>
+<tr class="memitem:a396926f2accb4a38ff48cc589ff5b30d" id="r_a396926f2accb4a38ff48cc589ff5b30d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../df/d63/_typed_element_query_capabilities_8inl.html#a72343342ce64c0755563ee6c5e27868d">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/d75/namespace_u_e_1_1_g_c_1_1_private.html#a396926f2accb4a38ff48cc589ff5b30d">UE::GC::Private::RemoveFromRootForUnload</a> (TSet&lt; const <a class="el" href="../../d7/d0b/class_u_object.html">UObject</a> * &gt; ObjectsToRemove)</td></tr>
+<tr class="memitem:aefbf720918359a163bcb8233ee19d884" id="r_aefbf720918359a163bcb8233ee19d884"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../df/d63/_typed_element_query_capabilities_8inl.html#a72343342ce64c0755563ee6c5e27868d">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/d75/namespace_u_e_1_1_g_c_1_1_private.html#aefbf720918359a163bcb8233ee19d884">UE::GC::Private::ProcessDirtyRootNoLock</a> (<a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a8dbb3cd84ca9fd010dadfc3815eefa5d">int32</a> <a class="el" href="../../df/dd5/radfft_8cpp.html#a353b84469a01fbe28e2db978bdf1fb86">Index</a>)</td></tr>
+<tr class="memitem:acbb63e11c9fceb409bacdb4de172d7e6" id="r_acbb63e11c9fceb409bacdb4de172d7e6"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../df/d63/_typed_element_query_capabilities_8inl.html#a72343342ce64c0755563ee6c5e27868d">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/d75/namespace_u_e_1_1_g_c_1_1_private.html#acbb63e11c9fceb409bacdb4de172d7e6">UE::GC::Private::ProcessDirtyRootsNoLock</a> ()</td></tr>
+<tr class="memitem:a3f7e449ae1540f4ac6f0bc3d9aa6940a" id="r_a3f7e449ae1540f4ac6f0bc3d9aa6940a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../df/d63/_typed_element_query_capabilities_8inl.html#a72343342ce64c0755563ee6c5e27868d">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/d75/namespace_u_e_1_1_g_c_1_1_private.html#a3f7e449ae1540f4ac6f0bc3d9aa6940a">UE::GC::Private::MarkRootAsDirty</a> (<a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a8dbb3cd84ca9fd010dadfc3815eefa5d">int32</a> <a class="el" href="../../df/dd5/radfft_8cpp.html#a353b84469a01fbe28e2db978bdf1fb86">Index</a>)</td></tr>
+<tr class="memitem:ab0d699baf15bd5f0d3498bd5861bd0ec" id="r_ab0d699baf15bd5f0d3498bd5861bd0ec"><td class="memItemLeft" align="right" valign="top">COREUOBJECT_API <a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/d25/namespace_u_e_1_1_g_c_1_1_test.html#ab0d699baf15bd5f0d3498bd5861bd0ec">UE::GC::Test::IsReachable</a> (const <a class="el" href="../../d7/d0b/class_u_object.html">UObject</a> *<a class="el" href="../../db/d07/namespace_u_e_1_1_object.html">Object</a>)</td></tr>
+<tr class="memitem:ab20af200a4cff8137dbee616ee7a5541" id="r_ab20af200a4cff8137dbee616ee7a5541"><td class="memItemLeft" align="right" valign="top">COREUOBJECT_API <a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/d25/namespace_u_e_1_1_g_c_1_1_test.html#ab20af200a4cff8137dbee616ee7a5541">UE::GC::Test::IsMaybeUnreachable</a> (const <a class="el" href="../../d7/d0b/class_u_object.html">UObject</a> *<a class="el" href="../../db/d07/namespace_u_e_1_1_object.html">Object</a>)</td></tr>
+<tr class="memitem:a1f2953ebc78fb97a5bdebc0aaaa372cd" id="r_a1f2953ebc78fb97a5bdebc0aaaa372cd"><td class="memItemLeft" align="right" valign="top">COREUOBJECT_API <a class="el" href="../../df/d63/_typed_element_query_capabilities_8inl.html#a72343342ce64c0755563ee6c5e27868d">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/d25/namespace_u_e_1_1_g_c_1_1_test.html#a1f2953ebc78fb97a5bdebc0aaaa372cd">UE::GC::Test::SetMaybeUnreachable</a> (<a class="el" href="../../d7/d0b/class_u_object.html">UObject</a> *<a class="el" href="../../db/d07/namespace_u_e_1_1_object.html">Object</a>)</td></tr>
+<tr class="memitem:acee44d8ad9ff6127618ca3e43786d530" id="r_acee44d8ad9ff6127618ca3e43786d530"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../dc/dc2/_auto_r_t_f_m_2_public_2_auto_r_t_f_m_2_defines_8h.html#a6dcfc790cffef171f94dd55859bc2150">AUTORTFM_DISABLE</a> <a class="el" href="../../df/d63/_typed_element_query_capabilities_8inl.html#a72343342ce64c0755563ee6c5e27868d">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#acee44d8ad9ff6127618ca3e43786d530">OnDisregardForGCSetDisabled</a> (<a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a8dbb3cd84ca9fd010dadfc3815eefa5d">int32</a> NumObjects)</td></tr>
+<tr class="memitem:a89e1d1dab6fb419c9b00e80637be57bd" id="r_a89e1d1dab6fb419c9b00e80637be57bd"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a8dbb3cd84ca9fd010dadfc3815eefa5d">int32</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/da7/namespace_u_e_1_1_g_c.html#a89e1d1dab6fb419c9b00e80637be57bd">UE::GC::GetNumSlowAROs</a> ()</td></tr>
+<tr class="memitem:a3485fa00fc45286c31ae4d8a232bcc37" id="r_a3485fa00fc45286c31ae4d8a232bcc37"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d0/d76/_android_platform_8h.html#a724fb9f82013c782db5c3c12ea36aac8">FORCEINLINE</a> <a class="el" href="../../d7/d0b/class_u_object.html">UObject</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/da7/namespace_u_e_1_1_g_c.html#a3485fa00fc45286c31ae4d8a232bcc37">UE::GC::GetObject</a> (<a class="el" href="../../da/d52/struct_u_e_1_1_g_c_1_1_f_immutable_reference.html">FImmutableReference</a> In)</td></tr>
+<tr class="memitem:a8357f6549d95a1c3af4a85dab2aa8c80" id="r_a8357f6549d95a1c3af4a85dab2aa8c80"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d0/d76/_android_platform_8h.html#a724fb9f82013c782db5c3c12ea36aac8">FORCEINLINE</a> <a class="el" href="../../d7/d0b/class_u_object.html">UObject</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/da7/namespace_u_e_1_1_g_c.html#a8357f6549d95a1c3af4a85dab2aa8c80">UE::GC::GetObject</a> (<a class="el" href="../../dd/d71/struct_u_e_1_1_g_c_1_1_f_mutable_reference.html">FMutableReference</a> In)</td></tr>
+<tr class="memitem:ab300bd7b3f0fa3fa0ff14a3aecd5a432" id="r_ab300bd7b3f0fa3fa0ff14a3aecd5a432"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d0/d76/_android_platform_8h.html#a724fb9f82013c782db5c3c12ea36aac8">FORCEINLINE</a> <a class="el" href="../../d7/d0b/class_u_object.html">UObject</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/da7/namespace_u_e_1_1_g_c.html#ab300bd7b3f0fa3fa0ff14a3aecd5a432">UE::GC::GetObject</a> (<a class="el" href="../../d9/da4/struct_u_e_1_1_g_c_1_1_f_remote_reference.html">FRemoteReference</a> In)</td></tr>
+<tr class="memitem:a548ca715c6296359893be61442be5b60" id="r_a548ca715c6296359893be61442be5b60"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d0/d76/_android_platform_8h.html#a724fb9f82013c782db5c3c12ea36aac8">FORCEINLINE</a> <a class="el" href="../../df/d63/_typed_element_query_capabilities_8inl.html#a72343342ce64c0755563ee6c5e27868d">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/da7/namespace_u_e_1_1_g_c.html#a548ca715c6296359893be61442be5b60">UE::GC::PrefetchObjectPointer</a> (<a class="el" href="../../da/d52/struct_u_e_1_1_g_c_1_1_f_immutable_reference.html">FImmutableReference</a>)</td></tr>
+<tr class="memitem:a3f8082330fec86486b4856b95e07c6df" id="r_a3f8082330fec86486b4856b95e07c6df"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d0/d76/_android_platform_8h.html#a724fb9f82013c782db5c3c12ea36aac8">FORCEINLINE</a> <a class="el" href="../../df/d63/_typed_element_query_capabilities_8inl.html#a72343342ce64c0755563ee6c5e27868d">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/da7/namespace_u_e_1_1_g_c.html#a3f8082330fec86486b4856b95e07c6df">UE::GC::PrefetchObjectPointer</a> (<a class="el" href="../../dd/d71/struct_u_e_1_1_g_c_1_1_f_mutable_reference.html">FMutableReference</a> In)</td></tr>
+<tr class="memitem:a1489b629cbba627bd7a8473f242de294" id="r_a1489b629cbba627bd7a8473f242de294"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d0/d76/_android_platform_8h.html#a724fb9f82013c782db5c3c12ea36aac8">FORCEINLINE</a> <a class="el" href="../../df/d63/_typed_element_query_capabilities_8inl.html#a72343342ce64c0755563ee6c5e27868d">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/da7/namespace_u_e_1_1_g_c.html#a1489b629cbba627bd7a8473f242de294">UE::GC::PrefetchObjectPointer</a> (<a class="el" href="../../d9/da4/struct_u_e_1_1_g_c_1_1_f_remote_reference.html">FRemoteReference</a> In)</td></tr>
+<tr class="memitem:aa6622e9706a4606d9d75bc7ad77f89e9" id="r_aa6622e9706a4606d9d75bc7ad77f89e9"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d0/d76/_android_platform_8h.html#a724fb9f82013c782db5c3c12ea36aac8">FORCEINLINE</a> <a class="el" href="../../da/d52/struct_u_e_1_1_g_c_1_1_f_immutable_reference.html">FImmutableReference</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/da7/namespace_u_e_1_1_g_c.html#aa6622e9706a4606d9d75bc7ad77f89e9">UE::GC::ToImmutableReference</a> (<a class="el" href="../../dd/d71/struct_u_e_1_1_g_c_1_1_f_mutable_reference.html">FMutableReference</a> In)</td></tr>
+<tr class="memitem:a4bb3bcaf751cd3d255053362a31e375b" id="r_a4bb3bcaf751cd3d255053362a31e375b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d0/d76/_android_platform_8h.html#a724fb9f82013c782db5c3c12ea36aac8">FORCEINLINE</a> <a class="el" href="../../da/d52/struct_u_e_1_1_g_c_1_1_f_immutable_reference.html">FImmutableReference</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/da7/namespace_u_e_1_1_g_c.html#a4bb3bcaf751cd3d255053362a31e375b">UE::GC::ToImmutableReference</a> (<a class="el" href="../../d9/da4/struct_u_e_1_1_g_c_1_1_f_remote_reference.html">FRemoteReference</a> In)</td></tr>
+<tr class="memitem:af905915d9efc229f8ab724da1337cd27" id="r_af905915d9efc229f8ab724da1337cd27"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d0/d76/_android_platform_8h.html#a724fb9f82013c782db5c3c12ea36aac8">FORCEINLINE</a> <a class="el" href="../../da/d52/struct_u_e_1_1_g_c_1_1_f_immutable_reference.html">FImmutableReference</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/da7/namespace_u_e_1_1_g_c.html#af905915d9efc229f8ab724da1337cd27">UE::GC::ToResolvedReference</a> (<a class="el" href="../../da/d52/struct_u_e_1_1_g_c_1_1_f_immutable_reference.html">FImmutableReference</a> In)</td></tr>
+<tr class="memitem:a528e15709f706eb1333152fcdbe08b5d" id="r_a528e15709f706eb1333152fcdbe08b5d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d0/d76/_android_platform_8h.html#a724fb9f82013c782db5c3c12ea36aac8">FORCEINLINE</a> <a class="el" href="../../d7/d68/struct_u_e_1_1_g_c_1_1_f_resolved_mutable_reference.html">FResolvedMutableReference</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/da7/namespace_u_e_1_1_g_c.html#a528e15709f706eb1333152fcdbe08b5d">UE::GC::ToResolvedReference</a> (<a class="el" href="../../dd/d71/struct_u_e_1_1_g_c_1_1_f_mutable_reference.html">FMutableReference</a> In)</td></tr>
+<tr class="memitem:a8a4922736dc68392aa03755092f9587a" id="r_a8a4922736dc68392aa03755092f9587a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d0/d76/_android_platform_8h.html#a724fb9f82013c782db5c3c12ea36aac8">FORCEINLINE</a> <a class="el" href="../../d3/d78/struct_u_e_1_1_g_c_1_1_f_resolved_remote_reference.html">FResolvedRemoteReference</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/da7/namespace_u_e_1_1_g_c.html#a8a4922736dc68392aa03755092f9587a">UE::GC::ToResolvedReference</a> (<a class="el" href="../../d9/da4/struct_u_e_1_1_g_c_1_1_f_remote_reference.html">FRemoteReference</a> In)</td></tr>
+<tr class="memitem:aba4a6c00146fad024cbe0dac4cbba516" id="r_aba4a6c00146fad024cbe0dac4cbba516"><td class="memTemplParams" colspan="2">template&lt;class RefType&gt; </td></tr>
+<tr class="memitem:aba4a6c00146fad024cbe0dac4cbba516 template"><td class="memItemLeft" align="right" valign="top">RefType&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/da7/namespace_u_e_1_1_g_c.html#aba4a6c00146fad024cbe0dac4cbba516">UE::GC::ToReference</a> (<a class="el" href="../../dd/d71/struct_u_e_1_1_g_c_1_1_f_mutable_reference.html">FMutableReference</a> In)</td></tr>
+<tr class="memitem:a04f86218a836740eb8ac3c11070991f5" id="r_a04f86218a836740eb8ac3c11070991f5"><td class="memItemLeft" align="right" valign="top">template&lt;&gt; </td></tr>
+<tr class="memitem:a04f86218a836740eb8ac3c11070991f5 template"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d0/d76/_android_platform_8h.html#a724fb9f82013c782db5c3c12ea36aac8">FORCEINLINE</a> <a class="el" href="../../da/d52/struct_u_e_1_1_g_c_1_1_f_immutable_reference.html">FImmutableReference</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/da7/namespace_u_e_1_1_g_c.html#a04f86218a836740eb8ac3c11070991f5">UE::GC::ToReference</a> (<a class="el" href="../../dd/d71/struct_u_e_1_1_g_c_1_1_f_mutable_reference.html">FMutableReference</a> In)</td></tr>
+<tr class="memitem:a7a02411d31b14e000289eb92bbba7794" id="r_a7a02411d31b14e000289eb92bbba7794"><td class="memItemLeft" align="right" valign="top">template&lt;&gt; </td></tr>
+<tr class="memitem:a7a02411d31b14e000289eb92bbba7794 template"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d0/d76/_android_platform_8h.html#a724fb9f82013c782db5c3c12ea36aac8">FORCEINLINE</a> <a class="el" href="../../dd/d71/struct_u_e_1_1_g_c_1_1_f_mutable_reference.html">FMutableReference</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/da7/namespace_u_e_1_1_g_c.html#a7a02411d31b14e000289eb92bbba7794">UE::GC::ToReference</a> (<a class="el" href="../../dd/d71/struct_u_e_1_1_g_c_1_1_f_mutable_reference.html">FMutableReference</a> In)</td></tr>
+<tr class="memitem:a0018bb76cf48c55e0756762b7747e111" id="r_a0018bb76cf48c55e0756762b7747e111"><td class="memTemplParams" colspan="2">template&lt;class RefType&gt; </td></tr>
+<tr class="memitem:a0018bb76cf48c55e0756762b7747e111 template"><td class="memItemLeft" align="right" valign="top">RefType&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/da7/namespace_u_e_1_1_g_c.html#a0018bb76cf48c55e0756762b7747e111">UE::GC::MakeReference</a> (<a class="el" href="../../d7/d0b/class_u_object.html">UObject</a> *&amp;<a class="el" href="../../db/d07/namespace_u_e_1_1_object.html">Object</a>)</td></tr>
+<tr class="memitem:a3629444dee9bd081153e50b764a35198" id="r_a3629444dee9bd081153e50b764a35198"><td class="memItemLeft" align="right" valign="top">template&lt;&gt; </td></tr>
+<tr class="memitem:a3629444dee9bd081153e50b764a35198 template"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d0/d76/_android_platform_8h.html#a724fb9f82013c782db5c3c12ea36aac8">FORCEINLINE</a> <a class="el" href="../../da/d52/struct_u_e_1_1_g_c_1_1_f_immutable_reference.html">FImmutableReference</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/da7/namespace_u_e_1_1_g_c.html#a3629444dee9bd081153e50b764a35198">UE::GC::MakeReference</a> (<a class="el" href="../../d7/d0b/class_u_object.html">UObject</a> *&amp;<a class="el" href="../../db/d07/namespace_u_e_1_1_object.html">Object</a>)</td></tr>
+<tr class="memitem:aad866b4abf555dbff5734a9621b9ddb7" id="r_aad866b4abf555dbff5734a9621b9ddb7"><td class="memItemLeft" align="right" valign="top">template&lt;&gt; </td></tr>
+<tr class="memitem:aad866b4abf555dbff5734a9621b9ddb7 template"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d0/d76/_android_platform_8h.html#a724fb9f82013c782db5c3c12ea36aac8">FORCEINLINE</a> <a class="el" href="../../dd/d71/struct_u_e_1_1_g_c_1_1_f_mutable_reference.html">FMutableReference</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/da7/namespace_u_e_1_1_g_c.html#aad866b4abf555dbff5734a9621b9ddb7">UE::GC::MakeReference</a> (<a class="el" href="../../d7/d0b/class_u_object.html">UObject</a> *&amp;<a class="el" href="../../db/d07/namespace_u_e_1_1_object.html">Object</a>)</td></tr>
+<tr class="memitem:ac8db25afd4936729a9afdcd948642c9b" id="r_ac8db25afd4936729a9afdcd948642c9b"><td class="memItemLeft" align="right" valign="top">template&lt;&gt; </td></tr>
+<tr class="memitem:ac8db25afd4936729a9afdcd948642c9b template"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d0/d76/_android_platform_8h.html#a724fb9f82013c782db5c3c12ea36aac8">FORCEINLINE</a> <a class="el" href="../../d9/da4/struct_u_e_1_1_g_c_1_1_f_remote_reference.html">FRemoteReference</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/da7/namespace_u_e_1_1_g_c.html#ac8db25afd4936729a9afdcd948642c9b">UE::GC::MakeReference</a> (<a class="el" href="../../d7/d0b/class_u_object.html">UObject</a> *&amp;<a class="el" href="../../db/d07/namespace_u_e_1_1_object.html">Object</a>)</td></tr>
+<tr class="memitem:a874d4cd00f52c0dd9f1cf67f397d8809" id="r_a874d4cd00f52c0dd9f1cf67f397d8809"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d3/dd3/_core_misc_defines_8h.html#a88e48c2e64a5ed6fe8de03cc12fcd4f9">FORCEINLINE_DEBUGGABLE</a> <a class="el" href="../../df/d63/_typed_element_query_capabilities_8inl.html#a72343342ce64c0755563ee6c5e27868d">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/da7/namespace_u_e_1_1_g_c.html#a874d4cd00f52c0dd9f1cf67f397d8809">UE::GC::CheckValid</a> (<a class="el" href="../../d7/d89/class_u_e_1_1_g_c_1_1_f_schema_view.html">FSchemaView</a> Schema)</td></tr>
+<tr class="memitem:aae2e41a3a1f475e494e2ff996fc98a4f" id="r_aae2e41a3a1f475e494e2ff996fc98a4f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../df/d63/_typed_element_query_capabilities_8inl.html#a72343342ce64c0755563ee6c5e27868d">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/da7/namespace_u_e_1_1_g_c.html#aae2e41a3a1f475e494e2ff996fc98a4f">UE::GC::PadObjectArray</a> (<a class="el" href="../../d6/db1/class_t_array.html">TArray</a>&lt; <a class="el" href="../../d7/d0b/class_u_object.html">UObject</a> * &gt; &amp;Objects)</td></tr>
+<tr class="memitem:a925cc3ed86ce0892cb6ffd2715a17d09" id="r_a925cc3ed86ce0892cb6ffd2715a17d09"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d3/dd3/_core_misc_defines_8h.html#a88e48c2e64a5ed6fe8de03cc12fcd4f9">FORCEINLINE_DEBUGGABLE</a> <a class="el" href="../../df/d63/_typed_element_query_capabilities_8inl.html#a72343342ce64c0755563ee6c5e27868d">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/da7/namespace_u_e_1_1_g_c.html#a925cc3ed86ce0892cb6ffd2715a17d09">UE::GC::PadBlock</a> (<a class="el" href="../../d5/d33/struct_u_e_1_1_g_c_1_1_f_work_block.html">FWorkBlock</a> &amp;Block)</td></tr>
+<tr class="memitem:a2ae7dea36781f646a43b1bc8422160fd" id="r_a2ae7dea36781f646a43b1bc8422160fd"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../df/d63/_typed_element_query_capabilities_8inl.html#a72343342ce64c0755563ee6c5e27868d">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/da7/namespace_u_e_1_1_g_c.html#a2ae7dea36781f646a43b1bc8422160fd">UE::GC::RegisterSlowImplementation</a> (<a class="el" href="../../d1/da7/namespace_u_e_1_1_g_c.html#aa220fd42dca8faa399d1e22208896284">ObjectAROFn</a> ARO, <a class="el" href="../../d1/da7/namespace_u_e_1_1_g_c.html#ad5b4022aaab8b690f1a4618791556e35">EAROFlags</a> Flags)</td></tr>
+<tr class="memitem:a2371b92f353ab80471db01d574c50cb9" id="r_a2371b92f353ab80471db01d574c50cb9"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a8dbb3cd84ca9fd010dadfc3815eefa5d">int32</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/da7/namespace_u_e_1_1_g_c.html#a2371b92f353ab80471db01d574c50cb9">UE::GC::FindSlowImplementation</a> (<a class="el" href="../../d1/da7/namespace_u_e_1_1_g_c.html#aa220fd42dca8faa399d1e22208896284">ObjectAROFn</a> ARO)</td></tr>
+<tr class="memitem:a5264ce4ae18cfdfd3e2538c506089290" id="r_a5264ce4ae18cfdfd3e2538c506089290"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d3/dd3/_core_misc_defines_8h.html#a88e48c2e64a5ed6fe8de03cc12fcd4f9">FORCEINLINE_DEBUGGABLE</a> <a class="el" href="../../df/d63/_typed_element_query_capabilities_8inl.html#a72343342ce64c0755563ee6c5e27868d">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/da7/namespace_u_e_1_1_g_c.html#a5264ce4ae18cfdfd3e2538c506089290">UE::GC::KillReference</a> (<a class="el" href="../../d7/d0b/class_u_object.html">UObject</a> *&amp;<a class="el" href="../../db/d07/namespace_u_e_1_1_object.html">Object</a>)</td></tr>
+<tr class="memitem:a891eae63649c569656c432e949fb16a5" id="r_a891eae63649c569656c432e949fb16a5"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d3/dd3/_core_misc_defines_8h.html#a88e48c2e64a5ed6fe8de03cc12fcd4f9">FORCEINLINE_DEBUGGABLE</a> <a class="el" href="../../df/d63/_typed_element_query_capabilities_8inl.html#a72343342ce64c0755563ee6c5e27868d">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/da7/namespace_u_e_1_1_g_c.html#a891eae63649c569656c432e949fb16a5">UE::GC::MakeRemoteHandleReference</a> (<a class="el" href="../../d7/d0b/class_u_object.html">UObject</a> *&amp;<a class="el" href="../../db/d07/namespace_u_e_1_1_object.html">Object</a>)</td></tr>
+<tr class="memitem:a1a509f3637256b9c0c8122516a22f425" id="r_a1a509f3637256b9c0c8122516a22f425"><td class="memTemplParams" colspan="2">template&lt;<a class="el" href="../../de/d87/_fast_reference_collector_8h.html#a9fa0bc305a096580fa009f854311e982">EGCOptions</a> Options&gt; </td></tr>
+<tr class="memitem:a1a509f3637256b9c0c8122516a22f425 template"><td class="memItemLeft" align="right" valign="top">constexpr <a class="el" href="../../d0/d76/_android_platform_8h.html#a724fb9f82013c782db5c3c12ea36aac8">FORCEINLINE</a> <a class="el" href="../../d1/da7/namespace_u_e_1_1_g_c.html#a2de4b19a5c0793684d1d5bc038c46173">EKillable</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/da7/namespace_u_e_1_1_g_c.html#a1a509f3637256b9c0c8122516a22f425">UE::GC::MayKill</a> (<a class="el" href="../../d1/da7/namespace_u_e_1_1_g_c.html#a9ecbf7d3e16e0f6889dcd74b59002890">EOrigin</a> Origin, <a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a> bAllowKill)</td></tr>
+<tr class="memitem:a98d1305097c1ce4808ec7fac692f6179" id="r_a98d1305097c1ce4808ec7fac692f6179"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../dc/dc2/_auto_r_t_f_m_2_public_2_auto_r_t_f_m_2_defines_8h.html#a6dcfc790cffef171f94dd55859bc2150">AUTORTFM_DISABLE</a> <a class="el" href="../../df/d63/_typed_element_query_capabilities_8inl.html#a72343342ce64c0755563ee6c5e27868d">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a98d1305097c1ce4808ec7fac692f6179">ShutdownGarbageCollection</a> ()</td></tr>
+<tr class="memitem:a0b5220dd4c828c6c2530f80e4ad1ab46" id="r_a0b5220dd4c828c6c2530f80e4ad1ab46"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../df/d63/_typed_element_query_capabilities_8inl.html#a72343342ce64c0755563ee6c5e27868d">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a0b5220dd4c828c6c2530f80e4ad1ab46">AcquireGCLock</a> ()</td></tr>
+<tr class="memitem:ac4a174286744ab30e1c9124e3967e876" id="r_ac4a174286744ab30e1c9124e3967e876"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../df/d63/_typed_element_query_capabilities_8inl.html#a72343342ce64c0755563ee6c5e27868d">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac4a174286744ab30e1c9124e3967e876">ReleaseGCLock</a> ()</td></tr>
+<tr class="memitem:ada5dd195f64728bf9e5d4543ba0849cf" id="r_ada5dd195f64728bf9e5d4543ba0849cf"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../df/d63/_typed_element_query_capabilities_8inl.html#a72343342ce64c0755563ee6c5e27868d">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ada5dd195f64728bf9e5d4543ba0849cf">IncrementalPurgeGarbage</a> (<a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a> bUseTimeLimit, <a class="el" href="../../d6/dfd/_i_transport_control_8h.html#a583127f9ef2ec8125a93f6a2a8c89ab7">double</a> TimeLimit)</td></tr>
+<tr class="memitem:aa9e796dd9ecbbd109ffd63cdacb7757d" id="r_aa9e796dd9ecbbd109ffd63cdacb7757d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa9e796dd9ecbbd109ffd63cdacb7757d">IsIncrementalPurgePending</a> ()</td></tr>
+<tr class="memitem:a4711d4afe4fab0f727cf901d5dbd4c64" id="r_a4711d4afe4fab0f727cf901d5dbd4c64"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4711d4afe4fab0f727cf901d5dbd4c64">IsGarbageCollectingAndLockingUObjectHashTables</a> ()</td></tr>
+<tr class="memitem:a2d09ee7e9d7b5f45869cd2000f8fcdcd" id="r_a2d09ee7e9d7b5f45869cd2000f8fcdcd"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../df/d63/_typed_element_query_capabilities_8inl.html#a72343342ce64c0755563ee6c5e27868d">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2d09ee7e9d7b5f45869cd2000f8fcdcd">GatherUnreachableObjects</a> (<a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a> bForceSingleThreaded)</td></tr>
+<tr class="memitem:a658e14bd16dd87807393704749116536" id="r_a658e14bd16dd87807393704749116536"><td class="memTemplParams" colspan="2">template&lt;<a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a> bPerformFullPurge&gt; </td></tr>
+<tr class="memitem:a658e14bd16dd87807393704749116536 template"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../dc/dc2/_auto_r_t_f_m_2_public_2_auto_r_t_f_m_2_defines_8h.html#a6dcfc790cffef171f94dd55859bc2150">AUTORTFM_DISABLE</a> <a class="el" href="../../d0/d76/_android_platform_8h.html#a6246b9cb4bb2454b32029a5fe3d4c3bd">FORCENOINLINE</a> <a class="el" href="../../df/d63/_typed_element_query_capabilities_8inl.html#a72343342ce64c0755563ee6c5e27868d">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/da7/namespace_u_e_1_1_g_c.html#a658e14bd16dd87807393704749116536">UE::GC::CollectGarbageImpl</a> (<a class="el" href="../../d5/d1e/_object_macros_8h.html#a1508ac1247bcd79c4921cf8497e72c79">EObjectFlags</a> KeepFlags)</td></tr>
+<tr class="memitem:a7b0ab9e59884aba168729ff1968a3af9" id="r_a7b0ab9e59884aba168729ff1968a3af9"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../dc/dc2/_auto_r_t_f_m_2_public_2_auto_r_t_f_m_2_defines_8h.html#a6dcfc790cffef171f94dd55859bc2150">AUTORTFM_DISABLE</a> <a class="el" href="../../d0/d76/_android_platform_8h.html#a724fb9f82013c782db5c3c12ea36aac8">FORCEINLINE</a> <a class="el" href="../../df/d63/_typed_element_query_capabilities_8inl.html#a72343342ce64c0755563ee6c5e27868d">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/da7/namespace_u_e_1_1_g_c.html#a7b0ab9e59884aba168729ff1968a3af9">UE::GC::CollectGarbageInternal</a> (<a class="el" href="../../d5/d1e/_object_macros_8h.html#a1508ac1247bcd79c4921cf8497e72c79">EObjectFlags</a> KeepFlags, <a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a> bPerformFullPurge)</td></tr>
+<tr class="memitem:a0b125248bc8a524b29946331a0cbc31e" id="r_a0b125248bc8a524b29946331a0cbc31e"><td class="memTemplParams" colspan="2">template&lt;<a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a> bPerformFullPurge&gt; </td></tr>
+<tr class="memitem:a0b125248bc8a524b29946331a0cbc31e template"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../dc/dc2/_auto_r_t_f_m_2_public_2_auto_r_t_f_m_2_defines_8h.html#a6dcfc790cffef171f94dd55859bc2150">AUTORTFM_DISABLE</a> <a class="el" href="../../df/d63/_typed_element_query_capabilities_8inl.html#a72343342ce64c0755563ee6c5e27868d">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/da7/namespace_u_e_1_1_g_c.html#a0b125248bc8a524b29946331a0cbc31e">UE::GC::PreCollectGarbageImpl</a> (<a class="el" href="../../d5/d1e/_object_macros_8h.html#a1508ac1247bcd79c4921cf8497e72c79">EObjectFlags</a> KeepFlags)</td></tr>
+<tr class="memitem:a7437a98b1ab97d01fd414449a57a3053" id="r_a7437a98b1ab97d01fd414449a57a3053"><td class="memTemplParams" colspan="2">template&lt;<a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a> bPerformFullPurge&gt; </td></tr>
+<tr class="memitem:a7437a98b1ab97d01fd414449a57a3053 template"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../dc/dc2/_auto_r_t_f_m_2_public_2_auto_r_t_f_m_2_defines_8h.html#a6dcfc790cffef171f94dd55859bc2150">AUTORTFM_DISABLE</a> <a class="el" href="../../df/d63/_typed_element_query_capabilities_8inl.html#a72343342ce64c0755563ee6c5e27868d">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/da7/namespace_u_e_1_1_g_c.html#a7437a98b1ab97d01fd414449a57a3053">UE::GC::CollectGarbageImpl</a> (<a class="el" href="../../d5/d1e/_object_macros_8h.html#a1508ac1247bcd79c4921cf8497e72c79">EObjectFlags</a> KeepFlags)</td></tr>
+<tr class="memitem:a98b0f9303bc7a344b4ddd6716ada66eb" id="r_a98b0f9303bc7a344b4ddd6716ada66eb"><td class="memTemplParams" colspan="2">template&lt;<a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a> bPerformFullPurge&gt; </td></tr>
+<tr class="memitem:a98b0f9303bc7a344b4ddd6716ada66eb template"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../dc/dc2/_auto_r_t_f_m_2_public_2_auto_r_t_f_m_2_defines_8h.html#a6dcfc790cffef171f94dd55859bc2150">AUTORTFM_DISABLE</a> <a class="el" href="../../df/d63/_typed_element_query_capabilities_8inl.html#a72343342ce64c0755563ee6c5e27868d">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/da7/namespace_u_e_1_1_g_c.html#a98b0f9303bc7a344b4ddd6716ada66eb">UE::GC::PostCollectGarbageImpl</a> (<a class="el" href="../../d5/d1e/_object_macros_8h.html#a1508ac1247bcd79c4921cf8497e72c79">EObjectFlags</a> KeepFlags)</td></tr>
+<tr class="memitem:a3a71282a88f1a605ec605a3669f9895b" id="r_a3a71282a88f1a605ec605a3669f9895b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../df/d63/_typed_element_query_capabilities_8inl.html#a72343342ce64c0755563ee6c5e27868d">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a3a71282a88f1a605ec605a3669f9895b">SetIncrementalReachabilityAnalysisEnabled</a> (<a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a> bEnabled)</td></tr>
+<tr class="memitem:af00e5d5d272e71c1bfc008a629251268" id="r_af00e5d5d272e71c1bfc008a629251268"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af00e5d5d272e71c1bfc008a629251268">GetIncrementalReachabilityAnalysisEnabled</a> ()</td></tr>
+<tr class="memitem:a39d76d1a370bf91422523ba4d6550f9d" id="r_a39d76d1a370bf91422523ba4d6550f9d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../df/d63/_typed_element_query_capabilities_8inl.html#a72343342ce64c0755563ee6c5e27868d">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a39d76d1a370bf91422523ba4d6550f9d">SetReachabilityAnalysisTimeLimit</a> (<a class="el" href="../../df/d2a/_s_anim_notify_shared_8h.html#ac7c94e837fed3f8e4bb3dd94d7bd2ecf">float</a> TimeLimitSeconds)</td></tr>
+<tr class="memitem:a1f6e58cd43f8b75ccfe329af89abbcbf" id="r_a1f6e58cd43f8b75ccfe329af89abbcbf"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../df/d2a/_s_anim_notify_shared_8h.html#ac7c94e837fed3f8e4bb3dd94d7bd2ecf">float</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a1f6e58cd43f8b75ccfe329af89abbcbf">GetReachabilityAnalysisTimeLimit</a> ()</td></tr>
+<tr class="memitem:a6e3fe6c09c4bd5c67474c34e0e6c8c84" id="r_a6e3fe6c09c4bd5c67474c34e0e6c8c84"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6e3fe6c09c4bd5c67474c34e0e6c8c84">IsIncrementalReachabilityAnalysisPending</a> ()</td></tr>
+<tr class="memitem:a58a1b46f05d9baf5b604f523045da873" id="r_a58a1b46f05d9baf5b604f523045da873"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../df/d63/_typed_element_query_capabilities_8inl.html#a72343342ce64c0755563ee6c5e27868d">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a58a1b46f05d9baf5b604f523045da873">PerformIncrementalReachabilityAnalysis</a> (<a class="el" href="../../d6/dfd/_i_transport_control_8h.html#a583127f9ef2ec8125a93f6a2a8c89ab7">double</a> TimeLimit)</td></tr>
+<tr class="memitem:abcea8eea208644c82734f6f9de192139" id="r_abcea8eea208644c82734f6f9de192139"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../df/d63/_typed_element_query_capabilities_8inl.html#a72343342ce64c0755563ee6c5e27868d">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#abcea8eea208644c82734f6f9de192139">FinalizeIncrementalReachabilityAnalysis</a> ()</td></tr>
+<tr class="memitem:a1dc2685f56b2fb8ef24638bd69f4114c" id="r_a1dc2685f56b2fb8ef24638bd69f4114c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d4/d51/struct_u_e_1_1_g_c_1_1_private_1_1_f_stats.html">UE::GC::Private::FStats</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/d75/namespace_u_e_1_1_g_c_1_1_private.html#a1dc2685f56b2fb8ef24638bd69f4114c">UE::GC::Private::GetGarbageCollectionStats</a> ()</td></tr>
+<tr class="memitem:ab31fe3af0bde197e91df48c334e89005" id="r_ab31fe3af0bde197e91df48c334e89005"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d6/dfd/_i_transport_control_8h.html#a583127f9ef2ec8125a93f6a2a8c89ab7">double</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab31fe3af0bde197e91df48c334e89005">GetLastGCTime</a> ()</td></tr>
+<tr class="memitem:acbd65bd672d2cb581c5a2278ed99550e" id="r_acbd65bd672d2cb581c5a2278ed99550e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d6/dfd/_i_transport_control_8h.html#a583127f9ef2ec8125a93f6a2a8c89ab7">double</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#acbd65bd672d2cb581c5a2278ed99550e">GetLastGCDuration</a> ()</td></tr>
+<tr class="memitem:aa6090bd1abaee7e29e288e3c9410dc5d" id="r_aa6090bd1abaee7e29e288e3c9410dc5d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa6090bd1abaee7e29e288e3c9410dc5d">IsIncrementalUnhashPending</a> ()</td></tr>
+<tr class="memitem:a324be3d37da99186373ff2b86f0bde12" id="r_a324be3d37da99186373ff2b86f0bde12"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a324be3d37da99186373ff2b86f0bde12">UnhashUnreachableObjects</a> (<a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a> bUseTimeLimit, <a class="el" href="../../d6/dfd/_i_transport_control_8h.html#a583127f9ef2ec8125a93f6a2a8c89ab7">double</a> TimeLimit)</td></tr>
+<tr class="memitem:a6ca5d844c5f24f6c5ef42e27bc270bc1" id="r_a6ca5d844c5f24f6c5ef42e27bc270bc1"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../df/d63/_typed_element_query_capabilities_8inl.html#a72343342ce64c0755563ee6c5e27868d">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6ca5d844c5f24f6c5ef42e27bc270bc1">CollectGarbage</a> (<a class="el" href="../../d5/d1e/_object_macros_8h.html#a1508ac1247bcd79c4921cf8497e72c79">EObjectFlags</a> KeepFlags, <a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a> bPerformFullPurge)</td></tr>
+<tr class="memitem:ad17be1c42002f61dbb3220d384e49bf0" id="r_ad17be1c42002f61dbb3220d384e49bf0"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad17be1c42002f61dbb3220d384e49bf0">TryCollectGarbage</a> (<a class="el" href="../../d5/d1e/_object_macros_8h.html#a1508ac1247bcd79c4921cf8497e72c79">EObjectFlags</a> KeepFlags, <a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a> bPerformFullPurge)</td></tr>
+<tr class="memitem:ae69b338a28cc4ac995022e5fd948f98b" id="r_ae69b338a28cc4ac995022e5fd948f98b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../dc/dc2/_auto_r_t_f_m_2_public_2_auto_r_t_f_m_2_defines_8h.html#a6dcfc790cffef171f94dd55859bc2150">AUTORTFM_DISABLE</a> <a class="el" href="../../df/d63/_typed_element_query_capabilities_8inl.html#a72343342ce64c0755563ee6c5e27868d">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae69b338a28cc4ac995022e5fd948f98b">PurgeAllUObjectsOnExit</a> ()</td></tr>
+<tr class="memitem:aa7ac143b145b62da3bf4c6f6f3c04e5c" id="r_aa7ac143b145b62da3bf4c6f6f3c04e5c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../df/d63/_typed_element_query_capabilities_8inl.html#a72343342ce64c0755563ee6c5e27868d">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/da7/namespace_u_e_1_1_g_c.html#aa7ac143b145b62da3bf4c6f6f3c04e5c">UE::GC::SuspendWork</a> (<a class="el" href="../../d4/d01/struct_u_e_1_1_g_c_1_1_f_worker_context.html">FWorkerContext</a> &amp;Context)</td></tr>
+<tr class="memitem:ab0d677130e050c6ed4e43b0d84a93a0d" id="r_ab0d677130e050c6ed4e43b0d84a93a0d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d1/da7/namespace_u_e_1_1_g_c.html#a2f757e79264ef03519660ff7979b70a9">ELoot</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/da7/namespace_u_e_1_1_g_c.html#ab0d677130e050c6ed4e43b0d84a93a0d">UE::GC::StealWork</a> (<a class="el" href="../../d4/d01/struct_u_e_1_1_g_c_1_1_f_worker_context.html">FWorkerContext</a> &amp;Context, <a class="el" href="../../df/d17/class_f_reference_collector.html">FReferenceCollector</a> &amp;Collector, <a class="el" href="../../d5/d33/struct_u_e_1_1_g_c_1_1_f_work_block.html">FWorkBlock</a> *&amp;OutBlock, <a class="el" href="../../de/d87/_fast_reference_collector_8h.html#a9fa0bc305a096580fa009f854311e982">EGCOptions</a> Options)</td></tr>
+<tr class="memitem:a92b53c83a4e82d44feb3508a26c01f0e" id="r_a92b53c83a4e82d44feb3508a26c01f0e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../dc/dc2/_auto_r_t_f_m_2_public_2_auto_r_t_f_m_2_defines_8h.html#a6dcfc790cffef171f94dd55859bc2150">AUTORTFM_DISABLE</a> <a class="el" href="../../df/d63/_typed_element_query_capabilities_8inl.html#a72343342ce64c0755563ee6c5e27868d">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/da7/namespace_u_e_1_1_g_c.html#a92b53c83a4e82d44feb3508a26c01f0e">UE::GC::ReleaseAsyncProcessingContexts</a> (<a class="el" href="../../d4/d01/struct_u_e_1_1_g_c_1_1_f_worker_context.html">FWorkerContext</a> &amp;InContext, <a class="el" href="../../d2/ddb/class_t_array_view.html">TArrayView</a>&lt; <a class="el" href="../../d4/d01/struct_u_e_1_1_g_c_1_1_f_worker_context.html">FWorkerContext</a> * &gt; Contexts)</td></tr>
+<tr class="memitem:a5dd91324fa7b1468a610a286117f51d5" id="r_a5dd91324fa7b1468a610a286117f51d5"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../df/d63/_typed_element_query_capabilities_8inl.html#a72343342ce64c0755563ee6c5e27868d">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/da7/namespace_u_e_1_1_g_c.html#a5dd91324fa7b1468a610a286117f51d5">UE::GC::ProcessAsync</a> (<a class="el" href="../../df/d63/_typed_element_query_capabilities_8inl.html#a72343342ce64c0755563ee6c5e27868d">void</a>(*ProcessSync)(<a class="el" href="../../df/d63/_typed_element_query_capabilities_8inl.html#a72343342ce64c0755563ee6c5e27868d">void</a> *, <a class="el" href="../../d4/d01/struct_u_e_1_1_g_c_1_1_f_worker_context.html">FWorkerContext</a> &amp;), <a class="el" href="../../df/d63/_typed_element_query_capabilities_8inl.html#a72343342ce64c0755563ee6c5e27868d">void</a> *Processor, <a class="el" href="../../d4/d01/struct_u_e_1_1_g_c_1_1_f_worker_context.html">FWorkerContext</a> &amp;InContext)</td></tr>
+<tr class="memitem:a41c61f470600ccef1c4ab780f8d10a74" id="r_a41c61f470600ccef1c4ab780f8d10a74"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a8dbb3cd84ca9fd010dadfc3815eefa5d">int32</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a41c61f470600ccef1c4ab780f8d10a74">GetNumCollectReferenceWorkers</a> ()</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-var-members" class="groupheader"><a id="var-members" name="var-members"></a>
+变量</h2></td></tr>
+<tr class="memitem:aea8fad5e4a77e83bdf11cfa248e283a7" id="r_aea8fad5e4a77e83bdf11cfa248e283a7"><td class="memItemLeft" align="right" valign="top">COREUOBJECT_API <a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aea8fad5e4a77e83bdf11cfa248e283a7">GShouldVerifyGCAssumptionsOnFullPurge</a></td></tr>
+<tr class="memitem:a24ccb7c8d0bf121b6102cca077ac76d3" id="r_a24ccb7c8d0bf121b6102cca077ac76d3"><td class="memItemLeft" align="right" valign="top">COREUOBJECT_API <a class="el" href="../../df/d2a/_s_anim_notify_shared_8h.html#ac7c94e837fed3f8e4bb3dd94d7bd2ecf">float</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a24ccb7c8d0bf121b6102cca077ac76d3">GVerifyGCAssumptionsChance</a></td></tr>
+<tr class="memitem:ae5a08c7a16fc9b98802f115e9de42595" id="r_ae5a08c7a16fc9b98802f115e9de42595"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../da/dd2/class_f_thread_safe_counter.html">FThreadSafeCounter</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae5a08c7a16fc9b98802f115e9de42595">GObjectCountDuringLastMarkPhase</a></td></tr>
+<tr class="memitem:a2ed3f225135f0ccbc9f9b5fc038d5c9a" id="r_a2ed3f225135f0ccbc9f9b5fc038d5c9a"><td class="memItemLeft" align="right" valign="top">std::atomic&lt; <a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2ed3f225135f0ccbc9f9b5fc038d5c9a">GIsGarbageCollectingAndLockingUObjectHashTables</a> = <a class="el" href="../../d3/df7/radaudio__common_8h.html#ade27a78a51a66a5cfb6f09cf36bcfde9ae9de385ef6fe9bf3360d1038396b884c">false</a></td></tr>
+<tr class="memitem:a65c076fb99b740b5fbfe9b521bd0628f" id="r_a65c076fb99b740b5fbfe9b521bd0628f"><td class="memItemLeft" align="right" valign="top">std::atomic&lt; <a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a65c076fb99b740b5fbfe9b521bd0628f">GObjIncrementalPurgeIsInProgress</a> = <a class="el" href="../../d3/df7/radaudio__common_8h.html#ade27a78a51a66a5cfb6f09cf36bcfde9ae9de385ef6fe9bf3360d1038396b884c">false</a></td></tr>
+<tr class="memitem:a901f10fbce307bfc60ad86b9b776d7af" id="r_a901f10fbce307bfc60ad86b9b776d7af"><td class="memItemLeft" align="right" valign="top">std::atomic&lt; <a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a901f10fbce307bfc60ad86b9b776d7af">GObjUnhashUnreachableIsInProgress</a> = <a class="el" href="../../d3/df7/radaudio__common_8h.html#ade27a78a51a66a5cfb6f09cf36bcfde9ae9de385ef6fe9bf3360d1038396b884c">false</a></td></tr>
+<tr class="memitem:a83b8404effe171e119771e228ec0a665" id="r_a83b8404effe171e119771e228ec0a665"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d6/dfd/_i_transport_control_8h.html#a583127f9ef2ec8125a93f6a2a8c89ab7">double</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a83b8404effe171e119771e228ec0a665">GCStartTime</a> = 0.</td></tr>
+<tr class="memitem:a56fdb485d3647ba7792350f05ce40f6c" id="r_a56fdb485d3647ba7792350f05ce40f6c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d2/d84/class_f_g_c_c_sync_object.html">FGCCSyncObject</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a56fdb485d3647ba7792350f05ce40f6c">GGCSingleton</a></td></tr>
+<tr class="memitem:a48bed38dc64a9a2cbdedb9ee9ad86a48" id="r_a48bed38dc64a9a2cbdedb9ee9ad86a48"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a8dbb3cd84ca9fd010dadfc3815eefa5d">int32</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a48bed38dc64a9a2cbdedb9ee9ad86a48">GGarbageReferenceTrackingEnabled</a> = 0</td></tr>
+<tr class="memitem:aaad2b0f892499610f1fc9d3c00be7263" id="r_aaad2b0f892499610f1fc9d3c00be7263"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a8dbb3cd84ca9fd010dadfc3815eefa5d">int32</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aaad2b0f892499610f1fc9d3c00be7263">GDelayReachabilityIterations</a> = 0</td></tr>
+<tr class="memitem:a667de581b73c760d30641b2e93ebe9df" id="r_a667de581b73c760d30641b2e93ebe9df"><td class="memItemLeft" align="right" valign="top">class <a class="el" href="../../db/d3c/class_f_object_purge.html">FObjectPurge</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a667de581b73c760d30641b2e93ebe9df">GUObjectPurge</a></td></tr>
+<tr class="memitem:a0f92a8054bc29db2855ef0e210c65cb4" id="r_a0f92a8054bc29db2855ef0e210c65cb4"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d0/de5/class_u_e_1_1_g_c_1_1_f_reachability_analysis_state.html">FReachabilityAnalysisState</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/da7/namespace_u_e_1_1_g_c.html#a0f92a8054bc29db2855ef0e210c65cb4">UE::GC::GReachabilityState</a></td></tr>
+</table>
+<a name="doc-define-members" id="doc-define-members"></a><h2 id="header-doc-define-members" class="groupheader">宏定义说明</h2>
+<a id="a1289435015accc2500c26f99c45864b7" name="a1289435015accc2500c26f99c45864b7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1289435015accc2500c26f99c45864b7">&#9670;&#160;</a></span>PERF_DETAILED_PER_CLASS_GC_STATS</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define PERF_DETAILED_PER_CLASS_GC_STATS&#160;&#160;&#160;(<a class="el" href="../../d9/d44/_build_8h.html#a3a2d7f0a9f6e7d2da14049febd9babdb">LOOKING_FOR_PERF_ISSUES</a> || 0)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a395bf5800d73b723041a3046bf6eae21" name="a395bf5800d73b723041a3046bf6eae21"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a395bf5800d73b723041a3046bf6eae21">&#9670;&#160;</a></span>UE_LOG_FGCScopeGuard_LockAsync_Time</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define UE_LOG_FGCScopeGuard_LockAsync_Time&#160;&#160;&#160;0</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">函数说明</h2>
+<a id="a0b5220dd4c828c6c2530f80e4ad1ab46" name="a0b5220dd4c828c6c2530f80e4ad1ab46"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0b5220dd4c828c6c2530f80e4ad1ab46">&#9670;&#160;</a></span>AcquireGCLock()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../df/d63/_typed_element_query_capabilities_8inl.html#a72343342ce64c0755563ee6c5e27868d">void</a> AcquireGCLock </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a6ca5d844c5f24f6c5ef42e27bc270bc1" name="a6ca5d844c5f24f6c5ef42e27bc270bc1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6ca5d844c5f24f6c5ef42e27bc270bc1">&#9670;&#160;</a></span>CollectGarbage()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../df/d63/_typed_element_query_capabilities_8inl.html#a72343342ce64c0755563ee6c5e27868d">void</a> CollectGarbage </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d5/d1e/_object_macros_8h.html#a1508ac1247bcd79c4921cf8497e72c79">EObjectFlags</a></td>          <td class="paramname"><span class="paramname"><em>KeepFlags</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a></td>          <td class="paramname"><span class="paramname"><em>bPerformFullPurge</em></span><span class="paramdefsep"> = </span><span class="paramdefval"><a class="el" href="../../d3/df7/radaudio__common_8h.html#ade27a78a51a66a5cfb6f09cf36bcfde9a08f175a5505a10b9ed657defeb050e4b">true</a></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Deletes all unreferenced objects, keeping objects that have any of the passed in KeepFlags set. Will wait for other threads to unlock GC.</p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">KeepFlags</td><td>objects with those flags will be kept regardless of being referenced or not </td></tr>
+    <tr><td class="paramname">bPerformFullPurge</td><td>if true, perform a full purge after the mark pass </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a0fd31b1d4ce5a553e394095916fc431b" name="a0fd31b1d4ce5a553e394095916fc431b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0fd31b1d4ce5a553e394095916fc431b">&#9670;&#160;</a></span>CSV_DEFINE_CATEGORY_MODULE()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">CSV_DEFINE_CATEGORY_MODULE </td>
+          <td>(</td>
+          <td class="paramtype">COREUOBJECT_API</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">GC</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d3/df7/radaudio__common_8h.html#ade27a78a51a66a5cfb6f09cf36bcfde9a08f175a5505a10b9ed657defeb050e4b">true</a></td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ac2145ea409bc20291642687b21265c99" name="ac2145ea409bc20291642687b21265c99"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac2145ea409bc20291642687b21265c99">&#9670;&#160;</a></span>DEFINE_LOG_CATEGORY()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">DEFINE_LOG_CATEGORY </td>
+          <td>(</td>
+          <td class="paramtype">LogGarbage</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="abcea8eea208644c82734f6f9de192139" name="abcea8eea208644c82734f6f9de192139"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abcea8eea208644c82734f6f9de192139">&#9670;&#160;</a></span>FinalizeIncrementalReachabilityAnalysis()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../df/d63/_typed_element_query_capabilities_8inl.html#a72343342ce64c0755563ee6c5e27868d">void</a> FinalizeIncrementalReachabilityAnalysis </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Finalizes incremental reachability analysis (if currently running) without any time limit </p>
+
+</div>
+</div>
+<a id="a2d09ee7e9d7b5f45869cd2000f8fcdcd" name="a2d09ee7e9d7b5f45869cd2000f8fcdcd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2d09ee7e9d7b5f45869cd2000f8fcdcd">&#9670;&#160;</a></span>GatherUnreachableObjects()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../df/d63/_typed_element_query_capabilities_8inl.html#a72343342ce64c0755563ee6c5e27868d">void</a> GatherUnreachableObjects </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a></td>          <td class="paramname"><span class="paramname"><em>bForceSingleThreaded</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Gathers unreachable objects for IncrementalPurgeGarbage.</p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">bForceSingleThreaded</td><td>true to force the process to just one thread </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="af00e5d5d272e71c1bfc008a629251268" name="af00e5d5d272e71c1bfc008a629251268"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af00e5d5d272e71c1bfc008a629251268">&#9670;&#160;</a></span>GetIncrementalReachabilityAnalysisEnabled()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a> GetIncrementalReachabilityAnalysisEnabled </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Returns true if incremental reachability analysis is enabled </p>
+
+</div>
+</div>
+<a id="acbd65bd672d2cb581c5a2278ed99550e" name="acbd65bd672d2cb581c5a2278ed99550e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acbd65bd672d2cb581c5a2278ed99550e">&#9670;&#160;</a></span>GetLastGCDuration()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d6/dfd/_i_transport_control_8h.html#a583127f9ef2ec8125a93f6a2a8c89ab7">double</a> GetLastGCDuration </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Gets the duration of the last GC run.</p>
+<dl class="section return"><dt>返回</dt><dd>Returns the last GC duration, -1 if GC has never run. </dd></dl>
+
+</div>
+</div>
+<a id="ab31fe3af0bde197e91df48c334e89005" name="ab31fe3af0bde197e91df48c334e89005"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab31fe3af0bde197e91df48c334e89005">&#9670;&#160;</a></span>GetLastGCTime()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d6/dfd/_i_transport_control_8h.html#a583127f9ef2ec8125a93f6a2a8c89ab7">double</a> GetLastGCTime </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Gets the last time that the GC was run.</p>
+<dl class="section return"><dt>返回</dt><dd>Returns the <a class="el" href="../../db/d43/struct_f_android_time.html#a511ca352aca3c323d87787367125ea07">FPlatformTime::Seconds()</a> for the last garbage collection, 0 if GC has never run. </dd></dl>
+
+</div>
+</div>
+<a id="a41c61f470600ccef1c4ab780f8d10a74" name="a41c61f470600ccef1c4ab780f8d10a74"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a41c61f470600ccef1c4ab780f8d10a74">&#9670;&#160;</a></span>GetNumCollectReferenceWorkers()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a8dbb3cd84ca9fd010dadfc3815eefa5d">int32</a> GetNumCollectReferenceWorkers </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a1f6e58cd43f8b75ccfe329af89abbcbf" name="a1f6e58cd43f8b75ccfe329af89abbcbf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1f6e58cd43f8b75ccfe329af89abbcbf">&#9670;&#160;</a></span>GetReachabilityAnalysisTimeLimit()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../df/d2a/_s_anim_notify_shared_8h.html#ac7c94e837fed3f8e4bb3dd94d7bd2ecf">float</a> GetReachabilityAnalysisTimeLimit </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Returns the time limit for incremental rachability analysis.</p>
+<dl class="section return"><dt>返回</dt><dd>time limit (in seconds) for incremental rachability analysis. </dd></dl>
+
+</div>
+</div>
+<a id="ada5dd195f64728bf9e5d4543ba0849cf" name="ada5dd195f64728bf9e5d4543ba0849cf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ada5dd195f64728bf9e5d4543ba0849cf">&#9670;&#160;</a></span>IncrementalPurgeGarbage()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../df/d63/_typed_element_query_capabilities_8inl.html#a72343342ce64c0755563ee6c5e27868d">void</a> IncrementalPurgeGarbage </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a></td>          <td class="paramname"><span class="paramname"><em>bUseTimeLimit</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d6/dfd/_i_transport_control_8h.html#a583127f9ef2ec8125a93f6a2a8c89ab7">double</a></td>          <td class="paramname"><span class="paramname"><em>TimeLimit</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Incrementally purge garbage by deleting all unreferenced objects after routing Destroy.</p>
+<p>Calling code needs to be EXTREMELY careful when and how to call this function as RF_Unreachable cannot change on any objects unless any pending purge has completed!</p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">bUseTimeLimit</td><td>whether the time limit parameter should be used </td></tr>
+    <tr><td class="paramname">TimeLimit</td><td>soft time limit for this function call </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a4711d4afe4fab0f727cf901d5dbd4c64" name="a4711d4afe4fab0f727cf901d5dbd4c64"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4711d4afe4fab0f727cf901d5dbd4c64">&#9670;&#160;</a></span>IsGarbageCollectingAndLockingUObjectHashTables()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a> IsGarbageCollectingAndLockingUObjectHashTables </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Whether garbage collection is locking the global uobject hash tables </p>
+
+</div>
+</div>
+<a id="ad3c542207518fee3c598c1bdc4d0fd0f" name="ad3c542207518fee3c598c1bdc4d0fd0f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad3c542207518fee3c598c1bdc4d0fd0f">&#9670;&#160;</a></span>IsGarbageCollectionLocked()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a> IsGarbageCollectionLocked </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Returns true if we're inside a <a class="el" href="../../d6/d4b/class_f_g_c_scope_guard.html">FGCScopeGuard</a> </p>
+
+</div>
+</div>
+<a id="aa9e796dd9ecbbd109ffd63cdacb7757d" name="aa9e796dd9ecbbd109ffd63cdacb7757d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa9e796dd9ecbbd109ffd63cdacb7757d">&#9670;&#160;</a></span>IsIncrementalPurgePending()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a> IsIncrementalPurgePending </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Returns whether an incremental purge is still pending/ in progress.</p>
+<dl class="section return"><dt>返回</dt><dd>true if incremental purge needs to be kicked off or is currently in progress, false othwerise. </dd></dl>
+
+</div>
+</div>
+<a id="a6e3fe6c09c4bd5c67474c34e0e6c8c84" name="a6e3fe6c09c4bd5c67474c34e0e6c8c84"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6e3fe6c09c4bd5c67474c34e0e6c8c84">&#9670;&#160;</a></span>IsIncrementalReachabilityAnalysisPending()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a> IsIncrementalReachabilityAnalysisPending </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Returns whether an incremental reachability analysis is still pending/ in progress.</p>
+<dl class="section return"><dt>返回</dt><dd>true if incremental reachability analysis needs to be kicked off or is currently in progress, false othwerise. </dd></dl>
+
+</div>
+</div>
+<a id="aa6090bd1abaee7e29e288e3c9410dc5d" name="aa6090bd1abaee7e29e288e3c9410dc5d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa6090bd1abaee7e29e288e3c9410dc5d">&#9670;&#160;</a></span>IsIncrementalUnhashPending()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a> IsIncrementalUnhashPending </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Checks if there's objects pending to be unhashed when running incremental purge</p>
+<dl class="section return"><dt>返回</dt><dd>true if the time limit passed and there's still objects pending to be unhashed </dd></dl>
+
+</div>
+</div>
+<a id="a69565bdb7645bad8967c1dd1ea150e91" name="a69565bdb7645bad8967c1dd1ea150e91"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a69565bdb7645bad8967c1dd1ea150e91">&#9670;&#160;</a></span>NotifyUnreachableObjects()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../df/d63/_typed_element_query_capabilities_8inl.html#a72343342ce64c0755563ee6c5e27868d">void</a> NotifyUnreachableObjects </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="../../d2/ddb/class_t_array_view.html">TArrayView</a>&lt; <a class="el" href="../../da/d47/struct_f_u_object_item.html">FUObjectItem</a> * &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>UnreachableObjects</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Call back into the async loading code to inform of the destruction of serialized objects </p>
+
+</div>
+</div>
+<a id="acee44d8ad9ff6127618ca3e43786d530" name="acee44d8ad9ff6127618ca3e43786d530"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acee44d8ad9ff6127618ca3e43786d530">&#9670;&#160;</a></span>OnDisregardForGCSetDisabled()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../dc/dc2/_auto_r_t_f_m_2_public_2_auto_r_t_f_m_2_defines_8h.html#a6dcfc790cffef171f94dd55859bc2150">AUTORTFM_DISABLE</a> <a class="el" href="../../df/d63/_typed_element_query_capabilities_8inl.html#a72343342ce64c0755563ee6c5e27868d">void</a> OnDisregardForGCSetDisabled </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a8dbb3cd84ca9fd010dadfc3815eefa5d">int32</a></td>          <td class="paramname"><span class="paramname"><em>NumObjects</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a58a1b46f05d9baf5b604f523045da873" name="a58a1b46f05d9baf5b604f523045da873"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a58a1b46f05d9baf5b604f523045da873">&#9670;&#160;</a></span>PerformIncrementalReachabilityAnalysis()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../df/d63/_typed_element_query_capabilities_8inl.html#a72343342ce64c0755563ee6c5e27868d">void</a> PerformIncrementalReachabilityAnalysis </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d6/dfd/_i_transport_control_8h.html#a583127f9ef2ec8125a93f6a2a8c89ab7">double</a></td>          <td class="paramname"><span class="paramname"><em>TimeLimit</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Incrementally perform reachability analysis</p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">TimeLimit</td><td>Time limit (in seconds) for this function call. 0.0 results in no time limit being used. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ae69b338a28cc4ac995022e5fd948f98b" name="ae69b338a28cc4ac995022e5fd948f98b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae69b338a28cc4ac995022e5fd948f98b">&#9670;&#160;</a></span>PurgeAllUObjectsOnExit()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../dc/dc2/_auto_r_t_f_m_2_public_2_auto_r_t_f_m_2_defines_8h.html#a6dcfc790cffef171f94dd55859bc2150">AUTORTFM_DISABLE</a> <a class="el" href="../../df/d63/_typed_element_query_capabilities_8inl.html#a72343342ce64c0755563ee6c5e27868d">void</a> PurgeAllUObjectsOnExit </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Destroys all existing UObjects when the engine shuts down. Does NOT perform reachability analysis to do so. </p>
+
+</div>
+</div>
+<a id="ac4a174286744ab30e1c9124e3967e876" name="ac4a174286744ab30e1c9124e3967e876"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac4a174286744ab30e1c9124e3967e876">&#9670;&#160;</a></span>ReleaseGCLock()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../df/d63/_typed_element_query_capabilities_8inl.html#a72343342ce64c0755563ee6c5e27868d">void</a> ReleaseGCLock </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a3a71282a88f1a605ec605a3669f9895b" name="a3a71282a88f1a605ec605a3669f9895b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3a71282a88f1a605ec605a3669f9895b">&#9670;&#160;</a></span>SetIncrementalReachabilityAnalysisEnabled()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../df/d63/_typed_element_query_capabilities_8inl.html#a72343342ce64c0755563ee6c5e27868d">void</a> SetIncrementalReachabilityAnalysisEnabled </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a></td>          <td class="paramname"><span class="paramname"><em>bEnabled</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Enables or disables incremental reachability analysis.</p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">bEnabled</td><td>True if incremental reachability analysis is to be enabled </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a39d76d1a370bf91422523ba4d6550f9d" name="a39d76d1a370bf91422523ba4d6550f9d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a39d76d1a370bf91422523ba4d6550f9d">&#9670;&#160;</a></span>SetReachabilityAnalysisTimeLimit()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../df/d63/_typed_element_query_capabilities_8inl.html#a72343342ce64c0755563ee6c5e27868d">void</a> SetReachabilityAnalysisTimeLimit </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../df/d2a/_s_anim_notify_shared_8h.html#ac7c94e837fed3f8e4bb3dd94d7bd2ecf">float</a></td>          <td class="paramname"><span class="paramname"><em>TimeLimitSeconds</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Sets time limit for incremental rachability analysis (if enabled).</p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">TimeLimitSeconds</td><td>Time limit (in seconds) for incremental raachability analysis </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a98d1305097c1ce4808ec7fac692f6179" name="a98d1305097c1ce4808ec7fac692f6179"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a98d1305097c1ce4808ec7fac692f6179">&#9670;&#160;</a></span>ShutdownGarbageCollection()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../dc/dc2/_auto_r_t_f_m_2_public_2_auto_r_t_f_m_2_defines_8h.html#a6dcfc790cffef171f94dd55859bc2150">AUTORTFM_DISABLE</a> <a class="el" href="../../df/d63/_typed_element_query_capabilities_8inl.html#a72343342ce64c0755563ee6c5e27868d">void</a> ShutdownGarbageCollection </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ad17be1c42002f61dbb3220d384e49bf0" name="ad17be1c42002f61dbb3220d384e49bf0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad17be1c42002f61dbb3220d384e49bf0">&#9670;&#160;</a></span>TryCollectGarbage()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a> TryCollectGarbage </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d5/d1e/_object_macros_8h.html#a1508ac1247bcd79c4921cf8497e72c79">EObjectFlags</a></td>          <td class="paramname"><span class="paramname"><em>KeepFlags</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a></td>          <td class="paramname"><span class="paramname"><em>bPerformFullPurge</em></span><span class="paramdefsep"> = </span><span class="paramdefval"><a class="el" href="../../d3/df7/radaudio__common_8h.html#ade27a78a51a66a5cfb6f09cf36bcfde9a08f175a5505a10b9ed657defeb050e4b">true</a></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Performs garbage collection only if no other thread holds a lock on GC</p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">KeepFlags</td><td>objects with those flags will be kept regardless of being referenced or not </td></tr>
+    <tr><td class="paramname">bPerformFullPurge</td><td>if true, perform a full purge after the mark pass</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>true if an actual attempt at garbage collection occurred </dd></dl>
+
+</div>
+</div>
+<a id="a3a7eb4d6637fc140782cda3e57408548" name="a3a7eb4d6637fc140782cda3e57408548"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3a7eb4d6637fc140782cda3e57408548">&#9670;&#160;</a></span>TSAN_ATOMIC()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">TSAN_ATOMIC </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a></td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a324be3d37da99186373ff2b86f0bde12" name="a324be3d37da99186373ff2b86f0bde12"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a324be3d37da99186373ff2b86f0bde12">&#9670;&#160;</a></span>UnhashUnreachableObjects()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a> UnhashUnreachableObjects </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a></td>          <td class="paramname"><span class="paramname"><em>bUseTimeLimit</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d6/dfd/_i_transport_control_8h.html#a583127f9ef2ec8125a93f6a2a8c89ab7">double</a></td>          <td class="paramname"><span class="paramname"><em>TimeLimit</em></span><span class="paramdefsep"> = </span><span class="paramdefval">0.0</span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Calls ConditionalBeginDestroy on unreachable objects</p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">bUseTimeLimit</td><td>whether the time limit parameter should be used </td></tr>
+    <tr><td class="paramname">TimeLimit</td><td>soft time limit for this function call</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>true if the time limit passed and there's still objects pending to be unhashed </dd></dl>
+
+</div>
+</div>
+<a name="doc-var-members" id="doc-var-members"></a><h2 id="header-doc-var-members" class="groupheader">变量说明</h2>
+<a id="a83b8404effe171e119771e228ec0a665" name="a83b8404effe171e119771e228ec0a665"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a83b8404effe171e119771e228ec0a665">&#9670;&#160;</a></span>GCStartTime</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d6/dfd/_i_transport_control_8h.html#a583127f9ef2ec8125a93f6a2a8c89ab7">double</a> GCStartTime = 0.</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Time the GC started, needs to be reset on return from being in the background on some OSs </p>
+
+</div>
+</div>
+<a id="aaad2b0f892499610f1fc9d3c00be7263" name="aaad2b0f892499610f1fc9d3c00be7263"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aaad2b0f892499610f1fc9d3c00be7263">&#9670;&#160;</a></span>GDelayReachabilityIterations</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a8dbb3cd84ca9fd010dadfc3815eefa5d">int32</a> GDelayReachabilityIterations = 0</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a48bed38dc64a9a2cbdedb9ee9ad86a48" name="a48bed38dc64a9a2cbdedb9ee9ad86a48"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a48bed38dc64a9a2cbdedb9ee9ad86a48">&#9670;&#160;</a></span>GGarbageReferenceTrackingEnabled</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a8dbb3cd84ca9fd010dadfc3815eefa5d">int32</a> GGarbageReferenceTrackingEnabled = 0</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a56fdb485d3647ba7792350f05ce40f6c" name="a56fdb485d3647ba7792350f05ce40f6c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a56fdb485d3647ba7792350f05ce40f6c">&#9670;&#160;</a></span>GGCSingleton</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d2/d84/class_f_g_c_c_sync_object.html">FGCCSyncObject</a>* GGCSingleton</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a2ed3f225135f0ccbc9f9b5fc038d5c9a" name="a2ed3f225135f0ccbc9f9b5fc038d5c9a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2ed3f225135f0ccbc9f9b5fc038d5c9a">&#9670;&#160;</a></span>GIsGarbageCollectingAndLockingUObjectHashTables</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::atomic&lt;<a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a>&gt; GIsGarbageCollectingAndLockingUObjectHashTables = <a class="el" href="../../d3/df7/radaudio__common_8h.html#ade27a78a51a66a5cfb6f09cf36bcfde9ae9de385ef6fe9bf3360d1038396b884c">false</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Whether <a class="el" href="../../d7/d0b/class_u_object.html">UObject</a> hash tables are locked by GC </p>
+
+</div>
+</div>
+<a id="ae5a08c7a16fc9b98802f115e9de42595" name="ae5a08c7a16fc9b98802f115e9de42595"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae5a08c7a16fc9b98802f115e9de42595">&#9670;&#160;</a></span>GObjectCountDuringLastMarkPhase</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../da/dd2/class_f_thread_safe_counter.html">FThreadSafeCounter</a> GObjectCountDuringLastMarkPhase</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Object count during last mark phase </p>
+
+</div>
+</div>
+<a id="a65c076fb99b740b5fbfe9b521bd0628f" name="a65c076fb99b740b5fbfe9b521bd0628f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a65c076fb99b740b5fbfe9b521bd0628f">&#9670;&#160;</a></span>GObjIncrementalPurgeIsInProgress</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::atomic&lt;<a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a>&gt; GObjIncrementalPurgeIsInProgress = <a class="el" href="../../d3/df7/radaudio__common_8h.html#ade27a78a51a66a5cfb6f09cf36bcfde9ae9de385ef6fe9bf3360d1038396b884c">false</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Whether incremental object purge is in progress </p>
+
+</div>
+</div>
+<a id="a901f10fbce307bfc60ad86b9b776d7af" name="a901f10fbce307bfc60ad86b9b776d7af"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a901f10fbce307bfc60ad86b9b776d7af">&#9670;&#160;</a></span>GObjUnhashUnreachableIsInProgress</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::atomic&lt;<a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a>&gt; GObjUnhashUnreachableIsInProgress = <a class="el" href="../../d3/df7/radaudio__common_8h.html#ade27a78a51a66a5cfb6f09cf36bcfde9ae9de385ef6fe9bf3360d1038396b884c">false</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Whether GC is currently routing BeginDestroy to objects </p>
+
+</div>
+</div>
+<a id="aea8fad5e4a77e83bdf11cfa248e283a7" name="aea8fad5e4a77e83bdf11cfa248e283a7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aea8fad5e4a77e83bdf11cfa248e283a7">&#9670;&#160;</a></span>GShouldVerifyGCAssumptionsOnFullPurge</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">COREUOBJECT_API <a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a> GShouldVerifyGCAssumptionsOnFullPurge</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel extern">extern</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Allows release builds to override not verifying GC assumptions. Useful for profiling as it's hitchy.</p>
+<p>If set and VERIFY_DISREGARD_GC_ASSUMPTIONS is set, we verify GC assumptions when performing a full (blocking) purge </p>
+
+</div>
+</div>
+<a id="a667de581b73c760d30641b2e93ebe9df" name="a667de581b73c760d30641b2e93ebe9df"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a667de581b73c760d30641b2e93ebe9df">&#9670;&#160;</a></span>GUObjectPurge</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">class <a class="el" href="../../db/d3c/class_f_object_purge.html">FObjectPurge</a> GUObjectPurge</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a24ccb7c8d0bf121b6102cca077ac76d3" name="a24ccb7c8d0bf121b6102cca077ac76d3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a24ccb7c8d0bf121b6102cca077ac76d3">&#9670;&#160;</a></span>GVerifyGCAssumptionsChance</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">COREUOBJECT_API <a class="el" href="../../df/d2a/_s_anim_notify_shared_8h.html#ac7c94e837fed3f8e4bb3dd94d7bd2ecf">float</a> GVerifyGCAssumptionsChance</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel extern">extern</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>If &gt; 0 and VERIFY_DISREGARD_GC_ASSUMPTIONS is set, we verify GC assumptions on that fraction of GCs. </p>
+
+</div>
+</div>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<div id="page-nav" class="page-nav-panel">
+<div id="page-nav-resize-handle"></div>
+<div id="page-nav-tree">
+<div id="page-nav-contents">
+</div><!-- page-nav-contents -->
+</div><!-- page-nav-tree -->
+</div><!-- page-nav -->
+</div><!-- container -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a href="../../dir_0b6ee6e7e9547e675db4add2e5de97da.html">Engine</a></li><li class="navelem"><a href="../../dir_9579d1ecb2c7bf48cbe1049c41745cb4.html">Source</a></li><li class="navelem"><a href="../../dir_9f04efef762572853abdf73f62bebfcc.html">Runtime</a></li><li class="navelem"><a href="../../dir_87835aaea0d77a2a55fd49991cde0b5e.html">CoreUObject</a></li><li class="navelem"><a href="../../dir_8d13800183e64c83edfc0c4ca47054bf.html">Private</a></li><li class="navelem"><a href="../../dir_5bb6f74bfabf28434eeab32b256fbc86.html">UObject</a></li><li class="navelem"><a href="../../d8/d2b/_garbage_collection_8cpp.html">GarbageCollection.cpp</a></li>
+    <li class="footer">制作者 <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.15.0 </li>
+  </ul>
+</div>
+</body>
+</html>

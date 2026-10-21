@@ -1,0 +1,37 @@
+var _r_h_i_core_transient_resource_allocator_8h =
+[
+    [ "FRHITransientResourceStats", "d9/d2a/struct_f_r_h_i_transient_resource_stats.html", "d9/d2a/struct_f_r_h_i_transient_resource_stats" ],
+    [ "FRHITransientMemoryStats", "da/d61/struct_f_r_h_i_transient_memory_stats.html", "da/d61/struct_f_r_h_i_transient_memory_stats" ],
+    [ "TRHITransientResourceCache&lt; TransientResourceType &gt;", "d1/d4e/class_t_r_h_i_transient_resource_cache.html", "d1/d4e/class_t_r_h_i_transient_resource_cache" ],
+    [ "IRHITransientMemoryCache", "d0/d45/class_i_r_h_i_transient_memory_cache.html", "d0/d45/class_i_r_h_i_transient_memory_cache" ],
+    [ "FRHITransientHeapAllocator", "d6/db6/class_f_r_h_i_transient_heap_allocator.html", "d6/db6/class_f_r_h_i_transient_heap_allocator" ],
+    [ "FRHITransientHeapAllocator::FAliasingOverlap", "db/d97/struct_f_r_h_i_transient_heap_allocator_1_1_f_aliasing_overlap.html", "db/d97/struct_f_r_h_i_transient_heap_allocator_1_1_f_aliasing_overlap" ],
+    [ "FRHITransientHeap", "d1/d73/class_f_r_h_i_transient_heap.html", "d1/d73/class_f_r_h_i_transient_heap" ],
+    [ "FRHITransientHeap::FInitializer", "df/da1/struct_f_r_h_i_transient_heap_1_1_f_initializer.html", "df/da1/struct_f_r_h_i_transient_heap_1_1_f_initializer" ],
+    [ "FRHITransientHeap::FResourceInitializer", "d8/de3/struct_f_r_h_i_transient_heap_1_1_f_resource_initializer.html", "d8/de3/struct_f_r_h_i_transient_heap_1_1_f_resource_initializer" ],
+    [ "FRHITransientHeapCache", "d9/d63/class_f_r_h_i_transient_heap_cache.html", "d9/d63/class_f_r_h_i_transient_heap_cache" ],
+    [ "FRHITransientHeapCache::FInitializer", "d9/d1d/struct_f_r_h_i_transient_heap_cache_1_1_f_initializer.html", "d9/d1d/struct_f_r_h_i_transient_heap_cache_1_1_f_initializer" ],
+    [ "FRHITransientResourceHeapAllocator", "d3/d41/class_f_r_h_i_transient_resource_heap_allocator.html", "d3/d41/class_f_r_h_i_transient_resource_heap_allocator" ],
+    [ "FRHITransientPageSpanAllocator", "dc/dfd/class_f_r_h_i_transient_page_span_allocator.html", "dc/dfd/class_f_r_h_i_transient_page_span_allocator" ],
+    [ "FRHITransientPagePool", "d9/d1e/class_f_r_h_i_transient_page_pool.html", "d9/d1e/class_f_r_h_i_transient_page_pool" ],
+    [ "FRHITransientPagePool::FInitializer", "d6/d82/struct_f_r_h_i_transient_page_pool_1_1_f_initializer.html", "d6/d82/struct_f_r_h_i_transient_page_pool_1_1_f_initializer" ],
+    [ "FRHITransientPagePool::FAllocationContext", "da/d91/struct_f_r_h_i_transient_page_pool_1_1_f_allocation_context.html", "da/d91/struct_f_r_h_i_transient_page_pool_1_1_f_allocation_context" ],
+    [ "FRHITransientPagePool::FPageMapRequest", "d6/d41/struct_f_r_h_i_transient_page_pool_1_1_f_page_map_request.html", "d6/d41/struct_f_r_h_i_transient_page_pool_1_1_f_page_map_request" ],
+    [ "FRHITransientPagePoolCache", "da/d88/class_f_r_h_i_transient_page_pool_cache.html", "da/d88/class_f_r_h_i_transient_page_pool_cache" ],
+    [ "FRHITransientPagePoolCache::FInitializer", "dc/d6f/struct_f_r_h_i_transient_page_pool_cache_1_1_f_initializer.html", "dc/d6f/struct_f_r_h_i_transient_page_pool_cache_1_1_f_initializer" ],
+    [ "FRHITransientResourcePageAllocator", "d9/de4/class_f_r_h_i_transient_resource_page_allocator.html", "d9/de4/class_f_r_h_i_transient_resource_page_allocator" ],
+    [ "IF_RHICORE_TRANSIENT_ALLOCATOR_DEBUG", "d6/de0/_r_h_i_core_transient_resource_allocator_8h.html#ae9d54b2f981b93976775f5ffbe18258c", null ],
+    [ "RHICORE_TRANSIENT_ALLOCATOR_DEBUG", "d6/de0/_r_h_i_core_transient_resource_allocator_8h.html#a02a6d8351a78eb0dbc46881650188a20", null ],
+    [ "ERHITransientHeapFlags", "d6/de0/_r_h_i_core_transient_resource_allocator_8h.html#acc948f241e1646551ee6b107832aba07", [
+      [ "AllowBuffers", "d6/de0/_r_h_i_core_transient_resource_allocator_8h.html#acc948f241e1646551ee6b107832aba07a6f70a470becb27bd81f5e4d13070660f", null ],
+      [ "AllowTextures", "d6/de0/_r_h_i_core_transient_resource_allocator_8h.html#acc948f241e1646551ee6b107832aba07a5c84e578e3ce8127cd33fb3d66d32826", null ],
+      [ "AllowRenderTargets", "d6/de0/_r_h_i_core_transient_resource_allocator_8h.html#acc948f241e1646551ee6b107832aba07a6cacccc82054acce730bf2d604dc8604", null ],
+      [ "AllowNNEBuffers", "d6/de0/_r_h_i_core_transient_resource_allocator_8h.html#acc948f241e1646551ee6b107832aba07a9fa3b55ad350f3a304187c94548a5c3e", null ],
+      [ "AllowAll", "d6/de0/_r_h_i_core_transient_resource_allocator_8h.html#acc948f241e1646551ee6b107832aba07ac31c7129f53f2a590242ce0fa819f931", null ]
+    ] ],
+    [ "ComputeHash", "d6/de0/_r_h_i_core_transient_resource_allocator_8h.html#aa32c6e9f272c020136d8ab786caa8862", null ],
+    [ "ComputeHash", "d6/de0/_r_h_i_core_transient_resource_allocator_8h.html#a14698c8da3a9531d5db39c7df5963c82", null ],
+    [ "ComputeHash", "d6/de0/_r_h_i_core_transient_resource_allocator_8h.html#ade0c41bf5aab8e09939dc40f552d3d70", null ],
+    [ "ComputeHash", "d6/de0/_r_h_i_core_transient_resource_allocator_8h.html#ac1be2b2335dca6be6d14b629ec9e9587", null ],
+    [ "ENUM_CLASS_FLAGS", "d6/de0/_r_h_i_core_transient_resource_allocator_8h.html#a5c54b7ccc237de4ba49cca54fabcdf01", null ]
+];

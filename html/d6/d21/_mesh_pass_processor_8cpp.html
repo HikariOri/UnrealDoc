@@ -1,0 +1,740 @@
+<!-- HTML header for doxygen 1.15.0-->
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh">
+<head>
+  <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=11" />
+  <meta name="generator" content="Doxygen 1.15.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>UE 5.8.4: Engine/Source/Runtime/Renderer/Private/MeshPassProcessor.cpp 文件参考</title>
+  <link rel="icon" href="../../EdIconDefault.bmp" type="image/x-icon" />
+  <link href="../../tabs.css" rel="stylesheet" type="text/css" />
+  <script type="text/javascript" src="../../jquery.js"></script>
+  <script type="text/javascript" src="../../dynsections.js"></script>
+  <link href="../../navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../navtreedata.js"></script>
+<script type="text/javascript" src="../../navtree.js"></script>
+<script type="text/javascript" src="../../cookie.js"></script>
+  <link href="../../search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../search/searchdata.js"></script>
+<script type="text/javascript" src="../../search/search.js"></script>
+  <script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  extensions: ["tex2jax.js"],
+  jax: ["input/TeX","output/HTML-CSS"],
+});
+</script>
+<script type="text/javascript" async="async" src="https://cdn.jsdelivr.net/npm/mathjax@2/MathJax.js"></script>
+  <link href="../../doxygen.css" rel="stylesheet" type="text/css" />
+  <link href="../../doxygen-awesome.css" rel="stylesheet" type="text/css"/>
+<link href="../../doxygen-awesome-sidebar-only.css" rel="stylesheet" type="text/css"/>
+<link href="../../doxygen-awesome-sidebar-only-darkmode-toggle.css" rel="stylesheet" type="text/css"/>
+  <!-- ... other metadata & script includes ... -->
+  <script type="text/javascript" src="../../doxygen-awesome-darkmode-toggle.js"></script>
+  <script type="text/javascript">
+    DoxygenAwesomeDarkModeToggle.title = "Zwischen hellem/dunklem Modus wechseln"
+    DoxygenAwesomeDarkModeToggle.lightModeIcon = '🌞'
+    // icon from https://fonts.google.com/icons
+    DoxygenAwesomeDarkModeToggle.darkModeIcon = `<svg xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 24 24" height="24px" viewBox="0 0 24 24" width="24px" fill="#009793"><g><rect fill="none" height="24" width="24"/></g><g><g><path d="M8.1,14.15C9.77,14.63,11,16.17,11,18c0,0.68-0.19,1.31-0.48,1.87c0.48,0.09,0.97,0.14,1.48,0.14 c1.48,0,2.9-0.41,4.13-1.15c-2.62-0.92-5.23-2.82-6.8-5.86C7.74,9.94,7.78,7.09,8.29,4.9c-2.57,1.33-4.3,4.01-4.3,7.1c0,0,0,0,0,0 c0.01,0,0.01,0,0.02,0C5.66,12,7.18,12.83,8.1,14.15z" opacity=".3"/><path d="M19.78,17.51c-2.47,0-6.57-1.33-8.68-5.43C8.77,7.57,10.6,3.6,11.63,2.01C6.27,2.2,1.98,6.59,1.98,12 c0,0.14,0.02,0.28,0.02,0.42C2.61,12.16,3.28,12,3.98,12c0,0,0,0,0,0c0-3.09,1.73-5.77,4.3-7.1C7.78,7.09,7.74,9.94,9.32,13 c1.57,3.04,4.18,4.95,6.8,5.86c-1.23,0.74-2.65,1.15-4.13,1.15c-0.5,0-1-0.05-1.48-0.14c-0.37,0.7-0.94,1.27-1.64,1.64 c0.98,0.32,2.03,0.5,3.11,0.5c3.5,0,6.58-1.8,8.37-4.52C20.18,17.5,19.98,17.51,19.78,17.51z"/><path d="M7,16l-0.18,0C6.4,14.84,5.3,14,4,14c-1.66,0-3,1.34-3,3s1.34,3,3,3c0.62,0,2.49,0,3,0c1.1,0,2-0.9,2-2 C9,16.9,8.1,16,7,16z"/></g></g></svg>`
+    DoxygenAwesomeDarkModeToggle.init()
+  </script>
+  <script type="text/javascript" src="../../doxygen-awesome-fragment-copy-button.js"></script>
+  <script type="text/javascript">
+    DoxygenAwesomeFragmentCopyButton.title = "In die Zwischenablage kopieren"
+    // DoxygenAwesomeFragmentCopyButton.copyIcon = `<svg ...>`
+    // DoxygenAwesomeFragmentCopyButton.successIcon = `<svg ...>`
+    DoxygenAwesomeFragmentCopyButton.init()
+  </script>
+  <script type="text/javascript" src="../../doxygen-awesome-paragraph-link.js"></script>
+  <script type="text/javascript">
+    DoxygenAwesomeParagraphLink.title = "Abschnitt verknüpfen"
+    DoxygenAwesomeParagraphLink.icon = "¶"
+    DoxygenAwesomeParagraphLink.init()
+  </script>
+  <script type="text/javascript" src="../../doxygen-awesome-interactive-toc.js"></script>
+  <script type="text/javascript">
+    DoxygenAwesomeInteractiveToc.topOffset = 45
+    DoxygenAwesomeInteractiveToc.hideMobileMenu = false
+    DoxygenAwesomeInteractiveToc.init()
+  </script>
+</head>
+<body>
+    <div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+      <div id="titlearea">
+        <table cellspacing="0" cellpadding="0">
+          <tbody>
+            <tr id="projectrow">
+              <td id="projectlogo"><img alt="Logo" src="../../EdIconDefault.bmp"  /></td>
+              <td id="projectalign">
+                <div id="projectname">UE 5.8.4
+                </div>
+                <div id="projectbrief">Unreal Engine</div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <!-- end header part -->
+<!-- 制作者 Doxygen 1.15.0 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "../../search/",'.html');
+</script>
+<script type="text/javascript">
+$(function() { codefold.init(); });
+</script>
+<script type="text/javascript" src="../../menudata.js"></script>
+<script type="text/javascript" src="../../menu.js"></script>
+<script type="text/javascript">
+$(function() {
+  initMenu('../../',true,false,'search.php','搜索',true);
+  $(function() { init_search(); });
+});
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(function(){initNavTree('d6/d21/_mesh_pass_processor_8cpp.html','../../',''); });
+</script>
+<div id="container">
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">载入中...</div>
+<div class="SRStatus" id="Searching">搜索中...</div>
+<div class="SRStatus" id="NoMatches">未找到</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">MeshPassProcessor.cpp 文件参考</div></div>
+</div><!--header-->
+<div class="contents">
+<div class="textblock"><code>#include &quot;<a class="el" href="../../db/dbe/_mesh_pass_processor_8h_source.html">MeshPassProcessor.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d5/d3b/_scene_utils_8h_source.html">SceneUtils.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d6/dda/_scene_rendering_8h_source.html">SceneRendering.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d7/dcd/_log_macros_8h_source.html">Logging/LogMacros.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d1/da9/_log_renderer_8h_source.html">LogRenderer.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../dc/d17/_scene_core_8h_source.html">SceneCore.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d5/dbc/_scene_private_8h_source.html">ScenePrivate.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d0/d94/_scene_interface_8h_source.html">SceneInterface.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d3/d4c/_mesh_pass_processor_8inl_source.html">MeshPassProcessor.inl</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../df/db5/_pipeline_state_cache_8h_source.html">PipelineStateCache.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../dd/ddb/_ray_tracing_material_hit_shaders_8h_source.html">RayTracing/RayTracingMaterialHitShaders.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../dc/d38/_city_hash_8h_source.html">Hash/CityHash.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d0/d25/_component_recreate_render_state_context_8h_source.html">ComponentRecreateRenderStateContext.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d1/ddc/_render_core_8h_source.html">RenderCore.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d6/d57/_unreal_engine_8h_source.html">UnrealEngine.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d6/d35/_scene_uniform_buffer_8h_source.html">SceneUniformBuffer.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d3/d49/_mesh_draw_command_stats_8h_source.html">MeshDrawCommandStats.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../db/d56/_variable_rate_shading_image_manager_8h_source.html">VariableRateShadingImageManager.h</a>&quot;</code><br />
+</div><div class="textblock"><div class="dynheader">
+MeshPassProcessor.cpp 的引用(Include)关系图:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d4/dcc/_mesh_pass_processor_8cpp__incl.svg" width="4219" height="923"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+</div><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-nested-classes" class="groupheader"><a id="nested-classes" name="nested-classes"></a>
+类</h2></td></tr>
+<tr class="memitem:FDynamicBatchedPrimitiveLayout" id="r_FDynamicBatchedPrimitiveLayout"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/de1/class_f_dynamic_batched_primitive_layout.html">FDynamicBatchedPrimitiveLayout</a></td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-func-members" class="groupheader"><a id="func-members" name="func-members"></a>
+函数</h2></td></tr>
+<tr class="memitem:af88e14a96979bc5293e025c1226811ad" id="r_af88e14a96979bc5293e025c1226811ad"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../df/d63/_typed_element_query_capabilities_8inl.html#a72343342ce64c0755563ee6c5e27868d">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af88e14a96979bc5293e025c1226811ad">SetTextureParameter</a> (<a class="el" href="../../d2/d7e/struct_f_r_h_i_batched_shader_parameters.html">FRHIBatchedShaderParameters</a> &amp;BatchedParameters, const <a class="el" href="../../db/d70/class_f_shader_resource_parameter_info.html">FShaderResourceParameterInfo</a> &amp;Parameter, <a class="el" href="../../d3/d6d/class_f_r_h_i_texture.html">FRHITexture</a> *TextureRHI)</td></tr>
+<tr class="memitem:ab4be4a50c08c0ed02f0224124e1412b6" id="r_ab4be4a50c08c0ed02f0224124e1412b6"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../df/d63/_typed_element_query_capabilities_8inl.html#a72343342ce64c0755563ee6c5e27868d">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab4be4a50c08c0ed02f0224124e1412b6">SetSrvParameter</a> (<a class="el" href="../../d2/d7e/struct_f_r_h_i_batched_shader_parameters.html">FRHIBatchedShaderParameters</a> &amp;BatchedParameters, const <a class="el" href="../../db/d70/class_f_shader_resource_parameter_info.html">FShaderResourceParameterInfo</a> &amp;Parameter, <a class="el" href="../../dd/d14/class_f_r_h_i_shader_resource_view.html">FRHIShaderResourceView</a> *SrvRHI)</td></tr>
+<tr class="memitem:a82482577751b3196b9b0347dfbb293bb" id="r_a82482577751b3196b9b0347dfbb293bb"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../df/d63/_typed_element_query_capabilities_8inl.html#a72343342ce64c0755563ee6c5e27868d">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a82482577751b3196b9b0347dfbb293bb">SetSamplerParameter</a> (<a class="el" href="../../d2/d7e/struct_f_r_h_i_batched_shader_parameters.html">FRHIBatchedShaderParameters</a> &amp;BatchedParameters, const <a class="el" href="../../db/d70/class_f_shader_resource_parameter_info.html">FShaderResourceParameterInfo</a> &amp;Parameter, <a class="el" href="../../d3/d38/class_f_r_h_i_sampler_state.html">FRHISamplerState</a> *SamplerStateRHI)</td></tr>
+<tr class="memitem:a9f9243107534d1b8d164f77860751c58" id="r_a9f9243107534d1b8d164f77860751c58"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../df/d63/_typed_element_query_capabilities_8inl.html#a72343342ce64c0755563ee6c5e27868d">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9f9243107534d1b8d164f77860751c58">SetLooseParameters</a> (<a class="el" href="../../d2/d7e/struct_f_r_h_i_batched_shader_parameters.html">FRHIBatchedShaderParameters</a> &amp;BatchedParameters, const <a class="el" href="../../dc/d16/class_f_shader_parameter_map_info.html">FShaderParameterMapInfo</a> &amp;ParameterMapInfo, const <a class="el" href="../../dd/de9/preprocessor_8c.html#adde6aaee8457bee49c2a92621fe22b79">uint8</a> *LooseDataStart)</td></tr>
+<tr class="memitem:ac4384c10ac7a17c0f80f14f32bd5ab4c" id="r_ac4384c10ac7a17c0f80f14f32bd5ab4c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../df/d63/_typed_element_query_capabilities_8inl.html#a72343342ce64c0755563ee6c5e27868d">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac4384c10ac7a17c0f80f14f32bd5ab4c">ApplyTargetsInfo</a> (<a class="el" href="../../d2/d2e/class_f_graphics_pipeline_state_initializer.html">FGraphicsPipelineStateInitializer</a> &amp;GraphicsPSOInit, const <a class="el" href="../../d0/d17/struct_f_graphics_pipeline_render_targets_info.html">FGraphicsPipelineRenderTargetsInfo</a> &amp;RenderTargetsInfo)</td></tr>
+<tr class="memitem:a5f4f2c245fbc8b2375bae9e1518aa184" id="r_a5f4f2c245fbc8b2375bae9e1518aa184"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../db/dec/_r_h_i_resources_8h.html#aa230f288a5b67a3d6a98a5b70c2b3acc">ESubpassHint</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5f4f2c245fbc8b2375bae9e1518aa184">GetSubpassHint</a> (const <a class="el" href="../../dc/d1d/struct_f_static_shader_platform.html">FStaticShaderPlatform</a> Platform, <a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a> bIsUsingGBuffers, <a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a> bMultiViewRendering, <a class="el" href="../../dd/de9/preprocessor_8c.html#a1134b580f8da4de94ca6b1de4d37975e">uint32</a> NumSamples)</td></tr>
+<tr class="memitem:a2d268bb58fdf48208cb2cce966dfa0ee" id="r_a2d268bb58fdf48208cb2cce966dfa0ee"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../df/d63/_typed_element_query_capabilities_8inl.html#a72343342ce64c0755563ee6c5e27868d">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2d268bb58fdf48208cb2cce966dfa0ee">SubmitMeshDrawCommands</a> (const <a class="el" href="../../db/dbe/_mesh_pass_processor_8h.html#ad16746779fdd44e96b7e914977b57998">FMeshCommandOneFrameArray</a> &amp;VisibleMeshDrawCommands, const <a class="el" href="../../db/dbe/_mesh_pass_processor_8h.html#ad22513dcf64e0e14c402e347bc206523">FGraphicsMinimalPipelineStateSet</a> &amp;GraphicsMinimalPipelineStateSet, const <a class="el" href="../../db/d3a/struct_f_mesh_draw_command_scene_args.html">FMeshDrawCommandSceneArgs</a> &amp;SceneArgs, <a class="el" href="../../dd/de9/preprocessor_8c.html#a1134b580f8da4de94ca6b1de4d37975e">uint32</a> PrimitiveIdBufferStride, <a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a> bDynamicInstancing, <a class="el" href="../../dd/de9/preprocessor_8c.html#a1134b580f8da4de94ca6b1de4d37975e">uint32</a> InstanceFactor, <a class="el" href="../../d9/dfe/class_f_r_h_i_command_list.html">FRHICommandList</a> &amp;RHICmdList)</td></tr>
+<tr class="memitem:aa95cfa800ac631c4b8f85aae005361eb" id="r_aa95cfa800ac631c4b8f85aae005361eb"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../df/d63/_typed_element_query_capabilities_8inl.html#a72343342ce64c0755563ee6c5e27868d">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa95cfa800ac631c4b8f85aae005361eb">SubmitMeshDrawCommandsRange</a> (const <a class="el" href="../../db/dbe/_mesh_pass_processor_8h.html#ad16746779fdd44e96b7e914977b57998">FMeshCommandOneFrameArray</a> &amp;VisibleMeshDrawCommands, const <a class="el" href="../../db/dbe/_mesh_pass_processor_8h.html#ad22513dcf64e0e14c402e347bc206523">FGraphicsMinimalPipelineStateSet</a> &amp;GraphicsMinimalPipelineStateSet, const <a class="el" href="../../db/d3a/struct_f_mesh_draw_command_scene_args.html">FMeshDrawCommandSceneArgs</a> &amp;InSceneArgs, <a class="el" href="../../dd/de9/preprocessor_8c.html#a1134b580f8da4de94ca6b1de4d37975e">uint32</a> PrimitiveIdBufferStride, <a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a> bDynamicInstancing, <a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a8dbb3cd84ca9fd010dadfc3815eefa5d">int32</a> StartIndex, <a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a8dbb3cd84ca9fd010dadfc3815eefa5d">int32</a> NumMeshDrawCommands, <a class="el" href="../../dd/de9/preprocessor_8c.html#a1134b580f8da4de94ca6b1de4d37975e">uint32</a> InstanceFactor, <a class="el" href="../../d9/dfe/class_f_r_h_i_command_list.html">FRHICommandList</a> &amp;RHICmdList)</td></tr>
+<tr class="memitem:a6c7980d91851fc5caf43fabd3277b0b8" id="r_a6c7980d91851fc5caf43fabd3277b0b8"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../df/d63/_typed_element_query_capabilities_8inl.html#a72343342ce64c0755563ee6c5e27868d">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6c7980d91851fc5caf43fabd3277b0b8">ApplyViewOverridesToMeshDrawCommands</a> (const <a class="el" href="../../d6/d2c/class_f_scene_view.html">FSceneView</a> &amp;View, <a class="el" href="../../db/dbe/_mesh_pass_processor_8h.html#ad16746779fdd44e96b7e914977b57998">FMeshCommandOneFrameArray</a> &amp;VisibleMeshDrawCommands, <a class="el" href="../../d3/dfb/class_f_dynamic_mesh_draw_command_storage.html">FDynamicMeshDrawCommandStorage</a> &amp;DynamicMeshDrawCommandStorage, <a class="el" href="../../db/dbe/_mesh_pass_processor_8h.html#ad22513dcf64e0e14c402e347bc206523">FGraphicsMinimalPipelineStateSet</a> &amp;GraphicsMinimalPipelineStateSet, <a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a> &amp;InNeedsShaderInitialisation)</td></tr>
+<tr class="memitem:ae5ba8ebea5bfffa27978bd99f5e2b85d" id="r_ae5ba8ebea5bfffa27978bd99f5e2b85d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../df/d63/_typed_element_query_capabilities_8inl.html#a72343342ce64c0755563ee6c5e27868d">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae5ba8ebea5bfffa27978bd99f5e2b85d">DrawDynamicMeshPassPrivate</a> (const <a class="el" href="../../d6/d2c/class_f_scene_view.html">FSceneView</a> &amp;View, <a class="el" href="../../d9/dfe/class_f_r_h_i_command_list.html">FRHICommandList</a> &amp;RHICmdList, <a class="el" href="../../db/dbe/_mesh_pass_processor_8h.html#ad16746779fdd44e96b7e914977b57998">FMeshCommandOneFrameArray</a> &amp;VisibleMeshDrawCommands, <a class="el" href="../../d3/dfb/class_f_dynamic_mesh_draw_command_storage.html">FDynamicMeshDrawCommandStorage</a> &amp;DynamicMeshDrawCommandStorage, <a class="el" href="../../db/dbe/_mesh_pass_processor_8h.html#ad22513dcf64e0e14c402e347bc206523">FGraphicsMinimalPipelineStateSet</a> &amp;GraphicsMinimalPipelineStateSet, <a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a> &amp;InNeedsShaderInitialisation, <a class="el" href="../../dd/de9/preprocessor_8c.html#a1134b580f8da4de94ca6b1de4d37975e">uint32</a> InstanceFactor)</td></tr>
+<tr class="memitem:a6634fafb8bbb9a3fd3a31facac1933c5" id="r_a6634fafb8bbb9a3fd3a31facac1933c5"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../da/dfd/class_f_mesh_draw_command_sort_key.html">FMeshDrawCommandSortKey</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6634fafb8bbb9a3fd3a31facac1933c5">CalculateMeshStaticSortKey</a> (const <a class="el" href="../../d8/dfc/class_f_mesh_material_shader.html">FMeshMaterialShader</a> *VertexShader, const <a class="el" href="../../d8/dfc/class_f_mesh_material_shader.html">FMeshMaterialShader</a> *PixelShader)</td></tr>
+<tr class="memitem:ab928d8a726df34554558c944996bb5a6" id="r_ab928d8a726df34554558c944996bb5a6"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../df/d63/_typed_element_query_capabilities_8inl.html#a72343342ce64c0755563ee6c5e27868d">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab928d8a726df34554558c944996bb5a6">AddRenderTargetInfo</a> (<a class="el" href="../../d5/db6/_pixel_format_8h.html#aaefcb820f58db492c4c56dc4d7a93f23">EPixelFormat</a> PixelFormat, <a class="el" href="../../da/dca/_r_h_i_definitions_8h.html#ad4ae7462d4e6cb213ec4f7673da42d5d">ETextureCreateFlags</a> CreateFlags, <a class="el" href="../../d0/d17/struct_f_graphics_pipeline_render_targets_info.html">FGraphicsPipelineRenderTargetsInfo</a> &amp;RenderTargetsInfo)</td></tr>
+<tr class="memitem:a0bc34c78e8e6ae6259d9c67d940dd2f5" id="r_a0bc34c78e8e6ae6259d9c67d940dd2f5"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../df/d63/_typed_element_query_capabilities_8inl.html#a72343342ce64c0755563ee6c5e27868d">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a0bc34c78e8e6ae6259d9c67d940dd2f5">SetupDepthStencilInfo</a> (<a class="el" href="../../d5/db6/_pixel_format_8h.html#aaefcb820f58db492c4c56dc4d7a93f23">EPixelFormat</a> DepthStencilFormat, <a class="el" href="../../da/dca/_r_h_i_definitions_8h.html#ad4ae7462d4e6cb213ec4f7673da42d5d">ETextureCreateFlags</a> DepthStencilCreateFlags, <a class="el" href="../../da/dca/_r_h_i_definitions_8h.html#ade9cba1bfb915996e4921f5e3dd9202d">ERenderTargetLoadAction</a> DepthTargetLoadAction, <a class="el" href="../../da/dca/_r_h_i_definitions_8h.html#ade9cba1bfb915996e4921f5e3dd9202d">ERenderTargetLoadAction</a> StencilTargetLoadAction, <a class="el" href="../../d2/d1e/class_f_exclusive_depth_stencil.html">FExclusiveDepthStencil</a> DepthStencilAccess, <a class="el" href="../../d0/d17/struct_f_graphics_pipeline_render_targets_info.html">FGraphicsPipelineRenderTargetsInfo</a> &amp;RenderTargetsInfo)</td></tr>
+<tr class="memitem:a920809758e1650ae0222d0e14024d0db" id="r_a920809758e1650ae0222d0e14024d0db"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../df/d63/_typed_element_query_capabilities_8inl.html#a72343342ce64c0755563ee6c5e27868d">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a920809758e1650ae0222d0e14024d0db">SetupGBufferRenderTargetInfo</a> (const <a class="el" href="../../dc/db5/struct_f_scene_textures_config.html">FSceneTexturesConfig</a> &amp;SceneTexturesConfig, <a class="el" href="../../d0/d17/struct_f_graphics_pipeline_render_targets_info.html">FGraphicsPipelineRenderTargetsInfo</a> &amp;RenderTargetsInfo, <a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a> bSetupDepthStencil, <a class="el" href="../../da/d9b/_g_buffer_info_8h.html#af3c4660f1414ac0926fd3f759991029a">EGBufferLayout</a> Layout)</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-var-members" class="groupheader"><a id="var-members" name="var-members"></a>
+变量</h2></td></tr>
+<tr class="memitem:a1286fa1c2fd7dc85da729ec41345200e" id="r_a1286fa1c2fd7dc85da729ec41345200e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a8dbb3cd84ca9fd010dadfc3815eefa5d">int32</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a1286fa1c2fd7dc85da729ec41345200e">GEmitMeshDrawEvent</a> = 0</td></tr>
+<tr class="memitem:ab372cf221e57be194260253e4733a708" id="r_ab372cf221e57be194260253e4733a708"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a8dbb3cd84ca9fd010dadfc3815eefa5d">int32</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab372cf221e57be194260253e4733a708">GSkipDrawOnPSOPrecaching</a> = 0</td></tr>
+<tr class="memitem:a0babcb30fb8ecb2e3df3f876b930e618" id="r_a0babcb30fb8ecb2e3df3f876b930e618"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../da/dee/class_t_global_resource.html">TGlobalResource</a>&lt; <a class="el" href="../../d3/de1/class_f_dynamic_batched_primitive_layout.html">FDynamicBatchedPrimitiveLayout</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a0babcb30fb8ecb2e3df3f876b930e618">GDynamicBatchedPrimitiveLayout</a></td></tr>
+</table>
+<a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">函数说明</h2>
+<a id="ab928d8a726df34554558c944996bb5a6" name="ab928d8a726df34554558c944996bb5a6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab928d8a726df34554558c944996bb5a6">&#9670;&#160;</a></span>AddRenderTargetInfo()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../df/d63/_typed_element_query_capabilities_8inl.html#a72343342ce64c0755563ee6c5e27868d">void</a> AddRenderTargetInfo </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d5/db6/_pixel_format_8h.html#aaefcb820f58db492c4c56dc4d7a93f23">EPixelFormat</a></td>          <td class="paramname"><span class="paramname"><em>PixelFormat</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../da/dca/_r_h_i_definitions_8h.html#ad4ae7462d4e6cb213ec4f7673da42d5d">ETextureCreateFlags</a></td>          <td class="paramname"><span class="paramname"><em>CreateFlags</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d0/d17/struct_f_graphics_pipeline_render_targets_info.html">FGraphicsPipelineRenderTargetsInfo</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>RenderTargetsInfo</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ac4384c10ac7a17c0f80f14f32bd5ab4c" name="ac4384c10ac7a17c0f80f14f32bd5ab4c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac4384c10ac7a17c0f80f14f32bd5ab4c">&#9670;&#160;</a></span>ApplyTargetsInfo()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../df/d63/_typed_element_query_capabilities_8inl.html#a72343342ce64c0755563ee6c5e27868d">void</a> ApplyTargetsInfo </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d2/d2e/class_f_graphics_pipeline_state_initializer.html">FGraphicsPipelineStateInitializer</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>GraphicsPSOInit</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="../../d0/d17/struct_f_graphics_pipeline_render_targets_info.html">FGraphicsPipelineRenderTargetsInfo</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>RenderTargetsInfo</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a6c7980d91851fc5caf43fabd3277b0b8" name="a6c7980d91851fc5caf43fabd3277b0b8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6c7980d91851fc5caf43fabd3277b0b8">&#9670;&#160;</a></span>ApplyViewOverridesToMeshDrawCommands()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../df/d63/_typed_element_query_capabilities_8inl.html#a72343342ce64c0755563ee6c5e27868d">void</a> ApplyViewOverridesToMeshDrawCommands </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="../../d6/d2c/class_f_scene_view.html">FSceneView</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>View</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../db/dbe/_mesh_pass_processor_8h.html#ad16746779fdd44e96b7e914977b57998">FMeshCommandOneFrameArray</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>VisibleMeshDrawCommands</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d3/dfb/class_f_dynamic_mesh_draw_command_storage.html">FDynamicMeshDrawCommandStorage</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>DynamicMeshDrawCommandStorage</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../db/dbe/_mesh_pass_processor_8h.html#ad22513dcf64e0e14c402e347bc206523">FGraphicsMinimalPipelineStateSet</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>GraphicsMinimalPipelineStateSet</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>InNeedsShaderInitialisation</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a6634fafb8bbb9a3fd3a31facac1933c5" name="a6634fafb8bbb9a3fd3a31facac1933c5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6634fafb8bbb9a3fd3a31facac1933c5">&#9670;&#160;</a></span>CalculateMeshStaticSortKey()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../da/dfd/class_f_mesh_draw_command_sort_key.html">FMeshDrawCommandSortKey</a> CalculateMeshStaticSortKey </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="../../d8/dfc/class_f_mesh_material_shader.html">FMeshMaterialShader</a> *</td>          <td class="paramname"><span class="paramname"><em>VertexShader</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="../../d8/dfc/class_f_mesh_material_shader.html">FMeshMaterialShader</a> *</td>          <td class="paramname"><span class="paramname"><em>PixelShader</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ae5ba8ebea5bfffa27978bd99f5e2b85d" name="ae5ba8ebea5bfffa27978bd99f5e2b85d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae5ba8ebea5bfffa27978bd99f5e2b85d">&#9670;&#160;</a></span>DrawDynamicMeshPassPrivate()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../df/d63/_typed_element_query_capabilities_8inl.html#a72343342ce64c0755563ee6c5e27868d">void</a> DrawDynamicMeshPassPrivate </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="../../d6/d2c/class_f_scene_view.html">FSceneView</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>View</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d9/dfe/class_f_r_h_i_command_list.html">FRHICommandList</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>RHICmdList</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../db/dbe/_mesh_pass_processor_8h.html#ad16746779fdd44e96b7e914977b57998">FMeshCommandOneFrameArray</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>VisibleMeshDrawCommands</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d3/dfb/class_f_dynamic_mesh_draw_command_storage.html">FDynamicMeshDrawCommandStorage</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>DynamicMeshDrawCommandStorage</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../db/dbe/_mesh_pass_processor_8h.html#ad22513dcf64e0e14c402e347bc206523">FGraphicsMinimalPipelineStateSet</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>GraphicsMinimalPipelineStateSet</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>InNeedsShaderInitialisation</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../dd/de9/preprocessor_8c.html#a1134b580f8da4de94ca6b1de4d37975e">uint32</a></td>          <td class="paramname"><span class="paramname"><em>InstanceFactor</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a5f4f2c245fbc8b2375bae9e1518aa184" name="a5f4f2c245fbc8b2375bae9e1518aa184"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5f4f2c245fbc8b2375bae9e1518aa184">&#9670;&#160;</a></span>GetSubpassHint()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../db/dec/_r_h_i_resources_8h.html#aa230f288a5b67a3d6a98a5b70c2b3acc">ESubpassHint</a> GetSubpassHint </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="../../dc/d1d/struct_f_static_shader_platform.html">FStaticShaderPlatform</a></td>          <td class="paramname"><span class="paramname"><em>Platform</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a></td>          <td class="paramname"><span class="paramname"><em>bIsUsingGBuffers</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a></td>          <td class="paramname"><span class="paramname"><em>bMultiViewRendering</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../dd/de9/preprocessor_8c.html#a1134b580f8da4de94ca6b1de4d37975e">uint32</a></td>          <td class="paramname"><span class="paramname"><em>NumSamples</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a9f9243107534d1b8d164f77860751c58" name="a9f9243107534d1b8d164f77860751c58"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9f9243107534d1b8d164f77860751c58">&#9670;&#160;</a></span>SetLooseParameters()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../df/d63/_typed_element_query_capabilities_8inl.html#a72343342ce64c0755563ee6c5e27868d">void</a> SetLooseParameters </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d2/d7e/struct_f_r_h_i_batched_shader_parameters.html">FRHIBatchedShaderParameters</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>BatchedParameters</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="../../dc/d16/class_f_shader_parameter_map_info.html">FShaderParameterMapInfo</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>ParameterMapInfo</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="../../dd/de9/preprocessor_8c.html#adde6aaee8457bee49c2a92621fe22b79">uint8</a> *</td>          <td class="paramname"><span class="paramname"><em>LooseDataStart</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a82482577751b3196b9b0347dfbb293bb" name="a82482577751b3196b9b0347dfbb293bb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a82482577751b3196b9b0347dfbb293bb">&#9670;&#160;</a></span>SetSamplerParameter()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../df/d63/_typed_element_query_capabilities_8inl.html#a72343342ce64c0755563ee6c5e27868d">void</a> SetSamplerParameter </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d2/d7e/struct_f_r_h_i_batched_shader_parameters.html">FRHIBatchedShaderParameters</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>BatchedParameters</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="../../db/d70/class_f_shader_resource_parameter_info.html">FShaderResourceParameterInfo</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>Parameter</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d3/d38/class_f_r_h_i_sampler_state.html">FRHISamplerState</a> *</td>          <td class="paramname"><span class="paramname"><em>SamplerStateRHI</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ab4be4a50c08c0ed02f0224124e1412b6" name="ab4be4a50c08c0ed02f0224124e1412b6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab4be4a50c08c0ed02f0224124e1412b6">&#9670;&#160;</a></span>SetSrvParameter()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../df/d63/_typed_element_query_capabilities_8inl.html#a72343342ce64c0755563ee6c5e27868d">void</a> SetSrvParameter </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d2/d7e/struct_f_r_h_i_batched_shader_parameters.html">FRHIBatchedShaderParameters</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>BatchedParameters</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="../../db/d70/class_f_shader_resource_parameter_info.html">FShaderResourceParameterInfo</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>Parameter</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../dd/d14/class_f_r_h_i_shader_resource_view.html">FRHIShaderResourceView</a> *</td>          <td class="paramname"><span class="paramname"><em>SrvRHI</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="af88e14a96979bc5293e025c1226811ad" name="af88e14a96979bc5293e025c1226811ad"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af88e14a96979bc5293e025c1226811ad">&#9670;&#160;</a></span>SetTextureParameter()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../df/d63/_typed_element_query_capabilities_8inl.html#a72343342ce64c0755563ee6c5e27868d">void</a> SetTextureParameter </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d2/d7e/struct_f_r_h_i_batched_shader_parameters.html">FRHIBatchedShaderParameters</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>BatchedParameters</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="../../db/d70/class_f_shader_resource_parameter_info.html">FShaderResourceParameterInfo</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>Parameter</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d3/d6d/class_f_r_h_i_texture.html">FRHITexture</a> *</td>          <td class="paramname"><span class="paramname"><em>TextureRHI</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a0bc34c78e8e6ae6259d9c67d940dd2f5" name="a0bc34c78e8e6ae6259d9c67d940dd2f5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0bc34c78e8e6ae6259d9c67d940dd2f5">&#9670;&#160;</a></span>SetupDepthStencilInfo()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../df/d63/_typed_element_query_capabilities_8inl.html#a72343342ce64c0755563ee6c5e27868d">void</a> SetupDepthStencilInfo </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d5/db6/_pixel_format_8h.html#aaefcb820f58db492c4c56dc4d7a93f23">EPixelFormat</a></td>          <td class="paramname"><span class="paramname"><em>DepthStencilFormat</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../da/dca/_r_h_i_definitions_8h.html#ad4ae7462d4e6cb213ec4f7673da42d5d">ETextureCreateFlags</a></td>          <td class="paramname"><span class="paramname"><em>DepthStencilCreateFlags</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../da/dca/_r_h_i_definitions_8h.html#ade9cba1bfb915996e4921f5e3dd9202d">ERenderTargetLoadAction</a></td>          <td class="paramname"><span class="paramname"><em>DepthTargetLoadAction</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../da/dca/_r_h_i_definitions_8h.html#ade9cba1bfb915996e4921f5e3dd9202d">ERenderTargetLoadAction</a></td>          <td class="paramname"><span class="paramname"><em>StencilTargetLoadAction</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d2/d1e/class_f_exclusive_depth_stencil.html">FExclusiveDepthStencil</a></td>          <td class="paramname"><span class="paramname"><em>DepthStencilAccess</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d0/d17/struct_f_graphics_pipeline_render_targets_info.html">FGraphicsPipelineRenderTargetsInfo</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>RenderTargetsInfo</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a920809758e1650ae0222d0e14024d0db" name="a920809758e1650ae0222d0e14024d0db"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a920809758e1650ae0222d0e14024d0db">&#9670;&#160;</a></span>SetupGBufferRenderTargetInfo()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../df/d63/_typed_element_query_capabilities_8inl.html#a72343342ce64c0755563ee6c5e27868d">void</a> SetupGBufferRenderTargetInfo </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="../../dc/db5/struct_f_scene_textures_config.html">FSceneTexturesConfig</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>SceneTexturesConfig</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d0/d17/struct_f_graphics_pipeline_render_targets_info.html">FGraphicsPipelineRenderTargetsInfo</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>RenderTargetsInfo</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a></td>          <td class="paramname"><span class="paramname"><em>bSetupDepthStencil</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../da/d9b/_g_buffer_info_8h.html#af3c4660f1414ac0926fd3f759991029a">EGBufferLayout</a></td>          <td class="paramname"><span class="paramname"><em>Layout</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a2d268bb58fdf48208cb2cce966dfa0ee" name="a2d268bb58fdf48208cb2cce966dfa0ee"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2d268bb58fdf48208cb2cce966dfa0ee">&#9670;&#160;</a></span>SubmitMeshDrawCommands()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../df/d63/_typed_element_query_capabilities_8inl.html#a72343342ce64c0755563ee6c5e27868d">void</a> SubmitMeshDrawCommands </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="../../db/dbe/_mesh_pass_processor_8h.html#ad16746779fdd44e96b7e914977b57998">FMeshCommandOneFrameArray</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>VisibleMeshDrawCommands</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="../../db/dbe/_mesh_pass_processor_8h.html#ad22513dcf64e0e14c402e347bc206523">FGraphicsMinimalPipelineStateSet</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>GraphicsMinimalPipelineStateSet</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="../../db/d3a/struct_f_mesh_draw_command_scene_args.html">FMeshDrawCommandSceneArgs</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>SceneArgs</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../dd/de9/preprocessor_8c.html#a1134b580f8da4de94ca6b1de4d37975e">uint32</a></td>          <td class="paramname"><span class="paramname"><em>PrimitiveIdBufferStride</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a></td>          <td class="paramname"><span class="paramname"><em>bDynamicInstancing</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../dd/de9/preprocessor_8c.html#a1134b580f8da4de94ca6b1de4d37975e">uint32</a></td>          <td class="paramname"><span class="paramname"><em>InstanceFactor</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d9/dfe/class_f_r_h_i_command_list.html">FRHICommandList</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>RHICmdList</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aa95cfa800ac631c4b8f85aae005361eb" name="aa95cfa800ac631c4b8f85aae005361eb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa95cfa800ac631c4b8f85aae005361eb">&#9670;&#160;</a></span>SubmitMeshDrawCommandsRange()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../df/d63/_typed_element_query_capabilities_8inl.html#a72343342ce64c0755563ee6c5e27868d">void</a> SubmitMeshDrawCommandsRange </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="../../db/dbe/_mesh_pass_processor_8h.html#ad16746779fdd44e96b7e914977b57998">FMeshCommandOneFrameArray</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>VisibleMeshDrawCommands</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="../../db/dbe/_mesh_pass_processor_8h.html#ad22513dcf64e0e14c402e347bc206523">FGraphicsMinimalPipelineStateSet</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>GraphicsMinimalPipelineStateSet</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="../../db/d3a/struct_f_mesh_draw_command_scene_args.html">FMeshDrawCommandSceneArgs</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>InSceneArgs</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../dd/de9/preprocessor_8c.html#a1134b580f8da4de94ca6b1de4d37975e">uint32</a></td>          <td class="paramname"><span class="paramname"><em>PrimitiveIdBufferStride</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a></td>          <td class="paramname"><span class="paramname"><em>bDynamicInstancing</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a8dbb3cd84ca9fd010dadfc3815eefa5d">int32</a></td>          <td class="paramname"><span class="paramname"><em>StartIndex</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a8dbb3cd84ca9fd010dadfc3815eefa5d">int32</a></td>          <td class="paramname"><span class="paramname"><em>NumMeshDrawCommands</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../dd/de9/preprocessor_8c.html#a1134b580f8da4de94ca6b1de4d37975e">uint32</a></td>          <td class="paramname"><span class="paramname"><em>InstanceFactor</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d9/dfe/class_f_r_h_i_command_list.html">FRHICommandList</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>RHICmdList</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a name="doc-var-members" id="doc-var-members"></a><h2 id="header-doc-var-members" class="groupheader">变量说明</h2>
+<a id="a0babcb30fb8ecb2e3df3f876b930e618" name="a0babcb30fb8ecb2e3df3f876b930e618"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0babcb30fb8ecb2e3df3f876b930e618">&#9670;&#160;</a></span>GDynamicBatchedPrimitiveLayout</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../da/dee/class_t_global_resource.html">TGlobalResource</a>&lt;<a class="el" href="../../d3/de1/class_f_dynamic_batched_primitive_layout.html">FDynamicBatchedPrimitiveLayout</a>&gt; GDynamicBatchedPrimitiveLayout</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a1286fa1c2fd7dc85da729ec41345200e" name="a1286fa1c2fd7dc85da729ec41345200e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1286fa1c2fd7dc85da729ec41345200e">&#9670;&#160;</a></span>GEmitMeshDrawEvent</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a8dbb3cd84ca9fd010dadfc3815eefa5d">int32</a> GEmitMeshDrawEvent = 0</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ab372cf221e57be194260253e4733a708" name="ab372cf221e57be194260253e4733a708"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab372cf221e57be194260253e4733a708">&#9670;&#160;</a></span>GSkipDrawOnPSOPrecaching</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a8dbb3cd84ca9fd010dadfc3815eefa5d">int32</a> GSkipDrawOnPSOPrecaching = 0</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<div id="page-nav" class="page-nav-panel">
+<div id="page-nav-resize-handle"></div>
+<div id="page-nav-tree">
+<div id="page-nav-contents">
+</div><!-- page-nav-contents -->
+</div><!-- page-nav-tree -->
+</div><!-- page-nav -->
+</div><!-- container -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a href="../../dir_0b6ee6e7e9547e675db4add2e5de97da.html">Engine</a></li><li class="navelem"><a href="../../dir_9579d1ecb2c7bf48cbe1049c41745cb4.html">Source</a></li><li class="navelem"><a href="../../dir_9f04efef762572853abdf73f62bebfcc.html">Runtime</a></li><li class="navelem"><a href="../../dir_5ed6327f04b0f38d3f6fe5caa38b0445.html">Renderer</a></li><li class="navelem"><a href="../../dir_e317dc6f09036e33460f39c550131623.html">Private</a></li><li class="navelem"><a href="../../d6/d21/_mesh_pass_processor_8cpp.html">MeshPassProcessor.cpp</a></li>
+    <li class="footer">制作者 <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.15.0 </li>
+  </ul>
+</div>
+</body>
+</html>

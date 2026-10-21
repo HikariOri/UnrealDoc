@@ -1,0 +1,2299 @@
+<!-- HTML header for doxygen 1.15.0-->
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh">
+<head>
+  <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=11" />
+  <meta name="generator" content="Doxygen 1.15.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>UE 5.8.4: Engine/Source/Runtime/CoreUObject/Private/UObject/Property.cpp 文件参考</title>
+  <link rel="icon" href="../../EdIconDefault.bmp" type="image/x-icon" />
+  <link href="../../tabs.css" rel="stylesheet" type="text/css" />
+  <script type="text/javascript" src="../../jquery.js"></script>
+  <script type="text/javascript" src="../../dynsections.js"></script>
+  <link href="../../navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../navtreedata.js"></script>
+<script type="text/javascript" src="../../navtree.js"></script>
+<script type="text/javascript" src="../../cookie.js"></script>
+  <link href="../../search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../search/searchdata.js"></script>
+<script type="text/javascript" src="../../search/search.js"></script>
+  <script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  extensions: ["tex2jax.js"],
+  jax: ["input/TeX","output/HTML-CSS"],
+});
+</script>
+<script type="text/javascript" async="async" src="https://cdn.jsdelivr.net/npm/mathjax@2/MathJax.js"></script>
+  <link href="../../doxygen.css" rel="stylesheet" type="text/css" />
+  <link href="../../doxygen-awesome.css" rel="stylesheet" type="text/css"/>
+<link href="../../doxygen-awesome-sidebar-only.css" rel="stylesheet" type="text/css"/>
+<link href="../../doxygen-awesome-sidebar-only-darkmode-toggle.css" rel="stylesheet" type="text/css"/>
+  <!-- ... other metadata & script includes ... -->
+  <script type="text/javascript" src="../../doxygen-awesome-darkmode-toggle.js"></script>
+  <script type="text/javascript">
+    DoxygenAwesomeDarkModeToggle.title = "Zwischen hellem/dunklem Modus wechseln"
+    DoxygenAwesomeDarkModeToggle.lightModeIcon = '🌞'
+    // icon from https://fonts.google.com/icons
+    DoxygenAwesomeDarkModeToggle.darkModeIcon = `<svg xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 24 24" height="24px" viewBox="0 0 24 24" width="24px" fill="#009793"><g><rect fill="none" height="24" width="24"/></g><g><g><path d="M8.1,14.15C9.77,14.63,11,16.17,11,18c0,0.68-0.19,1.31-0.48,1.87c0.48,0.09,0.97,0.14,1.48,0.14 c1.48,0,2.9-0.41,4.13-1.15c-2.62-0.92-5.23-2.82-6.8-5.86C7.74,9.94,7.78,7.09,8.29,4.9c-2.57,1.33-4.3,4.01-4.3,7.1c0,0,0,0,0,0 c0.01,0,0.01,0,0.02,0C5.66,12,7.18,12.83,8.1,14.15z" opacity=".3"/><path d="M19.78,17.51c-2.47,0-6.57-1.33-8.68-5.43C8.77,7.57,10.6,3.6,11.63,2.01C6.27,2.2,1.98,6.59,1.98,12 c0,0.14,0.02,0.28,0.02,0.42C2.61,12.16,3.28,12,3.98,12c0,0,0,0,0,0c0-3.09,1.73-5.77,4.3-7.1C7.78,7.09,7.74,9.94,9.32,13 c1.57,3.04,4.18,4.95,6.8,5.86c-1.23,0.74-2.65,1.15-4.13,1.15c-0.5,0-1-0.05-1.48-0.14c-0.37,0.7-0.94,1.27-1.64,1.64 c0.98,0.32,2.03,0.5,3.11,0.5c3.5,0,6.58-1.8,8.37-4.52C20.18,17.5,19.98,17.51,19.78,17.51z"/><path d="M7,16l-0.18,0C6.4,14.84,5.3,14,4,14c-1.66,0-3,1.34-3,3s1.34,3,3,3c0.62,0,2.49,0,3,0c1.1,0,2-0.9,2-2 C9,16.9,8.1,16,7,16z"/></g></g></svg>`
+    DoxygenAwesomeDarkModeToggle.init()
+  </script>
+  <script type="text/javascript" src="../../doxygen-awesome-fragment-copy-button.js"></script>
+  <script type="text/javascript">
+    DoxygenAwesomeFragmentCopyButton.title = "In die Zwischenablage kopieren"
+    // DoxygenAwesomeFragmentCopyButton.copyIcon = `<svg ...>`
+    // DoxygenAwesomeFragmentCopyButton.successIcon = `<svg ...>`
+    DoxygenAwesomeFragmentCopyButton.init()
+  </script>
+  <script type="text/javascript" src="../../doxygen-awesome-paragraph-link.js"></script>
+  <script type="text/javascript">
+    DoxygenAwesomeParagraphLink.title = "Abschnitt verknüpfen"
+    DoxygenAwesomeParagraphLink.icon = "¶"
+    DoxygenAwesomeParagraphLink.init()
+  </script>
+  <script type="text/javascript" src="../../doxygen-awesome-interactive-toc.js"></script>
+  <script type="text/javascript">
+    DoxygenAwesomeInteractiveToc.topOffset = 45
+    DoxygenAwesomeInteractiveToc.hideMobileMenu = false
+    DoxygenAwesomeInteractiveToc.init()
+  </script>
+</head>
+<body>
+    <div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+      <div id="titlearea">
+        <table cellspacing="0" cellpadding="0">
+          <tbody>
+            <tr id="projectrow">
+              <td id="projectlogo"><img alt="Logo" src="../../EdIconDefault.bmp"  /></td>
+              <td id="projectalign">
+                <div id="projectname">UE 5.8.4
+                </div>
+                <div id="projectbrief">Unreal Engine</div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <!-- end header part -->
+<!-- 制作者 Doxygen 1.15.0 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "../../search/",'.html');
+</script>
+<script type="text/javascript">
+$(function() { codefold.init(); });
+</script>
+<script type="text/javascript" src="../../menudata.js"></script>
+<script type="text/javascript" src="../../menu.js"></script>
+<script type="text/javascript">
+$(function() {
+  initMenu('../../',true,false,'search.php','搜索',true);
+  $(function() { init_search(); });
+});
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(function(){initNavTree('d1/d4e/_property_8cpp.html','../../',''); });
+</script>
+<div id="container">
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">载入中...</div>
+<div class="SRStatus" id="Searching">搜索中...</div>
+<div class="SRStatus" id="NoMatches">未找到</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">Property.cpp 文件参考</div></div>
+</div><!--header-->
+<div class="contents">
+<div class="textblock"><code>#include &quot;<a class="el" href="../../d9/df3/_unreal_type_8h_source.html">UObject/UnrealType.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d4/dd9/_i_console_manager_8h_source.html">HAL/IConsoleManager.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../df/d70/_blake3_8h_source.html">Hash/Blake3.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d7/d4c/_box2_d_8h_source.html">Math/Box2D.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../dc/d86/_interp_curve_point_8h_source.html">Math/InterpCurvePoint.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d4/db0/_core_2_public_2_math_2_random_stream_8h_source.html">Math/RandomStream.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../da/da9/_ray_8h_source.html">Math/Ray.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../df/dd7/_core_2_public_2_math_2_sphere_8h_source.html">Math/Sphere.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../dc/d3d/_ascii_set_8h_source.html">Misc/AsciiSet.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../dc/d81/_fallback_struct_8h_source.html">Misc/FallbackStruct.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d7/de1/_guid_8h_source.html">Misc/Guid.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../db/df8/_scope_exit_8h_source.html">Misc/ScopeExit.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d5/df1/_string_builder_8h_source.html">Misc/StringBuilder.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d9/d58/_string_output_device_8h_source.html">Misc/StringOutputDevice.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d6/dd8/_frame_rate_8h_source.html">Misc/FrameRate.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d4/d2b/_frame_time_8h_source.html">Misc/FrameTime.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d6/dea/_qualified_frame_time_8h_source.html">Misc/QualifiedFrameTime.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../dc/d1f/_frame_number_8h_source.html">Misc/FrameNumber.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../de/d9d/_timecode_8h_source.html">Misc/Timecode.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d7/d56/_archive_serialized_property_chain_8h_source.html">Serialization/ArchiveSerializedPropertyChain.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d6/d7e/_test_undeclared_script_struct_object_references_8h_source.html">Serialization/TestUndeclaredScriptStructObjectReferences.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../dd/de8/_casts_8h_source.html">Templates/Casts.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../de/d5d/_class_8h_source.html">UObject/Class.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../db/d80/_core_net_types_8h_source.html">UObject/CoreNetTypes.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d3/dc7/_core_redirects_8h_source.html">UObject/CoreRedirects.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../da/dd3/_instance_data_object_utils_8h_source.html">UObject/InstanceDataObjectUtils.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d4/dd3/_overridable_manager_8h_source.html">UObject/OverridableManager.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d9/d40/_package_8h_source.html">UObject/Package.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d0/d05/_property_helper_8h_source.html">UObject/PropertyHelper.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../db/d0c/_property_type_name_8h_source.html">UObject/PropertyTypeName.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d4/d59/_property_visitor_8h_source.html">UObject/PropertyVisitor.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d1/da7/_soft_object_path_8h_source.html">UObject/SoftObjectPath.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../de/d22/_unreal_type_private_8h_source.html">UObject/UnrealTypePrivate.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d5/d24/_u_object_globals_8h_source.html">UObject/UObjectGlobals.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../de/d1c/_u_object_iterator_8h_source.html">UObject/UObjectIterator.h</a>&quot;</code><br />
+</div><div class="textblock"><div class="dynheader">
+Property.cpp 的引用(Include)关系图:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d5/df0/_property_8cpp__incl.svg" width="4995" height="656"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+</div><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-nested-classes" class="groupheader"><a id="nested-classes" name="nested-classes"></a>
+类</h2></td></tr>
+<tr class="memitem:TVector3StructOpsTypeTraits_3C_20T_20_3E" id="r_TVector3StructOpsTypeTraits_3C_20T_20_3E"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/d8e/struct_t_vector3_struct_ops_type_traits.html">TVector3StructOpsTypeTraits&lt; T &gt;</a></td></tr>
+<tr class="memitem:TStructOpsTypeTraits_3C_20FVector3f_20_3E" id="r_TStructOpsTypeTraits_3C_20FVector3f_20_3E"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d8/d3b/struct_t_struct_ops_type_traits_3_01_f_vector3f_01_4.html">TStructOpsTypeTraits&lt; FVector3f &gt;</a></td></tr>
+<tr class="memitem:TStructOpsTypeTraits_3C_20FVector3d_20_3E" id="r_TStructOpsTypeTraits_3C_20FVector3d_20_3E"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/d18/struct_t_struct_ops_type_traits_3_01_f_vector3d_01_4.html">TStructOpsTypeTraits&lt; FVector3d &gt;</a></td></tr>
+<tr class="memitem:TIntPointStructOpsTypeTraits_3C_20T_20_3E" id="r_TIntPointStructOpsTypeTraits_3C_20T_20_3E"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/dee/struct_t_int_point_struct_ops_type_traits.html">TIntPointStructOpsTypeTraits&lt; T &gt;</a></td></tr>
+<tr class="memitem:TStructOpsTypeTraits_3C_20FInt32Point_20_3E" id="r_TStructOpsTypeTraits_3C_20FInt32Point_20_3E"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d68/struct_t_struct_ops_type_traits_3_01_f_int32_point_01_4.html">TStructOpsTypeTraits&lt; FInt32Point &gt;</a></td></tr>
+<tr class="memitem:TStructOpsTypeTraits_3C_20FInt64Point_20_3E" id="r_TStructOpsTypeTraits_3C_20FInt64Point_20_3E"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/db5/struct_t_struct_ops_type_traits_3_01_f_int64_point_01_4.html">TStructOpsTypeTraits&lt; FInt64Point &gt;</a></td></tr>
+<tr class="memitem:TStructOpsTypeTraits_3C_20FUint32Point_20_3E" id="r_TStructOpsTypeTraits_3C_20FUint32Point_20_3E"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/d34/struct_t_struct_ops_type_traits_3_01_f_uint32_point_01_4.html">TStructOpsTypeTraits&lt; FUint32Point &gt;</a></td></tr>
+<tr class="memitem:TStructOpsTypeTraits_3C_20FUint64Point_20_3E" id="r_TStructOpsTypeTraits_3C_20FUint64Point_20_3E"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/de6/struct_t_struct_ops_type_traits_3_01_f_uint64_point_01_4.html">TStructOpsTypeTraits&lt; FUint64Point &gt;</a></td></tr>
+<tr class="memitem:TIntVectorStructOpsTypeTraits_3C_20T_20_3E" id="r_TIntVectorStructOpsTypeTraits_3C_20T_20_3E"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d2/dcf/struct_t_int_vector_struct_ops_type_traits.html">TIntVectorStructOpsTypeTraits&lt; T &gt;</a></td></tr>
+<tr class="memitem:TStructOpsTypeTraits_3C_20FInt32Vector2_20_3E" id="r_TStructOpsTypeTraits_3C_20FInt32Vector2_20_3E"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/d9e/struct_t_struct_ops_type_traits_3_01_f_int32_vector2_01_4.html">TStructOpsTypeTraits&lt; FInt32Vector2 &gt;</a></td></tr>
+<tr class="memitem:TStructOpsTypeTraits_3C_20FInt64Vector2_20_3E" id="r_TStructOpsTypeTraits_3C_20FInt64Vector2_20_3E"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/ddb/struct_t_struct_ops_type_traits_3_01_f_int64_vector2_01_4.html">TStructOpsTypeTraits&lt; FInt64Vector2 &gt;</a></td></tr>
+<tr class="memitem:TStructOpsTypeTraits_3C_20FUint32Vector2_20_3E" id="r_TStructOpsTypeTraits_3C_20FUint32Vector2_20_3E"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d46/struct_t_struct_ops_type_traits_3_01_f_uint32_vector2_01_4.html">TStructOpsTypeTraits&lt; FUint32Vector2 &gt;</a></td></tr>
+<tr class="memitem:TStructOpsTypeTraits_3C_20FUint64Vector2_20_3E" id="r_TStructOpsTypeTraits_3C_20FUint64Vector2_20_3E"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/db8/struct_t_struct_ops_type_traits_3_01_f_uint64_vector2_01_4.html">TStructOpsTypeTraits&lt; FUint64Vector2 &gt;</a></td></tr>
+<tr class="memitem:TStructOpsTypeTraits_3C_20FInt32Vector3_20_3E" id="r_TStructOpsTypeTraits_3C_20FInt32Vector3_20_3E"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/dc8/struct_t_struct_ops_type_traits_3_01_f_int32_vector3_01_4.html">TStructOpsTypeTraits&lt; FInt32Vector3 &gt;</a></td></tr>
+<tr class="memitem:TStructOpsTypeTraits_3C_20FInt64Vector3_20_3E" id="r_TStructOpsTypeTraits_3C_20FInt64Vector3_20_3E"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d2/dc2/struct_t_struct_ops_type_traits_3_01_f_int64_vector3_01_4.html">TStructOpsTypeTraits&lt; FInt64Vector3 &gt;</a></td></tr>
+<tr class="memitem:TStructOpsTypeTraits_3C_20FUint32Vector3_20_3E" id="r_TStructOpsTypeTraits_3C_20FUint32Vector3_20_3E"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/d2f/struct_t_struct_ops_type_traits_3_01_f_uint32_vector3_01_4.html">TStructOpsTypeTraits&lt; FUint32Vector3 &gt;</a></td></tr>
+<tr class="memitem:TStructOpsTypeTraits_3C_20FUint64Vector3_20_3E" id="r_TStructOpsTypeTraits_3C_20FUint64Vector3_20_3E"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/dbb/struct_t_struct_ops_type_traits_3_01_f_uint64_vector3_01_4.html">TStructOpsTypeTraits&lt; FUint64Vector3 &gt;</a></td></tr>
+<tr class="memitem:TStructOpsTypeTraits_3C_20FInt32Vector4_20_3E" id="r_TStructOpsTypeTraits_3C_20FInt32Vector4_20_3E"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/d9f/struct_t_struct_ops_type_traits_3_01_f_int32_vector4_01_4.html">TStructOpsTypeTraits&lt; FInt32Vector4 &gt;</a></td></tr>
+<tr class="memitem:TStructOpsTypeTraits_3C_20FInt64Vector4_20_3E" id="r_TStructOpsTypeTraits_3C_20FInt64Vector4_20_3E"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d94/struct_t_struct_ops_type_traits_3_01_f_int64_vector4_01_4.html">TStructOpsTypeTraits&lt; FInt64Vector4 &gt;</a></td></tr>
+<tr class="memitem:TStructOpsTypeTraits_3C_20FUint32Vector4_20_3E" id="r_TStructOpsTypeTraits_3C_20FUint32Vector4_20_3E"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/de6/struct_t_struct_ops_type_traits_3_01_f_uint32_vector4_01_4.html">TStructOpsTypeTraits&lt; FUint32Vector4 &gt;</a></td></tr>
+<tr class="memitem:TStructOpsTypeTraits_3C_20FUint64Vector4_20_3E" id="r_TStructOpsTypeTraits_3C_20FUint64Vector4_20_3E"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/d1c/struct_t_struct_ops_type_traits_3_01_f_uint64_vector4_01_4.html">TStructOpsTypeTraits&lt; FUint64Vector4 &gt;</a></td></tr>
+<tr class="memitem:TVector2StructOpsTypeTraits_3C_20T_20_3E" id="r_TVector2StructOpsTypeTraits_3C_20T_20_3E"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d8/df6/struct_t_vector2_struct_ops_type_traits.html">TVector2StructOpsTypeTraits&lt; T &gt;</a></td></tr>
+<tr class="memitem:TStructOpsTypeTraits_3C_20FVector2f_20_3E" id="r_TStructOpsTypeTraits_3C_20FVector2f_20_3E"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/dda/struct_t_struct_ops_type_traits_3_01_f_vector2f_01_4.html">TStructOpsTypeTraits&lt; FVector2f &gt;</a></td></tr>
+<tr class="memitem:TStructOpsTypeTraits_3C_20FVector2d_20_3E" id="r_TStructOpsTypeTraits_3C_20FVector2d_20_3E"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/d49/struct_t_struct_ops_type_traits_3_01_f_vector2d_01_4.html">TStructOpsTypeTraits&lt; FVector2d &gt;</a></td></tr>
+<tr class="memitem:TVector4StructOpsTypeTraits_3C_20T_20_3E" id="r_TVector4StructOpsTypeTraits_3C_20T_20_3E"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d58/struct_t_vector4_struct_ops_type_traits.html">TVector4StructOpsTypeTraits&lt; T &gt;</a></td></tr>
+<tr class="memitem:TStructOpsTypeTraits_3C_20FVector4f_20_3E" id="r_TStructOpsTypeTraits_3C_20FVector4f_20_3E"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/d98/struct_t_struct_ops_type_traits_3_01_f_vector4f_01_4.html">TStructOpsTypeTraits&lt; FVector4f &gt;</a></td></tr>
+<tr class="memitem:TStructOpsTypeTraits_3C_20FVector4d_20_3E" id="r_TStructOpsTypeTraits_3C_20FVector4d_20_3E"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d8/d9a/struct_t_struct_ops_type_traits_3_01_f_vector4d_01_4.html">TStructOpsTypeTraits&lt; FVector4d &gt;</a></td></tr>
+<tr class="memitem:TPlaneStructOpsTypeTraits_3C_20T_20_3E" id="r_TPlaneStructOpsTypeTraits_3C_20T_20_3E"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d62/struct_t_plane_struct_ops_type_traits.html">TPlaneStructOpsTypeTraits&lt; T &gt;</a></td></tr>
+<tr class="memitem:TStructOpsTypeTraits_3C_20FPlane4f_20_3E" id="r_TStructOpsTypeTraits_3C_20FPlane4f_20_3E"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/dc8/struct_t_struct_ops_type_traits_3_01_f_plane4f_01_4.html">TStructOpsTypeTraits&lt; FPlane4f &gt;</a></td></tr>
+<tr class="memitem:TStructOpsTypeTraits_3C_20FPlane4d_20_3E" id="r_TStructOpsTypeTraits_3C_20FPlane4d_20_3E"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/dd1/struct_t_struct_ops_type_traits_3_01_f_plane4d_01_4.html">TStructOpsTypeTraits&lt; FPlane4d &gt;</a></td></tr>
+<tr class="memitem:TRotatorStructOpsTypeTraits_3C_20T_20_3E" id="r_TRotatorStructOpsTypeTraits_3C_20T_20_3E"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/dd0/struct_t_rotator_struct_ops_type_traits.html">TRotatorStructOpsTypeTraits&lt; T &gt;</a></td></tr>
+<tr class="memitem:TStructOpsTypeTraits_3C_20FRotator3f_20_3E" id="r_TStructOpsTypeTraits_3C_20FRotator3f_20_3E"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/d74/struct_t_struct_ops_type_traits_3_01_f_rotator3f_01_4.html">TStructOpsTypeTraits&lt; FRotator3f &gt;</a></td></tr>
+<tr class="memitem:TStructOpsTypeTraits_3C_20FRotator3d_20_3E" id="r_TStructOpsTypeTraits_3C_20FRotator3d_20_3E"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/d7b/struct_t_struct_ops_type_traits_3_01_f_rotator3d_01_4.html">TStructOpsTypeTraits&lt; FRotator3d &gt;</a></td></tr>
+<tr class="memitem:TBox3StructOpsTypeTraits_3C_20T_20_3E" id="r_TBox3StructOpsTypeTraits_3C_20T_20_3E"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/da0/struct_t_box3_struct_ops_type_traits.html">TBox3StructOpsTypeTraits&lt; T &gt;</a></td></tr>
+<tr class="memitem:TStructOpsTypeTraits_3C_20FBox3f_20_3E" id="r_TStructOpsTypeTraits_3C_20FBox3f_20_3E"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/d02/struct_t_struct_ops_type_traits_3_01_f_box3f_01_4.html">TStructOpsTypeTraits&lt; FBox3f &gt;</a></td></tr>
+<tr class="memitem:TStructOpsTypeTraits_3C_20FBox3d_20_3E" id="r_TStructOpsTypeTraits_3C_20FBox3d_20_3E"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/d71/struct_t_struct_ops_type_traits_3_01_f_box3d_01_4.html">TStructOpsTypeTraits&lt; FBox3d &gt;</a></td></tr>
+<tr class="memitem:TBox2StructOpsTypeTraits_3C_20T_20_3E" id="r_TBox2StructOpsTypeTraits_3C_20T_20_3E"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/d24/struct_t_box2_struct_ops_type_traits.html">TBox2StructOpsTypeTraits&lt; T &gt;</a></td></tr>
+<tr class="memitem:TStructOpsTypeTraits_3C_20FBox2f_20_3E" id="r_TStructOpsTypeTraits_3C_20FBox2f_20_3E"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/d30/struct_t_struct_ops_type_traits_3_01_f_box2f_01_4.html">TStructOpsTypeTraits&lt; FBox2f &gt;</a></td></tr>
+<tr class="memitem:TStructOpsTypeTraits_3C_20FBox2d_20_3E" id="r_TStructOpsTypeTraits_3C_20FBox2d_20_3E"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d2/d65/struct_t_struct_ops_type_traits_3_01_f_box2d_01_4.html">TStructOpsTypeTraits&lt; FBox2d &gt;</a></td></tr>
+<tr class="memitem:TMatrixStructOpsTypeTraits_3C_20T_20_3E" id="r_TMatrixStructOpsTypeTraits_3C_20T_20_3E"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/d56/struct_t_matrix_struct_ops_type_traits.html">TMatrixStructOpsTypeTraits&lt; T &gt;</a></td></tr>
+<tr class="memitem:TStructOpsTypeTraits_3C_20FMatrix44f_20_3E" id="r_TStructOpsTypeTraits_3C_20FMatrix44f_20_3E"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d8/d3c/struct_t_struct_ops_type_traits_3_01_f_matrix44f_01_4.html">TStructOpsTypeTraits&lt; FMatrix44f &gt;</a></td></tr>
+<tr class="memitem:TStructOpsTypeTraits_3C_20FMatrix44d_20_3E" id="r_TStructOpsTypeTraits_3C_20FMatrix44d_20_3E"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d17/struct_t_struct_ops_type_traits_3_01_f_matrix44d_01_4.html">TStructOpsTypeTraits&lt; FMatrix44d &gt;</a></td></tr>
+<tr class="memitem:TBoxSphereBoundsStructOpsTypeTraits_3C_20T_20_3E" id="r_TBoxSphereBoundsStructOpsTypeTraits_3C_20T_20_3E"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/d53/struct_t_box_sphere_bounds_struct_ops_type_traits.html">TBoxSphereBoundsStructOpsTypeTraits&lt; T &gt;</a></td></tr>
+<tr class="memitem:TStructOpsTypeTraits_3C_20FBoxSphereBounds3f_20_3E" id="r_TStructOpsTypeTraits_3C_20FBoxSphereBounds3f_20_3E"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d41/struct_t_struct_ops_type_traits_3_01_f_box_sphere_bounds3f_01_4.html">TStructOpsTypeTraits&lt; FBoxSphereBounds3f &gt;</a></td></tr>
+<tr class="memitem:TStructOpsTypeTraits_3C_20FBoxSphereBounds3d_20_3E" id="r_TStructOpsTypeTraits_3C_20FBoxSphereBounds3d_20_3E"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/d68/struct_t_struct_ops_type_traits_3_01_f_box_sphere_bounds3d_01_4.html">TStructOpsTypeTraits&lt; FBoxSphereBounds3d &gt;</a></td></tr>
+<tr class="memitem:TStructOpsTypeTraits_3C_20FOrientedBox_20_3E" id="r_TStructOpsTypeTraits_3C_20FOrientedBox_20_3E"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/de7/struct_t_struct_ops_type_traits_3_01_f_oriented_box_01_4.html">TStructOpsTypeTraits&lt; FOrientedBox &gt;</a></td></tr>
+<tr class="memitem:TStructOpsTypeTraits_3C_20FLinearColor_20_3E" id="r_TStructOpsTypeTraits_3C_20FLinearColor_20_3E"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d8/de6/struct_t_struct_ops_type_traits_3_01_f_linear_color_01_4.html">TStructOpsTypeTraits&lt; FLinearColor &gt;</a></td></tr>
+<tr class="memitem:TStructOpsTypeTraits_3C_20FColor_20_3E" id="r_TStructOpsTypeTraits_3C_20FColor_20_3E"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/d6f/struct_t_struct_ops_type_traits_3_01_f_color_01_4.html">TStructOpsTypeTraits&lt; FColor &gt;</a></td></tr>
+<tr class="memitem:TQuatStructOpsTypeTraits_3C_20T_20_3E" id="r_TQuatStructOpsTypeTraits_3C_20T_20_3E"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/d20/struct_t_quat_struct_ops_type_traits.html">TQuatStructOpsTypeTraits&lt; T &gt;</a></td></tr>
+<tr class="memitem:TStructOpsTypeTraits_3C_20FQuat4f_20_3E" id="r_TStructOpsTypeTraits_3C_20FQuat4f_20_3E"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d21/struct_t_struct_ops_type_traits_3_01_f_quat4f_01_4.html">TStructOpsTypeTraits&lt; FQuat4f &gt;</a></td></tr>
+<tr class="memitem:TStructOpsTypeTraits_3C_20FQuat4d_20_3E" id="r_TStructOpsTypeTraits_3C_20FQuat4d_20_3E"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d7e/struct_t_struct_ops_type_traits_3_01_f_quat4d_01_4.html">TStructOpsTypeTraits&lt; FQuat4d &gt;</a></td></tr>
+<tr class="memitem:TStructOpsTypeTraits_3C_20FTwoVectors_20_3E" id="r_TStructOpsTypeTraits_3C_20FTwoVectors_20_3E"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/d8f/struct_t_struct_ops_type_traits_3_01_f_two_vectors_01_4.html">TStructOpsTypeTraits&lt; FTwoVectors &gt;</a></td></tr>
+<tr class="memitem:TRay3StructOpsTypeTraits_3C_20T_20_3E" id="r_TRay3StructOpsTypeTraits_3C_20T_20_3E"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d68/struct_t_ray3_struct_ops_type_traits.html">TRay3StructOpsTypeTraits&lt; T &gt;</a></td></tr>
+<tr class="memitem:TStructOpsTypeTraits_3C_20FRay3f_20_3E" id="r_TStructOpsTypeTraits_3C_20FRay3f_20_3E"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/d98/struct_t_struct_ops_type_traits_3_01_f_ray3f_01_4.html">TStructOpsTypeTraits&lt; FRay3f &gt;</a></td></tr>
+<tr class="memitem:TStructOpsTypeTraits_3C_20FRay3d_20_3E" id="r_TStructOpsTypeTraits_3C_20FRay3d_20_3E"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/d90/struct_t_struct_ops_type_traits_3_01_f_ray3d_01_4.html">TStructOpsTypeTraits&lt; FRay3d &gt;</a></td></tr>
+<tr class="memitem:TSphere3StructOpsTypeTraits_3C_20T_20_3E" id="r_TSphere3StructOpsTypeTraits_3C_20T_20_3E"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/da1/struct_t_sphere3_struct_ops_type_traits.html">TSphere3StructOpsTypeTraits&lt; T &gt;</a></td></tr>
+<tr class="memitem:TStructOpsTypeTraits_3C_20FSphere3f_20_3E" id="r_TStructOpsTypeTraits_3C_20FSphere3f_20_3E"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/d7d/struct_t_struct_ops_type_traits_3_01_f_sphere3f_01_4.html">TStructOpsTypeTraits&lt; FSphere3f &gt;</a></td></tr>
+<tr class="memitem:TStructOpsTypeTraits_3C_20FSphere3d_20_3E" id="r_TStructOpsTypeTraits_3C_20FSphere3d_20_3E"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/d64/struct_t_struct_ops_type_traits_3_01_f_sphere3d_01_4.html">TStructOpsTypeTraits&lt; FSphere3d &gt;</a></td></tr>
+<tr class="memitem:TStructOpsTypeTraits_3C_20FInterpCurvePointFloat_20_3E" id="r_TStructOpsTypeTraits_3C_20FInterpCurvePointFloat_20_3E"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/d0b/struct_t_struct_ops_type_traits_3_01_f_interp_curve_point_float_01_4.html">TStructOpsTypeTraits&lt; FInterpCurvePointFloat &gt;</a></td></tr>
+<tr class="memitem:TStructOpsTypeTraits_3C_20FInterpCurvePointVector2D_20_3E" id="r_TStructOpsTypeTraits_3C_20FInterpCurvePointVector2D_20_3E"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/dbd/struct_t_struct_ops_type_traits_3_01_f_interp_curve_point_vector2_d_01_4.html">TStructOpsTypeTraits&lt; FInterpCurvePointVector2D &gt;</a></td></tr>
+<tr class="memitem:TStructOpsTypeTraits_3C_20FInterpCurvePointVector_20_3E" id="r_TStructOpsTypeTraits_3C_20FInterpCurvePointVector_20_3E"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/ddb/struct_t_struct_ops_type_traits_3_01_f_interp_curve_point_vector_01_4.html">TStructOpsTypeTraits&lt; FInterpCurvePointVector &gt;</a></td></tr>
+<tr class="memitem:TStructOpsTypeTraits_3C_20FInterpCurvePointQuat_20_3E" id="r_TStructOpsTypeTraits_3C_20FInterpCurvePointQuat_20_3E"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/d61/struct_t_struct_ops_type_traits_3_01_f_interp_curve_point_quat_01_4.html">TStructOpsTypeTraits&lt; FInterpCurvePointQuat &gt;</a></td></tr>
+<tr class="memitem:TStructOpsTypeTraits_3C_20FInterpCurvePointTwoVectors_20_3E" id="r_TStructOpsTypeTraits_3C_20FInterpCurvePointTwoVectors_20_3E"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/dec/struct_t_struct_ops_type_traits_3_01_f_interp_curve_point_two_vectors_01_4.html">TStructOpsTypeTraits&lt; FInterpCurvePointTwoVectors &gt;</a></td></tr>
+<tr class="memitem:TStructOpsTypeTraits_3C_20FInterpCurvePointLinearColor_20_3E" id="r_TStructOpsTypeTraits_3C_20FInterpCurvePointLinearColor_20_3E"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/d0e/struct_t_struct_ops_type_traits_3_01_f_interp_curve_point_linear_color_01_4.html">TStructOpsTypeTraits&lt; FInterpCurvePointLinearColor &gt;</a></td></tr>
+<tr class="memitem:TStructOpsTypeTraits_3C_20FGuid_20_3E" id="r_TStructOpsTypeTraits_3C_20FGuid_20_3E"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d2e/struct_t_struct_ops_type_traits_3_01_f_guid_01_4.html">TStructOpsTypeTraits&lt; FGuid &gt;</a></td></tr>
+<tr class="memitem:TTransformStructOpsTypeTraits_3C_20T_20_3E" id="r_TTransformStructOpsTypeTraits_3C_20T_20_3E"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/d3d/struct_t_transform_struct_ops_type_traits.html">TTransformStructOpsTypeTraits&lt; T &gt;</a></td></tr>
+<tr class="memitem:TStructOpsTypeTraits_3C_20FTransform3f_20_3E" id="r_TStructOpsTypeTraits_3C_20FTransform3f_20_3E"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/dac/struct_t_struct_ops_type_traits_3_01_f_transform3f_01_4.html">TStructOpsTypeTraits&lt; FTransform3f &gt;</a></td></tr>
+<tr class="memitem:TStructOpsTypeTraits_3C_20FTransform3d_20_3E" id="r_TStructOpsTypeTraits_3C_20FTransform3d_20_3E"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/df2/struct_t_struct_ops_type_traits_3_01_f_transform3d_01_4.html">TStructOpsTypeTraits&lt; FTransform3d &gt;</a></td></tr>
+<tr class="memitem:TStructOpsTypeTraits_3C_20FRandomStream_20_3E" id="r_TStructOpsTypeTraits_3C_20FRandomStream_20_3E"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/dec/struct_t_struct_ops_type_traits_3_01_f_random_stream_01_4.html">TStructOpsTypeTraits&lt; FRandomStream &gt;</a></td></tr>
+<tr class="memitem:TStructOpsTypeTraits_3C_20FDateTime_20_3E" id="r_TStructOpsTypeTraits_3C_20FDateTime_20_3E"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/da6/struct_t_struct_ops_type_traits_3_01_f_date_time_01_4.html">TStructOpsTypeTraits&lt; FDateTime &gt;</a></td></tr>
+<tr class="memitem:TStructOpsTypeTraits_3C_20FTimespan_20_3E" id="r_TStructOpsTypeTraits_3C_20FTimespan_20_3E"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/d0a/struct_t_struct_ops_type_traits_3_01_f_timespan_01_4.html">TStructOpsTypeTraits&lt; FTimespan &gt;</a></td></tr>
+<tr class="memitem:TStructOpsTypeTraits_3C_20FFrameNumber_20_3E" id="r_TStructOpsTypeTraits_3C_20FFrameNumber_20_3E"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/d58/struct_t_struct_ops_type_traits_3_01_f_frame_number_01_4.html">TStructOpsTypeTraits&lt; FFrameNumber &gt;</a></td></tr>
+<tr class="memitem:TStructOpsTypeTraits_3C_20FFrameRate_20_3E" id="r_TStructOpsTypeTraits_3C_20FFrameRate_20_3E"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/ded/struct_t_struct_ops_type_traits_3_01_f_frame_rate_01_4.html">TStructOpsTypeTraits&lt; FFrameRate &gt;</a></td></tr>
+<tr class="memitem:TStructOpsTypeTraits_3C_20FFrameTime_20_3E" id="r_TStructOpsTypeTraits_3C_20FFrameTime_20_3E"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d95/struct_t_struct_ops_type_traits_3_01_f_frame_time_01_4.html">TStructOpsTypeTraits&lt; FFrameTime &gt;</a></td></tr>
+<tr class="memitem:TStructOpsTypeTraits_3C_20FTimecode_20_3E" id="r_TStructOpsTypeTraits_3C_20FTimecode_20_3E"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/d24/struct_t_struct_ops_type_traits_3_01_f_timecode_01_4.html">TStructOpsTypeTraits&lt; FTimecode &gt;</a></td></tr>
+<tr class="memitem:TStructOpsTypeTraits_3C_20FFallbackStruct_20_3E" id="r_TStructOpsTypeTraits_3C_20FFallbackStruct_20_3E"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/dc3/struct_t_struct_ops_type_traits_3_01_f_fallback_struct_01_4.html">TStructOpsTypeTraits&lt; FFallbackStruct &gt;</a></td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-namespaces" class="groupheader"><a id="namespaces" name="namespaces"></a>
+命名空间</h2></td></tr>
+<tr class="memitem:UE" id="r_UE"><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/de5/namespace_u_e.html">UE</a></td></tr>
+<tr class="memitem:UE_3A_3ACoreUObject" id="r_UE_3A_3ACoreUObject"><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/dd6/namespace_u_e_1_1_core_u_object.html">UE::CoreUObject</a></td></tr>
+<tr class="memitem:UE_3A_3ACoreUObject_3A_3APrivate" id="r_UE_3A_3ACoreUObject_3A_3APrivate"><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/dc8/namespace_u_e_1_1_core_u_object_1_1_private.html">UE::CoreUObject::Private</a></td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-func-members" class="groupheader"><a id="func-members" name="func-members"></a>
+函数</h2></td></tr>
+<tr class="memitem:a69439f5c7d07007ca2c4b917dd1408d6" id="r_a69439f5c7d07007ca2c4b917dd1408d6"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a69439f5c7d07007ca2c4b917dd1408d6">DEFINE_LOG_CATEGORY</a> (LogProperty)</td></tr>
+<tr class="memitem:a11936687b71d508c95ee73dbf06db0d1" id="r_a11936687b71d508c95ee73dbf06db0d1"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a11936687b71d508c95ee73dbf06db0d1">UE_IMPLEMENT_STRUCT</a> (&quot;/Script/CoreUObject&quot;, Vector3f)</td></tr>
+<tr class="memitem:a9e1be101d65595b62fe9e77bacd4348c" id="r_a9e1be101d65595b62fe9e77bacd4348c"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9e1be101d65595b62fe9e77bacd4348c">UE_IMPLEMENT_STRUCT</a> (&quot;/Script/CoreUObject&quot;, Vector3d)</td></tr>
+<tr class="memitem:a582228d76e67f0c9cd1fddd34f3ec87d" id="r_a582228d76e67f0c9cd1fddd34f3ec87d"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a582228d76e67f0c9cd1fddd34f3ec87d">UE_IMPLEMENT_STRUCT</a> (&quot;/Script/CoreUObject&quot;, Vector)</td></tr>
+<tr class="memitem:a7b80997b7ae1dbbed71b45b8d929c6ac" id="r_a7b80997b7ae1dbbed71b45b8d929c6ac"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7b80997b7ae1dbbed71b45b8d929c6ac">UE_IMPLEMENT_STRUCT</a> (&quot;/Script/CoreUObject&quot;, Int32Point)</td></tr>
+<tr class="memitem:a6d79b24e5c97cb2a9e3017ed284be48c" id="r_a6d79b24e5c97cb2a9e3017ed284be48c"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6d79b24e5c97cb2a9e3017ed284be48c">UE_IMPLEMENT_STRUCT</a> (&quot;/Script/CoreUObject&quot;, Int64Point)</td></tr>
+<tr class="memitem:a54ebd8d9fba92d9e1adcd12c337e686a" id="r_a54ebd8d9fba92d9e1adcd12c337e686a"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a54ebd8d9fba92d9e1adcd12c337e686a">UE_IMPLEMENT_STRUCT</a> (&quot;/Script/CoreUObject&quot;, Uint32Point)</td></tr>
+<tr class="memitem:aad19793693a2bebe50d8e716798b0a11" id="r_aad19793693a2bebe50d8e716798b0a11"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aad19793693a2bebe50d8e716798b0a11">UE_IMPLEMENT_STRUCT</a> (&quot;/Script/CoreUObject&quot;, Uint64Point)</td></tr>
+<tr class="memitem:a72d2a8d717d9630300b688bc7cd8981d" id="r_a72d2a8d717d9630300b688bc7cd8981d"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a72d2a8d717d9630300b688bc7cd8981d">UE_IMPLEMENT_STRUCT</a> (&quot;/Script/CoreUObject&quot;, IntPoint)</td></tr>
+<tr class="memitem:a0f16610a9b0645e06b1ea9fbc5e2e267" id="r_a0f16610a9b0645e06b1ea9fbc5e2e267"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a0f16610a9b0645e06b1ea9fbc5e2e267">UE_IMPLEMENT_STRUCT</a> (&quot;/Script/CoreUObject&quot;, UintPoint)</td></tr>
+<tr class="memitem:aa94387a0d4f47856eddd40aab034be65" id="r_aa94387a0d4f47856eddd40aab034be65"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa94387a0d4f47856eddd40aab034be65">UE_IMPLEMENT_STRUCT</a> (&quot;/Script/CoreUObject&quot;, Int32Vector2)</td></tr>
+<tr class="memitem:a436c5a8b6f1a3993a5275a7628bb0c49" id="r_a436c5a8b6f1a3993a5275a7628bb0c49"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a436c5a8b6f1a3993a5275a7628bb0c49">UE_IMPLEMENT_STRUCT</a> (&quot;/Script/CoreUObject&quot;, Int64Vector2)</td></tr>
+<tr class="memitem:a7df08b68fcdebab62c828b9de00a0300" id="r_a7df08b68fcdebab62c828b9de00a0300"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7df08b68fcdebab62c828b9de00a0300">UE_IMPLEMENT_STRUCT</a> (&quot;/Script/CoreUObject&quot;, Uint32Vector2)</td></tr>
+<tr class="memitem:a995ee0c8ba4cb6398c7f810d6e7fb901" id="r_a995ee0c8ba4cb6398c7f810d6e7fb901"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a995ee0c8ba4cb6398c7f810d6e7fb901">UE_IMPLEMENT_STRUCT</a> (&quot;/Script/CoreUObject&quot;, Uint64Vector2)</td></tr>
+<tr class="memitem:a711d9d562a135f2a6bd9e8c6ae19e09b" id="r_a711d9d562a135f2a6bd9e8c6ae19e09b"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a711d9d562a135f2a6bd9e8c6ae19e09b">UE_IMPLEMENT_STRUCT</a> (&quot;/Script/CoreUObject&quot;, IntVector2)</td></tr>
+<tr class="memitem:a6b2977e3da689710c4b202e92265ac2e" id="r_a6b2977e3da689710c4b202e92265ac2e"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6b2977e3da689710c4b202e92265ac2e">UE_IMPLEMENT_STRUCT</a> (&quot;/Script/CoreUObject&quot;, UintVector2)</td></tr>
+<tr class="memitem:ac11f845b710a3dd6587ee01a4b046114" id="r_ac11f845b710a3dd6587ee01a4b046114"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac11f845b710a3dd6587ee01a4b046114">UE_IMPLEMENT_STRUCT</a> (&quot;/Script/CoreUObject&quot;, Int32Vector)</td></tr>
+<tr class="memitem:ab1e373f0c840108f5b660a33c4501b50" id="r_ab1e373f0c840108f5b660a33c4501b50"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab1e373f0c840108f5b660a33c4501b50">UE_IMPLEMENT_STRUCT</a> (&quot;/Script/CoreUObject&quot;, Int64Vector)</td></tr>
+<tr class="memitem:a49c9ba79a75398bb1299e0dd1627a2af" id="r_a49c9ba79a75398bb1299e0dd1627a2af"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a49c9ba79a75398bb1299e0dd1627a2af">UE_IMPLEMENT_STRUCT</a> (&quot;/Script/CoreUObject&quot;, Uint32Vector)</td></tr>
+<tr class="memitem:a2d22a8967421420fbd0dc0b0e5dc23fd" id="r_a2d22a8967421420fbd0dc0b0e5dc23fd"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2d22a8967421420fbd0dc0b0e5dc23fd">UE_IMPLEMENT_STRUCT</a> (&quot;/Script/CoreUObject&quot;, Uint64Vector)</td></tr>
+<tr class="memitem:a9adeb9c523b043b03d57408a3d91b48d" id="r_a9adeb9c523b043b03d57408a3d91b48d"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9adeb9c523b043b03d57408a3d91b48d">UE_IMPLEMENT_STRUCT</a> (&quot;/Script/CoreUObject&quot;, IntVector)</td></tr>
+<tr class="memitem:ad84a440e6ce5353b6deb03d8fbae8cd4" id="r_ad84a440e6ce5353b6deb03d8fbae8cd4"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad84a440e6ce5353b6deb03d8fbae8cd4">UE_IMPLEMENT_STRUCT</a> (&quot;/Script/CoreUObject&quot;, UintVector)</td></tr>
+<tr class="memitem:aa973f12a2941241125b33a242431afb9" id="r_aa973f12a2941241125b33a242431afb9"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa973f12a2941241125b33a242431afb9">UE_IMPLEMENT_STRUCT</a> (&quot;/Script/CoreUObject&quot;, Int32Vector4)</td></tr>
+<tr class="memitem:ae7e3547cdf50df22b59fef4d8ea0d429" id="r_ae7e3547cdf50df22b59fef4d8ea0d429"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae7e3547cdf50df22b59fef4d8ea0d429">UE_IMPLEMENT_STRUCT</a> (&quot;/Script/CoreUObject&quot;, Int64Vector4)</td></tr>
+<tr class="memitem:abda6d304a0eb35662f20d2d902554661" id="r_abda6d304a0eb35662f20d2d902554661"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#abda6d304a0eb35662f20d2d902554661">UE_IMPLEMENT_STRUCT</a> (&quot;/Script/CoreUObject&quot;, Uint32Vector4)</td></tr>
+<tr class="memitem:afb84860c72eef979b3c457cc22b7aad2" id="r_afb84860c72eef979b3c457cc22b7aad2"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#afb84860c72eef979b3c457cc22b7aad2">UE_IMPLEMENT_STRUCT</a> (&quot;/Script/CoreUObject&quot;, Uint64Vector4)</td></tr>
+<tr class="memitem:ae04d6fd99f0170e04c9d992ddc3aebbb" id="r_ae04d6fd99f0170e04c9d992ddc3aebbb"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae04d6fd99f0170e04c9d992ddc3aebbb">UE_IMPLEMENT_STRUCT</a> (&quot;/Script/CoreUObject&quot;, IntVector4)</td></tr>
+<tr class="memitem:ab0349cc5fe66b6a2b9aa4a72067776eb" id="r_ab0349cc5fe66b6a2b9aa4a72067776eb"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab0349cc5fe66b6a2b9aa4a72067776eb">UE_IMPLEMENT_STRUCT</a> (&quot;/Script/CoreUObject&quot;, UintVector4)</td></tr>
+<tr class="memitem:a44494424adcbb958ed7cadda3ff00703" id="r_a44494424adcbb958ed7cadda3ff00703"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a44494424adcbb958ed7cadda3ff00703">UE_IMPLEMENT_STRUCT</a> (&quot;/Script/CoreUObject&quot;, Vector2f)</td></tr>
+<tr class="memitem:afc4ca564524286c042282591db9a73f6" id="r_afc4ca564524286c042282591db9a73f6"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#afc4ca564524286c042282591db9a73f6">UE_IMPLEMENT_STRUCT</a> (&quot;/Script/CoreUObject&quot;, Vector2d)</td></tr>
+<tr class="memitem:aa95586aff771fff56e7f4f03591b00d6" id="r_aa95586aff771fff56e7f4f03591b00d6"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa95586aff771fff56e7f4f03591b00d6">UE_IMPLEMENT_STRUCT</a> (&quot;/Script/CoreUObject&quot;, Vector2D)</td></tr>
+<tr class="memitem:a8b672847a9e1b444de5c3e60b9e5d090" id="r_a8b672847a9e1b444de5c3e60b9e5d090"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8b672847a9e1b444de5c3e60b9e5d090">UE_IMPLEMENT_STRUCT</a> (&quot;/Script/CoreUObject&quot;, Vector4f)</td></tr>
+<tr class="memitem:a3f8ac9d3452692e99176193fafa6a91a" id="r_a3f8ac9d3452692e99176193fafa6a91a"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a3f8ac9d3452692e99176193fafa6a91a">UE_IMPLEMENT_STRUCT</a> (&quot;/Script/CoreUObject&quot;, Vector4d)</td></tr>
+<tr class="memitem:ad2640152e62174fcbe1cedde0a2b6d42" id="r_ad2640152e62174fcbe1cedde0a2b6d42"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad2640152e62174fcbe1cedde0a2b6d42">UE_IMPLEMENT_STRUCT</a> (&quot;/Script/CoreUObject&quot;, Vector4)</td></tr>
+<tr class="memitem:ac3413764de4b3647239555d12191eefc" id="r_ac3413764de4b3647239555d12191eefc"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac3413764de4b3647239555d12191eefc">UE_IMPLEMENT_STRUCT</a> (&quot;/Script/CoreUObject&quot;, Plane4f)</td></tr>
+<tr class="memitem:a07ecbbf88804a57ea67c42cb1a99bc25" id="r_a07ecbbf88804a57ea67c42cb1a99bc25"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a07ecbbf88804a57ea67c42cb1a99bc25">UE_IMPLEMENT_STRUCT</a> (&quot;/Script/CoreUObject&quot;, Plane4d)</td></tr>
+<tr class="memitem:a07d243460e1d80152a0c9295e0f4e0a1" id="r_a07d243460e1d80152a0c9295e0f4e0a1"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a07d243460e1d80152a0c9295e0f4e0a1">UE_IMPLEMENT_STRUCT</a> (&quot;/Script/CoreUObject&quot;, Plane)</td></tr>
+<tr class="memitem:a2d6d0768779f038fcb79b1fef61c34d7" id="r_a2d6d0768779f038fcb79b1fef61c34d7"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2d6d0768779f038fcb79b1fef61c34d7">UE_IMPLEMENT_STRUCT</a> (&quot;/Script/CoreUObject&quot;, Rotator3f)</td></tr>
+<tr class="memitem:a4557fed767426eabee5e5298d6c85d64" id="r_a4557fed767426eabee5e5298d6c85d64"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4557fed767426eabee5e5298d6c85d64">UE_IMPLEMENT_STRUCT</a> (&quot;/Script/CoreUObject&quot;, Rotator3d)</td></tr>
+<tr class="memitem:a484ebc81ab6506b902aa460218f5323e" id="r_a484ebc81ab6506b902aa460218f5323e"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a484ebc81ab6506b902aa460218f5323e">UE_IMPLEMENT_STRUCT</a> (&quot;/Script/CoreUObject&quot;, Rotator)</td></tr>
+<tr class="memitem:a90fccbab31b3b93be630c12808fda6f5" id="r_a90fccbab31b3b93be630c12808fda6f5"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a90fccbab31b3b93be630c12808fda6f5">UE_IMPLEMENT_STRUCT</a> (&quot;/Script/CoreUObject&quot;, Box3f)</td></tr>
+<tr class="memitem:a3a28290e8c6f524838ec8423772460eb" id="r_a3a28290e8c6f524838ec8423772460eb"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a3a28290e8c6f524838ec8423772460eb">UE_IMPLEMENT_STRUCT</a> (&quot;/Script/CoreUObject&quot;, Box3d)</td></tr>
+<tr class="memitem:a40b3a88c12a58405f706a85459ab3950" id="r_a40b3a88c12a58405f706a85459ab3950"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a40b3a88c12a58405f706a85459ab3950">UE_IMPLEMENT_STRUCT</a> (&quot;/Script/CoreUObject&quot;, Box)</td></tr>
+<tr class="memitem:a16c56bf53869922be0df239623cf20ab" id="r_a16c56bf53869922be0df239623cf20ab"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a16c56bf53869922be0df239623cf20ab">UE_IMPLEMENT_STRUCT</a> (&quot;/Script/CoreUObject&quot;, Box2f)</td></tr>
+<tr class="memitem:addbf6cd7d07d1ab69b567d4260c959cc" id="r_addbf6cd7d07d1ab69b567d4260c959cc"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#addbf6cd7d07d1ab69b567d4260c959cc">UE_IMPLEMENT_STRUCT</a> (&quot;/Script/CoreUObject&quot;, Box2d)</td></tr>
+<tr class="memitem:aaa769bf38983e81d40b91f3485b70fd7" id="r_aaa769bf38983e81d40b91f3485b70fd7"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aaa769bf38983e81d40b91f3485b70fd7">UE_IMPLEMENT_STRUCT</a> (&quot;/Script/CoreUObject&quot;, Box2D)</td></tr>
+<tr class="memitem:a97ec26d4c67e4c8ff616b63648da9045" id="r_a97ec26d4c67e4c8ff616b63648da9045"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a97ec26d4c67e4c8ff616b63648da9045">UE_IMPLEMENT_STRUCT</a> (&quot;/Script/CoreUObject&quot;, Matrix44f)</td></tr>
+<tr class="memitem:a2e235b52887cf1c2f5e21c3cf40b26df" id="r_a2e235b52887cf1c2f5e21c3cf40b26df"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2e235b52887cf1c2f5e21c3cf40b26df">UE_IMPLEMENT_STRUCT</a> (&quot;/Script/CoreUObject&quot;, Matrix44d)</td></tr>
+<tr class="memitem:a7970cdc1a16ac6aab4a9967f6db9500e" id="r_a7970cdc1a16ac6aab4a9967f6db9500e"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7970cdc1a16ac6aab4a9967f6db9500e">UE_IMPLEMENT_STRUCT</a> (&quot;/Script/CoreUObject&quot;, Matrix)</td></tr>
+<tr class="memitem:a604b8808e0c3f6e0654d1103693e0a3c" id="r_a604b8808e0c3f6e0654d1103693e0a3c"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a604b8808e0c3f6e0654d1103693e0a3c">UE_IMPLEMENT_STRUCT</a> (&quot;/Script/CoreUObject&quot;, BoxSphereBounds3f)</td></tr>
+<tr class="memitem:ad907fbd5982601af3517bd5e105074f5" id="r_ad907fbd5982601af3517bd5e105074f5"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad907fbd5982601af3517bd5e105074f5">UE_IMPLEMENT_STRUCT</a> (&quot;/Script/CoreUObject&quot;, BoxSphereBounds3d)</td></tr>
+<tr class="memitem:aab7776fead6a71dc1ab142df7facb916" id="r_aab7776fead6a71dc1ab142df7facb916"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aab7776fead6a71dc1ab142df7facb916">UE_IMPLEMENT_STRUCT</a> (&quot;/Script/CoreUObject&quot;, BoxSphereBounds)</td></tr>
+<tr class="memitem:ad21a98555b1a3c1cbcaf593ca0a3e78e" id="r_ad21a98555b1a3c1cbcaf593ca0a3e78e"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad21a98555b1a3c1cbcaf593ca0a3e78e">UE_IMPLEMENT_STRUCT</a> (&quot;/Script/CoreUObject&quot;, OrientedBox)</td></tr>
+<tr class="memitem:a5c7f3c112faf6248fead1f655c6c2c23" id="r_a5c7f3c112faf6248fead1f655c6c2c23"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5c7f3c112faf6248fead1f655c6c2c23">UE_IMPLEMENT_STRUCT</a> (&quot;/Script/CoreUObject&quot;, LinearColor)</td></tr>
+<tr class="memitem:a5f291357b1f709b800b8e3b675a4fb33" id="r_a5f291357b1f709b800b8e3b675a4fb33"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5f291357b1f709b800b8e3b675a4fb33">UE_IMPLEMENT_STRUCT</a> (&quot;/Script/CoreUObject&quot;, Color)</td></tr>
+<tr class="memitem:aa9b52c26373a356794dda58ccd9d8979" id="r_aa9b52c26373a356794dda58ccd9d8979"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa9b52c26373a356794dda58ccd9d8979">UE_IMPLEMENT_STRUCT</a> (&quot;/Script/CoreUObject&quot;, Quat4f)</td></tr>
+<tr class="memitem:a336c7079843ee67511195a87d9ea7b50" id="r_a336c7079843ee67511195a87d9ea7b50"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a336c7079843ee67511195a87d9ea7b50">UE_IMPLEMENT_STRUCT</a> (&quot;/Script/CoreUObject&quot;, Quat4d)</td></tr>
+<tr class="memitem:a99d27ae029a251bcdcadc2d08995fb63" id="r_a99d27ae029a251bcdcadc2d08995fb63"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a99d27ae029a251bcdcadc2d08995fb63">UE_IMPLEMENT_STRUCT</a> (&quot;/Script/CoreUObject&quot;, Quat)</td></tr>
+<tr class="memitem:aceb1cc222cc42c6e0c8dffcbdca41b1b" id="r_aceb1cc222cc42c6e0c8dffcbdca41b1b"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aceb1cc222cc42c6e0c8dffcbdca41b1b">UE_IMPLEMENT_STRUCT</a> (&quot;/Script/CoreUObject&quot;, TwoVectors)</td></tr>
+<tr class="memitem:a1e88e2ced9e10c57be4a7360f6fcb201" id="r_a1e88e2ced9e10c57be4a7360f6fcb201"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a1e88e2ced9e10c57be4a7360f6fcb201">UE_IMPLEMENT_STRUCT</a> (&quot;/Script/CoreUObject&quot;, Ray3f)</td></tr>
+<tr class="memitem:af7e0b0d7d14f88c8e12bf5b9e7965f0d" id="r_af7e0b0d7d14f88c8e12bf5b9e7965f0d"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af7e0b0d7d14f88c8e12bf5b9e7965f0d">UE_IMPLEMENT_STRUCT</a> (&quot;/Script/CoreUObject&quot;, Ray3d)</td></tr>
+<tr class="memitem:a24b552bc8db1a468f36bb6dd64ec9501" id="r_a24b552bc8db1a468f36bb6dd64ec9501"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a24b552bc8db1a468f36bb6dd64ec9501">UE_IMPLEMENT_STRUCT</a> (&quot;/Script/CoreUObject&quot;, Ray)</td></tr>
+<tr class="memitem:af95ea818035c4d4939b1df9e6dbacbf8" id="r_af95ea818035c4d4939b1df9e6dbacbf8"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af95ea818035c4d4939b1df9e6dbacbf8">UE_IMPLEMENT_STRUCT</a> (&quot;/Script/CoreUObject&quot;, Sphere3f)</td></tr>
+<tr class="memitem:a086440245a05bcc8564f3bfcdc296543" id="r_a086440245a05bcc8564f3bfcdc296543"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a086440245a05bcc8564f3bfcdc296543">UE_IMPLEMENT_STRUCT</a> (&quot;/Script/CoreUObject&quot;, Sphere3d)</td></tr>
+<tr class="memitem:afc8d0a3fc3a98a6dc387ab80438fe462" id="r_afc8d0a3fc3a98a6dc387ab80438fe462"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#afc8d0a3fc3a98a6dc387ab80438fe462">UE_IMPLEMENT_STRUCT</a> (&quot;/Script/CoreUObject&quot;, Sphere)</td></tr>
+<tr class="memitem:a398665589128b2b634b8cc7faebe7510" id="r_a398665589128b2b634b8cc7faebe7510"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a398665589128b2b634b8cc7faebe7510">UE_IMPLEMENT_STRUCT</a> (&quot;/Script/CoreUObject&quot;, InterpCurvePointFloat)</td></tr>
+<tr class="memitem:a342a78c1fc57b98819215beedbe8af0b" id="r_a342a78c1fc57b98819215beedbe8af0b"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a342a78c1fc57b98819215beedbe8af0b">UE_IMPLEMENT_STRUCT</a> (&quot;/Script/CoreUObject&quot;, InterpCurvePointVector2D)</td></tr>
+<tr class="memitem:a3961eefde9a0a387e9ffc879c5eb81aa" id="r_a3961eefde9a0a387e9ffc879c5eb81aa"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a3961eefde9a0a387e9ffc879c5eb81aa">UE_IMPLEMENT_STRUCT</a> (&quot;/Script/CoreUObject&quot;, InterpCurvePointVector)</td></tr>
+<tr class="memitem:ab704308a17acab15a0175d0595d0b059" id="r_ab704308a17acab15a0175d0595d0b059"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab704308a17acab15a0175d0595d0b059">UE_IMPLEMENT_STRUCT</a> (&quot;/Script/CoreUObject&quot;, InterpCurvePointQuat)</td></tr>
+<tr class="memitem:ac3d638aaa57b3de91be88832e2a94bd8" id="r_ac3d638aaa57b3de91be88832e2a94bd8"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac3d638aaa57b3de91be88832e2a94bd8">UE_IMPLEMENT_STRUCT</a> (&quot;/Script/CoreUObject&quot;, InterpCurvePointTwoVectors)</td></tr>
+<tr class="memitem:adf8320a068250519eb1706078d364574" id="r_adf8320a068250519eb1706078d364574"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#adf8320a068250519eb1706078d364574">UE_IMPLEMENT_STRUCT</a> (&quot;/Script/CoreUObject&quot;, InterpCurvePointLinearColor)</td></tr>
+<tr class="memitem:aa0f312de0cfc5309f10ff9de5fd2c936" id="r_aa0f312de0cfc5309f10ff9de5fd2c936"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa0f312de0cfc5309f10ff9de5fd2c936">UE_IMPLEMENT_STRUCT</a> (&quot;/Script/CoreUObject&quot;, Guid)</td></tr>
+<tr class="memitem:aaec6829c77b22ab2ddba5802222ca90d" id="r_aaec6829c77b22ab2ddba5802222ca90d"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aaec6829c77b22ab2ddba5802222ca90d">UE_IMPLEMENT_STRUCT</a> (&quot;/Script/CoreUObject&quot;, Transform3f)</td></tr>
+<tr class="memitem:af2a979214280ea82200b7ea65a25cf67" id="r_af2a979214280ea82200b7ea65a25cf67"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af2a979214280ea82200b7ea65a25cf67">UE_IMPLEMENT_STRUCT</a> (&quot;/Script/CoreUObject&quot;, Transform3d)</td></tr>
+<tr class="memitem:acbc932051cb1b79d089f5479dd0b9f32" id="r_acbc932051cb1b79d089f5479dd0b9f32"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#acbc932051cb1b79d089f5479dd0b9f32">UE_IMPLEMENT_STRUCT</a> (&quot;/Script/CoreUObject&quot;, Transform)</td></tr>
+<tr class="memitem:a19ffbf6331b1fcad73e2de303a09c9aa" id="r_a19ffbf6331b1fcad73e2de303a09c9aa"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a19ffbf6331b1fcad73e2de303a09c9aa">UE_IMPLEMENT_STRUCT</a> (&quot;/Script/CoreUObject&quot;, RandomStream)</td></tr>
+<tr class="memitem:a1042f7a2048c732bcad37e7b62aeff18" id="r_a1042f7a2048c732bcad37e7b62aeff18"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a1042f7a2048c732bcad37e7b62aeff18">UE_IMPLEMENT_STRUCT</a> (&quot;/Script/CoreUObject&quot;, DateTime)</td></tr>
+<tr class="memitem:ad383af649c13f6070731efdb914798d9" id="r_ad383af649c13f6070731efdb914798d9"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad383af649c13f6070731efdb914798d9">UE_IMPLEMENT_STRUCT</a> (&quot;/Script/CoreUObject&quot;, Timespan)</td></tr>
+<tr class="memitem:a1700d7dfa198cb902df9cdd431f90e1b" id="r_a1700d7dfa198cb902df9cdd431f90e1b"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a1700d7dfa198cb902df9cdd431f90e1b">UE_IMPLEMENT_STRUCT</a> (&quot;/Script/CoreUObject&quot;, FrameNumber)</td></tr>
+<tr class="memitem:a512137eadd1a3a9385cd038f5c2b8861" id="r_a512137eadd1a3a9385cd038f5c2b8861"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a512137eadd1a3a9385cd038f5c2b8861">UE_IMPLEMENT_STRUCT</a> (&quot;/Script/CoreUObject&quot;, FrameRate)</td></tr>
+<tr class="memitem:a6c28e40f2be498b5706030d87f0868df" id="r_a6c28e40f2be498b5706030d87f0868df"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6c28e40f2be498b5706030d87f0868df">UE_IMPLEMENT_STRUCT</a> (&quot;/Script/CoreUObject&quot;, FrameTime)</td></tr>
+<tr class="memitem:ac6acb3402d118b8f12c8cfdccf33bf48" id="r_ac6acb3402d118b8f12c8cfdccf33bf48"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac6acb3402d118b8f12c8cfdccf33bf48">UE_IMPLEMENT_STRUCT</a> (&quot;/Script/CoreUObject&quot;, QualifiedFrameTime)</td></tr>
+<tr class="memitem:abbe689821308780a351897b5f2e9b403" id="r_abbe689821308780a351897b5f2e9b403"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#abbe689821308780a351897b5f2e9b403">UE_IMPLEMENT_STRUCT</a> (&quot;/Script/CoreUObject&quot;, Timecode)</td></tr>
+<tr class="memitem:a222c9e056d2ca6f21867e28a4a5f661a" id="r_a222c9e056d2ca6f21867e28a4a5f661a"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a222c9e056d2ca6f21867e28a4a5f661a">UE_IMPLEMENT_STRUCT</a> (&quot;/Script/CoreUObject&quot;, FallbackStruct)</td></tr>
+<tr class="memitem:ae7e10d5e9dd671fa7749457b271e0939" id="r_ae7e10d5e9dd671fa7749457b271e0939"><td class="memItemLeft" align="right" valign="top">const TCHAR *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae7e10d5e9dd671fa7749457b271e0939">LexToString</a> (<a class="el" href="../../d5/d1e/_object_macros_8h.html#af922c441ee5e7762a4d1fa2298832618">EPropertyObjectReferenceType</a> <a class="el" href="../../d8/df6/class_type.html">Type</a>)</td></tr>
+<tr class="memitem:ae36a0a56c358c01a75b77ad62b41afd6" id="r_ae36a0a56c358c01a75b77ad62b41afd6"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d0/d76/_android_platform_8h.html#a724fb9f82013c782db5c3c12ea36aac8">FORCEINLINE</a> constexpr <a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae36a0a56c358c01a75b77ad62b41afd6">IsValidTokenStart</a> (TCHAR FirstChar, <a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a> bDottedNames)</td></tr>
+<tr class="memitem:a85887430ed598f9c5c8f264b43cb98ff" id="r_a85887430ed598f9c5c8f264b43cb98ff"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d0/d76/_android_platform_8h.html#a724fb9f82013c782db5c3c12ea36aac8">FORCEINLINE</a> constexpr <a class="el" href="../../d7/d6a/_string_fwd_8h.html#a841e8ee04adcccfc0c78bd543334882f">FStringView</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a85887430ed598f9c5c8f264b43cb98ff">ParsePropertyToken</a> (const TCHAR *Str, <a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a> DottedNames)</td></tr>
+<tr class="memitem:a5dd1318f4cceec2d148d2829f737498a" id="r_a5dd1318f4cceec2d148d2829f737498a"><td class="memTemplParams" colspan="2">template&lt;typename TStringType&gt; </td></tr>
+<tr class="memitem:a5dd1318f4cceec2d148d2829f737498a template"><td class="memItemLeft" align="right" valign="top">const TCHAR *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5dd1318f4cceec2d148d2829f737498a">ReadPropertyToken</a> (const TCHAR *Buffer, TStringType &amp;Out, <a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a> bDottedNames)</td></tr>
+<tr class="memitem:aaf7c3a5f11a5413afdb36221ea12c505" id="r_aaf7c3a5f11a5413afdb36221ea12c505"><td class="memTemplParams" colspan="2">template&lt;typename TStringType&gt; </td></tr>
+<tr class="memitem:aaf7c3a5f11a5413afdb36221ea12c505 template"><td class="memItemLeft" align="right" valign="top">const TCHAR *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aaf7c3a5f11a5413afdb36221ea12c505">ReadTerminatedPropertyToken</a> (const TCHAR *Buffer, TStringType &amp;Out, const TCHAR Terminator, const <a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a8dbb3cd84ca9fd010dadfc3815eefa5d">int32</a> *MaxTokenLen)</td></tr>
+<tr class="memitem:a74a2af65c11d7329d6754f2f340088a5" id="r_a74a2af65c11d7329d6754f2f340088a5"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../df/d63/_typed_element_query_capabilities_8inl.html#a72343342ce64c0755563ee6c5e27868d">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/dc8/namespace_u_e_1_1_core_u_object_1_1_private.html#a74a2af65c11d7329d6754f2f340088a5">UE::CoreUObject::Private::OnInvalidPropertySize</a> (<a class="el" href="../../dd/de9/preprocessor_8c.html#a1134b580f8da4de94ca6b1de4d37975e">uint32</a> InvalidPropertySize, const <a class="el" href="../../db/deb/class_f_property.html">FProperty</a> *Prop)</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-var-members" class="groupheader"><a id="var-members" name="var-members"></a>
+变量</h2></td></tr>
+<tr class="memitem:a535660f019ad5d8a13ce5cc600cc2680" id="r_a535660f019ad5d8a13ce5cc600cc2680"><td class="memItemLeft" align="right" valign="top">constexpr <a class="el" href="../../d8/df5/class_f_ascii_set.html">FAsciiSet</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a535660f019ad5d8a13ce5cc600cc2680">AlphaNumericChars</a> = &quot;abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789&quot;</td></tr>
+</table>
+<a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">函数说明</h2>
+<a id="a69439f5c7d07007ca2c4b917dd1408d6" name="a69439f5c7d07007ca2c4b917dd1408d6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a69439f5c7d07007ca2c4b917dd1408d6">&#9670;&#160;</a></span>DEFINE_LOG_CATEGORY()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">DEFINE_LOG_CATEGORY </td>
+          <td>(</td>
+          <td class="paramtype">LogProperty</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ae36a0a56c358c01a75b77ad62b41afd6" name="ae36a0a56c358c01a75b77ad62b41afd6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae36a0a56c358c01a75b77ad62b41afd6">&#9670;&#160;</a></span>IsValidTokenStart()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d0/d76/_android_platform_8h.html#a724fb9f82013c782db5c3c12ea36aac8">FORCEINLINE</a> constexpr <a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a> IsValidTokenStart </td>
+          <td>(</td>
+          <td class="paramtype">TCHAR</td>          <td class="paramname"><span class="paramname"><em>FirstChar</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a></td>          <td class="paramname"><span class="paramname"><em>bDottedNames</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel constexpr">constexpr</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ae7e10d5e9dd671fa7749457b271e0939" name="ae7e10d5e9dd671fa7749457b271e0939"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae7e10d5e9dd671fa7749457b271e0939">&#9670;&#160;</a></span>LexToString()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const TCHAR * LexToString </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d5/d1e/_object_macros_8h.html#af922c441ee5e7762a4d1fa2298832618">EPropertyObjectReferenceType</a></td>          <td class="paramname"><span class="paramname"><em>Type</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a85887430ed598f9c5c8f264b43cb98ff" name="a85887430ed598f9c5c8f264b43cb98ff"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a85887430ed598f9c5c8f264b43cb98ff">&#9670;&#160;</a></span>ParsePropertyToken()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d0/d76/_android_platform_8h.html#a724fb9f82013c782db5c3c12ea36aac8">FORCEINLINE</a> constexpr <a class="el" href="../../d7/d6a/_string_fwd_8h.html#a841e8ee04adcccfc0c78bd543334882f">FStringView</a> ParsePropertyToken </td>
+          <td>(</td>
+          <td class="paramtype">const TCHAR *</td>          <td class="paramname"><span class="paramname"><em>Str</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a></td>          <td class="paramname"><span class="paramname"><em>DottedNames</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel constexpr">constexpr</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a5dd1318f4cceec2d148d2829f737498a" name="a5dd1318f4cceec2d148d2829f737498a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5dd1318f4cceec2d148d2829f737498a">&#9670;&#160;</a></span>ReadPropertyToken()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename TStringType&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">const TCHAR * ReadPropertyToken </td>
+          <td>(</td>
+          <td class="paramtype">const TCHAR *</td>          <td class="paramname"><span class="paramname"><em>Buffer</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">TStringType &amp;</td>          <td class="paramname"><span class="paramname"><em>Out</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a></td>          <td class="paramname"><span class="paramname"><em>bDottedNames</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aaf7c3a5f11a5413afdb36221ea12c505" name="aaf7c3a5f11a5413afdb36221ea12c505"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aaf7c3a5f11a5413afdb36221ea12c505">&#9670;&#160;</a></span>ReadTerminatedPropertyToken()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename TStringType&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">const TCHAR * ReadTerminatedPropertyToken </td>
+          <td>(</td>
+          <td class="paramtype">const TCHAR *</td>          <td class="paramname"><span class="paramname"><em>Buffer</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">TStringType &amp;</td>          <td class="paramname"><span class="paramname"><em>Out</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const TCHAR</td>          <td class="paramname"><span class="paramname"><em>Terminator</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a8dbb3cd84ca9fd010dadfc3815eefa5d">int32</a> *</td>          <td class="paramname"><span class="paramname"><em>MaxTokenLen</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a40b3a88c12a58405f706a85459ab3950" name="a40b3a88c12a58405f706a85459ab3950"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a40b3a88c12a58405f706a85459ab3950">&#9670;&#160;</a></span>UE_IMPLEMENT_STRUCT() <span class="overload">[1/83]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">UE_IMPLEMENT_STRUCT </td>
+          <td>(</td>
+          <td class="paramtype">&quot;/Script/CoreUObject&quot;</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Box</td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aaa769bf38983e81d40b91f3485b70fd7" name="aaa769bf38983e81d40b91f3485b70fd7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aaa769bf38983e81d40b91f3485b70fd7">&#9670;&#160;</a></span>UE_IMPLEMENT_STRUCT() <span class="overload">[2/83]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">UE_IMPLEMENT_STRUCT </td>
+          <td>(</td>
+          <td class="paramtype">&quot;/Script/CoreUObject&quot;</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Box2D</td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="addbf6cd7d07d1ab69b567d4260c959cc" name="addbf6cd7d07d1ab69b567d4260c959cc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#addbf6cd7d07d1ab69b567d4260c959cc">&#9670;&#160;</a></span>UE_IMPLEMENT_STRUCT() <span class="overload">[3/83]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">UE_IMPLEMENT_STRUCT </td>
+          <td>(</td>
+          <td class="paramtype">&quot;/Script/CoreUObject&quot;</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Box2d</td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a16c56bf53869922be0df239623cf20ab" name="a16c56bf53869922be0df239623cf20ab"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a16c56bf53869922be0df239623cf20ab">&#9670;&#160;</a></span>UE_IMPLEMENT_STRUCT() <span class="overload">[4/83]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">UE_IMPLEMENT_STRUCT </td>
+          <td>(</td>
+          <td class="paramtype">&quot;/Script/CoreUObject&quot;</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Box2f</td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a3a28290e8c6f524838ec8423772460eb" name="a3a28290e8c6f524838ec8423772460eb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3a28290e8c6f524838ec8423772460eb">&#9670;&#160;</a></span>UE_IMPLEMENT_STRUCT() <span class="overload">[5/83]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">UE_IMPLEMENT_STRUCT </td>
+          <td>(</td>
+          <td class="paramtype">&quot;/Script/CoreUObject&quot;</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Box3d</td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a90fccbab31b3b93be630c12808fda6f5" name="a90fccbab31b3b93be630c12808fda6f5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a90fccbab31b3b93be630c12808fda6f5">&#9670;&#160;</a></span>UE_IMPLEMENT_STRUCT() <span class="overload">[6/83]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">UE_IMPLEMENT_STRUCT </td>
+          <td>(</td>
+          <td class="paramtype">&quot;/Script/CoreUObject&quot;</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Box3f</td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aab7776fead6a71dc1ab142df7facb916" name="aab7776fead6a71dc1ab142df7facb916"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aab7776fead6a71dc1ab142df7facb916">&#9670;&#160;</a></span>UE_IMPLEMENT_STRUCT() <span class="overload">[7/83]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">UE_IMPLEMENT_STRUCT </td>
+          <td>(</td>
+          <td class="paramtype">&quot;/Script/CoreUObject&quot;</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">BoxSphereBounds</td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ad907fbd5982601af3517bd5e105074f5" name="ad907fbd5982601af3517bd5e105074f5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad907fbd5982601af3517bd5e105074f5">&#9670;&#160;</a></span>UE_IMPLEMENT_STRUCT() <span class="overload">[8/83]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">UE_IMPLEMENT_STRUCT </td>
+          <td>(</td>
+          <td class="paramtype">&quot;/Script/CoreUObject&quot;</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">BoxSphereBounds3d</td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a604b8808e0c3f6e0654d1103693e0a3c" name="a604b8808e0c3f6e0654d1103693e0a3c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a604b8808e0c3f6e0654d1103693e0a3c">&#9670;&#160;</a></span>UE_IMPLEMENT_STRUCT() <span class="overload">[9/83]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">UE_IMPLEMENT_STRUCT </td>
+          <td>(</td>
+          <td class="paramtype">&quot;/Script/CoreUObject&quot;</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">BoxSphereBounds3f</td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a5f291357b1f709b800b8e3b675a4fb33" name="a5f291357b1f709b800b8e3b675a4fb33"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5f291357b1f709b800b8e3b675a4fb33">&#9670;&#160;</a></span>UE_IMPLEMENT_STRUCT() <span class="overload">[10/83]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">UE_IMPLEMENT_STRUCT </td>
+          <td>(</td>
+          <td class="paramtype">&quot;/Script/CoreUObject&quot;</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Color</td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a1042f7a2048c732bcad37e7b62aeff18" name="a1042f7a2048c732bcad37e7b62aeff18"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1042f7a2048c732bcad37e7b62aeff18">&#9670;&#160;</a></span>UE_IMPLEMENT_STRUCT() <span class="overload">[11/83]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">UE_IMPLEMENT_STRUCT </td>
+          <td>(</td>
+          <td class="paramtype">&quot;/Script/CoreUObject&quot;</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">DateTime</td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a222c9e056d2ca6f21867e28a4a5f661a" name="a222c9e056d2ca6f21867e28a4a5f661a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a222c9e056d2ca6f21867e28a4a5f661a">&#9670;&#160;</a></span>UE_IMPLEMENT_STRUCT() <span class="overload">[12/83]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">UE_IMPLEMENT_STRUCT </td>
+          <td>(</td>
+          <td class="paramtype">&quot;/Script/CoreUObject&quot;</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">FallbackStruct</td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a1700d7dfa198cb902df9cdd431f90e1b" name="a1700d7dfa198cb902df9cdd431f90e1b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1700d7dfa198cb902df9cdd431f90e1b">&#9670;&#160;</a></span>UE_IMPLEMENT_STRUCT() <span class="overload">[13/83]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">UE_IMPLEMENT_STRUCT </td>
+          <td>(</td>
+          <td class="paramtype">&quot;/Script/CoreUObject&quot;</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">FrameNumber</td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a512137eadd1a3a9385cd038f5c2b8861" name="a512137eadd1a3a9385cd038f5c2b8861"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a512137eadd1a3a9385cd038f5c2b8861">&#9670;&#160;</a></span>UE_IMPLEMENT_STRUCT() <span class="overload">[14/83]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">UE_IMPLEMENT_STRUCT </td>
+          <td>(</td>
+          <td class="paramtype">&quot;/Script/CoreUObject&quot;</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">FrameRate</td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a6c28e40f2be498b5706030d87f0868df" name="a6c28e40f2be498b5706030d87f0868df"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6c28e40f2be498b5706030d87f0868df">&#9670;&#160;</a></span>UE_IMPLEMENT_STRUCT() <span class="overload">[15/83]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">UE_IMPLEMENT_STRUCT </td>
+          <td>(</td>
+          <td class="paramtype">&quot;/Script/CoreUObject&quot;</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">FrameTime</td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aa0f312de0cfc5309f10ff9de5fd2c936" name="aa0f312de0cfc5309f10ff9de5fd2c936"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa0f312de0cfc5309f10ff9de5fd2c936">&#9670;&#160;</a></span>UE_IMPLEMENT_STRUCT() <span class="overload">[16/83]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">UE_IMPLEMENT_STRUCT </td>
+          <td>(</td>
+          <td class="paramtype">&quot;/Script/CoreUObject&quot;</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Guid</td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a7b80997b7ae1dbbed71b45b8d929c6ac" name="a7b80997b7ae1dbbed71b45b8d929c6ac"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7b80997b7ae1dbbed71b45b8d929c6ac">&#9670;&#160;</a></span>UE_IMPLEMENT_STRUCT() <span class="overload">[17/83]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">UE_IMPLEMENT_STRUCT </td>
+          <td>(</td>
+          <td class="paramtype">&quot;/Script/CoreUObject&quot;</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Int32Point</td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ac11f845b710a3dd6587ee01a4b046114" name="ac11f845b710a3dd6587ee01a4b046114"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac11f845b710a3dd6587ee01a4b046114">&#9670;&#160;</a></span>UE_IMPLEMENT_STRUCT() <span class="overload">[18/83]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">UE_IMPLEMENT_STRUCT </td>
+          <td>(</td>
+          <td class="paramtype">&quot;/Script/CoreUObject&quot;</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Int32Vector</td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aa94387a0d4f47856eddd40aab034be65" name="aa94387a0d4f47856eddd40aab034be65"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa94387a0d4f47856eddd40aab034be65">&#9670;&#160;</a></span>UE_IMPLEMENT_STRUCT() <span class="overload">[19/83]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">UE_IMPLEMENT_STRUCT </td>
+          <td>(</td>
+          <td class="paramtype">&quot;/Script/CoreUObject&quot;</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Int32Vector2</td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aa973f12a2941241125b33a242431afb9" name="aa973f12a2941241125b33a242431afb9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa973f12a2941241125b33a242431afb9">&#9670;&#160;</a></span>UE_IMPLEMENT_STRUCT() <span class="overload">[20/83]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">UE_IMPLEMENT_STRUCT </td>
+          <td>(</td>
+          <td class="paramtype">&quot;/Script/CoreUObject&quot;</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Int32Vector4</td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a6d79b24e5c97cb2a9e3017ed284be48c" name="a6d79b24e5c97cb2a9e3017ed284be48c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6d79b24e5c97cb2a9e3017ed284be48c">&#9670;&#160;</a></span>UE_IMPLEMENT_STRUCT() <span class="overload">[21/83]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">UE_IMPLEMENT_STRUCT </td>
+          <td>(</td>
+          <td class="paramtype">&quot;/Script/CoreUObject&quot;</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Int64Point</td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ab1e373f0c840108f5b660a33c4501b50" name="ab1e373f0c840108f5b660a33c4501b50"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab1e373f0c840108f5b660a33c4501b50">&#9670;&#160;</a></span>UE_IMPLEMENT_STRUCT() <span class="overload">[22/83]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">UE_IMPLEMENT_STRUCT </td>
+          <td>(</td>
+          <td class="paramtype">&quot;/Script/CoreUObject&quot;</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Int64Vector</td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a436c5a8b6f1a3993a5275a7628bb0c49" name="a436c5a8b6f1a3993a5275a7628bb0c49"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a436c5a8b6f1a3993a5275a7628bb0c49">&#9670;&#160;</a></span>UE_IMPLEMENT_STRUCT() <span class="overload">[23/83]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">UE_IMPLEMENT_STRUCT </td>
+          <td>(</td>
+          <td class="paramtype">&quot;/Script/CoreUObject&quot;</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Int64Vector2</td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ae7e3547cdf50df22b59fef4d8ea0d429" name="ae7e3547cdf50df22b59fef4d8ea0d429"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae7e3547cdf50df22b59fef4d8ea0d429">&#9670;&#160;</a></span>UE_IMPLEMENT_STRUCT() <span class="overload">[24/83]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">UE_IMPLEMENT_STRUCT </td>
+          <td>(</td>
+          <td class="paramtype">&quot;/Script/CoreUObject&quot;</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Int64Vector4</td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a398665589128b2b634b8cc7faebe7510" name="a398665589128b2b634b8cc7faebe7510"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a398665589128b2b634b8cc7faebe7510">&#9670;&#160;</a></span>UE_IMPLEMENT_STRUCT() <span class="overload">[25/83]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">UE_IMPLEMENT_STRUCT </td>
+          <td>(</td>
+          <td class="paramtype">&quot;/Script/CoreUObject&quot;</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">InterpCurvePointFloat</td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="adf8320a068250519eb1706078d364574" name="adf8320a068250519eb1706078d364574"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adf8320a068250519eb1706078d364574">&#9670;&#160;</a></span>UE_IMPLEMENT_STRUCT() <span class="overload">[26/83]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">UE_IMPLEMENT_STRUCT </td>
+          <td>(</td>
+          <td class="paramtype">&quot;/Script/CoreUObject&quot;</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">InterpCurvePointLinearColor</td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ab704308a17acab15a0175d0595d0b059" name="ab704308a17acab15a0175d0595d0b059"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab704308a17acab15a0175d0595d0b059">&#9670;&#160;</a></span>UE_IMPLEMENT_STRUCT() <span class="overload">[27/83]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">UE_IMPLEMENT_STRUCT </td>
+          <td>(</td>
+          <td class="paramtype">&quot;/Script/CoreUObject&quot;</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">InterpCurvePointQuat</td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ac3d638aaa57b3de91be88832e2a94bd8" name="ac3d638aaa57b3de91be88832e2a94bd8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac3d638aaa57b3de91be88832e2a94bd8">&#9670;&#160;</a></span>UE_IMPLEMENT_STRUCT() <span class="overload">[28/83]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">UE_IMPLEMENT_STRUCT </td>
+          <td>(</td>
+          <td class="paramtype">&quot;/Script/CoreUObject&quot;</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">InterpCurvePointTwoVectors</td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a3961eefde9a0a387e9ffc879c5eb81aa" name="a3961eefde9a0a387e9ffc879c5eb81aa"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3961eefde9a0a387e9ffc879c5eb81aa">&#9670;&#160;</a></span>UE_IMPLEMENT_STRUCT() <span class="overload">[29/83]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">UE_IMPLEMENT_STRUCT </td>
+          <td>(</td>
+          <td class="paramtype">&quot;/Script/CoreUObject&quot;</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">InterpCurvePointVector</td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a342a78c1fc57b98819215beedbe8af0b" name="a342a78c1fc57b98819215beedbe8af0b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a342a78c1fc57b98819215beedbe8af0b">&#9670;&#160;</a></span>UE_IMPLEMENT_STRUCT() <span class="overload">[30/83]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">UE_IMPLEMENT_STRUCT </td>
+          <td>(</td>
+          <td class="paramtype">&quot;/Script/CoreUObject&quot;</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">InterpCurvePointVector2D</td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a72d2a8d717d9630300b688bc7cd8981d" name="a72d2a8d717d9630300b688bc7cd8981d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a72d2a8d717d9630300b688bc7cd8981d">&#9670;&#160;</a></span>UE_IMPLEMENT_STRUCT() <span class="overload">[31/83]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">UE_IMPLEMENT_STRUCT </td>
+          <td>(</td>
+          <td class="paramtype">&quot;/Script/CoreUObject&quot;</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">IntPoint</td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a9adeb9c523b043b03d57408a3d91b48d" name="a9adeb9c523b043b03d57408a3d91b48d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9adeb9c523b043b03d57408a3d91b48d">&#9670;&#160;</a></span>UE_IMPLEMENT_STRUCT() <span class="overload">[32/83]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">UE_IMPLEMENT_STRUCT </td>
+          <td>(</td>
+          <td class="paramtype">&quot;/Script/CoreUObject&quot;</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">IntVector</td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a711d9d562a135f2a6bd9e8c6ae19e09b" name="a711d9d562a135f2a6bd9e8c6ae19e09b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a711d9d562a135f2a6bd9e8c6ae19e09b">&#9670;&#160;</a></span>UE_IMPLEMENT_STRUCT() <span class="overload">[33/83]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">UE_IMPLEMENT_STRUCT </td>
+          <td>(</td>
+          <td class="paramtype">&quot;/Script/CoreUObject&quot;</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">IntVector2</td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ae04d6fd99f0170e04c9d992ddc3aebbb" name="ae04d6fd99f0170e04c9d992ddc3aebbb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae04d6fd99f0170e04c9d992ddc3aebbb">&#9670;&#160;</a></span>UE_IMPLEMENT_STRUCT() <span class="overload">[34/83]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">UE_IMPLEMENT_STRUCT </td>
+          <td>(</td>
+          <td class="paramtype">&quot;/Script/CoreUObject&quot;</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">IntVector4</td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a5c7f3c112faf6248fead1f655c6c2c23" name="a5c7f3c112faf6248fead1f655c6c2c23"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5c7f3c112faf6248fead1f655c6c2c23">&#9670;&#160;</a></span>UE_IMPLEMENT_STRUCT() <span class="overload">[35/83]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">UE_IMPLEMENT_STRUCT </td>
+          <td>(</td>
+          <td class="paramtype">&quot;/Script/CoreUObject&quot;</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">LinearColor</td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a7970cdc1a16ac6aab4a9967f6db9500e" name="a7970cdc1a16ac6aab4a9967f6db9500e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7970cdc1a16ac6aab4a9967f6db9500e">&#9670;&#160;</a></span>UE_IMPLEMENT_STRUCT() <span class="overload">[36/83]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">UE_IMPLEMENT_STRUCT </td>
+          <td>(</td>
+          <td class="paramtype">&quot;/Script/CoreUObject&quot;</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Matrix</td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a2e235b52887cf1c2f5e21c3cf40b26df" name="a2e235b52887cf1c2f5e21c3cf40b26df"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2e235b52887cf1c2f5e21c3cf40b26df">&#9670;&#160;</a></span>UE_IMPLEMENT_STRUCT() <span class="overload">[37/83]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">UE_IMPLEMENT_STRUCT </td>
+          <td>(</td>
+          <td class="paramtype">&quot;/Script/CoreUObject&quot;</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Matrix44d</td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a97ec26d4c67e4c8ff616b63648da9045" name="a97ec26d4c67e4c8ff616b63648da9045"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a97ec26d4c67e4c8ff616b63648da9045">&#9670;&#160;</a></span>UE_IMPLEMENT_STRUCT() <span class="overload">[38/83]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">UE_IMPLEMENT_STRUCT </td>
+          <td>(</td>
+          <td class="paramtype">&quot;/Script/CoreUObject&quot;</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Matrix44f</td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ad21a98555b1a3c1cbcaf593ca0a3e78e" name="ad21a98555b1a3c1cbcaf593ca0a3e78e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad21a98555b1a3c1cbcaf593ca0a3e78e">&#9670;&#160;</a></span>UE_IMPLEMENT_STRUCT() <span class="overload">[39/83]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">UE_IMPLEMENT_STRUCT </td>
+          <td>(</td>
+          <td class="paramtype">&quot;/Script/CoreUObject&quot;</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">OrientedBox</td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a07d243460e1d80152a0c9295e0f4e0a1" name="a07d243460e1d80152a0c9295e0f4e0a1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a07d243460e1d80152a0c9295e0f4e0a1">&#9670;&#160;</a></span>UE_IMPLEMENT_STRUCT() <span class="overload">[40/83]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">UE_IMPLEMENT_STRUCT </td>
+          <td>(</td>
+          <td class="paramtype">&quot;/Script/CoreUObject&quot;</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Plane</td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a07ecbbf88804a57ea67c42cb1a99bc25" name="a07ecbbf88804a57ea67c42cb1a99bc25"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a07ecbbf88804a57ea67c42cb1a99bc25">&#9670;&#160;</a></span>UE_IMPLEMENT_STRUCT() <span class="overload">[41/83]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">UE_IMPLEMENT_STRUCT </td>
+          <td>(</td>
+          <td class="paramtype">&quot;/Script/CoreUObject&quot;</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Plane4d</td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ac3413764de4b3647239555d12191eefc" name="ac3413764de4b3647239555d12191eefc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac3413764de4b3647239555d12191eefc">&#9670;&#160;</a></span>UE_IMPLEMENT_STRUCT() <span class="overload">[42/83]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">UE_IMPLEMENT_STRUCT </td>
+          <td>(</td>
+          <td class="paramtype">&quot;/Script/CoreUObject&quot;</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Plane4f</td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ac6acb3402d118b8f12c8cfdccf33bf48" name="ac6acb3402d118b8f12c8cfdccf33bf48"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac6acb3402d118b8f12c8cfdccf33bf48">&#9670;&#160;</a></span>UE_IMPLEMENT_STRUCT() <span class="overload">[43/83]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">UE_IMPLEMENT_STRUCT </td>
+          <td>(</td>
+          <td class="paramtype">&quot;/Script/CoreUObject&quot;</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">QualifiedFrameTime</td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a99d27ae029a251bcdcadc2d08995fb63" name="a99d27ae029a251bcdcadc2d08995fb63"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a99d27ae029a251bcdcadc2d08995fb63">&#9670;&#160;</a></span>UE_IMPLEMENT_STRUCT() <span class="overload">[44/83]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">UE_IMPLEMENT_STRUCT </td>
+          <td>(</td>
+          <td class="paramtype">&quot;/Script/CoreUObject&quot;</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Quat</td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a336c7079843ee67511195a87d9ea7b50" name="a336c7079843ee67511195a87d9ea7b50"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a336c7079843ee67511195a87d9ea7b50">&#9670;&#160;</a></span>UE_IMPLEMENT_STRUCT() <span class="overload">[45/83]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">UE_IMPLEMENT_STRUCT </td>
+          <td>(</td>
+          <td class="paramtype">&quot;/Script/CoreUObject&quot;</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Quat4d</td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aa9b52c26373a356794dda58ccd9d8979" name="aa9b52c26373a356794dda58ccd9d8979"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa9b52c26373a356794dda58ccd9d8979">&#9670;&#160;</a></span>UE_IMPLEMENT_STRUCT() <span class="overload">[46/83]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">UE_IMPLEMENT_STRUCT </td>
+          <td>(</td>
+          <td class="paramtype">&quot;/Script/CoreUObject&quot;</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Quat4f</td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a19ffbf6331b1fcad73e2de303a09c9aa" name="a19ffbf6331b1fcad73e2de303a09c9aa"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a19ffbf6331b1fcad73e2de303a09c9aa">&#9670;&#160;</a></span>UE_IMPLEMENT_STRUCT() <span class="overload">[47/83]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">UE_IMPLEMENT_STRUCT </td>
+          <td>(</td>
+          <td class="paramtype">&quot;/Script/CoreUObject&quot;</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">RandomStream</td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a24b552bc8db1a468f36bb6dd64ec9501" name="a24b552bc8db1a468f36bb6dd64ec9501"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a24b552bc8db1a468f36bb6dd64ec9501">&#9670;&#160;</a></span>UE_IMPLEMENT_STRUCT() <span class="overload">[48/83]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">UE_IMPLEMENT_STRUCT </td>
+          <td>(</td>
+          <td class="paramtype">&quot;/Script/CoreUObject&quot;</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Ray</td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="af7e0b0d7d14f88c8e12bf5b9e7965f0d" name="af7e0b0d7d14f88c8e12bf5b9e7965f0d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af7e0b0d7d14f88c8e12bf5b9e7965f0d">&#9670;&#160;</a></span>UE_IMPLEMENT_STRUCT() <span class="overload">[49/83]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">UE_IMPLEMENT_STRUCT </td>
+          <td>(</td>
+          <td class="paramtype">&quot;/Script/CoreUObject&quot;</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Ray3d</td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a1e88e2ced9e10c57be4a7360f6fcb201" name="a1e88e2ced9e10c57be4a7360f6fcb201"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1e88e2ced9e10c57be4a7360f6fcb201">&#9670;&#160;</a></span>UE_IMPLEMENT_STRUCT() <span class="overload">[50/83]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">UE_IMPLEMENT_STRUCT </td>
+          <td>(</td>
+          <td class="paramtype">&quot;/Script/CoreUObject&quot;</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Ray3f</td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a484ebc81ab6506b902aa460218f5323e" name="a484ebc81ab6506b902aa460218f5323e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a484ebc81ab6506b902aa460218f5323e">&#9670;&#160;</a></span>UE_IMPLEMENT_STRUCT() <span class="overload">[51/83]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">UE_IMPLEMENT_STRUCT </td>
+          <td>(</td>
+          <td class="paramtype">&quot;/Script/CoreUObject&quot;</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Rotator</td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a4557fed767426eabee5e5298d6c85d64" name="a4557fed767426eabee5e5298d6c85d64"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4557fed767426eabee5e5298d6c85d64">&#9670;&#160;</a></span>UE_IMPLEMENT_STRUCT() <span class="overload">[52/83]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">UE_IMPLEMENT_STRUCT </td>
+          <td>(</td>
+          <td class="paramtype">&quot;/Script/CoreUObject&quot;</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Rotator3d</td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a2d6d0768779f038fcb79b1fef61c34d7" name="a2d6d0768779f038fcb79b1fef61c34d7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2d6d0768779f038fcb79b1fef61c34d7">&#9670;&#160;</a></span>UE_IMPLEMENT_STRUCT() <span class="overload">[53/83]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">UE_IMPLEMENT_STRUCT </td>
+          <td>(</td>
+          <td class="paramtype">&quot;/Script/CoreUObject&quot;</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Rotator3f</td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="afc8d0a3fc3a98a6dc387ab80438fe462" name="afc8d0a3fc3a98a6dc387ab80438fe462"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afc8d0a3fc3a98a6dc387ab80438fe462">&#9670;&#160;</a></span>UE_IMPLEMENT_STRUCT() <span class="overload">[54/83]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">UE_IMPLEMENT_STRUCT </td>
+          <td>(</td>
+          <td class="paramtype">&quot;/Script/CoreUObject&quot;</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Sphere</td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a086440245a05bcc8564f3bfcdc296543" name="a086440245a05bcc8564f3bfcdc296543"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a086440245a05bcc8564f3bfcdc296543">&#9670;&#160;</a></span>UE_IMPLEMENT_STRUCT() <span class="overload">[55/83]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">UE_IMPLEMENT_STRUCT </td>
+          <td>(</td>
+          <td class="paramtype">&quot;/Script/CoreUObject&quot;</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Sphere3d</td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="af95ea818035c4d4939b1df9e6dbacbf8" name="af95ea818035c4d4939b1df9e6dbacbf8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af95ea818035c4d4939b1df9e6dbacbf8">&#9670;&#160;</a></span>UE_IMPLEMENT_STRUCT() <span class="overload">[56/83]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">UE_IMPLEMENT_STRUCT </td>
+          <td>(</td>
+          <td class="paramtype">&quot;/Script/CoreUObject&quot;</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Sphere3f</td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="abbe689821308780a351897b5f2e9b403" name="abbe689821308780a351897b5f2e9b403"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abbe689821308780a351897b5f2e9b403">&#9670;&#160;</a></span>UE_IMPLEMENT_STRUCT() <span class="overload">[57/83]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">UE_IMPLEMENT_STRUCT </td>
+          <td>(</td>
+          <td class="paramtype">&quot;/Script/CoreUObject&quot;</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Timecode</td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ad383af649c13f6070731efdb914798d9" name="ad383af649c13f6070731efdb914798d9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad383af649c13f6070731efdb914798d9">&#9670;&#160;</a></span>UE_IMPLEMENT_STRUCT() <span class="overload">[58/83]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">UE_IMPLEMENT_STRUCT </td>
+          <td>(</td>
+          <td class="paramtype">&quot;/Script/CoreUObject&quot;</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Timespan</td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="acbc932051cb1b79d089f5479dd0b9f32" name="acbc932051cb1b79d089f5479dd0b9f32"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acbc932051cb1b79d089f5479dd0b9f32">&#9670;&#160;</a></span>UE_IMPLEMENT_STRUCT() <span class="overload">[59/83]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">UE_IMPLEMENT_STRUCT </td>
+          <td>(</td>
+          <td class="paramtype">&quot;/Script/CoreUObject&quot;</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Transform</td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="af2a979214280ea82200b7ea65a25cf67" name="af2a979214280ea82200b7ea65a25cf67"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af2a979214280ea82200b7ea65a25cf67">&#9670;&#160;</a></span>UE_IMPLEMENT_STRUCT() <span class="overload">[60/83]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">UE_IMPLEMENT_STRUCT </td>
+          <td>(</td>
+          <td class="paramtype">&quot;/Script/CoreUObject&quot;</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Transform3d</td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aaec6829c77b22ab2ddba5802222ca90d" name="aaec6829c77b22ab2ddba5802222ca90d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aaec6829c77b22ab2ddba5802222ca90d">&#9670;&#160;</a></span>UE_IMPLEMENT_STRUCT() <span class="overload">[61/83]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">UE_IMPLEMENT_STRUCT </td>
+          <td>(</td>
+          <td class="paramtype">&quot;/Script/CoreUObject&quot;</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Transform3f</td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aceb1cc222cc42c6e0c8dffcbdca41b1b" name="aceb1cc222cc42c6e0c8dffcbdca41b1b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aceb1cc222cc42c6e0c8dffcbdca41b1b">&#9670;&#160;</a></span>UE_IMPLEMENT_STRUCT() <span class="overload">[62/83]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">UE_IMPLEMENT_STRUCT </td>
+          <td>(</td>
+          <td class="paramtype">&quot;/Script/CoreUObject&quot;</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">TwoVectors</td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a54ebd8d9fba92d9e1adcd12c337e686a" name="a54ebd8d9fba92d9e1adcd12c337e686a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a54ebd8d9fba92d9e1adcd12c337e686a">&#9670;&#160;</a></span>UE_IMPLEMENT_STRUCT() <span class="overload">[63/83]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">UE_IMPLEMENT_STRUCT </td>
+          <td>(</td>
+          <td class="paramtype">&quot;/Script/CoreUObject&quot;</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Uint32Point</td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a49c9ba79a75398bb1299e0dd1627a2af" name="a49c9ba79a75398bb1299e0dd1627a2af"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a49c9ba79a75398bb1299e0dd1627a2af">&#9670;&#160;</a></span>UE_IMPLEMENT_STRUCT() <span class="overload">[64/83]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">UE_IMPLEMENT_STRUCT </td>
+          <td>(</td>
+          <td class="paramtype">&quot;/Script/CoreUObject&quot;</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Uint32Vector</td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a7df08b68fcdebab62c828b9de00a0300" name="a7df08b68fcdebab62c828b9de00a0300"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7df08b68fcdebab62c828b9de00a0300">&#9670;&#160;</a></span>UE_IMPLEMENT_STRUCT() <span class="overload">[65/83]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">UE_IMPLEMENT_STRUCT </td>
+          <td>(</td>
+          <td class="paramtype">&quot;/Script/CoreUObject&quot;</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Uint32Vector2</td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="abda6d304a0eb35662f20d2d902554661" name="abda6d304a0eb35662f20d2d902554661"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abda6d304a0eb35662f20d2d902554661">&#9670;&#160;</a></span>UE_IMPLEMENT_STRUCT() <span class="overload">[66/83]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">UE_IMPLEMENT_STRUCT </td>
+          <td>(</td>
+          <td class="paramtype">&quot;/Script/CoreUObject&quot;</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Uint32Vector4</td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aad19793693a2bebe50d8e716798b0a11" name="aad19793693a2bebe50d8e716798b0a11"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aad19793693a2bebe50d8e716798b0a11">&#9670;&#160;</a></span>UE_IMPLEMENT_STRUCT() <span class="overload">[67/83]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">UE_IMPLEMENT_STRUCT </td>
+          <td>(</td>
+          <td class="paramtype">&quot;/Script/CoreUObject&quot;</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Uint64Point</td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a2d22a8967421420fbd0dc0b0e5dc23fd" name="a2d22a8967421420fbd0dc0b0e5dc23fd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2d22a8967421420fbd0dc0b0e5dc23fd">&#9670;&#160;</a></span>UE_IMPLEMENT_STRUCT() <span class="overload">[68/83]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">UE_IMPLEMENT_STRUCT </td>
+          <td>(</td>
+          <td class="paramtype">&quot;/Script/CoreUObject&quot;</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Uint64Vector</td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a995ee0c8ba4cb6398c7f810d6e7fb901" name="a995ee0c8ba4cb6398c7f810d6e7fb901"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a995ee0c8ba4cb6398c7f810d6e7fb901">&#9670;&#160;</a></span>UE_IMPLEMENT_STRUCT() <span class="overload">[69/83]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">UE_IMPLEMENT_STRUCT </td>
+          <td>(</td>
+          <td class="paramtype">&quot;/Script/CoreUObject&quot;</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Uint64Vector2</td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="afb84860c72eef979b3c457cc22b7aad2" name="afb84860c72eef979b3c457cc22b7aad2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afb84860c72eef979b3c457cc22b7aad2">&#9670;&#160;</a></span>UE_IMPLEMENT_STRUCT() <span class="overload">[70/83]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">UE_IMPLEMENT_STRUCT </td>
+          <td>(</td>
+          <td class="paramtype">&quot;/Script/CoreUObject&quot;</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Uint64Vector4</td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a0f16610a9b0645e06b1ea9fbc5e2e267" name="a0f16610a9b0645e06b1ea9fbc5e2e267"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0f16610a9b0645e06b1ea9fbc5e2e267">&#9670;&#160;</a></span>UE_IMPLEMENT_STRUCT() <span class="overload">[71/83]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">UE_IMPLEMENT_STRUCT </td>
+          <td>(</td>
+          <td class="paramtype">&quot;/Script/CoreUObject&quot;</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">UintPoint</td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ad84a440e6ce5353b6deb03d8fbae8cd4" name="ad84a440e6ce5353b6deb03d8fbae8cd4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad84a440e6ce5353b6deb03d8fbae8cd4">&#9670;&#160;</a></span>UE_IMPLEMENT_STRUCT() <span class="overload">[72/83]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">UE_IMPLEMENT_STRUCT </td>
+          <td>(</td>
+          <td class="paramtype">&quot;/Script/CoreUObject&quot;</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">UintVector</td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a6b2977e3da689710c4b202e92265ac2e" name="a6b2977e3da689710c4b202e92265ac2e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6b2977e3da689710c4b202e92265ac2e">&#9670;&#160;</a></span>UE_IMPLEMENT_STRUCT() <span class="overload">[73/83]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">UE_IMPLEMENT_STRUCT </td>
+          <td>(</td>
+          <td class="paramtype">&quot;/Script/CoreUObject&quot;</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">UintVector2</td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ab0349cc5fe66b6a2b9aa4a72067776eb" name="ab0349cc5fe66b6a2b9aa4a72067776eb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab0349cc5fe66b6a2b9aa4a72067776eb">&#9670;&#160;</a></span>UE_IMPLEMENT_STRUCT() <span class="overload">[74/83]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">UE_IMPLEMENT_STRUCT </td>
+          <td>(</td>
+          <td class="paramtype">&quot;/Script/CoreUObject&quot;</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">UintVector4</td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a582228d76e67f0c9cd1fddd34f3ec87d" name="a582228d76e67f0c9cd1fddd34f3ec87d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a582228d76e67f0c9cd1fddd34f3ec87d">&#9670;&#160;</a></span>UE_IMPLEMENT_STRUCT() <span class="overload">[75/83]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">UE_IMPLEMENT_STRUCT </td>
+          <td>(</td>
+          <td class="paramtype">&quot;/Script/CoreUObject&quot;</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Vector</td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aa95586aff771fff56e7f4f03591b00d6" name="aa95586aff771fff56e7f4f03591b00d6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa95586aff771fff56e7f4f03591b00d6">&#9670;&#160;</a></span>UE_IMPLEMENT_STRUCT() <span class="overload">[76/83]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">UE_IMPLEMENT_STRUCT </td>
+          <td>(</td>
+          <td class="paramtype">&quot;/Script/CoreUObject&quot;</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Vector2D</td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="afc4ca564524286c042282591db9a73f6" name="afc4ca564524286c042282591db9a73f6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afc4ca564524286c042282591db9a73f6">&#9670;&#160;</a></span>UE_IMPLEMENT_STRUCT() <span class="overload">[77/83]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">UE_IMPLEMENT_STRUCT </td>
+          <td>(</td>
+          <td class="paramtype">&quot;/Script/CoreUObject&quot;</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Vector2d</td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a44494424adcbb958ed7cadda3ff00703" name="a44494424adcbb958ed7cadda3ff00703"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a44494424adcbb958ed7cadda3ff00703">&#9670;&#160;</a></span>UE_IMPLEMENT_STRUCT() <span class="overload">[78/83]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">UE_IMPLEMENT_STRUCT </td>
+          <td>(</td>
+          <td class="paramtype">&quot;/Script/CoreUObject&quot;</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Vector2f</td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a9e1be101d65595b62fe9e77bacd4348c" name="a9e1be101d65595b62fe9e77bacd4348c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9e1be101d65595b62fe9e77bacd4348c">&#9670;&#160;</a></span>UE_IMPLEMENT_STRUCT() <span class="overload">[79/83]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">UE_IMPLEMENT_STRUCT </td>
+          <td>(</td>
+          <td class="paramtype">&quot;/Script/CoreUObject&quot;</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Vector3d</td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a11936687b71d508c95ee73dbf06db0d1" name="a11936687b71d508c95ee73dbf06db0d1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a11936687b71d508c95ee73dbf06db0d1">&#9670;&#160;</a></span>UE_IMPLEMENT_STRUCT() <span class="overload">[80/83]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">UE_IMPLEMENT_STRUCT </td>
+          <td>(</td>
+          <td class="paramtype">&quot;/Script/CoreUObject&quot;</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Vector3f</td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ad2640152e62174fcbe1cedde0a2b6d42" name="ad2640152e62174fcbe1cedde0a2b6d42"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad2640152e62174fcbe1cedde0a2b6d42">&#9670;&#160;</a></span>UE_IMPLEMENT_STRUCT() <span class="overload">[81/83]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">UE_IMPLEMENT_STRUCT </td>
+          <td>(</td>
+          <td class="paramtype">&quot;/Script/CoreUObject&quot;</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Vector4</td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a3f8ac9d3452692e99176193fafa6a91a" name="a3f8ac9d3452692e99176193fafa6a91a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3f8ac9d3452692e99176193fafa6a91a">&#9670;&#160;</a></span>UE_IMPLEMENT_STRUCT() <span class="overload">[82/83]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">UE_IMPLEMENT_STRUCT </td>
+          <td>(</td>
+          <td class="paramtype">&quot;/Script/CoreUObject&quot;</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Vector4d</td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a8b672847a9e1b444de5c3e60b9e5d090" name="a8b672847a9e1b444de5c3e60b9e5d090"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8b672847a9e1b444de5c3e60b9e5d090">&#9670;&#160;</a></span>UE_IMPLEMENT_STRUCT() <span class="overload">[83/83]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">UE_IMPLEMENT_STRUCT </td>
+          <td>(</td>
+          <td class="paramtype">&quot;/Script/CoreUObject&quot;</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Vector4f</td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a name="doc-var-members" id="doc-var-members"></a><h2 id="header-doc-var-members" class="groupheader">变量说明</h2>
+<a id="a535660f019ad5d8a13ce5cc600cc2680" name="a535660f019ad5d8a13ce5cc600cc2680"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a535660f019ad5d8a13ce5cc600cc2680">&#9670;&#160;</a></span>AlphaNumericChars</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d8/df5/class_f_ascii_set.html">FAsciiSet</a> AlphaNumericChars = &quot;abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789&quot;</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel constexpr">constexpr</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<div id="page-nav" class="page-nav-panel">
+<div id="page-nav-resize-handle"></div>
+<div id="page-nav-tree">
+<div id="page-nav-contents">
+</div><!-- page-nav-contents -->
+</div><!-- page-nav-tree -->
+</div><!-- page-nav -->
+</div><!-- container -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a href="../../dir_0b6ee6e7e9547e675db4add2e5de97da.html">Engine</a></li><li class="navelem"><a href="../../dir_9579d1ecb2c7bf48cbe1049c41745cb4.html">Source</a></li><li class="navelem"><a href="../../dir_9f04efef762572853abdf73f62bebfcc.html">Runtime</a></li><li class="navelem"><a href="../../dir_87835aaea0d77a2a55fd49991cde0b5e.html">CoreUObject</a></li><li class="navelem"><a href="../../dir_8d13800183e64c83edfc0c4ca47054bf.html">Private</a></li><li class="navelem"><a href="../../dir_5bb6f74bfabf28434eeab32b256fbc86.html">UObject</a></li><li class="navelem"><a href="../../d1/d4e/_property_8cpp.html">Property.cpp</a></li>
+    <li class="footer">制作者 <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.15.0 </li>
+  </ul>
+</div>
+</body>
+</html>

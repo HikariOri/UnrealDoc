@@ -1,0 +1,25 @@
+var class_f_derived_data_cache_stats_node =
+[
+    [ "FDerivedDataCacheStatsNode", "db/daa/class_f_derived_data_cache_stats_node.html#a41460a12287420d10e3632bfd759a555", null ],
+    [ "FDerivedDataCacheStatsNode", "db/daa/class_f_derived_data_cache_stats_node.html#a750d5114616ce7c628102ccb977aec53", null ],
+    [ "COOK_STAT", "db/daa/class_f_derived_data_cache_stats_node.html#a99cccf82f198f9b391dec4419cc0ff29", null ],
+    [ "ForEachDescendant", "db/daa/class_f_derived_data_cache_stats_node.html#ab44f8ff99d0b600c7cd4503b090a2c51", null ],
+    [ "GatherLegacyUsageStats", "db/daa/class_f_derived_data_cache_stats_node.html#a09400be75b0bf30716beca14b963c3b0", null ],
+    [ "GetCacheName", "db/daa/class_f_derived_data_cache_stats_node.html#a1d8c206f311defa63c792e967114c7a6", null ],
+    [ "GetCacheStatus", "db/daa/class_f_derived_data_cache_stats_node.html#ad54b2c09c2a554beba6e6898dccc97b6", null ],
+    [ "GetCacheStatusText", "db/daa/class_f_derived_data_cache_stats_node.html#aa57e2e4cc75ec85ddf3f2d5b19734277", null ],
+    [ "GetCacheType", "db/daa/class_f_derived_data_cache_stats_node.html#a110cc111d3868c441931a991bbc357d2", null ],
+    [ "GetTotalPhysicalSize", "db/daa/class_f_derived_data_cache_stats_node.html#acf12f1fb4c47ce6cfd9ffb47e498fdef", null ],
+    [ "IsLocal", "db/daa/class_f_derived_data_cache_stats_node.html#acdddc0fadabe020ba02d59348ac8c939", null ],
+    [ "SetTotalPhysicalSize", "db/daa/class_f_derived_data_cache_stats_node.html#a44772cedc0bdc27692232b5d36d6d022", null ],
+    [ "ToLegacyUsageMap", "db/daa/class_f_derived_data_cache_stats_node.html#aa2c9e7fb00c98ed8825968a62a11818a", null ],
+    [ "bIsLocal", "db/daa/class_f_derived_data_cache_stats_node.html#ad6f753cf0632ef2ae27a6ec63011d432", null ],
+    [ "CacheName", "db/daa/class_f_derived_data_cache_stats_node.html#afc032f0aaffb7726752917408c17564f", null ],
+    [ "CacheStatus", "db/daa/class_f_derived_data_cache_stats_node.html#a775852108fff88bca37d8f1ae858eead", null ],
+    [ "CacheStatusText", "db/daa/class_f_derived_data_cache_stats_node.html#aaef63179b014c6f502dc6e44712b0853", null ],
+    [ "CacheType", "db/daa/class_f_derived_data_cache_stats_node.html#a3dbcfbc224d3723190cdeebedfe1a061", null ],
+    [ "Children", "db/daa/class_f_derived_data_cache_stats_node.html#a5623fd4ef2c0beb3186fdb305c82df37", null ],
+    [ "SpeedStats", "db/daa/class_f_derived_data_cache_stats_node.html#ace86ac9d5e5f45768d95ab752f0f9d46", null ],
+    [ "TotalPhysicalSize", "db/daa/class_f_derived_data_cache_stats_node.html#a616fe56d9a986f7297d560d29392e18c", null ],
+    [ "UsageStats", "db/daa/class_f_derived_data_cache_stats_node.html#ac0e8d8a547c4f9565e7781f9a0a04347", null ]
+];

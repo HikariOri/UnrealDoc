@@ -1,0 +1,35 @@
+var class_u_e_1_1_virtualization_1_1_i_virtualization_system =
+[
+    [ "FOnNotification", "d7/d2b/class_u_e_1_1_virtualization_1_1_i_virtualization_system.html#a526cc7169284366203a628b5ecc2ba49", null ],
+    [ "GetPayloadActivityInfoFuncRef", "d7/d2b/class_u_e_1_1_virtualization_1_1_i_virtualization_system.html#a28ec128756d8621dcfecfd801bb5ec12", null ],
+    [ "ENotification", "d7/d2b/class_u_e_1_1_virtualization_1_1_i_virtualization_system.html#aac79191c744ba50e82a3f32b2d3d9ca1", [
+      [ "PushBegunNotification", "d7/d2b/class_u_e_1_1_virtualization_1_1_i_virtualization_system.html#aac79191c744ba50e82a3f32b2d3d9ca1a88a8e8edb1098e746759ece5d25ceccc", null ],
+      [ "PushEndedNotification", "d7/d2b/class_u_e_1_1_virtualization_1_1_i_virtualization_system.html#aac79191c744ba50e82a3f32b2d3d9ca1a0985aa38f6c1d865cb1a38e227aeb384", null ],
+      [ "PushFailedNotification", "d7/d2b/class_u_e_1_1_virtualization_1_1_i_virtualization_system.html#aac79191c744ba50e82a3f32b2d3d9ca1aecd950f3663ea682cd0b4dd805342a7d", null ],
+      [ "PullBegunNotification", "d7/d2b/class_u_e_1_1_virtualization_1_1_i_virtualization_system.html#aac79191c744ba50e82a3f32b2d3d9ca1aba4fca7c3f9e45f4aeeda888dc1b1a5d", null ],
+      [ "PullEndedNotification", "d7/d2b/class_u_e_1_1_virtualization_1_1_i_virtualization_system.html#aac79191c744ba50e82a3f32b2d3d9ca1a38b211a5e29e4593caf126f6583145c7", null ],
+      [ "PullFailedNotification", "d7/d2b/class_u_e_1_1_virtualization_1_1_i_virtualization_system.html#aac79191c744ba50e82a3f32b2d3d9ca1a3755726e05afe2e5a2b1237458efa46c", null ]
+    ] ],
+    [ "IVirtualizationSystem", "d7/d2b/class_u_e_1_1_virtualization_1_1_i_virtualization_system.html#a88be7d0003065827b33c7fe9d3cd0923", null ],
+    [ "~IVirtualizationSystem", "d7/d2b/class_u_e_1_1_virtualization_1_1_i_virtualization_system.html#ac4be8257ab06ba991f35e37e8d5590cd", null ],
+    [ "AllowSubmitIfVirtualizationFailed", "d7/d2b/class_u_e_1_1_virtualization_1_1_i_virtualization_system.html#a66573466a1a594d815ada8b351ad9b1e", null ],
+    [ "DumpStats", "d7/d2b/class_u_e_1_1_virtualization_1_1_i_virtualization_system.html#a27ec02d8c5529dfcfc7dde1d2e8ef6e4", null ],
+    [ "FilterPayload", "d7/d2b/class_u_e_1_1_virtualization_1_1_i_virtualization_system.html#a00e5eae5c8dd051ddd70276959f26c72", null ],
+    [ "GatherAnalytics", "d7/d2b/class_u_e_1_1_virtualization_1_1_i_virtualization_system.html#aa766a444924d3e9d6ac1db2aadb337f0", null ],
+    [ "GetBackendStatistics", "d7/d2b/class_u_e_1_1_virtualization_1_1_i_virtualization_system.html#a6037f4b3a7191379ac85c281ac5b14a8", null ],
+    [ "GetNotificationEvent", "d7/d2b/class_u_e_1_1_virtualization_1_1_i_virtualization_system.html#a14d84450f1ce731cb42588d9b52ce960", null ],
+    [ "GetSystemStatistics", "d7/d2b/class_u_e_1_1_virtualization_1_1_i_virtualization_system.html#a5bcc2a7f4650fbe5e0d58aee16deb470", null ],
+    [ "Initialize", "d7/d2b/class_u_e_1_1_virtualization_1_1_i_virtualization_system.html#aa3e3724ae6778312be9b4c005f0100f5", null ],
+    [ "IsEnabled", "d7/d2b/class_u_e_1_1_virtualization_1_1_i_virtualization_system.html#a659001893b6dd3d284589e59854ef337", null ],
+    [ "IsPushingEnabled", "d7/d2b/class_u_e_1_1_virtualization_1_1_i_virtualization_system.html#a5d0e5d1a168ad9095393bc3a690298dc", null ],
+    [ "PullData", "d7/d2b/class_u_e_1_1_virtualization_1_1_i_virtualization_system.html#a439a966827f6e685cad5ec810a5a43bd", null ],
+    [ "PullData", "d7/d2b/class_u_e_1_1_virtualization_1_1_i_virtualization_system.html#ab576129ff61f1041a5571007f6f108fa", null ],
+    [ "PullData", "d7/d2b/class_u_e_1_1_virtualization_1_1_i_virtualization_system.html#a6e35268fa46267263cdc49e4554baa74", null ],
+    [ "PushData", "d7/d2b/class_u_e_1_1_virtualization_1_1_i_virtualization_system.html#a81ad90bcc275d07398fa663de6354791", null ],
+    [ "PushData", "d7/d2b/class_u_e_1_1_virtualization_1_1_i_virtualization_system.html#a438979a9dbf77018610a68d4d823a3e1", null ],
+    [ "PushData", "d7/d2b/class_u_e_1_1_virtualization_1_1_i_virtualization_system.html#aa743074226e13157c0fdefb468b7a742", null ],
+    [ "QueryPayloadStatuses", "d7/d2b/class_u_e_1_1_virtualization_1_1_i_virtualization_system.html#a810900b148d4aa22ac6487b7760db98e", null ],
+    [ "TryRehydratePackages", "d7/d2b/class_u_e_1_1_virtualization_1_1_i_virtualization_system.html#a92a5c523666338a125351a5417c0a960", null ],
+    [ "TryRehydratePackages", "d7/d2b/class_u_e_1_1_virtualization_1_1_i_virtualization_system.html#a41552f26a6665cb93c34c928353d213c", null ],
+    [ "TryVirtualizePackages", "d7/d2b/class_u_e_1_1_virtualization_1_1_i_virtualization_system.html#abd1f4dafabc12776429c6eb1171108fa", null ]
+];

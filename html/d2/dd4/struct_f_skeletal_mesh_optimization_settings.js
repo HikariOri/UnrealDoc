@@ -1,0 +1,27 @@
+var struct_f_skeletal_mesh_optimization_settings =
+[
+    [ "FSkeletalMeshOptimizationSettings", "d2/dd4/struct_f_skeletal_mesh_optimization_settings.html#aca068f1902861484a2beb151e6535570", null ],
+    [ "BaseLOD", "d2/dd4/struct_f_skeletal_mesh_optimization_settings.html#a74962a6a2aab07d2ccddb6cf9a76c017", null ],
+    [ "bEnforceBoneBoundaries", "d2/dd4/struct_f_skeletal_mesh_optimization_settings.html#a1303a12b6d2a55df84ab7bc181cee976", null ],
+    [ "bImproveTrianglesForCloth", "d2/dd4/struct_f_skeletal_mesh_optimization_settings.html#ab462c6728b873a4c1cab701c1cf93813", null ],
+    [ "bLockColorBounaries", "d2/dd4/struct_f_skeletal_mesh_optimization_settings.html#a8b68e16c8d35a8176a71c3312219a20f", null ],
+    [ "bLockEdges", "d2/dd4/struct_f_skeletal_mesh_optimization_settings.html#a7a476e194a29c69ca38c9a253abd26e6", null ],
+    [ "bMergeCoincidentVertBones", "d2/dd4/struct_f_skeletal_mesh_optimization_settings.html#a61555aa1fb93c310fb9b93e15666bde9", null ],
+    [ "bRecalcNormals", "d2/dd4/struct_f_skeletal_mesh_optimization_settings.html#a72ff36c872960f7d4b48d9ed9f8d01ff", null ],
+    [ "bRemapMorphTargets", "d2/dd4/struct_f_skeletal_mesh_optimization_settings.html#ae97ba41be284c67834a6156e4d71804a", null ],
+    [ "MaxBonesPerVertex", "d2/dd4/struct_f_skeletal_mesh_optimization_settings.html#aeca10d08ebece96edaf1ba6ed2404b9d", null ],
+    [ "MaxDeviationPercentage", "d2/dd4/struct_f_skeletal_mesh_optimization_settings.html#a1875391d9bf8798f5f4d750496ca999f", null ],
+    [ "MaxNumOfTriangles", "d2/dd4/struct_f_skeletal_mesh_optimization_settings.html#a5ffab553195e1d9db3a7878336a9f1ae", null ],
+    [ "MaxNumOfVerts", "d2/dd4/struct_f_skeletal_mesh_optimization_settings.html#a947db88758df3197ad9e9143ddffecf9", null ],
+    [ "NormalsThreshold", "d2/dd4/struct_f_skeletal_mesh_optimization_settings.html#a70eb7126b243d63e32e6799c52c4401a", null ],
+    [ "NumOfTrianglesPercentage", "d2/dd4/struct_f_skeletal_mesh_optimization_settings.html#a519c873b39c6b8534a1499140b9fd932", null ],
+    [ "NumOfVertPercentage", "d2/dd4/struct_f_skeletal_mesh_optimization_settings.html#a6d1ccf6df0a5062f9ae4895f5c782b28", null ],
+    [ "ReductionMethod", "d2/dd4/struct_f_skeletal_mesh_optimization_settings.html#a35ceac6c466696b5bdcffa4c8bd90857", null ],
+    [ "ShadingImportance", "d2/dd4/struct_f_skeletal_mesh_optimization_settings.html#ad9cac5d599a083460d91c1626465ccfa", null ],
+    [ "SilhouetteImportance", "d2/dd4/struct_f_skeletal_mesh_optimization_settings.html#a1bfe3b0ee816ffb3a8f84e0317369023", null ],
+    [ "SkinningImportance", "d2/dd4/struct_f_skeletal_mesh_optimization_settings.html#a934cdf9a6a74ec43cba117ee7cbd6ed1", null ],
+    [ "TerminationCriterion", "d2/dd4/struct_f_skeletal_mesh_optimization_settings.html#a7c58eb8587b8c0fcc9c615625f0b98af", null ],
+    [ "TextureImportance", "d2/dd4/struct_f_skeletal_mesh_optimization_settings.html#a777965bde8697bb61c5db2d85e1647ba", null ],
+    [ "VolumeImportance", "d2/dd4/struct_f_skeletal_mesh_optimization_settings.html#adfce6e9c6515593dab7c8bf505e08d7a", null ],
+    [ "WeldingThreshold", "d2/dd4/struct_f_skeletal_mesh_optimization_settings.html#a1973a0041fca5159c18b5c4a0d905978", null ]
+];

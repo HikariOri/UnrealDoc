@@ -1,0 +1,27 @@
+var _platform_io_dispatcher_base_8h =
+[
+    [ "UE::FIoBufferHandle", "d8/d7f/struct_u_e_1_1_f_io_buffer_handle.html", "d8/d7f/struct_u_e_1_1_f_io_buffer_handle" ],
+    [ "UE::FIoBlockKey", "d9/d1f/struct_u_e_1_1_f_io_block_key.html", "d9/d1f/struct_u_e_1_1_f_io_block_key" ],
+    [ "UE::FIoEncodedBlockRequest", "db/dbb/struct_u_e_1_1_f_io_encoded_block_request.html", "db/dbb/struct_u_e_1_1_f_io_encoded_block_request" ],
+    [ "UE::FIoEncodedBlockRequest::FScatterTarget", "dc/d54/struct_u_e_1_1_f_io_encoded_block_request_1_1_f_scatter_target.html", "dc/d54/struct_u_e_1_1_f_io_encoded_block_request_1_1_f_scatter_target" ],
+    [ "UE::FIoFileBlockLink", "d0/d5c/struct_u_e_1_1_f_io_file_block_link.html", "d0/d5c/struct_u_e_1_1_f_io_file_block_link" ],
+    [ "UE::FIoPlatformReadRequest", "d3/dd6/struct_u_e_1_1_f_io_platform_read_request.html", "d3/dd6/struct_u_e_1_1_f_io_platform_read_request" ],
+    [ "UE::FIoPlatformReadRequest::FScatterGather", "d4/dbe/struct_u_e_1_1_f_io_platform_read_request_1_1_f_scatter_gather.html", "d4/dbe/struct_u_e_1_1_f_io_platform_read_request_1_1_f_scatter_gather" ],
+    [ "UE::FIoPlatformReadRequest::FDirectRead", "d7/d20/struct_u_e_1_1_f_io_platform_read_request_1_1_f_direct_read.html", "d7/d20/struct_u_e_1_1_f_io_platform_read_request_1_1_f_direct_read" ],
+    [ "UE::FIoFileBlockRequest", "d7/dd5/struct_u_e_1_1_f_io_file_block_request.html", "d7/dd5/struct_u_e_1_1_f_io_file_block_request" ],
+    [ "UE::FIoPlatformFileInfo", "dc/d31/struct_u_e_1_1_f_io_platform_file_info.html", "dc/d31/struct_u_e_1_1_f_io_platform_file_info" ],
+    [ "UE::FIoQueue", "d5/d6a/class_u_e_1_1_f_io_queue.html", "d5/d6a/class_u_e_1_1_f_io_queue" ],
+    [ "UE::FIoFileBlockMemoryPool", "d9/d30/class_u_e_1_1_f_io_file_block_memory_pool.html", "d9/d30/class_u_e_1_1_f_io_file_block_memory_pool" ],
+    [ "UE::FIoChunkBlockMemoryPool", "d8/d9e/class_u_e_1_1_f_io_chunk_block_memory_pool.html", "d8/d9e/class_u_e_1_1_f_io_chunk_block_memory_pool" ],
+    [ "UE::FIoFileBlockCache", "d5/d59/class_u_e_1_1_f_io_file_block_cache.html", "d5/d59/class_u_e_1_1_f_io_file_block_cache" ],
+    [ "UE::FPlatformIoDispatcherRequestMgr", "dc/dbc/class_u_e_1_1_f_platform_io_dispatcher_request_mgr.html", "dc/dbc/class_u_e_1_1_f_platform_io_dispatcher_request_mgr" ],
+    [ "UE::FPlatformIoDispatcherBase", "d2/dc4/class_u_e_1_1_f_platform_io_dispatcher_base.html", "d2/dc4/class_u_e_1_1_f_platform_io_dispatcher_base" ],
+    [ "UE::FIoEncodedBlockRequestAllocator", "da/de5/namespace_u_e.html#a27e9ae41fb7d898a9881553b8724cde0", null ],
+    [ "UE::FIoEncodedBlockRequestList", "da/de5/namespace_u_e.html#ad83fff9539e658b244b43f4876954049", null ],
+    [ "UE::FIoFileBlockLinkAllocator", "da/de5/namespace_u_e.html#ac851d50e7fda54749071fbf18d3220e3", null ],
+    [ "UE::FIoFileBlockRequestAllocator", "da/de5/namespace_u_e.html#afe939a9b7d9ed8ec08fea3ecd056e3c4", null ],
+    [ "UE::FIoFileBlockRequestList", "da/de5/namespace_u_e.html#a50fb7c42ea1dd5158d2b094a11554eaa", null ],
+    [ "UE::FIoPlatformReadRequestAllocator", "da/de5/namespace_u_e.html#a70643646f446ccf9a37615482f324899", null ],
+    [ "UE::FIoPlatformReadRequestList", "da/de5/namespace_u_e.html#a5c9986e3e9d08a893048bb1ebfd3434b", null ],
+    [ "UE::FTempArray", "da/de5/namespace_u_e.html#a957b16d4b67585faab09749704e2ec7c", null ]
+];

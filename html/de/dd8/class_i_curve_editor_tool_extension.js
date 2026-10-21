@@ -1,0 +1,26 @@
+var class_i_curve_editor_tool_extension =
+[
+    [ "ICurveEditorToolExtension", "de/dd8/class_i_curve_editor_tool_extension.html#a7f3ea48202a153288799c3736cf8367f", null ],
+    [ "~ICurveEditorToolExtension", "de/dd8/class_i_curve_editor_tool_extension.html#aea61d9b485460feb323a800bfee892d0", null ],
+    [ "BindCommands", "de/dd8/class_i_curve_editor_tool_extension.html#a3d8eae7f2ac7821c372a1fb980c15e46", null ],
+    [ "GetDescription", "de/dd8/class_i_curve_editor_tool_extension.html#a104ebfad3241787f56f9abd8b4a38ca2", null ],
+    [ "GetIcon", "de/dd8/class_i_curve_editor_tool_extension.html#a0c78906763b42784c5fb5150518218d2", null ],
+    [ "GetLabel", "de/dd8/class_i_curve_editor_tool_extension.html#addb592cb8e17a49dd05622016653402b", null ],
+    [ "GetToolOptions", "de/dd8/class_i_curve_editor_tool_extension.html#ab44e259a71cc3cd073eeb351f17786f0", null ],
+    [ "OnFinishedPointerInput", "de/dd8/class_i_curve_editor_tool_extension.html#a7a2f7383641815f5fa44f7bb3a3bfa45", null ],
+    [ "OnFocusLost", "de/dd8/class_i_curve_editor_tool_extension.html#ae34f28eb3a4c4473f2e225d58d42bee6", null ],
+    [ "OnKeyDown", "de/dd8/class_i_curve_editor_tool_extension.html#ad50ab7ed888945d56fda542889d2ef55", null ],
+    [ "OnKeyUp", "de/dd8/class_i_curve_editor_tool_extension.html#a97626ebe47709b6b3530ac067a4430c0", null ],
+    [ "OnMouseButtonDoubleClick", "de/dd8/class_i_curve_editor_tool_extension.html#aa46986a3ca78491029cc9646e3e20e64", null ],
+    [ "OnMouseButtonDown", "de/dd8/class_i_curve_editor_tool_extension.html#a5d8db2ae830922b2229ecd486aa514ab", null ],
+    [ "OnMouseButtonUp", "de/dd8/class_i_curve_editor_tool_extension.html#ab5bb038f9e228f717110477ebb55d7a9", null ],
+    [ "OnMouseMove", "de/dd8/class_i_curve_editor_tool_extension.html#af97b0799919098b441df31995c1e7774", null ],
+    [ "OnPaint", "de/dd8/class_i_curve_editor_tool_extension.html#a66a6a707908dbeafa25fa95fabb73af6", null ],
+    [ "OnToolActivated", "de/dd8/class_i_curve_editor_tool_extension.html#a3f6c6bf883874ec09f3caf9ecce81288", null ],
+    [ "OnToolDeactivated", "de/dd8/class_i_curve_editor_tool_extension.html#a707dafb767c53e0a671a92f7e33c569e", null ],
+    [ "OnToolOptionsUpdated", "de/dd8/class_i_curve_editor_tool_extension.html#a2190ba17bd096093e0d0e516e7f80091", null ],
+    [ "SetToolID", "de/dd8/class_i_curve_editor_tool_extension.html#a5e28498d814ef759d6ee9bca1fa0493b", null ],
+    [ "Tick", "de/dd8/class_i_curve_editor_tool_extension.html#a13da007e487f3c7e53c57078b9b89db9", null ],
+    [ "OnOptionsRefreshDelegate", "de/dd8/class_i_curve_editor_tool_extension.html#a4b6b681c72d95862bb947857b71f48d0", null ],
+    [ "ToolID", "de/dd8/class_i_curve_editor_tool_extension.html#a814cbde4197df815b17503763bb0b724", null ]
+];

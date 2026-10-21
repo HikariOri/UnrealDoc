@@ -1,0 +1,493 @@
+<!-- HTML header for doxygen 1.15.0-->
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh">
+<head>
+  <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=11" />
+  <meta name="generator" content="Doxygen 1.15.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>UE 5.8.4: Engine/Source/Runtime/Landscape/Private/LandscapeGrassMapsBuilder.h 源文件</title>
+  <link rel="icon" href="../../EdIconDefault.bmp" type="image/x-icon" />
+  <link href="../../tabs.css" rel="stylesheet" type="text/css" />
+  <script type="text/javascript" src="../../jquery.js"></script>
+  <script type="text/javascript" src="../../dynsections.js"></script>
+  <link href="../../navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../navtreedata.js"></script>
+<script type="text/javascript" src="../../navtree.js"></script>
+<script type="text/javascript" src="../../cookie.js"></script>
+  <link href="../../search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../search/searchdata.js"></script>
+<script type="text/javascript" src="../../search/search.js"></script>
+  <link href="../../doxygen.css" rel="stylesheet" type="text/css" />
+  <link href="../../doxygen-awesome.css" rel="stylesheet" type="text/css"/>
+<link href="../../doxygen-awesome-sidebar-only.css" rel="stylesheet" type="text/css"/>
+<link href="../../doxygen-awesome-sidebar-only-darkmode-toggle.css" rel="stylesheet" type="text/css"/>
+  <!-- ... other metadata & script includes ... -->
+  <script type="text/javascript" src="../../doxygen-awesome-darkmode-toggle.js"></script>
+  <script type="text/javascript">
+    DoxygenAwesomeDarkModeToggle.title = "Zwischen hellem/dunklem Modus wechseln"
+    DoxygenAwesomeDarkModeToggle.lightModeIcon = '🌞'
+    // icon from https://fonts.google.com/icons
+    DoxygenAwesomeDarkModeToggle.darkModeIcon = `<svg xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 24 24" height="24px" viewBox="0 0 24 24" width="24px" fill="#009793"><g><rect fill="none" height="24" width="24"/></g><g><g><path d="M8.1,14.15C9.77,14.63,11,16.17,11,18c0,0.68-0.19,1.31-0.48,1.87c0.48,0.09,0.97,0.14,1.48,0.14 c1.48,0,2.9-0.41,4.13-1.15c-2.62-0.92-5.23-2.82-6.8-5.86C7.74,9.94,7.78,7.09,8.29,4.9c-2.57,1.33-4.3,4.01-4.3,7.1c0,0,0,0,0,0 c0.01,0,0.01,0,0.02,0C5.66,12,7.18,12.83,8.1,14.15z" opacity=".3"/><path d="M19.78,17.51c-2.47,0-6.57-1.33-8.68-5.43C8.77,7.57,10.6,3.6,11.63,2.01C6.27,2.2,1.98,6.59,1.98,12 c0,0.14,0.02,0.28,0.02,0.42C2.61,12.16,3.28,12,3.98,12c0,0,0,0,0,0c0-3.09,1.73-5.77,4.3-7.1C7.78,7.09,7.74,9.94,9.32,13 c1.57,3.04,4.18,4.95,6.8,5.86c-1.23,0.74-2.65,1.15-4.13,1.15c-0.5,0-1-0.05-1.48-0.14c-0.37,0.7-0.94,1.27-1.64,1.64 c0.98,0.32,2.03,0.5,3.11,0.5c3.5,0,6.58-1.8,8.37-4.52C20.18,17.5,19.98,17.51,19.78,17.51z"/><path d="M7,16l-0.18,0C6.4,14.84,5.3,14,4,14c-1.66,0-3,1.34-3,3s1.34,3,3,3c0.62,0,2.49,0,3,0c1.1,0,2-0.9,2-2 C9,16.9,8.1,16,7,16z"/></g></g></svg>`
+    DoxygenAwesomeDarkModeToggle.init()
+  </script>
+  <script type="text/javascript" src="../../doxygen-awesome-fragment-copy-button.js"></script>
+  <script type="text/javascript">
+    DoxygenAwesomeFragmentCopyButton.title = "In die Zwischenablage kopieren"
+    // DoxygenAwesomeFragmentCopyButton.copyIcon = `<svg ...>`
+    // DoxygenAwesomeFragmentCopyButton.successIcon = `<svg ...>`
+    DoxygenAwesomeFragmentCopyButton.init()
+  </script>
+  <script type="text/javascript" src="../../doxygen-awesome-paragraph-link.js"></script>
+  <script type="text/javascript">
+    DoxygenAwesomeParagraphLink.title = "Abschnitt verknüpfen"
+    DoxygenAwesomeParagraphLink.icon = "¶"
+    DoxygenAwesomeParagraphLink.init()
+  </script>
+  <script type="text/javascript" src="../../doxygen-awesome-interactive-toc.js"></script>
+  <script type="text/javascript">
+    DoxygenAwesomeInteractiveToc.topOffset = 45
+    DoxygenAwesomeInteractiveToc.hideMobileMenu = false
+    DoxygenAwesomeInteractiveToc.init()
+  </script>
+</head>
+<body>
+    <div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+      <div id="titlearea">
+        <table cellspacing="0" cellpadding="0">
+          <tbody>
+            <tr id="projectrow">
+              <td id="projectlogo"><img alt="Logo" src="../../EdIconDefault.bmp"  /></td>
+              <td id="projectalign">
+                <div id="projectname">UE 5.8.4
+                </div>
+                <div id="projectbrief">Unreal Engine</div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <!-- end header part -->
+<!-- 制作者 Doxygen 1.15.0 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "../../search/",'.html');
+</script>
+<script type="text/javascript">
+$(function() { codefold.init(); });
+</script>
+<script type="text/javascript" src="../../menudata.js"></script>
+<script type="text/javascript" src="../../menu.js"></script>
+<script type="text/javascript">
+$(function() {
+  initMenu('../../',true,false,'search.php','搜索',true);
+  $(function() { init_search(); });
+});
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(function(){initNavTree('d4/d92/_landscape_grass_maps_builder_8h_source.html','../../',''); });
+</script>
+<div id="container">
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">载入中...</div>
+<div class="SRStatus" id="Searching">搜索中...</div>
+<div class="SRStatus" id="NoMatches">未找到</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">LandscapeGrassMapsBuilder.h</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="../../d4/d92/_landscape_grass_maps_builder_8h.html">浏览该文件的文档.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="comment">// Copyright Epic Games, Inc. All Rights Reserved.</span></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="preprocessor">#pragma once</span></div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span> </div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#include &quot;<a class="code" href="../../dc/d5e/_core_minimal_8h.html">CoreMinimal.h</a>&quot;</span></div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="preprocessor">#include &quot;<a class="code" href="../../d2/d18/_async_work_8h.html">Async/AsyncWork.h</a>&quot;</span></div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="preprocessor">#include &quot;<a class="code" href="../../d3/d3e/_weak_object_ptr_templates_8h.html">UObject/WeakObjectPtrTemplates.h</a>&quot;</span></div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="preprocessor">#include &quot;<a class="code" href="../../de/d20/_landscape_component_8h.html">LandscapeComponent.h</a>&quot;</span></div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="preprocessor">#include &quot;<a class="code" href="../../de/d97/_landscape_texture_streaming_manager_8h.html">LandscapeTextureStreamingManager.h</a>&quot;</span></div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="preprocessor">#include &quot;<a class="code" href="../../dd/d57/_allocator_fixed_size_free_list_8h.html">Containers/AllocatorFixedSizeFreeList.h</a>&quot;</span></div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="preprocessor">#include &quot;<a class="code" href="../../da/d77/_point_hash_grid3_8h.html">Spatial/PointHashGrid3.h</a>&quot;</span></div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span> </div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="keyword">class </span><a class="code hl_class" href="../../d3/da7/class_f_landscape_grass_weight_exporter.html">FLandscapeGrassWeightExporter</a>;</div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="keyword">struct </span><a class="code hl_struct" href="../../d5/d9f/struct_f_scoped_slow_task.html">FScopedSlowTask</a>;</div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span> </div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span><span class="keyword">namespace </span><a class="code hl_namespace" href="../../de/dcc/namespace_u_e_1_1_landscape.html">UE::Landscape</a></div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span>{</div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span>    <span class="keyword">enum class</span> <a class="code hl_enumeration" href="../../de/dcc/namespace_u_e_1_1_landscape.html#a0fae4f59a84d2071e7e4e8f5a27320d9">EBuildFlags</a> : <a class="code hl_typedef" href="../../dd/de9/preprocessor_8c.html#adde6aaee8457bee49c2a92621fe22b79">uint8</a>;</div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>} <span class="comment">// namespace UE::Landscape</span></div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span> </div>
+<div class="foldopen" id="foldopen00020" data-start="{" data-end="};">
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno"><a class="line" href="../../d3/d29/class_f_async_fetch_task.html">   20</a></span><span class="keyword">class </span><a class="code hl_function" href="../../d3/d29/class_f_async_fetch_task.html#a31fa5e986fbf42f44655aa47ca21b368">FAsyncFetchTask</a> : <span class="keyword">public</span> <a class="code hl_class" href="../../d0/dcf/class_f_non_abandonable_task.html">FNonAbandonableTask</a></div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>{</div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>    <span class="comment">// non-owned pointer. The lifetime is managed externally and must guarantee this pointer is valid while the task is in flight</span></div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno"><a class="line" href="../../d3/d29/class_f_async_fetch_task.html#a08088291b96ca7d910d123c80de21afb">   24</a></span>    <a class="code hl_class" href="../../d3/db0/class_t_non_null_ptr.html">TNonNullPtr&lt; FLandscapeGrassWeightExporter&gt;</a> <a class="code hl_variable" href="../../d3/d29/class_f_async_fetch_task.html#a08088291b96ca7d910d123c80de21afb">ActiveRender</a>;</div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno"><a class="line" href="../../d3/d29/class_f_async_fetch_task.html#a1d00c8b17be7645a22c08a251ff02bd6">   25</a></span>    <a class="code hl_class" href="../../da/d41/class_t_map.html">TMap&lt;ULandscapeComponent*, TUniquePtr&lt;FLandscapeComponentGrassData&gt;</a>, <a class="code hl_class" href="../../df/d48/class_t_inline_set_allocator.html">TInlineSetAllocator&lt;1&gt;</a>&gt; <a class="code hl_variable" href="../../d3/d29/class_f_async_fetch_task.html#a1d00c8b17be7645a22c08a251ff02bd6">Results</a>;</div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span> </div>
+<div class="foldopen" id="foldopen00027" data-start="{" data-end="}">
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno"><a class="line" href="../../d3/d29/class_f_async_fetch_task.html#a31fa5e986fbf42f44655aa47ca21b368">   27</a></span>    <a class="code hl_function" href="../../d3/d29/class_f_async_fetch_task.html#a31fa5e986fbf42f44655aa47ca21b368">FAsyncFetchTask</a>(<a class="code hl_class" href="../../d3/da7/class_f_landscape_grass_weight_exporter.html">FLandscapeGrassWeightExporter</a>* <a class="code hl_variable" href="../../d3/d29/class_f_async_fetch_task.html#a08088291b96ca7d910d123c80de21afb">ActiveRender</a>)</div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>        : <a class="code hl_variable" href="../../d3/d29/class_f_async_fetch_task.html#a08088291b96ca7d910d123c80de21afb">ActiveRender</a>(<a class="code hl_variable" href="../../d3/d29/class_f_async_fetch_task.html#a08088291b96ca7d910d123c80de21afb">ActiveRender</a>)</div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>    {</div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>    }</div>
+</div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span> </div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="../../d3/d29/class_f_async_fetch_task.html#add0a591acd6eba31240dc9fe15cd6b12">DoWork</a>();</div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span> </div>
+<div class="foldopen" id="foldopen00034" data-start="{" data-end="}">
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno"><a class="line" href="../../d3/d29/class_f_async_fetch_task.html#a6fe1b29c15fe9324dc2ebfb69e17a1df">   34</a></span>    <a class="code hl_define" href="../../d0/d76/_android_platform_8h.html#a724fb9f82013c782db5c3c12ea36aac8">FORCEINLINE</a> <a class="code hl_struct" href="../../de/d01/struct_t_stat_id.html">TStatId</a> <a class="code hl_function" href="../../d3/d29/class_f_async_fetch_task.html#a6fe1b29c15fe9324dc2ebfb69e17a1df">GetStatId</a>()<span class="keyword"> const</span></div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span><span class="keyword">    </span>{</div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>        <a class="code hl_define" href="../../d3/d48/_stats_8h.html#a9fa3db03dd1683c197b97c6870d0f13b">RETURN_QUICK_DECLARE_CYCLE_STAT</a>(<a class="code hl_function" href="../../d3/d29/class_f_async_fetch_task.html#a31fa5e986fbf42f44655aa47ca21b368">FAsyncFetchTask</a>, STATGROUP_ThreadPoolAsyncTasks);</div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>    }</div>
+</div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>};</div>
+</div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span></div>
+<div class="foldopen" id="foldopen00043" data-start="{" data-end="};">
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno"><a class="line" href="../../dc/d62/class_f_landscape_grass_maps_builder.html">   43</a></span><span class="keyword">class </span><a class="code hl_function" href="../../dc/d62/class_f_landscape_grass_maps_builder.html#aa123efbab81ff121f2823108ae288ab4">FLandscapeGrassMapsBuilder</a></div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>{</div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>    LANDSCAPE_API <a class="code hl_function" href="../../dc/d62/class_f_landscape_grass_maps_builder.html#aa123efbab81ff121f2823108ae288ab4">FLandscapeGrassMapsBuilder</a>(<a class="code hl_class" href="../../de/d4d/class_u_world.html">UWorld</a>* InWorld, <a class="code hl_class" href="../../d2/da1/class_f_landscape_texture_streaming_manager.html">FLandscapeTextureStreamingManager</a>&amp; InTextureStreamingManager);</div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>    <a class="code hl_function" href="../../dc/d62/class_f_landscape_grass_maps_builder.html#a165addfd1a59e93baf87a0af12bdaae4">~FLandscapeGrassMapsBuilder</a>();</div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span> </div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span><span class="preprocessor">#if WITH_EDITOR</span><span class="preprocessor"></span></div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>    LANDSCAPE_API <span class="keywordtype">void</span> <a class="code hl_enumvalue" href="../../d0/dc7/_r_h_i_context_8h.html#abbd402e65e16a6261f867dbf1d5f6049ac74c1f42f141c011ca6bd8b1114fc3d0">Build</a>(<a class="code hl_enumeration" href="../../de/dcc/namespace_u_e_1_1_landscape.html#a0fae4f59a84d2071e7e4e8f5a27320d9">UE::Landscape::EBuildFlags</a> InBuildFlags);</div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>    </div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>    LANDSCAPE_API <a class="code hl_typedef" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a8dbb3cd84ca9fd010dadfc3815eefa5d">int32</a> GetOutdatedGrassMapCount(<span class="keywordtype">bool</span> bInForceUpdate = <span class="keyword">true</span>) <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span><span class="preprocessor">#endif </span><span class="comment">// WITH_EDITOR</span></div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span> </div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>    <span class="comment">// count components that have valid data but whose generation hash does not match</span></div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno"><a class="line" href="../../dc/d62/class_f_landscape_grass_maps_builder.html#a4641b3db3d8dc8bde56f53bda8a37ce0">   58</a></span>    <a class="code hl_typedef" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a8dbb3cd84ca9fd010dadfc3815eefa5d">int32</a> <a class="code hl_function" href="../../dc/d62/class_f_landscape_grass_maps_builder.html#a4641b3db3d8dc8bde56f53bda8a37ce0">CountOutdatedGrassMaps</a>(<span class="keyword">const</span> <a class="code hl_class" href="../../d6/db1/class_t_array.html">TArray</a>&lt;<a class="code hl_struct" href="../../d8/d87/struct_t_object_ptr.html">TObjectPtr&lt;ULandscapeComponent&gt;</a>&gt;&amp; LandscapeComponents) <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span> </div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>    <span class="comment">// called when components are registered to the world</span></div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="../../dc/d62/class_f_landscape_grass_maps_builder.html#a70d144126452192fb4927d6659885010">RegisterComponent</a>(ULandscapeComponent* <a class="code hl_enumvalue" href="../../db/d1d/_landscape_tool_interface_8h.html#a3d2a4174a738dbbc109db9fe386f513ba2cb05e4bb7830be982f0922fed86b4cd">Component</a>);</div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>    <span class="comment">// called when components are unregistered from the world.</span></div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="../../dc/d62/class_f_landscape_grass_maps_builder.html#adbba3b76e5b601257ad8e1de0a65cb03">UnregisterComponent</a>(<span class="keyword">const</span> ULandscapeComponent* <a class="code hl_enumvalue" href="../../db/d1d/_landscape_tool_interface_8h.html#a3d2a4174a738dbbc109db9fe386f513ba2cb05e4bb7830be982f0922fed86b4cd">Component</a>);</div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span> </div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>    <span class="comment">// get the number of grass maps that are still waiting to render, as of the last AmortizedUpdateGrassMaps()</span></div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno"><a class="line" href="../../dc/d62/class_f_landscape_grass_maps_builder.html#ac9dadd581a05cf0027b47a61a07fc604">   66</a></span>    <a class="code hl_typedef" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a8dbb3cd84ca9fd010dadfc3815eefa5d">int32</a> <a class="code hl_function" href="../../dc/d62/class_f_landscape_grass_maps_builder.html#ac9dadd581a05cf0027b47a61a07fc604">GetTotalGrassMapsWaitingToRender</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> TotalComponentsWaitingCount; }</div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span> </div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>    <span class="comment">// Amortized Update of Grass Maps near the specified cameras.</span></div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>    <span class="comment">// if Cameras is empty, it considers all distances to be zero for update purposes:</span></div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>    <span class="comment">//   - it won&#39;t evict anything for distance</span></div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>    <span class="comment">//   - it will not start tracking (building grass maps) for any components</span></div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="../../dc/d62/class_f_landscape_grass_maps_builder.html#a2edc069e36e9dd04f24c6b5f751705e6">AmortizedUpdateGrassMaps</a>(<span class="keyword">const</span> <a class="code hl_class" href="../../d6/db1/class_t_array.html">TArray&lt;FVector&gt;</a>&amp; Cameras, <span class="keywordtype">bool</span> bPrioritizeCreation, <span class="keywordtype">bool</span> bAllowStartGrassMapGeneration, <span class="keywordtype">bool</span> bAnyLandscapeActorHasGrassEnabled);</div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span> </div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>    <span class="comment">// synchronous build of grassmaps for a specific set of components</span></div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>    <span class="comment">// returns true if it successfully makes all LandscapeComponents have up to date Grass Maps.</span></div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>    <span class="keywordtype">bool</span> <a class="code hl_function" href="../../dc/d62/class_f_landscape_grass_maps_builder.html#a7cbbcf604b2fa32bdf8823892b721c1c">BuildGrassMapsNowForComponents</a>(<a class="code hl_class" href="../../d2/ddb/class_t_array_view.html">TArrayView</a>&lt;<a class="code hl_struct" href="../../d8/d87/struct_t_object_ptr.html">TObjectPtr&lt;ULandscapeComponent&gt;</a>&gt; LandscapeComponents, <a class="code hl_struct" href="../../d5/d9f/struct_f_scoped_slow_task.html">FScopedSlowTask</a>* SlowTask, <span class="keywordtype">bool</span> bMarkDirty);</div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span> </div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span><span class="preprocessor">#if !UE_BUILD_SHIPPING</span></div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>    <span class="comment">// Force stream textures and issue draw calls for the specified components -- mainly for capturing the rendering behavior and debugging issues</span></div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>    <span class="comment">// (this will evict existing populated grass maps on those components)</span></div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="../../dc/d62/class_f_landscape_grass_maps_builder.html#ab5139099d4f5aeb6431d16fad0070e58">DebugRenderComponents</a>(<a class="code hl_class" href="../../d2/ddb/class_t_array_view.html">TArrayView</a>&lt;<a class="code hl_struct" href="../../d8/d87/struct_t_object_ptr.html">TObjectPtr&lt;ULandscapeComponent&gt;</a>&gt; LandscapeComponents);</div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span><span class="preprocessor">#endif </span><span class="comment">// !UE_BUILD_SHIPPING</span></div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span> </div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span><span class="keyword">private</span>:</div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span> </div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span>    <span class="comment">// false if the world can not currently render the grass (but this may change later, for example if preview modes are modified)</span></div>
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span>    <span class="keywordtype">bool</span> CanCurrentlyRender() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span> </div>
+<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span>    <span class="comment">// Update all of the non-pending components.  Returns true if any components changed states.</span></div>
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span>    <span class="comment">// If passed an empty Cameras array, distances are calculated as zero (i.e. it won&#39;t evict for distance)</span></div>
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span>    <span class="comment">// MaxExpensiveUpdateChecksToPerform controls how many expensive component updates are performed (pass ComponentStates.Num() to process all)</span></div>
+<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span>    <span class="comment">// bCancelAndEvictAllImmediately will move all tracked component states to the pending state and block until any in-flight processing is cancelled and cleaned up</span></div>
+<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span>    <span class="comment">// bEvictWhenBeyondEvictionRange will evict any populated components that are beyond the eviction range distance (used to reclaim memory when using runtime generation)</span></div>
+<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span>    <span class="comment">// DeltaTicks specifies how many ticks to advance the tick counter on each tracked component.  In general 1 tick, though in some cases where we are iterating within a single frame, and don&#39;t need to trigger delayed-tick events (i.e. D3D11 readback), we can pass 0.</span></div>
+<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span>    <span class="keywordtype">bool</span> UpdateTrackedComponents(<span class="keyword">const</span> <a class="code hl_class" href="../../d6/db1/class_t_array.html">TArray&lt;FVector&gt;</a>&amp; Cameras, <a class="code hl_typedef" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a8dbb3cd84ca9fd010dadfc3815eefa5d">int32</a> LocalMaxRendering, <a class="code hl_typedef" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a8dbb3cd84ca9fd010dadfc3815eefa5d">int32</a> MaxExpensiveUpdateChecksToPerform, <span class="keywordtype">bool</span> bCancelAndEvictAllImmediately, <span class="keywordtype">bool</span> bEvictWhenBeyondEvictionRange, <a class="code hl_typedef" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a8dbb3cd84ca9fd010dadfc3815eefa5d">int32</a> DeltaTicks);</div>
+<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span> </div>
+<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span>    <span class="comment">// Start the grass map generation process on pending components in priority order</span></div>
+<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span>    <span class="comment">// (based on distance from the given Camera set) -- Cameras must not be empty.</span></div>
+<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span>    <span class="keywordtype">void</span> StartPrioritizedGrassMapGeneration(<span class="keyword">const</span> <a class="code hl_class" href="../../d6/db1/class_t_array.html">TArray&lt;FVector&gt;</a>&amp; Cameras, <a class="code hl_typedef" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a8dbb3cd84ca9fd010dadfc3815eefa5d">int32</a> MaxComponentsToStart, <span class="keywordtype">bool</span> bOnlyWhenCloserThanEvictionRange);</div>
+<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span>    </div>
+<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span>    <span class="keyword">enum class</span> EComponentStage : <a class="code hl_typedef" href="../../dd/de9/preprocessor_8c.html#adde6aaee8457bee49c2a92621fe22b79">uint8</a></div>
+<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span>    {</div>
+<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span>        Pending,                            <span class="comment">// initial state; the component is waiting to start the generation process.</span></div>
+<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span>        NotReady,                           <span class="comment">// tried to start generation process, but either no grass types exist or the material is not ready. wait for that to change.</span></div>
+<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span>        <a class="code hl_enumvalue" href="../../d4/d66/_i_target_platform_settings_8h.html#aaea8193c07a791b7f4ed4316aa589c5aa331e35b3121b3813d136b0ef88eb09b2">TextureStreaming</a>,                   <span class="comment">// texture streaming was requested.  wait for the mips to be available</span></div>
+<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span>        <a class="code hl_enumvalue" href="../../db/dec/_r_h_i_resources_8h.html#a1546d058080958b97bdb054a0c73fb25aa6e8f9aed2ac6481dc25a18a33342d03">Rendering</a>,                          <span class="comment">// GPU render commands were sent -- waiting for async readback to complete</span></div>
+<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span>        AsyncFetch,                         <span class="comment">// Waiting for the async fetch task to complete</span></div>
+<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span>        GrassMapsPopulated,                 <span class="comment">// grass maps are built and are ready to create instances</span></div>
+<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span>    };</div>
+<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span> </div>
+<div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span>    <span class="keyword">struct </span>FComponentState</div>
+<div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span>    {</div>
+<div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span>    <span class="keyword">public</span>:</div>
+<div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span>        <span class="comment">// this pointer is valid as long as the Component is registered</span></div>
+<div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span>        <span class="comment">// (the FComponentState itself may continue to exist after unregistration, until all resources are cleaned up)</span></div>
+<div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span>        ULandscapeComponent* Component = <span class="keyword">nullptr</span>;</div>
+<div class="line"><a id="l00117" name="l00117"></a><span class="lineno">  117</span> </div>
+<div class="line"><a id="l00118" name="l00118"></a><span class="lineno">  118</span>        EComponentStage Stage = EComponentStage::Pending;</div>
+<div class="line"><a id="l00119" name="l00119"></a><span class="lineno">  119</span> </div>
+<div class="line"><a id="l00120" name="l00120"></a><span class="lineno">  120</span>        <span class="keywordtype">bool</span> bInPendingHeap = <span class="keyword">false</span>;</div>
+<div class="line"><a id="l00121" name="l00121"></a><span class="lineno">  121</span> </div>
+<div class="line"><a id="l00122" name="l00122"></a><span class="lineno">  122</span>        <span class="comment">// counts the number of ticks this component has remained in the current stage</span></div>
+<div class="line"><a id="l00123" name="l00123"></a><span class="lineno">  123</span>        <a class="code hl_typedef" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a8dbb3cd84ca9fd010dadfc3815eefa5d">int32</a> TickCount = 0;</div>
+<div class="line"><a id="l00124" name="l00124"></a><span class="lineno">  124</span> </div>
+<div class="line"><a id="l00125" name="l00125"></a><span class="lineno">  125</span><span class="preprocessor">        #if WITH_EDITOR</span></div>
+<div class="line"><a id="l00126" name="l00126"></a><span class="lineno">  126</span>        <span class="comment">// the hashes of dependencies when this component&#39;s grass map was built, for tracking automatic invalidation</span></div>
+<div class="line"><a id="l00127" name="l00127"></a><span class="lineno">  127</span>        <a class="code hl_typedef" href="../../dd/de9/preprocessor_8c.html#a1134b580f8da4de94ca6b1de4d37975e">uint32</a> GrassMapGenerationHash = 0;</div>
+<div class="line"><a id="l00128" name="l00128"></a><span class="lineno">  128</span>        <a class="code hl_typedef" href="../../dd/de9/preprocessor_8c.html#a1134b580f8da4de94ca6b1de4d37975e">uint32</a> GrassInstanceGenerationHash = 0;</div>
+<div class="line"><a id="l00129" name="l00129"></a><span class="lineno">  129</span><span class="preprocessor">        #endif </span><span class="comment">// WITH_EDITOR</span></div>
+<div class="line"><a id="l00130" name="l00130"></a><span class="lineno">  130</span> </div>
+<div class="line"><a id="l00131" name="l00131"></a><span class="lineno">  131</span>        <span class="comment">// list of textures to stream prior to rendering this component (valid only in TextureSreaming and Rendering stages)</span></div>
+<div class="line"><a id="l00132" name="l00132"></a><span class="lineno">  132</span>        TArray&lt;TWeakObjectPtr&lt;UTexture&gt;&gt; TexturesToStream;</div>
+<div class="line"><a id="l00133" name="l00133"></a><span class="lineno">  133</span>        </div>
+<div class="line"><a id="l00134" name="l00134"></a><span class="lineno">  134</span>        <span class="comment">// the active render (valid only in Rendering stage)</span></div>
+<div class="line"><a id="l00135" name="l00135"></a><span class="lineno">  135</span>        TUniquePtr&lt;FLandscapeGrassWeightExporter&gt; ActiveRender;</div>
+<div class="line"><a id="l00136" name="l00136"></a><span class="lineno">  136</span> </div>
+<div class="line"><a id="l00137" name="l00137"></a><span class="lineno">  137</span>        <span class="comment">// when in AsyncFetch stage, this is async task that we are waiting for</span></div>
+<div class="line"><a id="l00138" name="l00138"></a><span class="lineno">  138</span>        TUniquePtr&lt;FAsyncTask&lt;FAsyncFetchTask&gt;&gt; AsyncFetchTask;</div>
+<div class="line"><a id="l00139" name="l00139"></a><span class="lineno">  139</span> </div>
+<div class="line"><a id="l00140" name="l00140"></a><span class="lineno">  140</span>        FComponentState(ULandscapeComponent* Component);</div>
+<div class="line"><a id="l00141" name="l00141"></a><span class="lineno">  141</span> </div>
+<div class="line"><a id="l00142" name="l00142"></a><span class="lineno">  142</span>        <span class="keywordtype">bool</span> AreTexturesStreamedIn();</div>
+<div class="line"><a id="l00143" name="l00143"></a><span class="lineno">  143</span>        <span class="keywordtype">bool</span> IsBeyondEvictionRange(<span class="keyword">const</span> TArray&lt;FVector&gt;&amp; Cameras) <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00145" name="l00145"></a><span class="lineno">  145</span>        <span class="keywordtype">bool</span> IsComponentValid() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00146" name="l00146"></a><span class="lineno">  146</span>    };</div>
+<div class="line"><a id="l00147" name="l00147"></a><span class="lineno">  147</span> </div>
+<div class="line"><a id="l00148" name="l00148"></a><span class="lineno">  148</span>    <span class="comment">// components in the Pending state are also tracked in a priority heap, using this structure</span></div>
+<div class="line"><a id="l00149" name="l00149"></a><span class="lineno">  149</span>    <span class="keyword">struct </span>FPendingComponent</div>
+<div class="line"><a id="l00150" name="l00150"></a><span class="lineno">  150</span>    {</div>
+<div class="line"><a id="l00151" name="l00151"></a><span class="lineno">  151</span>        FPendingComponent(FComponentState* InComponentState)</div>
+<div class="line"><a id="l00152" name="l00152"></a><span class="lineno">  152</span>            : State(InComponentState)</div>
+<div class="line"><a id="l00153" name="l00153"></a><span class="lineno">  153</span>        {}</div>
+<div class="line"><a id="l00154" name="l00154"></a><span class="lineno">  154</span> </div>
+<div class="line"><a id="l00155" name="l00155"></a><span class="lineno">  155</span>        <span class="comment">// comparison operator used for Heap functions -- smaller keys have priority over larger keys</span></div>
+<div class="line"><a id="l00156" name="l00156"></a><span class="lineno">  156</span>        <span class="keywordtype">bool</span> operator&lt;(<span class="keyword">const</span> FPendingComponent&amp; <a class="code hl_enumvalue" href="../../db/dff/_io_store_utilities_8cpp.html#a87a058d905c1a0bfb1670ef9a427caa4a6311ae17c1ee52b36e68aaf4ad066387">Other</a>)<span class="keyword"> const</span></div>
+<div class="line"><a id="l00157" name="l00157"></a><span class="lineno">  157</span><span class="keyword">        </span>{</div>
+<div class="line"><a id="l00158" name="l00158"></a><span class="lineno">  158</span>            <span class="keywordflow">return</span> PriorityKey &lt; <a class="code hl_enumvalue" href="../../db/dff/_io_store_utilities_8cpp.html#a87a058d905c1a0bfb1670ef9a427caa4a6311ae17c1ee52b36e68aaf4ad066387">Other</a>.PriorityKey;</div>
+<div class="line"><a id="l00159" name="l00159"></a><span class="lineno">  159</span>        }</div>
+<div class="line"><a id="l00160" name="l00160"></a><span class="lineno">  160</span> </div>
+<div class="line"><a id="l00161" name="l00161"></a><span class="lineno">  161</span>        <span class="keywordtype">void</span> UpdatePriorityDistance(<span class="keyword">const</span> TArray&lt;FVector&gt;&amp; Cameras, <span class="keywordtype">float</span> MustHaveDistanceScale);</div>
+<div class="line"><a id="l00162" name="l00162"></a><span class="lineno">  162</span> </div>
+<div class="line"><a id="l00163" name="l00163"></a><span class="lineno">  163</span>        FComponentState* State = <span class="keyword">nullptr</span>;</div>
+<div class="line"><a id="l00164" name="l00164"></a><span class="lineno">  164</span>        <span class="keywordtype">double</span> PriorityKey = <a class="code hl_function" href="../../d9/d02/struct_t_numeric_limits_3_01double_01_4.html#a400575965f956b21621138edefe75d7d">TNumericLimits&lt;double&gt;::Lowest</a>();</div>
+<div class="line"><a id="l00165" name="l00165"></a><span class="lineno">  165</span>    };</div>
+<div class="line"><a id="l00166" name="l00166"></a><span class="lineno">  166</span> </div>
+<div class="line"><a id="l00167" name="l00167"></a><span class="lineno">  167</span>    <span class="comment">// structure to do an amortized update of a set of update elements in a (conceptual) array</span></div>
+<div class="line"><a id="l00168" name="l00168"></a><span class="lineno">  168</span>    <span class="keyword">struct </span>FAmortizedUpdate</div>
+<div class="line"><a id="l00169" name="l00169"></a><span class="lineno">  169</span>    {</div>
+<div class="line"><a id="l00170" name="l00170"></a><span class="lineno">  170</span>        <span class="comment">// the first index to update this tick (inclusive)</span></div>
+<div class="line"><a id="l00171" name="l00171"></a><span class="lineno">  171</span>        <a class="code hl_typedef" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a8dbb3cd84ca9fd010dadfc3815eefa5d">int32</a> FirstIndex = 0;</div>
+<div class="line"><a id="l00172" name="l00172"></a><span class="lineno">  172</span> </div>
+<div class="line"><a id="l00173" name="l00173"></a><span class="lineno">  173</span>        <span class="comment">// the last index to update this tick (exclusive)</span></div>
+<div class="line"><a id="l00174" name="l00174"></a><span class="lineno">  174</span>        <a class="code hl_typedef" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a8dbb3cd84ca9fd010dadfc3815eefa5d">int32</a> LastIndex = 0;</div>
+<div class="line"><a id="l00175" name="l00175"></a><span class="lineno">  175</span> </div>
+<div class="line"><a id="l00176" name="l00176"></a><span class="lineno">  176</span>        <span class="comment">// Call at the beginning of the update tick to set up how many updates you want to run this tick</span></div>
+<div class="line"><a id="l00177" name="l00177"></a><span class="lineno">  177</span>        <span class="comment">// UpdateElementCount is the total number of update elements (to wrap when we hit the end of the possibility space)</span></div>
+<div class="line"><a id="l00178" name="l00178"></a><span class="lineno">  178</span>        <span class="keywordtype">void</span> StartUpdateTick(<a class="code hl_typedef" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a8dbb3cd84ca9fd010dadfc3815eefa5d">int32</a> UpdateElementCount, <a class="code hl_typedef" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a8dbb3cd84ca9fd010dadfc3815eefa5d">int32</a> MaxUpdatesThisFrame)</div>
+<div class="line"><a id="l00179" name="l00179"></a><span class="lineno">  179</span>        {</div>
+<div class="line"><a id="l00180" name="l00180"></a><span class="lineno">  180</span>            <a class="code hl_define" href="../../d4/d75/_assertion_macros_8h.html#a586e110623cde145b8a5bdefb429e144">check</a>(MaxUpdatesThisFrame &gt;= 0);</div>
+<div class="line"><a id="l00181" name="l00181"></a><span class="lineno">  181</span>            <span class="keywordflow">if</span> (MaxUpdatesThisFrame &gt;= UpdateElementCount)</div>
+<div class="line"><a id="l00182" name="l00182"></a><span class="lineno">  182</span>            {</div>
+<div class="line"><a id="l00183" name="l00183"></a><span class="lineno">  183</span>                <span class="comment">// if we are updating more than what we have, then just update everything</span></div>
+<div class="line"><a id="l00184" name="l00184"></a><span class="lineno">  184</span>                FirstIndex = 0;</div>
+<div class="line"><a id="l00185" name="l00185"></a><span class="lineno">  185</span>                LastIndex = UpdateElementCount;</div>
+<div class="line"><a id="l00186" name="l00186"></a><span class="lineno">  186</span>            }</div>
+<div class="line"><a id="l00187" name="l00187"></a><span class="lineno">  187</span>            <span class="keywordflow">else</span></div>
+<div class="line"><a id="l00188" name="l00188"></a><span class="lineno">  188</span>            {</div>
+<div class="line"><a id="l00189" name="l00189"></a><span class="lineno">  189</span>                FirstIndex = LastIndex;</div>
+<div class="line"><a id="l00190" name="l00190"></a><span class="lineno">  190</span>                <span class="keywordflow">if</span> (FirstIndex &gt;= UpdateElementCount)</div>
+<div class="line"><a id="l00191" name="l00191"></a><span class="lineno">  191</span>                {</div>
+<div class="line"><a id="l00192" name="l00192"></a><span class="lineno">  192</span>                    FirstIndex = 0;</div>
+<div class="line"><a id="l00193" name="l00193"></a><span class="lineno">  193</span>                }</div>
+<div class="line"><a id="l00194" name="l00194"></a><span class="lineno">  194</span>                <a class="code hl_define" href="../../d4/d75/_assertion_macros_8h.html#a586e110623cde145b8a5bdefb429e144">check</a>(FirstIndex &gt;= 0);</div>
+<div class="line"><a id="l00195" name="l00195"></a><span class="lineno">  195</span>                LastIndex = FirstIndex + MaxUpdatesThisFrame;</div>
+<div class="line"><a id="l00196" name="l00196"></a><span class="lineno">  196</span>            }</div>
+<div class="line"><a id="l00197" name="l00197"></a><span class="lineno">  197</span>        }</div>
+<div class="line"><a id="l00198" name="l00198"></a><span class="lineno">  198</span> </div>
+<div class="line"><a id="l00199" name="l00199"></a><span class="lineno">  199</span>        <span class="comment">// return true if the given element should update</span></div>
+<div class="line"><a id="l00200" name="l00200"></a><span class="lineno">  200</span>        <span class="keywordtype">bool</span> ShouldUpdate(<a class="code hl_typedef" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a8dbb3cd84ca9fd010dadfc3815eefa5d">int32</a> UpdateElementIndex)</div>
+<div class="line"><a id="l00201" name="l00201"></a><span class="lineno">  201</span>        {</div>
+<div class="line"><a id="l00202" name="l00202"></a><span class="lineno">  202</span>            <span class="keywordflow">if</span> ((UpdateElementIndex &gt;= FirstIndex) &amp;&amp; (UpdateElementIndex &lt; LastIndex))</div>
+<div class="line"><a id="l00203" name="l00203"></a><span class="lineno">  203</span>            {</div>
+<div class="line"><a id="l00204" name="l00204"></a><span class="lineno">  204</span>                <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line"><a id="l00205" name="l00205"></a><span class="lineno">  205</span>            }</div>
+<div class="line"><a id="l00206" name="l00206"></a><span class="lineno">  206</span>            <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line"><a id="l00207" name="l00207"></a><span class="lineno">  207</span>        }</div>
+<div class="line"><a id="l00208" name="l00208"></a><span class="lineno">  208</span> </div>
+<div class="line"><a id="l00209" name="l00209"></a><span class="lineno">  209</span>        <span class="comment">// call if an update element is deleted from the array, to update the valid ranges</span></div>
+<div class="line"><a id="l00210" name="l00210"></a><span class="lineno">  210</span>        <span class="keywordtype">void</span> HandleDeletion(<a class="code hl_typedef" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a8dbb3cd84ca9fd010dadfc3815eefa5d">int32</a> DeletedUpdateElementIndex)</div>
+<div class="line"><a id="l00211" name="l00211"></a><span class="lineno">  211</span>        {</div>
+<div class="line"><a id="l00212" name="l00212"></a><span class="lineno">  212</span>            <span class="keywordflow">if</span> (DeletedUpdateElementIndex &lt; FirstIndex)</div>
+<div class="line"><a id="l00213" name="l00213"></a><span class="lineno">  213</span>            {</div>
+<div class="line"><a id="l00214" name="l00214"></a><span class="lineno">  214</span>                FirstIndex--;</div>
+<div class="line"><a id="l00215" name="l00215"></a><span class="lineno">  215</span>            }</div>
+<div class="line"><a id="l00216" name="l00216"></a><span class="lineno">  216</span>            <span class="keywordflow">if</span> (DeletedUpdateElementIndex &lt; LastIndex)</div>
+<div class="line"><a id="l00217" name="l00217"></a><span class="lineno">  217</span>            {</div>
+<div class="line"><a id="l00218" name="l00218"></a><span class="lineno">  218</span>                LastIndex--;</div>
+<div class="line"><a id="l00219" name="l00219"></a><span class="lineno">  219</span>            }</div>
+<div class="line"><a id="l00220" name="l00220"></a><span class="lineno">  220</span> </div>
+<div class="line"><a id="l00221" name="l00221"></a><span class="lineno">  221</span>        }</div>
+<div class="line"><a id="l00222" name="l00222"></a><span class="lineno">  222</span>    };</div>
+<div class="line"><a id="l00223" name="l00223"></a><span class="lineno">  223</span> </div>
+<div class="line"><a id="l00224" name="l00224"></a><span class="lineno">  224</span>    UWorld* World = <span class="keyword">nullptr</span>;</div>
+<div class="line"><a id="l00225" name="l00225"></a><span class="lineno">  225</span> </div>
+<div class="line"><a id="l00226" name="l00226"></a><span class="lineno">  226</span>    <span class="comment">// counts of how many components are currently in each stage</span></div>
+<div class="line"><a id="l00227" name="l00227"></a><span class="lineno">  227</span>    <a class="code hl_typedef" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a8dbb3cd84ca9fd010dadfc3815eefa5d">int32</a> PendingCount = 0;</div>
+<div class="line"><a id="l00228" name="l00228"></a><span class="lineno">  228</span>    <a class="code hl_typedef" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a8dbb3cd84ca9fd010dadfc3815eefa5d">int32</a> NotReadyCount = 0;</div>
+<div class="line"><a id="l00229" name="l00229"></a><span class="lineno">  229</span>    <a class="code hl_typedef" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a8dbb3cd84ca9fd010dadfc3815eefa5d">int32</a> StreamingCount = 0;</div>
+<div class="line"><a id="l00230" name="l00230"></a><span class="lineno">  230</span>    <a class="code hl_typedef" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a8dbb3cd84ca9fd010dadfc3815eefa5d">int32</a> RenderingCount = 0;</div>
+<div class="line"><a id="l00231" name="l00231"></a><span class="lineno">  231</span>    <a class="code hl_typedef" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a8dbb3cd84ca9fd010dadfc3815eefa5d">int32</a> AsyncFetchCount = 0;</div>
+<div class="line"><a id="l00232" name="l00232"></a><span class="lineno">  232</span>    <a class="code hl_typedef" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a8dbb3cd84ca9fd010dadfc3815eefa5d">int32</a> PopulatedCount = 0;</div>
+<div class="line"><a id="l00233" name="l00233"></a><span class="lineno">  233</span> </div>
+<div class="line"><a id="l00234" name="l00234"></a><span class="lineno">  234</span>    <span class="comment">// number of components that need to render but are waiting (as of the last call to StartTrackingComponents())</span></div>
+<div class="line"><a id="l00235" name="l00235"></a><span class="lineno">  235</span>    <a class="code hl_typedef" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a8dbb3cd84ca9fd010dadfc3815eefa5d">int32</a> TotalComponentsWaitingCount = 0;</div>
+<div class="line"><a id="l00236" name="l00236"></a><span class="lineno">  236</span> </div>
+<div class="line"><a id="l00237" name="l00237"></a><span class="lineno">  237</span>    <span class="comment">// true if any render thread commands were queued by the last call to UpdateTrackedComponents()</span></div>
+<div class="line"><a id="l00238" name="l00238"></a><span class="lineno">  238</span>    <span class="keywordtype">bool</span> bRenderCommandsQueuedByLastUpdate = <span class="keyword">false</span>;</div>
+<div class="line"><a id="l00239" name="l00239"></a><span class="lineno">  239</span> </div>
+<div class="line"><a id="l00240" name="l00240"></a><span class="lineno">  240</span>    TAllocatorFixedSizeFreeList&lt;<span class="keyword">sizeof</span>(FComponentState), 32&gt; StatePoolAllocator;</div>
+<div class="line"><a id="l00241" name="l00241"></a><span class="lineno">  241</span> </div>
+<div class="line"><a id="l00242" name="l00242"></a><span class="lineno">  242</span>    <span class="comment">// store the grass map state of each registered (or recently unregistered) component</span></div>
+<div class="line"><a id="l00243" name="l00243"></a><span class="lineno">  243</span>    TMap&lt;ULandscapeComponent*, FComponentState*&gt; ComponentStates;</div>
+<div class="line"><a id="l00244" name="l00244"></a><span class="lineno">  244</span> </div>
+<div class="line"><a id="l00245" name="l00245"></a><span class="lineno">  245</span>    <span class="comment">// Pending components, in a min heap by distance to streaming cameras</span></div>
+<div class="line"><a id="l00246" name="l00246"></a><span class="lineno">  246</span>    TArray&lt;FPendingComponent&gt; PendingComponentsHeap;</div>
+<div class="line"><a id="l00247" name="l00247"></a><span class="lineno">  247</span>    <a class="code hl_typedef" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a8dbb3cd84ca9fd010dadfc3815eefa5d">int32</a> FirstNewPendingComponent = <a class="code hl_function" href="../../d6/ddd/struct_t_numeric_limits_3_01int32_01_4.html#a9aeb3450337ca2e06e7ef2ca0574e6c8">TNumericLimits&lt;int32&gt;::Max</a>();</div>
+<div class="line"><a id="l00248" name="l00248"></a><span class="lineno">  248</span>    <a class="code hl_typedef" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a8dbb3cd84ca9fd010dadfc3815eefa5d">int32</a> PendingUpdateAmortizationCounter = 0;</div>
+<div class="line"><a id="l00249" name="l00249"></a><span class="lineno">  249</span>    <span class="keywordtype">float</span> LastMustHaveDistanceScale = 0.0f;         <span class="comment">// used to detect spawn distance scales changing</span></div>
+<div class="line"><a id="l00250" name="l00250"></a><span class="lineno">  250</span> </div>
+<div class="line"><a id="l00251" name="l00251"></a><span class="lineno">  251</span>    <span class="comment">// state to amortize the update of components</span></div>
+<div class="line"><a id="l00252" name="l00252"></a><span class="lineno">  252</span>    FAmortizedUpdate AmortizedUpdate;</div>
+<div class="line"><a id="l00253" name="l00253"></a><span class="lineno">  253</span> </div>
+<div class="line"><a id="l00254" name="l00254"></a><span class="lineno">  254</span>    <span class="comment">// system to manage texture streaming requests</span></div>
+<div class="line"><a id="l00255" name="l00255"></a><span class="lineno">  255</span>    FLandscapeTextureStreamingManager&amp; TextureStreamingManager;</div>
+<div class="line"><a id="l00256" name="l00256"></a><span class="lineno">  256</span> </div>
+<div class="line"><a id="l00257" name="l00257"></a><span class="lineno">  257</span>    <span class="comment">// hash grid storing previously used camera locations (to determine when cameras have jumped)</span></div>
+<div class="line"><a id="l00258" name="l00258"></a><span class="lineno">  258</span>    UE::Geometry::TPointHashGrid3&lt;FVector, double&gt; PreviousCameraHashGrid;</div>
+<div class="line"><a id="l00259" name="l00259"></a><span class="lineno">  259</span> </div>
+<div class="line"><a id="l00260" name="l00260"></a><span class="lineno">  260</span>    <span class="comment">// tries to cancel any in flight operations and transition back to the Pending state</span></div>
+<div class="line"><a id="l00261" name="l00261"></a><span class="lineno">  261</span>    <span class="comment">// returns true when the state has been successfully transitioned back to Pending</span></div>
+<div class="line"><a id="l00262" name="l00262"></a><span class="lineno">  262</span>    <span class="comment">// if bCancelImmediately is true, it will ensure the component reaches Pending state before returning (possibly blocking on async or gpu tasks)</span></div>
+<div class="line"><a id="l00263" name="l00263"></a><span class="lineno">  263</span>    <span class="keywordtype">bool</span> CancelAndEvict(FComponentState&amp; State, <span class="keywordtype">bool</span> bCancelImmediately);</div>
+<div class="line"><a id="l00264" name="l00264"></a><span class="lineno">  264</span> </div>
+<div class="line"><a id="l00265" name="l00265"></a><span class="lineno">  265</span>    <span class="comment">// try to kick off the grass map generation pipeline -- returns true if it started the amortized update path, false otherwise.</span></div>
+<div class="line"><a id="l00266" name="l00266"></a><span class="lineno">  266</span>    <span class="keywordtype">bool</span> StartGrassMapGeneration(FComponentState&amp; State, <span class="keywordtype">bool</span> bForceCompileShaders, <span class="keywordtype">bool</span> bTryFastPaths = <span class="keyword">true</span>);</div>
+<div class="line"><a id="l00267" name="l00267"></a><span class="lineno">  267</span> </div>
+<div class="line"><a id="l00268" name="l00268"></a><span class="lineno">  268</span>    <span class="comment">// try to apply fast path transitions to a pending component -- returns true if a fastpath was taken, and the component is no longer pending.</span></div>
+<div class="line"><a id="l00269" name="l00269"></a><span class="lineno">  269</span>    <span class="keywordtype">bool</span> TryFastpathsFromPending(FComponentState&amp; State, <span class="keywordtype">bool</span> bRecalculateHashes);</div>
+<div class="line"><a id="l00270" name="l00270"></a><span class="lineno">  270</span> </div>
+<div class="line"><a id="l00271" name="l00271"></a><span class="lineno">  271</span>    <span class="comment">// once textures are streamed, this kicks off the grass data render, and async GPU readback</span></div>
+<div class="line"><a id="l00272" name="l00272"></a><span class="lineno">  272</span>    <span class="keywordtype">void</span> KickOffRenderAndReadback(FComponentState&amp; State);</div>
+<div class="line"><a id="l00273" name="l00273"></a><span class="lineno">  273</span> </div>
+<div class="line"><a id="l00274" name="l00274"></a><span class="lineno">  274</span>    <span class="comment">// once the GPU readback is complete, this starts processing the data to generate a GrassData structure</span></div>
+<div class="line"><a id="l00275" name="l00275"></a><span class="lineno">  275</span>    <span class="keywordtype">void</span> LaunchAsyncFetchTask(FComponentState&amp; State);</div>
+<div class="line"><a id="l00276" name="l00276"></a><span class="lineno">  276</span> </div>
+<div class="line"><a id="l00277" name="l00277"></a><span class="lineno">  277</span>    <span class="keywordtype">void</span> PopulateGrassDataFromAsyncFetchTask(FComponentState&amp; State);</div>
+<div class="line"><a id="l00278" name="l00278"></a><span class="lineno">  278</span> </div>
+<div class="line"><a id="l00279" name="l00279"></a><span class="lineno">  279</span>    <span class="comment">// once the GPU readback is complete, this populates the grass data on the component (and cancels texture stream requests)</span></div>
+<div class="line"><a id="l00280" name="l00280"></a><span class="lineno">  280</span>    <span class="keywordtype">void</span> PopulateGrassDataFromReadback(FComponentState&amp; State);</div>
+<div class="line"><a id="l00281" name="l00281"></a><span class="lineno">  281</span>        <span class="keywordtype">void</span> RemoveTextureStreamingRequests(FComponentState&amp; State);</div>
+<div class="line"><a id="l00282" name="l00282"></a><span class="lineno">  282</span> </div>
+<div class="line"><a id="l00283" name="l00283"></a><span class="lineno">  283</span>    <span class="comment">// state transition helpers</span></div>
+<div class="line"><a id="l00284" name="l00284"></a><span class="lineno">  284</span>    <span class="keywordtype">void</span> StreamingToNotReady(FComponentState&amp; State);</div>
+<div class="line"><a id="l00285" name="l00285"></a><span class="lineno">  285</span>    <span class="keywordtype">void</span> PendingToNotReady(FComponentState&amp; State);</div>
+<div class="line"><a id="l00286" name="l00286"></a><span class="lineno">  286</span>    <span class="keywordtype">void</span> PendingToPopulatedFastPathAlreadyHasData(FComponentState&amp; State);</div>
+<div class="line"><a id="l00287" name="l00287"></a><span class="lineno">  287</span>    <span class="keywordtype">void</span> PendingToPopulatedFastPathNoGrass(FComponentState&amp; State);</div>
+<div class="line"><a id="l00288" name="l00288"></a><span class="lineno">  288</span>    <span class="keywordtype">void</span> PendingToStreaming(FComponentState&amp; State);</div>
+<div class="line"><a id="l00289" name="l00289"></a><span class="lineno">  289</span> </div>
+<div class="line"><a id="l00290" name="l00290"></a><span class="lineno">  290</span>    <span class="comment">// pending component heap add/remove</span></div>
+<div class="line"><a id="l00291" name="l00291"></a><span class="lineno">  291</span>    <span class="keywordtype">void</span> AddToPendingComponentHeap(FComponentState* State);</div>
+<div class="line"><a id="l00292" name="l00292"></a><span class="lineno">  292</span>    <span class="keywordtype">void</span> RemoveFromPendingComponentHeap(FComponentState* State);</div>
+<div class="line"><a id="l00293" name="l00293"></a><span class="lineno">  293</span> </div>
+<div class="line"><a id="l00294" name="l00294"></a><span class="lineno">  294</span>    <span class="keywordtype">void</span> CompleteAllAsyncTasksNow();</div>
+<div class="line"><a id="l00295" name="l00295"></a><span class="lineno">  295</span> </div>
+<div class="line"><a id="l00296" name="l00296"></a><span class="lineno">  296</span><span class="preprocessor">#if WITH_EDITOR</span></div>
+<div class="line"><a id="l00297" name="l00297"></a><span class="lineno">  297</span>    <span class="comment">// cached count of how many grass maps are outdated, and the last time we calculated that value</span></div>
+<div class="line"><a id="l00298" name="l00298"></a><span class="lineno">  298</span>    <span class="keyword">mutable</span> <a class="code hl_typedef" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a8dbb3cd84ca9fd010dadfc3815eefa5d">int32</a> OutdatedGrassMapCount = 0;</div>
+<div class="line"><a id="l00299" name="l00299"></a><span class="lineno">  299</span>    <span class="keyword">mutable</span> <span class="keywordtype">double</span> GrassMapsLastCheckTime = 0.0;</div>
+<div class="line"><a id="l00300" name="l00300"></a><span class="lineno">  300</span><span class="preprocessor">#endif </span><span class="comment">// WITH_EDITOR</span></div>
+<div class="line"><a id="l00301" name="l00301"></a><span class="lineno">  301</span>};</div>
+</div>
+<div class="line"><a id="l00302" name="l00302"></a><span class="lineno">  302</span> </div>
+<div class="line"><a id="l00303" name="l00303"></a><span class="lineno">  303</span> </div>
+<div class="ttc" id="a_allocator_fixed_size_free_list_8h_html"><div class="ttname"><a href="../../dd/d57/_allocator_fixed_size_free_list_8h.html">AllocatorFixedSizeFreeList.h</a></div></div>
+<div class="ttc" id="a_android_platform_8h_html_a724fb9f82013c782db5c3c12ea36aac8"><div class="ttname"><a href="../../d0/d76/_android_platform_8h.html#a724fb9f82013c782db5c3c12ea36aac8">FORCEINLINE</a></div><div class="ttdeci">#define FORCEINLINE</div><div class="ttdef"><b>定义</b> AndroidPlatform.h:144</div></div>
+<div class="ttc" id="a_assertion_macros_8h_html_a586e110623cde145b8a5bdefb429e144"><div class="ttname"><a href="../../d4/d75/_assertion_macros_8h.html#a586e110623cde145b8a5bdefb429e144">check</a></div><div class="ttdeci">#define check(expr)</div><div class="ttdef"><b>定义</b> AssertionMacros.h:319</div></div>
+<div class="ttc" id="a_async_work_8h_html"><div class="ttname"><a href="../../d2/d18/_async_work_8h.html">AsyncWork.h</a></div></div>
+<div class="ttc" id="a_core_2_public_2_h_a_l_2_platform_8h_html_a8dbb3cd84ca9fd010dadfc3815eefa5d"><div class="ttname"><a href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a8dbb3cd84ca9fd010dadfc3815eefa5d">int32</a></div><div class="ttdeci">FPlatformTypes::int32 int32</div><div class="ttdoc">A 32-bit signed integer.</div><div class="ttdef"><b>定义</b> Platform.h:1190</div></div>
+<div class="ttc" id="a_core_minimal_8h_html"><div class="ttname"><a href="../../dc/d5e/_core_minimal_8h.html">CoreMinimal.h</a></div></div>
+<div class="ttc" id="a_i_target_platform_settings_8h_html_aaea8193c07a791b7f4ed4316aa589c5aa331e35b3121b3813d136b0ef88eb09b2"><div class="ttname"><a href="../../d4/d66/_i_target_platform_settings_8h.html#aaea8193c07a791b7f4ed4316aa589c5aa331e35b3121b3813d136b0ef88eb09b2">ETargetPlatformFeatures::TextureStreaming</a></div><div class="ttdeci">@ TextureStreaming</div><div class="ttdef"><b>定义</b> ITargetPlatformSettings.h:53</div></div>
+<div class="ttc" id="a_io_store_utilities_8cpp_html_a87a058d905c1a0bfb1670ef9a427caa4a6311ae17c1ee52b36e68aaf4ad066387"><div class="ttname"><a href="../../db/dff/_io_store_utilities_8cpp.html#a87a058d905c1a0bfb1670ef9a427caa4a6311ae17c1ee52b36e68aaf4ad066387">EPluginGraphSizeClass::Other</a></div><div class="ttdeci">@ Other</div><div class="ttdef"><b>定义</b> IoStoreUtilities.cpp:3098</div></div>
+<div class="ttc" id="a_landscape_component_8h_html"><div class="ttname"><a href="../../de/d20/_landscape_component_8h.html">LandscapeComponent.h</a></div></div>
+<div class="ttc" id="a_landscape_texture_streaming_manager_8h_html"><div class="ttname"><a href="../../de/d97/_landscape_texture_streaming_manager_8h.html">LandscapeTextureStreamingManager.h</a></div></div>
+<div class="ttc" id="a_landscape_tool_interface_8h_html_a3d2a4174a738dbbc109db9fe386f513ba2cb05e4bb7830be982f0922fed86b4cd"><div class="ttname"><a href="../../db/d1d/_landscape_tool_interface_8h.html#a3d2a4174a738dbbc109db9fe386f513ba2cb05e4bb7830be982f0922fed86b4cd">ELandscapeBrushType::Component</a></div><div class="ttdeci">@ Component</div><div class="ttdef"><b>定义</b> LandscapeToolInterface.h:44</div></div>
+<div class="ttc" id="a_point_hash_grid3_8h_html"><div class="ttname"><a href="../../da/d77/_point_hash_grid3_8h.html">PointHashGrid3.h</a></div></div>
+<div class="ttc" id="a_r_h_i_context_8h_html_abbd402e65e16a6261f867dbf1d5f6049ac74c1f42f141c011ca6bd8b1114fc3d0"><div class="ttname"><a href="../../d0/dc7/_r_h_i_context_8h.html#abbd402e65e16a6261f867dbf1d5f6049ac74c1f42f141c011ca6bd8b1114fc3d0">EAccelerationStructureBuildMode::Build</a></div><div class="ttdeci">@ Build</div><div class="ttdef"><b>定义</b> RHIContext.h:579</div></div>
+<div class="ttc" id="a_r_h_i_resources_8h_html_a1546d058080958b97bdb054a0c73fb25aa6e8f9aed2ac6481dc25a18a33342d03"><div class="ttname"><a href="../../db/dec/_r_h_i_resources_8h.html#a1546d058080958b97bdb054a0c73fb25aa6e8f9aed2ac6481dc25a18a33342d03">ERayTracingGeometryInitializerType::Rendering</a></div><div class="ttdeci">@ Rendering</div><div class="ttdef"><b>定义</b> RHIResources.h:3468</div></div>
+<div class="ttc" id="a_stats_8h_html_a9fa3db03dd1683c197b97c6870d0f13b"><div class="ttname"><a href="../../d3/d48/_stats_8h.html#a9fa3db03dd1683c197b97c6870d0f13b">RETURN_QUICK_DECLARE_CYCLE_STAT</a></div><div class="ttdeci">#define RETURN_QUICK_DECLARE_CYCLE_STAT(StatId, GroupId)</div><div class="ttdef"><b>定义</b> Stats.h:639</div></div>
+<div class="ttc" id="a_weak_object_ptr_templates_8h_html"><div class="ttname"><a href="../../d3/d3e/_weak_object_ptr_templates_8h.html">WeakObjectPtrTemplates.h</a></div></div>
+<div class="ttc" id="aclass_f_async_fetch_task_html_a08088291b96ca7d910d123c80de21afb"><div class="ttname"><a href="../../d3/d29/class_f_async_fetch_task.html#a08088291b96ca7d910d123c80de21afb">FAsyncFetchTask::ActiveRender</a></div><div class="ttdeci">TNonNullPtr&lt; FLandscapeGrassWeightExporter &gt; ActiveRender</div><div class="ttdef"><b>定义</b> LandscapeGrassMapsBuilder.h:24</div></div>
+<div class="ttc" id="aclass_f_async_fetch_task_html_a1d00c8b17be7645a22c08a251ff02bd6"><div class="ttname"><a href="../../d3/d29/class_f_async_fetch_task.html#a1d00c8b17be7645a22c08a251ff02bd6">FAsyncFetchTask::Results</a></div><div class="ttdeci">TMap&lt; ULandscapeComponent *, TUniquePtr&lt; FLandscapeComponentGrassData &gt;, TInlineSetAllocator&lt; 1 &gt; &gt; Results</div><div class="ttdef"><b>定义</b> LandscapeGrassMapsBuilder.h:25</div></div>
+<div class="ttc" id="aclass_f_async_fetch_task_html_a31fa5e986fbf42f44655aa47ca21b368"><div class="ttname"><a href="../../d3/d29/class_f_async_fetch_task.html#a31fa5e986fbf42f44655aa47ca21b368">FAsyncFetchTask::FAsyncFetchTask</a></div><div class="ttdeci">FAsyncFetchTask(FLandscapeGrassWeightExporter *ActiveRender)</div><div class="ttdef"><b>定义</b> LandscapeGrassMapsBuilder.h:27</div></div>
+<div class="ttc" id="aclass_f_async_fetch_task_html_a6fe1b29c15fe9324dc2ebfb69e17a1df"><div class="ttname"><a href="../../d3/d29/class_f_async_fetch_task.html#a6fe1b29c15fe9324dc2ebfb69e17a1df">FAsyncFetchTask::GetStatId</a></div><div class="ttdeci">FORCEINLINE TStatId GetStatId() const</div><div class="ttdef"><b>定义</b> LandscapeGrassMapsBuilder.h:34</div></div>
+<div class="ttc" id="aclass_f_async_fetch_task_html_add0a591acd6eba31240dc9fe15cd6b12"><div class="ttname"><a href="../../d3/d29/class_f_async_fetch_task.html#add0a591acd6eba31240dc9fe15cd6b12">FAsyncFetchTask::DoWork</a></div><div class="ttdeci">void DoWork()</div><div class="ttdef"><b>定义</b> LandscapeGrassMapsBuilder.cpp:357</div></div>
+<div class="ttc" id="aclass_f_landscape_grass_maps_builder_html_a165addfd1a59e93baf87a0af12bdaae4"><div class="ttname"><a href="../../dc/d62/class_f_landscape_grass_maps_builder.html#a165addfd1a59e93baf87a0af12bdaae4">FLandscapeGrassMapsBuilder::~FLandscapeGrassMapsBuilder</a></div><div class="ttdeci">~FLandscapeGrassMapsBuilder()</div><div class="ttdef"><b>定义</b> LandscapeGrassMapsBuilder.cpp:252</div></div>
+<div class="ttc" id="aclass_f_landscape_grass_maps_builder_html_a2edc069e36e9dd04f24c6b5f751705e6"><div class="ttname"><a href="../../dc/d62/class_f_landscape_grass_maps_builder.html#a2edc069e36e9dd04f24c6b5f751705e6">FLandscapeGrassMapsBuilder::AmortizedUpdateGrassMaps</a></div><div class="ttdeci">void AmortizedUpdateGrassMaps(const TArray&lt; FVector &gt; &amp;Cameras, bool bPrioritizeCreation, bool bAllowStartGrassMapGeneration, bool bAnyLandscapeActorHasGrassEnabled)</div><div class="ttdef"><b>定义</b> LandscapeGrassMapsBuilder.cpp:793</div></div>
+<div class="ttc" id="aclass_f_landscape_grass_maps_builder_html_a4641b3db3d8dc8bde56f53bda8a37ce0"><div class="ttname"><a href="../../dc/d62/class_f_landscape_grass_maps_builder.html#a4641b3db3d8dc8bde56f53bda8a37ce0">FLandscapeGrassMapsBuilder::CountOutdatedGrassMaps</a></div><div class="ttdeci">int32 CountOutdatedGrassMaps(const TArray&lt; TObjectPtr&lt; ULandscapeComponent &gt; &gt; &amp;LandscapeComponents) const</div></div>
+<div class="ttc" id="aclass_f_landscape_grass_maps_builder_html_a70d144126452192fb4927d6659885010"><div class="ttname"><a href="../../dc/d62/class_f_landscape_grass_maps_builder.html#a70d144126452192fb4927d6659885010">FLandscapeGrassMapsBuilder::RegisterComponent</a></div><div class="ttdeci">void RegisterComponent(ULandscapeComponent *Component)</div><div class="ttdef"><b>定义</b> LandscapeGrassMapsBuilder.cpp:734</div></div>
+<div class="ttc" id="aclass_f_landscape_grass_maps_builder_html_a7cbbcf604b2fa32bdf8823892b721c1c"><div class="ttname"><a href="../../dc/d62/class_f_landscape_grass_maps_builder.html#a7cbbcf604b2fa32bdf8823892b721c1c">FLandscapeGrassMapsBuilder::BuildGrassMapsNowForComponents</a></div><div class="ttdeci">bool BuildGrassMapsNowForComponents(TArrayView&lt; TObjectPtr&lt; ULandscapeComponent &gt; &gt; LandscapeComponents, FScopedSlowTask *SlowTask, bool bMarkDirty)</div><div class="ttdef"><b>定义</b> LandscapeGrassMapsBuilder.cpp:1053</div></div>
+<div class="ttc" id="aclass_f_landscape_grass_maps_builder_html_aa123efbab81ff121f2823108ae288ab4"><div class="ttname"><a href="../../dc/d62/class_f_landscape_grass_maps_builder.html#aa123efbab81ff121f2823108ae288ab4">FLandscapeGrassMapsBuilder::FLandscapeGrassMapsBuilder</a></div><div class="ttdeci">LANDSCAPE_API FLandscapeGrassMapsBuilder(UWorld *InWorld, FLandscapeTextureStreamingManager &amp;InTextureStreamingManager)</div><div class="ttdef"><b>定义</b> LandscapeGrassMapsBuilder.cpp:141</div></div>
+<div class="ttc" id="aclass_f_landscape_grass_maps_builder_html_ab5139099d4f5aeb6431d16fad0070e58"><div class="ttname"><a href="../../dc/d62/class_f_landscape_grass_maps_builder.html#ab5139099d4f5aeb6431d16fad0070e58">FLandscapeGrassMapsBuilder::DebugRenderComponents</a></div><div class="ttdeci">void DebugRenderComponents(TArrayView&lt; TObjectPtr&lt; ULandscapeComponent &gt; &gt; LandscapeComponents)</div><div class="ttdef"><b>定义</b> LandscapeGrassMapsBuilder.cpp:907</div></div>
+<div class="ttc" id="aclass_f_landscape_grass_maps_builder_html_ac9dadd581a05cf0027b47a61a07fc604"><div class="ttname"><a href="../../dc/d62/class_f_landscape_grass_maps_builder.html#ac9dadd581a05cf0027b47a61a07fc604">FLandscapeGrassMapsBuilder::GetTotalGrassMapsWaitingToRender</a></div><div class="ttdeci">int32 GetTotalGrassMapsWaitingToRender() const</div><div class="ttdef"><b>定义</b> LandscapeGrassMapsBuilder.h:66</div></div>
+<div class="ttc" id="aclass_f_landscape_grass_maps_builder_html_adbba3b76e5b601257ad8e1de0a65cb03"><div class="ttname"><a href="../../dc/d62/class_f_landscape_grass_maps_builder.html#adbba3b76e5b601257ad8e1de0a65cb03">FLandscapeGrassMapsBuilder::UnregisterComponent</a></div><div class="ttdeci">void UnregisterComponent(const ULandscapeComponent *Component)</div><div class="ttdef"><b>定义</b> LandscapeGrassMapsBuilder.cpp:762</div></div>
+<div class="ttc" id="aclass_f_landscape_grass_weight_exporter_html"><div class="ttname"><a href="../../d3/da7/class_f_landscape_grass_weight_exporter.html">FLandscapeGrassWeightExporter</a></div><div class="ttdef"><b>定义</b> LandscapeGrassWeightExporter.h:178</div></div>
+<div class="ttc" id="aclass_f_landscape_texture_streaming_manager_html"><div class="ttname"><a href="../../d2/da1/class_f_landscape_texture_streaming_manager.html">FLandscapeTextureStreamingManager</a></div><div class="ttdef"><b>定义</b> LandscapeTextureStreamingManager.h:33</div></div>
+<div class="ttc" id="aclass_f_non_abandonable_task_html"><div class="ttname"><a href="../../d0/dcf/class_f_non_abandonable_task.html">FNonAbandonableTask</a></div><div class="ttdef"><b>定义</b> AsyncWork.h:667</div></div>
+<div class="ttc" id="aclass_t_array_html"><div class="ttname"><a href="../../d6/db1/class_t_array.html">TArray</a></div><div class="ttdef"><b>定义</b> Array.h:768</div></div>
+<div class="ttc" id="aclass_t_array_view_html"><div class="ttname"><a href="../../d2/ddb/class_t_array_view.html">TArrayView</a></div><div class="ttdef"><b>定义</b> ArrayView.h:132</div></div>
+<div class="ttc" id="aclass_t_inline_set_allocator_html"><div class="ttname"><a href="../../df/d48/class_t_inline_set_allocator.html">TInlineSetAllocator</a></div><div class="ttdef"><b>定义</b> ContainerAllocationPolicies.h:1928</div></div>
+<div class="ttc" id="aclass_t_map_html"><div class="ttname"><a href="../../da/d41/class_t_map.html">TMap</a></div><div class="ttdef"><b>定义</b> IAndroidDeviceDetection.h:12</div></div>
+<div class="ttc" id="aclass_t_non_null_ptr_html"><div class="ttname"><a href="../../d3/db0/class_t_non_null_ptr.html">TNonNullPtr</a></div><div class="ttdef"><b>定义</b> NonNullPointer.h:30</div></div>
+<div class="ttc" id="aclass_u_world_html"><div class="ttname"><a href="../../de/d4d/class_u_world.html">UWorld</a></div><div class="ttdef"><b>定义</b> World.h:932</div></div>
+<div class="ttc" id="anamespace_u_e_1_1_landscape_html"><div class="ttname"><a href="../../de/dcc/namespace_u_e_1_1_landscape.html">UE::Landscape</a></div><div class="ttdef"><b>定义</b> LandscapeEditorObject.cpp:212</div></div>
+<div class="ttc" id="anamespace_u_e_1_1_landscape_html_a0fae4f59a84d2071e7e4e8f5a27320d9"><div class="ttname"><a href="../../de/dcc/namespace_u_e_1_1_landscape.html#a0fae4f59a84d2071e7e4e8f5a27320d9">UE::Landscape::EBuildFlags</a></div><div class="ttdeci">EBuildFlags</div><div class="ttdef"><b>定义</b> LandscapeEditTypes.h:70</div></div>
+<div class="ttc" id="apreprocessor_8c_html_a1134b580f8da4de94ca6b1de4d37975e"><div class="ttname"><a href="../../dd/de9/preprocessor_8c.html#a1134b580f8da4de94ca6b1de4d37975e">uint32</a></div><div class="ttdeci">unsigned int uint32</div><div class="ttdef"><b>定义</b> preprocessor.c:67</div></div>
+<div class="ttc" id="apreprocessor_8c_html_adde6aaee8457bee49c2a92621fe22b79"><div class="ttname"><a href="../../dd/de9/preprocessor_8c.html#adde6aaee8457bee49c2a92621fe22b79">uint8</a></div><div class="ttdeci">unsigned char uint8</div><div class="ttdef"><b>定义</b> preprocessor.c:65</div></div>
+<div class="ttc" id="astruct_f_scoped_slow_task_html"><div class="ttname"><a href="../../d5/d9f/struct_f_scoped_slow_task.html">FScopedSlowTask</a></div><div class="ttdef"><b>定义</b> ScopedSlowTask.h:32</div></div>
+<div class="ttc" id="astruct_t_numeric_limits_3_01double_01_4_html_a400575965f956b21621138edefe75d7d"><div class="ttname"><a href="../../d9/d02/struct_t_numeric_limits_3_01double_01_4.html#a400575965f956b21621138edefe75d7d">TNumericLimits&lt; double &gt;::Lowest</a></div><div class="ttdeci">static constexpr NumericType Lowest()</div><div class="ttdef"><b>定义</b> NumericLimits.h:284</div></div>
+<div class="ttc" id="astruct_t_numeric_limits_3_01int32_01_4_html_a9aeb3450337ca2e06e7ef2ca0574e6c8"><div class="ttname"><a href="../../d6/ddd/struct_t_numeric_limits_3_01int32_01_4.html#a9aeb3450337ca2e06e7ef2ca0574e6c8">TNumericLimits&lt; int32 &gt;::Max</a></div><div class="ttdeci">static constexpr NumericType Max()</div><div class="ttdef"><b>定义</b> NumericLimits.h:213</div></div>
+<div class="ttc" id="astruct_t_object_ptr_html"><div class="ttname"><a href="../../d8/d87/struct_t_object_ptr.html">TObjectPtr</a></div><div class="ttdef"><b>定义</b> ObjectPtr.h:520</div></div>
+<div class="ttc" id="astruct_t_stat_id_html"><div class="ttname"><a href="../../de/d01/struct_t_stat_id.html">TStatId</a></div><div class="ttdef"><b>定义</b> LightweightStats.h:414</div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+</div><!-- container -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a href="../../dir_0b6ee6e7e9547e675db4add2e5de97da.html">Engine</a></li><li class="navelem"><a href="../../dir_9579d1ecb2c7bf48cbe1049c41745cb4.html">Source</a></li><li class="navelem"><a href="../../dir_9f04efef762572853abdf73f62bebfcc.html">Runtime</a></li><li class="navelem"><a href="../../dir_756fed5c4e915871dee5fd47797865b4.html">Landscape</a></li><li class="navelem"><a href="../../dir_dd3128369db56434e570c7653091a218.html">Private</a></li><li class="navelem"><a href="../../d4/d92/_landscape_grass_maps_builder_8h.html">LandscapeGrassMapsBuilder.h</a></li>
+    <li class="footer">制作者 <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.15.0 </li>
+  </ul>
+</div>
+</body>
+</html>

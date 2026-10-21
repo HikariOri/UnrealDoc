@@ -1,0 +1,26 @@
+var struct_f_substrate_view_data =
+[
+    [ "Reset", "d3/d6d/struct_f_substrate_view_data.html#aeb41d84e558a9bde238115a3112f517b", null ],
+    [ "bUsesAnisotropy", "d3/d6d/struct_f_substrate_view_data.html#a53bee9b5b1aace9a20e781c643741571", null ],
+    [ "ClassificationTileDispatchIndirectBuffer", "d3/d6d/struct_f_substrate_view_data.html#a27807272e0e2116047ebfa05a53bdbc8", null ],
+    [ "ClassificationTileDispatchIndirectBufferUAV", "d3/d6d/struct_f_substrate_view_data.html#ac026a24684450b1aa662136ad6402725", null ],
+    [ "ClassificationTileDrawIndirectBuffer", "d3/d6d/struct_f_substrate_view_data.html#a7599533d0580f132e2ddc06e2c92bd30", null ],
+    [ "ClassificationTileDrawIndirectBufferUAV", "d3/d6d/struct_f_substrate_view_data.html#a39c56d78dbb4552168ddfeca0a76b3f2", null ],
+    [ "ClassificationTileListBuffer", "d3/d6d/struct_f_substrate_view_data.html#aed77be464976017ca9a9283b889ab08b", null ],
+    [ "ClassificationTileListBufferOffset", "d3/d6d/struct_f_substrate_view_data.html#a8bbc120306e9c6b1440feaccf575cf12", null ],
+    [ "ClassificationTileListBufferSRV", "d3/d6d/struct_f_substrate_view_data.html#a6776058365c4b2e465910bf56fa7223f", null ],
+    [ "ClassificationTileListBufferUAV", "d3/d6d/struct_f_substrate_view_data.html#a4feab95d6d6a1d9cbf49cead1dd1e8a0", null ],
+    [ "ClosureTileBuffer", "d3/d6d/struct_f_substrate_view_data.html#aee3995a0bf81901728550408b407ca49", null ],
+    [ "ClosureTileCountBuffer", "d3/d6d/struct_f_substrate_view_data.html#a0253584e67375759fe3d0bb3b150e608", null ],
+    [ "ClosureTileDispatchIndirectBuffer", "d3/d6d/struct_f_substrate_view_data.html#a4e6a23847a31f7f407e6d5a0a76fc01e", null ],
+    [ "ClosureTilePerThreadDispatchIndirectBuffer", "d3/d6d/struct_f_substrate_view_data.html#a338cda38a9458bbbc366f6fcf68f06de", null ],
+    [ "ClosureTileRaytracingIndirectBuffer", "d3/d6d/struct_f_substrate_view_data.html#a465f394e6e2d7a96cef754aa61987cd0", null ],
+    [ "LayerCount", "d3/d6d/struct_f_substrate_view_data.html#a69097199def3324138dbbb7e355883f2", null ],
+    [ "MaxBytesPerPixel", "d3/d6d/struct_f_substrate_view_data.html#a1dba6d475c50b1f5250736b3ce099c49", null ],
+    [ "MaxClosurePerPixel", "d3/d6d/struct_f_substrate_view_data.html#a7f0ae6c357c1087c8d60dfe5216e7616", null ],
+    [ "SceneData", "d3/d6d/struct_f_substrate_view_data.html#a1a6142db586d8a97cad7992e6e07170a", null ],
+    [ "SubstrateGlobalUniformParameters", "d3/d6d/struct_f_substrate_view_data.html#aa701f5e29bb93cb3b61d999bc0c7c2c9", null ],
+    [ "TileCount", "d3/d6d/struct_f_substrate_view_data.html#a31f2510f8b21ee1347e0fe2003001c47", null ],
+    [ "TileEncoding", "d3/d6d/struct_f_substrate_view_data.html#a624372a2a2a664a3e89e479d4cb19e09", null ],
+    [ "UsesTileTypeMask", "d3/d6d/struct_f_substrate_view_data.html#a40c915d38e97ff89224a3a1ab242ee5e", null ]
+];

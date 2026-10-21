@@ -1,0 +1,4 @@
+var struct_concatenate_rules_3_01_u_e_1_1_math_1_1_t_vector_3_01_t_01_4_00_01_u_e_1_1_math_1_1_t_quat_3_01_t_01_4_01_4 =
+[
+    [ "ResultType", "df/d8a/struct_concatenate_rules_3_01_u_e_1_1_math_1_1_t_vector_3_01_t_01_4_00_01_u_e_1_1_math_1_1_t_quat_3_01_t_01_4_01_4.html#a6189ed6e741e6bcfefe47a298e9e2a12", null ]
+];

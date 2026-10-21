@@ -1,0 +1,36 @@
+var _zen_server_interface_8h =
+[
+    [ "UE::Zen::FServiceConnectSettings", "d9/da3/struct_u_e_1_1_zen_1_1_f_service_connect_settings.html", "d9/da3/struct_u_e_1_1_zen_1_1_f_service_connect_settings" ],
+    [ "UE::Zen::FServicePluginSettings", "da/dc4/struct_u_e_1_1_zen_1_1_f_service_plugin_settings.html", "da/dc4/struct_u_e_1_1_zen_1_1_f_service_plugin_settings" ],
+    [ "UE::Zen::FServiceAutoLaunchSettings", "d8/dc4/struct_u_e_1_1_zen_1_1_f_service_auto_launch_settings.html", "d8/dc4/struct_u_e_1_1_zen_1_1_f_service_auto_launch_settings" ],
+    [ "UE::Zen::FSystemServiceSettings", "d5/db2/struct_u_e_1_1_zen_1_1_f_system_service_settings.html", "d5/db2/struct_u_e_1_1_zen_1_1_f_system_service_settings" ],
+    [ "UE::Zen::FServiceSettings", "d9/d22/struct_u_e_1_1_zen_1_1_f_service_settings.html", "d9/d22/struct_u_e_1_1_zen_1_1_f_service_settings" ],
+    [ "UE::Zen::FZenWorkspaces", "dc/d33/struct_u_e_1_1_zen_1_1_f_zen_workspaces.html", "dc/d33/struct_u_e_1_1_zen_1_1_f_zen_workspaces" ],
+    [ "UE::Zen::FZenWorkspaces::Share", "d6/d93/struct_u_e_1_1_zen_1_1_f_zen_workspaces_1_1_share.html", "d6/d93/struct_u_e_1_1_zen_1_1_f_zen_workspaces_1_1_share" ],
+    [ "UE::Zen::FZenWorkspaces::Workspace", "d9/db4/struct_u_e_1_1_zen_1_1_f_zen_workspaces_1_1_workspace.html", "d9/db4/struct_u_e_1_1_zen_1_1_f_zen_workspaces_1_1_workspace" ],
+    [ "UE::Zen::FZenLocalServiceRunContext", "d1/d4e/class_u_e_1_1_zen_1_1_f_zen_local_service_run_context.html", "d1/d4e/class_u_e_1_1_zen_1_1_f_zen_local_service_run_context" ],
+    [ "UE::Zen::FGCStatus", "d0/dd2/struct_u_e_1_1_zen_1_1_f_g_c_status.html", "d0/dd2/struct_u_e_1_1_zen_1_1_f_g_c_status" ],
+    [ "UE::Zen::FZenServiceEndpoint", "de/d10/class_u_e_1_1_zen_1_1_f_zen_service_endpoint.html", "de/d10/class_u_e_1_1_zen_1_1_f_zen_service_endpoint" ],
+    [ "UE::Zen::FScopeZenService", "d8/d37/class_u_e_1_1_zen_1_1_f_scope_zen_service.html", "d8/d37/class_u_e_1_1_zen_1_1_f_scope_zen_service" ],
+    [ "UE::Zen::FZenServiceInstance", "db/d1f/class_u_e_1_1_zen_1_1_f_zen_service_instance.html", "db/d1f/class_u_e_1_1_zen_1_1_f_zen_service_instance" ],
+    [ "UE_API", "d2/d2a/_zen_server_interface_8h.html#a578eb926c8aecdf908e1338b2e893458", null ],
+    [ "UE::Zen::ERemoteNetworkService", "d6/df1/namespace_u_e_1_1_zen.html#ad32fa8783e50ed5578e6b4c24dda530a", [
+      [ "UE::Zen::ERemoteNetworkService::None", "d6/df1/namespace_u_e_1_1_zen.html#ad32fa8783e50ed5578e6b4c24dda530aa6adf97f83acf6453d4a6a4b1070f3754", null ],
+      [ "UE::Zen::ERemoteNetworkService::Unsecured", "d6/df1/namespace_u_e_1_1_zen.html#ad32fa8783e50ed5578e6b4c24dda530aaada9b22e6fe65ea74dad0d126e664a74", null ],
+      [ "UE::Zen::ERemoteNetworkService::GeneratedStaticKey", "d6/df1/namespace_u_e_1_1_zen.html#ad32fa8783e50ed5578e6b4c24dda530aa6208a883f7655c99ae6bcbf2ccd0b6b8", null ]
+    ] ],
+    [ "UE::Zen::GetDefaultServiceInstance", "d6/df1/namespace_u_e_1_1_zen.html#a027ee5b2ae6ba081c469cf37eab8291b", null ],
+    [ "UE::Zen::Private::GetLocalDataCachePathOverride", "d2/ddb/namespace_u_e_1_1_zen_1_1_private.html#af8a7b4eca9ef5761b34e5a33f4179d50", null ],
+    [ "UE::Zen::Private::GetLocalInstallPathOverride", "d2/ddb/namespace_u_e_1_1_zen_1_1_private.html#a1c4769e2fb7474c9267f2a1f864d35cf", null ],
+    [ "UE::Zen::GetLocalInstallUtilityPath", "d6/df1/namespace_u_e_1_1_zen.html#a0476ccd1b9cf4ab21b573d36ccf88754", null ],
+    [ "UE::Zen::GetLocalServiceHostAuth", "d6/df1/namespace_u_e_1_1_zen.html#a7ff4bc9737f9e518af0fadea749bc23c", null ],
+    [ "UE::Zen::GetLocalServiceInstallPath", "d6/df1/namespace_u_e_1_1_zen.html#af4853411c48281fa70c3ec6e04e8d1b2", null ],
+    [ "UE::Zen::GetLocalServiceInstallVersion", "d6/df1/namespace_u_e_1_1_zen.html#a6ff2f75362eed37ee6a56c173d98f17a", null ],
+    [ "UE::Zen::IsDefaultServicePresent", "d6/df1/namespace_u_e_1_1_zen.html#ad6941a6fdbb8ec6fc21f314e175e78ae", null ],
+    [ "UE::Zen::Private::IsLocalAutoLaunched", "d2/ddb/namespace_u_e_1_1_zen_1_1_private.html#a5120cde28175db73868e63413cf8fa84", null ],
+    [ "UE::Zen::IsLocalServiceRunning", "d6/df1/namespace_u_e_1_1_zen.html#a9016a6b565742c6e7de970ad4e9f857a", null ],
+    [ "UE::Zen::Private::SetLocalInstallPathOverride", "d2/ddb/namespace_u_e_1_1_zen_1_1_private.html#a516df5df1d1974ef5bf639404419d0da", null ],
+    [ "UE::Zen::StartLocalService", "d6/df1/namespace_u_e_1_1_zen.html#a654cb05e0c188aa444e781a33dd99c79", null ],
+    [ "UE::Zen::StopLocalService", "d6/df1/namespace_u_e_1_1_zen.html#a513ce88cdb12cf9fed5f37e4551dec6a", null ],
+    [ "UE::Zen::TryGetLocalServiceRunContext", "d6/df1/namespace_u_e_1_1_zen.html#a8441219e53b346979bb0cc30d1798cb3", null ]
+];

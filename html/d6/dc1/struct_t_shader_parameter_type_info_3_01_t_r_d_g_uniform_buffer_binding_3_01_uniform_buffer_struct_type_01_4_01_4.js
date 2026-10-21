@@ -1,0 +1,5 @@
+var struct_t_shader_parameter_type_info_3_01_t_r_d_g_uniform_buffer_binding_3_01_uniform_buffer_struct_type_01_4_01_4 =
+[
+    [ "TAlignedType", "d6/dc1/struct_t_shader_parameter_type_info_3_01_t_r_d_g_uniform_buffer_binding_3_01_uniform_buffer_struct_type_01_4_01_4.html#a8a33fc79ecf13762c0973a44050e6428", null ],
+    [ "TInstancedType", "d6/dc1/struct_t_shader_parameter_type_info_3_01_t_r_d_g_uniform_buffer_binding_3_01_uniform_buffer_struct_type_01_4_01_4.html#aabbfb4c3dca2ec6a92721fea9dcdb94c", null ]
+];

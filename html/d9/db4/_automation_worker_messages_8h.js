@@ -1,0 +1,28 @@
+var _automation_worker_messages_8h =
+[
+    [ "FAutomationWorkerMessageBase", "db/d6d/struct_f_automation_worker_message_base.html", "db/d6d/struct_f_automation_worker_message_base" ],
+    [ "FAutomationWorkerFindWorkers", "d6/d93/struct_f_automation_worker_find_workers.html", "d6/d93/struct_f_automation_worker_find_workers" ],
+    [ "FAutomationWorkerFindWorkersResponse", "d1/d7b/struct_f_automation_worker_find_workers_response.html", "d1/d7b/struct_f_automation_worker_find_workers_response" ],
+    [ "FAutomationWorkerWorkerOffline", "d8/d2e/struct_f_automation_worker_worker_offline.html", null ],
+    [ "FAutomationWorkerPing", "dc/ddc/struct_f_automation_worker_ping.html", null ],
+    [ "FAutomationWorkerStartTestSession", "db/dab/struct_f_automation_worker_start_test_session.html", null ],
+    [ "FAutomationWorkerStopTestSession", "d0/d0c/struct_f_automation_worker_stop_test_session.html", null ],
+    [ "FAutomationWorkerStopTests", "d9/d3c/struct_f_automation_worker_stop_tests.html", null ],
+    [ "FAutomationWorkerPong", "d2/dba/struct_f_automation_worker_pong.html", null ],
+    [ "FAutomationWorkerRequestTests", "d9/d94/struct_f_automation_worker_request_tests.html", "d9/d94/struct_f_automation_worker_request_tests" ],
+    [ "FAutomationWorkerSingleTestReply", "d3/d1f/struct_f_automation_worker_single_test_reply.html", "d3/d1f/struct_f_automation_worker_single_test_reply" ],
+    [ "FAutomationWorkerRequestTestsReplyComplete", "db/d11/struct_f_automation_worker_request_tests_reply_complete.html", "db/d11/struct_f_automation_worker_request_tests_reply_complete" ],
+    [ "FAutomationWorkerRunTests", "df/d7b/struct_f_automation_worker_run_tests.html", "df/d7b/struct_f_automation_worker_run_tests" ],
+    [ "FAutomationWorkerRunTestsReply", "d2/d2b/struct_f_automation_worker_run_tests_reply.html", "d2/d2b/struct_f_automation_worker_run_tests_reply" ],
+    [ "FAutomationWorkerRequestNextNetworkCommand", "d4/df2/struct_f_automation_worker_request_next_network_command.html", "d4/df2/struct_f_automation_worker_request_next_network_command" ],
+    [ "FAutomationWorkerNextNetworkCommandReply", "da/db8/struct_f_automation_worker_next_network_command_reply.html", null ],
+    [ "FAutomationScreenshotMetadata", "d9/d44/struct_f_automation_screenshot_metadata.html", "d9/d44/struct_f_automation_screenshot_metadata" ],
+    [ "FAutomationWorkerScreenImage", "d9/d70/struct_f_automation_worker_screen_image.html", "d9/d70/struct_f_automation_worker_screen_image" ],
+    [ "FAutomationWorkerImageComparisonResults", "d9/d88/struct_f_automation_worker_image_comparison_results.html", "d9/d88/struct_f_automation_worker_image_comparison_results" ],
+    [ "FAutomationWorkerTestDataRequest", "db/db6/struct_f_automation_worker_test_data_request.html", "db/db6/struct_f_automation_worker_test_data_request" ],
+    [ "FAutomationWorkerTestDataResponse", "d8/d02/struct_f_automation_worker_test_data_response.html", "d8/d02/struct_f_automation_worker_test_data_response" ],
+    [ "FAutomationWorkerPerformanceDataRequest", "d6/d4a/struct_f_automation_worker_performance_data_request.html", "d6/d4a/struct_f_automation_worker_performance_data_request" ],
+    [ "FAutomationWorkerPerformanceDataResponse", "d6/d60/struct_f_automation_worker_performance_data_response.html", "d6/d60/struct_f_automation_worker_performance_data_response" ],
+    [ "FAutomationWorkerTelemetryItem", "d7/d55/struct_f_automation_worker_telemetry_item.html", "d7/d55/struct_f_automation_worker_telemetry_item" ],
+    [ "FAutomationWorkerTelemetryData", "db/d60/struct_f_automation_worker_telemetry_data.html", "db/d60/struct_f_automation_worker_telemetry_data" ]
+];

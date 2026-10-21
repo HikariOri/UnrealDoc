@@ -1,0 +1,318 @@
+<!-- HTML header for doxygen 1.15.0-->
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh">
+<head>
+  <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=11" />
+  <meta name="generator" content="Doxygen 1.15.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>UE 5.8.4: Engine/Source/Runtime/RenderCore/Internal/ShaderCompileWorkerUtil.h 源文件</title>
+  <link rel="icon" href="../../EdIconDefault.bmp" type="image/x-icon" />
+  <link href="../../tabs.css" rel="stylesheet" type="text/css" />
+  <script type="text/javascript" src="../../jquery.js"></script>
+  <script type="text/javascript" src="../../dynsections.js"></script>
+  <link href="../../navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../navtreedata.js"></script>
+<script type="text/javascript" src="../../navtree.js"></script>
+<script type="text/javascript" src="../../cookie.js"></script>
+  <link href="../../search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../search/searchdata.js"></script>
+<script type="text/javascript" src="../../search/search.js"></script>
+  <link href="../../doxygen.css" rel="stylesheet" type="text/css" />
+  <link href="../../doxygen-awesome.css" rel="stylesheet" type="text/css"/>
+<link href="../../doxygen-awesome-sidebar-only.css" rel="stylesheet" type="text/css"/>
+<link href="../../doxygen-awesome-sidebar-only-darkmode-toggle.css" rel="stylesheet" type="text/css"/>
+  <!-- ... other metadata & script includes ... -->
+  <script type="text/javascript" src="../../doxygen-awesome-darkmode-toggle.js"></script>
+  <script type="text/javascript">
+    DoxygenAwesomeDarkModeToggle.title = "Zwischen hellem/dunklem Modus wechseln"
+    DoxygenAwesomeDarkModeToggle.lightModeIcon = '🌞'
+    // icon from https://fonts.google.com/icons
+    DoxygenAwesomeDarkModeToggle.darkModeIcon = `<svg xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 24 24" height="24px" viewBox="0 0 24 24" width="24px" fill="#009793"><g><rect fill="none" height="24" width="24"/></g><g><g><path d="M8.1,14.15C9.77,14.63,11,16.17,11,18c0,0.68-0.19,1.31-0.48,1.87c0.48,0.09,0.97,0.14,1.48,0.14 c1.48,0,2.9-0.41,4.13-1.15c-2.62-0.92-5.23-2.82-6.8-5.86C7.74,9.94,7.78,7.09,8.29,4.9c-2.57,1.33-4.3,4.01-4.3,7.1c0,0,0,0,0,0 c0.01,0,0.01,0,0.02,0C5.66,12,7.18,12.83,8.1,14.15z" opacity=".3"/><path d="M19.78,17.51c-2.47,0-6.57-1.33-8.68-5.43C8.77,7.57,10.6,3.6,11.63,2.01C6.27,2.2,1.98,6.59,1.98,12 c0,0.14,0.02,0.28,0.02,0.42C2.61,12.16,3.28,12,3.98,12c0,0,0,0,0,0c0-3.09,1.73-5.77,4.3-7.1C7.78,7.09,7.74,9.94,9.32,13 c1.57,3.04,4.18,4.95,6.8,5.86c-1.23,0.74-2.65,1.15-4.13,1.15c-0.5,0-1-0.05-1.48-0.14c-0.37,0.7-0.94,1.27-1.64,1.64 c0.98,0.32,2.03,0.5,3.11,0.5c3.5,0,6.58-1.8,8.37-4.52C20.18,17.5,19.98,17.51,19.78,17.51z"/><path d="M7,16l-0.18,0C6.4,14.84,5.3,14,4,14c-1.66,0-3,1.34-3,3s1.34,3,3,3c0.62,0,2.49,0,3,0c1.1,0,2-0.9,2-2 C9,16.9,8.1,16,7,16z"/></g></g></svg>`
+    DoxygenAwesomeDarkModeToggle.init()
+  </script>
+  <script type="text/javascript" src="../../doxygen-awesome-fragment-copy-button.js"></script>
+  <script type="text/javascript">
+    DoxygenAwesomeFragmentCopyButton.title = "In die Zwischenablage kopieren"
+    // DoxygenAwesomeFragmentCopyButton.copyIcon = `<svg ...>`
+    // DoxygenAwesomeFragmentCopyButton.successIcon = `<svg ...>`
+    DoxygenAwesomeFragmentCopyButton.init()
+  </script>
+  <script type="text/javascript" src="../../doxygen-awesome-paragraph-link.js"></script>
+  <script type="text/javascript">
+    DoxygenAwesomeParagraphLink.title = "Abschnitt verknüpfen"
+    DoxygenAwesomeParagraphLink.icon = "¶"
+    DoxygenAwesomeParagraphLink.init()
+  </script>
+  <script type="text/javascript" src="../../doxygen-awesome-interactive-toc.js"></script>
+  <script type="text/javascript">
+    DoxygenAwesomeInteractiveToc.topOffset = 45
+    DoxygenAwesomeInteractiveToc.hideMobileMenu = false
+    DoxygenAwesomeInteractiveToc.init()
+  </script>
+</head>
+<body>
+    <div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+      <div id="titlearea">
+        <table cellspacing="0" cellpadding="0">
+          <tbody>
+            <tr id="projectrow">
+              <td id="projectlogo"><img alt="Logo" src="../../EdIconDefault.bmp"  /></td>
+              <td id="projectalign">
+                <div id="projectname">UE 5.8.4
+                </div>
+                <div id="projectbrief">Unreal Engine</div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <!-- end header part -->
+<!-- 制作者 Doxygen 1.15.0 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "../../search/",'.html');
+</script>
+<script type="text/javascript">
+$(function() { codefold.init(); });
+</script>
+<script type="text/javascript" src="../../menudata.js"></script>
+<script type="text/javascript" src="../../menu.js"></script>
+<script type="text/javascript">
+$(function() {
+  initMenu('../../',true,false,'search.php','搜索',true);
+  $(function() { init_search(); });
+});
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(function(){initNavTree('d8/d98/_shader_compile_worker_util_8h_source.html','../../',''); });
+</script>
+<div id="container">
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">载入中...</div>
+<div class="SRStatus" id="Searching">搜索中...</div>
+<div class="SRStatus" id="NoMatches">未找到</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">ShaderCompileWorkerUtil.h</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="../../d8/d98/_shader_compile_worker_util_8h.html">浏览该文件的文档.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="comment">// Copyright Epic Games, Inc. All Rights Reserved.</span></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span> </div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="preprocessor">#pragma once</span></div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span> </div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="preprocessor">#include &quot;<a class="code" href="../../dd/dfa/_shader_compiler_job_types_8h.html">ShaderCompilerJobTypes.h</a>&quot;</span></div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="preprocessor">#include &quot;Containers/Array.h&quot;</span></div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span> </div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="keyword">class </span><a class="code hl_class" href="../../db/d79/class_f_archive.html">FArchive</a>;</div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="keyword">template</span> &lt;<span class="keyword">typename</span> FuncType&gt; <span class="keyword">class </span><a class="code hl_class" href="../../d8/d95/class_t_function_ref.html">TFunctionRef</a>;</div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span> </div>
+<div class="foldopen" id="foldopen00011" data-start="{" data-end="};">
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno"><a class="line" href="../../d0/dc7/struct_f_s_c_w_error_code.html">   11</a></span><span class="keyword">struct </span><a class="code hl_struct" href="../../d0/dc7/struct_f_s_c_w_error_code.html">FSCWErrorCode</a></div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span>{</div>
+<div class="foldopen" id="foldopen00013" data-start="{" data-end="};">
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno"><a class="line" href="../../d0/dc7/struct_f_s_c_w_error_code.html#a9074397884cd7af1bef819f911b73eaf">   13</a></span>    <span class="keyword">enum</span> <a class="code hl_enumeration" href="../../d0/dc7/struct_f_s_c_w_error_code.html#a9074397884cd7af1bef819f911b73eaf">ECode</a> : <a class="code hl_typedef" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a8dbb3cd84ca9fd010dadfc3815eefa5d">int32</a></div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span>    {</div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno"><a class="line" href="../../d0/dc7/struct_f_s_c_w_error_code.html#a9074397884cd7af1bef819f911b73eafa0914e2b0aad9c44decfbdc4b8e84e24f">   15</a></span>        <a class="code hl_enumvalue" href="../../d0/dc7/struct_f_s_c_w_error_code.html#a9074397884cd7af1bef819f911b73eafa0914e2b0aad9c44decfbdc4b8e84e24f">NotSet</a> = -1,</div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno"><a class="line" href="../../d0/dc7/struct_f_s_c_w_error_code.html#a9074397884cd7af1bef819f911b73eafa5cbfd8534a9c59ab3a912bb551264580">   16</a></span>        <a class="code hl_enumvalue" href="../../d0/dc7/struct_f_s_c_w_error_code.html#a9074397884cd7af1bef819f911b73eafa5cbfd8534a9c59ab3a912bb551264580">Success</a>,</div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno"><a class="line" href="../../d0/dc7/struct_f_s_c_w_error_code.html#a9074397884cd7af1bef819f911b73eafaba07bde080b4c731e7c75827bcbbaf01">   17</a></span>        <a class="code hl_enumvalue" href="../../d0/dc7/struct_f_s_c_w_error_code.html#a9074397884cd7af1bef819f911b73eafaba07bde080b4c731e7c75827bcbbaf01">GeneralCrash</a>,</div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno"><a class="line" href="../../d0/dc7/struct_f_s_c_w_error_code.html#a9074397884cd7af1bef819f911b73eafa49fd7d44260fad829fbd7e018d67c41f">   18</a></span>        <a class="code hl_enumvalue" href="../../d0/dc7/struct_f_s_c_w_error_code.html#a9074397884cd7af1bef819f911b73eafa49fd7d44260fad829fbd7e018d67c41f">BadShaderFormatVersion</a>,</div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno"><a class="line" href="../../d0/dc7/struct_f_s_c_w_error_code.html#a9074397884cd7af1bef819f911b73eafae77b917a679c7195b9d08b5d85674435">   19</a></span>        <a class="code hl_enumvalue" href="../../d0/dc7/struct_f_s_c_w_error_code.html#a9074397884cd7af1bef819f911b73eafae77b917a679c7195b9d08b5d85674435">BadInputVersion</a>,</div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno"><a class="line" href="../../d0/dc7/struct_f_s_c_w_error_code.html#a9074397884cd7af1bef819f911b73eafa0a582b5b448fc92f1b0ca5b009c376c7">   20</a></span>        <a class="code hl_enumvalue" href="../../d0/dc7/struct_f_s_c_w_error_code.html#a9074397884cd7af1bef819f911b73eafa0a582b5b448fc92f1b0ca5b009c376c7">BadSingleJobHeader</a>,</div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno"><a class="line" href="../../d0/dc7/struct_f_s_c_w_error_code.html#a9074397884cd7af1bef819f911b73eafa2bf32f19c23ff971d82e4d6dd9174a4f">   21</a></span>        <a class="code hl_enumvalue" href="../../d0/dc7/struct_f_s_c_w_error_code.html#a9074397884cd7af1bef819f911b73eafa2bf32f19c23ff971d82e4d6dd9174a4f">BadPipelineJobHeader</a>,</div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno"><a class="line" href="../../d0/dc7/struct_f_s_c_w_error_code.html#a9074397884cd7af1bef819f911b73eafa38ea916309dc8c1cc1c9454924e98570">   22</a></span>        <a class="code hl_enumvalue" href="../../d0/dc7/struct_f_s_c_w_error_code.html#a9074397884cd7af1bef819f911b73eafa38ea916309dc8c1cc1c9454924e98570">CantDeleteInputFile</a>,</div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno"><a class="line" href="../../d0/dc7/struct_f_s_c_w_error_code.html#a9074397884cd7af1bef819f911b73eafa722686c421dd5dff0eaaa5f6b9a29b67">   23</a></span>        <a class="code hl_enumvalue" href="../../d0/dc7/struct_f_s_c_w_error_code.html#a9074397884cd7af1bef819f911b73eafa722686c421dd5dff0eaaa5f6b9a29b67">CantSaveOutputFile</a>,</div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno"><a class="line" href="../../d0/dc7/struct_f_s_c_w_error_code.html#a9074397884cd7af1bef819f911b73eafa936cfb37e0a9eecad9057c54ab21dfb9">   24</a></span>        <a class="code hl_enumvalue" href="../../d0/dc7/struct_f_s_c_w_error_code.html#a9074397884cd7af1bef819f911b73eafa936cfb37e0a9eecad9057c54ab21dfb9">NoTargetShaderFormatsFound</a>,</div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno"><a class="line" href="../../d0/dc7/struct_f_s_c_w_error_code.html#a9074397884cd7af1bef819f911b73eafae70018da9d2353e299bf58557a592507">   25</a></span>        <a class="code hl_enumvalue" href="../../d0/dc7/struct_f_s_c_w_error_code.html#a9074397884cd7af1bef819f911b73eafae70018da9d2353e299bf58557a592507">CantCompileForSpecificFormat</a>,</div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno"><a class="line" href="../../d0/dc7/struct_f_s_c_w_error_code.html#a9074397884cd7af1bef819f911b73eafaba8bb00c1922f5be1260abdef035bbb6">   26</a></span>        <a class="code hl_enumvalue" href="../../d0/dc7/struct_f_s_c_w_error_code.html#a9074397884cd7af1bef819f911b73eafaba8bb00c1922f5be1260abdef035bbb6">CrashInsidePlatformCompiler</a>,</div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno"><a class="line" href="../../d0/dc7/struct_f_s_c_w_error_code.html#a9074397884cd7af1bef819f911b73eafa9504c426dc860230d3110766ae62cf95">   27</a></span>        <a class="code hl_enumvalue" href="../../d0/dc7/struct_f_s_c_w_error_code.html#a9074397884cd7af1bef819f911b73eafa9504c426dc860230d3110766ae62cf95">BadInputFile</a>,</div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno"><a class="line" href="../../d0/dc7/struct_f_s_c_w_error_code.html#a9074397884cd7af1bef819f911b73eafae58dff5c789e8e62eb21fbd0f4a06951">   28</a></span>        <a class="code hl_enumvalue" href="../../d0/dc7/struct_f_s_c_w_error_code.html#a9074397884cd7af1bef819f911b73eafae58dff5c789e8e62eb21fbd0f4a06951">MissingVirtualInputFile</a>,</div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno"><a class="line" href="../../d0/dc7/struct_f_s_c_w_error_code.html#a9074397884cd7af1bef819f911b73eafa01e29a56e35ab071e8b8d1e7b7cc95bd">   29</a></span>        <a class="code hl_enumvalue" href="../../d0/dc7/struct_f_s_c_w_error_code.html#a9074397884cd7af1bef819f911b73eafa01e29a56e35ab071e8b8d1e7b7cc95bd">OutOfMemory</a>,</div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>    };</div>
+</div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span></div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>    <span class="keyword">static</span> RENDERCORE_API <span class="keywordtype">void</span> <a class="code hl_function" href="../../d0/dc7/struct_f_s_c_w_error_code.html#ae7568f71dbe012a6957cabefae355932">Report</a>(<a class="code hl_enumeration" href="../../d0/dc7/struct_f_s_c_w_error_code.html#a9074397884cd7af1bef819f911b73eaf">ECode</a> <a class="code hl_enumvalue" href="../../d1/db6/_installed_platform_info_8h.html#acda7ec29fe2b72359b1022799d0fed2faca0dbad92a874b2f69b549293387925e">Code</a>, <span class="keyword">const</span> <a class="code hl_typedef" href="../../d7/d6a/_string_fwd_8h.html#a841e8ee04adcccfc0c78bd543334882f">FStringView</a>&amp; <a class="code hl_enumvalue" href="../../db/d80/_i_live_coding_server_8h.html#a30d560fed31995eeb5f3c35f33e67db6a4059b0251f66a18cb56f544728796875">Info</a> = {});</div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span></div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>    <span class="keyword">static</span> RENDERCORE_API <span class="keywordtype">void</span> <a class="code hl_function" href="../../d0/dc7/struct_f_s_c_w_error_code.html#aa8b42565947b7507b286767eb29f08f2">Reset</a>();</div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span></div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>    <span class="keyword">static</span> RENDERCORE_API <a class="code hl_enumeration" href="../../d0/dc7/struct_f_s_c_w_error_code.html#a9074397884cd7af1bef819f911b73eaf">ECode</a> <a class="code hl_function" href="../../d0/dc7/struct_f_s_c_w_error_code.html#ad0c54eee479dd136c886be2d9588ec2d">Get</a>();</div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span></div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>    <span class="keyword">static</span> RENDERCORE_API <span class="keyword">const</span> <a class="code hl_variable" href="../../d2/d8e/_s_anim_notify_panel_8h.html#a7483aa7f043c623f8990a95320be654d">FString</a>&amp; <a class="code hl_function" href="../../d0/dc7/struct_f_s_c_w_error_code.html#a639f81faf5f132dae992676fcfe83276">GetInfo</a>();</div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span></div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>    <span class="keyword">static</span> RENDERCORE_API <span class="keywordtype">bool</span> <a class="code hl_function" href="../../d0/dc7/struct_f_s_c_w_error_code.html#a43f07a79dff8f6040329378213a3b002">IsSet</a>();</div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>};</div>
+</div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span> </div>
+<div class="foldopen" id="foldopen00052" data-start="{" data-end="};">
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno"><a class="line" href="../../da/dc7/class_f_shader_compile_worker_util.html">   52</a></span><span class="keyword">class </span><a class="code hl_class" href="../../da/dc7/class_f_shader_compile_worker_util.html">FShaderCompileWorkerUtil</a></div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>{</div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span><span class="keyword">public</span>:</div>
+<div class="foldopen" id="foldopen00055" data-start="{" data-end="};">
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno"><a class="line" href="../../da/dc7/class_f_shader_compile_worker_util.html#ae441f097521c3a5cb70ed5c7faff4f89">   55</a></span>    <span class="keyword">enum class</span> <a class="code hl_enumeration" href="../../da/dc7/class_f_shader_compile_worker_util.html#ae441f097521c3a5cb70ed5c7faff4f89">EWriteTasksFlags</a> : <a class="code hl_typedef" href="../../dd/de9/preprocessor_8c.html#adde6aaee8457bee49c2a92621fe22b79">uint8</a></div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>    {</div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno"><a class="line" href="../../da/dc7/class_f_shader_compile_worker_util.html#ae441f097521c3a5cb70ed5c7faff4f89a6adf97f83acf6453d4a6a4b1070f3754">   57</a></span>        <a class="code hl_enumvalue" href="../../df/d91/_bundle_compression_8h.html#a5b0876faabfb126fe94b6ac9eafabfa8ac9d3e887722f2bc482bcca9d41c512af">None</a> = 0,</div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno"><a class="line" href="../../da/dc7/class_f_shader_compile_worker_util.html#ae441f097521c3a5cb70ed5c7faff4f89a0f8b22dc7ce2fb2875c405a8237144d0">   58</a></span>        <a class="code hl_enumvalue" href="../../da/dc7/class_f_shader_compile_worker_util.html#ae441f097521c3a5cb70ed5c7faff4f89a0f8b22dc7ce2fb2875c405a8237144d0">CompressTaskFile</a> = 1 &lt;&lt; 0,</div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno"><a class="line" href="../../da/dc7/class_f_shader_compile_worker_util.html#ae441f097521c3a5cb70ed5c7faff4f89ae75803ec0dee3fdcda13b7d610165a5c">   59</a></span>        <a class="code hl_enumvalue" href="../../da/dc7/class_f_shader_compile_worker_util.html#ae441f097521c3a5cb70ed5c7faff4f89ae75803ec0dee3fdcda13b7d610165a5c">SkipSource</a> = 1 &lt;&lt; 1,</div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>    };</div>
+</div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span> </div>
+<div class="foldopen" id="foldopen00062" data-start="{" data-end="};">
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno"><a class="line" href="../../da/dc7/class_f_shader_compile_worker_util.html#a70acc7a519b0ddac178dbcef5ef7badf">   62</a></span>    <span class="keyword">enum class</span> <a class="code hl_enumeration" href="../../da/dc7/class_f_shader_compile_worker_util.html#a70acc7a519b0ddac178dbcef5ef7badf">EReadTasksFlags</a> : <a class="code hl_typedef" href="../../dd/de9/preprocessor_8c.html#adde6aaee8457bee49c2a92621fe22b79">uint8</a></div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>    {</div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno"><a class="line" href="../../da/dc7/class_f_shader_compile_worker_util.html#a70acc7a519b0ddac178dbcef5ef7badfa6adf97f83acf6453d4a6a4b1070f3754">   64</a></span>        <a class="code hl_enumvalue" href="../../df/d91/_bundle_compression_8h.html#a5b0876faabfb126fe94b6ac9eafabfa8ac9d3e887722f2bc482bcca9d41c512af">None</a> = 0,</div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno"><a class="line" href="../../da/dc7/class_f_shader_compile_worker_util.html#a70acc7a519b0ddac178dbcef5ef7badfa70bdc9f73d8679c5a1c4aa964de53963">   65</a></span>        <a class="code hl_enumvalue" href="../../da/dc7/class_f_shader_compile_worker_util.html#a70acc7a519b0ddac178dbcef5ef7badfa70bdc9f73d8679c5a1c4aa964de53963">WillRetry</a> = 1 &lt;&lt; 0,</div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span>    };</div>
+</div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span> </div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>    RENDERCORE_API <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code hl_function" href="../../da/dc7/class_f_shader_compile_worker_util.html#a47bc2fbcbc8af5607ae65ecd0db3750d">LogQueuedCompileJobs</a>(<span class="keyword">const</span> <a class="code hl_class" href="../../d6/db1/class_t_array.html">TArray&lt;FShaderCommonCompileJobPtr&gt;</a>&amp; QueuedJobs, <a class="code hl_typedef" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a8dbb3cd84ca9fd010dadfc3815eefa5d">int32</a> NumProcessedJobs);</div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>    RENDERCORE_API <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code hl_function" href="../../da/dc7/class_f_shader_compile_worker_util.html#a4b4dda12b00ce6f354803b4892b31b40">DumpDebugCompileInput</a>(<a class="code hl_class" href="../../df/df5/class_f_shader_common_compile_job.html">FShaderCommonCompileJob</a>&amp; Job, <a class="code hl_struct" href="../../d6/d1f/struct_f_shader_debug_data_context.html">FShaderDebugDataContext</a>&amp; Ctx);</div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>    RENDERCORE_API <span class="keyword">static</span> <span class="keywordtype">bool</span> <a class="code hl_function" href="../../da/dc7/class_f_shader_compile_worker_util.html#af33051b46ec9b8b3f2d6c11336cd5045">WriteTasks</a>(<span class="keyword">const</span> <a class="code hl_class" href="../../d6/db1/class_t_array.html">TArray&lt;FShaderCommonCompileJobPtr&gt;</a>&amp; QueuedJobs, <a class="code hl_class" href="../../db/d79/class_f_archive.html">FArchive</a>&amp; TransferFile, <a class="code hl_enumeration" href="../../da/dc7/class_f_shader_compile_worker_util.html#ae441f097521c3a5cb70ed5c7faff4f89">EWriteTasksFlags</a> <a class="code hl_enumvalue" href="../../d5/d1e/_object_macros_8h.html#ab1b4d2b5a96eee3af0fdf40789726115a4ea7801f17a4e5485e8b050c052fb443">Flags</a> = <a class="code hl_enumvalue" href="../../da/dc7/class_f_shader_compile_worker_util.html#ae441f097521c3a5cb70ed5c7faff4f89a6adf97f83acf6453d4a6a4b1070f3754">EWriteTasksFlags::None</a>, <a class="code hl_class" href="../../d6/db1/class_t_array.html">TArray&lt;FMemoryView&gt;</a>* OutCompressedSource = <span class="keyword">nullptr</span>);</div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>    RENDERCORE_API <span class="keyword">static</span> <a class="code hl_enumeration" href="../../d0/dc7/struct_f_s_c_w_error_code.html#a9074397884cd7af1bef819f911b73eaf">FSCWErrorCode::ECode</a> <a class="code hl_function" href="../../da/dc7/class_f_shader_compile_worker_util.html#aca4fc47c88a6171f5173bbd5147a3192">ReadTasks</a>(<span class="keyword">const</span> <a class="code hl_class" href="../../d6/db1/class_t_array.html">TArray&lt;FShaderCommonCompileJobPtr&gt;</a>&amp; QueuedJobs, <a class="code hl_class" href="../../db/d79/class_f_archive.html">FArchive</a>&amp; OutputFile, <a class="code hl_struct" href="../../d7/dfb/struct_f_shader_compile_worker_diagnostics.html">FShaderCompileWorkerDiagnostics</a>* OutWorkerDiagnostics, <a class="code hl_enumeration" href="../../da/dc7/class_f_shader_compile_worker_util.html#a70acc7a519b0ddac178dbcef5ef7badf">EReadTasksFlags</a> <a class="code hl_enumvalue" href="../../d5/d1e/_object_macros_8h.html#ab1b4d2b5a96eee3af0fdf40789726115a4ea7801f17a4e5485e8b050c052fb443">Flags</a> = <a class="code hl_enumvalue" href="../../da/dc7/class_f_shader_compile_worker_util.html#a70acc7a519b0ddac178dbcef5ef7badfa6adf97f83acf6453d4a6a4b1070f3754">EReadTasksFlags::None</a>);</div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span> </div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>    [[nodiscard]] RENDERCORE_API <span class="keyword">static</span> <span class="keyword">const</span> <a class="code hl_class" href="../../d6/db1/class_t_array.html">TArray&lt;const IShaderFormat*&gt;</a>&amp; <a class="code hl_function" href="../../da/dc7/class_f_shader_compile_worker_util.html#ab40c2b3ec54a84440821a7cbebc3e776">GetShaderFormats</a>();</div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span> </div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>    RENDERCORE_API <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code hl_function" href="../../da/dc7/class_f_shader_compile_worker_util.html#a54be70d2e19f3feabd39855d87556bcd">ProcessInputFromArchive</a>(</div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>        <a class="code hl_class" href="../../db/d79/class_f_archive.html">FArchive</a>* InputFilePtr,</div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span>        <span class="keyword">const</span> <a class="code hl_variable" href="../../d2/d8e/_s_anim_notify_panel_8h.html#a7483aa7f043c623f8990a95320be654d">FString</a>&amp; DumpDebugInfoPathOverride,</div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>        TConstArrayView&lt;FString&gt; DebugSourceFiles,</div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>        <a class="code hl_class" href="../../d8/d95/class_t_function_ref.html">TFunctionRef</a>&lt;<a class="code hl_class" href="../../d6/db1/class_t_array.html">TArray&lt;uint8&gt;</a> (<a class="code hl_typedef" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a8dbb3cd84ca9fd010dadfc3815eefa5d">int32</a>)&gt; LoadVirtualSourceFile,</div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>        <a class="code hl_typedef" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a8dbb3cd84ca9fd010dadfc3815eefa5d">int32</a>&amp; OutNumProcessedJobs,</div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>        <a class="code hl_class" href="../../d6/db1/class_t_array.html">TArray&lt;FShaderCompileJob&gt;</a>&amp; OutSingleJobs,</div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span>        <a class="code hl_class" href="../../d6/db1/class_t_array.html">TArray&lt;FShaderPipelineCompileJob&gt;</a>&amp; OutPipelineJobs,</div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span>        <a class="code hl_class" href="../../d6/db1/class_t_array.html">TArray&lt;FString&gt;</a>&amp; OutPipelineNames);</div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span> </div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span>    RENDERCORE_API <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code hl_function" href="../../da/dc7/class_f_shader_compile_worker_util.html#aad23113f7888dd9a5085f32b95da0d52">WriteToOutputArchive</a>(</div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span>        <a class="code hl_class" href="../../db/d79/class_f_archive.html">FArchive</a>&amp; OutputFile,</div>
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span>        <span class="keyword">const</span> <a class="code hl_variable" href="../../d2/d8e/_s_anim_notify_panel_8h.html#a7483aa7f043c623f8990a95320be654d">FString</a>&amp; HostName,</div>
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span>        <a class="code hl_struct" href="../../d7/dfb/struct_f_shader_compile_worker_diagnostics.html">FShaderCompileWorkerDiagnostics</a>&amp; WorkerDiagnostics,</div>
+<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span>        <a class="code hl_typedef" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a8dbb3cd84ca9fd010dadfc3815eefa5d">int32</a> NumProcessedJobs,</div>
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span>        <a class="code hl_class" href="../../d6/db1/class_t_array.html">TArray&lt;FShaderCompileJob&gt;</a>&amp; SingleJobs,</div>
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span>        <a class="code hl_class" href="../../d6/db1/class_t_array.html">TArray&lt;FShaderPipelineCompileJob&gt;</a>&amp; PipelineJobs,</div>
+<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span>        <a class="code hl_class" href="../../d6/db1/class_t_array.html">TArray&lt;FString&gt;</a>&amp; PipelineNames);</div>
+<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span> </div>
+<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span>    RENDERCORE_API <span class="keyword">static</span> <a class="code hl_typedef" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a89241ea7101f26f05a4f1efd6be26b32">int64</a> <a class="code hl_function" href="../../da/dc7/class_f_shader_compile_worker_util.html#aa7228729369b9296f1df0636027cf3c5">WriteOutputFileHeader</a>(</div>
+<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span>        <a class="code hl_class" href="../../db/d79/class_f_archive.html">FArchive</a>&amp; OutputFile,</div>
+<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span>        <span class="keyword">const</span> <a class="code hl_variable" href="../../d2/d8e/_s_anim_notify_panel_8h.html#a7483aa7f043c623f8990a95320be654d">FString</a>&amp; HostName,</div>
+<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span>        <a class="code hl_struct" href="../../d7/dfb/struct_f_shader_compile_worker_diagnostics.html">FShaderCompileWorkerDiagnostics</a>&amp; WorkerDiagnostics,</div>
+<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span>        <a class="code hl_typedef" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a8dbb3cd84ca9fd010dadfc3815eefa5d">int32</a> NumProcessedJobs,</div>
+<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span>        <a class="code hl_typedef" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a8dbb3cd84ca9fd010dadfc3815eefa5d">int32</a> CallstackLength,</div>
+<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span>        <span class="keyword">const</span> TCHAR* Callstack,</div>
+<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span>        <a class="code hl_typedef" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a8dbb3cd84ca9fd010dadfc3815eefa5d">int32</a> ExceptionInfoLength,</div>
+<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span>        <span class="keyword">const</span> TCHAR* ExceptionInfo);</div>
+<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span> </div>
+<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span>    RENDERCORE_API <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code hl_function" href="../../da/dc7/class_f_shader_compile_worker_util.html#a0251bff7592e5e185112813d5674af85">UpdateFileSize</a>(<a class="code hl_class" href="../../db/d79/class_f_archive.html">FArchive</a>&amp; OutputFile, <a class="code hl_typedef" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a89241ea7101f26f05a4f1efd6be26b32">int64</a> FileSizePosition);</div>
+<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span> </div>
+<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span><span class="keyword">private</span>:</div>
+<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span>    <span class="keyword">static</span> <span class="keywordtype">bool</span> HandleWorkerCrash(</div>
+<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span>        <span class="keyword">const</span> <a class="code hl_class" href="../../d6/db1/class_t_array.html">TArray&lt;FShaderCommonCompileJobPtr&gt;</a>&amp; QueuedJobs,</div>
+<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span>        <a class="code hl_class" href="../../db/d79/class_f_archive.html">FArchive</a>&amp; OutputFile,</div>
+<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span>        <a class="code hl_typedef" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a8dbb3cd84ca9fd010dadfc3815eefa5d">int32</a> OutputVersion,</div>
+<div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span>        <a class="code hl_typedef" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a89241ea7101f26f05a4f1efd6be26b32">int64</a> FileSize,</div>
+<div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span>        <a class="code hl_enumeration" href="../../d0/dc7/struct_f_s_c_w_error_code.html#a9074397884cd7af1bef819f911b73eaf">FSCWErrorCode::ECode</a> ErrorCode,</div>
+<div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span>        <a class="code hl_typedef" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a8dbb3cd84ca9fd010dadfc3815eefa5d">int32</a> NumProcessedJobs,</div>
+<div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span>        <a class="code hl_typedef" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a8dbb3cd84ca9fd010dadfc3815eefa5d">int32</a> CallstackLength,</div>
+<div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span>        <a class="code hl_typedef" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a8dbb3cd84ca9fd010dadfc3815eefa5d">int32</a> ExceptionInfoLength,</div>
+<div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span>        <a class="code hl_typedef" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a8dbb3cd84ca9fd010dadfc3815eefa5d">int32</a> HostnameLength,</div>
+<div class="line"><a id="l00117" name="l00117"></a><span class="lineno">  117</span>        <span class="keywordtype">bool</span> bWillRetry);</div>
+<div class="line"><a id="l00118" name="l00118"></a><span class="lineno">  118</span>};</div>
+</div>
+<div class="line"><a id="l00119" name="l00119"></a><span class="lineno">  119</span> </div>
+<div class="line"><a id="l00120" name="l00120"></a><span class="lineno"><a class="line" href="../../d8/d98/_shader_compile_worker_util_8h.html#ad4ff51746cac783efc7b793608a61132">  120</a></span><a class="code hl_define" href="../../d0/d23/_enum_class_flags_8h.html#a80975a5eda8bee64896556c6df5807d7">ENUM_CLASS_FLAGS</a>(<a class="code hl_enumeration" href="../../da/dc7/class_f_shader_compile_worker_util.html#ae441f097521c3a5cb70ed5c7faff4f89">FShaderCompileWorkerUtil::EWriteTasksFlags</a>);</div>
+<div class="line"><a id="l00121" name="l00121"></a><span class="lineno"><a class="line" href="../../d8/d98/_shader_compile_worker_util_8h.html#a1bb56d27635fab20a656a0af0166974e">  121</a></span><a class="code hl_define" href="../../d0/d23/_enum_class_flags_8h.html#a80975a5eda8bee64896556c6df5807d7">ENUM_CLASS_FLAGS</a>(<a class="code hl_enumeration" href="../../da/dc7/class_f_shader_compile_worker_util.html#a70acc7a519b0ddac178dbcef5ef7badf">FShaderCompileWorkerUtil::EReadTasksFlags</a>);</div>
+<div class="ttc" id="a_bundle_compression_8h_html_a5b0876faabfb126fe94b6ac9eafabfa8ac9d3e887722f2bc482bcca9d41c512af"><div class="ttname"><a href="../../df/d91/_bundle_compression_8h.html#a5b0876faabfb126fe94b6ac9eafabfa8ac9d3e887722f2bc482bcca9d41c512af">None</a></div><div class="ttdeci">@ None</div><div class="ttdef"><b>定义</b> BundleCompression.h:14</div></div>
+<div class="ttc" id="a_core_2_public_2_h_a_l_2_platform_8h_html_a89241ea7101f26f05a4f1efd6be26b32"><div class="ttname"><a href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a89241ea7101f26f05a4f1efd6be26b32">int64</a></div><div class="ttdeci">FPlatformTypes::int64 int64</div><div class="ttdoc">A 64-bit signed integer.</div><div class="ttdef"><b>定义</b> Platform.h:1192</div></div>
+<div class="ttc" id="a_core_2_public_2_h_a_l_2_platform_8h_html_a8dbb3cd84ca9fd010dadfc3815eefa5d"><div class="ttname"><a href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a8dbb3cd84ca9fd010dadfc3815eefa5d">int32</a></div><div class="ttdeci">FPlatformTypes::int32 int32</div><div class="ttdoc">A 32-bit signed integer.</div><div class="ttdef"><b>定义</b> Platform.h:1190</div></div>
+<div class="ttc" id="a_enum_class_flags_8h_html_a80975a5eda8bee64896556c6df5807d7"><div class="ttname"><a href="../../d0/d23/_enum_class_flags_8h.html#a80975a5eda8bee64896556c6df5807d7">ENUM_CLASS_FLAGS</a></div><div class="ttdeci">#define ENUM_CLASS_FLAGS(Enum)</div><div class="ttdef"><b>定义</b> EnumClassFlags.h:8</div></div>
+<div class="ttc" id="a_i_live_coding_server_8h_html_a30d560fed31995eeb5f3c35f33e67db6a4059b0251f66a18cb56f544728796875"><div class="ttname"><a href="../../db/d80/_i_live_coding_server_8h.html#a30d560fed31995eeb5f3c35f33e67db6a4059b0251f66a18cb56f544728796875">ELiveCodingLogVerbosity::Info</a></div><div class="ttdeci">@ Info</div><div class="ttdef"><b>定义</b> ILiveCodingServer.h:21</div></div>
+<div class="ttc" id="a_installed_platform_info_8h_html_acda7ec29fe2b72359b1022799d0fed2faca0dbad92a874b2f69b549293387925e"><div class="ttname"><a href="../../d1/db6/_installed_platform_info_8h.html#acda7ec29fe2b72359b1022799d0fed2faca0dbad92a874b2f69b549293387925e">EProjectType::Code</a></div><div class="ttdeci">@ Code</div><div class="ttdef"><b>定义</b> InstalledPlatformInfo.h:21</div></div>
+<div class="ttc" id="a_object_macros_8h_html_ab1b4d2b5a96eee3af0fdf40789726115a4ea7801f17a4e5485e8b050c052fb443"><div class="ttname"><a href="../../d5/d1e/_object_macros_8h.html#ab1b4d2b5a96eee3af0fdf40789726115a4ea7801f17a4e5485e8b050c052fb443">EEnumFlags::Flags</a></div><div class="ttdeci">@ Flags</div><div class="ttdef"><b>定义</b> ObjectMacros.h:723</div></div>
+<div class="ttc" id="a_s_anim_notify_panel_8h_html_a7483aa7f043c623f8990a95320be654d"><div class="ttname"><a href="../../d2/d8e/_s_anim_notify_panel_8h.html#a7483aa7f043c623f8990a95320be654d">FString</a></div><div class="ttdeci">FOnGetScrubValue FString</div><div class="ttdef"><b>定义</b> SAnimNotifyPanel.h:38</div></div>
+<div class="ttc" id="a_shader_compiler_job_types_8h_html"><div class="ttname"><a href="../../dd/dfa/_shader_compiler_job_types_8h.html">ShaderCompilerJobTypes.h</a></div></div>
+<div class="ttc" id="a_string_fwd_8h_html_a841e8ee04adcccfc0c78bd543334882f"><div class="ttname"><a href="../../d7/d6a/_string_fwd_8h.html#a841e8ee04adcccfc0c78bd543334882f">FStringView</a></div><div class="ttdeci">TStringView&lt; TCHAR &gt; FStringView</div><div class="ttdef"><b>定义</b> StringFwd.h:47</div></div>
+<div class="ttc" id="aclass_f_archive_html"><div class="ttname"><a href="../../db/d79/class_f_archive.html">FArchive</a></div><div class="ttdef"><b>定义</b> Archive.h:1217</div></div>
+<div class="ttc" id="aclass_f_shader_common_compile_job_html"><div class="ttname"><a href="../../df/df5/class_f_shader_common_compile_job.html">FShaderCommonCompileJob</a></div><div class="ttdef"><b>定义</b> ShaderCompilerJobTypes.h:200</div></div>
+<div class="ttc" id="aclass_f_shader_compile_worker_util_html"><div class="ttname"><a href="../../da/dc7/class_f_shader_compile_worker_util.html">FShaderCompileWorkerUtil</a></div><div class="ttdef"><b>定义</b> ShaderCompileWorkerUtil.h:53</div></div>
+<div class="ttc" id="aclass_f_shader_compile_worker_util_html_a0251bff7592e5e185112813d5674af85"><div class="ttname"><a href="../../da/dc7/class_f_shader_compile_worker_util.html#a0251bff7592e5e185112813d5674af85">FShaderCompileWorkerUtil::UpdateFileSize</a></div><div class="ttdeci">static RENDERCORE_API void UpdateFileSize(FArchive &amp;OutputFile, int64 FileSizePosition)</div><div class="ttdef"><b>定义</b> ShaderCompileWorkerUtil.cpp:1358</div></div>
+<div class="ttc" id="aclass_f_shader_compile_worker_util_html_a47bc2fbcbc8af5607ae65ecd0db3750d"><div class="ttname"><a href="../../da/dc7/class_f_shader_compile_worker_util.html#a47bc2fbcbc8af5607ae65ecd0db3750d">FShaderCompileWorkerUtil::LogQueuedCompileJobs</a></div><div class="ttdeci">static RENDERCORE_API void LogQueuedCompileJobs(const TArray&lt; FShaderCommonCompileJobPtr &gt; &amp;QueuedJobs, int32 NumProcessedJobs)</div><div class="ttdef"><b>定义</b> ShaderCompileWorkerUtil.cpp:104</div></div>
+<div class="ttc" id="aclass_f_shader_compile_worker_util_html_a4b4dda12b00ce6f354803b4892b31b40"><div class="ttname"><a href="../../da/dc7/class_f_shader_compile_worker_util.html#a4b4dda12b00ce6f354803b4892b31b40">FShaderCompileWorkerUtil::DumpDebugCompileInput</a></div><div class="ttdeci">static RENDERCORE_API void DumpDebugCompileInput(FShaderCommonCompileJob &amp;Job, FShaderDebugDataContext &amp;Ctx)</div><div class="ttdef"><b>定义</b> ShaderCompileWorkerUtil.cpp:687</div></div>
+<div class="ttc" id="aclass_f_shader_compile_worker_util_html_a54be70d2e19f3feabd39855d87556bcd"><div class="ttname"><a href="../../da/dc7/class_f_shader_compile_worker_util.html#a54be70d2e19f3feabd39855d87556bcd">FShaderCompileWorkerUtil::ProcessInputFromArchive</a></div><div class="ttdeci">static RENDERCORE_API void ProcessInputFromArchive(FArchive *InputFilePtr, const FString &amp;DumpDebugInfoPathOverride, TConstArrayView&lt; FString &gt; DebugSourceFiles, TFunctionRef&lt; TArray&lt; uint8 &gt;(int32)&gt; LoadVirtualSourceFile, int32 &amp;OutNumProcessedJobs, TArray&lt; FShaderCompileJob &gt; &amp;OutSingleJobs, TArray&lt; FShaderPipelineCompileJob &gt; &amp;OutPipelineJobs, TArray&lt; FString &gt; &amp;OutPipelineNames)</div><div class="ttdef"><b>定义</b> ShaderCompileWorkerUtil.cpp:958</div></div>
+<div class="ttc" id="aclass_f_shader_compile_worker_util_html_a70acc7a519b0ddac178dbcef5ef7badf"><div class="ttname"><a href="../../da/dc7/class_f_shader_compile_worker_util.html#a70acc7a519b0ddac178dbcef5ef7badf">FShaderCompileWorkerUtil::EReadTasksFlags</a></div><div class="ttdeci">EReadTasksFlags</div><div class="ttdef"><b>定义</b> ShaderCompileWorkerUtil.h:63</div></div>
+<div class="ttc" id="aclass_f_shader_compile_worker_util_html_a70acc7a519b0ddac178dbcef5ef7badfa6adf97f83acf6453d4a6a4b1070f3754"><div class="ttname"><a href="../../da/dc7/class_f_shader_compile_worker_util.html#a70acc7a519b0ddac178dbcef5ef7badfa6adf97f83acf6453d4a6a4b1070f3754">FShaderCompileWorkerUtil::EReadTasksFlags::None</a></div><div class="ttdeci">@ None</div><div class="ttdef"><b>定义</b> ShaderCompileWorkerUtil.h:64</div></div>
+<div class="ttc" id="aclass_f_shader_compile_worker_util_html_a70acc7a519b0ddac178dbcef5ef7badfa70bdc9f73d8679c5a1c4aa964de53963"><div class="ttname"><a href="../../da/dc7/class_f_shader_compile_worker_util.html#a70acc7a519b0ddac178dbcef5ef7badfa70bdc9f73d8679c5a1c4aa964de53963">FShaderCompileWorkerUtil::EReadTasksFlags::WillRetry</a></div><div class="ttdeci">@ WillRetry</div><div class="ttdef"><b>定义</b> ShaderCompileWorkerUtil.h:65</div></div>
+<div class="ttc" id="aclass_f_shader_compile_worker_util_html_aa7228729369b9296f1df0636027cf3c5"><div class="ttname"><a href="../../da/dc7/class_f_shader_compile_worker_util.html#aa7228729369b9296f1df0636027cf3c5">FShaderCompileWorkerUtil::WriteOutputFileHeader</a></div><div class="ttdeci">static RENDERCORE_API int64 WriteOutputFileHeader(FArchive &amp;OutputFile, const FString &amp;HostName, FShaderCompileWorkerDiagnostics &amp;WorkerDiagnostics, int32 NumProcessedJobs, int32 CallstackLength, const TCHAR *Callstack, int32 ExceptionInfoLength, const TCHAR *ExceptionInfo)</div><div class="ttdef"><b>定义</b> ShaderCompileWorkerUtil.cpp:1366</div></div>
+<div class="ttc" id="aclass_f_shader_compile_worker_util_html_aad23113f7888dd9a5085f32b95da0d52"><div class="ttname"><a href="../../da/dc7/class_f_shader_compile_worker_util.html#aad23113f7888dd9a5085f32b95da0d52">FShaderCompileWorkerUtil::WriteToOutputArchive</a></div><div class="ttdeci">static RENDERCORE_API void WriteToOutputArchive(FArchive &amp;OutputFile, const FString &amp;HostName, FShaderCompileWorkerDiagnostics &amp;WorkerDiagnostics, int32 NumProcessedJobs, TArray&lt; FShaderCompileJob &gt; &amp;SingleJobs, TArray&lt; FShaderPipelineCompileJob &gt; &amp;PipelineJobs, TArray&lt; FString &gt; &amp;PipelineNames)</div><div class="ttdef"><b>定义</b> ShaderCompileWorkerUtil.cpp:1436</div></div>
+<div class="ttc" id="aclass_f_shader_compile_worker_util_html_ab40c2b3ec54a84440821a7cbebc3e776"><div class="ttname"><a href="../../da/dc7/class_f_shader_compile_worker_util.html#ab40c2b3ec54a84440821a7cbebc3e776">FShaderCompileWorkerUtil::GetShaderFormats</a></div><div class="ttdeci">static RENDERCORE_API const TArray&lt; const IShaderFormat * &gt; &amp; GetShaderFormats()</div><div class="ttdef"><b>定义</b> ShaderCompileWorkerUtil.cpp:900</div></div>
+<div class="ttc" id="aclass_f_shader_compile_worker_util_html_aca4fc47c88a6171f5173bbd5147a3192"><div class="ttname"><a href="../../da/dc7/class_f_shader_compile_worker_util.html#aca4fc47c88a6171f5173bbd5147a3192">FShaderCompileWorkerUtil::ReadTasks</a></div><div class="ttdeci">static RENDERCORE_API FSCWErrorCode::ECode ReadTasks(const TArray&lt; FShaderCommonCompileJobPtr &gt; &amp;QueuedJobs, FArchive &amp;OutputFile, FShaderCompileWorkerDiagnostics *OutWorkerDiagnostics, EReadTasksFlags Flags=EReadTasksFlags::None)</div><div class="ttdef"><b>定义</b> ShaderCompileWorkerUtil.cpp:761</div></div>
+<div class="ttc" id="aclass_f_shader_compile_worker_util_html_ae441f097521c3a5cb70ed5c7faff4f89"><div class="ttname"><a href="../../da/dc7/class_f_shader_compile_worker_util.html#ae441f097521c3a5cb70ed5c7faff4f89">FShaderCompileWorkerUtil::EWriteTasksFlags</a></div><div class="ttdeci">EWriteTasksFlags</div><div class="ttdef"><b>定义</b> ShaderCompileWorkerUtil.h:56</div></div>
+<div class="ttc" id="aclass_f_shader_compile_worker_util_html_ae441f097521c3a5cb70ed5c7faff4f89a0f8b22dc7ce2fb2875c405a8237144d0"><div class="ttname"><a href="../../da/dc7/class_f_shader_compile_worker_util.html#ae441f097521c3a5cb70ed5c7faff4f89a0f8b22dc7ce2fb2875c405a8237144d0">FShaderCompileWorkerUtil::EWriteTasksFlags::CompressTaskFile</a></div><div class="ttdeci">@ CompressTaskFile</div><div class="ttdef"><b>定义</b> ShaderCompileWorkerUtil.h:58</div></div>
+<div class="ttc" id="aclass_f_shader_compile_worker_util_html_ae441f097521c3a5cb70ed5c7faff4f89a6adf97f83acf6453d4a6a4b1070f3754"><div class="ttname"><a href="../../da/dc7/class_f_shader_compile_worker_util.html#ae441f097521c3a5cb70ed5c7faff4f89a6adf97f83acf6453d4a6a4b1070f3754">FShaderCompileWorkerUtil::EWriteTasksFlags::None</a></div><div class="ttdeci">@ None</div><div class="ttdef"><b>定义</b> ShaderCompileWorkerUtil.h:57</div></div>
+<div class="ttc" id="aclass_f_shader_compile_worker_util_html_ae441f097521c3a5cb70ed5c7faff4f89ae75803ec0dee3fdcda13b7d610165a5c"><div class="ttname"><a href="../../da/dc7/class_f_shader_compile_worker_util.html#ae441f097521c3a5cb70ed5c7faff4f89ae75803ec0dee3fdcda13b7d610165a5c">FShaderCompileWorkerUtil::EWriteTasksFlags::SkipSource</a></div><div class="ttdeci">@ SkipSource</div><div class="ttdef"><b>定义</b> ShaderCompileWorkerUtil.h:59</div></div>
+<div class="ttc" id="aclass_f_shader_compile_worker_util_html_af33051b46ec9b8b3f2d6c11336cd5045"><div class="ttname"><a href="../../da/dc7/class_f_shader_compile_worker_util.html#af33051b46ec9b8b3f2d6c11336cd5045">FShaderCompileWorkerUtil::WriteTasks</a></div><div class="ttdeci">static RENDERCORE_API bool WriteTasks(const TArray&lt; FShaderCommonCompileJobPtr &gt; &amp;QueuedJobs, FArchive &amp;TransferFile, EWriteTasksFlags Flags=EWriteTasksFlags::None, TArray&lt; FMemoryView &gt; *OutCompressedSource=nullptr)</div><div class="ttdef"><b>定义</b> ShaderCompileWorkerUtil.cpp:416</div></div>
+<div class="ttc" id="aclass_t_array_html"><div class="ttname"><a href="../../d6/db1/class_t_array.html">TArray</a></div><div class="ttdef"><b>定义</b> Array.h:768</div></div>
+<div class="ttc" id="aclass_t_function_ref_html"><div class="ttname"><a href="../../d8/d95/class_t_function_ref.html">TFunctionRef</a></div><div class="ttdef"><b>定义</b> DerivedDataBuildFunctionRegistry.h:8</div></div>
+<div class="ttc" id="apreprocessor_8c_html_adde6aaee8457bee49c2a92621fe22b79"><div class="ttname"><a href="../../dd/de9/preprocessor_8c.html#adde6aaee8457bee49c2a92621fe22b79">uint8</a></div><div class="ttdeci">unsigned char uint8</div><div class="ttdef"><b>定义</b> preprocessor.c:65</div></div>
+<div class="ttc" id="astruct_f_s_c_w_error_code_html"><div class="ttname"><a href="../../d0/dc7/struct_f_s_c_w_error_code.html">FSCWErrorCode</a></div><div class="ttdef"><b>定义</b> ShaderCompileWorkerUtil.h:12</div></div>
+<div class="ttc" id="astruct_f_s_c_w_error_code_html_a43f07a79dff8f6040329378213a3b002"><div class="ttname"><a href="../../d0/dc7/struct_f_s_c_w_error_code.html#a43f07a79dff8f6040329378213a3b002">FSCWErrorCode::IsSet</a></div><div class="ttdeci">static RENDERCORE_API bool IsSet()</div><div class="ttdef"><b>定义</b> ShaderCore.cpp:556</div></div>
+<div class="ttc" id="astruct_f_s_c_w_error_code_html_a639f81faf5f132dae992676fcfe83276"><div class="ttname"><a href="../../d0/dc7/struct_f_s_c_w_error_code.html#a639f81faf5f132dae992676fcfe83276">FSCWErrorCode::GetInfo</a></div><div class="ttdeci">static RENDERCORE_API const FString &amp; GetInfo()</div><div class="ttdef"><b>定义</b> ShaderCore.cpp:551</div></div>
+<div class="ttc" id="astruct_f_s_c_w_error_code_html_a9074397884cd7af1bef819f911b73eaf"><div class="ttname"><a href="../../d0/dc7/struct_f_s_c_w_error_code.html#a9074397884cd7af1bef819f911b73eaf">FSCWErrorCode::ECode</a></div><div class="ttdeci">ECode</div><div class="ttdef"><b>定义</b> ShaderCompileWorkerUtil.h:14</div></div>
+<div class="ttc" id="astruct_f_s_c_w_error_code_html_a9074397884cd7af1bef819f911b73eafa01e29a56e35ab071e8b8d1e7b7cc95bd"><div class="ttname"><a href="../../d0/dc7/struct_f_s_c_w_error_code.html#a9074397884cd7af1bef819f911b73eafa01e29a56e35ab071e8b8d1e7b7cc95bd">FSCWErrorCode::OutOfMemory</a></div><div class="ttdeci">@ OutOfMemory</div><div class="ttdef"><b>定义</b> ShaderCompileWorkerUtil.h:29</div></div>
+<div class="ttc" id="astruct_f_s_c_w_error_code_html_a9074397884cd7af1bef819f911b73eafa0914e2b0aad9c44decfbdc4b8e84e24f"><div class="ttname"><a href="../../d0/dc7/struct_f_s_c_w_error_code.html#a9074397884cd7af1bef819f911b73eafa0914e2b0aad9c44decfbdc4b8e84e24f">FSCWErrorCode::NotSet</a></div><div class="ttdeci">@ NotSet</div><div class="ttdef"><b>定义</b> ShaderCompileWorkerUtil.h:15</div></div>
+<div class="ttc" id="astruct_f_s_c_w_error_code_html_a9074397884cd7af1bef819f911b73eafa0a582b5b448fc92f1b0ca5b009c376c7"><div class="ttname"><a href="../../d0/dc7/struct_f_s_c_w_error_code.html#a9074397884cd7af1bef819f911b73eafa0a582b5b448fc92f1b0ca5b009c376c7">FSCWErrorCode::BadSingleJobHeader</a></div><div class="ttdeci">@ BadSingleJobHeader</div><div class="ttdef"><b>定义</b> ShaderCompileWorkerUtil.h:20</div></div>
+<div class="ttc" id="astruct_f_s_c_w_error_code_html_a9074397884cd7af1bef819f911b73eafa2bf32f19c23ff971d82e4d6dd9174a4f"><div class="ttname"><a href="../../d0/dc7/struct_f_s_c_w_error_code.html#a9074397884cd7af1bef819f911b73eafa2bf32f19c23ff971d82e4d6dd9174a4f">FSCWErrorCode::BadPipelineJobHeader</a></div><div class="ttdeci">@ BadPipelineJobHeader</div><div class="ttdef"><b>定义</b> ShaderCompileWorkerUtil.h:21</div></div>
+<div class="ttc" id="astruct_f_s_c_w_error_code_html_a9074397884cd7af1bef819f911b73eafa38ea916309dc8c1cc1c9454924e98570"><div class="ttname"><a href="../../d0/dc7/struct_f_s_c_w_error_code.html#a9074397884cd7af1bef819f911b73eafa38ea916309dc8c1cc1c9454924e98570">FSCWErrorCode::CantDeleteInputFile</a></div><div class="ttdeci">@ CantDeleteInputFile</div><div class="ttdef"><b>定义</b> ShaderCompileWorkerUtil.h:22</div></div>
+<div class="ttc" id="astruct_f_s_c_w_error_code_html_a9074397884cd7af1bef819f911b73eafa49fd7d44260fad829fbd7e018d67c41f"><div class="ttname"><a href="../../d0/dc7/struct_f_s_c_w_error_code.html#a9074397884cd7af1bef819f911b73eafa49fd7d44260fad829fbd7e018d67c41f">FSCWErrorCode::BadShaderFormatVersion</a></div><div class="ttdeci">@ BadShaderFormatVersion</div><div class="ttdef"><b>定义</b> ShaderCompileWorkerUtil.h:18</div></div>
+<div class="ttc" id="astruct_f_s_c_w_error_code_html_a9074397884cd7af1bef819f911b73eafa5cbfd8534a9c59ab3a912bb551264580"><div class="ttname"><a href="../../d0/dc7/struct_f_s_c_w_error_code.html#a9074397884cd7af1bef819f911b73eafa5cbfd8534a9c59ab3a912bb551264580">FSCWErrorCode::Success</a></div><div class="ttdeci">@ Success</div><div class="ttdef"><b>定义</b> ShaderCompileWorkerUtil.h:16</div></div>
+<div class="ttc" id="astruct_f_s_c_w_error_code_html_a9074397884cd7af1bef819f911b73eafa722686c421dd5dff0eaaa5f6b9a29b67"><div class="ttname"><a href="../../d0/dc7/struct_f_s_c_w_error_code.html#a9074397884cd7af1bef819f911b73eafa722686c421dd5dff0eaaa5f6b9a29b67">FSCWErrorCode::CantSaveOutputFile</a></div><div class="ttdeci">@ CantSaveOutputFile</div><div class="ttdef"><b>定义</b> ShaderCompileWorkerUtil.h:23</div></div>
+<div class="ttc" id="astruct_f_s_c_w_error_code_html_a9074397884cd7af1bef819f911b73eafa936cfb37e0a9eecad9057c54ab21dfb9"><div class="ttname"><a href="../../d0/dc7/struct_f_s_c_w_error_code.html#a9074397884cd7af1bef819f911b73eafa936cfb37e0a9eecad9057c54ab21dfb9">FSCWErrorCode::NoTargetShaderFormatsFound</a></div><div class="ttdeci">@ NoTargetShaderFormatsFound</div><div class="ttdef"><b>定义</b> ShaderCompileWorkerUtil.h:24</div></div>
+<div class="ttc" id="astruct_f_s_c_w_error_code_html_a9074397884cd7af1bef819f911b73eafa9504c426dc860230d3110766ae62cf95"><div class="ttname"><a href="../../d0/dc7/struct_f_s_c_w_error_code.html#a9074397884cd7af1bef819f911b73eafa9504c426dc860230d3110766ae62cf95">FSCWErrorCode::BadInputFile</a></div><div class="ttdeci">@ BadInputFile</div><div class="ttdef"><b>定义</b> ShaderCompileWorkerUtil.h:27</div></div>
+<div class="ttc" id="astruct_f_s_c_w_error_code_html_a9074397884cd7af1bef819f911b73eafaba07bde080b4c731e7c75827bcbbaf01"><div class="ttname"><a href="../../d0/dc7/struct_f_s_c_w_error_code.html#a9074397884cd7af1bef819f911b73eafaba07bde080b4c731e7c75827bcbbaf01">FSCWErrorCode::GeneralCrash</a></div><div class="ttdeci">@ GeneralCrash</div><div class="ttdef"><b>定义</b> ShaderCompileWorkerUtil.h:17</div></div>
+<div class="ttc" id="astruct_f_s_c_w_error_code_html_a9074397884cd7af1bef819f911b73eafaba8bb00c1922f5be1260abdef035bbb6"><div class="ttname"><a href="../../d0/dc7/struct_f_s_c_w_error_code.html#a9074397884cd7af1bef819f911b73eafaba8bb00c1922f5be1260abdef035bbb6">FSCWErrorCode::CrashInsidePlatformCompiler</a></div><div class="ttdeci">@ CrashInsidePlatformCompiler</div><div class="ttdef"><b>定义</b> ShaderCompileWorkerUtil.h:26</div></div>
+<div class="ttc" id="astruct_f_s_c_w_error_code_html_a9074397884cd7af1bef819f911b73eafae58dff5c789e8e62eb21fbd0f4a06951"><div class="ttname"><a href="../../d0/dc7/struct_f_s_c_w_error_code.html#a9074397884cd7af1bef819f911b73eafae58dff5c789e8e62eb21fbd0f4a06951">FSCWErrorCode::MissingVirtualInputFile</a></div><div class="ttdeci">@ MissingVirtualInputFile</div><div class="ttdef"><b>定义</b> ShaderCompileWorkerUtil.h:28</div></div>
+<div class="ttc" id="astruct_f_s_c_w_error_code_html_a9074397884cd7af1bef819f911b73eafae70018da9d2353e299bf58557a592507"><div class="ttname"><a href="../../d0/dc7/struct_f_s_c_w_error_code.html#a9074397884cd7af1bef819f911b73eafae70018da9d2353e299bf58557a592507">FSCWErrorCode::CantCompileForSpecificFormat</a></div><div class="ttdeci">@ CantCompileForSpecificFormat</div><div class="ttdef"><b>定义</b> ShaderCompileWorkerUtil.h:25</div></div>
+<div class="ttc" id="astruct_f_s_c_w_error_code_html_a9074397884cd7af1bef819f911b73eafae77b917a679c7195b9d08b5d85674435"><div class="ttname"><a href="../../d0/dc7/struct_f_s_c_w_error_code.html#a9074397884cd7af1bef819f911b73eafae77b917a679c7195b9d08b5d85674435">FSCWErrorCode::BadInputVersion</a></div><div class="ttdeci">@ BadInputVersion</div><div class="ttdef"><b>定义</b> ShaderCompileWorkerUtil.h:19</div></div>
+<div class="ttc" id="astruct_f_s_c_w_error_code_html_aa8b42565947b7507b286767eb29f08f2"><div class="ttname"><a href="../../d0/dc7/struct_f_s_c_w_error_code.html#aa8b42565947b7507b286767eb29f08f2">FSCWErrorCode::Reset</a></div><div class="ttdeci">static RENDERCORE_API void Reset()</div><div class="ttdef"><b>定义</b> ShaderCore.cpp:540</div></div>
+<div class="ttc" id="astruct_f_s_c_w_error_code_html_ad0c54eee479dd136c886be2d9588ec2d"><div class="ttname"><a href="../../d0/dc7/struct_f_s_c_w_error_code.html#ad0c54eee479dd136c886be2d9588ec2d">FSCWErrorCode::Get</a></div><div class="ttdeci">static RENDERCORE_API ECode Get()</div><div class="ttdef"><b>定义</b> ShaderCore.cpp:546</div></div>
+<div class="ttc" id="astruct_f_s_c_w_error_code_html_ae7568f71dbe012a6957cabefae355932"><div class="ttname"><a href="../../d0/dc7/struct_f_s_c_w_error_code.html#ae7568f71dbe012a6957cabefae355932">FSCWErrorCode::Report</a></div><div class="ttdeci">static RENDERCORE_API void Report(ECode Code, const FStringView &amp;Info={})</div><div class="ttdef"><b>定义</b> ShaderCore.cpp:534</div></div>
+<div class="ttc" id="astruct_f_shader_compile_worker_diagnostics_html"><div class="ttname"><a href="../../d7/dfb/struct_f_shader_compile_worker_diagnostics.html">FShaderCompileWorkerDiagnostics</a></div><div class="ttdef"><b>定义</b> ShaderCompilerCore.h:655</div></div>
+<div class="ttc" id="astruct_f_shader_debug_data_context_html"><div class="ttname"><a href="../../d6/d1f/struct_f_shader_debug_data_context.html">FShaderDebugDataContext</a></div><div class="ttdef"><b>定义</b> ShaderCompilerCore.h:206</div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+</div><!-- container -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a href="../../dir_0b6ee6e7e9547e675db4add2e5de97da.html">Engine</a></li><li class="navelem"><a href="../../dir_9579d1ecb2c7bf48cbe1049c41745cb4.html">Source</a></li><li class="navelem"><a href="../../dir_9f04efef762572853abdf73f62bebfcc.html">Runtime</a></li><li class="navelem"><a href="../../dir_43d0ee1d3ffe746915582c6da2fa51a8.html">RenderCore</a></li><li class="navelem"><a href="../../dir_5592382fd0c5ded82dbec29c694a6a6a.html">Internal</a></li><li class="navelem"><a href="../../d8/d98/_shader_compile_worker_util_8h.html">ShaderCompileWorkerUtil.h</a></li>
+    <li class="footer">制作者 <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.15.0 </li>
+  </ul>
+</div>
+</body>
+</html>

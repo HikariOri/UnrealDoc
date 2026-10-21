@@ -1,0 +1,262 @@
+<!-- HTML header for doxygen 1.15.0-->
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh">
+<head>
+  <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=11" />
+  <meta name="generator" content="Doxygen 1.15.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>UE 5.8.4: Engine/Source/Runtime/Renderer/Internal/MaterialCache/MaterialCacheTagProvider.h 源文件</title>
+  <link rel="icon" href="../../EdIconDefault.bmp" type="image/x-icon" />
+  <link href="../../tabs.css" rel="stylesheet" type="text/css" />
+  <script type="text/javascript" src="../../jquery.js"></script>
+  <script type="text/javascript" src="../../dynsections.js"></script>
+  <link href="../../navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../navtreedata.js"></script>
+<script type="text/javascript" src="../../navtree.js"></script>
+<script type="text/javascript" src="../../cookie.js"></script>
+  <link href="../../search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../search/searchdata.js"></script>
+<script type="text/javascript" src="../../search/search.js"></script>
+  <link href="../../doxygen.css" rel="stylesheet" type="text/css" />
+  <link href="../../doxygen-awesome.css" rel="stylesheet" type="text/css"/>
+<link href="../../doxygen-awesome-sidebar-only.css" rel="stylesheet" type="text/css"/>
+<link href="../../doxygen-awesome-sidebar-only-darkmode-toggle.css" rel="stylesheet" type="text/css"/>
+  <!-- ... other metadata & script includes ... -->
+  <script type="text/javascript" src="../../doxygen-awesome-darkmode-toggle.js"></script>
+  <script type="text/javascript">
+    DoxygenAwesomeDarkModeToggle.title = "Zwischen hellem/dunklem Modus wechseln"
+    DoxygenAwesomeDarkModeToggle.lightModeIcon = '🌞'
+    // icon from https://fonts.google.com/icons
+    DoxygenAwesomeDarkModeToggle.darkModeIcon = `<svg xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 24 24" height="24px" viewBox="0 0 24 24" width="24px" fill="#009793"><g><rect fill="none" height="24" width="24"/></g><g><g><path d="M8.1,14.15C9.77,14.63,11,16.17,11,18c0,0.68-0.19,1.31-0.48,1.87c0.48,0.09,0.97,0.14,1.48,0.14 c1.48,0,2.9-0.41,4.13-1.15c-2.62-0.92-5.23-2.82-6.8-5.86C7.74,9.94,7.78,7.09,8.29,4.9c-2.57,1.33-4.3,4.01-4.3,7.1c0,0,0,0,0,0 c0.01,0,0.01,0,0.02,0C5.66,12,7.18,12.83,8.1,14.15z" opacity=".3"/><path d="M19.78,17.51c-2.47,0-6.57-1.33-8.68-5.43C8.77,7.57,10.6,3.6,11.63,2.01C6.27,2.2,1.98,6.59,1.98,12 c0,0.14,0.02,0.28,0.02,0.42C2.61,12.16,3.28,12,3.98,12c0,0,0,0,0,0c0-3.09,1.73-5.77,4.3-7.1C7.78,7.09,7.74,9.94,9.32,13 c1.57,3.04,4.18,4.95,6.8,5.86c-1.23,0.74-2.65,1.15-4.13,1.15c-0.5,0-1-0.05-1.48-0.14c-0.37,0.7-0.94,1.27-1.64,1.64 c0.98,0.32,2.03,0.5,3.11,0.5c3.5,0,6.58-1.8,8.37-4.52C20.18,17.5,19.98,17.51,19.78,17.51z"/><path d="M7,16l-0.18,0C6.4,14.84,5.3,14,4,14c-1.66,0-3,1.34-3,3s1.34,3,3,3c0.62,0,2.49,0,3,0c1.1,0,2-0.9,2-2 C9,16.9,8.1,16,7,16z"/></g></g></svg>`
+    DoxygenAwesomeDarkModeToggle.init()
+  </script>
+  <script type="text/javascript" src="../../doxygen-awesome-fragment-copy-button.js"></script>
+  <script type="text/javascript">
+    DoxygenAwesomeFragmentCopyButton.title = "In die Zwischenablage kopieren"
+    // DoxygenAwesomeFragmentCopyButton.copyIcon = `<svg ...>`
+    // DoxygenAwesomeFragmentCopyButton.successIcon = `<svg ...>`
+    DoxygenAwesomeFragmentCopyButton.init()
+  </script>
+  <script type="text/javascript" src="../../doxygen-awesome-paragraph-link.js"></script>
+  <script type="text/javascript">
+    DoxygenAwesomeParagraphLink.title = "Abschnitt verknüpfen"
+    DoxygenAwesomeParagraphLink.icon = "¶"
+    DoxygenAwesomeParagraphLink.init()
+  </script>
+  <script type="text/javascript" src="../../doxygen-awesome-interactive-toc.js"></script>
+  <script type="text/javascript">
+    DoxygenAwesomeInteractiveToc.topOffset = 45
+    DoxygenAwesomeInteractiveToc.hideMobileMenu = false
+    DoxygenAwesomeInteractiveToc.init()
+  </script>
+</head>
+<body>
+    <div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+      <div id="titlearea">
+        <table cellspacing="0" cellpadding="0">
+          <tbody>
+            <tr id="projectrow">
+              <td id="projectlogo"><img alt="Logo" src="../../EdIconDefault.bmp"  /></td>
+              <td id="projectalign">
+                <div id="projectname">UE 5.8.4
+                </div>
+                <div id="projectbrief">Unreal Engine</div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <!-- end header part -->
+<!-- 制作者 Doxygen 1.15.0 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "../../search/",'.html');
+</script>
+<script type="text/javascript">
+$(function() { codefold.init(); });
+</script>
+<script type="text/javascript" src="../../menudata.js"></script>
+<script type="text/javascript" src="../../menu.js"></script>
+<script type="text/javascript">
+$(function() {
+  initMenu('../../',true,false,'search.php','搜索',true);
+  $(function() { init_search(); });
+});
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(function(){initNavTree('d8/d12/_material_cache_tag_provider_8h_source.html','../../',''); });
+</script>
+<div id="container">
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">载入中...</div>
+<div class="SRStatus" id="Searching">搜索中...</div>
+<div class="SRStatus" id="NoMatches">未找到</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">MaterialCacheTagProvider.h</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="../../d8/d12/_material_cache_tag_provider_8h.html">浏览该文件的文档.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="comment">// Copyright Epic Games, Inc. All Rights Reserved.</span></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span> </div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="preprocessor">#pragma once</span></div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span> </div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="preprocessor">#include &quot;<a class="code" href="../../d4/d13/_i_material_cache_tag_provider_8h.html">MaterialCache/IMaterialCacheTagProvider.h</a>&quot;</span></div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="preprocessor">#include &quot;<a class="code" href="../../d8/db3/_render_graph_builder_8h.html">RenderGraphBuilder.h</a>&quot;</span></div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span> </div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="keyword">struct </span><a class="code hl_struct" href="../../d1/d61/struct_f_material_cache_tag_layout.html">FMaterialCacheTagLayout</a>;</div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno"><a class="line" href="../../d1/d29/namespace_u_e_1_1_h_l_s_l.html">    9</a></span><span class="keyword">namespace </span><a class="code hl_namespace" href="../../d1/d29/namespace_u_e_1_1_h_l_s_l.html">UE::HLSL</a> { <span class="keyword">struct </span>FMaterialCacheTagEntry; }</div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span> </div>
+<div class="foldopen" id="foldopen00011" data-start="{" data-end="};">
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno"><a class="line" href="../../dd/dbf/class_f_material_cache_tag_provider.html">   11</a></span><span class="keyword">class </span><a class="code hl_class" href="../../dd/dbf/class_f_material_cache_tag_provider.html">FMaterialCacheTagProvider</a> : <span class="keyword">public</span> <a class="code hl_class" href="../../dc/d73/class_i_material_cache_tag_provider.html">IMaterialCacheTagProvider</a></div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span>{</div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span>    <a class="code hl_typedef" href="../../dd/de9/preprocessor_8c.html#a1134b580f8da4de94ca6b1de4d37975e">uint32</a> <a class="code hl_function" href="../../dd/dbf/class_f_material_cache_tag_provider.html#ad38477937112dd4af77ce7928b08bc14">AllocatePrimitiveTagOffset</a>();</div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span>    </div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="../../dd/dbf/class_f_material_cache_tag_provider.html#aee377b658461003925d1bac483724998">FreePrimitiveTagOffset</a>(<a class="code hl_typedef" href="../../dd/de9/preprocessor_8c.html#a1134b580f8da4de94ca6b1de4d37975e">uint32</a> TagOffset);</div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>    </div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="../../dd/dbf/class_f_material_cache_tag_provider.html#abd82e71e4df75fcde512c0447e1e27dd">SetTagEntry</a>(<a class="code hl_typedef" href="../../dd/de9/preprocessor_8c.html#a1134b580f8da4de94ca6b1de4d37975e">uint32</a> TagOffset, <span class="keyword">const</span> <a class="code hl_struct" href="../../d7/d35/struct_f_guid.html">FGuid</a>&amp; TagGuid, <span class="keyword">const</span> UE::HLSL::FMaterialCacheTagEntry&amp; <a class="code hl_enumvalue" href="../../d7/d88/_tool_menus_editor_8h.html#a348804bbf76718282a8b82e9ad5bb413ab948e8a02a7f8dc9f098c89e8df9892c">Entry</a>);</div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>    </div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="../../dd/dbf/class_f_material_cache_tag_provider.html#a0f72e718d0b97f16acc12658a357fd55">Update</a>(<a class="code hl_class" href="../../d3/d85/class_f_r_d_g_builder.html">FRDGBuilder</a>&amp; GraphBuilder);</div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span></div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="../../dd/dbf/class_f_material_cache_tag_provider.html#ad2305fb57829a0cf43d7de5c5636ec3f">CallPendingCallbacks</a>();</div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>    </div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span><span class="keyword">public</span>: </div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>    <span class="keyword">virtual</span> <a class="code hl_struct" href="../../d2/d1d/struct_f_material_cache_tag_binding_data.html">FMaterialCacheTagBindingData</a> <a class="code hl_function" href="../../dd/dbf/class_f_material_cache_tag_provider.html#adea264b12bf5e3c71604267508352dfc">GetBindingData</a>(<span class="keyword">const</span> <a class="code hl_struct" href="../../d7/d35/struct_f_guid.html">FGuid</a>&amp; <a class="code hl_enumvalue" href="../../d2/d19/_variant_8h.html#aeda3ec4d98a2b25aad497ee9c072df75ac195f641dd597766b98e4ffa9e2f0e75">Guid</a>) <span class="keyword">override</span>;</div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>    <span class="keyword">virtual</span> <a class="code hl_struct" href="../../df/d0a/struct_f_material_cache_tag_uniform_data.html">FMaterialCacheTagUniformData</a> <a class="code hl_function" href="../../dd/dbf/class_f_material_cache_tag_provider.html#a277a8db3bcdd4f85b635706a8e76e598">GetUniformData</a>(<span class="keyword">const</span> <a class="code hl_struct" href="../../d7/d35/struct_f_guid.html">FGuid</a>&amp; <a class="code hl_enumvalue" href="../../d2/d19/_variant_8h.html#aeda3ec4d98a2b25aad497ee9c072df75ac195f641dd597766b98e4ffa9e2f0e75">Guid</a>) <span class="keyword">override</span>;</div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code hl_function" href="../../dd/dbf/class_f_material_cache_tag_provider.html#ad12c692fcb8276246089478f81c11511">Register</a>(<a class="code hl_class" href="../../de/db5/class_f_scene_interface.html">FSceneInterface</a>* <a class="code hl_enumvalue" href="../../d0/ddb/_datasmith_definitions_8h.html#a53c0bc858a7263a3651d29218934fa19a9ead0d38e06ec253ca0ecbf6ea56e59b">Scene</a>, <a class="code hl_class" href="../../dd/d2a/class_f_primitive_component_id.html">FPrimitiveComponentId</a> PrimitiveComponentId, <a class="code hl_struct" href="../../d6/d24/struct_f_material_cache_virtual_texture_allocation.html">FMaterialCacheVirtualTextureAllocation</a>* <a class="code hl_namespace" href="../../d0/d26/namespace_virtual_texture.html">VirtualTexture</a>) <span class="keyword">override</span>;</div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code hl_function" href="../../dd/dbf/class_f_material_cache_tag_provider.html#a663d6ac8f2941f0b6d8c601ad3ad2197">Unregister</a>(<a class="code hl_class" href="../../de/db5/class_f_scene_interface.html">FSceneInterface</a>* <a class="code hl_enumvalue" href="../../d0/ddb/_datasmith_definitions_8h.html#a53c0bc858a7263a3651d29218934fa19a9ead0d38e06ec253ca0ecbf6ea56e59b">Scene</a>, <a class="code hl_class" href="../../dd/d2a/class_f_primitive_component_id.html">FPrimitiveComponentId</a> PrimitiveComponentId, <a class="code hl_struct" href="../../d6/d24/struct_f_material_cache_virtual_texture_allocation.html">FMaterialCacheVirtualTextureAllocation</a>* <a class="code hl_namespace" href="../../d0/d26/namespace_virtual_texture.html">VirtualTexture</a>) <span class="keyword">override</span>;</div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code hl_function" href="../../dd/dbf/class_f_material_cache_tag_provider.html#ad12c692fcb8276246089478f81c11511">Register</a>(<a class="code hl_struct" href="../../d6/d24/struct_f_material_cache_virtual_texture_allocation.html">FMaterialCacheVirtualTextureAllocation</a>* <a class="code hl_namespace" href="../../d0/d26/namespace_virtual_texture.html">VirtualTexture</a>) <span class="keyword">override</span>;</div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code hl_function" href="../../dd/dbf/class_f_material_cache_tag_provider.html#a663d6ac8f2941f0b6d8c601ad3ad2197">Unregister</a>(<a class="code hl_struct" href="../../d6/d24/struct_f_material_cache_virtual_texture_allocation.html">FMaterialCacheVirtualTextureAllocation</a>* <a class="code hl_namespace" href="../../d0/d26/namespace_virtual_texture.html">VirtualTexture</a>) <span class="keyword">override</span>;</div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code hl_function" href="../../dd/dbf/class_f_material_cache_tag_provider.html#a76f288a2fe55bcc9f461abd96cc89e19">Flush</a>(<a class="code hl_class" href="../../de/db5/class_f_scene_interface.html">FSceneInterface</a>* <a class="code hl_enumvalue" href="../../d0/ddb/_datasmith_definitions_8h.html#a53c0bc858a7263a3651d29218934fa19a9ead0d38e06ec253ca0ecbf6ea56e59b">Scene</a>, <a class="code hl_class" href="../../dd/d2a/class_f_primitive_component_id.html">FPrimitiveComponentId</a> PrimitiveComponentId, <span class="keyword">const</span> <a class="code hl_struct" href="../../d7/d35/struct_f_guid.html">FGuid</a>&amp; TagGuid) <span class="keyword">override</span>;</div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code hl_function" href="../../dd/dbf/class_f_material_cache_tag_provider.html#a2719f249233c6e5170cc98797d660003">AddTagSceneInvalidationCallback</a>(<span class="keyword">const</span> <a class="code hl_struct" href="../../d7/d35/struct_f_guid.html">FGuid</a>&amp; TagGuid, <a class="code hl_typedef" href="../../d4/d13/_i_material_cache_tag_provider_8h.html#ad4af79d3112d0e430964a199d2132353">FMaterialCacheTagProviderSceneInvalidationDelegate</a> Delegate, <span class="keywordtype">void</span>* Baton) <span class="keyword">override</span>;</div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code hl_function" href="../../dd/dbf/class_f_material_cache_tag_provider.html#a5c5ed7c7d4b0c0e7b667dc8abaca213f">RemoveTagSceneInvalidationCallbacks</a>(<span class="keywordtype">void</span>* Baton) <span class="keyword">override</span>;</div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code hl_function" href="../../dd/dbf/class_f_material_cache_tag_provider.html#a6f85fed2c67ad068ceb45b93f5069a7d">NotifyAllTagSceneInvalidation</a>() <span class="keyword">override</span>;</div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span> </div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span><span class="keyword">public</span>: </div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>    <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code hl_function" href="../../dd/dbf/class_f_material_cache_tag_provider.html#a77263370f55343a3b53783125e972e55">Initialize</a>();</div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>    </div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>    <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code hl_function" href="../../dd/dbf/class_f_material_cache_tag_provider.html#ae1bd608f87fde54feef446667df341e1">Shutdown</a>();</div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>    </div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>    <span class="keyword">static</span> <a class="code hl_class" href="../../dd/dbf/class_f_material_cache_tag_provider.html">FMaterialCacheTagProvider</a>&amp; <a class="code hl_function" href="../../dd/dbf/class_f_material_cache_tag_provider.html#af5b2fc2c75f73675343a698650284c96">Get</a>();</div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span> </div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span><span class="keyword">private</span>:</div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>    <span class="keywordtype">void</span> CreateDeviceBuffersOrResize(<span class="keyword">struct</span> <a class="code hl_struct" href="../../db/d75/struct_f_material_cache_tag_bucket.html">FMaterialCacheTagBucket</a>&amp; Bucket);</div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span></div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>    <span class="keywordtype">void</span> NotifyTagSceneInvalidation(<span class="keyword">const</span> <a class="code hl_struct" href="../../d7/d35/struct_f_guid.html">FGuid</a>&amp; TagGuid);</div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span> </div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span><span class="keyword">private</span>:</div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>    <a class="code hl_typedef" href="../../df/d05/_critical_section_8h.html#a3493a225a68d4748d7b1c85e8ae9d0b5">FCriticalSection</a> Mutex;</div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>    </div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>    <a class="code hl_class" href="../../da/d41/class_t_map.html">TMap&lt;FGuid, struct FMaterialCacheTagBucket*&gt;</a> TagBuckets;</div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span></div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>    TSet&lt;FGuid&gt; PendingTagSceneInvalidations;</div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span></div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>    <a class="code hl_class" href="../../da/d41/class_t_map.html">TMap&lt;TTuple&lt;FPrimitiveComponentId, FGuid&gt;</a>, <a class="code hl_struct" href="../../d6/d24/struct_f_material_cache_virtual_texture_allocation.html">FMaterialCacheVirtualTextureAllocation</a>*&gt; VirtualTextures;</div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span></div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>    <a class="code hl_class" href="../../d6/db1/class_t_array.html">TArray&lt;uint32&gt;</a> FreeTagIndices;</div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span></div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>    <a class="code hl_typedef" href="../../dd/de9/preprocessor_8c.html#a1134b580f8da4de94ca6b1de4d37975e">uint32</a> TagOffsetAllocator = 0;</div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span> </div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span><span class="keyword">private</span>:</div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span>    <span class="keyword">struct </span>FTagSceneListener</div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>    {</div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>        <a class="code hl_typedef" href="../../d4/d13/_i_material_cache_tag_provider_8h.html#ad4af79d3112d0e430964a199d2132353">FMaterialCacheTagProviderSceneInvalidationDelegate</a> Delegate = <span class="keyword">nullptr</span>;</div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>        <span class="keywordtype">void</span>* Baton = <span class="keyword">nullptr</span>;</div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>    };</div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span>    </div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span>    <span class="keyword">struct </span>FTagBatonEntry</div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span>    {</div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span>        <a class="code hl_typedef" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a8dbb3cd84ca9fd010dadfc3815eefa5d">int32</a> CallbackIndex = UINT32_MAX;</div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span>        <a class="code hl_struct" href="../../d7/d35/struct_f_guid.html">FGuid</a> TagGuid;</div>
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span>    };</div>
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span></div>
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span>    <a class="code hl_class" href="../../d6/db1/class_t_array.html">TArray&lt;FTagSceneListener&gt;</a>  TagSceneInvalidationListeners;</div>
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span></div>
+<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span>    <a class="code hl_class" href="../../d6/db1/class_t_array.html">TArray&lt;int32&gt;</a> FreeTagSceneInvalidationCallbackIndices;</div>
+<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span></div>
+<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span>    TMultiMap&lt;FGuid, int32&gt;  TagCallbackIndices;</div>
+<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span>    TMultiMap&lt;void*, FTagBatonEntry&gt; BatonCallbackIndices;</div>
+<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span>};</div>
+</div>
+<div class="ttc" id="a_core_2_public_2_h_a_l_2_platform_8h_html_a8dbb3cd84ca9fd010dadfc3815eefa5d"><div class="ttname"><a href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a8dbb3cd84ca9fd010dadfc3815eefa5d">int32</a></div><div class="ttdeci">FPlatformTypes::int32 int32</div><div class="ttdoc">A 32-bit signed integer.</div><div class="ttdef"><b>定义</b> Platform.h:1190</div></div>
+<div class="ttc" id="a_critical_section_8h_html_a3493a225a68d4748d7b1c85e8ae9d0b5"><div class="ttname"><a href="../../df/d05/_critical_section_8h.html#a3493a225a68d4748d7b1c85e8ae9d0b5">FCriticalSection</a></div><div class="ttdeci">UE::FPlatformRecursiveMutex FCriticalSection</div><div class="ttdef"><b>定义</b> CriticalSection.h:53</div></div>
+<div class="ttc" id="a_datasmith_definitions_8h_html_a53c0bc858a7263a3651d29218934fa19a9ead0d38e06ec253ca0ecbf6ea56e59b"><div class="ttname"><a href="../../d0/ddb/_datasmith_definitions_8h.html#a53c0bc858a7263a3651d29218934fa19a9ead0d38e06ec253ca0ecbf6ea56e59b">EDatasmithElementType::Scene</a></div><div class="ttdeci">@ Scene</div><div class="ttdef"><b>定义</b> DatasmithDefinitions.h:41</div></div>
+<div class="ttc" id="a_i_material_cache_tag_provider_8h_html"><div class="ttname"><a href="../../d4/d13/_i_material_cache_tag_provider_8h.html">IMaterialCacheTagProvider.h</a></div></div>
+<div class="ttc" id="a_i_material_cache_tag_provider_8h_html_ad4af79d3112d0e430964a199d2132353"><div class="ttname"><a href="../../d4/d13/_i_material_cache_tag_provider_8h.html#ad4af79d3112d0e430964a199d2132353">FMaterialCacheTagProviderSceneInvalidationDelegate</a></div><div class="ttdeci">void(*)(void *Baton) FMaterialCacheTagProviderSceneInvalidationDelegate</div><div class="ttdef"><b>定义</b> IMaterialCacheTagProvider.h:14</div></div>
+<div class="ttc" id="a_render_graph_builder_8h_html"><div class="ttname"><a href="../../d8/db3/_render_graph_builder_8h.html">RenderGraphBuilder.h</a></div></div>
+<div class="ttc" id="a_tool_menus_editor_8h_html_a348804bbf76718282a8b82e9ad5bb413ab948e8a02a7f8dc9f098c89e8df9892c"><div class="ttname"><a href="../../d7/d88/_tool_menus_editor_8h.html#a348804bbf76718282a8b82e9ad5bb413ab948e8a02a7f8dc9f098c89e8df9892c">ESelectedEditMenuEntryType::Entry</a></div><div class="ttdeci">@ Entry</div><div class="ttdef"><b>定义</b> ToolMenusEditor.h:16</div></div>
+<div class="ttc" id="a_variant_8h_html_aeda3ec4d98a2b25aad497ee9c072df75ac195f641dd597766b98e4ffa9e2f0e75"><div class="ttname"><a href="../../d2/d19/_variant_8h.html#aeda3ec4d98a2b25aad497ee9c072df75ac195f641dd597766b98e4ffa9e2f0e75">EVariantTypes::Guid</a></div><div class="ttdeci">@ Guid</div><div class="ttdef"><b>定义</b> Variant.h:50</div></div>
+<div class="ttc" id="aclass_f_material_cache_tag_provider_html"><div class="ttname"><a href="../../dd/dbf/class_f_material_cache_tag_provider.html">FMaterialCacheTagProvider</a></div><div class="ttdef"><b>定义</b> MaterialCacheTagProvider.h:12</div></div>
+<div class="ttc" id="aclass_f_material_cache_tag_provider_html_a0f72e718d0b97f16acc12658a357fd55"><div class="ttname"><a href="../../dd/dbf/class_f_material_cache_tag_provider.html#a0f72e718d0b97f16acc12658a357fd55">FMaterialCacheTagProvider::Update</a></div><div class="ttdeci">void Update(FRDGBuilder &amp;GraphBuilder)</div><div class="ttdef"><b>定义</b> MaterialCacheTagProvider.cpp:94</div></div>
+<div class="ttc" id="aclass_f_material_cache_tag_provider_html_a2719f249233c6e5170cc98797d660003"><div class="ttname"><a href="../../dd/dbf/class_f_material_cache_tag_provider.html#a2719f249233c6e5170cc98797d660003">FMaterialCacheTagProvider::AddTagSceneInvalidationCallback</a></div><div class="ttdeci">virtual void AddTagSceneInvalidationCallback(const FGuid &amp;TagGuid, FMaterialCacheTagProviderSceneInvalidationDelegate Delegate, void *Baton) override</div><div class="ttdef"><b>定义</b> MaterialCacheTagProvider.cpp:407</div></div>
+<div class="ttc" id="aclass_f_material_cache_tag_provider_html_a277a8db3bcdd4f85b635706a8e76e598"><div class="ttname"><a href="../../dd/dbf/class_f_material_cache_tag_provider.html#a277a8db3bcdd4f85b635706a8e76e598">FMaterialCacheTagProvider::GetUniformData</a></div><div class="ttdeci">virtual FMaterialCacheTagUniformData GetUniformData(const FGuid &amp;Guid) override</div><div class="ttdef"><b>定义</b> MaterialCacheTagProvider.cpp:282</div></div>
+<div class="ttc" id="aclass_f_material_cache_tag_provider_html_a5c5ed7c7d4b0c0e7b667dc8abaca213f"><div class="ttname"><a href="../../dd/dbf/class_f_material_cache_tag_provider.html#a5c5ed7c7d4b0c0e7b667dc8abaca213f">FMaterialCacheTagProvider::RemoveTagSceneInvalidationCallbacks</a></div><div class="ttdeci">virtual void RemoveTagSceneInvalidationCallbacks(void *Baton) override</div><div class="ttdef"><b>定义</b> MaterialCacheTagProvider.cpp:442</div></div>
+<div class="ttc" id="aclass_f_material_cache_tag_provider_html_a663d6ac8f2941f0b6d8c601ad3ad2197"><div class="ttname"><a href="../../dd/dbf/class_f_material_cache_tag_provider.html#a663d6ac8f2941f0b6d8c601ad3ad2197">FMaterialCacheTagProvider::Unregister</a></div><div class="ttdeci">virtual void Unregister(FSceneInterface *Scene, FPrimitiveComponentId PrimitiveComponentId, FMaterialCacheVirtualTextureAllocation *VirtualTexture) override</div><div class="ttdef"><b>定义</b> MaterialCacheTagProvider.cpp:328</div></div>
+<div class="ttc" id="aclass_f_material_cache_tag_provider_html_a6f85fed2c67ad068ceb45b93f5069a7d"><div class="ttname"><a href="../../dd/dbf/class_f_material_cache_tag_provider.html#a6f85fed2c67ad068ceb45b93f5069a7d">FMaterialCacheTagProvider::NotifyAllTagSceneInvalidation</a></div><div class="ttdeci">virtual void NotifyAllTagSceneInvalidation() override</div><div class="ttdef"><b>定义</b> MaterialCacheTagProvider.cpp:165</div></div>
+<div class="ttc" id="aclass_f_material_cache_tag_provider_html_a76f288a2fe55bcc9f461abd96cc89e19"><div class="ttname"><a href="../../dd/dbf/class_f_material_cache_tag_provider.html#a76f288a2fe55bcc9f461abd96cc89e19">FMaterialCacheTagProvider::Flush</a></div><div class="ttdeci">virtual void Flush(FSceneInterface *Scene, FPrimitiveComponentId PrimitiveComponentId, const FGuid &amp;TagGuid) override</div><div class="ttdef"><b>定义</b> MaterialCacheTagProvider.cpp:393</div></div>
+<div class="ttc" id="aclass_f_material_cache_tag_provider_html_a77263370f55343a3b53783125e972e55"><div class="ttname"><a href="../../dd/dbf/class_f_material_cache_tag_provider.html#a77263370f55343a3b53783125e972e55">FMaterialCacheTagProvider::Initialize</a></div><div class="ttdeci">static void Initialize()</div><div class="ttdef"><b>定义</b> MaterialCacheTagProvider.cpp:39</div></div>
+<div class="ttc" id="aclass_f_material_cache_tag_provider_html_abd82e71e4df75fcde512c0447e1e27dd"><div class="ttname"><a href="../../dd/dbf/class_f_material_cache_tag_provider.html#abd82e71e4df75fcde512c0447e1e27dd">FMaterialCacheTagProvider::SetTagEntry</a></div><div class="ttdeci">void SetTagEntry(uint32 TagOffset, const FGuid &amp;TagGuid, const UE::HLSL::FMaterialCacheTagEntry &amp;Entry)</div><div class="ttdef"><b>定义</b> MaterialCacheTagProvider.cpp:187</div></div>
+<div class="ttc" id="aclass_f_material_cache_tag_provider_html_ad12c692fcb8276246089478f81c11511"><div class="ttname"><a href="../../dd/dbf/class_f_material_cache_tag_provider.html#ad12c692fcb8276246089478f81c11511">FMaterialCacheTagProvider::Register</a></div><div class="ttdeci">virtual void Register(FSceneInterface *Scene, FPrimitiveComponentId PrimitiveComponentId, FMaterialCacheVirtualTextureAllocation *VirtualTexture) override</div><div class="ttdef"><b>定义</b> MaterialCacheTagProvider.cpp:320</div></div>
+<div class="ttc" id="aclass_f_material_cache_tag_provider_html_ad2305fb57829a0cf43d7de5c5636ec3f"><div class="ttname"><a href="../../dd/dbf/class_f_material_cache_tag_provider.html#ad2305fb57829a0cf43d7de5c5636ec3f">FMaterialCacheTagProvider::CallPendingCallbacks</a></div><div class="ttdeci">void CallPendingCallbacks()</div><div class="ttdef"><b>定义</b> MaterialCacheTagProvider.cpp:134</div></div>
+<div class="ttc" id="aclass_f_material_cache_tag_provider_html_ad38477937112dd4af77ce7928b08bc14"><div class="ttname"><a href="../../dd/dbf/class_f_material_cache_tag_provider.html#ad38477937112dd4af77ce7928b08bc14">FMaterialCacheTagProvider::AllocatePrimitiveTagOffset</a></div><div class="ttdeci">uint32 AllocatePrimitiveTagOffset()</div><div class="ttdef"><b>定义</b> MaterialCacheTagProvider.cpp:173</div></div>
+<div class="ttc" id="aclass_f_material_cache_tag_provider_html_adea264b12bf5e3c71604267508352dfc"><div class="ttname"><a href="../../dd/dbf/class_f_material_cache_tag_provider.html#adea264b12bf5e3c71604267508352dfc">FMaterialCacheTagProvider::GetBindingData</a></div><div class="ttdeci">virtual FMaterialCacheTagBindingData GetBindingData(const FGuid &amp;Guid) override</div><div class="ttdef"><b>定义</b> MaterialCacheTagProvider.cpp:242</div></div>
+<div class="ttc" id="aclass_f_material_cache_tag_provider_html_ae1bd608f87fde54feef446667df341e1"><div class="ttname"><a href="../../dd/dbf/class_f_material_cache_tag_provider.html#ae1bd608f87fde54feef446667df341e1">FMaterialCacheTagProvider::Shutdown</a></div><div class="ttdeci">static void Shutdown()</div><div class="ttdef"><b>定义</b> MaterialCacheTagProvider.cpp:47</div></div>
+<div class="ttc" id="aclass_f_material_cache_tag_provider_html_aee377b658461003925d1bac483724998"><div class="ttname"><a href="../../dd/dbf/class_f_material_cache_tag_provider.html#aee377b658461003925d1bac483724998">FMaterialCacheTagProvider::FreePrimitiveTagOffset</a></div><div class="ttdeci">void FreePrimitiveTagOffset(uint32 TagOffset)</div><div class="ttdef"><b>定义</b> MaterialCacheTagProvider.cpp:214</div></div>
+<div class="ttc" id="aclass_f_material_cache_tag_provider_html_af5b2fc2c75f73675343a698650284c96"><div class="ttname"><a href="../../dd/dbf/class_f_material_cache_tag_provider.html#af5b2fc2c75f73675343a698650284c96">FMaterialCacheTagProvider::Get</a></div><div class="ttdeci">static FMaterialCacheTagProvider &amp; Get()</div><div class="ttdef"><b>定义</b> MaterialCacheTagProvider.cpp:56</div></div>
+<div class="ttc" id="aclass_f_primitive_component_id_html"><div class="ttname"><a href="../../dd/d2a/class_f_primitive_component_id.html">FPrimitiveComponentId</a></div><div class="ttdef"><b>定义</b> PrimitiveComponentId.h:12</div></div>
+<div class="ttc" id="aclass_f_r_d_g_builder_html"><div class="ttname"><a href="../../d3/d85/class_f_r_d_g_builder.html">FRDGBuilder</a></div><div class="ttdef"><b>定义</b> RenderGraphBuilder.h:52</div></div>
+<div class="ttc" id="aclass_f_scene_interface_html"><div class="ttname"><a href="../../de/db5/class_f_scene_interface.html">FSceneInterface</a></div><div class="ttdef"><b>定义</b> SceneInterface.h:120</div></div>
+<div class="ttc" id="aclass_i_material_cache_tag_provider_html"><div class="ttname"><a href="../../dc/d73/class_i_material_cache_tag_provider.html">IMaterialCacheTagProvider</a></div><div class="ttdef"><b>定义</b> IMaterialCacheTagProvider.h:18</div></div>
+<div class="ttc" id="aclass_t_array_html"><div class="ttname"><a href="../../d6/db1/class_t_array.html">TArray</a></div><div class="ttdef"><b>定义</b> Array.h:768</div></div>
+<div class="ttc" id="aclass_t_map_html"><div class="ttname"><a href="../../da/d41/class_t_map.html">TMap</a></div><div class="ttdef"><b>定义</b> IAndroidDeviceDetection.h:12</div></div>
+<div class="ttc" id="anamespace_u_e_1_1_h_l_s_l_html"><div class="ttname"><a href="../../d1/d29/namespace_u_e_1_1_h_l_s_l.html">UE::HLSL</a></div><div class="ttdef"><b>定义</b> MaterialCacheTagProvider.h:9</div></div>
+<div class="ttc" id="anamespace_virtual_texture_html"><div class="ttname"><a href="../../d0/d26/namespace_virtual_texture.html">VirtualTexture</a></div><div class="ttdef"><b>定义</b> VirtualTextureRecreate.cpp:19</div></div>
+<div class="ttc" id="apreprocessor_8c_html_a1134b580f8da4de94ca6b1de4d37975e"><div class="ttname"><a href="../../dd/de9/preprocessor_8c.html#a1134b580f8da4de94ca6b1de4d37975e">uint32</a></div><div class="ttdeci">unsigned int uint32</div><div class="ttdef"><b>定义</b> preprocessor.c:67</div></div>
+<div class="ttc" id="astruct_f_guid_html"><div class="ttname"><a href="../../d7/d35/struct_f_guid.html">FGuid</a></div><div class="ttdef"><b>定义</b> Guid.h:110</div></div>
+<div class="ttc" id="astruct_f_material_cache_tag_binding_data_html"><div class="ttname"><a href="../../d2/d1d/struct_f_material_cache_tag_binding_data.html">FMaterialCacheTagBindingData</a></div><div class="ttdef"><b>定义</b> MaterialCacheTagSceneData.h:9</div></div>
+<div class="ttc" id="astruct_f_material_cache_tag_bucket_html"><div class="ttname"><a href="../../db/d75/struct_f_material_cache_tag_bucket.html">FMaterialCacheTagBucket</a></div><div class="ttdef"><b>定义</b> MaterialCacheTagProvider.cpp:16</div></div>
+<div class="ttc" id="astruct_f_material_cache_tag_layout_html"><div class="ttname"><a href="../../d1/d61/struct_f_material_cache_tag_layout.html">FMaterialCacheTagLayout</a></div><div class="ttdef"><b>定义</b> MaterialCacheAttribute.h:129</div></div>
+<div class="ttc" id="astruct_f_material_cache_tag_uniform_data_html"><div class="ttname"><a href="../../df/d0a/struct_f_material_cache_tag_uniform_data.html">FMaterialCacheTagUniformData</a></div><div class="ttdef"><b>定义</b> MaterialCacheTagSceneData.h:21</div></div>
+<div class="ttc" id="astruct_f_material_cache_virtual_texture_allocation_html"><div class="ttname"><a href="../../d6/d24/struct_f_material_cache_virtual_texture_allocation.html">FMaterialCacheVirtualTextureAllocation</a></div><div class="ttdef"><b>定义</b> IMaterialCacheVirtualTextureAllocation.h:25</div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+</div><!-- container -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a href="../../dir_0b6ee6e7e9547e675db4add2e5de97da.html">Engine</a></li><li class="navelem"><a href="../../dir_9579d1ecb2c7bf48cbe1049c41745cb4.html">Source</a></li><li class="navelem"><a href="../../dir_9f04efef762572853abdf73f62bebfcc.html">Runtime</a></li><li class="navelem"><a href="../../dir_5ed6327f04b0f38d3f6fe5caa38b0445.html">Renderer</a></li><li class="navelem"><a href="../../dir_fa34d9b21419741b6724b4243c89fd0f.html">Internal</a></li><li class="navelem"><a href="../../dir_cb5b7f60d84a987409b99003f99fd4bd.html">MaterialCache</a></li><li class="navelem"><a href="../../d8/d12/_material_cache_tag_provider_8h.html">MaterialCacheTagProvider.h</a></li>
+    <li class="footer">制作者 <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.15.0 </li>
+  </ul>
+</div>
+</body>
+</html>

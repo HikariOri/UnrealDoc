@@ -1,0 +1,37 @@
+var struct_f_analyze_referenced_content_stat_1_1_f_anim_sequence_stats =
+[
+    [ "EAnimReferenceType", "d3/d4e/struct_f_analyze_referenced_content_stat_1_1_f_anim_sequence_stats.html#ae75e1729f7f50eebe1a0c4eb4e453d24", [
+      [ "ART_SkeletalMeshComponent", "d3/d4e/struct_f_analyze_referenced_content_stat_1_1_f_anim_sequence_stats.html#ae75e1729f7f50eebe1a0c4eb4e453d24a22947d2784e8aea122f52f77c93f86a7", null ],
+      [ "ART_Crowd", "d3/d4e/struct_f_analyze_referenced_content_stat_1_1_f_anim_sequence_stats.html#ae75e1729f7f50eebe1a0c4eb4e453d24a83e8ad42c47a24f00ef005c36da13da0", null ]
+    ] ],
+    [ "FAnimSequenceStats", "d3/d4e/struct_f_analyze_referenced_content_stat_1_1_f_anim_sequence_stats.html#ac8597cdfb61e1924cf45b1d08f709f7c", null ],
+    [ "ShouldLogStat", "d3/d4e/struct_f_analyze_referenced_content_stat_1_1_f_anim_sequence_stats.html#a0f1b1081b045d64ed2045a819d119854", null ],
+    [ "ToCSV", "d3/d4e/struct_f_analyze_referenced_content_stat_1_1_f_anim_sequence_stats.html#a94ab8126fe9e154fafd7e03c72d67cd6", null ],
+    [ "ToCSV", "d3/d4e/struct_f_analyze_referenced_content_stat_1_1_f_anim_sequence_stats.html#adf970c37055b3cdf0af393a6abfefb6e", null ],
+    [ "AnimationResourceSize", "d3/d4e/struct_f_analyze_referenced_content_stat_1_1_f_anim_sequence_stats.html#a7be6afec36aad96aadf49dc9402e3e65", null ],
+    [ "AnimSetName", "d3/d4e/struct_f_analyze_referenced_content_stat_1_1_f_anim_sequence_stats.html#a6348f52e75f4950ee9a97fe7505ed995", null ],
+    [ "AnimTag", "d3/d4e/struct_f_analyze_referenced_content_stat_1_1_f_anim_sequence_stats.html#acb0de756538a7f44964d145a0d3f711f", null ],
+    [ "bIsReferencedByScript", "d3/d4e/struct_f_analyze_referenced_content_stat_1_1_f_anim_sequence_stats.html#a4006b22e7802cc761564b365ff275e89", null ],
+    [ "bMarkedAsDoNotOverrideCompression", "d3/d4e/struct_f_analyze_referenced_content_stat_1_1_f_anim_sequence_stats.html#ad6d63abb8af635b520ef72ed230e01f6", null ],
+    [ "CompressionRatio", "d3/d4e/struct_f_analyze_referenced_content_stat_1_1_f_anim_sequence_stats.html#a2f875f721267ab188fab90c19708e4a9", null ],
+    [ "CompressionScheme", "d3/d4e/struct_f_analyze_referenced_content_stat_1_1_f_anim_sequence_stats.html#a8e8fd8d2b6abcd1ff92b35128689e15f", null ],
+    [ "NumRotTracksWithOneKey", "d3/d4e/struct_f_analyze_referenced_content_stat_1_1_f_anim_sequence_stats.html#af7ce4b4dd6bdd8b25134fea5dec6e113", null ],
+    [ "NumScaleTracksWithOneKey", "d3/d4e/struct_f_analyze_referenced_content_stat_1_1_f_anim_sequence_stats.html#a27448c8cc0d84f6e6950a357af08a54c", null ],
+    [ "NumTransTracksWithOneKey", "d3/d4e/struct_f_analyze_referenced_content_stat_1_1_f_anim_sequence_stats.html#a5887763743e70166065e643582699118", null ],
+    [ "OverheadSize", "d3/d4e/struct_f_analyze_referenced_content_stat_1_1_f_anim_sequence_stats.html#a00e7cdad1878f0895994110125f18f23", null ],
+    [ "ReferenceType", "d3/d4e/struct_f_analyze_referenced_content_stat_1_1_f_anim_sequence_stats.html#a6ef84aec163d56a03e2bdf1d2b7f1271", null ],
+    [ "ResourceName", "d3/d4e/struct_f_analyze_referenced_content_stat_1_1_f_anim_sequence_stats.html#a4cf177193f59255a189ec77e209e0151", null ],
+    [ "ResourceType", "d3/d4e/struct_f_analyze_referenced_content_stat_1_1_f_anim_sequence_stats.html#a8d64bd93c01243c6ad58e7c280110de6", null ],
+    [ "RotationFormat", "d3/d4e/struct_f_analyze_referenced_content_stat_1_1_f_anim_sequence_stats.html#a8c51654156d623897d25a94387f82ae6", null ],
+    [ "RotationKeySize", "d3/d4e/struct_f_analyze_referenced_content_stat_1_1_f_anim_sequence_stats.html#a0b8983a151a8ba68f6c43829902da20e", null ],
+    [ "ScaleFormat", "d3/d4e/struct_f_analyze_referenced_content_stat_1_1_f_anim_sequence_stats.html#ab3dd42ff883c19ba4c414f263f95b908", null ],
+    [ "ScaleKeySize", "d3/d4e/struct_f_analyze_referenced_content_stat_1_1_f_anim_sequence_stats.html#a570ba6f16e710367484c8af3f9b810f6", null ],
+    [ "TotalFrames", "d3/d4e/struct_f_analyze_referenced_content_stat_1_1_f_anim_sequence_stats.html#a564acd20029eaf5baf47f64bbb486f46", null ],
+    [ "TotalNumRotKeys", "d3/d4e/struct_f_analyze_referenced_content_stat_1_1_f_anim_sequence_stats.html#a89b5228b0f7cb6d465f8d2e8da940f92", null ],
+    [ "TotalNumScaleKeys", "d3/d4e/struct_f_analyze_referenced_content_stat_1_1_f_anim_sequence_stats.html#a2e0175ce35a9f1df2e052e8beb2c0c20", null ],
+    [ "TotalNumTransKeys", "d3/d4e/struct_f_analyze_referenced_content_stat_1_1_f_anim_sequence_stats.html#afcd3b2ee32ebc524a0df63e1e32c6de5", null ],
+    [ "TotalTracks", "d3/d4e/struct_f_analyze_referenced_content_stat_1_1_f_anim_sequence_stats.html#ab74df86d87745f06c44433b3979de713", null ],
+    [ "TrackTableSize", "d3/d4e/struct_f_analyze_referenced_content_stat_1_1_f_anim_sequence_stats.html#a5bcae98e591b26ca62870d16256ae407", null ],
+    [ "TranslationFormat", "d3/d4e/struct_f_analyze_referenced_content_stat_1_1_f_anim_sequence_stats.html#a60f42d5e9594df271bef25f5beac4a10", null ],
+    [ "TranslationKeySize", "d3/d4e/struct_f_analyze_referenced_content_stat_1_1_f_anim_sequence_stats.html#a4c2978a5f509a7b46c009256705c1843", null ]
+];

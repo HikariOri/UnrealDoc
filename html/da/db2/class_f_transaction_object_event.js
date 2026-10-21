@@ -1,0 +1,27 @@
+var class_f_transaction_object_event =
+[
+    [ "FTransactionObjectEvent", "da/db2/class_f_transaction_object_event.html#adc1b97d8cf620092fc48d989a6532da4", null ],
+    [ "FTransactionObjectEvent", "da/db2/class_f_transaction_object_event.html#aa36cbb8b9f1c5c399552d49b788ac8bc", null ],
+    [ "GetAnnotation", "da/db2/class_f_transaction_object_event.html#ad3765be55dedd99efaa247d3cba404ed", null ],
+    [ "GetChangedProperties", "da/db2/class_f_transaction_object_event.html#ae471fb7836424d0bdd0815f6cce69f12", null ],
+    [ "GetEventType", "da/db2/class_f_transaction_object_event.html#a9d919aed6afb98240950d31e4176562f", null ],
+    [ "GetObjectChangeCreatedBy", "da/db2/class_f_transaction_object_event.html#abcc080cf32aa85edffc71e545f42a7ad", null ],
+    [ "GetOperationId", "da/db2/class_f_transaction_object_event.html#af13acb814dead215dc82c1fe27fd6de6", null ],
+    [ "GetOriginalObjectClassPathName", "da/db2/class_f_transaction_object_event.html#acfeb91f0ba7c95504b60f7108cd07ada", null ],
+    [ "GetOriginalObjectExternalPackageName", "da/db2/class_f_transaction_object_event.html#a64aeb52143061ed8e89c50ebb80b1c8d", null ],
+    [ "GetOriginalObjectFlags", "da/db2/class_f_transaction_object_event.html#ad2d57e47b1df5d3075a58f5a8cc8d1b6", null ],
+    [ "GetOriginalObjectId", "da/db2/class_f_transaction_object_event.html#a255d0889c14c95a5cb6253c40380b270", null ],
+    [ "GetOriginalObjectName", "da/db2/class_f_transaction_object_event.html#a951ba8f04d93135baa90e3086079b1df", null ],
+    [ "GetOriginalObjectOuterPathName", "da/db2/class_f_transaction_object_event.html#a9b2757aa0c8d0f69276bba2763ff78de", null ],
+    [ "GetOriginalObjectPackageName", "da/db2/class_f_transaction_object_event.html#aea44665e2833506daf81f703982b1c04", null ],
+    [ "GetOriginalObjectPathName", "da/db2/class_f_transaction_object_event.html#a0bbf99367c5d8e495c59b7617b41163f", null ],
+    [ "GetTransactionId", "da/db2/class_f_transaction_object_event.html#afb3983b8ee20ea63d18ef879fe76acdb", null ],
+    [ "HasExternalPackageChange", "da/db2/class_f_transaction_object_event.html#a43699931323310daa1b8027499eeebd1", null ],
+    [ "HasIdOrPendingKillChanges", "da/db2/class_f_transaction_object_event.html#ad9a9a3ac1a4f740717b4ee97f0f75f9d", null ],
+    [ "HasNameChange", "da/db2/class_f_transaction_object_event.html#a51e19ffa68de173bf39ef5f45b4a1cd9", null ],
+    [ "HasNonPropertyChanges", "da/db2/class_f_transaction_object_event.html#aa0e03b01ad577777e980234859b8d188", null ],
+    [ "HasOuterChange", "da/db2/class_f_transaction_object_event.html#aa790812b0830c3de6806455a6ee75ada", null ],
+    [ "HasPendingKillChange", "da/db2/class_f_transaction_object_event.html#a0d0acda6fc525c4911acdd8a12cd516a", null ],
+    [ "HasPropertyChanges", "da/db2/class_f_transaction_object_event.html#a8098f9e1adc2824e16d5dc3c2daecd98", null ],
+    [ "Merge", "da/db2/class_f_transaction_object_event.html#a31b6e2888d4db6c3de44f6fee3e509dc", null ]
+];

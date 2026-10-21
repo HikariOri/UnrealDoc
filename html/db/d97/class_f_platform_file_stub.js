@@ -1,0 +1,27 @@
+var class_f_platform_file_stub =
+[
+    [ "FPlatformFileStub", "db/d97/class_f_platform_file_stub.html#abbfcc2b182eb3ae5abd22be1e73b1350", null ],
+    [ "CreateDirectory", "db/d97/class_f_platform_file_stub.html#aa0f86320670499c1af98bb6e156e9f7f", null ],
+    [ "DeleteDirectory", "db/d97/class_f_platform_file_stub.html#a7394cdff19a970c37e06415884e0092b", null ],
+    [ "DeleteFile", "db/d97/class_f_platform_file_stub.html#a0b96f56cc8c80e805abdf00740954fc2", null ],
+    [ "DirectoryExists", "db/d97/class_f_platform_file_stub.html#a7dea83c2072487f1748fec241ee730f6", null ],
+    [ "FileExists", "db/d97/class_f_platform_file_stub.html#a7708cc52a90b09329d4b4d281f7db234", null ],
+    [ "FileSize", "db/d97/class_f_platform_file_stub.html#a12b01ad879451e7d658204654c1fe13d", null ],
+    [ "GetAccessTimeStamp", "db/d97/class_f_platform_file_stub.html#aba8a884090f3201ca921a0a67df7b91c", null ],
+    [ "GetFilenameOnDisk", "db/d97/class_f_platform_file_stub.html#aafd6bfaca042e56c7ba4c21b82a4c3c3", null ],
+    [ "GetLowerLevel", "db/d97/class_f_platform_file_stub.html#a7505f58074e37e632fe40576b2dda28b", null ],
+    [ "GetName", "db/d97/class_f_platform_file_stub.html#a3b5a957aaa2fb2ec136aadbf3b6e9eba", null ],
+    [ "GetStatData", "db/d97/class_f_platform_file_stub.html#af3aa5180645027e5973a0d0c97a08066", null ],
+    [ "GetTimeStamp", "db/d97/class_f_platform_file_stub.html#ad248d0d872f2de6c110a8546ddd34fdb", null ],
+    [ "Initialize", "db/d97/class_f_platform_file_stub.html#acca75827340f83880330b02a52ac35cc", null ],
+    [ "IsReadOnly", "db/d97/class_f_platform_file_stub.html#ad96648c9c82c4dbbb0e2fd203e68a440", null ],
+    [ "IterateDirectory", "db/d97/class_f_platform_file_stub.html#a9e228e8410b1d909ea7353cc048d9ea8", null ],
+    [ "IterateDirectoryStat", "db/d97/class_f_platform_file_stub.html#a5dbe06aabdc1d07ca88a19abd8bf854e", null ],
+    [ "MoveFile", "db/d97/class_f_platform_file_stub.html#aaf2794bb5e538459c06b9830ae32c336", null ],
+    [ "OpenRead", "db/d97/class_f_platform_file_stub.html#a2ae567f0145fa682927805a8fc17b23f", null ],
+    [ "OpenWrite", "db/d97/class_f_platform_file_stub.html#a64586564d8a92eabaa422ca15302f36e", null ],
+    [ "SetLowerLevel", "db/d97/class_f_platform_file_stub.html#a26626d78d154284c7b51b78f0f808c8e", null ],
+    [ "SetReadOnly", "db/d97/class_f_platform_file_stub.html#acdf8c81908894a933031615dd19e03e3", null ],
+    [ "SetTimeStamp", "db/d97/class_f_platform_file_stub.html#a977e650182b33ac5bfe5e6ef42680a7d", null ],
+    [ "ShouldBeUsed", "db/d97/class_f_platform_file_stub.html#a7a61e9bf46c0305498f7815dc43702e3", null ]
+];

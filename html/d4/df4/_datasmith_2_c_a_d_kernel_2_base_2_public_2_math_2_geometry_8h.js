@@ -1,0 +1,36 @@
+var _datasmith_2_c_a_d_kernel_2_base_2_public_2_math_2_geometry_8h =
+[
+    [ "UE::CADKernel::TSegment&lt; PointType &gt;", "df/ddb/struct_u_e_1_1_c_a_d_kernel_1_1_t_segment.html", "df/ddb/struct_u_e_1_1_c_a_d_kernel_1_1_t_segment" ],
+    [ "UE::CADKernel::TTriangle&lt; PointType &gt;", "d7/d81/struct_u_e_1_1_c_a_d_kernel_1_1_t_triangle.html", "d7/d81/struct_u_e_1_1_c_a_d_kernel_1_1_t_triangle" ],
+    [ "UE::CADKernel::FTriangle", "d2/d43/struct_u_e_1_1_c_a_d_kernel_1_1_f_triangle.html", "d2/d43/struct_u_e_1_1_c_a_d_kernel_1_1_f_triangle" ],
+    [ "UE::CADKernel::FTriangle2D", "d2/d91/struct_u_e_1_1_c_a_d_kernel_1_1_f_triangle2_d.html", "d2/d91/struct_u_e_1_1_c_a_d_kernel_1_1_f_triangle2_d" ],
+    [ "UE::CADKernel::FSegment2D", "d9/df0/namespace_u_e_1_1_c_a_d_kernel.html#a82b183d2eafa56b9c3c89fc5fd63de34", null ],
+    [ "UE::CADKernel::FSegment3D", "d9/df0/namespace_u_e_1_1_c_a_d_kernel.html#a9dd0dcf7d9b94bdaf62e345ecf4e2a38", null ],
+    [ "UE::CADKernel::EPolygonSide", "d9/df0/namespace_u_e_1_1_c_a_d_kernel.html#a29d787140f90566c063f77d782ec6d5b", [
+      [ "UE::CADKernel::Side01", "d9/df0/namespace_u_e_1_1_c_a_d_kernel.html#a29d787140f90566c063f77d782ec6d5ba8d5d3d4d9864feadebfc11c6a40276b6", null ],
+      [ "UE::CADKernel::Side12", "d9/df0/namespace_u_e_1_1_c_a_d_kernel.html#a29d787140f90566c063f77d782ec6d5baa7368aae28459d8c83356cec7f90ae9c", null ],
+      [ "UE::CADKernel::Side20", "d9/df0/namespace_u_e_1_1_c_a_d_kernel.html#a29d787140f90566c063f77d782ec6d5ba374186c49faa0831378c9ba47176995c", null ],
+      [ "UE::CADKernel::Side23", "d9/df0/namespace_u_e_1_1_c_a_d_kernel.html#a29d787140f90566c063f77d782ec6d5bae63658cf810bc84a560b97796ca82ba8", null ],
+      [ "UE::CADKernel::Side30", "d9/df0/namespace_u_e_1_1_c_a_d_kernel.html#a29d787140f90566c063f77d782ec6d5ba6a763c351a0c6ffccb2179753f1800ed", null ]
+    ] ],
+    [ "UE::CADKernel::AreParallel", "d9/df0/namespace_u_e_1_1_c_a_d_kernel.html#ae00902eab90aaeebab075b2ead267802", null ],
+    [ "UE::CADKernel::ComputeCircumCircleCenter", "d9/df0/namespace_u_e_1_1_c_a_d_kernel.html#a9c48099dc3d1535acc07bea3f664e7e1", null ],
+    [ "UE::CADKernel::ComputeCircumCircleCenter", "d9/df0/namespace_u_e_1_1_c_a_d_kernel.html#ac7e9983948d84c96f21684a6d9986e46", null ],
+    [ "UE::CADKernel::ComputeCircumCircleCenterAndSquareRadius", "d9/df0/namespace_u_e_1_1_c_a_d_kernel.html#a989ffefea0de05e5bc17c864c8d9cbc9", null ],
+    [ "UE::CADKernel::ComputeCurvature", "d9/df0/namespace_u_e_1_1_c_a_d_kernel.html#ab9ce7d308eeee3c7b8d797db2877e740", null ],
+    [ "UE::CADKernel::ComputeCurvature", "d9/df0/namespace_u_e_1_1_c_a_d_kernel.html#a2bed416a56d42e873aeb21cef4404b5c", null ],
+    [ "UE::CADKernel::CoordinateOfProjectedPointOnSegment", "d9/df0/namespace_u_e_1_1_c_a_d_kernel.html#ac951c1c3bb43adfa7ba13d51eaeb3979", null ],
+    [ "UE::CADKernel::DistanceOfPointToLine", "d9/df0/namespace_u_e_1_1_c_a_d_kernel.html#ab6ef4d08d2087223826dc20451623090", null ],
+    [ "UE::CADKernel::DistanceOfPointToSegment", "d9/df0/namespace_u_e_1_1_c_a_d_kernel.html#ab7a9d4cbd69f6064a7fcab6a622be195", null ],
+    [ "UE::CADKernel::DoIntersect", "d9/df0/namespace_u_e_1_1_c_a_d_kernel.html#a0d14aac77ead4de543f4404f7727bab3", null ],
+    [ "UE::CADKernel::DoIntersectInside", "d9/df0/namespace_u_e_1_1_c_a_d_kernel.html#a59cbf9f50e397e58af87c1a899585bf7", null ],
+    [ "UE::CADKernel::FindIntersectionOfLines2D", "d9/df0/namespace_u_e_1_1_c_a_d_kernel.html#a9a8e0c892349b3074523ec4367a8127e", null ],
+    [ "UE::CADKernel::FindIntersectionOfSegments2D", "d9/df0/namespace_u_e_1_1_c_a_d_kernel.html#ae516935410bd3f263aea20d905c268b2", null ],
+    [ "UE::CADKernel::FindIntersectionOfSegments2D", "d9/df0/namespace_u_e_1_1_c_a_d_kernel.html#a2ed42b03de011690624646c814a0e96e", null ],
+    [ "UE::CADKernel::FindLoopIntersectionsWithIso", "d9/df0/namespace_u_e_1_1_c_a_d_kernel.html#af5d284ebf95a7a48829dd8ce79757ac9", null ],
+    [ "UE::CADKernel::PointOnSegment", "d9/df0/namespace_u_e_1_1_c_a_d_kernel.html#a5f85ceac63f2f9ea87a8f191476ba5f3", null ],
+    [ "UE::CADKernel::ProjectPointOnPlane", "d9/df0/namespace_u_e_1_1_c_a_d_kernel.html#a299234f6c5839b7de13a4d507290c658", null ],
+    [ "UE::CADKernel::ProjectPointOnSegment", "d9/df0/namespace_u_e_1_1_c_a_d_kernel.html#a1fe63b35f43b81329d50c47ed9d65b02", null ],
+    [ "UE::CADKernel::IntersectionTool::SetTolerance", "d8/d0b/namespace_u_e_1_1_c_a_d_kernel_1_1_intersection_tool.html#a1cf8d6eb4aa2f43fc120eaae8b5615dc", null ],
+    [ "UE::CADKernel::SquareDistanceOfPointToSegment", "d9/df0/namespace_u_e_1_1_c_a_d_kernel.html#afc61e0cf64b7ef32bc470402e7762a98", null ]
+];

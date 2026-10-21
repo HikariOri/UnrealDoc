@@ -1,0 +1,28 @@
+var struct_f_install_bundle_report =
+[
+    [ "FStateUpdatable", "d1/df7/struct_f_install_bundle_report_1_1_f_state_updatable.html", "d1/df7/struct_f_install_bundle_report_1_1_f_state_updatable" ],
+    [ "FStateUpdating", "d9/d94/struct_f_install_bundle_report_1_1_f_state_updating.html", "d9/d94/struct_f_install_bundle_report_1_1_f_state_updating" ],
+    [ "FStateInstalling", "dc/dfd/struct_f_install_bundle_report_1_1_f_state_installing.html", "dc/dfd/struct_f_install_bundle_report_1_1_f_state_installing" ],
+    [ "FStateUpdated", "d5/d2a/struct_f_install_bundle_report_1_1_f_state_updated.html", "d5/d2a/struct_f_install_bundle_report_1_1_f_state_updated" ],
+    [ "FState", "d0/d80/struct_f_install_bundle_report.html#a1a9f2b4e9277915edc4b4f979f255f77", null ],
+    [ "AddDiscrepancy", "d0/d80/struct_f_install_bundle_report.html#af4023ff086f938b3e6b812a975946f54", null ],
+    [ "DownloadedBytes", "d0/d80/struct_f_install_bundle_report.html#ae49effcbaed48a39ab6790a9743916e2", null ],
+    [ "InstallationProgress", "d0/d80/struct_f_install_bundle_report.html#a282afa540d1c178579b9f556447df65f", null ],
+    [ "IsInstalling", "d0/d80/struct_f_install_bundle_report.html#a6a495cb1c4b1c33f366bf8f6c138e5f6", null ],
+    [ "IsUnknown", "d0/d80/struct_f_install_bundle_report.html#a1f9fd98e0681bc6e6331e71e3a66c76e", null ],
+    [ "IsUpdatable", "d0/d80/struct_f_install_bundle_report.html#a8e4955006eb1b87a471d974fadaedb61", null ],
+    [ "IsUpdated", "d0/d80/struct_f_install_bundle_report.html#a6dc3b27d23bb05b048c4343334fc7a5f", null ],
+    [ "IsUpdating", "d0/d80/struct_f_install_bundle_report.html#ab2be4a82b0b9360c6204e0a7e8f94db9", null ],
+    [ "JSON_SERIALIZE_NAME", "d0/d80/struct_f_install_bundle_report.html#ae261afd4ad61129036648145044ae2e3", null ],
+    [ "JSON_SERIALIZE_OPTIONAL", "d0/d80/struct_f_install_bundle_report.html#a69a4ed6d74071c903b2b2c975b43dbcf", null ],
+    [ "JSON_SERIALIZE_OPTIONAL_VARIANT_BEGIN", "d0/d80/struct_f_install_bundle_report.html#a50e6d9307f048eef617aae761ed5630d", null ],
+    [ "JSON_SERIALIZE_OPTIONAL_VARIANT_END", "d0/d80/struct_f_install_bundle_report.html#a5260e5b699bec698e55b3a423d830f45", null ],
+    [ "JSON_SERIALIZE_VARIANT_IFTYPE_SERIALIZABLE", "d0/d80/struct_f_install_bundle_report.html#ade4116e5635392e73e2b0f407b2bb7f6", null ],
+    [ "JSON_SERIALIZE_VARIANT_IFTYPE_SERIALIZABLE", "d0/d80/struct_f_install_bundle_report.html#a7661cbae306d5e1b03fa17900a4d6411", null ],
+    [ "JSON_SERIALIZE_VARIANT_IFTYPE_SERIALIZABLE", "d0/d80/struct_f_install_bundle_report.html#a0b63321cabbeab2421f078a6e75b47b8", null ],
+    [ "JSON_SERIALIZE_VARIANT_IFTYPE_SERIALIZABLE", "d0/d80/struct_f_install_bundle_report.html#aae4324669f445e739b125e6412405f88", null ],
+    [ "TotalDownloadSize", "d0/d80/struct_f_install_bundle_report.html#ab4bc8af9e7d0d69030098d797ec1aca5", null ],
+    [ "BundleName", "d0/d80/struct_f_install_bundle_report.html#a6ee58ff498baa765f31e5aed5c9cde1a", null ],
+    [ "SourceVersion", "d0/d80/struct_f_install_bundle_report.html#ab1335945ccb57c7b17d9e540a1a48f25", null ],
+    [ "State", "d0/d80/struct_f_install_bundle_report.html#a6dcb5d2a552ceb2467eb0ec45365d10d", null ]
+];

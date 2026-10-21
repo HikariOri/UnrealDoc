@@ -1,0 +1,28 @@
+var struct_f_sorted_static_mesh =
+[
+    [ "FSortedStaticMesh", "d8/df3/struct_f_sorted_static_mesh.html#a064150240f7292fe98e709a66ee9c75c", null ],
+    [ "bIsStreaming", "d8/df3/struct_f_sorted_static_mesh.html#a1bc255de443d87e5233d33975c22a234", null ],
+    [ "bUnknownRef", "d8/df3/struct_f_sorted_static_mesh.html#ac37f2cdd5b3f8012a60882f54ba28a0c", null ],
+    [ "ComponentUsageCount", "d8/df3/struct_f_sorted_static_mesh.html#ae32dbc393d03a2e7ec4d3c9bba7990b1", null ],
+    [ "CPUAccessOverheadKB", "d8/df3/struct_f_sorted_static_mesh.html#a6abed305aad4a34b635eee9d1a65a66a", null ],
+    [ "DistanceFieldKB", "d8/df3/struct_f_sorted_static_mesh.html#a9e983e55142ab5d9356fe9cbc090742c", null ],
+    [ "InstanceUsageCount", "d8/df3/struct_f_sorted_static_mesh.html#a7699a3f297cc00d534f7dc882f5dc1d3", null ],
+    [ "LodCount", "d8/df3/struct_f_sorted_static_mesh.html#a6ec89064414494d033255670c135b483", null ],
+    [ "MaxKB", "d8/df3/struct_f_sorted_static_mesh.html#a83af1e18843948e56cebdef6b8db39d1", null ],
+    [ "Mesh", "d8/df3/struct_f_sorted_static_mesh.html#a60b74858058ed50a8b33e882920d2917", null ],
+    [ "MobileMinLOD", "d8/df3/struct_f_sorted_static_mesh.html#a9c71dba2097f6c5f12f782caa79d16a2", null ],
+    [ "Name", "d8/df3/struct_f_sorted_static_mesh.html#aac2ce6d65500b8de5fd93a48cb64e06f", null ],
+    [ "NumKB", "d8/df3/struct_f_sorted_static_mesh.html#ae71c7799905bbbfc1a07feb261e6fa99", null ],
+    [ "ResidentLodCount", "d8/df3/struct_f_sorted_static_mesh.html#a67c6f7183b4ca7a97ba313b6808fc8a2", null ],
+    [ "ResKBExc", "d8/df3/struct_f_sorted_static_mesh.html#a3c71388c2e26513b1cc5e0ec918ac63b", null ],
+    [ "ResKBInc", "d8/df3/struct_f_sorted_static_mesh.html#ae43805fa114d23ca86c5d133f1beae34", null ],
+    [ "ResKBIncMobile", "d8/df3/struct_f_sorted_static_mesh.html#a25a8b0d5a354a22af3e2389847eeb166", null ],
+    [ "ResKBResident", "d8/df3/struct_f_sorted_static_mesh.html#af41261980dfdd316d433c7cc51a2fdce", null ],
+    [ "ShapeCountCollision", "d8/df3/struct_f_sorted_static_mesh.html#a7561a85f23c5e7123f7387daabdd1d2c", null ],
+    [ "VertexCountCollision", "d8/df3/struct_f_sorted_static_mesh.html#aeb6db2c3b018395855b6d039742892e1", null ],
+    [ "VertexCountLod0", "d8/df3/struct_f_sorted_static_mesh.html#ab92928d6e46797703260e3bbdd7dc28a", null ],
+    [ "VertexCountLod1", "d8/df3/struct_f_sorted_static_mesh.html#a5fd3639f7dc52645b1d0ae78f0d67ccd", null ],
+    [ "VertexCountLod2", "d8/df3/struct_f_sorted_static_mesh.html#a156032590e717fc757e60a7bfc792dbf", null ],
+    [ "VertexCountTotal", "d8/df3/struct_f_sorted_static_mesh.html#a1fdb320e1da713f2ded128efd47de0ca", null ],
+    [ "VertexCountTotalMobile", "d8/df3/struct_f_sorted_static_mesh.html#a159891bd0b9fc182fc5d8e6b0d077d77", null ]
+];

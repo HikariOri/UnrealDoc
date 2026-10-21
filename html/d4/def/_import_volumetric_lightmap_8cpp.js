@@ -1,0 +1,26 @@
+var _import_volumetric_lightmap_8cpp =
+[
+    [ "FImportedVolumetricLightmapBrick", "d0/d6c/struct_f_imported_volumetric_lightmap_brick.html", "d0/d6c/struct_f_imported_volumetric_lightmap_brick" ],
+    [ "FImportedVolumetricLightmapTaskData", "d1/d72/struct_f_imported_volumetric_lightmap_task_data.html", "d1/d72/struct_f_imported_volumetric_lightmap_task_data" ],
+    [ "FFilteredBrickData", "d8/d70/struct_f_filtered_brick_data.html", "d8/d70/struct_f_filtered_brick_data" ],
+    [ "LOCTEXT_NAMESPACE", "d4/def/_import_volumetric_lightmap_8cpp.html#a0de3ae51f3a629a8e5d113f1b9390da7", null ],
+    [ "BuildIndirectionTexture", "d4/def/_import_volumetric_lightmap_8cpp.html#a8743545f77e19021f56e3f1e3f4364d9", null ],
+    [ "ComputeBrickLayoutPosition", "d4/def/_import_volumetric_lightmap_8cpp.html#aa37a9fd056d0d9d54472e98f4548889b", null ],
+    [ "ConvertBGRA8ToRGBA8ForLayer", "d4/def/_import_volumetric_lightmap_8cpp.html#ad4c99e46ca1b6e072035a2c3cc079532", null ],
+    [ "CopyBetweenAtlasVolumeTextures", "d4/def/_import_volumetric_lightmap_8cpp.html#a1102e83ff744bca5f3eecbe71f0b81cf", null ],
+    [ "CopyBrickToAtlasVolumeTexture", "d4/def/_import_volumetric_lightmap_8cpp.html#a83865112f037f34eed669bd7ca4bfe80", null ],
+    [ "CopyFromBrickmapTexel", "d4/def/_import_volumetric_lightmap_8cpp.html#ab112dbed926481d4518d47e2cd5a4cf1", null ],
+    [ "CopyPaddingFromUniqueData", "d4/def/_import_volumetric_lightmap_8cpp.html#a171363ed9abc677d1dfd12b363ae3b8a", null ],
+    [ "CopyVolumeBorderFromInterior", "d4/def/_import_volumetric_lightmap_8cpp.html#ab0a3ec37c4bbce56270835e84db19dc4", null ],
+    [ "DEFINE_LOG_CATEGORY_STATIC", "d4/def/_import_volumetric_lightmap_8cpp.html#a596cc19f7d780287fcd7108d86bd05e8", null ],
+    [ "FilterWithNeighbors", "d4/def/_import_volumetric_lightmap_8cpp.html#aba4f820dfe5470b89fd49c1d7383300b", null ],
+    [ "GetLookupPositionAwayFromBorder", "d4/def/_import_volumetric_lightmap_8cpp.html#a10f7d0270f59ba3a43c0bac04acfdf13", null ],
+    [ "StitchDetailBricksWithLowDensityNeighbors", "d4/def/_import_volumetric_lightmap_8cpp.html#ac2c2bb0c8b6d2369eac0f6750b646b13", null ],
+    [ "TrimBricksByInterpolationError", "d4/def/_import_volumetric_lightmap_8cpp.html#ac723fc98b9def72c603e2f39a8eda4f2", null ],
+    [ "TrimBricksForMemoryLimit", "d4/def/_import_volumetric_lightmap_8cpp.html#ae69ecd7d5327602780877bfde9560641", null ],
+    [ "bCopyPaddingFromUniqueData", "d4/def/_import_volumetric_lightmap_8cpp.html#ade369ca52ae3391f577f5944ccf5e260", null ],
+    [ "bCopyVolumeBorderFromInterior", "d4/def/_import_volumetric_lightmap_8cpp.html#a2583522004d18f4c9307bc7f86214c10", null ],
+    [ "bStitchDetailBricksWithLowDensityNeighbors", "d4/def/_import_volumetric_lightmap_8cpp.html#a581d7c590b802ec0f3ddb1e475ae658b", null ],
+    [ "GDebugVoxelPosition", "d4/def/_import_volumetric_lightmap_8cpp.html#a78f860c68e7de864e1f47fa2353cce6b", null ],
+    [ "NumDilateOverEmbeddedVoxelsPasses", "d4/def/_import_volumetric_lightmap_8cpp.html#a6af19be46f073467714251f5e8e218b8", null ]
+];

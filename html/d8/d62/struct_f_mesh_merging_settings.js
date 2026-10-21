@@ -1,0 +1,28 @@
+var struct_f_mesh_merging_settings =
+[
+    [ "FMeshMergingSettings", "d8/d62/struct_f_mesh_merging_settings.html#a9c0ddefbd22509574fa9d457c9055b42", null ],
+    [ "bAllowDistanceField", "d8/d62/struct_f_mesh_merging_settings.html#aca0cbfde80e6c78f7fedbbfd33e2f96c", null ],
+    [ "bBakeVertexDataToMesh", "d8/d62/struct_f_mesh_merging_settings.html#a7f318c4804bef286bc2374eeb396538d", null ],
+    [ "bComputedLightMapResolution", "d8/d62/struct_f_mesh_merging_settings.html#ab50912c51f207a958c6151aa9ccd865a", null ],
+    [ "bGenerateLightMapUV", "d8/d62/struct_f_mesh_merging_settings.html#ab54a8b2281aa12ab10e5b534704b6cc5", null ],
+    [ "bIncludeImposters", "d8/d62/struct_f_mesh_merging_settings.html#a009423ca1dd5822591dfad3b8e1ec9e2", null ],
+    [ "bMergeEquivalentMaterials", "d8/d62/struct_f_mesh_merging_settings.html#aa67aa2215c78f6c254c307dd738fd1b9", null ],
+    [ "bMergeMaterials", "d8/d62/struct_f_mesh_merging_settings.html#aa168c0b4117e7e5cca0c83e5460e9de1", null ],
+    [ "bMergeMeshSockets", "d8/d62/struct_f_mesh_merging_settings.html#a453a20c2212e500ec79b62dbe0baaa90", null ],
+    [ "bMergePhysicsData", "d8/d62/struct_f_mesh_merging_settings.html#aa7265642b844bbf1b0fb28059c458391", null ],
+    [ "bReuseMeshLightmapUVs", "d8/d62/struct_f_mesh_merging_settings.html#ad3be32a1572580567ebd37793b9fd12b", null ],
+    [ "bSupportRayTracing", "d8/d62/struct_f_mesh_merging_settings.html#a60e06ade74daba017f07cc068feac24b", null ],
+    [ "bUseLandscapeCulling", "d8/d62/struct_f_mesh_merging_settings.html#a7991a8a7edac3d18075bf50955c653fd", null ],
+    [ "bUseTextureBinning", "d8/d62/struct_f_mesh_merging_settings.html#adc8bb1bb731c3a671c9b89f134726879", null ],
+    [ "bUseVertexDataForBakingMaterial", "d8/d62/struct_f_mesh_merging_settings.html#a12fc2784713fc4429d366d8625e6c215", null ],
+    [ "CustomPivotLocation", "d8/d62/struct_f_mesh_merging_settings.html#aae44163ac6f74ed3647051e623b1c5e7", null ],
+    [ "GutterSize", "d8/d62/struct_f_mesh_merging_settings.html#acf4277a2f36c2d61f7eae9f6135015b2", null ],
+    [ "LODSelectionType", "d8/d62/struct_f_mesh_merging_settings.html#a5c282d27d3ebd026beb70a9e6d78c8bf", null ],
+    [ "MaterialSettings", "d8/d62/struct_f_mesh_merging_settings.html#af6decd62b694b2e99b14a0520fd6b344", null ],
+    [ "MergeType", "d8/d62/struct_f_mesh_merging_settings.html#a1118022200bf4ed75f410af261c885bc", null ],
+    [ "NaniteSettings", "d8/d62/struct_f_mesh_merging_settings.html#a9c969ef683c9393135be94e7bea06465", null ],
+    [ "OutputUVs", "d8/d62/struct_f_mesh_merging_settings.html#a167e445920480190d030049aabea90c5", null ],
+    [ "PivotType", "d8/d62/struct_f_mesh_merging_settings.html#aec2105c0bfbbb48e52cc6b2c8eca1c83", null ],
+    [ "SpecificLOD", "d8/d62/struct_f_mesh_merging_settings.html#a71ab48d6ee7ea17fe6546d401fe0940f", null ],
+    [ "TargetLightMapResolution", "d8/d62/struct_f_mesh_merging_settings.html#a630c882d637879cd17ae8df703c72e5b", null ]
+];

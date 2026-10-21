@@ -1,0 +1,461 @@
+<!-- HTML header for doxygen 1.15.0-->
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh">
+<head>
+  <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=11" />
+  <meta name="generator" content="Doxygen 1.15.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>UE 5.8.4: Engine/Source/Runtime/SymsLib/syms/core/elf/syms_elf.c 源文件</title>
+  <link rel="icon" href="../../EdIconDefault.bmp" type="image/x-icon" />
+  <link href="../../tabs.css" rel="stylesheet" type="text/css" />
+  <script type="text/javascript" src="../../jquery.js"></script>
+  <script type="text/javascript" src="../../dynsections.js"></script>
+  <link href="../../navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../navtreedata.js"></script>
+<script type="text/javascript" src="../../navtree.js"></script>
+<script type="text/javascript" src="../../cookie.js"></script>
+  <link href="../../search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../search/searchdata.js"></script>
+<script type="text/javascript" src="../../search/search.js"></script>
+  <link href="../../doxygen.css" rel="stylesheet" type="text/css" />
+  <link href="../../doxygen-awesome.css" rel="stylesheet" type="text/css"/>
+<link href="../../doxygen-awesome-sidebar-only.css" rel="stylesheet" type="text/css"/>
+<link href="../../doxygen-awesome-sidebar-only-darkmode-toggle.css" rel="stylesheet" type="text/css"/>
+  <!-- ... other metadata & script includes ... -->
+  <script type="text/javascript" src="../../doxygen-awesome-darkmode-toggle.js"></script>
+  <script type="text/javascript">
+    DoxygenAwesomeDarkModeToggle.title = "Zwischen hellem/dunklem Modus wechseln"
+    DoxygenAwesomeDarkModeToggle.lightModeIcon = '🌞'
+    // icon from https://fonts.google.com/icons
+    DoxygenAwesomeDarkModeToggle.darkModeIcon = `<svg xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 24 24" height="24px" viewBox="0 0 24 24" width="24px" fill="#009793"><g><rect fill="none" height="24" width="24"/></g><g><g><path d="M8.1,14.15C9.77,14.63,11,16.17,11,18c0,0.68-0.19,1.31-0.48,1.87c0.48,0.09,0.97,0.14,1.48,0.14 c1.48,0,2.9-0.41,4.13-1.15c-2.62-0.92-5.23-2.82-6.8-5.86C7.74,9.94,7.78,7.09,8.29,4.9c-2.57,1.33-4.3,4.01-4.3,7.1c0,0,0,0,0,0 c0.01,0,0.01,0,0.02,0C5.66,12,7.18,12.83,8.1,14.15z" opacity=".3"/><path d="M19.78,17.51c-2.47,0-6.57-1.33-8.68-5.43C8.77,7.57,10.6,3.6,11.63,2.01C6.27,2.2,1.98,6.59,1.98,12 c0,0.14,0.02,0.28,0.02,0.42C2.61,12.16,3.28,12,3.98,12c0,0,0,0,0,0c0-3.09,1.73-5.77,4.3-7.1C7.78,7.09,7.74,9.94,9.32,13 c1.57,3.04,4.18,4.95,6.8,5.86c-1.23,0.74-2.65,1.15-4.13,1.15c-0.5,0-1-0.05-1.48-0.14c-0.37,0.7-0.94,1.27-1.64,1.64 c0.98,0.32,2.03,0.5,3.11,0.5c3.5,0,6.58-1.8,8.37-4.52C20.18,17.5,19.98,17.51,19.78,17.51z"/><path d="M7,16l-0.18,0C6.4,14.84,5.3,14,4,14c-1.66,0-3,1.34-3,3s1.34,3,3,3c0.62,0,2.49,0,3,0c1.1,0,2-0.9,2-2 C9,16.9,8.1,16,7,16z"/></g></g></svg>`
+    DoxygenAwesomeDarkModeToggle.init()
+  </script>
+  <script type="text/javascript" src="../../doxygen-awesome-fragment-copy-button.js"></script>
+  <script type="text/javascript">
+    DoxygenAwesomeFragmentCopyButton.title = "In die Zwischenablage kopieren"
+    // DoxygenAwesomeFragmentCopyButton.copyIcon = `<svg ...>`
+    // DoxygenAwesomeFragmentCopyButton.successIcon = `<svg ...>`
+    DoxygenAwesomeFragmentCopyButton.init()
+  </script>
+  <script type="text/javascript" src="../../doxygen-awesome-paragraph-link.js"></script>
+  <script type="text/javascript">
+    DoxygenAwesomeParagraphLink.title = "Abschnitt verknüpfen"
+    DoxygenAwesomeParagraphLink.icon = "¶"
+    DoxygenAwesomeParagraphLink.init()
+  </script>
+  <script type="text/javascript" src="../../doxygen-awesome-interactive-toc.js"></script>
+  <script type="text/javascript">
+    DoxygenAwesomeInteractiveToc.topOffset = 45
+    DoxygenAwesomeInteractiveToc.hideMobileMenu = false
+    DoxygenAwesomeInteractiveToc.init()
+  </script>
+</head>
+<body>
+    <div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+      <div id="titlearea">
+        <table cellspacing="0" cellpadding="0">
+          <tbody>
+            <tr id="projectrow">
+              <td id="projectlogo"><img alt="Logo" src="../../EdIconDefault.bmp"  /></td>
+              <td id="projectalign">
+                <div id="projectname">UE 5.8.4
+                </div>
+                <div id="projectbrief">Unreal Engine</div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <!-- end header part -->
+<!-- 制作者 Doxygen 1.15.0 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "../../search/",'.html');
+</script>
+<script type="text/javascript">
+$(function() { codefold.init(); });
+</script>
+<script type="text/javascript" src="../../menudata.js"></script>
+<script type="text/javascript" src="../../menu.js"></script>
+<script type="text/javascript">
+$(function() {
+  initMenu('../../',true,false,'search.php','搜索',true);
+  $(function() { init_search(); });
+});
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(function(){initNavTree('d2/d5a/syms__elf_8c_source.html','../../',''); });
+</script>
+<div id="container">
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">载入中...</div>
+<div class="SRStatus" id="Searching">搜索中...</div>
+<div class="SRStatus" id="NoMatches">未找到</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">syms_elf.c</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="../../d2/d5a/syms__elf_8c.html">浏览该文件的文档.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="comment">// Copyright Epic Games, Inc. All Rights Reserved.</span></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span> </div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="preprocessor">#ifndef SYMS_ELF_C</span></div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno"><a class="line" href="../../d2/d5a/syms__elf_8c.html#a18d88a59dbb61e508ea95fdaa97a167f">    4</a></span><span class="preprocessor">#define SYMS_ELF_C</span></div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span></div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="comment">//~ NOTE(nick): Generated</span></div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span> </div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="preprocessor">#include &quot;<a class="code" href="../../d1/d1f/syms__meta__elf_8c.html">syms/core/generated/syms_meta_elf.c</a>&quot;</span></div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span></div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="comment">//~ rjf: 32 =&gt; 64 bit conversions</span></div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span> </div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><a class="code hl_define" href="../../d0/d78/syms__base_8h.html#aa3ac3017005859acf0ec2d1b6880e9eb">SYMS_API</a> <a class="code hl_struct" href="../../d2/de9/struct_s_y_m_s___elf_ehdr64.html">SYMS_ElfEhdr64</a></div>
+<div class="foldopen" id="foldopen00015" data-start="{" data-end="}">
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno"><a class="line" href="../../d2/d5a/syms__elf_8c.html#af00dc5da9c1e3f94e1a656c92046ca6f">   15</a></span><a class="code hl_function" href="../../d2/d5a/syms__elf_8c.html#af00dc5da9c1e3f94e1a656c92046ca6f">syms_elf_ehdr64_from_ehdr32</a>(<a class="code hl_struct" href="../../de/dd3/struct_s_y_m_s___elf_ehdr32.html">SYMS_ElfEhdr32</a> h32){</div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span>  <a class="code hl_struct" href="../../d2/de9/struct_s_y_m_s___elf_ehdr64.html">SYMS_ElfEhdr64</a> h64;</div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span>  <a class="code hl_define" href="../../d0/d78/syms__base_8h.html#a5c506b8aae6d7db756b01485a3c9bf47">syms_memzero_struct</a>(&amp;h64);</div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>  <a class="code hl_define" href="../../d9/d68/syms__crt__overrides_8h.html#a518b4d225acbcd387306efbc0c4eec93">syms_memmove</a>(h64.<a class="code hl_variable" href="../../d2/de9/struct_s_y_m_s___elf_ehdr64.html#a4c3d3726bf7ab5d39455f16ff915823f">e_ident</a>, h32.<a class="code hl_variable" href="../../de/dd3/struct_s_y_m_s___elf_ehdr32.html#aa9084d873d1969b4c4dff0458ec531e6">e_ident</a>, <span class="keyword">sizeof</span>(h64.<a class="code hl_variable" href="../../d2/de9/struct_s_y_m_s___elf_ehdr64.html#a4c3d3726bf7ab5d39455f16ff915823f">e_ident</a>));</div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>  h64.<a class="code hl_variable" href="../../d2/de9/struct_s_y_m_s___elf_ehdr64.html#a75c388f5e09bf600e22cdf8214ecbadb">e_type</a>      = h32.<a class="code hl_variable" href="../../de/dd3/struct_s_y_m_s___elf_ehdr32.html#a4e365933d4c154107f7f68cdc96b9b4f">e_type</a>;</div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>  h64.<a class="code hl_variable" href="../../d2/de9/struct_s_y_m_s___elf_ehdr64.html#a579a628324893732071f3a0c12adb049">e_machine</a>   = h32.<a class="code hl_variable" href="../../de/dd3/struct_s_y_m_s___elf_ehdr32.html#a86f5e0eaca35e49189bbe63a3cd0a2d8">e_machine</a>;</div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>  h64.<a class="code hl_variable" href="../../d2/de9/struct_s_y_m_s___elf_ehdr64.html#ad7b266ca7118d8368428f4f4e5601421">e_version</a>   = h32.<a class="code hl_variable" href="../../de/dd3/struct_s_y_m_s___elf_ehdr32.html#a0b5bd01fd113498e0d83c80bc900be8c">e_version</a>;</div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>  h64.<a class="code hl_variable" href="../../d2/de9/struct_s_y_m_s___elf_ehdr64.html#a07bb1e808338d2df21f413a27f027536">e_entry</a>     = (<a class="code hl_define" href="../../d9/d68/syms__crt__overrides_8h.html#a6c4a911df697efbc58a162540d3ec697">SYMS_U64</a>)h32.<a class="code hl_variable" href="../../de/dd3/struct_s_y_m_s___elf_ehdr32.html#aab5086cf6a94b986dd300440933052e0">e_entry</a>;</div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>  h64.<a class="code hl_variable" href="../../d2/de9/struct_s_y_m_s___elf_ehdr64.html#a0cf57af99fa6d7eefc767576fb509841">e_phoff</a>     = (<a class="code hl_define" href="../../d9/d68/syms__crt__overrides_8h.html#a6c4a911df697efbc58a162540d3ec697">SYMS_U64</a>)h32.<a class="code hl_variable" href="../../de/dd3/struct_s_y_m_s___elf_ehdr32.html#a0ee169d653ffc064fce4d0d3d85d974e">e_phoff</a>;</div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>  h64.<a class="code hl_variable" href="../../d2/de9/struct_s_y_m_s___elf_ehdr64.html#a040efb16e548d7fe64b5579861d7e9ef">e_shoff</a>     = (<a class="code hl_define" href="../../d9/d68/syms__crt__overrides_8h.html#a6c4a911df697efbc58a162540d3ec697">SYMS_U64</a>)h32.<a class="code hl_variable" href="../../de/dd3/struct_s_y_m_s___elf_ehdr32.html#a31e6df2d87b5ba7fb20cc52cebcffa90">e_shoff</a>;</div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>  h64.<a class="code hl_variable" href="../../d2/de9/struct_s_y_m_s___elf_ehdr64.html#a86411c991a51131f6d95f9bcad61d622">e_flags</a>     = h32.<a class="code hl_variable" href="../../de/dd3/struct_s_y_m_s___elf_ehdr32.html#a890ed08e69285adb140b5ddeeaff8436">e_flags</a>;</div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>  h64.<a class="code hl_variable" href="../../d2/de9/struct_s_y_m_s___elf_ehdr64.html#a4087b6146adc4cb033f44ca7e802ba9a">e_ehsize</a>    = h32.<a class="code hl_variable" href="../../de/dd3/struct_s_y_m_s___elf_ehdr32.html#a74f8aff2224ae0af95c3fcfd2ab54f95">e_ehsize</a>;</div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>  h64.<a class="code hl_variable" href="../../d2/de9/struct_s_y_m_s___elf_ehdr64.html#acdf292900e4938785731a468817ef363">e_phentsize</a> = h32.<a class="code hl_variable" href="../../de/dd3/struct_s_y_m_s___elf_ehdr32.html#af83d892a14920c124509b197b0c14599">e_phentsize</a>;</div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>  h64.<a class="code hl_variable" href="../../d2/de9/struct_s_y_m_s___elf_ehdr64.html#a4612c8f5f2414ebbdc7aeac3ab7c4a72">e_phnum</a>     = h32.<a class="code hl_variable" href="../../de/dd3/struct_s_y_m_s___elf_ehdr32.html#afe696cb2c6d58d9a0aff0ab11c647dcc">e_phnum</a>;</div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>  h64.<a class="code hl_variable" href="../../d2/de9/struct_s_y_m_s___elf_ehdr64.html#aa61827a40427514ade56e9e64246eed9">e_shentsize</a> = h32.<a class="code hl_variable" href="../../de/dd3/struct_s_y_m_s___elf_ehdr32.html#ab1d9d6b9728abbfbd6791e582f17a63d">e_shentsize</a>;</div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>  h64.<a class="code hl_variable" href="../../d2/de9/struct_s_y_m_s___elf_ehdr64.html#af94c0547881e0cc2544b6c427117924f">e_shnum</a>     = h32.<a class="code hl_variable" href="../../de/dd3/struct_s_y_m_s___elf_ehdr32.html#a12d0bc7f98c1520c2015c4c4f65201f9">e_shnum</a>;</div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>  h64.<a class="code hl_variable" href="../../d2/de9/struct_s_y_m_s___elf_ehdr64.html#a30bc212610d150899039f265e3ec0c15">e_shstrndx</a>  = h32.<a class="code hl_variable" href="../../de/dd3/struct_s_y_m_s___elf_ehdr32.html#a4fab814ff2542202cc622b9bf9ad1c41">e_shstrndx</a>;</div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>  <span class="keywordflow">return</span>(h64);</div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>}</div>
+</div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span> </div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span><a class="code hl_define" href="../../d0/d78/syms__base_8h.html#aa3ac3017005859acf0ec2d1b6880e9eb">SYMS_API</a> <a class="code hl_struct" href="../../d5/dff/struct_s_y_m_s___elf_shdr64.html">SYMS_ElfShdr64</a></div>
+<div class="foldopen" id="foldopen00036" data-start="{" data-end="}">
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno"><a class="line" href="../../d2/d5a/syms__elf_8c.html#a5942302233d20c8c9e6b27005c94e0d8">   36</a></span><a class="code hl_function" href="../../d2/d5a/syms__elf_8c.html#a5942302233d20c8c9e6b27005c94e0d8">syms_elf_shdr64_from_shdr32</a>(<a class="code hl_struct" href="../../dd/d84/struct_s_y_m_s___elf_shdr32.html">SYMS_ElfShdr32</a> h32){</div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>  <a class="code hl_struct" href="../../d5/dff/struct_s_y_m_s___elf_shdr64.html">SYMS_ElfShdr64</a> h64;</div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>  <a class="code hl_define" href="../../d0/d78/syms__base_8h.html#a5c506b8aae6d7db756b01485a3c9bf47">syms_memzero_struct</a>(&amp;h64);</div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>  h64.<a class="code hl_variable" href="../../d5/dff/struct_s_y_m_s___elf_shdr64.html#a7f081972398fedb5f057028d15a6c2f0">sh_name</a>      = h32.<a class="code hl_variable" href="../../dd/d84/struct_s_y_m_s___elf_shdr32.html#afa3a07759b4a164f5d6b34e9046bc5a3">sh_name</a>;</div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>  h64.<a class="code hl_variable" href="../../d5/dff/struct_s_y_m_s___elf_shdr64.html#a8faeb6dc56ed4fd74c69f1781e7e2a40">sh_type</a>      = h32.<a class="code hl_variable" href="../../dd/d84/struct_s_y_m_s___elf_shdr32.html#a7e21ef0a53efa40731ee82664cc3b5f1">sh_type</a>;</div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>  h64.<a class="code hl_variable" href="../../d5/dff/struct_s_y_m_s___elf_shdr64.html#a4e7ba0a6673a01a359fe513b0e6e2f0e">sh_flags</a>     = (<a class="code hl_define" href="../../d9/d68/syms__crt__overrides_8h.html#a6c4a911df697efbc58a162540d3ec697">SYMS_U64</a>)h32.<a class="code hl_variable" href="../../dd/d84/struct_s_y_m_s___elf_shdr32.html#a77ea54755ee5d0a751f5cea5f17e4e0e">sh_flags</a>;</div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>  h64.<a class="code hl_variable" href="../../d5/dff/struct_s_y_m_s___elf_shdr64.html#aafaa4168d71810761e231fc56b3c60bc">sh_addr</a>      = (<a class="code hl_define" href="../../d9/d68/syms__crt__overrides_8h.html#a6c4a911df697efbc58a162540d3ec697">SYMS_U64</a>)h32.<a class="code hl_variable" href="../../dd/d84/struct_s_y_m_s___elf_shdr32.html#a10f528292056d5d6352200729e3af9e6">sh_addr</a>;</div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>  h64.<a class="code hl_variable" href="../../d5/dff/struct_s_y_m_s___elf_shdr64.html#adeb7b4c5008b1e918aec6a1c931ecb7a">sh_offset</a>    = (<a class="code hl_define" href="../../d9/d68/syms__crt__overrides_8h.html#a6c4a911df697efbc58a162540d3ec697">SYMS_U64</a>)h32.<a class="code hl_variable" href="../../dd/d84/struct_s_y_m_s___elf_shdr32.html#aab7214dff904f8fc3b26f95a027121a7">sh_offset</a>;</div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>  h64.<a class="code hl_variable" href="../../d5/dff/struct_s_y_m_s___elf_shdr64.html#a4fbd74c5ff7a5dde3cfbce27698b393b">sh_size</a>      = (<a class="code hl_define" href="../../d9/d68/syms__crt__overrides_8h.html#a6c4a911df697efbc58a162540d3ec697">SYMS_U64</a>)h32.<a class="code hl_variable" href="../../dd/d84/struct_s_y_m_s___elf_shdr32.html#ae178cd796db16b163cb2787a284ce18d">sh_size</a>;</div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>  h64.<a class="code hl_variable" href="../../d5/dff/struct_s_y_m_s___elf_shdr64.html#adbf03a142341fa589ccc06d9b7cb6477">sh_link</a>      = h32.<a class="code hl_variable" href="../../dd/d84/struct_s_y_m_s___elf_shdr32.html#a729d1e1a3754177d4b95321f00e6dc47">sh_link</a>;</div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>  h64.<a class="code hl_variable" href="../../d5/dff/struct_s_y_m_s___elf_shdr64.html#aae8a0e564646c7f14086357fc7c43a84">sh_info</a>      = h32.<a class="code hl_variable" href="../../dd/d84/struct_s_y_m_s___elf_shdr32.html#a25ac1950eb2ff86e5b48737973e89173">sh_info</a>;</div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>  h64.<a class="code hl_variable" href="../../d5/dff/struct_s_y_m_s___elf_shdr64.html#af51fdbce34201367de4bcc0da1eeac95">sh_addralign</a> = (<a class="code hl_define" href="../../d9/d68/syms__crt__overrides_8h.html#a6c4a911df697efbc58a162540d3ec697">SYMS_U64</a>)h32.<a class="code hl_variable" href="../../dd/d84/struct_s_y_m_s___elf_shdr32.html#ac0466ea3b195b899156d588b12c108fc">sh_addralign</a>;</div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>  h64.<a class="code hl_variable" href="../../d5/dff/struct_s_y_m_s___elf_shdr64.html#afa64ff36d36a739cb36a55d5346c6385">sh_entsize</a>   = (<a class="code hl_define" href="../../d9/d68/syms__crt__overrides_8h.html#a6c4a911df697efbc58a162540d3ec697">SYMS_U64</a>)h32.<a class="code hl_variable" href="../../dd/d84/struct_s_y_m_s___elf_shdr32.html#a6070f40d24ff015df6d007fae3c23b69">sh_entsize</a>;</div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>  <span class="keywordflow">return</span>(h64);</div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>}</div>
+</div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span> </div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span><a class="code hl_define" href="../../d0/d78/syms__base_8h.html#aa3ac3017005859acf0ec2d1b6880e9eb">SYMS_API</a> <a class="code hl_struct" href="../../da/d25/struct_s_y_m_s___elf_phdr64.html">SYMS_ElfPhdr64</a></div>
+<div class="foldopen" id="foldopen00053" data-start="{" data-end="}">
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno"><a class="line" href="../../d2/d5a/syms__elf_8c.html#a1971ddc612091a948a8601e164f3c4ee">   53</a></span><a class="code hl_function" href="../../d2/d5a/syms__elf_8c.html#a1971ddc612091a948a8601e164f3c4ee">syms_elf_phdr64_from_phdr32</a>(<a class="code hl_struct" href="../../d0/d8e/struct_s_y_m_s___elf_phdr32.html">SYMS_ElfPhdr32</a> h32){</div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>  <a class="code hl_struct" href="../../da/d25/struct_s_y_m_s___elf_phdr64.html">SYMS_ElfPhdr64</a> h64;</div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>  <a class="code hl_define" href="../../d0/d78/syms__base_8h.html#a5c506b8aae6d7db756b01485a3c9bf47">syms_memzero_struct</a>(&amp;h64);</div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>  h64.<a class="code hl_variable" href="../../da/d25/struct_s_y_m_s___elf_phdr64.html#a656f62cb0c81656cb167f2a073a8954a">p_type</a>   = h32.<a class="code hl_variable" href="../../d0/d8e/struct_s_y_m_s___elf_phdr32.html#abe74aa50556b1c54b5b5c5ce9c21594c">p_type</a>;</div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>  h64.<a class="code hl_variable" href="../../da/d25/struct_s_y_m_s___elf_phdr64.html#a02b9185dfb64264d53e65856fc8df75d">p_flags</a>  = h32.<a class="code hl_variable" href="../../d0/d8e/struct_s_y_m_s___elf_phdr32.html#a498210536cd475df0d85cc61befda1bf">p_flags</a>;</div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>  h64.<a class="code hl_variable" href="../../da/d25/struct_s_y_m_s___elf_phdr64.html#a4730dade35f260659a162604479d20c8">p_offset</a> = (<a class="code hl_define" href="../../d9/d68/syms__crt__overrides_8h.html#a6c4a911df697efbc58a162540d3ec697">SYMS_U64</a>)h32.<a class="code hl_variable" href="../../d0/d8e/struct_s_y_m_s___elf_phdr32.html#adfb4fe2ddd77b2c0ad5497fee9ac3f33">p_offset</a>;</div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>  h64.<a class="code hl_variable" href="../../da/d25/struct_s_y_m_s___elf_phdr64.html#aaa2e809552fff1fd13c29814e1867161">p_vaddr</a>  = (<a class="code hl_define" href="../../d9/d68/syms__crt__overrides_8h.html#a6c4a911df697efbc58a162540d3ec697">SYMS_U64</a>)h32.<a class="code hl_variable" href="../../d0/d8e/struct_s_y_m_s___elf_phdr32.html#a34115b2897511bf52475b6f3ecbd8c7b">p_vaddr</a>;</div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>  h64.<a class="code hl_variable" href="../../da/d25/struct_s_y_m_s___elf_phdr64.html#abc80daa5489bade5e416b03d1ea1e797">p_paddr</a>  = (<a class="code hl_define" href="../../d9/d68/syms__crt__overrides_8h.html#a6c4a911df697efbc58a162540d3ec697">SYMS_U64</a>)h32.<a class="code hl_variable" href="../../d0/d8e/struct_s_y_m_s___elf_phdr32.html#a55fa089169d0cf180042a586409702a7">p_paddr</a>;</div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>  h64.<a class="code hl_variable" href="../../da/d25/struct_s_y_m_s___elf_phdr64.html#ab2dd088e89ca7e358343c7fea66d7b86">p_filesz</a> = (<a class="code hl_define" href="../../d9/d68/syms__crt__overrides_8h.html#a6c4a911df697efbc58a162540d3ec697">SYMS_U64</a>)h32.<a class="code hl_variable" href="../../d0/d8e/struct_s_y_m_s___elf_phdr32.html#a528fdaf0e0021705eb45ce035d7688af">p_filesz</a>;</div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>  h64.<a class="code hl_variable" href="../../da/d25/struct_s_y_m_s___elf_phdr64.html#aa069b9ea76e2706a34b3f2477638af64">p_memsz</a>  = (<a class="code hl_define" href="../../d9/d68/syms__crt__overrides_8h.html#a6c4a911df697efbc58a162540d3ec697">SYMS_U64</a>)h32.<a class="code hl_variable" href="../../d0/d8e/struct_s_y_m_s___elf_phdr32.html#af7485869be2e89f9c68c4cb79e521a62">p_memsz</a>;</div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>  h64.<a class="code hl_variable" href="../../da/d25/struct_s_y_m_s___elf_phdr64.html#a3e99b3047bb8b0d06fe2b972184c4b18">p_align</a>  = (<a class="code hl_define" href="../../d9/d68/syms__crt__overrides_8h.html#a6c4a911df697efbc58a162540d3ec697">SYMS_U64</a>)h32.<a class="code hl_variable" href="../../d0/d8e/struct_s_y_m_s___elf_phdr32.html#a6d934cae7461e7d364a861249a57cda8">p_align</a>;</div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>  <span class="keywordflow">return</span>(h64);</div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>}</div>
+</div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span> </div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span><a class="code hl_define" href="../../d0/d78/syms__base_8h.html#aa3ac3017005859acf0ec2d1b6880e9eb">SYMS_API</a> <a class="code hl_struct" href="../../df/def/struct_s_y_m_s___elf_dyn64.html">SYMS_ElfDyn64</a></div>
+<div class="foldopen" id="foldopen00068" data-start="{" data-end="}">
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno"><a class="line" href="../../d2/d5a/syms__elf_8c.html#a95ac04017c81905b1d748964f7634df3">   68</a></span><a class="code hl_function" href="../../d2/d5a/syms__elf_8c.html#a95ac04017c81905b1d748964f7634df3">syms_elf_dyn64_from_dyn32</a>(<a class="code hl_struct" href="../../dd/df1/struct_s_y_m_s___elf_dyn32.html">SYMS_ElfDyn32</a> h32){</div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>  <a class="code hl_struct" href="../../df/def/struct_s_y_m_s___elf_dyn64.html">SYMS_ElfDyn64</a> h64;</div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>  h64.<a class="code hl_variable" href="../../df/def/struct_s_y_m_s___elf_dyn64.html#a1b6b8905b183faa5447c8c0b843b0874">tag</a> = (<a class="code hl_define" href="../../d9/d68/syms__crt__overrides_8h.html#a6c4a911df697efbc58a162540d3ec697">SYMS_U64</a>)h32.<a class="code hl_variable" href="../../dd/df1/struct_s_y_m_s___elf_dyn32.html#a2b459fc331d2ca978087a7fe3f9147e4">tag</a>;</div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>  h64.<a class="code hl_variable" href="../../df/def/struct_s_y_m_s___elf_dyn64.html#ac5653080e8bab74418b94fdcc3233c68">val</a> = (<a class="code hl_define" href="../../d9/d68/syms__crt__overrides_8h.html#a6c4a911df697efbc58a162540d3ec697">SYMS_U64</a>)h32.<a class="code hl_variable" href="../../dd/df1/struct_s_y_m_s___elf_dyn32.html#aefa3f3e8d37ac68c1f0cccee779d08c4">val</a>;</div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>  <span class="keywordflow">return</span> h64;</div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>}</div>
+</div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span> </div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span><a class="code hl_define" href="../../d0/d78/syms__base_8h.html#aa3ac3017005859acf0ec2d1b6880e9eb">SYMS_API</a> <a class="code hl_struct" href="../../dc/d24/struct_s_y_m_s___elf_sym64.html">SYMS_ElfSym64</a></div>
+<div class="foldopen" id="foldopen00076" data-start="{" data-end="}">
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno"><a class="line" href="../../d2/d5a/syms__elf_8c.html#a9135525cdd0bb05d1025761adaef0d2b">   76</a></span><a class="code hl_function" href="../../d2/d5a/syms__elf_8c.html#a9135525cdd0bb05d1025761adaef0d2b">syms_elf_sym64_from_sym32</a>(<a class="code hl_struct" href="../../df/de8/struct_s_y_m_s___elf_sym32.html">SYMS_ElfSym32</a> sym32)</div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span>{</div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>  <a class="code hl_struct" href="../../dc/d24/struct_s_y_m_s___elf_sym64.html">SYMS_ElfSym64</a> sym64;</div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>  sym64.<a class="code hl_variable" href="../../dc/d24/struct_s_y_m_s___elf_sym64.html#a5b366f3e110c8fe51a42dbddf42dcd84">st_name</a>  = sym32.<a class="code hl_variable" href="../../df/de8/struct_s_y_m_s___elf_sym32.html#ade7e4acd0629afe3f316c42f8bf06500">st_name</a>;</div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>  sym64.<a class="code hl_variable" href="../../dc/d24/struct_s_y_m_s___elf_sym64.html#a9ae59d2fdbc99047fad2b9c557ea5ada">st_value</a> = sym32.<a class="code hl_variable" href="../../df/de8/struct_s_y_m_s___elf_sym32.html#a8bad920ebb148c45fc77c43d2a4a3625">st_value</a>;</div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>  sym64.<a class="code hl_variable" href="../../dc/d24/struct_s_y_m_s___elf_sym64.html#a628b0b177b1ffbd0559675bc5a171b59">st_size</a>  = sym32.<a class="code hl_variable" href="../../df/de8/struct_s_y_m_s___elf_sym32.html#a80d7fdf998c0dc85001e821bec8d6ff7">st_size</a>;</div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span>  sym64.<a class="code hl_variable" href="../../dc/d24/struct_s_y_m_s___elf_sym64.html#a83af432662184bad9733f840c9406ca5">st_info</a>  = sym32.<a class="code hl_variable" href="../../df/de8/struct_s_y_m_s___elf_sym32.html#a12e85d46a1393912e1c45bd245286a40">st_info</a>;</div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span>  sym64.<a class="code hl_variable" href="../../dc/d24/struct_s_y_m_s___elf_sym64.html#a7e55bc290e0f5b63e1122a0c5a522fa1">st_other</a> = sym32.<a class="code hl_variable" href="../../df/de8/struct_s_y_m_s___elf_sym32.html#acc05d9903a2e9415e68d02fa934f584e">st_other</a>;</div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span>  sym64.<a class="code hl_variable" href="../../dc/d24/struct_s_y_m_s___elf_sym64.html#a213fcab68d7c8a0affd04b04b98c9e14">st_shndx</a> = sym32.<a class="code hl_variable" href="../../df/de8/struct_s_y_m_s___elf_sym32.html#ac2ca4d1c655e5180fd3e521ec3cb505a">st_shndx</a>;</div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span>  <span class="keywordflow">return</span> sym64;</div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span>}</div>
+</div>
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span> </div>
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span><a class="code hl_define" href="../../d0/d78/syms__base_8h.html#aa3ac3017005859acf0ec2d1b6880e9eb">SYMS_API</a> <a class="code hl_struct" href="../../d3/dea/struct_s_y_m_s___elf_rel64.html">SYMS_ElfRel64</a></div>
+<div class="foldopen" id="foldopen00089" data-start="{" data-end="}">
+<div class="line"><a id="l00089" name="l00089"></a><span class="lineno"><a class="line" href="../../d2/d5a/syms__elf_8c.html#ab5d34114231c8e3854f7e4b710c20fb5">   89</a></span><a class="code hl_function" href="../../d2/d5a/syms__elf_8c.html#ab5d34114231c8e3854f7e4b710c20fb5">syms_elf_rel64_from_rel32</a>(<a class="code hl_struct" href="../../d1/d83/struct_s_y_m_s___elf_rel32.html">SYMS_ElfRel32</a> rel32)</div>
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span>{</div>
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span>  <a class="code hl_define" href="../../d9/d68/syms__crt__overrides_8h.html#a737aa9c9dd3585c47cbcd7b989cee818">SYMS_U32</a> sym = <a class="code hl_define" href="../../d6/da0/syms__elf_8h.html#aa696bff757be731d7960b978b560f498">SYMS_ELF32_R_SYM</a>(rel32.<a class="code hl_variable" href="../../d1/d83/struct_s_y_m_s___elf_rel32.html#ab9f061f4da87f9518abe8bc7bd1ed044">r_info</a>);</div>
+<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span>  <a class="code hl_define" href="../../d9/d68/syms__crt__overrides_8h.html#a737aa9c9dd3585c47cbcd7b989cee818">SYMS_U32</a> type = <a class="code hl_define" href="../../d6/da0/syms__elf_8h.html#a235cfd218efa0c6272e9b52c89064d83">SYMS_ELF32_R_TYPE</a>(rel32.<a class="code hl_variable" href="../../d1/d83/struct_s_y_m_s___elf_rel32.html#ab9f061f4da87f9518abe8bc7bd1ed044">r_info</a>);</div>
+<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span>  <a class="code hl_struct" href="../../d3/dea/struct_s_y_m_s___elf_rel64.html">SYMS_ElfRel64</a> rel64;</div>
+<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span>  rel64.<a class="code hl_variable" href="../../d3/dea/struct_s_y_m_s___elf_rel64.html#ab329e4471e959ef66c2d73f668b519ca">r_info</a> = <a class="code hl_define" href="../../d6/da0/syms__elf_8h.html#a59b4b679cad80054c12bb89133a6e152">SYMS_ELF64_R_INFO</a>(sym, type);</div>
+<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span>  rel64.<a class="code hl_variable" href="../../d3/dea/struct_s_y_m_s___elf_rel64.html#a3c85cdb7d72c15cf9316399b0cb6a6a5">r_offset</a> = rel32.<a class="code hl_variable" href="../../d1/d83/struct_s_y_m_s___elf_rel32.html#ae7f4c759739a1f22afd8fef0e9ef58b4">r_offset</a>;</div>
+<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span>  <span class="keywordflow">return</span> rel64;</div>
+<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span>}</div>
+</div>
+<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span> </div>
+<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span><a class="code hl_define" href="../../d0/d78/syms__base_8h.html#aa3ac3017005859acf0ec2d1b6880e9eb">SYMS_API</a> <a class="code hl_struct" href="../../d1/d1d/struct_s_y_m_s___elf_rela64.html">SYMS_ElfRela64</a></div>
+<div class="foldopen" id="foldopen00100" data-start="{" data-end="}">
+<div class="line"><a id="l00100" name="l00100"></a><span class="lineno"><a class="line" href="../../d2/d5a/syms__elf_8c.html#a34fad89b922fbd833e1258ca32c9ab11">  100</a></span><a class="code hl_function" href="../../d2/d5a/syms__elf_8c.html#a34fad89b922fbd833e1258ca32c9ab11">syms_elf_rela64_from_rela32</a>(<a class="code hl_struct" href="../../d7/d8a/struct_s_y_m_s___elf_rela32.html">SYMS_ElfRela32</a> rela32)</div>
+<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span>{</div>
+<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span>  <a class="code hl_define" href="../../d9/d68/syms__crt__overrides_8h.html#a737aa9c9dd3585c47cbcd7b989cee818">SYMS_U32</a> sym = <a class="code hl_define" href="../../d6/da0/syms__elf_8h.html#aa696bff757be731d7960b978b560f498">SYMS_ELF32_R_SYM</a>(rela32.<a class="code hl_variable" href="../../d7/d8a/struct_s_y_m_s___elf_rela32.html#a0697cb31dc84718c31a1d9472b5a52f3">r_info</a>);</div>
+<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span>  <a class="code hl_define" href="../../d9/d68/syms__crt__overrides_8h.html#a737aa9c9dd3585c47cbcd7b989cee818">SYMS_U32</a> type = <a class="code hl_define" href="../../d6/da0/syms__elf_8h.html#a235cfd218efa0c6272e9b52c89064d83">SYMS_ELF32_R_TYPE</a>(rela32.<a class="code hl_variable" href="../../d7/d8a/struct_s_y_m_s___elf_rela32.html#a0697cb31dc84718c31a1d9472b5a52f3">r_info</a>);</div>
+<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span>  <a class="code hl_struct" href="../../d1/d1d/struct_s_y_m_s___elf_rela64.html">SYMS_ElfRela64</a> rela64;</div>
+<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span>  rela64.<a class="code hl_variable" href="../../d1/d1d/struct_s_y_m_s___elf_rela64.html#a1384222b6407f9b4b3ab604b12336459">r_offset</a> = rela32.<a class="code hl_variable" href="../../d7/d8a/struct_s_y_m_s___elf_rela32.html#a0697cb31dc84718c31a1d9472b5a52f3">r_info</a>;</div>
+<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span>  rela64.<a class="code hl_variable" href="../../d1/d1d/struct_s_y_m_s___elf_rela64.html#a006318213f1779e717cd1b152c9ab7ce">r_info</a> = <a class="code hl_define" href="../../d6/da0/syms__elf_8h.html#a59b4b679cad80054c12bb89133a6e152">SYMS_ELF64_R_INFO</a>(sym, type);</div>
+<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span>  rela64.<a class="code hl_variable" href="../../d1/d1d/struct_s_y_m_s___elf_rela64.html#a852c4e5c93aed7d25419d8ec476ac768">r_addend</a> = rela32.<a class="code hl_variable" href="../../d7/d8a/struct_s_y_m_s___elf_rela32.html#acd27c4d9346728606f4579bc47cf5305">r_addend</a>;</div>
+<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span>  <span class="keywordflow">return</span> rela64;</div>
+<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span>}</div>
+</div>
+<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span></div>
+<div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span><span class="comment">//~ rjf: .gnu_debuglink section 32-bit CRC</span></div>
+<div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span> </div>
+<div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span><span class="comment">// NOTE(rjf): see: https://sourceware.org/gdb/current/onlinedocs/gdb/Separate-Debug-Files.html</span></div>
+<div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span><a class="code hl_define" href="../../d0/d78/syms__base_8h.html#aa3ac3017005859acf0ec2d1b6880e9eb">SYMS_API</a> <a class="code hl_define" href="../../d9/d68/syms__crt__overrides_8h.html#a737aa9c9dd3585c47cbcd7b989cee818">SYMS_U32</a></div>
+<div class="foldopen" id="foldopen00116" data-start="{" data-end="}">
+<div class="line"><a id="l00116" name="l00116"></a><span class="lineno"><a class="line" href="../../d2/d5a/syms__elf_8c.html#a1b4d0ce8dc19c9037fd80328024c259b">  116</a></span><a class="code hl_function" href="../../d2/d5a/syms__elf_8c.html#a1b4d0ce8dc19c9037fd80328024c259b">syms_elf_gnu_debuglink_crc32</a>(<a class="code hl_define" href="../../d9/d68/syms__crt__overrides_8h.html#a737aa9c9dd3585c47cbcd7b989cee818">SYMS_U32</a> crc, <a class="code hl_struct" href="../../db/d4b/struct_s_y_m_s___string8.html">SYMS_String8</a> data)</div>
+<div class="line"><a id="l00117" name="l00117"></a><span class="lineno">  117</span>{</div>
+<div class="line"><a id="l00118" name="l00118"></a><span class="lineno">  118</span>  <span class="keyword">static</span> <a class="code hl_define" href="../../d9/d68/syms__crt__overrides_8h.html#a737aa9c9dd3585c47cbcd7b989cee818">SYMS_U32</a> crc32_table[256] =</div>
+<div class="line"><a id="l00119" name="l00119"></a><span class="lineno">  119</span>  {</div>
+<div class="line"><a id="l00120" name="l00120"></a><span class="lineno">  120</span>    0x00000000, 0x77073096, 0xee0e612c, 0x990951ba, 0x076dc419,</div>
+<div class="line"><a id="l00121" name="l00121"></a><span class="lineno">  121</span>    0x706af48f, 0xe963a535, 0x9e6495a3, 0x0edb8832, 0x79dcb8a4,</div>
+<div class="line"><a id="l00122" name="l00122"></a><span class="lineno">  122</span>    0xe0d5e91e, 0x97d2d988, 0x09b64c2b, 0x7eb17cbd, 0xe7b82d07,</div>
+<div class="line"><a id="l00123" name="l00123"></a><span class="lineno">  123</span>    0x90bf1d91, 0x1db71064, 0x6ab020f2, 0xf3b97148, 0x84be41de,</div>
+<div class="line"><a id="l00124" name="l00124"></a><span class="lineno">  124</span>    0x1adad47d, 0x6ddde4eb, 0xf4d4b551, 0x83d385c7, 0x136c9856,</div>
+<div class="line"><a id="l00125" name="l00125"></a><span class="lineno">  125</span>    0x646ba8c0, 0xfd62f97a, 0x8a65c9ec, 0x14015c4f, 0x63066cd9,</div>
+<div class="line"><a id="l00126" name="l00126"></a><span class="lineno">  126</span>    0xfa0f3d63, 0x8d080df5, 0x3b6e20c8, 0x4c69105e, 0xd56041e4,</div>
+<div class="line"><a id="l00127" name="l00127"></a><span class="lineno">  127</span>    0xa2677172, 0x3c03e4d1, 0x4b04d447, 0xd20d85fd, 0xa50ab56b,</div>
+<div class="line"><a id="l00128" name="l00128"></a><span class="lineno">  128</span>    0x35b5a8fa, 0x42b2986c, 0xdbbbc9d6, 0xacbcf940, 0x32d86ce3,</div>
+<div class="line"><a id="l00129" name="l00129"></a><span class="lineno">  129</span>    0x45df5c75, 0xdcd60dcf, 0xabd13d59, 0x26d930ac, 0x51de003a,</div>
+<div class="line"><a id="l00130" name="l00130"></a><span class="lineno">  130</span>    0xc8d75180, 0xbfd06116, 0x21b4f4b5, 0x56b3c423, 0xcfba9599,</div>
+<div class="line"><a id="l00131" name="l00131"></a><span class="lineno">  131</span>    0xb8bda50f, 0x2802b89e, 0x5f058808, 0xc60cd9b2, 0xb10be924,</div>
+<div class="line"><a id="l00132" name="l00132"></a><span class="lineno">  132</span>    0x2f6f7c87, 0x58684c11, 0xc1611dab, 0xb6662d3d, 0x76dc4190,</div>
+<div class="line"><a id="l00133" name="l00133"></a><span class="lineno">  133</span>    0x01db7106, 0x98d220bc, 0xefd5102a, 0x71b18589, 0x06b6b51f,</div>
+<div class="line"><a id="l00134" name="l00134"></a><span class="lineno">  134</span>    0x9fbfe4a5, 0xe8b8d433, 0x7807c9a2, 0x0f00f934, 0x9609a88e,</div>
+<div class="line"><a id="l00135" name="l00135"></a><span class="lineno">  135</span>    0xe10e9818, 0x7f6a0dbb, 0x086d3d2d, 0x91646c97, 0xe6635c01,</div>
+<div class="line"><a id="l00136" name="l00136"></a><span class="lineno">  136</span>    0x6b6b51f4, 0x1c6c6162, 0x856530d8, 0xf262004e, 0x6c0695ed,</div>
+<div class="line"><a id="l00137" name="l00137"></a><span class="lineno">  137</span>    0x1b01a57b, 0x8208f4c1, 0xf50fc457, 0x65b0d9c6, 0x12b7e950,</div>
+<div class="line"><a id="l00138" name="l00138"></a><span class="lineno">  138</span>    0x8bbeb8ea, 0xfcb9887c, 0x62dd1ddf, 0x15da2d49, 0x8cd37cf3,</div>
+<div class="line"><a id="l00139" name="l00139"></a><span class="lineno">  139</span>    0xfbd44c65, 0x4db26158, 0x3ab551ce, 0xa3bc0074, 0xd4bb30e2,</div>
+<div class="line"><a id="l00140" name="l00140"></a><span class="lineno">  140</span>    0x4adfa541, 0x3dd895d7, 0xa4d1c46d, 0xd3d6f4fb, 0x4369e96a,</div>
+<div class="line"><a id="l00141" name="l00141"></a><span class="lineno">  141</span>    0x346ed9fc, 0xad678846, 0xda60b8d0, 0x44042d73, 0x33031de5,</div>
+<div class="line"><a id="l00142" name="l00142"></a><span class="lineno">  142</span>    0xaa0a4c5f, 0xdd0d7cc9, 0x5005713c, 0x270241aa, 0xbe0b1010,</div>
+<div class="line"><a id="l00143" name="l00143"></a><span class="lineno">  143</span>    0xc90c2086, 0x5768b525, 0x206f85b3, 0xb966d409, 0xce61e49f,</div>
+<div class="line"><a id="l00144" name="l00144"></a><span class="lineno">  144</span>    0x5edef90e, 0x29d9c998, 0xb0d09822, 0xc7d7a8b4, 0x59b33d17,</div>
+<div class="line"><a id="l00145" name="l00145"></a><span class="lineno">  145</span>    0x2eb40d81, 0xb7bd5c3b, 0xc0ba6cad, 0xedb88320, 0x9abfb3b6,</div>
+<div class="line"><a id="l00146" name="l00146"></a><span class="lineno">  146</span>    0x03b6e20c, 0x74b1d29a, 0xead54739, 0x9dd277af, 0x04db2615,</div>
+<div class="line"><a id="l00147" name="l00147"></a><span class="lineno">  147</span>    0x73dc1683, 0xe3630b12, 0x94643b84, 0x0d6d6a3e, 0x7a6a5aa8,</div>
+<div class="line"><a id="l00148" name="l00148"></a><span class="lineno">  148</span>    0xe40ecf0b, 0x9309ff9d, 0x0a00ae27, 0x7d079eb1, 0xf00f9344,</div>
+<div class="line"><a id="l00149" name="l00149"></a><span class="lineno">  149</span>    0x8708a3d2, 0x1e01f268, 0x6906c2fe, 0xf762575d, 0x806567cb,</div>
+<div class="line"><a id="l00150" name="l00150"></a><span class="lineno">  150</span>    0x196c3671, 0x6e6b06e7, 0xfed41b76, 0x89d32be0, 0x10da7a5a,</div>
+<div class="line"><a id="l00151" name="l00151"></a><span class="lineno">  151</span>    0x67dd4acc, 0xf9b9df6f, 0x8ebeeff9, 0x17b7be43, 0x60b08ed5,</div>
+<div class="line"><a id="l00152" name="l00152"></a><span class="lineno">  152</span>    0xd6d6a3e8, 0xa1d1937e, 0x38d8c2c4, 0x4fdff252, 0xd1bb67f1,</div>
+<div class="line"><a id="l00153" name="l00153"></a><span class="lineno">  153</span>    0xa6bc5767, 0x3fb506dd, 0x48b2364b, 0xd80d2bda, 0xaf0a1b4c,</div>
+<div class="line"><a id="l00154" name="l00154"></a><span class="lineno">  154</span>    0x36034af6, 0x41047a60, 0xdf60efc3, 0xa867df55, 0x316e8eef,</div>
+<div class="line"><a id="l00155" name="l00155"></a><span class="lineno">  155</span>    0x4669be79, 0xcb61b38c, 0xbc66831a, 0x256fd2a0, 0x5268e236,</div>
+<div class="line"><a id="l00156" name="l00156"></a><span class="lineno">  156</span>    0xcc0c7795, 0xbb0b4703, 0x220216b9, 0x5505262f, 0xc5ba3bbe,</div>
+<div class="line"><a id="l00157" name="l00157"></a><span class="lineno">  157</span>    0xb2bd0b28, 0x2bb45a92, 0x5cb36a04, 0xc2d7ffa7, 0xb5d0cf31,</div>
+<div class="line"><a id="l00158" name="l00158"></a><span class="lineno">  158</span>    0x2cd99e8b, 0x5bdeae1d, 0x9b64c2b0, 0xec63f226, 0x756aa39c,</div>
+<div class="line"><a id="l00159" name="l00159"></a><span class="lineno">  159</span>    0x026d930a, 0x9c0906a9, 0xeb0e363f, 0x72076785, 0x05005713,</div>
+<div class="line"><a id="l00160" name="l00160"></a><span class="lineno">  160</span>    0x95bf4a82, 0xe2b87a14, 0x7bb12bae, 0x0cb61b38, 0x92d28e9b,</div>
+<div class="line"><a id="l00161" name="l00161"></a><span class="lineno">  161</span>    0xe5d5be0d, 0x7cdcefb7, 0x0bdbdf21, 0x86d3d2d4, 0xf1d4e242,</div>
+<div class="line"><a id="l00162" name="l00162"></a><span class="lineno">  162</span>    0x68ddb3f8, 0x1fda836e, 0x81be16cd, 0xf6b9265b, 0x6fb077e1,</div>
+<div class="line"><a id="l00163" name="l00163"></a><span class="lineno">  163</span>    0x18b74777, 0x88085ae6, 0xff0f6a70, 0x66063bca, 0x11010b5c,</div>
+<div class="line"><a id="l00164" name="l00164"></a><span class="lineno">  164</span>    0x8f659eff, 0xf862ae69, 0x616bffd3, 0x166ccf45, 0xa00ae278,</div>
+<div class="line"><a id="l00165" name="l00165"></a><span class="lineno">  165</span>    0xd70dd2ee, 0x4e048354, 0x3903b3c2, 0xa7672661, 0xd06016f7,</div>
+<div class="line"><a id="l00166" name="l00166"></a><span class="lineno">  166</span>    0x4969474d, 0x3e6e77db, 0xaed16a4a, 0xd9d65adc, 0x40df0b66,</div>
+<div class="line"><a id="l00167" name="l00167"></a><span class="lineno">  167</span>    0x37d83bf0, 0xa9bcae53, 0xdebb9ec5, 0x47b2cf7f, 0x30b5ffe9,</div>
+<div class="line"><a id="l00168" name="l00168"></a><span class="lineno">  168</span>    0xbdbdf21c, 0xcabac28a, 0x53b39330, 0x24b4a3a6, 0xbad03605,</div>
+<div class="line"><a id="l00169" name="l00169"></a><span class="lineno">  169</span>    0xcdd70693, 0x54de5729, 0x23d967bf, 0xb3667a2e, 0xc4614ab8,</div>
+<div class="line"><a id="l00170" name="l00170"></a><span class="lineno">  170</span>    0x5d681b02, 0x2a6f2b94, 0xb40bbe37, 0xc30c8ea1, 0x5a05df1b,</div>
+<div class="line"><a id="l00171" name="l00171"></a><span class="lineno">  171</span>    0x2d02ef8d</div>
+<div class="line"><a id="l00172" name="l00172"></a><span class="lineno">  172</span>  };</div>
+<div class="line"><a id="l00173" name="l00173"></a><span class="lineno">  173</span>  crc = ~crc &amp; 0xffffffff;</div>
+<div class="line"><a id="l00174" name="l00174"></a><span class="lineno">  174</span>  <span class="keywordflow">for</span>(<a class="code hl_define" href="../../d9/d68/syms__crt__overrides_8h.html#a22353ec6fc6e50857e1c6d482c11066c">SYMS_U8</a> *<a class="code hl_function" href="../../d5/d85/_movie_scene_blend_type_8cpp.html#ab1645907c2c70e51ead2d1c267c5b1e3">end</a> = data.<a class="code hl_variable" href="../../db/d4b/struct_s_y_m_s___string8.html#a49535edb34f849d868d146f431312083">str</a> + data.<a class="code hl_variable" href="../../db/d4b/struct_s_y_m_s___string8.html#a9ca827691d6dea7d51321a1a04d47e70">size</a>;</div>
+<div class="line"><a id="l00175" name="l00175"></a><span class="lineno">  175</span>      data.<a class="code hl_variable" href="../../db/d4b/struct_s_y_m_s___string8.html#a49535edb34f849d868d146f431312083">str</a> &lt; <a class="code hl_function" href="../../d5/d85/_movie_scene_blend_type_8cpp.html#ab1645907c2c70e51ead2d1c267c5b1e3">end</a>;</div>
+<div class="line"><a id="l00176" name="l00176"></a><span class="lineno">  176</span>      data.<a class="code hl_variable" href="../../db/d4b/struct_s_y_m_s___string8.html#a49535edb34f849d868d146f431312083">str</a> += 1, data.<a class="code hl_variable" href="../../db/d4b/struct_s_y_m_s___string8.html#a9ca827691d6dea7d51321a1a04d47e70">size</a> -= 1)</div>
+<div class="line"><a id="l00177" name="l00177"></a><span class="lineno">  177</span>  {</div>
+<div class="line"><a id="l00178" name="l00178"></a><span class="lineno">  178</span>    crc = crc32_table[(crc ^ data.<a class="code hl_variable" href="../../db/d4b/struct_s_y_m_s___string8.html#a49535edb34f849d868d146f431312083">str</a>[0]) &amp; 0xff] ^ (crc &gt;&gt; 8);</div>
+<div class="line"><a id="l00179" name="l00179"></a><span class="lineno">  179</span>  }</div>
+<div class="line"><a id="l00180" name="l00180"></a><span class="lineno">  180</span>  <span class="keywordflow">return</span> ~crc &amp; 0xffffffff;</div>
+<div class="line"><a id="l00181" name="l00181"></a><span class="lineno">  181</span>}</div>
+</div>
+<div class="line"><a id="l00182" name="l00182"></a><span class="lineno">  182</span> </div>
+<div class="line"><a id="l00183" name="l00183"></a><span class="lineno">  183</span><span class="preprocessor">#endif </span><span class="comment">// SYMS_ELF_C</span></div>
+<div class="ttc" id="a_movie_scene_blend_type_8cpp_html_ab1645907c2c70e51ead2d1c267c5b1e3"><div class="ttname"><a href="../../d5/d85/_movie_scene_blend_type_8cpp.html#ab1645907c2c70e51ead2d1c267c5b1e3">end</a></div><div class="ttdeci">FMovieSceneBlendTypeFieldIterator end(const FMovieSceneBlendTypeField &amp;InField)</div><div class="ttdef"><b>定义</b> MovieSceneBlendType.cpp:103</div></div>
+<div class="ttc" id="astruct_s_y_m_s___elf_dyn32_html"><div class="ttname"><a href="../../dd/df1/struct_s_y_m_s___elf_dyn32.html">SYMS_ElfDyn32</a></div><div class="ttdef"><b>定义</b> syms_elf.h:142</div></div>
+<div class="ttc" id="astruct_s_y_m_s___elf_dyn32_html_a2b459fc331d2ca978087a7fe3f9147e4"><div class="ttname"><a href="../../dd/df1/struct_s_y_m_s___elf_dyn32.html#a2b459fc331d2ca978087a7fe3f9147e4">SYMS_ElfDyn32::tag</a></div><div class="ttdeci">SYMS_U32 tag</div><div class="ttdef"><b>定义</b> syms_elf.h:143</div></div>
+<div class="ttc" id="astruct_s_y_m_s___elf_dyn32_html_aefa3f3e8d37ac68c1f0cccee779d08c4"><div class="ttname"><a href="../../dd/df1/struct_s_y_m_s___elf_dyn32.html#aefa3f3e8d37ac68c1f0cccee779d08c4">SYMS_ElfDyn32::val</a></div><div class="ttdeci">SYMS_U32 val</div><div class="ttdef"><b>定义</b> syms_elf.h:144</div></div>
+<div class="ttc" id="astruct_s_y_m_s___elf_dyn64_html"><div class="ttname"><a href="../../df/def/struct_s_y_m_s___elf_dyn64.html">SYMS_ElfDyn64</a></div><div class="ttdef"><b>定义</b> syms_elf.h:147</div></div>
+<div class="ttc" id="astruct_s_y_m_s___elf_dyn64_html_a1b6b8905b183faa5447c8c0b843b0874"><div class="ttname"><a href="../../df/def/struct_s_y_m_s___elf_dyn64.html#a1b6b8905b183faa5447c8c0b843b0874">SYMS_ElfDyn64::tag</a></div><div class="ttdeci">SYMS_U64 tag</div><div class="ttdef"><b>定义</b> syms_elf.h:148</div></div>
+<div class="ttc" id="astruct_s_y_m_s___elf_dyn64_html_ac5653080e8bab74418b94fdcc3233c68"><div class="ttname"><a href="../../df/def/struct_s_y_m_s___elf_dyn64.html#ac5653080e8bab74418b94fdcc3233c68">SYMS_ElfDyn64::val</a></div><div class="ttdeci">SYMS_U64 val</div><div class="ttdef"><b>定义</b> syms_elf.h:149</div></div>
+<div class="ttc" id="astruct_s_y_m_s___elf_ehdr32_html"><div class="ttname"><a href="../../de/dd3/struct_s_y_m_s___elf_ehdr32.html">SYMS_ElfEhdr32</a></div><div class="ttdef"><b>定义</b> syms_elf.h:49</div></div>
+<div class="ttc" id="astruct_s_y_m_s___elf_ehdr32_html_a0b5bd01fd113498e0d83c80bc900be8c"><div class="ttname"><a href="../../de/dd3/struct_s_y_m_s___elf_ehdr32.html#a0b5bd01fd113498e0d83c80bc900be8c">SYMS_ElfEhdr32::e_version</a></div><div class="ttdeci">SYMS_U32 e_version</div><div class="ttdef"><b>定义</b> syms_elf.h:53</div></div>
+<div class="ttc" id="astruct_s_y_m_s___elf_ehdr32_html_a0ee169d653ffc064fce4d0d3d85d974e"><div class="ttname"><a href="../../de/dd3/struct_s_y_m_s___elf_ehdr32.html#a0ee169d653ffc064fce4d0d3d85d974e">SYMS_ElfEhdr32::e_phoff</a></div><div class="ttdeci">SYMS_U32 e_phoff</div><div class="ttdef"><b>定义</b> syms_elf.h:55</div></div>
+<div class="ttc" id="astruct_s_y_m_s___elf_ehdr32_html_a12d0bc7f98c1520c2015c4c4f65201f9"><div class="ttname"><a href="../../de/dd3/struct_s_y_m_s___elf_ehdr32.html#a12d0bc7f98c1520c2015c4c4f65201f9">SYMS_ElfEhdr32::e_shnum</a></div><div class="ttdeci">SYMS_U16 e_shnum</div><div class="ttdef"><b>定义</b> syms_elf.h:62</div></div>
+<div class="ttc" id="astruct_s_y_m_s___elf_ehdr32_html_a31e6df2d87b5ba7fb20cc52cebcffa90"><div class="ttname"><a href="../../de/dd3/struct_s_y_m_s___elf_ehdr32.html#a31e6df2d87b5ba7fb20cc52cebcffa90">SYMS_ElfEhdr32::e_shoff</a></div><div class="ttdeci">SYMS_U32 e_shoff</div><div class="ttdef"><b>定义</b> syms_elf.h:56</div></div>
+<div class="ttc" id="astruct_s_y_m_s___elf_ehdr32_html_a4e365933d4c154107f7f68cdc96b9b4f"><div class="ttname"><a href="../../de/dd3/struct_s_y_m_s___elf_ehdr32.html#a4e365933d4c154107f7f68cdc96b9b4f">SYMS_ElfEhdr32::e_type</a></div><div class="ttdeci">SYMS_U16 e_type</div><div class="ttdef"><b>定义</b> syms_elf.h:51</div></div>
+<div class="ttc" id="astruct_s_y_m_s___elf_ehdr32_html_a4fab814ff2542202cc622b9bf9ad1c41"><div class="ttname"><a href="../../de/dd3/struct_s_y_m_s___elf_ehdr32.html#a4fab814ff2542202cc622b9bf9ad1c41">SYMS_ElfEhdr32::e_shstrndx</a></div><div class="ttdeci">SYMS_U16 e_shstrndx</div><div class="ttdef"><b>定义</b> syms_elf.h:63</div></div>
+<div class="ttc" id="astruct_s_y_m_s___elf_ehdr32_html_a74f8aff2224ae0af95c3fcfd2ab54f95"><div class="ttname"><a href="../../de/dd3/struct_s_y_m_s___elf_ehdr32.html#a74f8aff2224ae0af95c3fcfd2ab54f95">SYMS_ElfEhdr32::e_ehsize</a></div><div class="ttdeci">SYMS_U16 e_ehsize</div><div class="ttdef"><b>定义</b> syms_elf.h:58</div></div>
+<div class="ttc" id="astruct_s_y_m_s___elf_ehdr32_html_a86f5e0eaca35e49189bbe63a3cd0a2d8"><div class="ttname"><a href="../../de/dd3/struct_s_y_m_s___elf_ehdr32.html#a86f5e0eaca35e49189bbe63a3cd0a2d8">SYMS_ElfEhdr32::e_machine</a></div><div class="ttdeci">SYMS_U16 e_machine</div><div class="ttdef"><b>定义</b> syms_elf.h:52</div></div>
+<div class="ttc" id="astruct_s_y_m_s___elf_ehdr32_html_a890ed08e69285adb140b5ddeeaff8436"><div class="ttname"><a href="../../de/dd3/struct_s_y_m_s___elf_ehdr32.html#a890ed08e69285adb140b5ddeeaff8436">SYMS_ElfEhdr32::e_flags</a></div><div class="ttdeci">SYMS_U32 e_flags</div><div class="ttdef"><b>定义</b> syms_elf.h:57</div></div>
+<div class="ttc" id="astruct_s_y_m_s___elf_ehdr32_html_aa9084d873d1969b4c4dff0458ec531e6"><div class="ttname"><a href="../../de/dd3/struct_s_y_m_s___elf_ehdr32.html#aa9084d873d1969b4c4dff0458ec531e6">SYMS_ElfEhdr32::e_ident</a></div><div class="ttdeci">SYMS_U8 e_ident[SYMS_ElfIdentifier_NIDENT]</div><div class="ttdef"><b>定义</b> syms_elf.h:50</div></div>
+<div class="ttc" id="astruct_s_y_m_s___elf_ehdr32_html_aab5086cf6a94b986dd300440933052e0"><div class="ttname"><a href="../../de/dd3/struct_s_y_m_s___elf_ehdr32.html#aab5086cf6a94b986dd300440933052e0">SYMS_ElfEhdr32::e_entry</a></div><div class="ttdeci">SYMS_U32 e_entry</div><div class="ttdef"><b>定义</b> syms_elf.h:54</div></div>
+<div class="ttc" id="astruct_s_y_m_s___elf_ehdr32_html_ab1d9d6b9728abbfbd6791e582f17a63d"><div class="ttname"><a href="../../de/dd3/struct_s_y_m_s___elf_ehdr32.html#ab1d9d6b9728abbfbd6791e582f17a63d">SYMS_ElfEhdr32::e_shentsize</a></div><div class="ttdeci">SYMS_U16 e_shentsize</div><div class="ttdef"><b>定义</b> syms_elf.h:61</div></div>
+<div class="ttc" id="astruct_s_y_m_s___elf_ehdr32_html_af83d892a14920c124509b197b0c14599"><div class="ttname"><a href="../../de/dd3/struct_s_y_m_s___elf_ehdr32.html#af83d892a14920c124509b197b0c14599">SYMS_ElfEhdr32::e_phentsize</a></div><div class="ttdeci">SYMS_U16 e_phentsize</div><div class="ttdef"><b>定义</b> syms_elf.h:59</div></div>
+<div class="ttc" id="astruct_s_y_m_s___elf_ehdr32_html_afe696cb2c6d58d9a0aff0ab11c647dcc"><div class="ttname"><a href="../../de/dd3/struct_s_y_m_s___elf_ehdr32.html#afe696cb2c6d58d9a0aff0ab11c647dcc">SYMS_ElfEhdr32::e_phnum</a></div><div class="ttdeci">SYMS_U16 e_phnum</div><div class="ttdef"><b>定义</b> syms_elf.h:60</div></div>
+<div class="ttc" id="astruct_s_y_m_s___elf_ehdr64_html"><div class="ttname"><a href="../../d2/de9/struct_s_y_m_s___elf_ehdr64.html">SYMS_ElfEhdr64</a></div><div class="ttdef"><b>定义</b> syms_elf.h:30</div></div>
+<div class="ttc" id="astruct_s_y_m_s___elf_ehdr64_html_a040efb16e548d7fe64b5579861d7e9ef"><div class="ttname"><a href="../../d2/de9/struct_s_y_m_s___elf_ehdr64.html#a040efb16e548d7fe64b5579861d7e9ef">SYMS_ElfEhdr64::e_shoff</a></div><div class="ttdeci">SYMS_U64 e_shoff</div><div class="ttdef"><b>定义</b> syms_elf.h:37</div></div>
+<div class="ttc" id="astruct_s_y_m_s___elf_ehdr64_html_a07bb1e808338d2df21f413a27f027536"><div class="ttname"><a href="../../d2/de9/struct_s_y_m_s___elf_ehdr64.html#a07bb1e808338d2df21f413a27f027536">SYMS_ElfEhdr64::e_entry</a></div><div class="ttdeci">SYMS_U64 e_entry</div><div class="ttdef"><b>定义</b> syms_elf.h:35</div></div>
+<div class="ttc" id="astruct_s_y_m_s___elf_ehdr64_html_a0cf57af99fa6d7eefc767576fb509841"><div class="ttname"><a href="../../d2/de9/struct_s_y_m_s___elf_ehdr64.html#a0cf57af99fa6d7eefc767576fb509841">SYMS_ElfEhdr64::e_phoff</a></div><div class="ttdeci">SYMS_U64 e_phoff</div><div class="ttdef"><b>定义</b> syms_elf.h:36</div></div>
+<div class="ttc" id="astruct_s_y_m_s___elf_ehdr64_html_a30bc212610d150899039f265e3ec0c15"><div class="ttname"><a href="../../d2/de9/struct_s_y_m_s___elf_ehdr64.html#a30bc212610d150899039f265e3ec0c15">SYMS_ElfEhdr64::e_shstrndx</a></div><div class="ttdeci">SYMS_U16 e_shstrndx</div><div class="ttdef"><b>定义</b> syms_elf.h:44</div></div>
+<div class="ttc" id="astruct_s_y_m_s___elf_ehdr64_html_a4087b6146adc4cb033f44ca7e802ba9a"><div class="ttname"><a href="../../d2/de9/struct_s_y_m_s___elf_ehdr64.html#a4087b6146adc4cb033f44ca7e802ba9a">SYMS_ElfEhdr64::e_ehsize</a></div><div class="ttdeci">SYMS_U16 e_ehsize</div><div class="ttdef"><b>定义</b> syms_elf.h:39</div></div>
+<div class="ttc" id="astruct_s_y_m_s___elf_ehdr64_html_a4612c8f5f2414ebbdc7aeac3ab7c4a72"><div class="ttname"><a href="../../d2/de9/struct_s_y_m_s___elf_ehdr64.html#a4612c8f5f2414ebbdc7aeac3ab7c4a72">SYMS_ElfEhdr64::e_phnum</a></div><div class="ttdeci">SYMS_U16 e_phnum</div><div class="ttdef"><b>定义</b> syms_elf.h:41</div></div>
+<div class="ttc" id="astruct_s_y_m_s___elf_ehdr64_html_a4c3d3726bf7ab5d39455f16ff915823f"><div class="ttname"><a href="../../d2/de9/struct_s_y_m_s___elf_ehdr64.html#a4c3d3726bf7ab5d39455f16ff915823f">SYMS_ElfEhdr64::e_ident</a></div><div class="ttdeci">SYMS_U8 e_ident[SYMS_ElfIdentifier_NIDENT]</div><div class="ttdef"><b>定义</b> syms_elf.h:31</div></div>
+<div class="ttc" id="astruct_s_y_m_s___elf_ehdr64_html_a579a628324893732071f3a0c12adb049"><div class="ttname"><a href="../../d2/de9/struct_s_y_m_s___elf_ehdr64.html#a579a628324893732071f3a0c12adb049">SYMS_ElfEhdr64::e_machine</a></div><div class="ttdeci">SYMS_U16 e_machine</div><div class="ttdef"><b>定义</b> syms_elf.h:33</div></div>
+<div class="ttc" id="astruct_s_y_m_s___elf_ehdr64_html_a75c388f5e09bf600e22cdf8214ecbadb"><div class="ttname"><a href="../../d2/de9/struct_s_y_m_s___elf_ehdr64.html#a75c388f5e09bf600e22cdf8214ecbadb">SYMS_ElfEhdr64::e_type</a></div><div class="ttdeci">SYMS_U16 e_type</div><div class="ttdef"><b>定义</b> syms_elf.h:32</div></div>
+<div class="ttc" id="astruct_s_y_m_s___elf_ehdr64_html_a86411c991a51131f6d95f9bcad61d622"><div class="ttname"><a href="../../d2/de9/struct_s_y_m_s___elf_ehdr64.html#a86411c991a51131f6d95f9bcad61d622">SYMS_ElfEhdr64::e_flags</a></div><div class="ttdeci">SYMS_U32 e_flags</div><div class="ttdef"><b>定义</b> syms_elf.h:38</div></div>
+<div class="ttc" id="astruct_s_y_m_s___elf_ehdr64_html_aa61827a40427514ade56e9e64246eed9"><div class="ttname"><a href="../../d2/de9/struct_s_y_m_s___elf_ehdr64.html#aa61827a40427514ade56e9e64246eed9">SYMS_ElfEhdr64::e_shentsize</a></div><div class="ttdeci">SYMS_U16 e_shentsize</div><div class="ttdef"><b>定义</b> syms_elf.h:42</div></div>
+<div class="ttc" id="astruct_s_y_m_s___elf_ehdr64_html_acdf292900e4938785731a468817ef363"><div class="ttname"><a href="../../d2/de9/struct_s_y_m_s___elf_ehdr64.html#acdf292900e4938785731a468817ef363">SYMS_ElfEhdr64::e_phentsize</a></div><div class="ttdeci">SYMS_U16 e_phentsize</div><div class="ttdef"><b>定义</b> syms_elf.h:40</div></div>
+<div class="ttc" id="astruct_s_y_m_s___elf_ehdr64_html_ad7b266ca7118d8368428f4f4e5601421"><div class="ttname"><a href="../../d2/de9/struct_s_y_m_s___elf_ehdr64.html#ad7b266ca7118d8368428f4f4e5601421">SYMS_ElfEhdr64::e_version</a></div><div class="ttdeci">SYMS_U32 e_version</div><div class="ttdef"><b>定义</b> syms_elf.h:34</div></div>
+<div class="ttc" id="astruct_s_y_m_s___elf_ehdr64_html_af94c0547881e0cc2544b6c427117924f"><div class="ttname"><a href="../../d2/de9/struct_s_y_m_s___elf_ehdr64.html#af94c0547881e0cc2544b6c427117924f">SYMS_ElfEhdr64::e_shnum</a></div><div class="ttdeci">SYMS_U16 e_shnum</div><div class="ttdef"><b>定义</b> syms_elf.h:43</div></div>
+<div class="ttc" id="astruct_s_y_m_s___elf_phdr32_html"><div class="ttname"><a href="../../d0/d8e/struct_s_y_m_s___elf_phdr32.html">SYMS_ElfPhdr32</a></div><div class="ttdef"><b>定义</b> syms_elf.h:111</div></div>
+<div class="ttc" id="astruct_s_y_m_s___elf_phdr32_html_a34115b2897511bf52475b6f3ecbd8c7b"><div class="ttname"><a href="../../d0/d8e/struct_s_y_m_s___elf_phdr32.html#a34115b2897511bf52475b6f3ecbd8c7b">SYMS_ElfPhdr32::p_vaddr</a></div><div class="ttdeci">SYMS_U32 p_vaddr</div><div class="ttdef"><b>定义</b> syms_elf.h:114</div></div>
+<div class="ttc" id="astruct_s_y_m_s___elf_phdr32_html_a498210536cd475df0d85cc61befda1bf"><div class="ttname"><a href="../../d0/d8e/struct_s_y_m_s___elf_phdr32.html#a498210536cd475df0d85cc61befda1bf">SYMS_ElfPhdr32::p_flags</a></div><div class="ttdeci">SYMS_U32 p_flags</div><div class="ttdef"><b>定义</b> syms_elf.h:118</div></div>
+<div class="ttc" id="astruct_s_y_m_s___elf_phdr32_html_a528fdaf0e0021705eb45ce035d7688af"><div class="ttname"><a href="../../d0/d8e/struct_s_y_m_s___elf_phdr32.html#a528fdaf0e0021705eb45ce035d7688af">SYMS_ElfPhdr32::p_filesz</a></div><div class="ttdeci">SYMS_U32 p_filesz</div><div class="ttdef"><b>定义</b> syms_elf.h:116</div></div>
+<div class="ttc" id="astruct_s_y_m_s___elf_phdr32_html_a55fa089169d0cf180042a586409702a7"><div class="ttname"><a href="../../d0/d8e/struct_s_y_m_s___elf_phdr32.html#a55fa089169d0cf180042a586409702a7">SYMS_ElfPhdr32::p_paddr</a></div><div class="ttdeci">SYMS_U32 p_paddr</div><div class="ttdef"><b>定义</b> syms_elf.h:115</div></div>
+<div class="ttc" id="astruct_s_y_m_s___elf_phdr32_html_a6d934cae7461e7d364a861249a57cda8"><div class="ttname"><a href="../../d0/d8e/struct_s_y_m_s___elf_phdr32.html#a6d934cae7461e7d364a861249a57cda8">SYMS_ElfPhdr32::p_align</a></div><div class="ttdeci">SYMS_U32 p_align</div><div class="ttdef"><b>定义</b> syms_elf.h:119</div></div>
+<div class="ttc" id="astruct_s_y_m_s___elf_phdr32_html_abe74aa50556b1c54b5b5c5ce9c21594c"><div class="ttname"><a href="../../d0/d8e/struct_s_y_m_s___elf_phdr32.html#abe74aa50556b1c54b5b5c5ce9c21594c">SYMS_ElfPhdr32::p_type</a></div><div class="ttdeci">SYMS_U32 p_type</div><div class="ttdef"><b>定义</b> syms_elf.h:112</div></div>
+<div class="ttc" id="astruct_s_y_m_s___elf_phdr32_html_adfb4fe2ddd77b2c0ad5497fee9ac3f33"><div class="ttname"><a href="../../d0/d8e/struct_s_y_m_s___elf_phdr32.html#adfb4fe2ddd77b2c0ad5497fee9ac3f33">SYMS_ElfPhdr32::p_offset</a></div><div class="ttdeci">SYMS_U32 p_offset</div><div class="ttdef"><b>定义</b> syms_elf.h:113</div></div>
+<div class="ttc" id="astruct_s_y_m_s___elf_phdr32_html_af7485869be2e89f9c68c4cb79e521a62"><div class="ttname"><a href="../../d0/d8e/struct_s_y_m_s___elf_phdr32.html#af7485869be2e89f9c68c4cb79e521a62">SYMS_ElfPhdr32::p_memsz</a></div><div class="ttdeci">SYMS_U32 p_memsz</div><div class="ttdef"><b>定义</b> syms_elf.h:117</div></div>
+<div class="ttc" id="astruct_s_y_m_s___elf_phdr64_html"><div class="ttname"><a href="../../da/d25/struct_s_y_m_s___elf_phdr64.html">SYMS_ElfPhdr64</a></div><div class="ttdef"><b>定义</b> syms_elf.h:98</div></div>
+<div class="ttc" id="astruct_s_y_m_s___elf_phdr64_html_a02b9185dfb64264d53e65856fc8df75d"><div class="ttname"><a href="../../da/d25/struct_s_y_m_s___elf_phdr64.html#a02b9185dfb64264d53e65856fc8df75d">SYMS_ElfPhdr64::p_flags</a></div><div class="ttdeci">SYMS_U32 p_flags</div><div class="ttdef"><b>定义</b> syms_elf.h:100</div></div>
+<div class="ttc" id="astruct_s_y_m_s___elf_phdr64_html_a3e99b3047bb8b0d06fe2b972184c4b18"><div class="ttname"><a href="../../da/d25/struct_s_y_m_s___elf_phdr64.html#a3e99b3047bb8b0d06fe2b972184c4b18">SYMS_ElfPhdr64::p_align</a></div><div class="ttdeci">SYMS_U64 p_align</div><div class="ttdef"><b>定义</b> syms_elf.h:106</div></div>
+<div class="ttc" id="astruct_s_y_m_s___elf_phdr64_html_a4730dade35f260659a162604479d20c8"><div class="ttname"><a href="../../da/d25/struct_s_y_m_s___elf_phdr64.html#a4730dade35f260659a162604479d20c8">SYMS_ElfPhdr64::p_offset</a></div><div class="ttdeci">SYMS_U64 p_offset</div><div class="ttdef"><b>定义</b> syms_elf.h:101</div></div>
+<div class="ttc" id="astruct_s_y_m_s___elf_phdr64_html_a656f62cb0c81656cb167f2a073a8954a"><div class="ttname"><a href="../../da/d25/struct_s_y_m_s___elf_phdr64.html#a656f62cb0c81656cb167f2a073a8954a">SYMS_ElfPhdr64::p_type</a></div><div class="ttdeci">SYMS_U32 p_type</div><div class="ttdef"><b>定义</b> syms_elf.h:99</div></div>
+<div class="ttc" id="astruct_s_y_m_s___elf_phdr64_html_aa069b9ea76e2706a34b3f2477638af64"><div class="ttname"><a href="../../da/d25/struct_s_y_m_s___elf_phdr64.html#aa069b9ea76e2706a34b3f2477638af64">SYMS_ElfPhdr64::p_memsz</a></div><div class="ttdeci">SYMS_U64 p_memsz</div><div class="ttdef"><b>定义</b> syms_elf.h:105</div></div>
+<div class="ttc" id="astruct_s_y_m_s___elf_phdr64_html_aaa2e809552fff1fd13c29814e1867161"><div class="ttname"><a href="../../da/d25/struct_s_y_m_s___elf_phdr64.html#aaa2e809552fff1fd13c29814e1867161">SYMS_ElfPhdr64::p_vaddr</a></div><div class="ttdeci">SYMS_U64 p_vaddr</div><div class="ttdef"><b>定义</b> syms_elf.h:102</div></div>
+<div class="ttc" id="astruct_s_y_m_s___elf_phdr64_html_ab2dd088e89ca7e358343c7fea66d7b86"><div class="ttname"><a href="../../da/d25/struct_s_y_m_s___elf_phdr64.html#ab2dd088e89ca7e358343c7fea66d7b86">SYMS_ElfPhdr64::p_filesz</a></div><div class="ttdeci">SYMS_U64 p_filesz</div><div class="ttdef"><b>定义</b> syms_elf.h:104</div></div>
+<div class="ttc" id="astruct_s_y_m_s___elf_phdr64_html_abc80daa5489bade5e416b03d1ea1e797"><div class="ttname"><a href="../../da/d25/struct_s_y_m_s___elf_phdr64.html#abc80daa5489bade5e416b03d1ea1e797">SYMS_ElfPhdr64::p_paddr</a></div><div class="ttdeci">SYMS_U64 p_paddr</div><div class="ttdef"><b>定义</b> syms_elf.h:103</div></div>
+<div class="ttc" id="astruct_s_y_m_s___elf_rel32_html"><div class="ttname"><a href="../../d1/d83/struct_s_y_m_s___elf_rel32.html">SYMS_ElfRel32</a></div><div class="ttdef"><b>定义</b> syms_elf.h:195</div></div>
+<div class="ttc" id="astruct_s_y_m_s___elf_rel32_html_ab9f061f4da87f9518abe8bc7bd1ed044"><div class="ttname"><a href="../../d1/d83/struct_s_y_m_s___elf_rel32.html#ab9f061f4da87f9518abe8bc7bd1ed044">SYMS_ElfRel32::r_info</a></div><div class="ttdeci">SYMS_U32 r_info</div><div class="ttdef"><b>定义</b> syms_elf.h:197</div></div>
+<div class="ttc" id="astruct_s_y_m_s___elf_rel32_html_ae7f4c759739a1f22afd8fef0e9ef58b4"><div class="ttname"><a href="../../d1/d83/struct_s_y_m_s___elf_rel32.html#ae7f4c759739a1f22afd8fef0e9ef58b4">SYMS_ElfRel32::r_offset</a></div><div class="ttdeci">SYMS_U32 r_offset</div><div class="ttdef"><b>定义</b> syms_elf.h:196</div></div>
+<div class="ttc" id="astruct_s_y_m_s___elf_rel64_html"><div class="ttname"><a href="../../d3/dea/struct_s_y_m_s___elf_rel64.html">SYMS_ElfRel64</a></div><div class="ttdef"><b>定义</b> syms_elf.h:208</div></div>
+<div class="ttc" id="astruct_s_y_m_s___elf_rel64_html_a3c85cdb7d72c15cf9316399b0cb6a6a5"><div class="ttname"><a href="../../d3/dea/struct_s_y_m_s___elf_rel64.html#a3c85cdb7d72c15cf9316399b0cb6a6a5">SYMS_ElfRel64::r_offset</a></div><div class="ttdeci">SYMS_U64 r_offset</div><div class="ttdef"><b>定义</b> syms_elf.h:209</div></div>
+<div class="ttc" id="astruct_s_y_m_s___elf_rel64_html_ab329e4471e959ef66c2d73f668b519ca"><div class="ttname"><a href="../../d3/dea/struct_s_y_m_s___elf_rel64.html#ab329e4471e959ef66c2d73f668b519ca">SYMS_ElfRel64::r_info</a></div><div class="ttdeci">SYMS_U64 r_info</div><div class="ttdef"><b>定义</b> syms_elf.h:210</div></div>
+<div class="ttc" id="astruct_s_y_m_s___elf_rela32_html"><div class="ttname"><a href="../../d7/d8a/struct_s_y_m_s___elf_rela32.html">SYMS_ElfRela32</a></div><div class="ttdef"><b>定义</b> syms_elf.h:201</div></div>
+<div class="ttc" id="astruct_s_y_m_s___elf_rela32_html_a0697cb31dc84718c31a1d9472b5a52f3"><div class="ttname"><a href="../../d7/d8a/struct_s_y_m_s___elf_rela32.html#a0697cb31dc84718c31a1d9472b5a52f3">SYMS_ElfRela32::r_info</a></div><div class="ttdeci">SYMS_U32 r_info</div><div class="ttdef"><b>定义</b> syms_elf.h:203</div></div>
+<div class="ttc" id="astruct_s_y_m_s___elf_rela32_html_acd27c4d9346728606f4579bc47cf5305"><div class="ttname"><a href="../../d7/d8a/struct_s_y_m_s___elf_rela32.html#acd27c4d9346728606f4579bc47cf5305">SYMS_ElfRela32::r_addend</a></div><div class="ttdeci">SYMS_S32 r_addend</div><div class="ttdef"><b>定义</b> syms_elf.h:204</div></div>
+<div class="ttc" id="astruct_s_y_m_s___elf_rela64_html"><div class="ttname"><a href="../../d1/d1d/struct_s_y_m_s___elf_rela64.html">SYMS_ElfRela64</a></div><div class="ttdef"><b>定义</b> syms_elf.h:214</div></div>
+<div class="ttc" id="astruct_s_y_m_s___elf_rela64_html_a006318213f1779e717cd1b152c9ab7ce"><div class="ttname"><a href="../../d1/d1d/struct_s_y_m_s___elf_rela64.html#a006318213f1779e717cd1b152c9ab7ce">SYMS_ElfRela64::r_info</a></div><div class="ttdeci">SYMS_U64 r_info</div><div class="ttdef"><b>定义</b> syms_elf.h:216</div></div>
+<div class="ttc" id="astruct_s_y_m_s___elf_rela64_html_a1384222b6407f9b4b3ab604b12336459"><div class="ttname"><a href="../../d1/d1d/struct_s_y_m_s___elf_rela64.html#a1384222b6407f9b4b3ab604b12336459">SYMS_ElfRela64::r_offset</a></div><div class="ttdeci">SYMS_U64 r_offset</div><div class="ttdef"><b>定义</b> syms_elf.h:215</div></div>
+<div class="ttc" id="astruct_s_y_m_s___elf_rela64_html_a852c4e5c93aed7d25419d8ec476ac768"><div class="ttname"><a href="../../d1/d1d/struct_s_y_m_s___elf_rela64.html#a852c4e5c93aed7d25419d8ec476ac768">SYMS_ElfRela64::r_addend</a></div><div class="ttdeci">SYMS_S64 r_addend</div><div class="ttdef"><b>定义</b> syms_elf.h:217</div></div>
+<div class="ttc" id="astruct_s_y_m_s___elf_shdr32_html"><div class="ttname"><a href="../../dd/d84/struct_s_y_m_s___elf_shdr32.html">SYMS_ElfShdr32</a></div><div class="ttdef"><b>定义</b> syms_elf.h:83</div></div>
+<div class="ttc" id="astruct_s_y_m_s___elf_shdr32_html_a10f528292056d5d6352200729e3af9e6"><div class="ttname"><a href="../../dd/d84/struct_s_y_m_s___elf_shdr32.html#a10f528292056d5d6352200729e3af9e6">SYMS_ElfShdr32::sh_addr</a></div><div class="ttdeci">SYMS_U32 sh_addr</div><div class="ttdef"><b>定义</b> syms_elf.h:87</div></div>
+<div class="ttc" id="astruct_s_y_m_s___elf_shdr32_html_a25ac1950eb2ff86e5b48737973e89173"><div class="ttname"><a href="../../dd/d84/struct_s_y_m_s___elf_shdr32.html#a25ac1950eb2ff86e5b48737973e89173">SYMS_ElfShdr32::sh_info</a></div><div class="ttdeci">SYMS_U32 sh_info</div><div class="ttdef"><b>定义</b> syms_elf.h:91</div></div>
+<div class="ttc" id="astruct_s_y_m_s___elf_shdr32_html_a6070f40d24ff015df6d007fae3c23b69"><div class="ttname"><a href="../../dd/d84/struct_s_y_m_s___elf_shdr32.html#a6070f40d24ff015df6d007fae3c23b69">SYMS_ElfShdr32::sh_entsize</a></div><div class="ttdeci">SYMS_U32 sh_entsize</div><div class="ttdef"><b>定义</b> syms_elf.h:93</div></div>
+<div class="ttc" id="astruct_s_y_m_s___elf_shdr32_html_a729d1e1a3754177d4b95321f00e6dc47"><div class="ttname"><a href="../../dd/d84/struct_s_y_m_s___elf_shdr32.html#a729d1e1a3754177d4b95321f00e6dc47">SYMS_ElfShdr32::sh_link</a></div><div class="ttdeci">SYMS_U32 sh_link</div><div class="ttdef"><b>定义</b> syms_elf.h:90</div></div>
+<div class="ttc" id="astruct_s_y_m_s___elf_shdr32_html_a77ea54755ee5d0a751f5cea5f17e4e0e"><div class="ttname"><a href="../../dd/d84/struct_s_y_m_s___elf_shdr32.html#a77ea54755ee5d0a751f5cea5f17e4e0e">SYMS_ElfShdr32::sh_flags</a></div><div class="ttdeci">SYMS_U32 sh_flags</div><div class="ttdef"><b>定义</b> syms_elf.h:86</div></div>
+<div class="ttc" id="astruct_s_y_m_s___elf_shdr32_html_a7e21ef0a53efa40731ee82664cc3b5f1"><div class="ttname"><a href="../../dd/d84/struct_s_y_m_s___elf_shdr32.html#a7e21ef0a53efa40731ee82664cc3b5f1">SYMS_ElfShdr32::sh_type</a></div><div class="ttdeci">SYMS_U32 sh_type</div><div class="ttdef"><b>定义</b> syms_elf.h:85</div></div>
+<div class="ttc" id="astruct_s_y_m_s___elf_shdr32_html_aab7214dff904f8fc3b26f95a027121a7"><div class="ttname"><a href="../../dd/d84/struct_s_y_m_s___elf_shdr32.html#aab7214dff904f8fc3b26f95a027121a7">SYMS_ElfShdr32::sh_offset</a></div><div class="ttdeci">SYMS_U32 sh_offset</div><div class="ttdef"><b>定义</b> syms_elf.h:88</div></div>
+<div class="ttc" id="astruct_s_y_m_s___elf_shdr32_html_ac0466ea3b195b899156d588b12c108fc"><div class="ttname"><a href="../../dd/d84/struct_s_y_m_s___elf_shdr32.html#ac0466ea3b195b899156d588b12c108fc">SYMS_ElfShdr32::sh_addralign</a></div><div class="ttdeci">SYMS_U32 sh_addralign</div><div class="ttdef"><b>定义</b> syms_elf.h:92</div></div>
+<div class="ttc" id="astruct_s_y_m_s___elf_shdr32_html_ae178cd796db16b163cb2787a284ce18d"><div class="ttname"><a href="../../dd/d84/struct_s_y_m_s___elf_shdr32.html#ae178cd796db16b163cb2787a284ce18d">SYMS_ElfShdr32::sh_size</a></div><div class="ttdeci">SYMS_U32 sh_size</div><div class="ttdef"><b>定义</b> syms_elf.h:89</div></div>
+<div class="ttc" id="astruct_s_y_m_s___elf_shdr32_html_afa3a07759b4a164f5d6b34e9046bc5a3"><div class="ttname"><a href="../../dd/d84/struct_s_y_m_s___elf_shdr32.html#afa3a07759b4a164f5d6b34e9046bc5a3">SYMS_ElfShdr32::sh_name</a></div><div class="ttdeci">SYMS_U32 sh_name</div><div class="ttdef"><b>定义</b> syms_elf.h:84</div></div>
+<div class="ttc" id="astruct_s_y_m_s___elf_shdr64_html"><div class="ttname"><a href="../../d5/dff/struct_s_y_m_s___elf_shdr64.html">SYMS_ElfShdr64</a></div><div class="ttdef"><b>定义</b> syms_elf.h:68</div></div>
+<div class="ttc" id="astruct_s_y_m_s___elf_shdr64_html_a4e7ba0a6673a01a359fe513b0e6e2f0e"><div class="ttname"><a href="../../d5/dff/struct_s_y_m_s___elf_shdr64.html#a4e7ba0a6673a01a359fe513b0e6e2f0e">SYMS_ElfShdr64::sh_flags</a></div><div class="ttdeci">SYMS_U64 sh_flags</div><div class="ttdef"><b>定义</b> syms_elf.h:71</div></div>
+<div class="ttc" id="astruct_s_y_m_s___elf_shdr64_html_a4fbd74c5ff7a5dde3cfbce27698b393b"><div class="ttname"><a href="../../d5/dff/struct_s_y_m_s___elf_shdr64.html#a4fbd74c5ff7a5dde3cfbce27698b393b">SYMS_ElfShdr64::sh_size</a></div><div class="ttdeci">SYMS_U64 sh_size</div><div class="ttdef"><b>定义</b> syms_elf.h:74</div></div>
+<div class="ttc" id="astruct_s_y_m_s___elf_shdr64_html_a7f081972398fedb5f057028d15a6c2f0"><div class="ttname"><a href="../../d5/dff/struct_s_y_m_s___elf_shdr64.html#a7f081972398fedb5f057028d15a6c2f0">SYMS_ElfShdr64::sh_name</a></div><div class="ttdeci">SYMS_U32 sh_name</div><div class="ttdef"><b>定义</b> syms_elf.h:69</div></div>
+<div class="ttc" id="astruct_s_y_m_s___elf_shdr64_html_a8faeb6dc56ed4fd74c69f1781e7e2a40"><div class="ttname"><a href="../../d5/dff/struct_s_y_m_s___elf_shdr64.html#a8faeb6dc56ed4fd74c69f1781e7e2a40">SYMS_ElfShdr64::sh_type</a></div><div class="ttdeci">SYMS_U32 sh_type</div><div class="ttdef"><b>定义</b> syms_elf.h:70</div></div>
+<div class="ttc" id="astruct_s_y_m_s___elf_shdr64_html_aae8a0e564646c7f14086357fc7c43a84"><div class="ttname"><a href="../../d5/dff/struct_s_y_m_s___elf_shdr64.html#aae8a0e564646c7f14086357fc7c43a84">SYMS_ElfShdr64::sh_info</a></div><div class="ttdeci">SYMS_U32 sh_info</div><div class="ttdef"><b>定义</b> syms_elf.h:76</div></div>
+<div class="ttc" id="astruct_s_y_m_s___elf_shdr64_html_aafaa4168d71810761e231fc56b3c60bc"><div class="ttname"><a href="../../d5/dff/struct_s_y_m_s___elf_shdr64.html#aafaa4168d71810761e231fc56b3c60bc">SYMS_ElfShdr64::sh_addr</a></div><div class="ttdeci">SYMS_U64 sh_addr</div><div class="ttdef"><b>定义</b> syms_elf.h:72</div></div>
+<div class="ttc" id="astruct_s_y_m_s___elf_shdr64_html_adbf03a142341fa589ccc06d9b7cb6477"><div class="ttname"><a href="../../d5/dff/struct_s_y_m_s___elf_shdr64.html#adbf03a142341fa589ccc06d9b7cb6477">SYMS_ElfShdr64::sh_link</a></div><div class="ttdeci">SYMS_U32 sh_link</div><div class="ttdef"><b>定义</b> syms_elf.h:75</div></div>
+<div class="ttc" id="astruct_s_y_m_s___elf_shdr64_html_adeb7b4c5008b1e918aec6a1c931ecb7a"><div class="ttname"><a href="../../d5/dff/struct_s_y_m_s___elf_shdr64.html#adeb7b4c5008b1e918aec6a1c931ecb7a">SYMS_ElfShdr64::sh_offset</a></div><div class="ttdeci">SYMS_U64 sh_offset</div><div class="ttdef"><b>定义</b> syms_elf.h:73</div></div>
+<div class="ttc" id="astruct_s_y_m_s___elf_shdr64_html_af51fdbce34201367de4bcc0da1eeac95"><div class="ttname"><a href="../../d5/dff/struct_s_y_m_s___elf_shdr64.html#af51fdbce34201367de4bcc0da1eeac95">SYMS_ElfShdr64::sh_addralign</a></div><div class="ttdeci">SYMS_U64 sh_addralign</div><div class="ttdef"><b>定义</b> syms_elf.h:77</div></div>
+<div class="ttc" id="astruct_s_y_m_s___elf_shdr64_html_afa64ff36d36a739cb36a55d5346c6385"><div class="ttname"><a href="../../d5/dff/struct_s_y_m_s___elf_shdr64.html#afa64ff36d36a739cb36a55d5346c6385">SYMS_ElfShdr64::sh_entsize</a></div><div class="ttdeci">SYMS_U64 sh_entsize</div><div class="ttdef"><b>定义</b> syms_elf.h:78</div></div>
+<div class="ttc" id="astruct_s_y_m_s___elf_sym32_html"><div class="ttname"><a href="../../df/de8/struct_s_y_m_s___elf_sym32.html">SYMS_ElfSym32</a></div><div class="ttdef"><b>定义</b> syms_elf.h:170</div></div>
+<div class="ttc" id="astruct_s_y_m_s___elf_sym32_html_a12e85d46a1393912e1c45bd245286a40"><div class="ttname"><a href="../../df/de8/struct_s_y_m_s___elf_sym32.html#a12e85d46a1393912e1c45bd245286a40">SYMS_ElfSym32::st_info</a></div><div class="ttdeci">SYMS_U8 st_info</div><div class="ttdef"><b>定义</b> syms_elf.h:174</div></div>
+<div class="ttc" id="astruct_s_y_m_s___elf_sym32_html_a80d7fdf998c0dc85001e821bec8d6ff7"><div class="ttname"><a href="../../df/de8/struct_s_y_m_s___elf_sym32.html#a80d7fdf998c0dc85001e821bec8d6ff7">SYMS_ElfSym32::st_size</a></div><div class="ttdeci">SYMS_U32 st_size</div><div class="ttdef"><b>定义</b> syms_elf.h:173</div></div>
+<div class="ttc" id="astruct_s_y_m_s___elf_sym32_html_a8bad920ebb148c45fc77c43d2a4a3625"><div class="ttname"><a href="../../df/de8/struct_s_y_m_s___elf_sym32.html#a8bad920ebb148c45fc77c43d2a4a3625">SYMS_ElfSym32::st_value</a></div><div class="ttdeci">SYMS_U32 st_value</div><div class="ttdef"><b>定义</b> syms_elf.h:172</div></div>
+<div class="ttc" id="astruct_s_y_m_s___elf_sym32_html_ac2ca4d1c655e5180fd3e521ec3cb505a"><div class="ttname"><a href="../../df/de8/struct_s_y_m_s___elf_sym32.html#ac2ca4d1c655e5180fd3e521ec3cb505a">SYMS_ElfSym32::st_shndx</a></div><div class="ttdeci">SYMS_U16 st_shndx</div><div class="ttdef"><b>定义</b> syms_elf.h:176</div></div>
+<div class="ttc" id="astruct_s_y_m_s___elf_sym32_html_acc05d9903a2e9415e68d02fa934f584e"><div class="ttname"><a href="../../df/de8/struct_s_y_m_s___elf_sym32.html#acc05d9903a2e9415e68d02fa934f584e">SYMS_ElfSym32::st_other</a></div><div class="ttdeci">SYMS_U8 st_other</div><div class="ttdef"><b>定义</b> syms_elf.h:175</div></div>
+<div class="ttc" id="astruct_s_y_m_s___elf_sym32_html_ade7e4acd0629afe3f316c42f8bf06500"><div class="ttname"><a href="../../df/de8/struct_s_y_m_s___elf_sym32.html#ade7e4acd0629afe3f316c42f8bf06500">SYMS_ElfSym32::st_name</a></div><div class="ttdeci">SYMS_U32 st_name</div><div class="ttdef"><b>定义</b> syms_elf.h:171</div></div>
+<div class="ttc" id="astruct_s_y_m_s___elf_sym64_html"><div class="ttname"><a href="../../dc/d24/struct_s_y_m_s___elf_sym64.html">SYMS_ElfSym64</a></div><div class="ttdef"><b>定义</b> syms_elf.h:180</div></div>
+<div class="ttc" id="astruct_s_y_m_s___elf_sym64_html_a213fcab68d7c8a0affd04b04b98c9e14"><div class="ttname"><a href="../../dc/d24/struct_s_y_m_s___elf_sym64.html#a213fcab68d7c8a0affd04b04b98c9e14">SYMS_ElfSym64::st_shndx</a></div><div class="ttdeci">SYMS_U16 st_shndx</div><div class="ttdef"><b>定义</b> syms_elf.h:184</div></div>
+<div class="ttc" id="astruct_s_y_m_s___elf_sym64_html_a5b366f3e110c8fe51a42dbddf42dcd84"><div class="ttname"><a href="../../dc/d24/struct_s_y_m_s___elf_sym64.html#a5b366f3e110c8fe51a42dbddf42dcd84">SYMS_ElfSym64::st_name</a></div><div class="ttdeci">SYMS_U32 st_name</div><div class="ttdef"><b>定义</b> syms_elf.h:181</div></div>
+<div class="ttc" id="astruct_s_y_m_s___elf_sym64_html_a628b0b177b1ffbd0559675bc5a171b59"><div class="ttname"><a href="../../dc/d24/struct_s_y_m_s___elf_sym64.html#a628b0b177b1ffbd0559675bc5a171b59">SYMS_ElfSym64::st_size</a></div><div class="ttdeci">SYMS_U64 st_size</div><div class="ttdef"><b>定义</b> syms_elf.h:186</div></div>
+<div class="ttc" id="astruct_s_y_m_s___elf_sym64_html_a7e55bc290e0f5b63e1122a0c5a522fa1"><div class="ttname"><a href="../../dc/d24/struct_s_y_m_s___elf_sym64.html#a7e55bc290e0f5b63e1122a0c5a522fa1">SYMS_ElfSym64::st_other</a></div><div class="ttdeci">SYMS_U8 st_other</div><div class="ttdef"><b>定义</b> syms_elf.h:183</div></div>
+<div class="ttc" id="astruct_s_y_m_s___elf_sym64_html_a83af432662184bad9733f840c9406ca5"><div class="ttname"><a href="../../dc/d24/struct_s_y_m_s___elf_sym64.html#a83af432662184bad9733f840c9406ca5">SYMS_ElfSym64::st_info</a></div><div class="ttdeci">SYMS_U8 st_info</div><div class="ttdef"><b>定义</b> syms_elf.h:182</div></div>
+<div class="ttc" id="astruct_s_y_m_s___elf_sym64_html_a9ae59d2fdbc99047fad2b9c557ea5ada"><div class="ttname"><a href="../../dc/d24/struct_s_y_m_s___elf_sym64.html#a9ae59d2fdbc99047fad2b9c557ea5ada">SYMS_ElfSym64::st_value</a></div><div class="ttdeci">SYMS_U64 st_value</div><div class="ttdef"><b>定义</b> syms_elf.h:185</div></div>
+<div class="ttc" id="astruct_s_y_m_s___string8_html"><div class="ttname"><a href="../../db/d4b/struct_s_y_m_s___string8.html">SYMS_String8</a></div><div class="ttdef"><b>定义</b> syms_base.h:296</div></div>
+<div class="ttc" id="astruct_s_y_m_s___string8_html_a49535edb34f849d868d146f431312083"><div class="ttname"><a href="../../db/d4b/struct_s_y_m_s___string8.html#a49535edb34f849d868d146f431312083">SYMS_String8::str</a></div><div class="ttdeci">SYMS_U8 * str</div><div class="ttdef"><b>定义</b> syms_base.h:297</div></div>
+<div class="ttc" id="astruct_s_y_m_s___string8_html_a9ca827691d6dea7d51321a1a04d47e70"><div class="ttname"><a href="../../db/d4b/struct_s_y_m_s___string8.html#a9ca827691d6dea7d51321a1a04d47e70">SYMS_String8::size</a></div><div class="ttdeci">SYMS_U64 size</div><div class="ttdef"><b>定义</b> syms_base.h:298</div></div>
+<div class="ttc" id="asyms__base_8h_html_a5c506b8aae6d7db756b01485a3c9bf47"><div class="ttname"><a href="../../d0/d78/syms__base_8h.html#a5c506b8aae6d7db756b01485a3c9bf47">syms_memzero_struct</a></div><div class="ttdeci">#define syms_memzero_struct(s)</div><div class="ttdef"><b>定义</b> syms_base.h:161</div></div>
+<div class="ttc" id="asyms__base_8h_html_aa3ac3017005859acf0ec2d1b6880e9eb"><div class="ttname"><a href="../../d0/d78/syms__base_8h.html#aa3ac3017005859acf0ec2d1b6880e9eb">SYMS_API</a></div><div class="ttdeci">#define SYMS_API</div><div class="ttdef"><b>定义</b> syms_base.h:29</div></div>
+<div class="ttc" id="asyms__crt__overrides_8h_html_a22353ec6fc6e50857e1c6d482c11066c"><div class="ttname"><a href="../../d9/d68/syms__crt__overrides_8h.html#a22353ec6fc6e50857e1c6d482c11066c">SYMS_U8</a></div><div class="ttdeci">#define SYMS_U8</div><div class="ttdef"><b>定义</b> syms_crt_overrides.h:51</div></div>
+<div class="ttc" id="asyms__crt__overrides_8h_html_a518b4d225acbcd387306efbc0c4eec93"><div class="ttname"><a href="../../d9/d68/syms__crt__overrides_8h.html#a518b4d225acbcd387306efbc0c4eec93">syms_memmove</a></div><div class="ttdeci">#define syms_memmove</div><div class="ttdef"><b>定义</b> syms_crt_overrides.h:65</div></div>
+<div class="ttc" id="asyms__crt__overrides_8h_html_a6c4a911df697efbc58a162540d3ec697"><div class="ttname"><a href="../../d9/d68/syms__crt__overrides_8h.html#a6c4a911df697efbc58a162540d3ec697">SYMS_U64</a></div><div class="ttdeci">#define SYMS_U64</div><div class="ttdef"><b>定义</b> syms_crt_overrides.h:54</div></div>
+<div class="ttc" id="asyms__crt__overrides_8h_html_a737aa9c9dd3585c47cbcd7b989cee818"><div class="ttname"><a href="../../d9/d68/syms__crt__overrides_8h.html#a737aa9c9dd3585c47cbcd7b989cee818">SYMS_U32</a></div><div class="ttdeci">#define SYMS_U32</div><div class="ttdef"><b>定义</b> syms_crt_overrides.h:53</div></div>
+<div class="ttc" id="asyms__elf_8c_html_a1971ddc612091a948a8601e164f3c4ee"><div class="ttname"><a href="../../d2/d5a/syms__elf_8c.html#a1971ddc612091a948a8601e164f3c4ee">syms_elf_phdr64_from_phdr32</a></div><div class="ttdeci">SYMS_API SYMS_ElfPhdr64 syms_elf_phdr64_from_phdr32(SYMS_ElfPhdr32 h32)</div><div class="ttdef"><b>定义</b> syms_elf.c:53</div></div>
+<div class="ttc" id="asyms__elf_8c_html_a1b4d0ce8dc19c9037fd80328024c259b"><div class="ttname"><a href="../../d2/d5a/syms__elf_8c.html#a1b4d0ce8dc19c9037fd80328024c259b">syms_elf_gnu_debuglink_crc32</a></div><div class="ttdeci">SYMS_API SYMS_U32 syms_elf_gnu_debuglink_crc32(SYMS_U32 crc, SYMS_String8 data)</div><div class="ttdef"><b>定义</b> syms_elf.c:116</div></div>
+<div class="ttc" id="asyms__elf_8c_html_a34fad89b922fbd833e1258ca32c9ab11"><div class="ttname"><a href="../../d2/d5a/syms__elf_8c.html#a34fad89b922fbd833e1258ca32c9ab11">syms_elf_rela64_from_rela32</a></div><div class="ttdeci">SYMS_API SYMS_ElfRela64 syms_elf_rela64_from_rela32(SYMS_ElfRela32 rela32)</div><div class="ttdef"><b>定义</b> syms_elf.c:100</div></div>
+<div class="ttc" id="asyms__elf_8c_html_a5942302233d20c8c9e6b27005c94e0d8"><div class="ttname"><a href="../../d2/d5a/syms__elf_8c.html#a5942302233d20c8c9e6b27005c94e0d8">syms_elf_shdr64_from_shdr32</a></div><div class="ttdeci">SYMS_API SYMS_ElfShdr64 syms_elf_shdr64_from_shdr32(SYMS_ElfShdr32 h32)</div><div class="ttdef"><b>定义</b> syms_elf.c:36</div></div>
+<div class="ttc" id="asyms__elf_8c_html_a9135525cdd0bb05d1025761adaef0d2b"><div class="ttname"><a href="../../d2/d5a/syms__elf_8c.html#a9135525cdd0bb05d1025761adaef0d2b">syms_elf_sym64_from_sym32</a></div><div class="ttdeci">SYMS_API SYMS_ElfSym64 syms_elf_sym64_from_sym32(SYMS_ElfSym32 sym32)</div><div class="ttdef"><b>定义</b> syms_elf.c:76</div></div>
+<div class="ttc" id="asyms__elf_8c_html_a95ac04017c81905b1d748964f7634df3"><div class="ttname"><a href="../../d2/d5a/syms__elf_8c.html#a95ac04017c81905b1d748964f7634df3">syms_elf_dyn64_from_dyn32</a></div><div class="ttdeci">SYMS_API SYMS_ElfDyn64 syms_elf_dyn64_from_dyn32(SYMS_ElfDyn32 h32)</div><div class="ttdef"><b>定义</b> syms_elf.c:68</div></div>
+<div class="ttc" id="asyms__elf_8c_html_ab5d34114231c8e3854f7e4b710c20fb5"><div class="ttname"><a href="../../d2/d5a/syms__elf_8c.html#ab5d34114231c8e3854f7e4b710c20fb5">syms_elf_rel64_from_rel32</a></div><div class="ttdeci">SYMS_API SYMS_ElfRel64 syms_elf_rel64_from_rel32(SYMS_ElfRel32 rel32)</div><div class="ttdef"><b>定义</b> syms_elf.c:89</div></div>
+<div class="ttc" id="asyms__elf_8c_html_af00dc5da9c1e3f94e1a656c92046ca6f"><div class="ttname"><a href="../../d2/d5a/syms__elf_8c.html#af00dc5da9c1e3f94e1a656c92046ca6f">syms_elf_ehdr64_from_ehdr32</a></div><div class="ttdeci">SYMS_API SYMS_ElfEhdr64 syms_elf_ehdr64_from_ehdr32(SYMS_ElfEhdr32 h32)</div><div class="ttdef"><b>定义</b> syms_elf.c:15</div></div>
+<div class="ttc" id="asyms__elf_8h_html_a235cfd218efa0c6272e9b52c89064d83"><div class="ttname"><a href="../../d6/da0/syms__elf_8h.html#a235cfd218efa0c6272e9b52c89064d83">SYMS_ELF32_R_TYPE</a></div><div class="ttdeci">#define SYMS_ELF32_R_TYPE(x)</div><div class="ttdef"><b>定义</b> syms_elf.h:221</div></div>
+<div class="ttc" id="asyms__elf_8h_html_a59b4b679cad80054c12bb89133a6e152"><div class="ttname"><a href="../../d6/da0/syms__elf_8h.html#a59b4b679cad80054c12bb89133a6e152">SYMS_ELF64_R_INFO</a></div><div class="ttdeci">#define SYMS_ELF64_R_INFO(s, t)</div><div class="ttdef"><b>定义</b> syms_elf.h:223</div></div>
+<div class="ttc" id="asyms__elf_8h_html_aa696bff757be731d7960b978b560f498"><div class="ttname"><a href="../../d6/da0/syms__elf_8h.html#aa696bff757be731d7960b978b560f498">SYMS_ELF32_R_SYM</a></div><div class="ttdeci">#define SYMS_ELF32_R_SYM(x)</div><div class="ttdef"><b>定义</b> syms_elf.h:220</div></div>
+<div class="ttc" id="asyms__meta__elf_8c_html"><div class="ttname"><a href="../../d1/d1f/syms__meta__elf_8c.html">syms_meta_elf.c</a></div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+</div><!-- container -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a href="../../dir_0b6ee6e7e9547e675db4add2e5de97da.html">Engine</a></li><li class="navelem"><a href="../../dir_9579d1ecb2c7bf48cbe1049c41745cb4.html">Source</a></li><li class="navelem"><a href="../../dir_9f04efef762572853abdf73f62bebfcc.html">Runtime</a></li><li class="navelem"><a href="../../dir_9769ad5fdd4bc0a8f9092b77dc25825e.html">SymsLib</a></li><li class="navelem"><a href="../../dir_8e200c3df41ddbbf04d6e703ef9e165e.html">syms</a></li><li class="navelem"><a href="../../dir_f0036181492e995502e36e5b0d9954f2.html">core</a></li><li class="navelem"><a href="../../dir_15f66878884f1fc33e6e95f4154eb565.html">elf</a></li><li class="navelem"><a href="../../d2/d5a/syms__elf_8c.html">syms_elf.c</a></li>
+    <li class="footer">制作者 <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.15.0 </li>
+  </ul>
+</div>
+</body>
+</html>

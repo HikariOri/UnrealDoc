@@ -1,0 +1,4 @@
+var struct_managed_storage_platform_file_1_1_f_deduce_base_class_helper_3_01_ret_type_07_class_type_42af1150fc3ca35ba9700b7f93ba0ac9 =
+[
+    [ "Type", "d2/db2/struct_managed_storage_platform_file_1_1_f_deduce_base_class_helper_3_01_ret_type_07_class_type_42af1150fc3ca35ba9700b7f93ba0ac9.html#a80f629a498351b75e70d05e61e3d82bf", null ]
+];

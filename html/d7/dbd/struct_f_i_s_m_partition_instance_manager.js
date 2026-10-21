@@ -1,0 +1,25 @@
+var struct_f_i_s_m_partition_instance_manager =
+[
+    [ "FISMPartitionInstanceManager", "d7/dbd/struct_f_i_s_m_partition_instance_manager.html#a5b01d7ae0f2404edb6beaa07d0e1fe39", null ],
+    [ "FISMPartitionInstanceManager", "d7/dbd/struct_f_i_s_m_partition_instance_manager.html#a7465f93a2db9f4219f7a31a9d21d167c", null ],
+    [ "CanDeleteISMPartitionInstance", "d7/dbd/struct_f_i_s_m_partition_instance_manager.html#a10ec7a8ab874faa6a75628bda12d6a83", null ],
+    [ "CanDuplicateISMPartitionInstance", "d7/dbd/struct_f_i_s_m_partition_instance_manager.html#ac0ff17ed06bd7098f5daf1669c044080", null ],
+    [ "CanEditISMPartitionInstance", "d7/dbd/struct_f_i_s_m_partition_instance_manager.html#a72b83d8ed32a2299a7edbf1a779ca2dc", null ],
+    [ "CanMoveISMPartitionInstance", "d7/dbd/struct_f_i_s_m_partition_instance_manager.html#a9d74402ad78ac47e42ccf6c88f8c7211", null ],
+    [ "DeleteISMPartitionInstance", "d7/dbd/struct_f_i_s_m_partition_instance_manager.html#a69fe0072b44c6c054288cffd92451c4b", null ],
+    [ "DuplicateISMPartitionInstance", "d7/dbd/struct_f_i_s_m_partition_instance_manager.html#a0a0029e861679885617f3edc6bf98fc7", null ],
+    [ "GetInstanceId", "d7/dbd/struct_f_i_s_m_partition_instance_manager.html#aed4a8624a68c1fd16f19acaf7950047d", null ],
+    [ "GetInstanceManager", "d7/dbd/struct_f_i_s_m_partition_instance_manager.html#a6819c5a4304da2605a826f7babeb682f", null ],
+    [ "GetISMPartitionInstanceDisplayName", "d7/dbd/struct_f_i_s_m_partition_instance_manager.html#a481ee8dc0bba5e7f37b1dd7d509c5fc9", null ],
+    [ "GetISMPartitionInstanceTooltip", "d7/dbd/struct_f_i_s_m_partition_instance_manager.html#a9e3d36bf5f7ada9ca179fe926c589088", null ],
+    [ "GetISMPartitionInstanceTransform", "d7/dbd/struct_f_i_s_m_partition_instance_manager.html#a20288974320f041d8d8a3152aebffe95", null ],
+    [ "NotifyISMPartitionInstanceMovementEnded", "d7/dbd/struct_f_i_s_m_partition_instance_manager.html#a01b7af7495ef4f7e9be356d49141c3ae", null ],
+    [ "NotifyISMPartitionInstanceMovementOngoing", "d7/dbd/struct_f_i_s_m_partition_instance_manager.html#ace3676ffab68ca3ad519c37a305b2246", null ],
+    [ "NotifyISMPartitionInstanceMovementStarted", "d7/dbd/struct_f_i_s_m_partition_instance_manager.html#a5c0c44a19c45955ae05f0ade527eba72", null ],
+    [ "NotifyISMPartitionInstanceSelectionChanged", "d7/dbd/struct_f_i_s_m_partition_instance_manager.html#a64233efb222c42024cc317540fdf76d5", null ],
+    [ "operator bool", "d7/dbd/struct_f_i_s_m_partition_instance_manager.html#ad23122f12330cb6c82c6b99bf8278f4f", null ],
+    [ "operator!=", "d7/dbd/struct_f_i_s_m_partition_instance_manager.html#ab1809b2a30a3a4f4da59bf630be7bfd6", null ],
+    [ "operator==", "d7/dbd/struct_f_i_s_m_partition_instance_manager.html#a431e75a934296e46670cdcd47c991cfe", null ],
+    [ "SetISMPartitionInstanceTransform", "d7/dbd/struct_f_i_s_m_partition_instance_manager.html#ae9d1ce10c376409dca372c04e922e195", null ],
+    [ "GetTypeHash", "d7/dbd/struct_f_i_s_m_partition_instance_manager.html#a90cfb9481877dce1f894568d31786501", null ]
+];

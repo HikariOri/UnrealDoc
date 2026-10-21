@@ -1,0 +1,28 @@
+var struct_f_net_delta_serialize_info =
+[
+    [ "bCalledPreNetReceive", "d7/da7/struct_f_net_delta_serialize_info.html#a12effc57752178d76d4d269a6d40cad0", null ],
+    [ "bGuidListsChanged", "d7/da7/struct_f_net_delta_serialize_info.html#a6ccec7d256f653d2200381460576333c", null ],
+    [ "bInternalAck", "d7/da7/struct_f_net_delta_serialize_info.html#ac0fd26817b63559687fb5064aa5d78e5", null ],
+    [ "bIsInitializingBaseFromDefault", "d7/da7/struct_f_net_delta_serialize_info.html#ac45c503f14fb32bf9a5e287dba0b7370", null ],
+    [ "bIsWritingOnClient", "d7/da7/struct_f_net_delta_serialize_info.html#a93ec14a94801ede2279247f68cfa54ee", null ],
+    [ "bOutHasMoreUnmapped", "d7/da7/struct_f_net_delta_serialize_info.html#ab4a0de3eab9e6b4011277b3461b1dc27", null ],
+    [ "bOutSomeObjectsWereMapped", "d7/da7/struct_f_net_delta_serialize_info.html#a5b4580c1e4bb0eba4a2f70507c3d637e", null ],
+    [ "bSupportsFastArrayDeltaStructSerialization", "d7/da7/struct_f_net_delta_serialize_info.html#a3b84a4e619de9ccfb2c11fe33a982d05", null ],
+    [ "bUpdateUnmappedObjects", "d7/da7/struct_f_net_delta_serialize_info.html#ac66c3fb96db2f8501de0cf8f1f92e647", null ],
+    [ "Connection", "d7/da7/struct_f_net_delta_serialize_info.html#a40ef22cbbe7c774b59681a7d1945316a", null ],
+    [ "CustomDeltaIndex", "d7/da7/struct_f_net_delta_serialize_info.html#a7afedf5fde4feb0a484ec18944df6796", null ],
+    [ "CustomDeltaObject", "d7/da7/struct_f_net_delta_serialize_info.html#a5eb38af13e9b57a05efe18ca0490d1fe", null ],
+    [ "Data", "d7/da7/struct_f_net_delta_serialize_info.html#a7419d7776ab3aea1ab7e9a67769d32ba", null ],
+    [ "DebugName", "d7/da7/struct_f_net_delta_serialize_info.html#aff9112051c0abfd05ff98256a3f44ee0", null ],
+    [ "GatherGuidReferences", "d7/da7/struct_f_net_delta_serialize_info.html#a1602d3c5b77470235877c94ae9b2f3f4", null ],
+    [ "Map", "d7/da7/struct_f_net_delta_serialize_info.html#ab1a6c388da34acfb7c1bc5a19715ac94", null ],
+    [ "MoveGuidToUnmapped", "d7/da7/struct_f_net_delta_serialize_info.html#a3d7c1a464027bb53f08d2324dcb5bd77", null ],
+    [ "NetSerializeCB", "d7/da7/struct_f_net_delta_serialize_info.html#acf41c548638b9ad2b2dc76e4dd03a5e5", null ],
+    [ "NewState", "d7/da7/struct_f_net_delta_serialize_info.html#ae2869dbab051319df1b1d9834669e6d0", null ],
+    [ "Object", "d7/da7/struct_f_net_delta_serialize_info.html#a3e61a8c8e4c4ee9ad259e9dd05689e77", null ],
+    [ "OldState", "d7/da7/struct_f_net_delta_serialize_info.html#adf8fa67eae7adba48a68f576d5a2eb4f", null ],
+    [ "Reader", "d7/da7/struct_f_net_delta_serialize_info.html#aaaaa83daa7624e5bbec3a3933e817b90", null ],
+    [ "Struct", "d7/da7/struct_f_net_delta_serialize_info.html#a11c5541b2143aa2447eed3e934486832", null ],
+    [ "TrackedGuidMemoryBytes", "d7/da7/struct_f_net_delta_serialize_info.html#a2ce2cf86e9df9b7dcf9141776edcf3d8", null ],
+    [ "Writer", "d7/da7/struct_f_net_delta_serialize_info.html#a361d6eded9747ae2198c5a73d9be1db4", null ]
+];

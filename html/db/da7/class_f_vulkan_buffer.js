@@ -1,0 +1,36 @@
+var class_f_vulkan_buffer =
+[
+    [ "FBufferAlloc", "d6/dbb/struct_f_vulkan_buffer_1_1_f_buffer_alloc.html", "d6/dbb/struct_f_vulkan_buffer_1_1_f_buffer_alloc" ],
+    [ "ELockStatus", "db/da7/class_f_vulkan_buffer.html#afbcee43b3d1059f3e4c4e7fa8f1dcad3", [
+      [ "Unlocked", "db/da7/class_f_vulkan_buffer.html#afbcee43b3d1059f3e4c4e7fa8f1dcad3ac76fd517e45cc95709f4ac106efa4a94", null ],
+      [ "Locked", "db/da7/class_f_vulkan_buffer.html#afbcee43b3d1059f3e4c4e7fa8f1dcad3ad0f2e5376298c880665077b565ffd7dd", null ],
+      [ "PersistentMapping", "db/da7/class_f_vulkan_buffer.html#afbcee43b3d1059f3e4c4e7fa8f1dcad3a7564df248d6d895e0c715fe2cc96b008", null ]
+    ] ],
+    [ "FVulkanBuffer", "db/da7/class_f_vulkan_buffer.html#a11edcbf31d9e765cabb207b4cfc67537", null ],
+    [ "~FVulkanBuffer", "db/da7/class_f_vulkan_buffer.html#a03127ad28a300f679b2fbec03655f1ac", null ],
+    [ "AllocateMemory", "db/da7/class_f_vulkan_buffer.html#a59019d8cc4409accf9e83b99bdccc746", null ],
+    [ "CommitReservedResource", "db/da7/class_f_vulkan_buffer.html#aee15cec294749da7624e8a0811252e1f", null ],
+    [ "DumpMemory", "db/da7/class_f_vulkan_buffer.html#af15f6d05b9098a07254994ecac90051a", null ],
+    [ "GetBufferUsageFlags", "db/da7/class_f_vulkan_buffer.html#ade9b5e5e2db0bf941b1fcdae40840393", null ],
+    [ "GetCurrentAllocation", "db/da7/class_f_vulkan_buffer.html#a45fdd444176b9b9a00d7c9fc16347555", null ],
+    [ "GetCurrentHostPointer", "db/da7/class_f_vulkan_buffer.html#a080f4edc7c5fc899a26fe0b73c710937", null ],
+    [ "GetCurrentSize", "db/da7/class_f_vulkan_buffer.html#a5ea0b3b9d55790d0135cd8013a71b873", null ],
+    [ "GetDeviceAddress", "db/da7/class_f_vulkan_buffer.html#ab8f45315691257e72cc252e70534594b", null ],
+    [ "GetHandle", "db/da7/class_f_vulkan_buffer.html#a3b907e39ea100aa3718b1aaec0c40ce4", null ],
+    [ "GetIndexType", "db/da7/class_f_vulkan_buffer.html#aae58d7061b5157142a79dec5e9185c2f", null ],
+    [ "GetOffset", "db/da7/class_f_vulkan_buffer.html#a5aff16724acdac0e5dc047968e2a4ac0", null ],
+    [ "IncrementLockCounter", "db/da7/class_f_vulkan_buffer.html#a180df6887aa3e36409776cc5c2e8d501", null ],
+    [ "IsVolatile", "db/da7/class_f_vulkan_buffer.html#a83144d01501a6b2c053b1ca632493bd8", null ],
+    [ "Lock", "db/da7/class_f_vulkan_buffer.html#a1d3eb666949157a87466ec2150111b26", null ],
+    [ "ReleaseOwnership", "db/da7/class_f_vulkan_buffer.html#a86b37d1e83b37e61976c33f3ccb3716b", null ],
+    [ "TakeOwnership", "db/da7/class_f_vulkan_buffer.html#a246c89b2ab10377d6e7270b53c99d168", null ],
+    [ "Unlock", "db/da7/class_f_vulkan_buffer.html#aa8b4c6219514004912e114dd81eceb54", null ],
+    [ "FRHICommandMultiBufferUnlock", "db/da7/class_f_vulkan_buffer.html#acf2e97a70b3cd6622be9d94bf71c5805", null ],
+    [ "FVulkanCommandListContext", "db/da7/class_f_vulkan_buffer.html#a556198345a3cf12d56efa2944568cb4f", null ],
+    [ "BufferUsageFlags", "db/da7/class_f_vulkan_buffer.html#ad736a31ad790051990fa837856bebf21", null ],
+    [ "CurrentBufferAlloc", "db/da7/class_f_vulkan_buffer.html#af936195454c480c471e73abc4c5618d2", null ],
+    [ "Device", "db/da7/class_f_vulkan_buffer.html#afc98d1f3707d27164ef842b6037676fc", null ],
+    [ "LockCounter", "db/da7/class_f_vulkan_buffer.html#a38a52f54edc518497827949445c5d24b", null ],
+    [ "LockStatus", "db/da7/class_f_vulkan_buffer.html#a5af78b6027963bfe9754c6c56d7c8606", null ],
+    [ "ReservedResourceData", "db/da7/class_f_vulkan_buffer.html#acbc4d065d18ae163f8979f482e3ed082", null ]
+];

@@ -1,0 +1,28 @@
+var class_i_changelist_service =
+[
+    [ "CancelP4Operations", "dd/d77/class_i_changelist_service.html#a1e6ef619ac7660c49c763c96d02581af", null ],
+    [ "CheckShelfIsUpToDate", "dd/d77/class_i_changelist_service.html#abddaf6c4e4a5759909907fdfccc6debe", null ],
+    [ "CreateCLFromDefaultCL", "dd/d77/class_i_changelist_service.html#a43825944ee466d96edbd84e933f2d76a", null ],
+    [ "CreateShelvedFiles", "dd/d77/class_i_changelist_service.html#a18dfa75275af8f8976857fe730cb3ae7", null ],
+    [ "DeleteShelvedFiles", "dd/d77/class_i_changelist_service.html#aa95a87940d4545763a2c135ee18e3daa", null ],
+    [ "EnsureShelfIsCurrent", "dd/d77/class_i_changelist_service.html#ac647b7ef9a2c859b82b7f76c86203df9", null ],
+    [ "FetchChangelistDataAsync", "dd/d77/class_i_changelist_service.html#a2bdd4dddd29ad893185d2ac35a7bb8c5", null ],
+    [ "GetCLDescription", "dd/d77/class_i_changelist_service.html#a6c8a25ff71def9b6bce0bb8614c46759", null ],
+    [ "GetCLID", "dd/d77/class_i_changelist_service.html#a253976714fba72539ca9c8149f3f10d7", null ],
+    [ "GetFilesInCL", "dd/d77/class_i_changelist_service.html#a34ae6273f0efa29430d34a0dd31886cf", null ],
+    [ "GetOpenFilesInChangelists", "dd/d77/class_i_changelist_service.html#a9831db435ec32b604c8656a2fa0cffda", null ],
+    [ "GetShelvedFilesInCL", "dd/d77/class_i_changelist_service.html#a56c8c9ae5abda95fc3042bedc0710d27", null ],
+    [ "HasP4OperationsRunning", "dd/d77/class_i_changelist_service.html#ad4c725e9e9be493719f6fbb6913c3cb2", null ],
+    [ "HasShelvedFiles", "dd/d77/class_i_changelist_service.html#a04be0927d4c5851b5ad8bc8696f350ba", null ],
+    [ "Init", "dd/d77/class_i_changelist_service.html#adcbef45d03d6868f1980ac8d574e48ab", null ],
+    [ "IsShelfComplete", "dd/d77/class_i_changelist_service.html#abc767ec21d7934367d6b2828e50602a1", null ],
+    [ "IsShelfReady", "dd/d77/class_i_changelist_service.html#a043d32f6af1bfdee6cd60b18b8f5a9dd", null ],
+    [ "ReplaceShelvedFiles", "dd/d77/class_i_changelist_service.html#abe869b2b33da8359af95fe8f734a2327", null ],
+    [ "RevertUnchangedFiles", "dd/d77/class_i_changelist_service.html#a2ed37ce2ee17bbcb9f285e6d6ae9dc22", null ],
+    [ "SetCLDescription", "dd/d77/class_i_changelist_service.html#a122f0bfc0cfe6bce1c006d4be96d45fc", null ],
+    [ "Submit", "dd/d77/class_i_changelist_service.html#aea497e9e69ed638f51e6503f8a80321f", null ],
+    [ "UpdateP4CLDescription", "dd/d77/class_i_changelist_service.html#a7e7caa8b95e2e85c872b29494db0ca29", null ],
+    [ "UpdateP4CLDescriptionSynchronously", "dd/d77/class_i_changelist_service.html#aaa2b900904a2ab47543fcd1baac809d4", null ],
+    [ "UpdateShelvedFiles", "dd/d77/class_i_changelist_service.html#abd316d638794dffb508f356b2e40994f", null ],
+    [ "OnCLDescriptionUpdated", "dd/d77/class_i_changelist_service.html#a0deeedd03b6e6e0915e2041850acb3b0", null ]
+];

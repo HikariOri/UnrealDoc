@@ -1,0 +1,1211 @@
+<!-- HTML header for doxygen 1.15.0-->
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh">
+<head>
+  <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=11" />
+  <meta name="generator" content="Doxygen 1.15.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>UE 5.8.4: Engine/Source/Runtime/Renderer/Private/Lumen/LumenScreenProbeTracing.cpp 文件参考</title>
+  <link rel="icon" href="../../EdIconDefault.bmp" type="image/x-icon" />
+  <link href="../../tabs.css" rel="stylesheet" type="text/css" />
+  <script type="text/javascript" src="../../jquery.js"></script>
+  <script type="text/javascript" src="../../dynsections.js"></script>
+  <link href="../../navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../navtreedata.js"></script>
+<script type="text/javascript" src="../../navtree.js"></script>
+<script type="text/javascript" src="../../cookie.js"></script>
+  <link href="../../search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../search/searchdata.js"></script>
+<script type="text/javascript" src="../../search/search.js"></script>
+  <script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  extensions: ["tex2jax.js"],
+  jax: ["input/TeX","output/HTML-CSS"],
+});
+</script>
+<script type="text/javascript" async="async" src="https://cdn.jsdelivr.net/npm/mathjax@2/MathJax.js"></script>
+  <link href="../../doxygen.css" rel="stylesheet" type="text/css" />
+  <link href="../../doxygen-awesome.css" rel="stylesheet" type="text/css"/>
+<link href="../../doxygen-awesome-sidebar-only.css" rel="stylesheet" type="text/css"/>
+<link href="../../doxygen-awesome-sidebar-only-darkmode-toggle.css" rel="stylesheet" type="text/css"/>
+  <!-- ... other metadata & script includes ... -->
+  <script type="text/javascript" src="../../doxygen-awesome-darkmode-toggle.js"></script>
+  <script type="text/javascript">
+    DoxygenAwesomeDarkModeToggle.title = "Zwischen hellem/dunklem Modus wechseln"
+    DoxygenAwesomeDarkModeToggle.lightModeIcon = '🌞'
+    // icon from https://fonts.google.com/icons
+    DoxygenAwesomeDarkModeToggle.darkModeIcon = `<svg xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 24 24" height="24px" viewBox="0 0 24 24" width="24px" fill="#009793"><g><rect fill="none" height="24" width="24"/></g><g><g><path d="M8.1,14.15C9.77,14.63,11,16.17,11,18c0,0.68-0.19,1.31-0.48,1.87c0.48,0.09,0.97,0.14,1.48,0.14 c1.48,0,2.9-0.41,4.13-1.15c-2.62-0.92-5.23-2.82-6.8-5.86C7.74,9.94,7.78,7.09,8.29,4.9c-2.57,1.33-4.3,4.01-4.3,7.1c0,0,0,0,0,0 c0.01,0,0.01,0,0.02,0C5.66,12,7.18,12.83,8.1,14.15z" opacity=".3"/><path d="M19.78,17.51c-2.47,0-6.57-1.33-8.68-5.43C8.77,7.57,10.6,3.6,11.63,2.01C6.27,2.2,1.98,6.59,1.98,12 c0,0.14,0.02,0.28,0.02,0.42C2.61,12.16,3.28,12,3.98,12c0,0,0,0,0,0c0-3.09,1.73-5.77,4.3-7.1C7.78,7.09,7.74,9.94,9.32,13 c1.57,3.04,4.18,4.95,6.8,5.86c-1.23,0.74-2.65,1.15-4.13,1.15c-0.5,0-1-0.05-1.48-0.14c-0.37,0.7-0.94,1.27-1.64,1.64 c0.98,0.32,2.03,0.5,3.11,0.5c3.5,0,6.58-1.8,8.37-4.52C20.18,17.5,19.98,17.51,19.78,17.51z"/><path d="M7,16l-0.18,0C6.4,14.84,5.3,14,4,14c-1.66,0-3,1.34-3,3s1.34,3,3,3c0.62,0,2.49,0,3,0c1.1,0,2-0.9,2-2 C9,16.9,8.1,16,7,16z"/></g></g></svg>`
+    DoxygenAwesomeDarkModeToggle.init()
+  </script>
+  <script type="text/javascript" src="../../doxygen-awesome-fragment-copy-button.js"></script>
+  <script type="text/javascript">
+    DoxygenAwesomeFragmentCopyButton.title = "In die Zwischenablage kopieren"
+    // DoxygenAwesomeFragmentCopyButton.copyIcon = `<svg ...>`
+    // DoxygenAwesomeFragmentCopyButton.successIcon = `<svg ...>`
+    DoxygenAwesomeFragmentCopyButton.init()
+  </script>
+  <script type="text/javascript" src="../../doxygen-awesome-paragraph-link.js"></script>
+  <script type="text/javascript">
+    DoxygenAwesomeParagraphLink.title = "Abschnitt verknüpfen"
+    DoxygenAwesomeParagraphLink.icon = "¶"
+    DoxygenAwesomeParagraphLink.init()
+  </script>
+  <script type="text/javascript" src="../../doxygen-awesome-interactive-toc.js"></script>
+  <script type="text/javascript">
+    DoxygenAwesomeInteractiveToc.topOffset = 45
+    DoxygenAwesomeInteractiveToc.hideMobileMenu = false
+    DoxygenAwesomeInteractiveToc.init()
+  </script>
+</head>
+<body>
+    <div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+      <div id="titlearea">
+        <table cellspacing="0" cellpadding="0">
+          <tbody>
+            <tr id="projectrow">
+              <td id="projectlogo"><img alt="Logo" src="../../EdIconDefault.bmp"  /></td>
+              <td id="projectalign">
+                <div id="projectname">UE 5.8.4
+                </div>
+                <div id="projectbrief">Unreal Engine</div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <!-- end header part -->
+<!-- 制作者 Doxygen 1.15.0 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "../../search/",'.html');
+</script>
+<script type="text/javascript">
+$(function() { codefold.init(); });
+</script>
+<script type="text/javascript" src="../../menudata.js"></script>
+<script type="text/javascript" src="../../menu.js"></script>
+<script type="text/javascript">
+$(function() {
+  initMenu('../../',true,false,'search.php','搜索',true);
+  $(function() { init_search(); });
+});
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(function(){initNavTree('d8/da4/_lumen_screen_probe_tracing_8cpp.html','../../',''); });
+</script>
+<div id="container">
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">载入中...</div>
+<div class="SRStatus" id="Searching">搜索中...</div>
+<div class="SRStatus" id="NoMatches">未找到</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">LumenScreenProbeTracing.cpp 文件参考</div></div>
+</div><!--header-->
+<div class="contents">
+<div class="textblock"><code>#include &quot;<a class="el" href="../../dd/da8/_lumen_screen_probe_gather_8h_source.html">LumenScreenProbeGather.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d5/dbc/_scene_private_8h_source.html">ScenePrivate.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d5/d3b/_scene_utils_8h_source.html">SceneUtils.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../df/db5/_pipeline_state_cache_8h_source.html">PipelineStateCache.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../de/d64/_shader_parameter_struct_8h_source.html">ShaderParameterStruct.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d2/d93/_pixel_shader_utils_8h_source.html">PixelShaderUtils.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d8/d57/_reflection_environment_8h_source.html">ReflectionEnvironment.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../da/d72/_distance_field_ambient_occlusion_8h_source.html">DistanceFieldAmbientOcclusion.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../de/d9e/_hair_strands_data_8h_source.html">HairStrands/HairStrandsData.h</a>&quot;</code><br />
+</div><div class="textblock"><div class="dynheader">
+LumenScreenProbeTracing.cpp 的引用(Include)关系图:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d7/db7/_lumen_screen_probe_tracing_8cpp__incl.svg" width="4562" height="608"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+</div><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-nested-classes" class="groupheader"><a id="nested-classes" name="nested-classes"></a>
+类</h2></td></tr>
+<tr class="memitem:FClearTracesCS" id="r_FClearTracesCS"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/d06/class_f_clear_traces_c_s.html">FClearTracesCS</a></td></tr>
+<tr class="memitem:FScreenProbeTraceScreenTexturesCS" id="r_FScreenProbeTraceScreenTexturesCS"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/da2/class_f_screen_probe_trace_screen_textures_c_s.html">FScreenProbeTraceScreenTexturesCS</a></td></tr>
+<tr class="memitem:FScreenProbeCompactTracesCS" id="r_FScreenProbeCompactTracesCS"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/ddd/class_f_screen_probe_compact_traces_c_s.html">FScreenProbeCompactTracesCS</a></td></tr>
+<tr class="memitem:FSetupCompactedTracesIndirectArgsCS" id="r_FSetupCompactedTracesIndirectArgsCS"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/d0b/class_f_setup_compacted_traces_indirect_args_c_s.html">FSetupCompactedTracesIndirectArgsCS</a></td></tr>
+<tr class="memitem:FScreenProbeTraceMeshSDFsCS" id="r_FScreenProbeTraceMeshSDFsCS"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/de1/class_f_screen_probe_trace_mesh_s_d_fs_c_s.html">FScreenProbeTraceMeshSDFsCS</a></td></tr>
+<tr class="memitem:FScreenProbeTraceVoxelsCS" id="r_FScreenProbeTraceVoxelsCS"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/dda/class_f_screen_probe_trace_voxels_c_s.html">FScreenProbeTraceVoxelsCS</a></td></tr>
+<tr class="memitem:FScreenProbeSetupVisualizeTracesCS" id="r_FScreenProbeSetupVisualizeTracesCS"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/d66/class_f_screen_probe_setup_visualize_traces_c_s.html">FScreenProbeSetupVisualizeTracesCS</a></td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-namespaces" class="groupheader"><a id="namespaces" name="namespaces"></a>
+命名空间</h2></td></tr>
+<tr class="memitem:LumenScreenProbeGather" id="r_LumenScreenProbeGather"><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/ddb/namespace_lumen_screen_probe_gather.html">LumenScreenProbeGather</a></td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-enum-members" class="groupheader"><a id="enum-members" name="enum-members"></a>
+枚举</h2></td></tr>
+<tr class="memitem:aec9ce3cc6540e16ceac92a5766d82a21" id="r_aec9ce3cc6540e16ceac92a5766d82a21"><td class="memItemLeft" align="right" valign="top">enum class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aec9ce3cc6540e16ceac92a5766d82a21">ECompactedTracingIndirectArgs</a> { <br />
+&#160;&#160;<a class="el" href="#aec9ce3cc6540e16ceac92a5766d82a21aaa8aaa8e04acde3d9e2fdc415ef398a9">NumTracesDiv64</a> = 0 * sizeof(FRHIDispatchIndirectParameters)
+, <a class="el" href="#aec9ce3cc6540e16ceac92a5766d82a21a04a68b85776916304bb68461ba0250bb">NumTracesDiv32</a> = 1 * sizeof(FRHIDispatchIndirectParameters)
+, <a class="el" href="#aec9ce3cc6540e16ceac92a5766d82a21a9270d7f2c461d23d4154ed54810beb6e">NumLightSampleTracesDiv64</a> = 2 * sizeof(FRHIDispatchIndirectParameters)
+, <a class="el" href="#aec9ce3cc6540e16ceac92a5766d82a21a897bf1b5e1f9e579857a6cb8bba35579">NumLightSampleTracesDiv32</a> = 3 * sizeof(FRHIDispatchIndirectParameters)
+, <br />
+&#160;&#160;<a class="el" href="#aec9ce3cc6540e16ceac92a5766d82a21a26a4b44a837bf97b972628509912b4a5">MAX</a> = 4
+<br />
+ }</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-func-members" class="groupheader"><a id="func-members" name="func-members"></a>
+函数</h2></td></tr>
+<tr class="memitem:acfaca3f5524c56c0bfc679915777c403" id="r_acfaca3f5524c56c0bfc679915777c403"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d2/d79/class_f_auto_console_variable_ref.html">FAutoConsoleVariableRef</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#acfaca3f5524c56c0bfc679915777c403">GVarLumenScreenProbeGatherScreenTraces</a> (<a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;r.Lumen.ScreenProbeGather.ScreenTraces&quot;), <a class="el" href="#a537d9ea2140d67eddf915a5de8778926">GLumenScreenProbeGatherScreenTraces</a>, <a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;Whether to <a class="el" href="../../d7/df8/namespacetrace.html">trace</a> against the screen before falling back to other tracing methods.&quot;), <a class="el" href="../../d4/dd9/_i_console_manager_8h.html#a7f594f23c2b2c5687f1a502ebb3ba105a5fb4e7a0526f4a0c350d71e18956527c">ECVF_Scalability</a>|<a class="el" href="../../d4/dd9/_i_console_manager_8h.html#a7f594f23c2b2c5687f1a502ebb3ba105a774ea60f41417af093a7ca56c4204a70">ECVF_RenderThreadSafe</a>)</td></tr>
+<tr class="memitem:a496b3d1e4c86ae04d878cd72dad9b25c" id="r_a496b3d1e4c86ae04d878cd72dad9b25c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d2/d79/class_f_auto_console_variable_ref.html">FAutoConsoleVariableRef</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a496b3d1e4c86ae04d878cd72dad9b25c">GVarLumenScreenProbeGatherHierarchicalScreenTraces</a> (<a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;r.Lumen.ScreenProbeGather.ScreenTraces.HZBTraversal&quot;), <a class="el" href="#a69afdf454980c77402961d60a181c4e3">GLumenScreenProbeGatherHierarchicalScreenTraces</a>, <a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;Whether to use HZB tracing <a class="el" href="../../d3/db8/binka__ue__decode__test_8cpp.html#ac1ee511585a5c7a2d58c146185895b72">for</a> SSGI instead of fixed step count intersection.  HZB tracing is much more accurate, in particular not missing thin features, but is slower.&quot;), <a class="el" href="../../d4/dd9/_i_console_manager_8h.html#a7f594f23c2b2c5687f1a502ebb3ba105a5fb4e7a0526f4a0c350d71e18956527c">ECVF_Scalability</a>|<a class="el" href="../../d4/dd9/_i_console_manager_8h.html#a7f594f23c2b2c5687f1a502ebb3ba105a774ea60f41417af093a7ca56c4204a70">ECVF_RenderThreadSafe</a>)</td></tr>
+<tr class="memitem:a6dcc0e51e62dd7b990fbafd95159cf6e" id="r_a6dcc0e51e62dd7b990fbafd95159cf6e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d2/d79/class_f_auto_console_variable_ref.html">FAutoConsoleVariableRef</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6dcc0e51e62dd7b990fbafd95159cf6e">GVarLumenScreenProbeGatherHierarchicalScreenTracesFullResDepth</a> (<a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;r.Lumen.ScreenProbeGather.ScreenTraces.HZBTraversal.FullResDepth&quot;), <a class="el" href="#ac46fa5771a7d6f33fc7f78d0c28cb4c9">GLumenScreenProbeGatherHierarchicalScreenTracesFullResDepth</a>, <a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;Whether the HZB traversal should go all the way down to the full resolution depth, which is more accurate but adds incoherency to the inner loop.&quot;), <a class="el" href="../../d4/dd9/_i_console_manager_8h.html#a7f594f23c2b2c5687f1a502ebb3ba105a5fb4e7a0526f4a0c350d71e18956527c">ECVF_Scalability</a>|<a class="el" href="../../d4/dd9/_i_console_manager_8h.html#a7f594f23c2b2c5687f1a502ebb3ba105a774ea60f41417af093a7ca56c4204a70">ECVF_RenderThreadSafe</a>)</td></tr>
+<tr class="memitem:ab9dfb3ef8536c1c68abba5d6c8c2a3d4" id="r_ab9dfb3ef8536c1c68abba5d6c8c2a3d4"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d2/d79/class_f_auto_console_variable_ref.html">FAutoConsoleVariableRef</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab9dfb3ef8536c1c68abba5d6c8c2a3d4">GVarLumenScreenProbeGatherHierarchicalScreenTracesSkipFoliageHits</a> (<a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;r.Lumen.ScreenProbeGather.ScreenTraces.HZBTraversal.SkipFoliageHits&quot;), <a class="el" href="#a6d1f6d6af818bcc37b216dc2c8b8e7a3">GLumenScreenProbeGatherHierarchicalScreenTracesSkipFoliageHits</a>, <a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;Whether to allow screen traces to hit Subsurface and TwoSided Foliage shading models.  Can be used to work around aliasing from high frequency grass geometry.&quot;), <a class="el" href="../../d4/dd9/_i_console_manager_8h.html#a7f594f23c2b2c5687f1a502ebb3ba105a5fb4e7a0526f4a0c350d71e18956527c">ECVF_Scalability</a>|<a class="el" href="../../d4/dd9/_i_console_manager_8h.html#a7f594f23c2b2c5687f1a502ebb3ba105a774ea60f41417af093a7ca56c4204a70">ECVF_RenderThreadSafe</a>)</td></tr>
+<tr class="memitem:abf9dbc74f6c7f765852288b00421cce1" id="r_abf9dbc74f6c7f765852288b00421cce1"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d2/d79/class_f_auto_console_variable_ref.html">FAutoConsoleVariableRef</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#abf9dbc74f6c7f765852288b00421cce1">GVarLumenScreenProbeGatherHierarchicalScreenTracesMaxIterations</a> (<a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;r.Lumen.ScreenProbeGather.ScreenTraces.HZBTraversal.MaxIterations&quot;), <a class="el" href="#a61bbd3fb62f20feae50aedc6a2e8bbf3">GLumenScreenProbeGatherHierarchicalScreenTracesMaxIterations</a>, <a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;Max iterations <a class="el" href="../../d3/db8/binka__ue__decode__test_8cpp.html#ac1ee511585a5c7a2d58c146185895b72">for</a> HZB tracing.&quot;), <a class="el" href="../../d4/dd9/_i_console_manager_8h.html#a7f594f23c2b2c5687f1a502ebb3ba105a5fb4e7a0526f4a0c350d71e18956527c">ECVF_Scalability</a>|<a class="el" href="../../d4/dd9/_i_console_manager_8h.html#a7f594f23c2b2c5687f1a502ebb3ba105a774ea60f41417af093a7ca56c4204a70">ECVF_RenderThreadSafe</a>)</td></tr>
+<tr class="memitem:a265f8155a915277b50fb2e0d11b2e4ad" id="r_a265f8155a915277b50fb2e0d11b2e4ad"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d2/d79/class_f_auto_console_variable_ref.html">FAutoConsoleVariableRef</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a265f8155a915277b50fb2e0d11b2e4ad">GVarLumenScreenProbeGatherRelativeDepthThickness</a> (<a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;r.Lumen.ScreenProbeGather.ScreenTraces.HZBTraversal.RelativeDepthThickness&quot;), <a class="el" href="#a955f0d4c41f1ec876167ab3d3cfdce34">GLumenScreenProbeGatherRelativeDepthThickness</a>, <a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;Determines depth thickness of objects hit by HZB tracing, as a relative depth threshold.&quot;), <a class="el" href="../../d4/dd9/_i_console_manager_8h.html#a7f594f23c2b2c5687f1a502ebb3ba105a5fb4e7a0526f4a0c350d71e18956527c">ECVF_Scalability</a>|<a class="el" href="../../d4/dd9/_i_console_manager_8h.html#a7f594f23c2b2c5687f1a502ebb3ba105a774ea60f41417af093a7ca56c4204a70">ECVF_RenderThreadSafe</a>)</td></tr>
+<tr class="memitem:acdfb449288f813270bebbb8371a223aa" id="r_acdfb449288f813270bebbb8371a223aa"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d2/d79/class_f_auto_console_variable_ref.html">FAutoConsoleVariableRef</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#acdfb449288f813270bebbb8371a223aa">GVarLumenScreenProbeGatherHistoryDepthTestRelativeThickness</a> (<a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;r.Lumen.ScreenProbeGather.ScreenTraces.HZBTraversal.HistoryDepthTestRelativeThickness&quot;), <a class="el" href="#aeb88681356d39b2396ccc837bfb4b792">GLumenScreenProbeGatherHistoryDepthTestRelativeThickness</a>, <a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;Distance between HZB <a class="el" href="../../d7/df8/namespacetrace.html">trace</a> hit and previous frame scene depth from which to allow hits, as a relative depth threshold.&quot;), <a class="el" href="../../d4/dd9/_i_console_manager_8h.html#a7f594f23c2b2c5687f1a502ebb3ba105a5fb4e7a0526f4a0c350d71e18956527c">ECVF_Scalability</a>|<a class="el" href="../../d4/dd9/_i_console_manager_8h.html#a7f594f23c2b2c5687f1a502ebb3ba105a774ea60f41417af093a7ca56c4204a70">ECVF_RenderThreadSafe</a>)</td></tr>
+<tr class="memitem:a5c6dcb6d818974408e4875dc594a8a71" id="r_a5c6dcb6d818974408e4875dc594a8a71"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d2/d79/class_f_auto_console_variable_ref.html">FAutoConsoleVariableRef</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5c6dcb6d818974408e4875dc594a8a71">GVarLumenScreenProbeGatherNumThicknessStepsToDetermineCertainty</a> (<a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;r.Lumen.ScreenProbeGather.ScreenTraces.HZBTraversal.NumThicknessStepsToDetermineCertainty&quot;), <a class="el" href="#a8db09fa85834fb04f0096b17ba185de1">GLumenScreenProbeGatherNumThicknessStepsToDetermineCertainty</a>, <a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;Number of linear search steps to determine <a class="el" href="../../d3/db8/binka__ue__decode__test_8cpp.html#a374eb3a41808f317fb77da75985c3204">if</a> a hit feature is thin and should be ignored.&quot;), <a class="el" href="../../d4/dd9/_i_console_manager_8h.html#a7f594f23c2b2c5687f1a502ebb3ba105a5fb4e7a0526f4a0c350d71e18956527c">ECVF_Scalability</a>|<a class="el" href="../../d4/dd9/_i_console_manager_8h.html#a7f594f23c2b2c5687f1a502ebb3ba105a774ea60f41417af093a7ca56c4204a70">ECVF_RenderThreadSafe</a>)</td></tr>
+<tr class="memitem:acb7ee1149e7ed2f843dc66709ae158d4" id="r_acb7ee1149e7ed2f843dc66709ae158d4"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d2/d79/class_f_auto_console_variable_ref.html">FAutoConsoleVariableRef</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#acb7ee1149e7ed2f843dc66709ae158d4">GVarLumenScreenProbeGatherVisualizeTraces</a> (<a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;r.Lumen.ScreenProbeGather.VisualizeTraces&quot;), <a class="el" href="#afc2400389c5e3245bfdf057b8e0a356e">GLumenScreenProbeGatherVisualizeTraces</a>, <a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;Whether to visualize traces <a class="el" href="../../d3/db8/binka__ue__decode__test_8cpp.html#ac1ee511585a5c7a2d58c146185895b72">for</a> the center screen probe, useful <a class="el" href="../../d3/db8/binka__ue__decode__test_8cpp.html#ac1ee511585a5c7a2d58c146185895b72">for</a> debugging&quot;), <a class="el" href="../../d4/dd9/_i_console_manager_8h.html#a7f594f23c2b2c5687f1a502ebb3ba105a5fb4e7a0526f4a0c350d71e18956527c">ECVF_Scalability</a>|<a class="el" href="../../d4/dd9/_i_console_manager_8h.html#a7f594f23c2b2c5687f1a502ebb3ba105a774ea60f41417af093a7ca56c4204a70">ECVF_RenderThreadSafe</a>)</td></tr>
+<tr class="memitem:ac803538211e3395d2cd7a333d2e3b91e" id="r_ac803538211e3395d2cd7a333d2e3b91e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d2/d79/class_f_auto_console_variable_ref.html">FAutoConsoleVariableRef</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac803538211e3395d2cd7a333d2e3b91e">GVarLumenScreenProbeGatherVisualizeTracesFreeze</a> (<a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;r.Lumen.ScreenProbeGather.VisualizeTracesFreeze&quot;), <a class="el" href="#ac65c3fd3abcd3a27075b097f9c91db30">GLumenScreenProbeGatherVisualizeTracesFreeze</a>, <a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;Whether to freeze updating the visualize <a class="el" href="../../d7/df8/namespacetrace.html">trace</a> data.  Note that no changes to cvars or shaders will propagate until unfrozen.&quot;), <a class="el" href="../../d4/dd9/_i_console_manager_8h.html#a7f594f23c2b2c5687f1a502ebb3ba105a5fb4e7a0526f4a0c350d71e18956527c">ECVF_Scalability</a>|<a class="el" href="../../d4/dd9/_i_console_manager_8h.html#a7f594f23c2b2c5687f1a502ebb3ba105a774ea60f41417af093a7ca56c4204a70">ECVF_RenderThreadSafe</a>)</td></tr>
+<tr class="memitem:a73296c47ff09fc1b1ac9e6b79ce5ac52" id="r_a73296c47ff09fc1b1ac9e6b79ce5ac52"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d2/d79/class_f_auto_console_variable_ref.html">FAutoConsoleVariableRef</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a73296c47ff09fc1b1ac9e6b79ce5ac52">GVarLumenScreenProbeGatherHairStrands_VoxelTrace</a> (<a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;r.Lumen.ScreenProbeGather.HairStrands.VoxelTrace&quot;), <a class="el" href="#a41fbb7f53f6530bf3c2c3c61373ec312">GLumenScreenProbeGatherHairStrands_VoxelTrace</a>, <a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;Whether to <a class="el" href="../../d7/df8/namespacetrace.html">trace</a> against hair voxel structure <a class="el" href="../../d3/db8/binka__ue__decode__test_8cpp.html#ac1ee511585a5c7a2d58c146185895b72">for</a> hair casting shadow onto opaques.&quot;), <a class="el" href="../../d4/dd9/_i_console_manager_8h.html#a7f594f23c2b2c5687f1a502ebb3ba105a5fb4e7a0526f4a0c350d71e18956527c">ECVF_Scalability</a>|<a class="el" href="../../d4/dd9/_i_console_manager_8h.html#a7f594f23c2b2c5687f1a502ebb3ba105a774ea60f41417af093a7ca56c4204a70">ECVF_RenderThreadSafe</a>)</td></tr>
+<tr class="memitem:a2ffd253e3aea0d2d3191ac43b910a6b9" id="r_a2ffd253e3aea0d2d3191ac43b910a6b9"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d2/d79/class_f_auto_console_variable_ref.html">FAutoConsoleVariableRef</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2ffd253e3aea0d2d3191ac43b910a6b9">GVarLumenScreenProbeGatherHairStrands_ScreenTrace</a> (<a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;r.Lumen.ScreenProbeGather.HairStrands.ScreenTrace&quot;), <a class="el" href="#a398fbe7b4e1facb73dce1a9d2fcbb711">GLumenScreenProbeGatherHairStrands_ScreenTrace</a>, <a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;Whether to <a class="el" href="../../d7/df8/namespacetrace.html">trace</a> against hair depth <a class="el" href="../../d3/db8/binka__ue__decode__test_8cpp.html#ac1ee511585a5c7a2d58c146185895b72">for</a> hair casting shadow onto opaques.&quot;), <a class="el" href="../../d4/dd9/_i_console_manager_8h.html#a7f594f23c2b2c5687f1a502ebb3ba105a5fb4e7a0526f4a0c350d71e18956527c">ECVF_Scalability</a>|<a class="el" href="../../d4/dd9/_i_console_manager_8h.html#a7f594f23c2b2c5687f1a502ebb3ba105a774ea60f41417af093a7ca56c4204a70">ECVF_RenderThreadSafe</a>)</td></tr>
+<tr class="memitem:a721d77d29c8d64a5fc475c46f36dc1df" id="r_a721d77d29c8d64a5fc475c46f36dc1df"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d2/d79/class_f_auto_console_variable_ref.html">FAutoConsoleVariableRef</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a721d77d29c8d64a5fc475c46f36dc1df">CVarLumenScreenProbeGatherScreenTraceMinimumOccupancy</a> (<a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;r.Lumen.ScreenProbeGather.ScreenTraces.MinimumOccupancy&quot;), <a class="el" href="#a6492db7de5df540498d0eae62580186c">GLumenScreenProbeGatherScreenTracesMinimumOccupancy</a>, <a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;Minimum number of threads still tracing before aborting the trace.  Can be used <a class="el" href="../../d3/db8/binka__ue__decode__test_8cpp.html#ac1ee511585a5c7a2d58c146185895b72">for</a> scalability to abandon traces that have a disproportionate cost.&quot;), <a class="el" href="../../d4/dd9/_i_console_manager_8h.html#a7f594f23c2b2c5687f1a502ebb3ba105a5fb4e7a0526f4a0c350d71e18956527c">ECVF_Scalability</a>|<a class="el" href="../../d4/dd9/_i_console_manager_8h.html#a7f594f23c2b2c5687f1a502ebb3ba105a774ea60f41417af093a7ca56c4204a70">ECVF_RenderThreadSafe</a>)</td></tr>
+<tr class="memitem:af7e443f8024ee2bcbb404869b74867e4" id="r_af7e443f8024ee2bcbb404869b74867e4"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/ddb/namespace_lumen_screen_probe_gather.html#af7e443f8024ee2bcbb404869b74867e4">LumenScreenProbeGather::SupportsHairScreenTraces</a> ()</td></tr>
+<tr class="memitem:a0531fd1d47196ec861d02ee1fa28c7ff" id="r_a0531fd1d47196ec861d02ee1fa28c7ff"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a0531fd1d47196ec861d02ee1fa28c7ff">IMPLEMENT_GLOBAL_SHADER</a> (<a class="el" href="../../db/d06/class_f_clear_traces_c_s.html">FClearTracesCS</a>, &quot;/Engine/<a class="el" href="../../d9/db1/namespace_private.html">Private</a>/<a class="el" href="../../de/de9/namespace_lumen.html">Lumen</a>/LumenScreenProbeTracing.usf&quot;, &quot;ClearTracesCS&quot;, <a class="el" href="../../da/dca/_r_h_i_definitions_8h.html#a0a3cc83cb6ebc79b66b43fae3ffee64ea2a84a18d7ac3d1fac11e3153f0abf73b">SF_Compute</a>)</td></tr>
+<tr class="memitem:a2597c714fca36c4a2037f300f7e9781b" id="r_a2597c714fca36c4a2037f300f7e9781b"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2597c714fca36c4a2037f300f7e9781b">IMPLEMENT_GLOBAL_SHADER</a> (<a class="el" href="../../d5/da2/class_f_screen_probe_trace_screen_textures_c_s.html">FScreenProbeTraceScreenTexturesCS</a>, &quot;/Engine/<a class="el" href="../../d9/db1/namespace_private.html">Private</a>/<a class="el" href="../../de/de9/namespace_lumen.html">Lumen</a>/LumenScreenProbeTracing.usf&quot;, &quot;ScreenProbeTraceScreenTexturesCS&quot;, <a class="el" href="../../da/dca/_r_h_i_definitions_8h.html#a0a3cc83cb6ebc79b66b43fae3ffee64ea2a84a18d7ac3d1fac11e3153f0abf73b">SF_Compute</a>)</td></tr>
+<tr class="memitem:a54d87601915006d6dc604f7d2c5da445" id="r_a54d87601915006d6dc604f7d2c5da445"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a54d87601915006d6dc604f7d2c5da445">IMPLEMENT_GLOBAL_SHADER</a> (<a class="el" href="../../dc/ddd/class_f_screen_probe_compact_traces_c_s.html">FScreenProbeCompactTracesCS</a>, &quot;/Engine/<a class="el" href="../../d9/db1/namespace_private.html">Private</a>/<a class="el" href="../../de/de9/namespace_lumen.html">Lumen</a>/LumenScreenProbeTracing.usf&quot;, &quot;ScreenProbeCompactTracesCS&quot;, <a class="el" href="../../da/dca/_r_h_i_definitions_8h.html#a0a3cc83cb6ebc79b66b43fae3ffee64ea2a84a18d7ac3d1fac11e3153f0abf73b">SF_Compute</a>)</td></tr>
+<tr class="memitem:aae2d615d937aeb82da64adc805a5942d" id="r_aae2d615d937aeb82da64adc805a5942d"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aae2d615d937aeb82da64adc805a5942d">IMPLEMENT_GLOBAL_SHADER</a> (<a class="el" href="../../d5/d0b/class_f_setup_compacted_traces_indirect_args_c_s.html">FSetupCompactedTracesIndirectArgsCS</a>, &quot;/Engine/<a class="el" href="../../d9/db1/namespace_private.html">Private</a>/<a class="el" href="../../de/de9/namespace_lumen.html">Lumen</a>/LumenScreenProbeTracing.usf&quot;, &quot;SetupCompactedTracesIndirectArgsCS&quot;, <a class="el" href="../../da/dca/_r_h_i_definitions_8h.html#a0a3cc83cb6ebc79b66b43fae3ffee64ea2a84a18d7ac3d1fac11e3153f0abf73b">SF_Compute</a>)</td></tr>
+<tr class="memitem:ab7ecf7b9c2c2efc064d73d928c2023fc" id="r_ab7ecf7b9c2c2efc064d73d928c2023fc"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab7ecf7b9c2c2efc064d73d928c2023fc">IMPLEMENT_GLOBAL_SHADER</a> (<a class="el" href="../../d0/de1/class_f_screen_probe_trace_mesh_s_d_fs_c_s.html">FScreenProbeTraceMeshSDFsCS</a>, &quot;/Engine/<a class="el" href="../../d9/db1/namespace_private.html">Private</a>/<a class="el" href="../../de/de9/namespace_lumen.html">Lumen</a>/LumenScreenProbeTracing.usf&quot;, &quot;ScreenProbeTraceMeshSDFsCS&quot;, <a class="el" href="../../da/dca/_r_h_i_definitions_8h.html#a0a3cc83cb6ebc79b66b43fae3ffee64ea2a84a18d7ac3d1fac11e3153f0abf73b">SF_Compute</a>)</td></tr>
+<tr class="memitem:af3ed7d7dbe85ca661f013d071e10cd50" id="r_af3ed7d7dbe85ca661f013d071e10cd50"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af3ed7d7dbe85ca661f013d071e10cd50">IMPLEMENT_GLOBAL_SHADER</a> (<a class="el" href="../../d7/dda/class_f_screen_probe_trace_voxels_c_s.html">FScreenProbeTraceVoxelsCS</a>, &quot;/Engine/<a class="el" href="../../d9/db1/namespace_private.html">Private</a>/<a class="el" href="../../de/de9/namespace_lumen.html">Lumen</a>/LumenScreenProbeTracing.usf&quot;, &quot;ScreenProbeTraceVoxelsCS&quot;, <a class="el" href="../../da/dca/_r_h_i_definitions_8h.html#a0a3cc83cb6ebc79b66b43fae3ffee64ea2a84a18d7ac3d1fac11e3153f0abf73b">SF_Compute</a>)</td></tr>
+<tr class="memitem:a89f8bd33dc67cc3a95cf79c5782b284a" id="r_a89f8bd33dc67cc3a95cf79c5782b284a"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a89f8bd33dc67cc3a95cf79c5782b284a">IMPLEMENT_GLOBAL_SHADER</a> (<a class="el" href="../../d9/d66/class_f_screen_probe_setup_visualize_traces_c_s.html">FScreenProbeSetupVisualizeTracesCS</a>, &quot;/Engine/<a class="el" href="../../d9/db1/namespace_private.html">Private</a>/<a class="el" href="../../de/de9/namespace_lumen.html">Lumen</a>/LumenScreenProbeTracing.usf&quot;, &quot;ScreenProbeSetupVisualizeTraces&quot;, <a class="el" href="../../da/dca/_r_h_i_definitions_8h.html#a0a3cc83cb6ebc79b66b43fae3ffee64ea2a84a18d7ac3d1fac11e3153f0abf73b">SF_Compute</a>)</td></tr>
+<tr class="memitem:aedd1c7f3ee47cbe9e13f13d74007a99e" id="r_aedd1c7f3ee47cbe9e13f13d74007a99e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../df/d63/_typed_element_query_capabilities_8inl.html#a72343342ce64c0755563ee6c5e27868d">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aedd1c7f3ee47cbe9e13f13d74007a99e">SetupVisualizeTraces</a> (<a class="el" href="../../d3/d85/class_f_r_d_g_builder.html">FRDGBuilder</a> &amp;GraphBuilder, const <a class="el" href="../../d1/d9e/struct_f_scene_textures.html">FSceneTextures</a> &amp;SceneTextures, const <a class="el" href="../../d4/dfa/class_f_scene.html">FScene</a> *Scene, const <a class="el" href="../../dd/d2b/class_f_view_info.html">FViewInfo</a> &amp;View, const FScreenProbeParameters &amp;ScreenProbeParameters, <a class="el" href="../../d6/de8/_render_graph_definitions_8h.html#a3b73b7355dd6964375c48c23d5fb76da">ERDGPassFlags</a> ComputePassFlags)</td></tr>
+<tr class="memitem:a28e1a8e0d390ca5c5eddb88277806dcb" id="r_a28e1a8e0d390ca5c5eddb88277806dcb"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../df/d63/_typed_element_query_capabilities_8inl.html#a72343342ce64c0755563ee6c5e27868d">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a28e1a8e0d390ca5c5eddb88277806dcb">GetScreenProbeVisualizeTracesBuffer</a> (<a class="el" href="../../d7/d10/class_t_ref_count_ptr.html">TRefCountPtr</a>&lt; <a class="el" href="../../d2/d55/class_f_r_d_g_pooled_buffer.html">FRDGPooledBuffer</a> &gt; &amp;VisualizeTracesData)</td></tr>
+<tr class="memitem:ac14c569472197a22f2b982748b6b9aac" id="r_ac14c569472197a22f2b982748b6b9aac"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../df/d63/_typed_element_query_capabilities_8inl.html#a72343342ce64c0755563ee6c5e27868d">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac14c569472197a22f2b982748b6b9aac">TraceScreenProbes</a> (<a class="el" href="../../d3/d85/class_f_r_d_g_builder.html">FRDGBuilder</a> &amp;GraphBuilder, const <a class="el" href="../../d4/dfa/class_f_scene.html">FScene</a> *Scene, const <a class="el" href="../../dd/d2b/class_f_view_info.html">FViewInfo</a> &amp;View, const <a class="el" href="../../dc/da7/struct_f_lumen_scene_frame_temporaries.html">FLumenSceneFrameTemporaries</a> &amp;FrameTemporaries, <a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a> bTraceMeshObjects, const <a class="el" href="../../d1/d9e/struct_f_scene_textures.html">FSceneTextures</a> &amp;SceneTextures, <a class="el" href="../../d6/d6d/_canvas_types_8h.html#aea265cf57883ec58a09111d4a17b8448">FRDGTextureRef</a> LightingChannelsTexture, const LumenRadianceCache::FRadianceCacheInterpolationParameters &amp;RadianceCacheParameters, FScreenProbeParameters &amp;ScreenProbeParameters, FLumenMeshSDFGridParameters &amp;MeshSDFGridParameters, <a class="el" href="../../d6/de8/_render_graph_definitions_8h.html#a3b73b7355dd6964375c48c23d5fb76da">ERDGPassFlags</a> ComputePassFlags)</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-var-members" class="groupheader"><a id="var-members" name="var-members"></a>
+变量</h2></td></tr>
+<tr class="memitem:a537d9ea2140d67eddf915a5de8778926" id="r_a537d9ea2140d67eddf915a5de8778926"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a8dbb3cd84ca9fd010dadfc3815eefa5d">int32</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a537d9ea2140d67eddf915a5de8778926">GLumenScreenProbeGatherScreenTraces</a> = 1</td></tr>
+<tr class="memitem:a69afdf454980c77402961d60a181c4e3" id="r_a69afdf454980c77402961d60a181c4e3"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a8dbb3cd84ca9fd010dadfc3815eefa5d">int32</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a69afdf454980c77402961d60a181c4e3">GLumenScreenProbeGatherHierarchicalScreenTraces</a> = 1</td></tr>
+<tr class="memitem:ac46fa5771a7d6f33fc7f78d0c28cb4c9" id="r_ac46fa5771a7d6f33fc7f78d0c28cb4c9"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a8dbb3cd84ca9fd010dadfc3815eefa5d">int32</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac46fa5771a7d6f33fc7f78d0c28cb4c9">GLumenScreenProbeGatherHierarchicalScreenTracesFullResDepth</a> = 1</td></tr>
+<tr class="memitem:a6d1f6d6af818bcc37b216dc2c8b8e7a3" id="r_a6d1f6d6af818bcc37b216dc2c8b8e7a3"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a8dbb3cd84ca9fd010dadfc3815eefa5d">int32</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6d1f6d6af818bcc37b216dc2c8b8e7a3">GLumenScreenProbeGatherHierarchicalScreenTracesSkipFoliageHits</a> = 1</td></tr>
+<tr class="memitem:a61bbd3fb62f20feae50aedc6a2e8bbf3" id="r_a61bbd3fb62f20feae50aedc6a2e8bbf3"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a8dbb3cd84ca9fd010dadfc3815eefa5d">int32</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a61bbd3fb62f20feae50aedc6a2e8bbf3">GLumenScreenProbeGatherHierarchicalScreenTracesMaxIterations</a> = 50</td></tr>
+<tr class="memitem:a955f0d4c41f1ec876167ab3d3cfdce34" id="r_a955f0d4c41f1ec876167ab3d3cfdce34"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../df/d2a/_s_anim_notify_shared_8h.html#ac7c94e837fed3f8e4bb3dd94d7bd2ecf">float</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a955f0d4c41f1ec876167ab3d3cfdce34">GLumenScreenProbeGatherRelativeDepthThickness</a> = .02f</td></tr>
+<tr class="memitem:aeb88681356d39b2396ccc837bfb4b792" id="r_aeb88681356d39b2396ccc837bfb4b792"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../df/d2a/_s_anim_notify_shared_8h.html#ac7c94e837fed3f8e4bb3dd94d7bd2ecf">float</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aeb88681356d39b2396ccc837bfb4b792">GLumenScreenProbeGatherHistoryDepthTestRelativeThickness</a> = 0.005f</td></tr>
+<tr class="memitem:a8db09fa85834fb04f0096b17ba185de1" id="r_a8db09fa85834fb04f0096b17ba185de1"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a8dbb3cd84ca9fd010dadfc3815eefa5d">int32</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8db09fa85834fb04f0096b17ba185de1">GLumenScreenProbeGatherNumThicknessStepsToDetermineCertainty</a> = 4</td></tr>
+<tr class="memitem:afc2400389c5e3245bfdf057b8e0a356e" id="r_afc2400389c5e3245bfdf057b8e0a356e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a8dbb3cd84ca9fd010dadfc3815eefa5d">int32</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#afc2400389c5e3245bfdf057b8e0a356e">GLumenScreenProbeGatherVisualizeTraces</a> = 0</td></tr>
+<tr class="memitem:ac65c3fd3abcd3a27075b097f9c91db30" id="r_ac65c3fd3abcd3a27075b097f9c91db30"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a8dbb3cd84ca9fd010dadfc3815eefa5d">int32</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac65c3fd3abcd3a27075b097f9c91db30">GLumenScreenProbeGatherVisualizeTracesFreeze</a> = 0</td></tr>
+<tr class="memitem:a41fbb7f53f6530bf3c2c3c61373ec312" id="r_a41fbb7f53f6530bf3c2c3c61373ec312"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a8dbb3cd84ca9fd010dadfc3815eefa5d">int32</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a41fbb7f53f6530bf3c2c3c61373ec312">GLumenScreenProbeGatherHairStrands_VoxelTrace</a> = 1</td></tr>
+<tr class="memitem:a398fbe7b4e1facb73dce1a9d2fcbb711" id="r_a398fbe7b4e1facb73dce1a9d2fcbb711"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a8dbb3cd84ca9fd010dadfc3815eefa5d">int32</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a398fbe7b4e1facb73dce1a9d2fcbb711">GLumenScreenProbeGatherHairStrands_ScreenTrace</a> = 0</td></tr>
+<tr class="memitem:a6492db7de5df540498d0eae62580186c" id="r_a6492db7de5df540498d0eae62580186c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a8dbb3cd84ca9fd010dadfc3815eefa5d">int32</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6492db7de5df540498d0eae62580186c">GLumenScreenProbeGatherScreenTracesMinimumOccupancy</a> = 0</td></tr>
+<tr class="memitem:aa3277138b856e66f43dd11d00d1ea47c" id="r_aa3277138b856e66f43dd11d00d1ea47c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d7/d10/class_t_ref_count_ptr.html">TRefCountPtr</a>&lt; <a class="el" href="../../d2/d55/class_f_r_d_g_pooled_buffer.html">FRDGPooledBuffer</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa3277138b856e66f43dd11d00d1ea47c">GVisualizeTracesData</a></td></tr>
+</table>
+<a name="doc-enum-members" id="doc-enum-members"></a><h2 id="header-doc-enum-members" class="groupheader">枚举类型说明</h2>
+<a id="aec9ce3cc6540e16ceac92a5766d82a21" name="aec9ce3cc6540e16ceac92a5766d82a21"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aec9ce3cc6540e16ceac92a5766d82a21">&#9670;&#160;</a></span>ECompactedTracingIndirectArgs</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum class <a class="el" href="#aec9ce3cc6540e16ceac92a5766d82a21">ECompactedTracingIndirectArgs</a></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel strong">strong</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<table class="fieldtable">
+<tr><th colspan="2">枚举值</th></tr><tr><td class="fieldname"><a id="aec9ce3cc6540e16ceac92a5766d82a21aaa8aaa8e04acde3d9e2fdc415ef398a9" name="aec9ce3cc6540e16ceac92a5766d82a21aaa8aaa8e04acde3d9e2fdc415ef398a9"></a>NumTracesDiv64&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="aec9ce3cc6540e16ceac92a5766d82a21a04a68b85776916304bb68461ba0250bb" name="aec9ce3cc6540e16ceac92a5766d82a21a04a68b85776916304bb68461ba0250bb"></a>NumTracesDiv32&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="aec9ce3cc6540e16ceac92a5766d82a21a9270d7f2c461d23d4154ed54810beb6e" name="aec9ce3cc6540e16ceac92a5766d82a21a9270d7f2c461d23d4154ed54810beb6e"></a>NumLightSampleTracesDiv64&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="aec9ce3cc6540e16ceac92a5766d82a21a897bf1b5e1f9e579857a6cb8bba35579" name="aec9ce3cc6540e16ceac92a5766d82a21a897bf1b5e1f9e579857a6cb8bba35579"></a>NumLightSampleTracesDiv32&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="aec9ce3cc6540e16ceac92a5766d82a21a26a4b44a837bf97b972628509912b4a5" name="aec9ce3cc6540e16ceac92a5766d82a21a26a4b44a837bf97b972628509912b4a5"></a>MAX&#160;</td><td class="fielddoc"></td></tr>
+</table>
+
+</div>
+</div>
+<a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">函数说明</h2>
+<a id="a721d77d29c8d64a5fc475c46f36dc1df" name="a721d77d29c8d64a5fc475c46f36dc1df"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a721d77d29c8d64a5fc475c46f36dc1df">&#9670;&#160;</a></span>CVarLumenScreenProbeGatherScreenTraceMinimumOccupancy()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d2/d79/class_f_auto_console_variable_ref.html">FAutoConsoleVariableRef</a> CVarLumenScreenProbeGatherScreenTraceMinimumOccupancy </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;r.Lumen.ScreenProbeGather.ScreenTraces.MinimumOccupancy&quot;)</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="#a6492db7de5df540498d0eae62580186c">GLumenScreenProbeGatherScreenTracesMinimumOccupancy</a></td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;Minimum number of threads still tracing before aborting the trace.  Can be used <a class="el" href="../../d3/db8/binka__ue__decode__test_8cpp.html#ac1ee511585a5c7a2d58c146185895b72">for</a> scalability to abandon traces that have a disproportionate cost.&quot;)</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d4/dd9/_i_console_manager_8h.html#a7f594f23c2b2c5687f1a502ebb3ba105a5fb4e7a0526f4a0c350d71e18956527c">ECVF_Scalability</a>|</td>          <td class="paramname"><span class="paramname"><em>ECVF_RenderThreadSafe</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a28e1a8e0d390ca5c5eddb88277806dcb" name="a28e1a8e0d390ca5c5eddb88277806dcb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a28e1a8e0d390ca5c5eddb88277806dcb">&#9670;&#160;</a></span>GetScreenProbeVisualizeTracesBuffer()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../df/d63/_typed_element_query_capabilities_8inl.html#a72343342ce64c0755563ee6c5e27868d">void</a> GetScreenProbeVisualizeTracesBuffer </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d7/d10/class_t_ref_count_ptr.html">TRefCountPtr</a>&lt; <a class="el" href="../../d2/d55/class_f_r_d_g_pooled_buffer.html">FRDGPooledBuffer</a> &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>VisualizeTracesData</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a2ffd253e3aea0d2d3191ac43b910a6b9" name="a2ffd253e3aea0d2d3191ac43b910a6b9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2ffd253e3aea0d2d3191ac43b910a6b9">&#9670;&#160;</a></span>GVarLumenScreenProbeGatherHairStrands_ScreenTrace()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d2/d79/class_f_auto_console_variable_ref.html">FAutoConsoleVariableRef</a> GVarLumenScreenProbeGatherHairStrands_ScreenTrace </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;r.Lumen.ScreenProbeGather.HairStrands.ScreenTrace&quot;)</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="#a398fbe7b4e1facb73dce1a9d2fcbb711">GLumenScreenProbeGatherHairStrands_ScreenTrace</a></td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;Whether to <a class="el" href="../../d7/df8/namespacetrace.html">trace</a> against hair depth <a class="el" href="../../d3/db8/binka__ue__decode__test_8cpp.html#ac1ee511585a5c7a2d58c146185895b72">for</a> hair casting shadow onto opaques.&quot;)</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d4/dd9/_i_console_manager_8h.html#a7f594f23c2b2c5687f1a502ebb3ba105a5fb4e7a0526f4a0c350d71e18956527c">ECVF_Scalability</a>|</td>          <td class="paramname"><span class="paramname"><em>ECVF_RenderThreadSafe</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a73296c47ff09fc1b1ac9e6b79ce5ac52" name="a73296c47ff09fc1b1ac9e6b79ce5ac52"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a73296c47ff09fc1b1ac9e6b79ce5ac52">&#9670;&#160;</a></span>GVarLumenScreenProbeGatherHairStrands_VoxelTrace()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d2/d79/class_f_auto_console_variable_ref.html">FAutoConsoleVariableRef</a> GVarLumenScreenProbeGatherHairStrands_VoxelTrace </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;r.Lumen.ScreenProbeGather.HairStrands.VoxelTrace&quot;)</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="#a41fbb7f53f6530bf3c2c3c61373ec312">GLumenScreenProbeGatherHairStrands_VoxelTrace</a></td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;Whether to <a class="el" href="../../d7/df8/namespacetrace.html">trace</a> against hair voxel structure <a class="el" href="../../d3/db8/binka__ue__decode__test_8cpp.html#ac1ee511585a5c7a2d58c146185895b72">for</a> hair casting shadow onto opaques.&quot;)</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d4/dd9/_i_console_manager_8h.html#a7f594f23c2b2c5687f1a502ebb3ba105a5fb4e7a0526f4a0c350d71e18956527c">ECVF_Scalability</a>|</td>          <td class="paramname"><span class="paramname"><em>ECVF_RenderThreadSafe</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a496b3d1e4c86ae04d878cd72dad9b25c" name="a496b3d1e4c86ae04d878cd72dad9b25c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a496b3d1e4c86ae04d878cd72dad9b25c">&#9670;&#160;</a></span>GVarLumenScreenProbeGatherHierarchicalScreenTraces()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d2/d79/class_f_auto_console_variable_ref.html">FAutoConsoleVariableRef</a> GVarLumenScreenProbeGatherHierarchicalScreenTraces </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;r.Lumen.ScreenProbeGather.ScreenTraces.HZBTraversal&quot;)</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="#a69afdf454980c77402961d60a181c4e3">GLumenScreenProbeGatherHierarchicalScreenTraces</a></td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;Whether to use HZB tracing <a class="el" href="../../d3/db8/binka__ue__decode__test_8cpp.html#ac1ee511585a5c7a2d58c146185895b72">for</a> SSGI instead of fixed step count intersection.  HZB tracing is much more accurate, in particular not missing thin features, but is slower.&quot;)</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d4/dd9/_i_console_manager_8h.html#a7f594f23c2b2c5687f1a502ebb3ba105a5fb4e7a0526f4a0c350d71e18956527c">ECVF_Scalability</a>|</td>          <td class="paramname"><span class="paramname"><em>ECVF_RenderThreadSafe</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a6dcc0e51e62dd7b990fbafd95159cf6e" name="a6dcc0e51e62dd7b990fbafd95159cf6e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6dcc0e51e62dd7b990fbafd95159cf6e">&#9670;&#160;</a></span>GVarLumenScreenProbeGatherHierarchicalScreenTracesFullResDepth()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d2/d79/class_f_auto_console_variable_ref.html">FAutoConsoleVariableRef</a> GVarLumenScreenProbeGatherHierarchicalScreenTracesFullResDepth </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;r.Lumen.ScreenProbeGather.ScreenTraces.HZBTraversal.FullResDepth&quot;)</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="#ac46fa5771a7d6f33fc7f78d0c28cb4c9">GLumenScreenProbeGatherHierarchicalScreenTracesFullResDepth</a></td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;Whether the HZB traversal should go all the way down to the full resolution depth, which is more accurate but adds incoherency to the inner loop.&quot;)</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d4/dd9/_i_console_manager_8h.html#a7f594f23c2b2c5687f1a502ebb3ba105a5fb4e7a0526f4a0c350d71e18956527c">ECVF_Scalability</a>|</td>          <td class="paramname"><span class="paramname"><em>ECVF_RenderThreadSafe</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="abf9dbc74f6c7f765852288b00421cce1" name="abf9dbc74f6c7f765852288b00421cce1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abf9dbc74f6c7f765852288b00421cce1">&#9670;&#160;</a></span>GVarLumenScreenProbeGatherHierarchicalScreenTracesMaxIterations()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d2/d79/class_f_auto_console_variable_ref.html">FAutoConsoleVariableRef</a> GVarLumenScreenProbeGatherHierarchicalScreenTracesMaxIterations </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;r.Lumen.ScreenProbeGather.ScreenTraces.HZBTraversal.MaxIterations&quot;)</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="#a61bbd3fb62f20feae50aedc6a2e8bbf3">GLumenScreenProbeGatherHierarchicalScreenTracesMaxIterations</a></td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;Max iterations <a class="el" href="../../d3/db8/binka__ue__decode__test_8cpp.html#ac1ee511585a5c7a2d58c146185895b72">for</a> HZB tracing.&quot;)</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d4/dd9/_i_console_manager_8h.html#a7f594f23c2b2c5687f1a502ebb3ba105a5fb4e7a0526f4a0c350d71e18956527c">ECVF_Scalability</a>|</td>          <td class="paramname"><span class="paramname"><em>ECVF_RenderThreadSafe</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ab9dfb3ef8536c1c68abba5d6c8c2a3d4" name="ab9dfb3ef8536c1c68abba5d6c8c2a3d4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab9dfb3ef8536c1c68abba5d6c8c2a3d4">&#9670;&#160;</a></span>GVarLumenScreenProbeGatherHierarchicalScreenTracesSkipFoliageHits()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d2/d79/class_f_auto_console_variable_ref.html">FAutoConsoleVariableRef</a> GVarLumenScreenProbeGatherHierarchicalScreenTracesSkipFoliageHits </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;r.Lumen.ScreenProbeGather.ScreenTraces.HZBTraversal.SkipFoliageHits&quot;)</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="#a6d1f6d6af818bcc37b216dc2c8b8e7a3">GLumenScreenProbeGatherHierarchicalScreenTracesSkipFoliageHits</a></td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;Whether to allow screen traces to hit Subsurface and TwoSided Foliage shading models.  Can be used to work around aliasing from high frequency grass geometry.&quot;)</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d4/dd9/_i_console_manager_8h.html#a7f594f23c2b2c5687f1a502ebb3ba105a5fb4e7a0526f4a0c350d71e18956527c">ECVF_Scalability</a>|</td>          <td class="paramname"><span class="paramname"><em>ECVF_RenderThreadSafe</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="acdfb449288f813270bebbb8371a223aa" name="acdfb449288f813270bebbb8371a223aa"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acdfb449288f813270bebbb8371a223aa">&#9670;&#160;</a></span>GVarLumenScreenProbeGatherHistoryDepthTestRelativeThickness()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d2/d79/class_f_auto_console_variable_ref.html">FAutoConsoleVariableRef</a> GVarLumenScreenProbeGatherHistoryDepthTestRelativeThickness </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;r.Lumen.ScreenProbeGather.ScreenTraces.HZBTraversal.HistoryDepthTestRelativeThickness&quot;)</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="#aeb88681356d39b2396ccc837bfb4b792">GLumenScreenProbeGatherHistoryDepthTestRelativeThickness</a></td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;Distance between HZB <a class="el" href="../../d7/df8/namespacetrace.html">trace</a> hit and previous frame scene depth from which to allow hits, as a relative depth threshold.&quot;)</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d4/dd9/_i_console_manager_8h.html#a7f594f23c2b2c5687f1a502ebb3ba105a5fb4e7a0526f4a0c350d71e18956527c">ECVF_Scalability</a>|</td>          <td class="paramname"><span class="paramname"><em>ECVF_RenderThreadSafe</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a5c6dcb6d818974408e4875dc594a8a71" name="a5c6dcb6d818974408e4875dc594a8a71"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5c6dcb6d818974408e4875dc594a8a71">&#9670;&#160;</a></span>GVarLumenScreenProbeGatherNumThicknessStepsToDetermineCertainty()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d2/d79/class_f_auto_console_variable_ref.html">FAutoConsoleVariableRef</a> GVarLumenScreenProbeGatherNumThicknessStepsToDetermineCertainty </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;r.Lumen.ScreenProbeGather.ScreenTraces.HZBTraversal.NumThicknessStepsToDetermineCertainty&quot;)</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="#a8db09fa85834fb04f0096b17ba185de1">GLumenScreenProbeGatherNumThicknessStepsToDetermineCertainty</a></td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;Number of linear search steps to determine <a class="el" href="../../d3/db8/binka__ue__decode__test_8cpp.html#a374eb3a41808f317fb77da75985c3204">if</a> a hit feature is thin and should be ignored.&quot;)</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d4/dd9/_i_console_manager_8h.html#a7f594f23c2b2c5687f1a502ebb3ba105a5fb4e7a0526f4a0c350d71e18956527c">ECVF_Scalability</a>|</td>          <td class="paramname"><span class="paramname"><em>ECVF_RenderThreadSafe</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a265f8155a915277b50fb2e0d11b2e4ad" name="a265f8155a915277b50fb2e0d11b2e4ad"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a265f8155a915277b50fb2e0d11b2e4ad">&#9670;&#160;</a></span>GVarLumenScreenProbeGatherRelativeDepthThickness()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d2/d79/class_f_auto_console_variable_ref.html">FAutoConsoleVariableRef</a> GVarLumenScreenProbeGatherRelativeDepthThickness </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;r.Lumen.ScreenProbeGather.ScreenTraces.HZBTraversal.RelativeDepthThickness&quot;)</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="#a955f0d4c41f1ec876167ab3d3cfdce34">GLumenScreenProbeGatherRelativeDepthThickness</a></td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;Determines depth thickness of objects hit by HZB tracing, as a relative depth threshold.&quot;)</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d4/dd9/_i_console_manager_8h.html#a7f594f23c2b2c5687f1a502ebb3ba105a5fb4e7a0526f4a0c350d71e18956527c">ECVF_Scalability</a>|</td>          <td class="paramname"><span class="paramname"><em>ECVF_RenderThreadSafe</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="acfaca3f5524c56c0bfc679915777c403" name="acfaca3f5524c56c0bfc679915777c403"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acfaca3f5524c56c0bfc679915777c403">&#9670;&#160;</a></span>GVarLumenScreenProbeGatherScreenTraces()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d2/d79/class_f_auto_console_variable_ref.html">FAutoConsoleVariableRef</a> GVarLumenScreenProbeGatherScreenTraces </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;r.Lumen.ScreenProbeGather.ScreenTraces&quot;)</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="#a537d9ea2140d67eddf915a5de8778926">GLumenScreenProbeGatherScreenTraces</a></td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;Whether to <a class="el" href="../../d7/df8/namespacetrace.html">trace</a> against the screen before falling back to other tracing methods.&quot;)</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d4/dd9/_i_console_manager_8h.html#a7f594f23c2b2c5687f1a502ebb3ba105a5fb4e7a0526f4a0c350d71e18956527c">ECVF_Scalability</a>|</td>          <td class="paramname"><span class="paramname"><em>ECVF_RenderThreadSafe</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="acb7ee1149e7ed2f843dc66709ae158d4" name="acb7ee1149e7ed2f843dc66709ae158d4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acb7ee1149e7ed2f843dc66709ae158d4">&#9670;&#160;</a></span>GVarLumenScreenProbeGatherVisualizeTraces()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d2/d79/class_f_auto_console_variable_ref.html">FAutoConsoleVariableRef</a> GVarLumenScreenProbeGatherVisualizeTraces </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;r.Lumen.ScreenProbeGather.VisualizeTraces&quot;)</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="#afc2400389c5e3245bfdf057b8e0a356e">GLumenScreenProbeGatherVisualizeTraces</a></td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;Whether to visualize traces <a class="el" href="../../d3/db8/binka__ue__decode__test_8cpp.html#ac1ee511585a5c7a2d58c146185895b72">for</a> the center screen probe, useful <a class="el" href="../../d3/db8/binka__ue__decode__test_8cpp.html#ac1ee511585a5c7a2d58c146185895b72">for</a> debugging&quot;)</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d4/dd9/_i_console_manager_8h.html#a7f594f23c2b2c5687f1a502ebb3ba105a5fb4e7a0526f4a0c350d71e18956527c">ECVF_Scalability</a>|</td>          <td class="paramname"><span class="paramname"><em>ECVF_RenderThreadSafe</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ac803538211e3395d2cd7a333d2e3b91e" name="ac803538211e3395d2cd7a333d2e3b91e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac803538211e3395d2cd7a333d2e3b91e">&#9670;&#160;</a></span>GVarLumenScreenProbeGatherVisualizeTracesFreeze()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d2/d79/class_f_auto_console_variable_ref.html">FAutoConsoleVariableRef</a> GVarLumenScreenProbeGatherVisualizeTracesFreeze </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;r.Lumen.ScreenProbeGather.VisualizeTracesFreeze&quot;)</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="#ac65c3fd3abcd3a27075b097f9c91db30">GLumenScreenProbeGatherVisualizeTracesFreeze</a></td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;Whether to freeze updating the visualize <a class="el" href="../../d7/df8/namespacetrace.html">trace</a> data.  Note that no changes to cvars or shaders will propagate until unfrozen.&quot;)</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d4/dd9/_i_console_manager_8h.html#a7f594f23c2b2c5687f1a502ebb3ba105a5fb4e7a0526f4a0c350d71e18956527c">ECVF_Scalability</a>|</td>          <td class="paramname"><span class="paramname"><em>ECVF_RenderThreadSafe</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a0531fd1d47196ec861d02ee1fa28c7ff" name="a0531fd1d47196ec861d02ee1fa28c7ff"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0531fd1d47196ec861d02ee1fa28c7ff">&#9670;&#160;</a></span>IMPLEMENT_GLOBAL_SHADER() <span class="overload">[1/7]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">IMPLEMENT_GLOBAL_SHADER </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../db/d06/class_f_clear_traces_c_s.html">FClearTracesCS</a></td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&quot;/Engine/<a class="el" href="../../d9/db1/namespace_private.html">Private</a>/<a class="el" href="../../de/de9/namespace_lumen.html">Lumen</a>/LumenScreenProbeTracing.usf&quot;</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&quot;ClearTracesCS&quot;</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../da/dca/_r_h_i_definitions_8h.html#a0a3cc83cb6ebc79b66b43fae3ffee64ea2a84a18d7ac3d1fac11e3153f0abf73b">SF_Compute</a></td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a54d87601915006d6dc604f7d2c5da445" name="a54d87601915006d6dc604f7d2c5da445"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a54d87601915006d6dc604f7d2c5da445">&#9670;&#160;</a></span>IMPLEMENT_GLOBAL_SHADER() <span class="overload">[2/7]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">IMPLEMENT_GLOBAL_SHADER </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../dc/ddd/class_f_screen_probe_compact_traces_c_s.html">FScreenProbeCompactTracesCS</a></td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&quot;/Engine/<a class="el" href="../../d9/db1/namespace_private.html">Private</a>/<a class="el" href="../../de/de9/namespace_lumen.html">Lumen</a>/LumenScreenProbeTracing.usf&quot;</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&quot;ScreenProbeCompactTracesCS&quot;</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../da/dca/_r_h_i_definitions_8h.html#a0a3cc83cb6ebc79b66b43fae3ffee64ea2a84a18d7ac3d1fac11e3153f0abf73b">SF_Compute</a></td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a89f8bd33dc67cc3a95cf79c5782b284a" name="a89f8bd33dc67cc3a95cf79c5782b284a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a89f8bd33dc67cc3a95cf79c5782b284a">&#9670;&#160;</a></span>IMPLEMENT_GLOBAL_SHADER() <span class="overload">[3/7]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">IMPLEMENT_GLOBAL_SHADER </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d9/d66/class_f_screen_probe_setup_visualize_traces_c_s.html">FScreenProbeSetupVisualizeTracesCS</a></td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&quot;/Engine/<a class="el" href="../../d9/db1/namespace_private.html">Private</a>/<a class="el" href="../../de/de9/namespace_lumen.html">Lumen</a>/LumenScreenProbeTracing.usf&quot;</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&quot;ScreenProbeSetupVisualizeTraces&quot;</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../da/dca/_r_h_i_definitions_8h.html#a0a3cc83cb6ebc79b66b43fae3ffee64ea2a84a18d7ac3d1fac11e3153f0abf73b">SF_Compute</a></td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ab7ecf7b9c2c2efc064d73d928c2023fc" name="ab7ecf7b9c2c2efc064d73d928c2023fc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab7ecf7b9c2c2efc064d73d928c2023fc">&#9670;&#160;</a></span>IMPLEMENT_GLOBAL_SHADER() <span class="overload">[4/7]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">IMPLEMENT_GLOBAL_SHADER </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d0/de1/class_f_screen_probe_trace_mesh_s_d_fs_c_s.html">FScreenProbeTraceMeshSDFsCS</a></td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&quot;/Engine/<a class="el" href="../../d9/db1/namespace_private.html">Private</a>/<a class="el" href="../../de/de9/namespace_lumen.html">Lumen</a>/LumenScreenProbeTracing.usf&quot;</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&quot;ScreenProbeTraceMeshSDFsCS&quot;</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../da/dca/_r_h_i_definitions_8h.html#a0a3cc83cb6ebc79b66b43fae3ffee64ea2a84a18d7ac3d1fac11e3153f0abf73b">SF_Compute</a></td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a2597c714fca36c4a2037f300f7e9781b" name="a2597c714fca36c4a2037f300f7e9781b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2597c714fca36c4a2037f300f7e9781b">&#9670;&#160;</a></span>IMPLEMENT_GLOBAL_SHADER() <span class="overload">[5/7]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">IMPLEMENT_GLOBAL_SHADER </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d5/da2/class_f_screen_probe_trace_screen_textures_c_s.html">FScreenProbeTraceScreenTexturesCS</a></td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&quot;/Engine/<a class="el" href="../../d9/db1/namespace_private.html">Private</a>/<a class="el" href="../../de/de9/namespace_lumen.html">Lumen</a>/LumenScreenProbeTracing.usf&quot;</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&quot;ScreenProbeTraceScreenTexturesCS&quot;</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../da/dca/_r_h_i_definitions_8h.html#a0a3cc83cb6ebc79b66b43fae3ffee64ea2a84a18d7ac3d1fac11e3153f0abf73b">SF_Compute</a></td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="af3ed7d7dbe85ca661f013d071e10cd50" name="af3ed7d7dbe85ca661f013d071e10cd50"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af3ed7d7dbe85ca661f013d071e10cd50">&#9670;&#160;</a></span>IMPLEMENT_GLOBAL_SHADER() <span class="overload">[6/7]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">IMPLEMENT_GLOBAL_SHADER </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d7/dda/class_f_screen_probe_trace_voxels_c_s.html">FScreenProbeTraceVoxelsCS</a></td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&quot;/Engine/<a class="el" href="../../d9/db1/namespace_private.html">Private</a>/<a class="el" href="../../de/de9/namespace_lumen.html">Lumen</a>/LumenScreenProbeTracing.usf&quot;</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&quot;ScreenProbeTraceVoxelsCS&quot;</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../da/dca/_r_h_i_definitions_8h.html#a0a3cc83cb6ebc79b66b43fae3ffee64ea2a84a18d7ac3d1fac11e3153f0abf73b">SF_Compute</a></td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aae2d615d937aeb82da64adc805a5942d" name="aae2d615d937aeb82da64adc805a5942d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aae2d615d937aeb82da64adc805a5942d">&#9670;&#160;</a></span>IMPLEMENT_GLOBAL_SHADER() <span class="overload">[7/7]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">IMPLEMENT_GLOBAL_SHADER </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d5/d0b/class_f_setup_compacted_traces_indirect_args_c_s.html">FSetupCompactedTracesIndirectArgsCS</a></td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&quot;/Engine/<a class="el" href="../../d9/db1/namespace_private.html">Private</a>/<a class="el" href="../../de/de9/namespace_lumen.html">Lumen</a>/LumenScreenProbeTracing.usf&quot;</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&quot;SetupCompactedTracesIndirectArgsCS&quot;</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../da/dca/_r_h_i_definitions_8h.html#a0a3cc83cb6ebc79b66b43fae3ffee64ea2a84a18d7ac3d1fac11e3153f0abf73b">SF_Compute</a></td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aedd1c7f3ee47cbe9e13f13d74007a99e" name="aedd1c7f3ee47cbe9e13f13d74007a99e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aedd1c7f3ee47cbe9e13f13d74007a99e">&#9670;&#160;</a></span>SetupVisualizeTraces()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../df/d63/_typed_element_query_capabilities_8inl.html#a72343342ce64c0755563ee6c5e27868d">void</a> SetupVisualizeTraces </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d3/d85/class_f_r_d_g_builder.html">FRDGBuilder</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>GraphBuilder</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="../../d1/d9e/struct_f_scene_textures.html">FSceneTextures</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>SceneTextures</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="../../d4/dfa/class_f_scene.html">FScene</a> *</td>          <td class="paramname"><span class="paramname"><em>Scene</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="../../dd/d2b/class_f_view_info.html">FViewInfo</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>View</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const FScreenProbeParameters &amp;</td>          <td class="paramname"><span class="paramname"><em>ScreenProbeParameters</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d6/de8/_render_graph_definitions_8h.html#a3b73b7355dd6964375c48c23d5fb76da">ERDGPassFlags</a></td>          <td class="paramname"><span class="paramname"><em>ComputePassFlags</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ac14c569472197a22f2b982748b6b9aac" name="ac14c569472197a22f2b982748b6b9aac"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac14c569472197a22f2b982748b6b9aac">&#9670;&#160;</a></span>TraceScreenProbes()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../df/d63/_typed_element_query_capabilities_8inl.html#a72343342ce64c0755563ee6c5e27868d">void</a> TraceScreenProbes </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d3/d85/class_f_r_d_g_builder.html">FRDGBuilder</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>GraphBuilder</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="../../d4/dfa/class_f_scene.html">FScene</a> *</td>          <td class="paramname"><span class="paramname"><em>Scene</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="../../dd/d2b/class_f_view_info.html">FViewInfo</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>View</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="../../dc/da7/struct_f_lumen_scene_frame_temporaries.html">FLumenSceneFrameTemporaries</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>FrameTemporaries</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a></td>          <td class="paramname"><span class="paramname"><em>bTraceMeshObjects</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="../../d1/d9e/struct_f_scene_textures.html">FSceneTextures</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>SceneTextures</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d6/d6d/_canvas_types_8h.html#aea265cf57883ec58a09111d4a17b8448">FRDGTextureRef</a></td>          <td class="paramname"><span class="paramname"><em>LightingChannelsTexture</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const LumenRadianceCache::FRadianceCacheInterpolationParameters &amp;</td>          <td class="paramname"><span class="paramname"><em>RadianceCacheParameters</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">FScreenProbeParameters &amp;</td>          <td class="paramname"><span class="paramname"><em>ScreenProbeParameters</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">FLumenMeshSDFGridParameters &amp;</td>          <td class="paramname"><span class="paramname"><em>MeshSDFGridParameters</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d6/de8/_render_graph_definitions_8h.html#a3b73b7355dd6964375c48c23d5fb76da">ERDGPassFlags</a></td>          <td class="paramname"><span class="paramname"><em>ComputePassFlags</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a name="doc-var-members" id="doc-var-members"></a><h2 id="header-doc-var-members" class="groupheader">变量说明</h2>
+<a id="a398fbe7b4e1facb73dce1a9d2fcbb711" name="a398fbe7b4e1facb73dce1a9d2fcbb711"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a398fbe7b4e1facb73dce1a9d2fcbb711">&#9670;&#160;</a></span>GLumenScreenProbeGatherHairStrands_ScreenTrace</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a8dbb3cd84ca9fd010dadfc3815eefa5d">int32</a> GLumenScreenProbeGatherHairStrands_ScreenTrace = 0</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a41fbb7f53f6530bf3c2c3c61373ec312" name="a41fbb7f53f6530bf3c2c3c61373ec312"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a41fbb7f53f6530bf3c2c3c61373ec312">&#9670;&#160;</a></span>GLumenScreenProbeGatherHairStrands_VoxelTrace</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a8dbb3cd84ca9fd010dadfc3815eefa5d">int32</a> GLumenScreenProbeGatherHairStrands_VoxelTrace = 1</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a69afdf454980c77402961d60a181c4e3" name="a69afdf454980c77402961d60a181c4e3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a69afdf454980c77402961d60a181c4e3">&#9670;&#160;</a></span>GLumenScreenProbeGatherHierarchicalScreenTraces</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a8dbb3cd84ca9fd010dadfc3815eefa5d">int32</a> GLumenScreenProbeGatherHierarchicalScreenTraces = 1</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ac46fa5771a7d6f33fc7f78d0c28cb4c9" name="ac46fa5771a7d6f33fc7f78d0c28cb4c9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac46fa5771a7d6f33fc7f78d0c28cb4c9">&#9670;&#160;</a></span>GLumenScreenProbeGatherHierarchicalScreenTracesFullResDepth</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a8dbb3cd84ca9fd010dadfc3815eefa5d">int32</a> GLumenScreenProbeGatherHierarchicalScreenTracesFullResDepth = 1</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a61bbd3fb62f20feae50aedc6a2e8bbf3" name="a61bbd3fb62f20feae50aedc6a2e8bbf3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a61bbd3fb62f20feae50aedc6a2e8bbf3">&#9670;&#160;</a></span>GLumenScreenProbeGatherHierarchicalScreenTracesMaxIterations</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a8dbb3cd84ca9fd010dadfc3815eefa5d">int32</a> GLumenScreenProbeGatherHierarchicalScreenTracesMaxIterations = 50</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a6d1f6d6af818bcc37b216dc2c8b8e7a3" name="a6d1f6d6af818bcc37b216dc2c8b8e7a3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6d1f6d6af818bcc37b216dc2c8b8e7a3">&#9670;&#160;</a></span>GLumenScreenProbeGatherHierarchicalScreenTracesSkipFoliageHits</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a8dbb3cd84ca9fd010dadfc3815eefa5d">int32</a> GLumenScreenProbeGatherHierarchicalScreenTracesSkipFoliageHits = 1</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aeb88681356d39b2396ccc837bfb4b792" name="aeb88681356d39b2396ccc837bfb4b792"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aeb88681356d39b2396ccc837bfb4b792">&#9670;&#160;</a></span>GLumenScreenProbeGatherHistoryDepthTestRelativeThickness</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../df/d2a/_s_anim_notify_shared_8h.html#ac7c94e837fed3f8e4bb3dd94d7bd2ecf">float</a> GLumenScreenProbeGatherHistoryDepthTestRelativeThickness = 0.005f</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a8db09fa85834fb04f0096b17ba185de1" name="a8db09fa85834fb04f0096b17ba185de1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8db09fa85834fb04f0096b17ba185de1">&#9670;&#160;</a></span>GLumenScreenProbeGatherNumThicknessStepsToDetermineCertainty</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a8dbb3cd84ca9fd010dadfc3815eefa5d">int32</a> GLumenScreenProbeGatherNumThicknessStepsToDetermineCertainty = 4</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a955f0d4c41f1ec876167ab3d3cfdce34" name="a955f0d4c41f1ec876167ab3d3cfdce34"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a955f0d4c41f1ec876167ab3d3cfdce34">&#9670;&#160;</a></span>GLumenScreenProbeGatherRelativeDepthThickness</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../df/d2a/_s_anim_notify_shared_8h.html#ac7c94e837fed3f8e4bb3dd94d7bd2ecf">float</a> GLumenScreenProbeGatherRelativeDepthThickness = .02f</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a537d9ea2140d67eddf915a5de8778926" name="a537d9ea2140d67eddf915a5de8778926"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a537d9ea2140d67eddf915a5de8778926">&#9670;&#160;</a></span>GLumenScreenProbeGatherScreenTraces</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a8dbb3cd84ca9fd010dadfc3815eefa5d">int32</a> GLumenScreenProbeGatherScreenTraces = 1</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a6492db7de5df540498d0eae62580186c" name="a6492db7de5df540498d0eae62580186c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6492db7de5df540498d0eae62580186c">&#9670;&#160;</a></span>GLumenScreenProbeGatherScreenTracesMinimumOccupancy</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a8dbb3cd84ca9fd010dadfc3815eefa5d">int32</a> GLumenScreenProbeGatherScreenTracesMinimumOccupancy = 0</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="afc2400389c5e3245bfdf057b8e0a356e" name="afc2400389c5e3245bfdf057b8e0a356e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afc2400389c5e3245bfdf057b8e0a356e">&#9670;&#160;</a></span>GLumenScreenProbeGatherVisualizeTraces</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a8dbb3cd84ca9fd010dadfc3815eefa5d">int32</a> GLumenScreenProbeGatherVisualizeTraces = 0</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ac65c3fd3abcd3a27075b097f9c91db30" name="ac65c3fd3abcd3a27075b097f9c91db30"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac65c3fd3abcd3a27075b097f9c91db30">&#9670;&#160;</a></span>GLumenScreenProbeGatherVisualizeTracesFreeze</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a8dbb3cd84ca9fd010dadfc3815eefa5d">int32</a> GLumenScreenProbeGatherVisualizeTracesFreeze = 0</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aa3277138b856e66f43dd11d00d1ea47c" name="aa3277138b856e66f43dd11d00d1ea47c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa3277138b856e66f43dd11d00d1ea47c">&#9670;&#160;</a></span>GVisualizeTracesData</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d7/d10/class_t_ref_count_ptr.html">TRefCountPtr</a>&lt;<a class="el" href="../../d2/d55/class_f_r_d_g_pooled_buffer.html">FRDGPooledBuffer</a>&gt; GVisualizeTracesData</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<div id="page-nav" class="page-nav-panel">
+<div id="page-nav-resize-handle"></div>
+<div id="page-nav-tree">
+<div id="page-nav-contents">
+</div><!-- page-nav-contents -->
+</div><!-- page-nav-tree -->
+</div><!-- page-nav -->
+</div><!-- container -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a href="../../dir_0b6ee6e7e9547e675db4add2e5de97da.html">Engine</a></li><li class="navelem"><a href="../../dir_9579d1ecb2c7bf48cbe1049c41745cb4.html">Source</a></li><li class="navelem"><a href="../../dir_9f04efef762572853abdf73f62bebfcc.html">Runtime</a></li><li class="navelem"><a href="../../dir_5ed6327f04b0f38d3f6fe5caa38b0445.html">Renderer</a></li><li class="navelem"><a href="../../dir_e317dc6f09036e33460f39c550131623.html">Private</a></li><li class="navelem"><a href="../../dir_161a7642c6d0198965c23f504e27c348.html">Lumen</a></li><li class="navelem"><a href="../../d8/da4/_lumen_screen_probe_tracing_8cpp.html">LumenScreenProbeTracing.cpp</a></li>
+    <li class="footer">制作者 <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.15.0 </li>
+  </ul>
+</div>
+</body>
+</html>

@@ -1,0 +1,27 @@
+var class_f_metal_r_h_i_buffer =
+[
+    [ "FMetalRHIBuffer", "df/d01/class_f_metal_r_h_i_buffer.html#a90dfb7bfb3eb46537194ecf659fed8a8", null ],
+    [ "~FMetalRHIBuffer", "df/d01/class_f_metal_r_h_i_buffer.html#a037e33056231d5e782559852aa9f4a2e", null ],
+    [ "AllocateBuffer", "df/d01/class_f_metal_r_h_i_buffer.html#aef599d6a341a4b3e09358ac9903bbb9b", null ],
+    [ "GetCurrentBuffer", "df/d01/class_f_metal_r_h_i_buffer.html#acf31f9c686b61f7ce972ec83c6bf3939", null ],
+    [ "GetCurrentBufferOrNull", "df/d01/class_f_metal_r_h_i_buffer.html#a1314269ffc478756e60993bc48ebd95c", null ],
+    [ "GetIndexType", "df/d01/class_f_metal_r_h_i_buffer.html#a63342bbefbd6b88be03a99cc787758bd", null ],
+    [ "Lock", "df/d01/class_f_metal_r_h_i_buffer.html#a4a1b5a3db301ef8cba4ee2421f535a37", null ],
+    [ "ReleaseBuffer", "df/d01/class_f_metal_r_h_i_buffer.html#a04a2d29fa80c9058947f9b92d794b34c", null ],
+    [ "ReleaseOwnership", "df/d01/class_f_metal_r_h_i_buffer.html#ac88b82ef90e190d3adf5b2fc72cf70da", null ],
+    [ "RequiresTransferBuffer", "df/d01/class_f_metal_r_h_i_buffer.html#abe9abab19208e41aecf854400cf4e6a7", null ],
+    [ "SwitchBuffer", "df/d01/class_f_metal_r_h_i_buffer.html#a4a55be2f488da0aa7f3b5684830b7f68", null ],
+    [ "TakeOwnership", "df/d01/class_f_metal_r_h_i_buffer.html#ad54001c452b7208924eb18a223449075", null ],
+    [ "Unlock", "df/d01/class_f_metal_r_h_i_buffer.html#a4b2321138528d13e8b4bc30e777f4c22", null ],
+    [ "UploadTransferBuffer", "df/d01/class_f_metal_r_h_i_buffer.html#a4d7de6b90ab317af9689b71fb8963646", null ],
+    [ "UsePrivateMemory", "df/d01/class_f_metal_r_h_i_buffer.html#a51cf3c1734be2749e8624ed53d6b3fb7", null ],
+    [ "bIsFirstLock", "df/d01/class_f_metal_r_h_i_buffer.html#a396a14d8bfca303d5d27d5e7ad848ff3", null ],
+    [ "CurrentBuffer", "df/d01/class_f_metal_r_h_i_buffer.html#acfef8ec221694963dd556ce4e8062976", null ],
+    [ "CurrentLockMode", "df/d01/class_f_metal_r_h_i_buffer.html#aa65b8f6099822abe81b68acb21e5eac9", null ],
+    [ "Device", "df/d01/class_f_metal_r_h_i_buffer.html#aec933f752bc9856716686448d4a8506d", null ],
+    [ "LockOffset", "df/d01/class_f_metal_r_h_i_buffer.html#aa0c8dcba5d66095ecd524cb4e8276bff", null ],
+    [ "LockSize", "df/d01/class_f_metal_r_h_i_buffer.html#ab185104470fe6c564602fbea4e4ca26e", null ],
+    [ "Mode", "df/d01/class_f_metal_r_h_i_buffer.html#ac719fa2af2e07a8ced281cf48b8318fd", null ],
+    [ "Size", "df/d01/class_f_metal_r_h_i_buffer.html#a235bbba282a174d36809ec483278877a", null ],
+    [ "TransferBuffer", "df/d01/class_f_metal_r_h_i_buffer.html#ae01fb1eea6ebfc123dd215bbd3a2e020", null ]
+];

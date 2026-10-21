@@ -1,0 +1,2090 @@
+<!-- HTML header for doxygen 1.15.0-->
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh">
+<head>
+  <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=11" />
+  <meta name="generator" content="Doxygen 1.15.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>UE 5.8.4: Engine/Source/Developer/PakFileUtilities/Private/PakFileUtilities.cpp 文件参考</title>
+  <link rel="icon" href="../../EdIconDefault.bmp" type="image/x-icon" />
+  <link href="../../tabs.css" rel="stylesheet" type="text/css" />
+  <script type="text/javascript" src="../../jquery.js"></script>
+  <script type="text/javascript" src="../../dynsections.js"></script>
+  <link href="../../navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../navtreedata.js"></script>
+<script type="text/javascript" src="../../navtree.js"></script>
+<script type="text/javascript" src="../../cookie.js"></script>
+  <link href="../../search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../search/searchdata.js"></script>
+<script type="text/javascript" src="../../search/search.js"></script>
+  <script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  extensions: ["tex2jax.js"],
+  jax: ["input/TeX","output/HTML-CSS"],
+});
+</script>
+<script type="text/javascript" async="async" src="https://cdn.jsdelivr.net/npm/mathjax@2/MathJax.js"></script>
+  <link href="../../doxygen.css" rel="stylesheet" type="text/css" />
+  <link href="../../doxygen-awesome.css" rel="stylesheet" type="text/css"/>
+<link href="../../doxygen-awesome-sidebar-only.css" rel="stylesheet" type="text/css"/>
+<link href="../../doxygen-awesome-sidebar-only-darkmode-toggle.css" rel="stylesheet" type="text/css"/>
+  <!-- ... other metadata & script includes ... -->
+  <script type="text/javascript" src="../../doxygen-awesome-darkmode-toggle.js"></script>
+  <script type="text/javascript">
+    DoxygenAwesomeDarkModeToggle.title = "Zwischen hellem/dunklem Modus wechseln"
+    DoxygenAwesomeDarkModeToggle.lightModeIcon = '🌞'
+    // icon from https://fonts.google.com/icons
+    DoxygenAwesomeDarkModeToggle.darkModeIcon = `<svg xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 24 24" height="24px" viewBox="0 0 24 24" width="24px" fill="#009793"><g><rect fill="none" height="24" width="24"/></g><g><g><path d="M8.1,14.15C9.77,14.63,11,16.17,11,18c0,0.68-0.19,1.31-0.48,1.87c0.48,0.09,0.97,0.14,1.48,0.14 c1.48,0,2.9-0.41,4.13-1.15c-2.62-0.92-5.23-2.82-6.8-5.86C7.74,9.94,7.78,7.09,8.29,4.9c-2.57,1.33-4.3,4.01-4.3,7.1c0,0,0,0,0,0 c0.01,0,0.01,0,0.02,0C5.66,12,7.18,12.83,8.1,14.15z" opacity=".3"/><path d="M19.78,17.51c-2.47,0-6.57-1.33-8.68-5.43C8.77,7.57,10.6,3.6,11.63,2.01C6.27,2.2,1.98,6.59,1.98,12 c0,0.14,0.02,0.28,0.02,0.42C2.61,12.16,3.28,12,3.98,12c0,0,0,0,0,0c0-3.09,1.73-5.77,4.3-7.1C7.78,7.09,7.74,9.94,9.32,13 c1.57,3.04,4.18,4.95,6.8,5.86c-1.23,0.74-2.65,1.15-4.13,1.15c-0.5,0-1-0.05-1.48-0.14c-0.37,0.7-0.94,1.27-1.64,1.64 c0.98,0.32,2.03,0.5,3.11,0.5c3.5,0,6.58-1.8,8.37-4.52C20.18,17.5,19.98,17.51,19.78,17.51z"/><path d="M7,16l-0.18,0C6.4,14.84,5.3,14,4,14c-1.66,0-3,1.34-3,3s1.34,3,3,3c0.62,0,2.49,0,3,0c1.1,0,2-0.9,2-2 C9,16.9,8.1,16,7,16z"/></g></g></svg>`
+    DoxygenAwesomeDarkModeToggle.init()
+  </script>
+  <script type="text/javascript" src="../../doxygen-awesome-fragment-copy-button.js"></script>
+  <script type="text/javascript">
+    DoxygenAwesomeFragmentCopyButton.title = "In die Zwischenablage kopieren"
+    // DoxygenAwesomeFragmentCopyButton.copyIcon = `<svg ...>`
+    // DoxygenAwesomeFragmentCopyButton.successIcon = `<svg ...>`
+    DoxygenAwesomeFragmentCopyButton.init()
+  </script>
+  <script type="text/javascript" src="../../doxygen-awesome-paragraph-link.js"></script>
+  <script type="text/javascript">
+    DoxygenAwesomeParagraphLink.title = "Abschnitt verknüpfen"
+    DoxygenAwesomeParagraphLink.icon = "¶"
+    DoxygenAwesomeParagraphLink.init()
+  </script>
+  <script type="text/javascript" src="../../doxygen-awesome-interactive-toc.js"></script>
+  <script type="text/javascript">
+    DoxygenAwesomeInteractiveToc.topOffset = 45
+    DoxygenAwesomeInteractiveToc.hideMobileMenu = false
+    DoxygenAwesomeInteractiveToc.init()
+  </script>
+</head>
+<body>
+    <div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+      <div id="titlearea">
+        <table cellspacing="0" cellpadding="0">
+          <tbody>
+            <tr id="projectrow">
+              <td id="projectlogo"><img alt="Logo" src="../../EdIconDefault.bmp"  /></td>
+              <td id="projectalign">
+                <div id="projectname">UE 5.8.4
+                </div>
+                <div id="projectbrief">Unreal Engine</div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <!-- end header part -->
+<!-- 制作者 Doxygen 1.15.0 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "../../search/",'.html');
+</script>
+<script type="text/javascript">
+$(function() { codefold.init(); });
+</script>
+<script type="text/javascript" src="../../menudata.js"></script>
+<script type="text/javascript" src="../../menu.js"></script>
+<script type="text/javascript">
+$(function() {
+  initMenu('../../',true,false,'search.php','搜索',true);
+  $(function() { init_search(); });
+});
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(function(){initNavTree('d2/d26/_pak_file_utilities_8cpp.html','../../',''); });
+</script>
+<div id="container">
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">载入中...</div>
+<div class="SRStatus" id="Searching">搜索中...</div>
+<div class="SRStatus" id="NoMatches">未找到</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">PakFileUtilities.cpp 文件参考</div></div>
+</div><!--header-->
+<div class="contents">
+<div class="textblock"><code>#include &quot;<a class="el" href="../../df/d52/_pak_file_utilities_8h_source.html">PakFileUtilities.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d6/d56/_i_platform_file_pak_8h_source.html">IPlatformFilePak.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d0/dd4/_secure_hash_8h_source.html">Misc/SecureHash.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d1/de2/_big_int_8h_source.html">Math/BigInt.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d2/d9a/_signed_archive_writer_8h_source.html">SignedArchiveWriter.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d4/d5e/_a_e_s_8h_source.html">Misc/AES.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d8/df6/_unique_ptr_8h_source.html">Templates/UniquePtr.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d8/dec/_large_memory_writer_8h_source.html">Serialization/LargeMemoryWriter.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d6/d72/_diagnostic_table_8h_source.html">ProfilingDebugging/DiagnosticTable.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d2/daf/_json_serializer_8h_source.html">Serialization/JsonSerializer.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d2/d00/_base64_8h_source.html">Misc/Base64.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d7/d83/_compression_8h_source.html">Misc/Compression.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../dc/d25/_misc_2_fnv_8h_source.html">Misc/Fnv.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d6/d30/_i_modular_features_8h_source.html">Features/IModularFeatures.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../dc/d17/_core_delegates_8h_source.html">Misc/CoreDelegates.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../dc/d7d/_file_helper_8h_source.html">Misc/FileHelper.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d4/dbe/_config_cache_ini_8h_source.html">Misc/ConfigCacheIni.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../dd/d9f/_config_context_8h_source.html">Misc/ConfigContext.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d0/dcf/_platform_file_manager_8h_source.html">HAL/PlatformFileManager.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../da/d20/_runtime_2_core_2_public_2_hash_2xxhash_8h_source.html">Hash/xxhash.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d3/d90/_core_2_public_2_async_2_parallel_for_8h_source.html">Async/ParallelFor.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d2/d18/_async_work_8h_source.html">Async/AsyncWork.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d7/dd1/_module_manager_8h_source.html">Modules/ModuleManager.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d8/d24/_derived_data_cache_interface_8h_source.html">DerivedDataCacheInterface.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d0/d30/_memory_reader_8h_source.html">Serialization/MemoryReader.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d9/d4a/_memory_writer_8h_source.html">Serialization/MemoryWriter.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d2/d9c/_file_regions_8h_source.html">Serialization/FileRegions.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d6/d6f/_i_compression_format_8h_source.html">Misc/ICompressionFormat.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../df/df2/_key_chain_utilities_8h_source.html">Misc/KeyChainUtilities.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d0/d76/_io_store_utilities_8h_source.html">IoStoreUtilities.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d7/dbe/_i_plugin_manager_8h_source.html">Interfaces/IPluginManager.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d3/d8e/_spsc_queue_8h_source.html">Containers/SpscQueue.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d3/d3a/_async_8h_source.html">Async/Async.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d8/dfb/_future_8h_source.html">Async/Future.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d7/dea/_virtualization_system_8h_source.html">Virtualization/VirtualizationSystem.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../dc/d2a/_cooked_package_store_8h_source.html">CookedPackageStore.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d1/d77/_zen_store_http_client_8h_source.html">ZenStoreHttpClient.h</a>&quot;</code><br />
+</div><div class="textblock"><div class="dynheader">
+PakFileUtilities.cpp 的引用(Include)关系图:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../dd/df0/_pak_file_utilities_8cpp__incl.svg" width="4726" height="475"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+</div><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-nested-classes" class="groupheader"><a id="nested-classes" name="nested-classes"></a>
+类</h2></td></tr>
+<tr class="memitem:FBlockCompressTask" id="r_FBlockCompressTask"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/dc9/class_f_block_compress_task.html">FBlockCompressTask</a></td></tr>
+<tr class="memitem:FMemoryCompressor" id="r_FMemoryCompressor"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/da7/class_f_memory_compressor.html">FMemoryCompressor</a></td></tr>
+<tr class="memitem:FPatchSeekOptParams" id="r_FPatchSeekOptParams"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/dce/struct_f_patch_seek_opt_params.html">FPatchSeekOptParams</a></td></tr>
+<tr class="memitem:FPakCommandLineParameters" id="r_FPakCommandLineParameters"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d5c/struct_f_pak_command_line_parameters.html">FPakCommandLineParameters</a></td></tr>
+<tr class="memitem:FPakInputPair" id="r_FPakInputPair"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/d65/struct_f_pak_input_pair.html">FPakInputPair</a></td></tr>
+<tr class="memitem:FPakEntryOrder" id="r_FPakEntryOrder"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d32/struct_f_pak_entry_order.html">FPakEntryOrder</a></td></tr>
+<tr class="memitem:FFileInfo" id="r_FFileInfo"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d59/struct_f_file_info.html">FFileInfo</a></td></tr>
+<tr class="memitem:FCompressedFileBuffer" id="r_FCompressedFileBuffer"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/dee/struct_f_compressed_file_buffer.html">FCompressedFileBuffer</a></td></tr>
+<tr class="memitem:FSecondaryIndexWriter" id="r_FSecondaryIndexWriter"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/dc3/struct_f_secondary_index_writer.html">FSecondaryIndexWriter</a></td></tr>
+<tr class="memitem:FPakWriterContext" id="r_FPakWriterContext"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d8/db1/class_f_pak_writer_context.html">FPakWriterContext</a></td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-define-members" class="groupheader"><a id="define-members" name="define-members"></a>
+宏定义</h2></td></tr>
+<tr class="memitem:aa1ef244225f5aba78f304c28d1c0149b" id="r_aa1ef244225f5aba78f304c28d1c0149b"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa1ef244225f5aba78f304c28d1c0149b">GUARANTEE_UASSET_AND_UEXP_IN_SAME_PAK</a>&#160;&#160;&#160;0</td></tr>
+<tr class="memitem:a00496d49e6083e20fe7d8f206c9bfec5" id="r_a00496d49e6083e20fe7d8f206c9bfec5"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a00496d49e6083e20fe7d8f206c9bfec5">USE_DDC_FOR_COMPRESSED_FILES</a>&#160;&#160;&#160;0</td></tr>
+<tr class="memitem:ac2acb9f9028e585b6812fab2475b7cb0" id="r_ac2acb9f9028e585b6812fab2475b7cb0"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac2acb9f9028e585b6812fab2475b7cb0">PAKCOMPRESS_DERIVEDDATA_VER</a>&#160;&#160;&#160;<a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;9493D2AB515048658AF7BE1342EC21FC&quot;)</td></tr>
+<tr class="memitem:a5c60e0c19538ad1537c6d88551a773a1" id="r_a5c60e0c19538ad1537c6d88551a773a1"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5c60e0c19538ad1537c6d88551a773a1">SEEK_OPT_VERBOSITY</a>&#160;&#160;&#160;<a class="el" href="../../de/da7/_direct_link_log_8h.html#ab4d085e7119005ae75db70919e0eb279">Display</a></td></tr>
+<tr class="memitem:a7d689dc893c12f99c5565fbd12a656a4" id="r_a7d689dc893c12f99c5565fbd12a656a4"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7d689dc893c12f99c5565fbd12a656a4">DETAILED_UNREALPAK_TIMING</a>&#160;&#160;&#160;0</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-enum-members" class="groupheader"><a id="enum-members" name="enum-members"></a>
+枚举</h2></td></tr>
+<tr class="memitem:a5ca1330bf11f3f9ab094098df26c12e7" id="r_a5ca1330bf11f3f9ab094098df26c12e7"><td class="memItemLeft" align="right" valign="top">enum class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5ca1330bf11f3f9ab094098df26c12e7">ESeekOptMode</a> : uint8 { <br />
+&#160;&#160;<a class="el" href="#a5ca1330bf11f3f9ab094098df26c12e7a6adf97f83acf6453d4a6a4b1070f3754">None</a> = 0
+, <a class="el" href="#a5ca1330bf11f3f9ab094098df26c12e7accd4cef52fe08da3eeac0e4396a2aca2">OnePass</a> = 1
+, <a class="el" href="#a5ca1330bf11f3f9ab094098df26c12e7a482be0da5798aaaecbf7416714e6607f">Incremental</a> = 2
+, <a class="el" href="#a5ca1330bf11f3f9ab094098df26c12e7ac569531d5fe3968dedc011227ef76e03">Incremental_OnlyPrimaryOrder</a> = 3
+, <br />
+&#160;&#160;<a class="el" href="#a5ca1330bf11f3f9ab094098df26c12e7a6c47d8c4fa07932035ca9ecce99f32d9">Incremental_PrimaryThenSecondary</a> = 4
+, <a class="el" href="#a5ca1330bf11f3f9ab094098df26c12e7a4905ac9d6a22bdfc1ae096094ce6248d">COUNT</a>
+<br />
+ }</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-func-members" class="groupheader"><a id="func-members" name="func-members"></a>
+函数</h2></td></tr>
+<tr class="memitem:ac4fd3cab1026ea7820c2c33b63ff224f" id="r_ac4fd3cab1026ea7820c2c33b63ff224f"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac4fd3cab1026ea7820c2c33b63ff224f">IMPLEMENT_MODULE</a> (<a class="el" href="../../d4/df1/class_f_default_module_impl.html">FDefaultModuleImpl</a>, PakFileUtilities)</td></tr>
+<tr class="memitem:a0a6fb27f5e8f566a74b68962458dfe05" id="r_a0a6fb27f5e8f566a74b68962458dfe05"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a0a6fb27f5e8f566a74b68962458dfe05">DEFINE_LOG_CATEGORY_STATIC</a> (LogMakeBinaryConfig, Log, <a class="el" href="../../db/da0/_hair_strands_composition_8cpp.html#a01ae254fc9c19378956c218ed4e9c32da54991d225c58ce0af43461d4e9a82312">All</a>)</td></tr>
+<tr class="memitem:a617764a07c7646cf3f9034a71b8e50e4" id="r_a617764a07c7646cf3f9034a71b8e50e4"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a617764a07c7646cf3f9034a71b8e50e4">ListFilesInPak</a> (const TCHAR *InPakFilename, <a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a89241ea7101f26f05a4f1efd6be26b32">int64</a> SizeFilter, <a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a> bIncludeDeleted, const <a class="el" href="../../d2/d8e/_s_anim_notify_panel_8h.html#a7483aa7f043c623f8990a95320be654d">FString</a> &amp;CSVFilename, <a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a> bExtractToMountPoint, const <a class="el" href="../../db/d92/struct_f_key_chain.html">FKeyChain</a> &amp;InKeyChain, <a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a> bAppendFile, <a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a> bIncludeFooter)</td></tr>
+<tr class="memitem:af3fe1b68fa232d5489e75541922bacad" id="r_af3fe1b68fa232d5489e75541922bacad"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af3fe1b68fa232d5489e75541922bacad">SignPakFile</a> (const <a class="el" href="../../d2/d8e/_s_anim_notify_panel_8h.html#a7483aa7f043c623f8990a95320be654d">FString</a> &amp;InPakFilename, const <a class="el" href="../../de/db9/_i_engine_crypto_8h.html#ae23092d0c50233ac16b66b80975c50f3">FRSAKeyHandle</a> InSigningKey)</td></tr>
+<tr class="memitem:a9ff898226f6f5cad1726a223be2a4520" id="r_a9ff898226f6f5cad1726a223be2a4520"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9ff898226f6f5cad1726a223be2a4520">SignIOStoreContainer</a> (<a class="el" href="../../db/d79/class_f_archive.html">FArchive</a> &amp;ContainerAr)</td></tr>
+<tr class="memitem:a0645ebd8aafb20c704336720c67b3e9e" id="r_a0645ebd8aafb20c704336720c67b3e9e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a0645ebd8aafb20c704336720c67b3e9e">ExtractFilesFromPak</a> (const TCHAR *InPakFilename, <a class="el" href="../../da/d41/class_t_map.html">TMap</a>&lt; <a class="el" href="../../d2/d8e/_s_anim_notify_panel_8h.html#a7483aa7f043c623f8990a95320be654d">FString</a>, <a class="el" href="../../d4/d59/struct_f_file_info.html">FFileInfo</a> &gt; &amp;InFileHashes, const TCHAR *InDestPath, <a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a> bUseMountPoint, const <a class="el" href="../../db/d92/struct_f_key_chain.html">FKeyChain</a> &amp;InKeyChain, const <a class="el" href="../../d2/d8e/_s_anim_notify_panel_8h.html#a7483aa7f043c623f8990a95320be654d">FString</a> *InFilter, <a class="el" href="../../d6/db1/class_t_array.html">TArray</a>&lt; <a class="el" href="../../d7/d65/struct_f_pak_input_pair.html">FPakInputPair</a> &gt; *OutEntries=nullptr, <a class="el" href="../../d6/db1/class_t_array.html">TArray</a>&lt; <a class="el" href="../../d7/d65/struct_f_pak_input_pair.html">FPakInputPair</a> &gt; *OutDeletedEntries=nullptr, <a class="el" href="../../dd/da9/class_f_pak_order_map.html">FPakOrderMap</a> *OutOrderMap=nullptr, <a class="el" href="../../d6/db1/class_t_array.html">TArray</a>&lt; <a class="el" href="../../d7/d35/struct_f_guid.html">FGuid</a> &gt; *OutUsedEncryptionKeys=nullptr, <a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a> *OutAnyPakSigned=nullptr)</td></tr>
+<tr class="memitem:a6a37ae13436f2b1d168fb48a0a7324e9" id="r_a6a37ae13436f2b1d168fb48a0a7324e9"><td class="memTemplParams" colspan="2">template&lt;class T&gt; </td></tr>
+<tr class="memitem:a6a37ae13436f2b1d168fb48a0a7324e9 template"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6a37ae13436f2b1d168fb48a0a7324e9">ReadSizeParam</a> (const TCHAR *CmdLine, const TCHAR *ParamStr, T &amp;SizeOut)</td></tr>
+<tr class="memitem:a87d603187ddc90d3a7ff8027619d84de" id="r_a87d603187ddc90d3a7ff8027619d84de"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d2/d8e/_s_anim_notify_panel_8h.html#a7483aa7f043c623f8990a95320be654d">FString</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a87d603187ddc90d3a7ff8027619d84de">GetLongestPath</a> (const <a class="el" href="../../d6/db1/class_t_array.html">TArray</a>&lt; <a class="el" href="../../d7/d65/struct_f_pak_input_pair.html">FPakInputPair</a> &gt; &amp;FilesToAdd)</td></tr>
+<tr class="memitem:aef04c32aa56fe8066f2f63250b09efad" id="r_aef04c32aa56fe8066f2f63250b09efad"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d2/d8e/_s_anim_notify_panel_8h.html#a7483aa7f043c623f8990a95320be654d">FString</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aef04c32aa56fe8066f2f63250b09efad">GetCommonRootPath</a> (const <a class="el" href="../../d6/db1/class_t_array.html">TArray</a>&lt; <a class="el" href="../../d7/d65/struct_f_pak_input_pair.html">FPakInputPair</a> &gt; &amp;FilesToAdd)</td></tr>
+<tr class="memitem:a4fb2ddfd737aaf3ab5df9290a0d0283c" id="r_a4fb2ddfd737aaf3ab5df9290a0d0283c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4fb2ddfd737aaf3ab5df9290a0d0283c">PrepareCopyFileToPak</a> (const <a class="el" href="../../d2/d8e/_s_anim_notify_panel_8h.html#a7483aa7f043c623f8990a95320be654d">FString</a> &amp;InMountPoint, const <a class="el" href="../../d7/d65/struct_f_pak_input_pair.html">FPakInputPair</a> &amp;InFile, const <a class="el" href="../../da/dee/struct_f_compressed_file_buffer.html">FCompressedFileBuffer</a> &amp;UncompressedFile, <a class="el" href="../../df/d87/struct_f_pak_entry_pair.html">FPakEntryPair</a> &amp;OutNewEntry, <a class="el" href="../../dd/de9/preprocessor_8c.html#adde6aaee8457bee49c2a92621fe22b79">uint8</a> *&amp;OutDataToWrite, <a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a89241ea7101f26f05a4f1efd6be26b32">int64</a> &amp;OutSizeToWrite, const <a class="el" href="../../db/d92/struct_f_key_chain.html">FKeyChain</a> &amp;InKeyChain, <a class="el" href="../../d6/db1/class_t_array.html">TArray</a>&lt; <a class="el" href="../../d7/d0a/struct_f_file_region.html">FFileRegion</a> &gt; *OutFileRegions)</td></tr>
+<tr class="memitem:a94c367925f899c17fada668c4a1b06f8" id="r_a94c367925f899c17fada668c4a1b06f8"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../df/d63/_typed_element_query_capabilities_8inl.html#a72343342ce64c0755563ee6c5e27868d">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a94c367925f899c17fada668c4a1b06f8">FinalizeCopyCompressedFileToPak</a> (<a class="el" href="../../db/d08/struct_f_pak_info.html">FPakInfo</a> &amp;InPakInfo, const <a class="el" href="../../da/dee/struct_f_compressed_file_buffer.html">FCompressedFileBuffer</a> &amp;CompressedFile, <a class="el" href="../../df/d87/struct_f_pak_entry_pair.html">FPakEntryPair</a> &amp;OutNewEntry)</td></tr>
+<tr class="memitem:aa51b602be23056d798b0b55c4bb8125d" id="r_aa51b602be23056d798b0b55c4bb8125d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa51b602be23056d798b0b55c4bb8125d">PrepareCopyCompressedFileToPak</a> (const <a class="el" href="../../d2/d8e/_s_anim_notify_panel_8h.html#a7483aa7f043c623f8990a95320be654d">FString</a> &amp;InMountPoint, <a class="el" href="../../db/d08/struct_f_pak_info.html">FPakInfo</a> &amp;Info, const <a class="el" href="../../d7/d65/struct_f_pak_input_pair.html">FPakInputPair</a> &amp;InFile, const <a class="el" href="../../da/dee/struct_f_compressed_file_buffer.html">FCompressedFileBuffer</a> &amp;CompressedFile, <a class="el" href="../../df/d87/struct_f_pak_entry_pair.html">FPakEntryPair</a> &amp;OutNewEntry, <a class="el" href="../../dd/de9/preprocessor_8c.html#adde6aaee8457bee49c2a92621fe22b79">uint8</a> *&amp;OutDataToWrite, <a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a89241ea7101f26f05a4f1efd6be26b32">int64</a> &amp;OutSizeToWrite, const <a class="el" href="../../db/d92/struct_f_key_chain.html">FKeyChain</a> &amp;InKeyChain)</td></tr>
+<tr class="memitem:a3145ef1de93e337e98a963c8dda8f01b" id="r_a3145ef1de93e337e98a963c8dda8f01b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../df/d63/_typed_element_query_capabilities_8inl.html#a72343342ce64c0755563ee6c5e27868d">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a3145ef1de93e337e98a963c8dda8f01b">PrepareDeleteRecordForPak</a> (const <a class="el" href="../../d2/d8e/_s_anim_notify_panel_8h.html#a7483aa7f043c623f8990a95320be654d">FString</a> &amp;InMountPoint, const <a class="el" href="../../d7/d65/struct_f_pak_input_pair.html">FPakInputPair</a> InDeletedFile, <a class="el" href="../../df/d87/struct_f_pak_entry_pair.html">FPakEntryPair</a> &amp;OutNewEntry)</td></tr>
+<tr class="memitem:a40c384f41deae5c5830efc4f8d57d82b" id="r_a40c384f41deae5c5830efc4f8d57d82b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../df/d63/_typed_element_query_capabilities_8inl.html#a72343342ce64c0755563ee6c5e27868d">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a40c384f41deae5c5830efc4f8d57d82b">ProcessCommonCommandLine</a> (const TCHAR *CmdLine, <a class="el" href="../../d1/d5c/struct_f_pak_command_line_parameters.html">FPakCommandLineParameters</a> &amp;CmdLineParameters)</td></tr>
+<tr class="memitem:a39978a85311f2b6ebfc44f3e4d568ea0" id="r_a39978a85311f2b6ebfc44f3e4d568ea0"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../df/d63/_typed_element_query_capabilities_8inl.html#a72343342ce64c0755563ee6c5e27868d">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a39978a85311f2b6ebfc44f3e4d568ea0">ProcessPakFileSpecificCommandLine</a> (const TCHAR *CmdLine, const <a class="el" href="../../d6/db1/class_t_array.html">TArray</a>&lt; <a class="el" href="../../d2/d8e/_s_anim_notify_panel_8h.html#a7483aa7f043c623f8990a95320be654d">FString</a> &gt; &amp;NonOptionArguments, <a class="el" href="../../d6/db1/class_t_array.html">TArray</a>&lt; <a class="el" href="../../d7/d65/struct_f_pak_input_pair.html">FPakInputPair</a> &gt; &amp;Entries, <a class="el" href="../../d1/d5c/struct_f_pak_command_line_parameters.html">FPakCommandLineParameters</a> &amp;CmdLineParameters)</td></tr>
+<tr class="memitem:ad7db3c3bc4ddaec6e7cc76391a28b97c" id="r_ad7db3c3bc4ddaec6e7cc76391a28b97c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../df/d63/_typed_element_query_capabilities_8inl.html#a72343342ce64c0755563ee6c5e27868d">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad7db3c3bc4ddaec6e7cc76391a28b97c">ProcessCommandLine</a> (const TCHAR *CmdLine, const <a class="el" href="../../d6/db1/class_t_array.html">TArray</a>&lt; <a class="el" href="../../d2/d8e/_s_anim_notify_panel_8h.html#a7483aa7f043c623f8990a95320be654d">FString</a> &gt; &amp;NonOptionArguments, <a class="el" href="../../d6/db1/class_t_array.html">TArray</a>&lt; <a class="el" href="../../d7/d65/struct_f_pak_input_pair.html">FPakInputPair</a> &gt; &amp;Entries, <a class="el" href="../../d1/d5c/struct_f_pak_command_line_parameters.html">FPakCommandLineParameters</a> &amp;CmdLineParameters)</td></tr>
+<tr class="memitem:a70276764d11bbcca2e5bf0e615f1d943" id="r_a70276764d11bbcca2e5bf0e615f1d943"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a70276764d11bbcca2e5bf0e615f1d943">InitializeVirtualizationSystem</a> ()</td></tr>
+<tr class="memitem:af65b3525e48b8fe2f89d00428914a2f5" id="r_af65b3525e48b8fe2f89d00428914a2f5"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../df/d63/_typed_element_query_capabilities_8inl.html#a72343342ce64c0755563ee6c5e27868d">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af65b3525e48b8fe2f89d00428914a2f5">CollectFilesToAdd</a> (<a class="el" href="../../d6/db1/class_t_array.html">TArray</a>&lt; <a class="el" href="../../d7/d65/struct_f_pak_input_pair.html">FPakInputPair</a> &gt; &amp;OutFilesToAdd, const <a class="el" href="../../d6/db1/class_t_array.html">TArray</a>&lt; <a class="el" href="../../d7/d65/struct_f_pak_input_pair.html">FPakInputPair</a> &gt; &amp;InEntries, const <a class="el" href="../../dd/da9/class_f_pak_order_map.html">FPakOrderMap</a> &amp;OrderMap, const <a class="el" href="../../d1/d5c/struct_f_pak_command_line_parameters.html">FPakCommandLineParameters</a> &amp;CmdLineParameters)</td></tr>
+<tr class="memitem:afe3a60114d2b078becf0fc0f07897227" id="r_afe3a60114d2b078becf0fc0f07897227"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#afe3a60114d2b078becf0fc0f07897227">BufferedCopyFile</a> (<a class="el" href="../../db/d79/class_f_archive.html">FArchive</a> &amp;Dest, <a class="el" href="../../db/d79/class_f_archive.html">FArchive</a> &amp;Source, const <a class="el" href="../../d0/d90/class_f_pak_file.html">FPakFile</a> &amp;PakFile, const <a class="el" href="../../d6/dfd/struct_f_pak_entry.html">FPakEntry</a> &amp;Entry, <a class="el" href="../../df/d63/_typed_element_query_capabilities_8inl.html#a72343342ce64c0755563ee6c5e27868d">void</a> *Buffer, <a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a89241ea7101f26f05a4f1efd6be26b32">int64</a> BufferSize, const <a class="el" href="../../db/d92/struct_f_key_chain.html">FKeyChain</a> &amp;InKeyChain)</td></tr>
+<tr class="memitem:a4e25b6862bff9704942836c38f520084" id="r_a4e25b6862bff9704942836c38f520084"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4e25b6862bff9704942836c38f520084">UncompressCopyFile</a> (<a class="el" href="../../db/d79/class_f_archive.html">FArchive</a> &amp;Dest, <a class="el" href="../../db/d79/class_f_archive.html">FArchive</a> &amp;Source, const <a class="el" href="../../d6/dfd/struct_f_pak_entry.html">FPakEntry</a> &amp;Entry, <a class="el" href="../../dd/de9/preprocessor_8c.html#adde6aaee8457bee49c2a92621fe22b79">uint8</a> *&amp;PersistentBuffer, <a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a89241ea7101f26f05a4f1efd6be26b32">int64</a> &amp;BufferSize, const <a class="el" href="../../db/d92/struct_f_key_chain.html">FKeyChain</a> &amp;InKeyChain, const <a class="el" href="../../d0/d90/class_f_pak_file.html">FPakFile</a> &amp;PakFile)</td></tr>
+<tr class="memitem:a27c4e54a35b02570fa0201a0c4d49f25" id="r_a27c4e54a35b02570fa0201a0c4d49f25"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d1/de2/_big_int_8h.html#a15a45470e4cc85fbd313c19c4857a4c7">TEncryptionInt</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a27c4e54a35b02570fa0201a0c4d49f25">ParseEncryptionIntFromJson</a> (<a class="el" href="../../dd/dba/class_t_shared_ptr.html">TSharedPtr</a>&lt; <a class="el" href="../../d7/d85/class_f_json_object.html">FJsonObject</a> &gt; InObj, const TCHAR *InName)</td></tr>
+<tr class="memitem:a4dc28828cc554bf24ea363b3aa8c8b27" id="r_a4dc28828cc554bf24ea363b3aa8c8b27"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../df/d63/_typed_element_query_capabilities_8inl.html#a72343342ce64c0755563ee6c5e27868d">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4dc28828cc554bf24ea363b3aa8c8b27">LoadKeyChain</a> (const TCHAR *CmdLine, <a class="el" href="../../db/d92/struct_f_key_chain.html">FKeyChain</a> &amp;OutCryptoSettings)</td></tr>
+<tr class="memitem:a17124c17d0c9db4bebbdb0036e8be0d6" id="r_a17124c17d0c9db4bebbdb0036e8be0d6"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../db/d79/class_f_archive.html">FArchive</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a17124c17d0c9db4bebbdb0036e8be0d6">CreatePakWriter</a> (const TCHAR *Filename, const <a class="el" href="../../db/d92/struct_f_key_chain.html">FKeyChain</a> &amp;InKeyChain, <a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a> bSign)</td></tr>
+<tr class="memitem:a615d2bca3f2c1ddc6607f2ba8ce348d1" id="r_a615d2bca3f2c1ddc6607f2ba8ce348d1"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../df/d63/_typed_element_query_capabilities_8inl.html#a72343342ce64c0755563ee6c5e27868d">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a615d2bca3f2c1ddc6607f2ba8ce348d1">VerifyIndexesMatch</a> (<a class="el" href="../../d6/db1/class_t_array.html">TArray</a>&lt; <a class="el" href="../../df/d87/struct_f_pak_entry_pair.html">FPakEntryPair</a> &gt; &amp;EntryList, <a class="el" href="../../d0/d90/class_f_pak_file.html#a4eacca1deb2d6aeed7d48185af80fccf">FPakFile::FDirectoryIndex</a> &amp;DirectoryIndex, <a class="el" href="../../d0/d90/class_f_pak_file.html#a28f24e5b22664bc1fa7aece6577ac59b">FPakFile::FPathHashIndex</a> &amp;PathHashIndex, <a class="el" href="../../dd/de9/preprocessor_8c.html#abc0f5bc07737e498f287334775dff2b6">uint64</a> PathHashSeed, const <a class="el" href="../../d2/d8e/_s_anim_notify_panel_8h.html#a7483aa7f043c623f8990a95320be654d">FString</a> &amp;MountPoint, const <a class="el" href="../../d6/db1/class_t_array.html">TArray</a>&lt; <a class="el" href="../../dd/de9/preprocessor_8c.html#adde6aaee8457bee49c2a92621fe22b79">uint8</a> &gt; &amp;EncodedPakEntries, const <a class="el" href="../../d6/db1/class_t_array.html">TArray</a>&lt; <a class="el" href="../../d6/dfd/struct_f_pak_entry.html">FPakEntry</a> &gt; &amp;NonEncodableEntries, <a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a8dbb3cd84ca9fd010dadfc3815eefa5d">int32</a> NumEncodedEntries, <a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a8dbb3cd84ca9fd010dadfc3815eefa5d">int32</a> NumDeletedEntries, <a class="el" href="../../db/d08/struct_f_pak_info.html">FPakInfo</a> &amp;Info)</td></tr>
+<tr class="memitem:aa45805975efb2dedf2becaf431f10a4f" id="r_aa45805975efb2dedf2becaf431f10a4f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa45805975efb2dedf2becaf431f10a4f">CreatePakFile</a> (const TCHAR *Filename, const <a class="el" href="../../d6/db1/class_t_array.html">TArray</a>&lt; <a class="el" href="../../d7/d65/struct_f_pak_input_pair.html">FPakInputPair</a> &gt; &amp;FilesToAdd, const <a class="el" href="../../d1/d5c/struct_f_pak_command_line_parameters.html">FPakCommandLineParameters</a> &amp;CmdLineParameters, const <a class="el" href="../../db/d92/struct_f_key_chain.html">FKeyChain</a> &amp;InKeyChain)</td></tr>
+<tr class="memitem:a1e9e54577a375a790344e5e93b5184dd" id="r_a1e9e54577a375a790344e5e93b5184dd"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../df/d63/_typed_element_query_capabilities_8inl.html#a72343342ce64c0755563ee6c5e27868d">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a1e9e54577a375a790344e5e93b5184dd">WritePakFooter</a> (<a class="el" href="../../db/d79/class_f_archive.html">FArchive</a> &amp;PakHandle, <a class="el" href="../../d0/d7d/struct_f_pak_footer_info.html">FPakFooterInfo</a> &amp;Footer)</td></tr>
+<tr class="memitem:a732c391ed47e26fca039c331a61821f5" id="r_a732c391ed47e26fca039c331a61821f5"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a732c391ed47e26fca039c331a61821f5">TestPakFile</a> (const TCHAR *Filename, <a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a> TestHashes)</td></tr>
+<tr class="memitem:a1076ccf1284f0001a43df87d9071972b" id="r_a1076ccf1284f0001a43df87d9071972b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a8dbb3cd84ca9fd010dadfc3815eefa5d">int32</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a1076ccf1284f0001a43df87d9071972b">GetPakPriorityFromFilename</a> (const <a class="el" href="../../d2/d8e/_s_anim_notify_panel_8h.html#a7483aa7f043c623f8990a95320be654d">FString</a> &amp;PakFilename)</td></tr>
+<tr class="memitem:a6d95e3f87eb679219e3917a4636751bf" id="r_a6d95e3f87eb679219e3917a4636751bf"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a8dbb3cd84ca9fd010dadfc3815eefa5d">int32</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6d95e3f87eb679219e3917a4636751bf">GetPakChunkIndexFromFilename</a> (const <a class="el" href="../../d2/d8e/_s_anim_notify_panel_8h.html#a7483aa7f043c623f8990a95320be654d">FString</a> &amp;PakFilePath)</td></tr>
+<tr class="memitem:a1c3e2dd7712fd78b608d46c767127b6f" id="r_a1c3e2dd7712fd78b608d46c767127b6f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a1c3e2dd7712fd78b608d46c767127b6f">AuditPakFiles</a> (const <a class="el" href="../../d2/d8e/_s_anim_notify_panel_8h.html#a7483aa7f043c623f8990a95320be654d">FString</a> &amp;InputPath, <a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a> bOnlyDeleted, const <a class="el" href="../../d2/d8e/_s_anim_notify_panel_8h.html#a7483aa7f043c623f8990a95320be654d">FString</a> &amp;CSVFilename, const <a class="el" href="../../dd/da9/class_f_pak_order_map.html">FPakOrderMap</a> &amp;OrderMap, <a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a> bSortByOrdering)</td></tr>
+<tr class="memitem:a54b93085f773296570b5a1fc4c11168a" id="r_a54b93085f773296570b5a1fc4c11168a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a54b93085f773296570b5a1fc4c11168a">ListFilesAtOffset</a> (const TCHAR *InPakFileName, const <a class="el" href="../../d6/db1/class_t_array.html">TArray</a>&lt; <a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a89241ea7101f26f05a4f1efd6be26b32">int64</a> &gt; &amp;InOffsets)</td></tr>
+<tr class="memitem:ac5f8e817b340a6f1c922e8724d4ef6b7" id="r_ac5f8e817b340a6f1c922e8724d4ef6b7"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac5f8e817b340a6f1c922e8724d4ef6b7">ShowCompressionBlockCRCs</a> (const TCHAR *InPakFileName, <a class="el" href="../../d6/db1/class_t_array.html">TArray</a>&lt; <a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a89241ea7101f26f05a4f1efd6be26b32">int64</a> &gt; &amp;InOffsets, const <a class="el" href="../../db/d92/struct_f_key_chain.html">FKeyChain</a> &amp;InKeyChain)</td></tr>
+<tr class="memitem:a594c83d16b1616612a1405c3dcdafab3" id="r_a594c83d16b1616612a1405c3dcdafab3"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a594c83d16b1616612a1405c3dcdafab3">GeneratePIXMappingFile</a> (const <a class="el" href="../../d6/db1/class_t_array.html">TArray</a>&lt; <a class="el" href="../../d2/d8e/_s_anim_notify_panel_8h.html#a7483aa7f043c623f8990a95320be654d">FString</a> &gt; InPakFileList, const <a class="el" href="../../d2/d8e/_s_anim_notify_panel_8h.html#a7483aa7f043c623f8990a95320be654d">FString</a> &amp;OutputPath)</td></tr>
+<tr class="memitem:af86c9e23a19a12cffd36aa790704b11c" id="r_af86c9e23a19a12cffd36aa790704b11c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../df/d63/_typed_element_query_capabilities_8inl.html#a72343342ce64c0755563ee6c5e27868d">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af86c9e23a19a12cffd36aa790704b11c">CreateDiffRelativePathMap</a> (<a class="el" href="../../d6/db1/class_t_array.html">TArray</a>&lt; <a class="el" href="../../d2/d8e/_s_anim_notify_panel_8h.html#a7483aa7f043c623f8990a95320be654d">FString</a> &gt; &amp;FileNames, const <a class="el" href="../../d2/d8e/_s_anim_notify_panel_8h.html#a7483aa7f043c623f8990a95320be654d">FString</a> &amp;RootPath, <a class="el" href="../../da/d41/class_t_map.html">TMap</a>&lt; <a class="el" href="../../d5/dd5/class_f_name.html">FName</a>, <a class="el" href="../../d2/d8e/_s_anim_notify_panel_8h.html#a7483aa7f043c623f8990a95320be654d">FString</a> &gt; &amp;OutMap)</td></tr>
+<tr class="memitem:ada8a38f96d4ba68a946f71991c975b69" id="r_ada8a38f96d4ba68a946f71991c975b69"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ada8a38f96d4ba68a946f71991c975b69">DumpPakInfo</a> (const <a class="el" href="../../d2/d8e/_s_anim_notify_panel_8h.html#a7483aa7f043c623f8990a95320be654d">FString</a> &amp;InPakFilename, const <a class="el" href="../../db/d92/struct_f_key_chain.html">FKeyChain</a> &amp;InKeyChain)</td></tr>
+<tr class="memitem:ace3814be711c401d8bba8eac99ae91ec" id="r_ace3814be711c401d8bba8eac99ae91ec"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ace3814be711c401d8bba8eac99ae91ec">DiffFilesInPaks</a> (const <a class="el" href="../../d2/d8e/_s_anim_notify_panel_8h.html#a7483aa7f043c623f8990a95320be654d">FString</a> &amp;InPakFilename1, const <a class="el" href="../../d2/d8e/_s_anim_notify_panel_8h.html#a7483aa7f043c623f8990a95320be654d">FString</a> &amp;InPakFilename2, const <a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a> bLogUniques1, const <a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a> bLogUniques2, const <a class="el" href="../../db/d92/struct_f_key_chain.html">FKeyChain</a> &amp;InKeyChain1, const <a class="el" href="../../db/d92/struct_f_key_chain.html">FKeyChain</a> &amp;InKeyChain2)</td></tr>
+<tr class="memitem:a39dccf0079e34b5f2fc675bfc8f2f42c" id="r_a39dccf0079e34b5f2fc675bfc8f2f42c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../df/d63/_typed_element_query_capabilities_8inl.html#a72343342ce64c0755563ee6c5e27868d">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a39dccf0079e34b5f2fc675bfc8f2f42c">GenerateHashForFile</a> (<a class="el" href="../../dd/de9/preprocessor_8c.html#adde6aaee8457bee49c2a92621fe22b79">uint8</a> *ByteBuffer, <a class="el" href="../../dd/de9/preprocessor_8c.html#abc0f5bc07737e498f287334775dff2b6">uint64</a> TotalSize, <a class="el" href="../../d4/d59/struct_f_file_info.html">FFileInfo</a> &amp;FileHash)</td></tr>
+<tr class="memitem:a0fb885eb879846cc47d937f8959f7cfa" id="r_a0fb885eb879846cc47d937f8959f7cfa"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a0fb885eb879846cc47d937f8959f7cfa">GenerateHashForFile</a> (<a class="el" href="../../d2/d8e/_s_anim_notify_panel_8h.html#a7483aa7f043c623f8990a95320be654d">FString</a> Filename, <a class="el" href="../../d4/d59/struct_f_file_info.html">FFileInfo</a> &amp;FileHash)</td></tr>
+<tr class="memitem:a0276c6d43b66e8014083d090cbb24803" id="r_a0276c6d43b66e8014083d090cbb24803"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a0276c6d43b66e8014083d090cbb24803">GenerateHashesFromPak</a> (const TCHAR *InPakFilename, const TCHAR *InDestPakFilename, <a class="el" href="../../da/d41/class_t_map.html">TMap</a>&lt; <a class="el" href="../../d2/d8e/_s_anim_notify_panel_8h.html#a7483aa7f043c623f8990a95320be654d">FString</a>, <a class="el" href="../../d4/d59/struct_f_file_info.html">FFileInfo</a> &gt; &amp;FileHashes, <a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a> bUseMountPoint, const <a class="el" href="../../db/d92/struct_f_key_chain.html">FKeyChain</a> &amp;InKeyChain, <a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a8dbb3cd84ca9fd010dadfc3815eefa5d">int32</a> &amp;OutLowestSourcePakVersion, <a class="el" href="../../d6/db1/class_t_array.html">TArray</a>&lt; <a class="el" href="../../d7/d35/struct_f_guid.html">FGuid</a> &gt; *OutUsedEncryptionKeys=nullptr)</td></tr>
+<tr class="memitem:a50732add9f89e88720b03de8788130e5" id="r_a50732add9f89e88720b03de8788130e5"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a50732add9f89e88720b03de8788130e5">FileIsIdentical</a> (<a class="el" href="../../d2/d8e/_s_anim_notify_panel_8h.html#a7483aa7f043c623f8990a95320be654d">FString</a> SourceFile, <a class="el" href="../../d2/d8e/_s_anim_notify_panel_8h.html#a7483aa7f043c623f8990a95320be654d">FString</a> DestFilename, const <a class="el" href="../../d4/d59/struct_f_file_info.html">FFileInfo</a> *Hash, <a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a89241ea7101f26f05a4f1efd6be26b32">int64</a> *DestSizeOut=nullptr)</td></tr>
+<tr class="memitem:af9e7bd6195033d6cf61d8cd4165da1f0" id="r_af9e7bd6195033d6cf61d8cd4165da1f0"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../df/d2a/_s_anim_notify_shared_8h.html#ac7c94e837fed3f8e4bb3dd94d7bd2ecf">float</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af9e7bd6195033d6cf61d8cd4165da1f0">GetFragmentationPercentage</a> (const <a class="el" href="../../d6/db1/class_t_array.html">TArray</a>&lt; <a class="el" href="../../d7/d65/struct_f_pak_input_pair.html">FPakInputPair</a> &gt; &amp;FilesToPak, const <a class="el" href="../../df/d02/class_t_bit_array.html">TBitArray</a>&lt;&gt; &amp;IncludeBitMask, <a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a89241ea7101f26f05a4f1efd6be26b32">int64</a> MaxAdjacentOrderDiff, <a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a> bConsiderSecondaryFiles)</td></tr>
+<tr class="memitem:a5d7fc836d71b0232d11a4e383217eaf4" id="r_a5d7fc836d71b0232d11a4e383217eaf4"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a89241ea7101f26f05a4f1efd6be26b32">int64</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5d7fc836d71b0232d11a4e383217eaf4">ComputePatchSize</a> (const <a class="el" href="../../d6/db1/class_t_array.html">TArray</a>&lt; <a class="el" href="../../d7/d65/struct_f_pak_input_pair.html">FPakInputPair</a> &gt; &amp;FilesToPak, const <a class="el" href="../../d6/db1/class_t_array.html">TArray</a>&lt; <a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a89241ea7101f26f05a4f1efd6be26b32">int64</a> &gt; &amp;FileSizes, <a class="el" href="../../df/d02/class_t_bit_array.html">TBitArray</a>&lt;&gt; &amp;IncludeFilesMask, <a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a8dbb3cd84ca9fd010dadfc3815eefa5d">int32</a> &amp;OutFileCount)</td></tr>
+<tr class="memitem:a6d474e7007c08c9fb5c8f2d0eb142497" id="r_a6d474e7007c08c9fb5c8f2d0eb142497"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a8dbb3cd84ca9fd010dadfc3815eefa5d">int32</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6d474e7007c08c9fb5c8f2d0eb142497">AddOrphanedFiles</a> (const <a class="el" href="../../d6/db1/class_t_array.html">TArray</a>&lt; <a class="el" href="../../d7/d65/struct_f_pak_input_pair.html">FPakInputPair</a> &gt; &amp;FilesToPak, const <a class="el" href="../../d6/db1/class_t_array.html">TArray</a>&lt; <a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a89241ea7101f26f05a4f1efd6be26b32">int64</a> &gt; &amp;FileSizes, const <a class="el" href="../../d6/db1/class_t_array.html">TArray</a>&lt; <a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a8dbb3cd84ca9fd010dadfc3815eefa5d">int32</a> &gt; &amp;UAssetToUexpMapping, <a class="el" href="../../df/d02/class_t_bit_array.html">TBitArray</a>&lt;&gt; &amp;IncludeFilesMask, <a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a89241ea7101f26f05a4f1efd6be26b32">int64</a> &amp;OutSizeIncrease)</td></tr>
+<tr class="memitem:a05fe23c1c3e8a0397de5a0cb2ef708c0" id="r_a05fe23c1c3e8a0397de5a0cb2ef708c0"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a05fe23c1c3e8a0397de5a0cb2ef708c0">DoGapFillingIteration</a> (const <a class="el" href="../../d6/db1/class_t_array.html">TArray</a>&lt; <a class="el" href="../../d7/d65/struct_f_pak_input_pair.html">FPakInputPair</a> &gt; &amp;FilesToPak, const <a class="el" href="../../d6/db1/class_t_array.html">TArray</a>&lt; <a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a89241ea7101f26f05a4f1efd6be26b32">int64</a> &gt; &amp;FileSizes, const <a class="el" href="../../d6/db1/class_t_array.html">TArray</a>&lt; <a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a8dbb3cd84ca9fd010dadfc3815eefa5d">int32</a> &gt; &amp;UAssetToUexpMapping, <a class="el" href="../../df/d02/class_t_bit_array.html">TBitArray</a>&lt;&gt; &amp;InOutIncludeFilesMask, <a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a89241ea7101f26f05a4f1efd6be26b32">int64</a> MaxGapSizeBytes, <a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a89241ea7101f26f05a4f1efd6be26b32">int64</a> MaxAdjacentOrderDiff, <a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a> bForce, <a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a89241ea7101f26f05a4f1efd6be26b32">int64</a> MaxPatchSize=0, <a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a> bFillPrimaryOrderFiles=<a class="el" href="../../d3/df7/radaudio__common_8h.html#ade27a78a51a66a5cfb6f09cf36bcfde9a08f175a5505a10b9ed657defeb050e4b">true</a>, <a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a> bFillSecondaryOrderFiles=<a class="el" href="../../d3/df7/radaudio__common_8h.html#ade27a78a51a66a5cfb6f09cf36bcfde9a08f175a5505a10b9ed657defeb050e4b">true</a>)</td></tr>
+<tr class="memitem:a8ea189e72f30a8cd3c618260652660b2" id="r_a8ea189e72f30a8cd3c618260652660b2"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8ea189e72f30a8cd3c618260652660b2">DoIncrementalGapFilling</a> (const <a class="el" href="../../d6/db1/class_t_array.html">TArray</a>&lt; <a class="el" href="../../d7/d65/struct_f_pak_input_pair.html">FPakInputPair</a> &gt; &amp;FilesToPak, const <a class="el" href="../../d6/db1/class_t_array.html">TArray</a>&lt; <a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a89241ea7101f26f05a4f1efd6be26b32">int64</a> &gt; &amp;FileSizes, const <a class="el" href="../../d6/db1/class_t_array.html">TArray</a>&lt; <a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a8dbb3cd84ca9fd010dadfc3815eefa5d">int32</a> &gt; &amp;UAssetToUexpMapping, <a class="el" href="../../df/d02/class_t_bit_array.html">TBitArray</a>&lt;&gt; &amp;IncludeFilesMask, <a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a89241ea7101f26f05a4f1efd6be26b32">int64</a> MinGapSize, <a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a89241ea7101f26f05a4f1efd6be26b32">int64</a> MaxGapSize, <a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a89241ea7101f26f05a4f1efd6be26b32">int64</a> MaxAdjacentOrderDiff, <a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a> bFillPrimaryOrderFiles, <a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a> bFillSecondaryOrderFiles, <a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a89241ea7101f26f05a4f1efd6be26b32">int64</a> MaxPatchSize)</td></tr>
+<tr class="memitem:a59888876fc8da7f9abf5608146337d12" id="r_a59888876fc8da7f9abf5608146337d12"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../df/d63/_typed_element_query_capabilities_8inl.html#a72343342ce64c0755563ee6c5e27868d">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a59888876fc8da7f9abf5608146337d12">ApplyGapFilling</a> (const <a class="el" href="../../d6/db1/class_t_array.html">TArray</a>&lt; <a class="el" href="../../d7/d65/struct_f_pak_input_pair.html">FPakInputPair</a> &gt; &amp;FilesToPak, const <a class="el" href="../../d6/db1/class_t_array.html">TArray</a>&lt; <a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a89241ea7101f26f05a4f1efd6be26b32">int64</a> &gt; &amp;FileSizes, const <a class="el" href="../../d6/db1/class_t_array.html">TArray</a>&lt; <a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a8dbb3cd84ca9fd010dadfc3815eefa5d">int32</a> &gt; &amp;UAssetToUexpMapping, <a class="el" href="../../df/d02/class_t_bit_array.html">TBitArray</a>&lt;&gt; &amp;IncludeFilesMask, const <a class="el" href="../../d1/dce/struct_f_patch_seek_opt_params.html">FPatchSeekOptParams</a> &amp;SeekOptParams)</td></tr>
+<tr class="memitem:a5af8d806a75f5b50ec4d94016f46fc93" id="r_a5af8d806a75f5b50ec4d94016f46fc93"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../df/d63/_typed_element_query_capabilities_8inl.html#a72343342ce64c0755563ee6c5e27868d">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5af8d806a75f5b50ec4d94016f46fc93">RemoveIdenticalFiles</a> (<a class="el" href="../../d6/db1/class_t_array.html">TArray</a>&lt; <a class="el" href="../../d7/d65/struct_f_pak_input_pair.html">FPakInputPair</a> &gt; &amp;FilesToPak, const <a class="el" href="../../d2/d8e/_s_anim_notify_panel_8h.html#a7483aa7f043c623f8990a95320be654d">FString</a> &amp;SourceDirectory, const <a class="el" href="../../da/d41/class_t_map.html">TMap</a>&lt; <a class="el" href="../../d2/d8e/_s_anim_notify_panel_8h.html#a7483aa7f043c623f8990a95320be654d">FString</a>, <a class="el" href="../../d4/d59/struct_f_file_info.html">FFileInfo</a> &gt; &amp;FileHashes, const <a class="el" href="../../d1/dce/struct_f_patch_seek_opt_params.html">FPatchSeekOptParams</a> &amp;SeekOptParams, const <a class="el" href="../../d2/d8e/_s_anim_notify_panel_8h.html#a7483aa7f043c623f8990a95320be654d">FString</a> ChangedFilesOutputFilename)</td></tr>
+<tr class="memitem:a14a2a9db3b83ce08039d534f7f577b32" id="r_a14a2a9db3b83ce08039d534f7f577b32"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../df/d63/_typed_element_query_capabilities_8inl.html#a72343342ce64c0755563ee6c5e27868d">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a14a2a9db3b83ce08039d534f7f577b32">ProcessLegacyFileMoves</a> (<a class="el" href="../../d6/db1/class_t_array.html">TArray</a>&lt; <a class="el" href="../../d7/d65/struct_f_pak_input_pair.html">FPakInputPair</a> &gt; &amp;InDeleteRecords, <a class="el" href="../../da/d41/class_t_map.html">TMap</a>&lt; <a class="el" href="../../d2/d8e/_s_anim_notify_panel_8h.html#a7483aa7f043c623f8990a95320be654d">FString</a>, <a class="el" href="../../d4/d59/struct_f_file_info.html">FFileInfo</a> &gt; &amp;InExistingPackagedFileHashes, const <a class="el" href="../../d2/d8e/_s_anim_notify_panel_8h.html#a7483aa7f043c623f8990a95320be654d">FString</a> &amp;InInputPath, const <a class="el" href="../../d6/db1/class_t_array.html">TArray</a>&lt; <a class="el" href="../../d7/d65/struct_f_pak_input_pair.html">FPakInputPair</a> &gt; &amp;InFilesToPak, <a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a8dbb3cd84ca9fd010dadfc3815eefa5d">int32</a> CurrentPatchChunkIndex)</td></tr>
+<tr class="memitem:a4148d75205adafd3ee5f1f82ba636b50" id="r_a4148d75205adafd3ee5f1f82ba636b50"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d6/db1/class_t_array.html">TArray</a>&lt; <a class="el" href="../../d7/d65/struct_f_pak_input_pair.html">FPakInputPair</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4148d75205adafd3ee5f1f82ba636b50">GetNewDeleteRecords</a> (const <a class="el" href="../../d6/db1/class_t_array.html">TArray</a>&lt; <a class="el" href="../../d7/d65/struct_f_pak_input_pair.html">FPakInputPair</a> &gt; &amp;InFilesToPak, const <a class="el" href="../../da/d41/class_t_map.html">TMap</a>&lt; <a class="el" href="../../d2/d8e/_s_anim_notify_panel_8h.html#a7483aa7f043c623f8990a95320be654d">FString</a>, <a class="el" href="../../d4/d59/struct_f_file_info.html">FFileInfo</a> &gt; &amp;InExistingPackagedFileHashes)</td></tr>
+<tr class="memitem:a4046ef517fc18a8cca0aaa8e3da10b3c" id="r_a4046ef517fc18a8cca0aaa8e3da10b3c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4046ef517fc18a8cca0aaa8e3da10b3c">AtLeastOnePakFileExists</a> (const <a class="el" href="../../d2/d8e/_s_anim_notify_panel_8h.html#a7483aa7f043c623f8990a95320be654d">FString</a> &amp;PakFilename)</td></tr>
+<tr class="memitem:a5077579fabe9925a3430b4a3d274a4df" id="r_a5077579fabe9925a3430b4a3d274a4df"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d2/d8e/_s_anim_notify_panel_8h.html#a7483aa7f043c623f8990a95320be654d">FString</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5077579fabe9925a3430b4a3d274a4df">GetPakPath</a> (const TCHAR *SpecifiedPath, <a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a> bIsForCreation)</td></tr>
+<tr class="memitem:a83168623cad68559095f4c6064a7b18a" id="r_a83168623cad68559095f4c6064a7b18a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a83168623cad68559095f4c6064a7b18a">Repack</a> (const <a class="el" href="../../d2/d8e/_s_anim_notify_panel_8h.html#a7483aa7f043c623f8990a95320be654d">FString</a> &amp;InputPakFile, const <a class="el" href="../../d2/d8e/_s_anim_notify_panel_8h.html#a7483aa7f043c623f8990a95320be654d">FString</a> &amp;OutputPakFile, const <a class="el" href="../../d1/d5c/struct_f_pak_command_line_parameters.html">FPakCommandLineParameters</a> &amp;CmdLineParameters, const <a class="el" href="../../db/d92/struct_f_key_chain.html">FKeyChain</a> &amp;InKeyChain, <a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a> bIncludeDeleted)</td></tr>
+<tr class="memitem:acfcb2c426047d105933ddcd1785594bb" id="r_acfcb2c426047d105933ddcd1785594bb"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a8dbb3cd84ca9fd010dadfc3815eefa5d">int32</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#acfcb2c426047d105933ddcd1785594bb">NumberOfWorkerThreadsDesired</a> ()</td></tr>
+<tr class="memitem:ac022fe83ad4a70c80311dc6735353421" id="r_ac022fe83ad4a70c80311dc6735353421"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../df/d63/_typed_element_query_capabilities_8inl.html#a72343342ce64c0755563ee6c5e27868d">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac022fe83ad4a70c80311dc6735353421">CheckAndReallocThreadPool</a> ()</td></tr>
+<tr class="memitem:a939db7c1b17d4ba976fff35cf8e7f408" id="r_a939db7c1b17d4ba976fff35cf8e7f408"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a939db7c1b17d4ba976fff35cf8e7f408">MakeBinaryConfig</a> (const TCHAR *CmdLine)</td></tr>
+<tr class="memitem:a69d3fa1050df465fbf5a5c652c9c8c24" id="r_a69d3fa1050df465fbf5a5c652c9c8c24"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a69d3fa1050df465fbf5a5c652c9c8c24">ExecuteUnrealPak</a> (const TCHAR *CmdLine)</td></tr>
+</table>
+<a name="doc-define-members" id="doc-define-members"></a><h2 id="header-doc-define-members" class="groupheader">宏定义说明</h2>
+<a id="a7d689dc893c12f99c5565fbd12a656a4" name="a7d689dc893c12f99c5565fbd12a656a4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7d689dc893c12f99c5565fbd12a656a4">&#9670;&#160;</a></span>DETAILED_UNREALPAK_TIMING</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define DETAILED_UNREALPAK_TIMING&#160;&#160;&#160;0</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aa1ef244225f5aba78f304c28d1c0149b" name="aa1ef244225f5aba78f304c28d1c0149b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa1ef244225f5aba78f304c28d1c0149b">&#9670;&#160;</a></span>GUARANTEE_UASSET_AND_UEXP_IN_SAME_PAK</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define GUARANTEE_UASSET_AND_UEXP_IN_SAME_PAK&#160;&#160;&#160;0</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ac2acb9f9028e585b6812fab2475b7cb0" name="ac2acb9f9028e585b6812fab2475b7cb0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac2acb9f9028e585b6812fab2475b7cb0">&#9670;&#160;</a></span>PAKCOMPRESS_DERIVEDDATA_VER</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define PAKCOMPRESS_DERIVEDDATA_VER&#160;&#160;&#160;<a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;9493D2AB515048658AF7BE1342EC21FC&quot;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a5c60e0c19538ad1537c6d88551a773a1" name="a5c60e0c19538ad1537c6d88551a773a1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5c60e0c19538ad1537c6d88551a773a1">&#9670;&#160;</a></span>SEEK_OPT_VERBOSITY</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define SEEK_OPT_VERBOSITY&#160;&#160;&#160;<a class="el" href="../../de/da7/_direct_link_log_8h.html#ab4d085e7119005ae75db70919e0eb279">Display</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a00496d49e6083e20fe7d8f206c9bfec5" name="a00496d49e6083e20fe7d8f206c9bfec5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a00496d49e6083e20fe7d8f206c9bfec5">&#9670;&#160;</a></span>USE_DDC_FOR_COMPRESSED_FILES</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define USE_DDC_FOR_COMPRESSED_FILES&#160;&#160;&#160;0</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a name="doc-enum-members" id="doc-enum-members"></a><h2 id="header-doc-enum-members" class="groupheader">枚举类型说明</h2>
+<a id="a5ca1330bf11f3f9ab094098df26c12e7" name="a5ca1330bf11f3f9ab094098df26c12e7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5ca1330bf11f3f9ab094098df26c12e7">&#9670;&#160;</a></span>ESeekOptMode</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum class <a class="el" href="#a5ca1330bf11f3f9ab094098df26c12e7">ESeekOptMode</a> : <a class="el" href="../../dd/de9/preprocessor_8c.html#adde6aaee8457bee49c2a92621fe22b79">uint8</a></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel strong">strong</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<table class="fieldtable">
+<tr><th colspan="2">枚举值</th></tr><tr><td class="fieldname"><a id="a5ca1330bf11f3f9ab094098df26c12e7a6adf97f83acf6453d4a6a4b1070f3754" name="a5ca1330bf11f3f9ab094098df26c12e7a6adf97f83acf6453d4a6a4b1070f3754"></a>None&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a5ca1330bf11f3f9ab094098df26c12e7accd4cef52fe08da3eeac0e4396a2aca2" name="a5ca1330bf11f3f9ab094098df26c12e7accd4cef52fe08da3eeac0e4396a2aca2"></a>OnePass&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a5ca1330bf11f3f9ab094098df26c12e7a482be0da5798aaaecbf7416714e6607f" name="a5ca1330bf11f3f9ab094098df26c12e7a482be0da5798aaaecbf7416714e6607f"></a>Incremental&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a5ca1330bf11f3f9ab094098df26c12e7ac569531d5fe3968dedc011227ef76e03" name="a5ca1330bf11f3f9ab094098df26c12e7ac569531d5fe3968dedc011227ef76e03"></a>Incremental_OnlyPrimaryOrder&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a5ca1330bf11f3f9ab094098df26c12e7a6c47d8c4fa07932035ca9ecce99f32d9" name="a5ca1330bf11f3f9ab094098df26c12e7a6c47d8c4fa07932035ca9ecce99f32d9"></a>Incremental_PrimaryThenSecondary&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a5ca1330bf11f3f9ab094098df26c12e7a4905ac9d6a22bdfc1ae096094ce6248d" name="a5ca1330bf11f3f9ab094098df26c12e7a4905ac9d6a22bdfc1ae096094ce6248d"></a>COUNT&#160;</td><td class="fielddoc"></td></tr>
+</table>
+
+</div>
+</div>
+<a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">函数说明</h2>
+<a id="a6d474e7007c08c9fb5c8f2d0eb142497" name="a6d474e7007c08c9fb5c8f2d0eb142497"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6d474e7007c08c9fb5c8f2d0eb142497">&#9670;&#160;</a></span>AddOrphanedFiles()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a8dbb3cd84ca9fd010dadfc3815eefa5d">int32</a> AddOrphanedFiles </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="../../d6/db1/class_t_array.html">TArray</a>&lt; <a class="el" href="../../d7/d65/struct_f_pak_input_pair.html">FPakInputPair</a> &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>FilesToPak</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="../../d6/db1/class_t_array.html">TArray</a>&lt; <a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a89241ea7101f26f05a4f1efd6be26b32">int64</a> &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>FileSizes</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="../../d6/db1/class_t_array.html">TArray</a>&lt; <a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a8dbb3cd84ca9fd010dadfc3815eefa5d">int32</a> &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>UAssetToUexpMapping</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../df/d02/class_t_bit_array.html">TBitArray</a>&lt;&gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>IncludeFilesMask</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a89241ea7101f26f05a4f1efd6be26b32">int64</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>OutSizeIncrease</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a59888876fc8da7f9abf5608146337d12" name="a59888876fc8da7f9abf5608146337d12"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a59888876fc8da7f9abf5608146337d12">&#9670;&#160;</a></span>ApplyGapFilling()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../df/d63/_typed_element_query_capabilities_8inl.html#a72343342ce64c0755563ee6c5e27868d">void</a> ApplyGapFilling </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="../../d6/db1/class_t_array.html">TArray</a>&lt; <a class="el" href="../../d7/d65/struct_f_pak_input_pair.html">FPakInputPair</a> &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>FilesToPak</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="../../d6/db1/class_t_array.html">TArray</a>&lt; <a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a89241ea7101f26f05a4f1efd6be26b32">int64</a> &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>FileSizes</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="../../d6/db1/class_t_array.html">TArray</a>&lt; <a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a8dbb3cd84ca9fd010dadfc3815eefa5d">int32</a> &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>UAssetToUexpMapping</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../df/d02/class_t_bit_array.html">TBitArray</a>&lt;&gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>IncludeFilesMask</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="../../d1/dce/struct_f_patch_seek_opt_params.html">FPatchSeekOptParams</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>SeekOptParams</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a4046ef517fc18a8cca0aaa8e3da10b3c" name="a4046ef517fc18a8cca0aaa8e3da10b3c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4046ef517fc18a8cca0aaa8e3da10b3c">&#9670;&#160;</a></span>AtLeastOnePakFileExists()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a> AtLeastOnePakFileExists </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="../../d2/d8e/_s_anim_notify_panel_8h.html#a7483aa7f043c623f8990a95320be654d">FString</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>PakFilename</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a1c3e2dd7712fd78b608d46c767127b6f" name="a1c3e2dd7712fd78b608d46c767127b6f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1c3e2dd7712fd78b608d46c767127b6f">&#9670;&#160;</a></span>AuditPakFiles()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a> AuditPakFiles </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="../../d2/d8e/_s_anim_notify_panel_8h.html#a7483aa7f043c623f8990a95320be654d">FString</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>InputPath</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a></td>          <td class="paramname"><span class="paramname"><em>bOnlyDeleted</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="../../d2/d8e/_s_anim_notify_panel_8h.html#a7483aa7f043c623f8990a95320be654d">FString</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>CSVFilename</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="../../dd/da9/class_f_pak_order_map.html">FPakOrderMap</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>OrderMap</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a></td>          <td class="paramname"><span class="paramname"><em>bSortByOrdering</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="afe3a60114d2b078becf0fc0f07897227" name="afe3a60114d2b078becf0fc0f07897227"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afe3a60114d2b078becf0fc0f07897227">&#9670;&#160;</a></span>BufferedCopyFile()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a> BufferedCopyFile </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../db/d79/class_f_archive.html">FArchive</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>Dest</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../db/d79/class_f_archive.html">FArchive</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>Source</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="../../d0/d90/class_f_pak_file.html">FPakFile</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>PakFile</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="../../d6/dfd/struct_f_pak_entry.html">FPakEntry</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>Entry</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../df/d63/_typed_element_query_capabilities_8inl.html#a72343342ce64c0755563ee6c5e27868d">void</a> *</td>          <td class="paramname"><span class="paramname"><em>Buffer</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a89241ea7101f26f05a4f1efd6be26b32">int64</a></td>          <td class="paramname"><span class="paramname"><em>BufferSize</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="../../db/d92/struct_f_key_chain.html">FKeyChain</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>InKeyChain</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ac022fe83ad4a70c80311dc6735353421" name="ac022fe83ad4a70c80311dc6735353421"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac022fe83ad4a70c80311dc6735353421">&#9670;&#160;</a></span>CheckAndReallocThreadPool()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../df/d63/_typed_element_query_capabilities_8inl.html#a72343342ce64c0755563ee6c5e27868d">void</a> CheckAndReallocThreadPool </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="af65b3525e48b8fe2f89d00428914a2f5" name="af65b3525e48b8fe2f89d00428914a2f5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af65b3525e48b8fe2f89d00428914a2f5">&#9670;&#160;</a></span>CollectFilesToAdd()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../df/d63/_typed_element_query_capabilities_8inl.html#a72343342ce64c0755563ee6c5e27868d">void</a> CollectFilesToAdd </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d6/db1/class_t_array.html">TArray</a>&lt; <a class="el" href="../../d7/d65/struct_f_pak_input_pair.html">FPakInputPair</a> &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>OutFilesToAdd</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="../../d6/db1/class_t_array.html">TArray</a>&lt; <a class="el" href="../../d7/d65/struct_f_pak_input_pair.html">FPakInputPair</a> &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>InEntries</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="../../dd/da9/class_f_pak_order_map.html">FPakOrderMap</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>OrderMap</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="../../d1/d5c/struct_f_pak_command_line_parameters.html">FPakCommandLineParameters</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>CmdLineParameters</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a5d7fc836d71b0232d11a4e383217eaf4" name="a5d7fc836d71b0232d11a4e383217eaf4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5d7fc836d71b0232d11a4e383217eaf4">&#9670;&#160;</a></span>ComputePatchSize()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a89241ea7101f26f05a4f1efd6be26b32">int64</a> ComputePatchSize </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="../../d6/db1/class_t_array.html">TArray</a>&lt; <a class="el" href="../../d7/d65/struct_f_pak_input_pair.html">FPakInputPair</a> &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>FilesToPak</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="../../d6/db1/class_t_array.html">TArray</a>&lt; <a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a89241ea7101f26f05a4f1efd6be26b32">int64</a> &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>FileSizes</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../df/d02/class_t_bit_array.html">TBitArray</a>&lt;&gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>IncludeFilesMask</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a8dbb3cd84ca9fd010dadfc3815eefa5d">int32</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>OutFileCount</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="af86c9e23a19a12cffd36aa790704b11c" name="af86c9e23a19a12cffd36aa790704b11c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af86c9e23a19a12cffd36aa790704b11c">&#9670;&#160;</a></span>CreateDiffRelativePathMap()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../df/d63/_typed_element_query_capabilities_8inl.html#a72343342ce64c0755563ee6c5e27868d">void</a> CreateDiffRelativePathMap </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d6/db1/class_t_array.html">TArray</a>&lt; <a class="el" href="../../d2/d8e/_s_anim_notify_panel_8h.html#a7483aa7f043c623f8990a95320be654d">FString</a> &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>FileNames</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="../../d2/d8e/_s_anim_notify_panel_8h.html#a7483aa7f043c623f8990a95320be654d">FString</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>RootPath</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../da/d41/class_t_map.html">TMap</a>&lt; <a class="el" href="../../d5/dd5/class_f_name.html">FName</a>, <a class="el" href="../../d2/d8e/_s_anim_notify_panel_8h.html#a7483aa7f043c623f8990a95320be654d">FString</a> &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>OutMap</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aa45805975efb2dedf2becaf431f10a4f" name="aa45805975efb2dedf2becaf431f10a4f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa45805975efb2dedf2becaf431f10a4f">&#9670;&#160;</a></span>CreatePakFile()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a> CreatePakFile </td>
+          <td>(</td>
+          <td class="paramtype">const TCHAR *</td>          <td class="paramname"><span class="paramname"><em>Filename</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="../../d6/db1/class_t_array.html">TArray</a>&lt; <a class="el" href="../../d7/d65/struct_f_pak_input_pair.html">FPakInputPair</a> &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>FilesToAdd</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="../../d1/d5c/struct_f_pak_command_line_parameters.html">FPakCommandLineParameters</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>CmdLineParameters</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="../../db/d92/struct_f_key_chain.html">FKeyChain</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>InKeyChain</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a17124c17d0c9db4bebbdb0036e8be0d6" name="a17124c17d0c9db4bebbdb0036e8be0d6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a17124c17d0c9db4bebbdb0036e8be0d6">&#9670;&#160;</a></span>CreatePakWriter()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../db/d79/class_f_archive.html">FArchive</a> * CreatePakWriter </td>
+          <td>(</td>
+          <td class="paramtype">const TCHAR *</td>          <td class="paramname"><span class="paramname"><em>Filename</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="../../db/d92/struct_f_key_chain.html">FKeyChain</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>InKeyChain</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a></td>          <td class="paramname"><span class="paramname"><em>bSign</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Creates a pak file writer. This can be a signed writer if the encryption keys are specified in the command line </p>
+
+</div>
+</div>
+<a id="a0a6fb27f5e8f566a74b68962458dfe05" name="a0a6fb27f5e8f566a74b68962458dfe05"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0a6fb27f5e8f566a74b68962458dfe05">&#9670;&#160;</a></span>DEFINE_LOG_CATEGORY_STATIC()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">DEFINE_LOG_CATEGORY_STATIC </td>
+          <td>(</td>
+          <td class="paramtype">LogMakeBinaryConfig</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Log</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../db/da0/_hair_strands_composition_8cpp.html#a01ae254fc9c19378956c218ed4e9c32da54991d225c58ce0af43461d4e9a82312">All</a></td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ace3814be711c401d8bba8eac99ae91ec" name="ace3814be711c401d8bba8eac99ae91ec"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ace3814be711c401d8bba8eac99ae91ec">&#9670;&#160;</a></span>DiffFilesInPaks()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a> DiffFilesInPaks </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="../../d2/d8e/_s_anim_notify_panel_8h.html#a7483aa7f043c623f8990a95320be654d">FString</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>InPakFilename1</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="../../d2/d8e/_s_anim_notify_panel_8h.html#a7483aa7f043c623f8990a95320be654d">FString</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>InPakFilename2</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a></td>          <td class="paramname"><span class="paramname"><em>bLogUniques1</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a></td>          <td class="paramname"><span class="paramname"><em>bLogUniques2</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="../../db/d92/struct_f_key_chain.html">FKeyChain</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>InKeyChain1</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="../../db/d92/struct_f_key_chain.html">FKeyChain</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>InKeyChain2</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a05fe23c1c3e8a0397de5a0cb2ef708c0" name="a05fe23c1c3e8a0397de5a0cb2ef708c0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a05fe23c1c3e8a0397de5a0cb2ef708c0">&#9670;&#160;</a></span>DoGapFillingIteration()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a> DoGapFillingIteration </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="../../d6/db1/class_t_array.html">TArray</a>&lt; <a class="el" href="../../d7/d65/struct_f_pak_input_pair.html">FPakInputPair</a> &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>FilesToPak</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="../../d6/db1/class_t_array.html">TArray</a>&lt; <a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a89241ea7101f26f05a4f1efd6be26b32">int64</a> &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>FileSizes</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="../../d6/db1/class_t_array.html">TArray</a>&lt; <a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a8dbb3cd84ca9fd010dadfc3815eefa5d">int32</a> &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>UAssetToUexpMapping</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../df/d02/class_t_bit_array.html">TBitArray</a>&lt;&gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>InOutIncludeFilesMask</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a89241ea7101f26f05a4f1efd6be26b32">int64</a></td>          <td class="paramname"><span class="paramname"><em>MaxGapSizeBytes</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a89241ea7101f26f05a4f1efd6be26b32">int64</a></td>          <td class="paramname"><span class="paramname"><em>MaxAdjacentOrderDiff</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a></td>          <td class="paramname"><span class="paramname"><em>bForce</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a89241ea7101f26f05a4f1efd6be26b32">int64</a></td>          <td class="paramname"><span class="paramname"><em>MaxPatchSize</em></span><span class="paramdefsep"> = </span><span class="paramdefval">0</span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a></td>          <td class="paramname"><span class="paramname"><em>bFillPrimaryOrderFiles</em></span><span class="paramdefsep"> = </span><span class="paramdefval"><a class="el" href="../../d3/df7/radaudio__common_8h.html#ade27a78a51a66a5cfb6f09cf36bcfde9a08f175a5505a10b9ed657defeb050e4b">true</a></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a></td>          <td class="paramname"><span class="paramname"><em>bFillSecondaryOrderFiles</em></span><span class="paramdefsep"> = </span><span class="paramdefval"><a class="el" href="../../d3/df7/radaudio__common_8h.html#ade27a78a51a66a5cfb6f09cf36bcfde9a08f175a5505a10b9ed657defeb050e4b">true</a></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a8ea189e72f30a8cd3c618260652660b2" name="a8ea189e72f30a8cd3c618260652660b2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8ea189e72f30a8cd3c618260652660b2">&#9670;&#160;</a></span>DoIncrementalGapFilling()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a> DoIncrementalGapFilling </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="../../d6/db1/class_t_array.html">TArray</a>&lt; <a class="el" href="../../d7/d65/struct_f_pak_input_pair.html">FPakInputPair</a> &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>FilesToPak</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="../../d6/db1/class_t_array.html">TArray</a>&lt; <a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a89241ea7101f26f05a4f1efd6be26b32">int64</a> &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>FileSizes</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="../../d6/db1/class_t_array.html">TArray</a>&lt; <a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a8dbb3cd84ca9fd010dadfc3815eefa5d">int32</a> &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>UAssetToUexpMapping</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../df/d02/class_t_bit_array.html">TBitArray</a>&lt;&gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>IncludeFilesMask</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a89241ea7101f26f05a4f1efd6be26b32">int64</a></td>          <td class="paramname"><span class="paramname"><em>MinGapSize</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a89241ea7101f26f05a4f1efd6be26b32">int64</a></td>          <td class="paramname"><span class="paramname"><em>MaxGapSize</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a89241ea7101f26f05a4f1efd6be26b32">int64</a></td>          <td class="paramname"><span class="paramname"><em>MaxAdjacentOrderDiff</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a></td>          <td class="paramname"><span class="paramname"><em>bFillPrimaryOrderFiles</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a></td>          <td class="paramname"><span class="paramname"><em>bFillSecondaryOrderFiles</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a89241ea7101f26f05a4f1efd6be26b32">int64</a></td>          <td class="paramname"><span class="paramname"><em>MaxPatchSize</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ada8a38f96d4ba68a946f71991c975b69" name="ada8a38f96d4ba68a946f71991c975b69"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ada8a38f96d4ba68a946f71991c975b69">&#9670;&#160;</a></span>DumpPakInfo()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a> DumpPakInfo </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="../../d2/d8e/_s_anim_notify_panel_8h.html#a7483aa7f043c623f8990a95320be654d">FString</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>InPakFilename</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="../../db/d92/struct_f_key_chain.html">FKeyChain</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>InKeyChain</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a69d3fa1050df465fbf5a5c652c9c8c24" name="a69d3fa1050df465fbf5a5c652c9c8c24"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a69d3fa1050df465fbf5a5c652c9c8c24">&#9670;&#160;</a></span>ExecuteUnrealPak()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a> ExecuteUnrealPak </td>
+          <td>(</td>
+          <td class="paramtype">const TCHAR *</td>          <td class="paramname"><span class="paramname"><em>CmdLine</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Application entry point Params: -<a class="el" href="../../dc/d96/namespace_test.html">Test</a> test if the pak file is healthy -Extract extracts pak file contents (followed by a path, i.e.: -extract D:\ExtractedPak) -Create=filename response file to create a pak file with</p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">ArgC</td><td>Command-line argument count </td></tr>
+    <tr><td class="paramname">ArgV</td><td>Argument strings </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a0645ebd8aafb20c704336720c67b3e9e" name="a0645ebd8aafb20c704336720c67b3e9e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0645ebd8aafb20c704336720c67b3e9e">&#9670;&#160;</a></span>ExtractFilesFromPak()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a> ExtractFilesFromPak </td>
+          <td>(</td>
+          <td class="paramtype">const TCHAR *</td>          <td class="paramname"><span class="paramname"><em>InPakFilename</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../da/d41/class_t_map.html">TMap</a>&lt; <a class="el" href="../../d2/d8e/_s_anim_notify_panel_8h.html#a7483aa7f043c623f8990a95320be654d">FString</a>, <a class="el" href="../../d4/d59/struct_f_file_info.html">FFileInfo</a> &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>InFileHashes</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const TCHAR *</td>          <td class="paramname"><span class="paramname"><em>InDestPath</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a></td>          <td class="paramname"><span class="paramname"><em>bUseMountPoint</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="../../db/d92/struct_f_key_chain.html">FKeyChain</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>InKeyChain</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="../../d2/d8e/_s_anim_notify_panel_8h.html#a7483aa7f043c623f8990a95320be654d">FString</a> *</td>          <td class="paramname"><span class="paramname"><em>InFilter</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d6/db1/class_t_array.html">TArray</a>&lt; <a class="el" href="../../d7/d65/struct_f_pak_input_pair.html">FPakInputPair</a> &gt; *</td>          <td class="paramname"><span class="paramname"><em>OutEntries</em></span><span class="paramdefsep"> = </span><span class="paramdefval">nullptr</span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d6/db1/class_t_array.html">TArray</a>&lt; <a class="el" href="../../d7/d65/struct_f_pak_input_pair.html">FPakInputPair</a> &gt; *</td>          <td class="paramname"><span class="paramname"><em>OutDeletedEntries</em></span><span class="paramdefsep"> = </span><span class="paramdefval">nullptr</span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../dd/da9/class_f_pak_order_map.html">FPakOrderMap</a> *</td>          <td class="paramname"><span class="paramname"><em>OutOrderMap</em></span><span class="paramdefsep"> = </span><span class="paramdefval">nullptr</span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d6/db1/class_t_array.html">TArray</a>&lt; <a class="el" href="../../d7/d35/struct_f_guid.html">FGuid</a> &gt; *</td>          <td class="paramname"><span class="paramname"><em>OutUsedEncryptionKeys</em></span><span class="paramdefsep"> = </span><span class="paramdefval">nullptr</span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a> *</td>          <td class="paramname"><span class="paramname"><em>OutAnyPakSigned</em></span><span class="paramdefsep"> = </span><span class="paramdefval">nullptr</span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a50732add9f89e88720b03de8788130e5" name="a50732add9f89e88720b03de8788130e5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a50732add9f89e88720b03de8788130e5">&#9670;&#160;</a></span>FileIsIdentical()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a> FileIsIdentical </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d2/d8e/_s_anim_notify_panel_8h.html#a7483aa7f043c623f8990a95320be654d">FString</a></td>          <td class="paramname"><span class="paramname"><em>SourceFile</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d2/d8e/_s_anim_notify_panel_8h.html#a7483aa7f043c623f8990a95320be654d">FString</a></td>          <td class="paramname"><span class="paramname"><em>DestFilename</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="../../d4/d59/struct_f_file_info.html">FFileInfo</a> *</td>          <td class="paramname"><span class="paramname"><em>Hash</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a89241ea7101f26f05a4f1efd6be26b32">int64</a> *</td>          <td class="paramname"><span class="paramname"><em>DestSizeOut</em></span><span class="paramdefsep"> = </span><span class="paramdefval">nullptr</span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a94c367925f899c17fada668c4a1b06f8" name="a94c367925f899c17fada668c4a1b06f8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a94c367925f899c17fada668c4a1b06f8">&#9670;&#160;</a></span>FinalizeCopyCompressedFileToPak()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../df/d63/_typed_element_query_capabilities_8inl.html#a72343342ce64c0755563ee6c5e27868d">void</a> FinalizeCopyCompressedFileToPak </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../db/d08/struct_f_pak_info.html">FPakInfo</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>InPakInfo</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="../../da/dee/struct_f_compressed_file_buffer.html">FCompressedFileBuffer</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>CompressedFile</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../df/d87/struct_f_pak_entry_pair.html">FPakEntryPair</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>OutNewEntry</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a0276c6d43b66e8014083d090cbb24803" name="a0276c6d43b66e8014083d090cbb24803"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0276c6d43b66e8014083d090cbb24803">&#9670;&#160;</a></span>GenerateHashesFromPak()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a> GenerateHashesFromPak </td>
+          <td>(</td>
+          <td class="paramtype">const TCHAR *</td>          <td class="paramname"><span class="paramname"><em>InPakFilename</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const TCHAR *</td>          <td class="paramname"><span class="paramname"><em>InDestPakFilename</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../da/d41/class_t_map.html">TMap</a>&lt; <a class="el" href="../../d2/d8e/_s_anim_notify_panel_8h.html#a7483aa7f043c623f8990a95320be654d">FString</a>, <a class="el" href="../../d4/d59/struct_f_file_info.html">FFileInfo</a> &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>FileHashes</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a></td>          <td class="paramname"><span class="paramname"><em>bUseMountPoint</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="../../db/d92/struct_f_key_chain.html">FKeyChain</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>InKeyChain</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a8dbb3cd84ca9fd010dadfc3815eefa5d">int32</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>OutLowestSourcePakVersion</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d6/db1/class_t_array.html">TArray</a>&lt; <a class="el" href="../../d7/d35/struct_f_guid.html">FGuid</a> &gt; *</td>          <td class="paramname"><span class="paramname"><em>OutUsedEncryptionKeys</em></span><span class="paramdefsep"> = </span><span class="paramdefval">nullptr</span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a0fb885eb879846cc47d937f8959f7cfa" name="a0fb885eb879846cc47d937f8959f7cfa"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0fb885eb879846cc47d937f8959f7cfa">&#9670;&#160;</a></span>GenerateHashForFile() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a> GenerateHashForFile </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d2/d8e/_s_anim_notify_panel_8h.html#a7483aa7f043c623f8990a95320be654d">FString</a></td>          <td class="paramname"><span class="paramname"><em>Filename</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d4/d59/struct_f_file_info.html">FFileInfo</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>FileHash</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a39dccf0079e34b5f2fc675bfc8f2f42c" name="a39dccf0079e34b5f2fc675bfc8f2f42c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a39dccf0079e34b5f2fc675bfc8f2f42c">&#9670;&#160;</a></span>GenerateHashForFile() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../df/d63/_typed_element_query_capabilities_8inl.html#a72343342ce64c0755563ee6c5e27868d">void</a> GenerateHashForFile </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../dd/de9/preprocessor_8c.html#adde6aaee8457bee49c2a92621fe22b79">uint8</a> *</td>          <td class="paramname"><span class="paramname"><em>ByteBuffer</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../dd/de9/preprocessor_8c.html#abc0f5bc07737e498f287334775dff2b6">uint64</a></td>          <td class="paramname"><span class="paramname"><em>TotalSize</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d4/d59/struct_f_file_info.html">FFileInfo</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>FileHash</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a594c83d16b1616612a1405c3dcdafab3" name="a594c83d16b1616612a1405c3dcdafab3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a594c83d16b1616612a1405c3dcdafab3">&#9670;&#160;</a></span>GeneratePIXMappingFile()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a> GeneratePIXMappingFile </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="../../d6/db1/class_t_array.html">TArray</a>&lt; <a class="el" href="../../d2/d8e/_s_anim_notify_panel_8h.html#a7483aa7f043c623f8990a95320be654d">FString</a> &gt;</td>          <td class="paramname"><span class="paramname"><em>InPakFileList</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="../../d2/d8e/_s_anim_notify_panel_8h.html#a7483aa7f043c623f8990a95320be654d">FString</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>OutputPath</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aef04c32aa56fe8066f2f63250b09efad" name="aef04c32aa56fe8066f2f63250b09efad"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aef04c32aa56fe8066f2f63250b09efad">&#9670;&#160;</a></span>GetCommonRootPath()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d2/d8e/_s_anim_notify_panel_8h.html#a7483aa7f043c623f8990a95320be654d">FString</a> GetCommonRootPath </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="../../d6/db1/class_t_array.html">TArray</a>&lt; <a class="el" href="../../d7/d65/struct_f_pak_input_pair.html">FPakInputPair</a> &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>FilesToAdd</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="af9e7bd6195033d6cf61d8cd4165da1f0" name="af9e7bd6195033d6cf61d8cd4165da1f0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af9e7bd6195033d6cf61d8cd4165da1f0">&#9670;&#160;</a></span>GetFragmentationPercentage()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../df/d2a/_s_anim_notify_shared_8h.html#ac7c94e837fed3f8e4bb3dd94d7bd2ecf">float</a> GetFragmentationPercentage </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="../../d6/db1/class_t_array.html">TArray</a>&lt; <a class="el" href="../../d7/d65/struct_f_pak_input_pair.html">FPakInputPair</a> &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>FilesToPak</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="../../df/d02/class_t_bit_array.html">TBitArray</a>&lt;&gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>IncludeBitMask</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a89241ea7101f26f05a4f1efd6be26b32">int64</a></td>          <td class="paramname"><span class="paramname"><em>MaxAdjacentOrderDiff</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a></td>          <td class="paramname"><span class="paramname"><em>bConsiderSecondaryFiles</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a87d603187ddc90d3a7ff8027619d84de" name="a87d603187ddc90d3a7ff8027619d84de"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a87d603187ddc90d3a7ff8027619d84de">&#9670;&#160;</a></span>GetLongestPath()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d2/d8e/_s_anim_notify_panel_8h.html#a7483aa7f043c623f8990a95320be654d">FString</a> GetLongestPath </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="../../d6/db1/class_t_array.html">TArray</a>&lt; <a class="el" href="../../d7/d65/struct_f_pak_input_pair.html">FPakInputPair</a> &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>FilesToAdd</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a4148d75205adafd3ee5f1f82ba636b50" name="a4148d75205adafd3ee5f1f82ba636b50"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4148d75205adafd3ee5f1f82ba636b50">&#9670;&#160;</a></span>GetNewDeleteRecords()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d6/db1/class_t_array.html">TArray</a>&lt; <a class="el" href="../../d7/d65/struct_f_pak_input_pair.html">FPakInputPair</a> &gt; GetNewDeleteRecords </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="../../d6/db1/class_t_array.html">TArray</a>&lt; <a class="el" href="../../d7/d65/struct_f_pak_input_pair.html">FPakInputPair</a> &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>InFilesToPak</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="../../da/d41/class_t_map.html">TMap</a>&lt; <a class="el" href="../../d2/d8e/_s_anim_notify_panel_8h.html#a7483aa7f043c623f8990a95320be654d">FString</a>, <a class="el" href="../../d4/d59/struct_f_file_info.html">FFileInfo</a> &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>InExistingPackagedFileHashes</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a6d95e3f87eb679219e3917a4636751bf" name="a6d95e3f87eb679219e3917a4636751bf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6d95e3f87eb679219e3917a4636751bf">&#9670;&#160;</a></span>GetPakChunkIndexFromFilename()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a8dbb3cd84ca9fd010dadfc3815eefa5d">int32</a> GetPakChunkIndexFromFilename </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="../../d2/d8e/_s_anim_notify_panel_8h.html#a7483aa7f043c623f8990a95320be654d">FString</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>PakFilePath</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a5077579fabe9925a3430b4a3d274a4df" name="a5077579fabe9925a3430b4a3d274a4df"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5077579fabe9925a3430b4a3d274a4df">&#9670;&#160;</a></span>GetPakPath()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d2/d8e/_s_anim_notify_panel_8h.html#a7483aa7f043c623f8990a95320be654d">FString</a> GetPakPath </td>
+          <td>(</td>
+          <td class="paramtype">const TCHAR *</td>          <td class="paramname"><span class="paramname"><em>SpecifiedPath</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a></td>          <td class="paramname"><span class="paramname"><em>bIsForCreation</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a1076ccf1284f0001a43df87d9071972b" name="a1076ccf1284f0001a43df87d9071972b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1076ccf1284f0001a43df87d9071972b">&#9670;&#160;</a></span>GetPakPriorityFromFilename()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a8dbb3cd84ca9fd010dadfc3815eefa5d">int32</a> GetPakPriorityFromFilename </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="../../d2/d8e/_s_anim_notify_panel_8h.html#a7483aa7f043c623f8990a95320be654d">FString</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>PakFilename</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ac4fd3cab1026ea7820c2c33b63ff224f" name="ac4fd3cab1026ea7820c2c33b63ff224f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac4fd3cab1026ea7820c2c33b63ff224f">&#9670;&#160;</a></span>IMPLEMENT_MODULE()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">IMPLEMENT_MODULE </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d4/df1/class_f_default_module_impl.html">FDefaultModuleImpl</a></td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">PakFileUtilities</td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a70276764d11bbcca2e5bf0e615f1d943" name="a70276764d11bbcca2e5bf0e615f1d943"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a70276764d11bbcca2e5bf0e615f1d943">&#9670;&#160;</a></span>InitializeVirtualizationSystem()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a> InitializeVirtualizationSystem </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>USE_DDC_FOR_COMPRESSED_FILES</p>
+
+</div>
+</div>
+<a id="a54b93085f773296570b5a1fc4c11168a" name="a54b93085f773296570b5a1fc4c11168a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a54b93085f773296570b5a1fc4c11168a">&#9670;&#160;</a></span>ListFilesAtOffset()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a> ListFilesAtOffset </td>
+          <td>(</td>
+          <td class="paramtype">const TCHAR *</td>          <td class="paramname"><span class="paramname"><em>InPakFileName</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="../../d6/db1/class_t_array.html">TArray</a>&lt; <a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a89241ea7101f26f05a4f1efd6be26b32">int64</a> &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>InOffsets</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a617764a07c7646cf3f9034a71b8e50e4" name="a617764a07c7646cf3f9034a71b8e50e4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a617764a07c7646cf3f9034a71b8e50e4">&#9670;&#160;</a></span>ListFilesInPak()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a> ListFilesInPak </td>
+          <td>(</td>
+          <td class="paramtype">const TCHAR *</td>          <td class="paramname"><span class="paramname"><em>InPakFilename</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a89241ea7101f26f05a4f1efd6be26b32">int64</a></td>          <td class="paramname"><span class="paramname"><em>SizeFilter</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a></td>          <td class="paramname"><span class="paramname"><em>bIncludeDeleted</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="../../d2/d8e/_s_anim_notify_panel_8h.html#a7483aa7f043c623f8990a95320be654d">FString</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>CSVFilename</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a></td>          <td class="paramname"><span class="paramname"><em>bExtractToMountPoint</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="../../db/d92/struct_f_key_chain.html">FKeyChain</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>InKeyChain</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a></td>          <td class="paramname"><span class="paramname"><em>bAppendFile</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a></td>          <td class="paramname"><span class="paramname"><em>bIncludeFooter</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a4dc28828cc554bf24ea363b3aa8c8b27" name="a4dc28828cc554bf24ea363b3aa8c8b27"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4dc28828cc554bf24ea363b3aa8c8b27">&#9670;&#160;</a></span>LoadKeyChain()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../df/d63/_typed_element_query_capabilities_8inl.html#a72343342ce64c0755563ee6c5e27868d">void</a> LoadKeyChain </td>
+          <td>(</td>
+          <td class="paramtype">const TCHAR *</td>          <td class="paramname"><span class="paramname"><em>CmdLine</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../db/d92/struct_f_key_chain.html">FKeyChain</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>OutCryptoSettings</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a939db7c1b17d4ba976fff35cf8e7f408" name="a939db7c1b17d4ba976fff35cf8e7f408"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a939db7c1b17d4ba976fff35cf8e7f408">&#9670;&#160;</a></span>MakeBinaryConfig()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a> MakeBinaryConfig </td>
+          <td>(</td>
+          <td class="paramtype">const TCHAR *</td>          <td class="paramname"><span class="paramname"><em>CmdLine</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="acfcb2c426047d105933ddcd1785594bb" name="acfcb2c426047d105933ddcd1785594bb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acfcb2c426047d105933ddcd1785594bb">&#9670;&#160;</a></span>NumberOfWorkerThreadsDesired()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a8dbb3cd84ca9fd010dadfc3815eefa5d">int32</a> NumberOfWorkerThreadsDesired </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a27c4e54a35b02570fa0201a0c4d49f25" name="a27c4e54a35b02570fa0201a0c4d49f25"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a27c4e54a35b02570fa0201a0c4d49f25">&#9670;&#160;</a></span>ParseEncryptionIntFromJson()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d1/de2/_big_int_8h.html#a15a45470e4cc85fbd313c19c4857a4c7">TEncryptionInt</a> ParseEncryptionIntFromJson </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../dd/dba/class_t_shared_ptr.html">TSharedPtr</a>&lt; <a class="el" href="../../d7/d85/class_f_json_object.html">FJsonObject</a> &gt;</td>          <td class="paramname"><span class="paramname"><em>InObj</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const TCHAR *</td>          <td class="paramname"><span class="paramname"><em>InName</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aa51b602be23056d798b0b55c4bb8125d" name="aa51b602be23056d798b0b55c4bb8125d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa51b602be23056d798b0b55c4bb8125d">&#9670;&#160;</a></span>PrepareCopyCompressedFileToPak()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a> PrepareCopyCompressedFileToPak </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="../../d2/d8e/_s_anim_notify_panel_8h.html#a7483aa7f043c623f8990a95320be654d">FString</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>InMountPoint</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../db/d08/struct_f_pak_info.html">FPakInfo</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>Info</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="../../d7/d65/struct_f_pak_input_pair.html">FPakInputPair</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>InFile</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="../../da/dee/struct_f_compressed_file_buffer.html">FCompressedFileBuffer</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>CompressedFile</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../df/d87/struct_f_pak_entry_pair.html">FPakEntryPair</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>OutNewEntry</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../dd/de9/preprocessor_8c.html#adde6aaee8457bee49c2a92621fe22b79">uint8</a> *&amp;</td>          <td class="paramname"><span class="paramname"><em>OutDataToWrite</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a89241ea7101f26f05a4f1efd6be26b32">int64</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>OutSizeToWrite</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="../../db/d92/struct_f_key_chain.html">FKeyChain</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>InKeyChain</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a4fb2ddfd737aaf3ab5df9290a0d0283c" name="a4fb2ddfd737aaf3ab5df9290a0d0283c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4fb2ddfd737aaf3ab5df9290a0d0283c">&#9670;&#160;</a></span>PrepareCopyFileToPak()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a> PrepareCopyFileToPak </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="../../d2/d8e/_s_anim_notify_panel_8h.html#a7483aa7f043c623f8990a95320be654d">FString</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>InMountPoint</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="../../d7/d65/struct_f_pak_input_pair.html">FPakInputPair</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>InFile</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="../../da/dee/struct_f_compressed_file_buffer.html">FCompressedFileBuffer</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>UncompressedFile</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../df/d87/struct_f_pak_entry_pair.html">FPakEntryPair</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>OutNewEntry</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../dd/de9/preprocessor_8c.html#adde6aaee8457bee49c2a92621fe22b79">uint8</a> *&amp;</td>          <td class="paramname"><span class="paramname"><em>OutDataToWrite</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a89241ea7101f26f05a4f1efd6be26b32">int64</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>OutSizeToWrite</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="../../db/d92/struct_f_key_chain.html">FKeyChain</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>InKeyChain</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d6/db1/class_t_array.html">TArray</a>&lt; <a class="el" href="../../d7/d0a/struct_f_file_region.html">FFileRegion</a> &gt; *</td>          <td class="paramname"><span class="paramname"><em>OutFileRegions</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a3145ef1de93e337e98a963c8dda8f01b" name="a3145ef1de93e337e98a963c8dda8f01b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3145ef1de93e337e98a963c8dda8f01b">&#9670;&#160;</a></span>PrepareDeleteRecordForPak()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../df/d63/_typed_element_query_capabilities_8inl.html#a72343342ce64c0755563ee6c5e27868d">void</a> PrepareDeleteRecordForPak </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="../../d2/d8e/_s_anim_notify_panel_8h.html#a7483aa7f043c623f8990a95320be654d">FString</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>InMountPoint</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="../../d7/d65/struct_f_pak_input_pair.html">FPakInputPair</a></td>          <td class="paramname"><span class="paramname"><em>InDeletedFile</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../df/d87/struct_f_pak_entry_pair.html">FPakEntryPair</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>OutNewEntry</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ad7db3c3bc4ddaec6e7cc76391a28b97c" name="ad7db3c3bc4ddaec6e7cc76391a28b97c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad7db3c3bc4ddaec6e7cc76391a28b97c">&#9670;&#160;</a></span>ProcessCommandLine()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../df/d63/_typed_element_query_capabilities_8inl.html#a72343342ce64c0755563ee6c5e27868d">void</a> ProcessCommandLine </td>
+          <td>(</td>
+          <td class="paramtype">const TCHAR *</td>          <td class="paramname"><span class="paramname"><em>CmdLine</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="../../d6/db1/class_t_array.html">TArray</a>&lt; <a class="el" href="../../d2/d8e/_s_anim_notify_panel_8h.html#a7483aa7f043c623f8990a95320be654d">FString</a> &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>NonOptionArguments</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d6/db1/class_t_array.html">TArray</a>&lt; <a class="el" href="../../d7/d65/struct_f_pak_input_pair.html">FPakInputPair</a> &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>Entries</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d1/d5c/struct_f_pak_command_line_parameters.html">FPakCommandLineParameters</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>CmdLineParameters</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a40c384f41deae5c5830efc4f8d57d82b" name="a40c384f41deae5c5830efc4f8d57d82b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a40c384f41deae5c5830efc4f8d57d82b">&#9670;&#160;</a></span>ProcessCommonCommandLine()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../df/d63/_typed_element_query_capabilities_8inl.html#a72343342ce64c0755563ee6c5e27868d">void</a> ProcessCommonCommandLine </td>
+          <td>(</td>
+          <td class="paramtype">const TCHAR *</td>          <td class="paramname"><span class="paramname"><em>CmdLine</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d1/d5c/struct_f_pak_command_line_parameters.html">FPakCommandLineParameters</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>CmdLineParameters</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a14a2a9db3b83ce08039d534f7f577b32" name="a14a2a9db3b83ce08039d534f7f577b32"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a14a2a9db3b83ce08039d534f7f577b32">&#9670;&#160;</a></span>ProcessLegacyFileMoves()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../df/d63/_typed_element_query_capabilities_8inl.html#a72343342ce64c0755563ee6c5e27868d">void</a> ProcessLegacyFileMoves </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d6/db1/class_t_array.html">TArray</a>&lt; <a class="el" href="../../d7/d65/struct_f_pak_input_pair.html">FPakInputPair</a> &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>InDeleteRecords</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../da/d41/class_t_map.html">TMap</a>&lt; <a class="el" href="../../d2/d8e/_s_anim_notify_panel_8h.html#a7483aa7f043c623f8990a95320be654d">FString</a>, <a class="el" href="../../d4/d59/struct_f_file_info.html">FFileInfo</a> &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>InExistingPackagedFileHashes</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="../../d2/d8e/_s_anim_notify_panel_8h.html#a7483aa7f043c623f8990a95320be654d">FString</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>InInputPath</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="../../d6/db1/class_t_array.html">TArray</a>&lt; <a class="el" href="../../d7/d65/struct_f_pak_input_pair.html">FPakInputPair</a> &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>InFilesToPak</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a8dbb3cd84ca9fd010dadfc3815eefa5d">int32</a></td>          <td class="paramname"><span class="paramname"><em>CurrentPatchChunkIndex</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a39978a85311f2b6ebfc44f3e4d568ea0" name="a39978a85311f2b6ebfc44f3e4d568ea0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a39978a85311f2b6ebfc44f3e4d568ea0">&#9670;&#160;</a></span>ProcessPakFileSpecificCommandLine()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../df/d63/_typed_element_query_capabilities_8inl.html#a72343342ce64c0755563ee6c5e27868d">void</a> ProcessPakFileSpecificCommandLine </td>
+          <td>(</td>
+          <td class="paramtype">const TCHAR *</td>          <td class="paramname"><span class="paramname"><em>CmdLine</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="../../d6/db1/class_t_array.html">TArray</a>&lt; <a class="el" href="../../d2/d8e/_s_anim_notify_panel_8h.html#a7483aa7f043c623f8990a95320be654d">FString</a> &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>NonOptionArguments</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d6/db1/class_t_array.html">TArray</a>&lt; <a class="el" href="../../d7/d65/struct_f_pak_input_pair.html">FPakInputPair</a> &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>Entries</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d1/d5c/struct_f_pak_command_line_parameters.html">FPakCommandLineParameters</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>CmdLineParameters</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a6a37ae13436f2b1d168fb48a0a7324e9" name="a6a37ae13436f2b1d168fb48a0a7324e9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6a37ae13436f2b1d168fb48a0a7324e9">&#9670;&#160;</a></span>ReadSizeParam()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class T&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a> ReadSizeParam </td>
+          <td>(</td>
+          <td class="paramtype">const TCHAR *</td>          <td class="paramname"><span class="paramname"><em>CmdLine</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const TCHAR *</td>          <td class="paramname"><span class="paramname"><em>ParamStr</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">T &amp;</td>          <td class="paramname"><span class="paramname"><em>SizeOut</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a5af8d806a75f5b50ec4d94016f46fc93" name="a5af8d806a75f5b50ec4d94016f46fc93"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5af8d806a75f5b50ec4d94016f46fc93">&#9670;&#160;</a></span>RemoveIdenticalFiles()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../df/d63/_typed_element_query_capabilities_8inl.html#a72343342ce64c0755563ee6c5e27868d">void</a> RemoveIdenticalFiles </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d6/db1/class_t_array.html">TArray</a>&lt; <a class="el" href="../../d7/d65/struct_f_pak_input_pair.html">FPakInputPair</a> &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>FilesToPak</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="../../d2/d8e/_s_anim_notify_panel_8h.html#a7483aa7f043c623f8990a95320be654d">FString</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>SourceDirectory</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="../../da/d41/class_t_map.html">TMap</a>&lt; <a class="el" href="../../d2/d8e/_s_anim_notify_panel_8h.html#a7483aa7f043c623f8990a95320be654d">FString</a>, <a class="el" href="../../d4/d59/struct_f_file_info.html">FFileInfo</a> &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>FileHashes</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="../../d1/dce/struct_f_patch_seek_opt_params.html">FPatchSeekOptParams</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>SeekOptParams</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="../../d2/d8e/_s_anim_notify_panel_8h.html#a7483aa7f043c623f8990a95320be654d">FString</a></td>          <td class="paramname"><span class="paramname"><em>ChangedFilesOutputFilename</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a83168623cad68559095f4c6064a7b18a" name="a83168623cad68559095f4c6064a7b18a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a83168623cad68559095f4c6064a7b18a">&#9670;&#160;</a></span>Repack()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a> Repack </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="../../d2/d8e/_s_anim_notify_panel_8h.html#a7483aa7f043c623f8990a95320be654d">FString</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>InputPakFile</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="../../d2/d8e/_s_anim_notify_panel_8h.html#a7483aa7f043c623f8990a95320be654d">FString</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>OutputPakFile</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="../../d1/d5c/struct_f_pak_command_line_parameters.html">FPakCommandLineParameters</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>CmdLineParameters</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="../../db/d92/struct_f_key_chain.html">FKeyChain</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>InKeyChain</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a></td>          <td class="paramname"><span class="paramname"><em>bIncludeDeleted</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ac5f8e817b340a6f1c922e8724d4ef6b7" name="ac5f8e817b340a6f1c922e8724d4ef6b7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac5f8e817b340a6f1c922e8724d4ef6b7">&#9670;&#160;</a></span>ShowCompressionBlockCRCs()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a> ShowCompressionBlockCRCs </td>
+          <td>(</td>
+          <td class="paramtype">const TCHAR *</td>          <td class="paramname"><span class="paramname"><em>InPakFileName</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d6/db1/class_t_array.html">TArray</a>&lt; <a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a89241ea7101f26f05a4f1efd6be26b32">int64</a> &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>InOffsets</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="../../db/d92/struct_f_key_chain.html">FKeyChain</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>InKeyChain</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a9ff898226f6f5cad1726a223be2a4520" name="a9ff898226f6f5cad1726a223be2a4520"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9ff898226f6f5cad1726a223be2a4520">&#9670;&#160;</a></span>SignIOStoreContainer()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a> SignIOStoreContainer </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../db/d79/class_f_archive.html">FArchive</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>ContainerAr</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="af3fe1b68fa232d5489e75541922bacad" name="af3fe1b68fa232d5489e75541922bacad"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af3fe1b68fa232d5489e75541922bacad">&#9670;&#160;</a></span>SignPakFile()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a> SignPakFile </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="../../d2/d8e/_s_anim_notify_panel_8h.html#a7483aa7f043c623f8990a95320be654d">FString</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>InPakFilename</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="../../de/db9/_i_engine_crypto_8h.html#ae23092d0c50233ac16b66b80975c50f3">FRSAKeyHandle</a></td>          <td class="paramname"><span class="paramname"><em>InSigningKey</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Take an existing pak file and regenerate the signature file </p>
+
+</div>
+</div>
+<a id="a732c391ed47e26fca039c331a61821f5" name="a732c391ed47e26fca039c331a61821f5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a732c391ed47e26fca039c331a61821f5">&#9670;&#160;</a></span>TestPakFile()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a> TestPakFile </td>
+          <td>(</td>
+          <td class="paramtype">const TCHAR *</td>          <td class="paramname"><span class="paramname"><em>Filename</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a></td>          <td class="paramname"><span class="paramname"><em>TestHashes</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a4e25b6862bff9704942836c38f520084" name="a4e25b6862bff9704942836c38f520084"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4e25b6862bff9704942836c38f520084">&#9670;&#160;</a></span>UncompressCopyFile()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a> UncompressCopyFile </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../db/d79/class_f_archive.html">FArchive</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>Dest</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../db/d79/class_f_archive.html">FArchive</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>Source</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="../../d6/dfd/struct_f_pak_entry.html">FPakEntry</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>Entry</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../dd/de9/preprocessor_8c.html#adde6aaee8457bee49c2a92621fe22b79">uint8</a> *&amp;</td>          <td class="paramname"><span class="paramname"><em>PersistentBuffer</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a89241ea7101f26f05a4f1efd6be26b32">int64</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>BufferSize</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="../../db/d92/struct_f_key_chain.html">FKeyChain</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>InKeyChain</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="../../d0/d90/class_f_pak_file.html">FPakFile</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>PakFile</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a615d2bca3f2c1ddc6607f2ba8ce348d1" name="a615d2bca3f2c1ddc6607f2ba8ce348d1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a615d2bca3f2c1ddc6607f2ba8ce348d1">&#9670;&#160;</a></span>VerifyIndexesMatch()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../df/d63/_typed_element_query_capabilities_8inl.html#a72343342ce64c0755563ee6c5e27868d">void</a> VerifyIndexesMatch </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d6/db1/class_t_array.html">TArray</a>&lt; <a class="el" href="../../df/d87/struct_f_pak_entry_pair.html">FPakEntryPair</a> &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>EntryList</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d0/d90/class_f_pak_file.html#a4eacca1deb2d6aeed7d48185af80fccf">FPakFile::FDirectoryIndex</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>DirectoryIndex</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d0/d90/class_f_pak_file.html#a28f24e5b22664bc1fa7aece6577ac59b">FPakFile::FPathHashIndex</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>PathHashIndex</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../dd/de9/preprocessor_8c.html#abc0f5bc07737e498f287334775dff2b6">uint64</a></td>          <td class="paramname"><span class="paramname"><em>PathHashSeed</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="../../d2/d8e/_s_anim_notify_panel_8h.html#a7483aa7f043c623f8990a95320be654d">FString</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>MountPoint</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="../../d6/db1/class_t_array.html">TArray</a>&lt; <a class="el" href="../../dd/de9/preprocessor_8c.html#adde6aaee8457bee49c2a92621fe22b79">uint8</a> &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>EncodedPakEntries</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="../../d6/db1/class_t_array.html">TArray</a>&lt; <a class="el" href="../../d6/dfd/struct_f_pak_entry.html">FPakEntry</a> &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>NonEncodableEntries</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a8dbb3cd84ca9fd010dadfc3815eefa5d">int32</a></td>          <td class="paramname"><span class="paramname"><em>NumEncodedEntries</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a8dbb3cd84ca9fd010dadfc3815eefa5d">int32</a></td>          <td class="paramname"><span class="paramname"><em>NumDeletedEntries</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../db/d08/struct_f_pak_info.html">FPakInfo</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>Info</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a1e9e54577a375a790344e5e93b5184dd" name="a1e9e54577a375a790344e5e93b5184dd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1e9e54577a375a790344e5e93b5184dd">&#9670;&#160;</a></span>WritePakFooter()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../df/d63/_typed_element_query_capabilities_8inl.html#a72343342ce64c0755563ee6c5e27868d">void</a> WritePakFooter </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../db/d79/class_f_archive.html">FArchive</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>PakHandle</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d0/d7d/struct_f_pak_footer_info.html">FPakFooterInfo</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>FooterInfo</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Write the index and other data at the end of a pak file after all the entries </p>
+
+</div>
+</div>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<div id="page-nav" class="page-nav-panel">
+<div id="page-nav-resize-handle"></div>
+<div id="page-nav-tree">
+<div id="page-nav-contents">
+</div><!-- page-nav-contents -->
+</div><!-- page-nav-tree -->
+</div><!-- page-nav -->
+</div><!-- container -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a href="../../dir_0b6ee6e7e9547e675db4add2e5de97da.html">Engine</a></li><li class="navelem"><a href="../../dir_9579d1ecb2c7bf48cbe1049c41745cb4.html">Source</a></li><li class="navelem"><a href="../../dir_00912ccdaf80818c8f5fb6febb7aeb6c.html">Developer</a></li><li class="navelem"><a href="../../dir_2f19758df182ffaceb35a6b35ab66098.html">PakFileUtilities</a></li><li class="navelem"><a href="../../dir_6c7407e577efff3ee78b1b02bc7e74df.html">Private</a></li><li class="navelem"><a href="../../d2/d26/_pak_file_utilities_8cpp.html">PakFileUtilities.cpp</a></li>
+    <li class="footer">制作者 <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.15.0 </li>
+  </ul>
+</div>
+</body>
+</html>

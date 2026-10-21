@@ -1,0 +1,27 @@
+var _object_handle_8h =
+[
+    [ "UE::CoreUObject::Private::FObjectHandlePackageDebugData", "d3/d7f/struct_u_e_1_1_core_u_object_1_1_private_1_1_f_object_handle_package_debug_data.html", "d3/d7f/struct_u_e_1_1_core_u_object_1_1_private_1_1_f_object_handle_package_debug_data" ],
+    [ "UE::CoreUObject::Private::FObjectHandleDataClassDescriptor", "d4/dd1/struct_u_e_1_1_core_u_object_1_1_private_1_1_f_object_handle_data_class_descriptor.html", "d4/dd1/struct_u_e_1_1_core_u_object_1_1_private_1_1_f_object_handle_data_class_descriptor" ],
+    [ "UE::CoreUObject::Private::FObjectPathIdDebug", "dc/d16/struct_u_e_1_1_core_u_object_1_1_private_1_1_f_object_path_id_debug.html", "dc/d16/struct_u_e_1_1_core_u_object_1_1_private_1_1_f_object_path_id_debug" ],
+    [ "UE::CoreUObject::Private::FObjectDescriptorDebug", "dd/ddc/struct_u_e_1_1_core_u_object_1_1_private_1_1_f_object_descriptor_debug.html", "dd/ddc/struct_u_e_1_1_core_u_object_1_1_private_1_1_f_object_descriptor_debug" ],
+    [ "UE::CoreUObject::Private::FStoredObjectPathDebug", "dc/df1/struct_u_e_1_1_core_u_object_1_1_private_1_1_f_stored_object_path_debug.html", "dc/df1/struct_u_e_1_1_core_u_object_1_1_private_1_1_f_stored_object_path_debug" ],
+    [ "UE_OBJECT_HANDLE_IS_OBJECT_PTR", "dc/d4a/_object_handle_8h.html#a615fbfd641abd38d7da240adb4530b94", null ],
+    [ "FObjectHandle", "dc/d4a/_object_handle_8h.html#a23f276b32fee506d5939426c46baf029", null ],
+    [ "GetObjectHandleResidence", "dc/d4a/_object_handle_8h.html#a5440e90172b3e9dd9a7df041847de5f4", null ],
+    [ "IsObjectHandleNull", "dc/d4a/_object_handle_8h.html#a1b0da599dda7e63634dbd31f1bb4bd26", null ],
+    [ "IsObjectHandleRemote", "dc/d4a/_object_handle_8h.html#a94766db52f29699688fa262278b562e0", null ],
+    [ "IsObjectHandleResolved", "dc/d4a/_object_handle_8h.html#af3091d584a4fe1e738c80d0a9e4f13f6", null ],
+    [ "IsObjectHandleResolved_ForGC", "dc/d4a/_object_handle_8h.html#a6bbeca8d1e9361ea5c9576864125ce90", null ],
+    [ "IsObjectHandleTypeSafe", "dc/d4a/_object_handle_8h.html#a38f7811202ea40dd9b668b73bbe81e24", null ],
+    [ "UE::CoreUObject::Private::MakeObjectHandle", "d3/dc8/namespace_u_e_1_1_core_u_object_1_1_private.html#a0e50c2609613fab352225a8c962a0e05", null ],
+    [ "UE::CoreUObject::Private::NoResolveObjectHandleNoRead", "d3/dc8/namespace_u_e_1_1_core_u_object_1_1_private.html#a135612c4f66fbf0a81e2e5a8fe546b4c", null ],
+    [ "UE::CoreUObject::Private::ReadObjectHandlePointerNoCheck", "d3/dc8/namespace_u_e_1_1_core_u_object_1_1_private.html#a05b42895ea5f93b9398be3e8cc061d3a", null ],
+    [ "UE::CoreUObject::Private::ResolveObjectHandle", "d3/dc8/namespace_u_e_1_1_core_u_object_1_1_private.html#a745deda04ce0a419e649330f978ccefe", null ],
+    [ "UE::CoreUObject::Private::ResolveObjectHandleClass", "d3/dc8/namespace_u_e_1_1_core_u_object_1_1_private.html#aba52ac982482f6a70e0cd9d4da2b8bfc", null ],
+    [ "UE::CoreUObject::Private::ResolveObjectHandleNoRead", "d3/dc8/namespace_u_e_1_1_core_u_object_1_1_private.html#a2ceee97798c503a5b003271969f9cc56", null ],
+    [ "UE::CoreUObject::Private::ResolveObjectHandleNoReadNoCheck", "d3/dc8/namespace_u_e_1_1_core_u_object_1_1_private.html#a18c4d0b8f8ffe60d4b750589d758d7c7", null ],
+    [ "UE::CoreUObject::Private::ObjectIdShift", "d3/dc8/namespace_u_e_1_1_core_u_object_1_1_private.html#a179b27868489be34e9a796f7f019326b", null ],
+    [ "UE::CoreUObject::Private::PackageIdMask", "d3/dc8/namespace_u_e_1_1_core_u_object_1_1_private.html#adda8505750ff9f7df1b0179440eb54a3", null ],
+    [ "UE::CoreUObject::Private::PackageIdShift", "d3/dc8/namespace_u_e_1_1_core_u_object_1_1_private.html#ae8f3421c68facff75e89c53d9210307d", null ],
+    [ "UE::CoreUObject::Private::TypeIdShift", "d3/dc8/namespace_u_e_1_1_core_u_object_1_1_private.html#a251505b8488c744ccc544c04f73b4146", null ]
+];

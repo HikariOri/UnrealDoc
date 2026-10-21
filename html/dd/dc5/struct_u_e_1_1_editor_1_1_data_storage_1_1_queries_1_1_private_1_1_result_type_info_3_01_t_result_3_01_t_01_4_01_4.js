@@ -1,0 +1,4 @@
+var struct_u_e_1_1_editor_1_1_data_storage_1_1_queries_1_1_private_1_1_result_type_info_3_01_t_result_3_01_t_01_4_01_4 =
+[
+    [ "BaseType", "dd/dc5/struct_u_e_1_1_editor_1_1_data_storage_1_1_queries_1_1_private_1_1_result_type_info_3_01_t_result_3_01_t_01_4_01_4.html#af0553185b938b5d688133d2c21dd5afd", null ]
+];

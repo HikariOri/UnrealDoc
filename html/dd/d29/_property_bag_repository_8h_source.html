@@ -1,0 +1,355 @@
+<!-- HTML header for doxygen 1.15.0-->
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh">
+<head>
+  <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=11" />
+  <meta name="generator" content="Doxygen 1.15.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>UE 5.8.4: Engine/Source/Runtime/CoreUObject/Internal/UObject/PropertyBagRepository.h 源文件</title>
+  <link rel="icon" href="../../EdIconDefault.bmp" type="image/x-icon" />
+  <link href="../../tabs.css" rel="stylesheet" type="text/css" />
+  <script type="text/javascript" src="../../jquery.js"></script>
+  <script type="text/javascript" src="../../dynsections.js"></script>
+  <link href="../../navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../navtreedata.js"></script>
+<script type="text/javascript" src="../../navtree.js"></script>
+<script type="text/javascript" src="../../cookie.js"></script>
+  <link href="../../search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../search/searchdata.js"></script>
+<script type="text/javascript" src="../../search/search.js"></script>
+  <link href="../../doxygen.css" rel="stylesheet" type="text/css" />
+  <link href="../../doxygen-awesome.css" rel="stylesheet" type="text/css"/>
+<link href="../../doxygen-awesome-sidebar-only.css" rel="stylesheet" type="text/css"/>
+<link href="../../doxygen-awesome-sidebar-only-darkmode-toggle.css" rel="stylesheet" type="text/css"/>
+  <!-- ... other metadata & script includes ... -->
+  <script type="text/javascript" src="../../doxygen-awesome-darkmode-toggle.js"></script>
+  <script type="text/javascript">
+    DoxygenAwesomeDarkModeToggle.title = "Zwischen hellem/dunklem Modus wechseln"
+    DoxygenAwesomeDarkModeToggle.lightModeIcon = '🌞'
+    // icon from https://fonts.google.com/icons
+    DoxygenAwesomeDarkModeToggle.darkModeIcon = `<svg xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 24 24" height="24px" viewBox="0 0 24 24" width="24px" fill="#009793"><g><rect fill="none" height="24" width="24"/></g><g><g><path d="M8.1,14.15C9.77,14.63,11,16.17,11,18c0,0.68-0.19,1.31-0.48,1.87c0.48,0.09,0.97,0.14,1.48,0.14 c1.48,0,2.9-0.41,4.13-1.15c-2.62-0.92-5.23-2.82-6.8-5.86C7.74,9.94,7.78,7.09,8.29,4.9c-2.57,1.33-4.3,4.01-4.3,7.1c0,0,0,0,0,0 c0.01,0,0.01,0,0.02,0C5.66,12,7.18,12.83,8.1,14.15z" opacity=".3"/><path d="M19.78,17.51c-2.47,0-6.57-1.33-8.68-5.43C8.77,7.57,10.6,3.6,11.63,2.01C6.27,2.2,1.98,6.59,1.98,12 c0,0.14,0.02,0.28,0.02,0.42C2.61,12.16,3.28,12,3.98,12c0,0,0,0,0,0c0-3.09,1.73-5.77,4.3-7.1C7.78,7.09,7.74,9.94,9.32,13 c1.57,3.04,4.18,4.95,6.8,5.86c-1.23,0.74-2.65,1.15-4.13,1.15c-0.5,0-1-0.05-1.48-0.14c-0.37,0.7-0.94,1.27-1.64,1.64 c0.98,0.32,2.03,0.5,3.11,0.5c3.5,0,6.58-1.8,8.37-4.52C20.18,17.5,19.98,17.51,19.78,17.51z"/><path d="M7,16l-0.18,0C6.4,14.84,5.3,14,4,14c-1.66,0-3,1.34-3,3s1.34,3,3,3c0.62,0,2.49,0,3,0c1.1,0,2-0.9,2-2 C9,16.9,8.1,16,7,16z"/></g></g></svg>`
+    DoxygenAwesomeDarkModeToggle.init()
+  </script>
+  <script type="text/javascript" src="../../doxygen-awesome-fragment-copy-button.js"></script>
+  <script type="text/javascript">
+    DoxygenAwesomeFragmentCopyButton.title = "In die Zwischenablage kopieren"
+    // DoxygenAwesomeFragmentCopyButton.copyIcon = `<svg ...>`
+    // DoxygenAwesomeFragmentCopyButton.successIcon = `<svg ...>`
+    DoxygenAwesomeFragmentCopyButton.init()
+  </script>
+  <script type="text/javascript" src="../../doxygen-awesome-paragraph-link.js"></script>
+  <script type="text/javascript">
+    DoxygenAwesomeParagraphLink.title = "Abschnitt verknüpfen"
+    DoxygenAwesomeParagraphLink.icon = "¶"
+    DoxygenAwesomeParagraphLink.init()
+  </script>
+  <script type="text/javascript" src="../../doxygen-awesome-interactive-toc.js"></script>
+  <script type="text/javascript">
+    DoxygenAwesomeInteractiveToc.topOffset = 45
+    DoxygenAwesomeInteractiveToc.hideMobileMenu = false
+    DoxygenAwesomeInteractiveToc.init()
+  </script>
+</head>
+<body>
+    <div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+      <div id="titlearea">
+        <table cellspacing="0" cellpadding="0">
+          <tbody>
+            <tr id="projectrow">
+              <td id="projectlogo"><img alt="Logo" src="../../EdIconDefault.bmp"  /></td>
+              <td id="projectalign">
+                <div id="projectname">UE 5.8.4
+                </div>
+                <div id="projectbrief">Unreal Engine</div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <!-- end header part -->
+<!-- 制作者 Doxygen 1.15.0 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "../../search/",'.html');
+</script>
+<script type="text/javascript">
+$(function() { codefold.init(); });
+</script>
+<script type="text/javascript" src="../../menudata.js"></script>
+<script type="text/javascript" src="../../menu.js"></script>
+<script type="text/javascript">
+$(function() {
+  initMenu('../../',true,false,'search.php','搜索',true);
+  $(function() { init_search(); });
+});
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(function(){initNavTree('dd/d29/_property_bag_repository_8h_source.html','../../',''); });
+</script>
+<div id="container">
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">载入中...</div>
+<div class="SRStatus" id="Searching">搜索中...</div>
+<div class="SRStatus" id="NoMatches">未找到</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">PropertyBagRepository.h</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="../../dd/d29/_property_bag_repository_8h.html">浏览该文件的文档.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="comment">// Copyright Epic Games, Inc. All Rights Reserved.</span></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span> </div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="preprocessor">#pragma once</span></div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span> </div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="preprocessor">#include &quot;<a class="code" href="../../db/d04/_core_types_8h.html">CoreTypes.h</a>&quot;</span></div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="preprocessor">#include &quot;<a class="code" href="../../df/d0a/_transactionally_safe_critical_section_8h.html">Misc/TransactionallySafeCriticalSection.h</a>&quot;</span></div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="preprocessor">#include &quot;Containers/Map.h&quot;</span></div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="preprocessor">#include &quot;<a class="code" href="../../d5/dc5/_function_fwd_8h.html">Templates/FunctionFwd.h</a>&quot;</span></div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="preprocessor">#include &quot;<a class="code" href="../../dd/dc2/_object_ptr_8h.html">UObject/ObjectPtr.h</a>&quot;</span></div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="preprocessor">#include &quot;<a class="code" href="../../dc/d50/_u_object_hash_8h.html">UObject/UObjectHash.h</a>&quot;</span></div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span> </div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="keyword">class </span><a class="code hl_class" href="../../d7/d0b/class_u_object.html">UObject</a>;</div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="keyword">class </span><a class="code hl_class" href="../../db/df1/class_f_memory_archive.html">FMemoryArchive</a>;</div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="keyword">struct </span><a class="code hl_struct" href="../../d1/d44/struct_f_property_changed_chain_event.html">FPropertyChangedChainEvent</a>;</div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span> </div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span><span class="keyword">namespace </span><a class="code hl_namespace" href="../../da/de5/namespace_u_e.html">UE</a></div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span>{</div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>    <span class="keyword">class </span><a class="code hl_class" href="../../d2/da0/class_u_e_1_1_f_property_path_name.html">FPropertyPathName</a>;</div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span> </div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span><span class="comment">// Singleton class tracking property bag association with objects</span></div>
+<div class="foldopen" id="foldopen00021" data-start="{" data-end="};">
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno"><a class="line" href="../../d7/d71/class_u_e_1_1_f_property_bag_repository.html">   21</a></span><span class="keyword">class </span><a class="code hl_class" href="../../d7/d71/class_u_e_1_1_f_property_bag_repository.html">FPropertyBagRepository</a></div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>{</div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span> </div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>    <span class="comment">// Placeholder object feature flags; external callers can query a particular subfeature to see if it&#39;s enabled.</span></div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>    <span class="comment">// Note: These have CVar counterparts defined in the .cpp file. Add an entry there to also create a toggle switch.</span></div>
+<div class="foldopen" id="foldopen00027" data-start="{" data-end="};">
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno"><a class="line" href="../../d7/d71/class_u_e_1_1_f_property_bag_repository.html#af98ec1937b66d4e6ad92b1cbb4b88db5">   27</a></span>    <span class="keyword">enum class</span> <a class="code hl_enumeration" href="../../d7/d71/class_u_e_1_1_f_property_bag_repository.html#af98ec1937b66d4e6ad92b1cbb4b88db5">EPlaceholderObjectFeature</a> : <a class="code hl_typedef" href="../../dd/de9/preprocessor_8c.html#adde6aaee8457bee49c2a92621fe22b79">uint8</a></div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>    {</div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno"><a class="line" href="../../d7/d71/class_u_e_1_1_f_property_bag_repository.html#af98ec1937b66d4e6ad92b1cbb4b88db5a23c03bb99e414486e77a12f1d89d4d36">   30</a></span>        <a class="code hl_enumvalue" href="../../d7/d71/class_u_e_1_1_f_property_bag_repository.html#af98ec1937b66d4e6ad92b1cbb4b88db5a23c03bb99e414486e77a12f1d89d4d36">ReplaceMissingTypeImportsOnLoad</a>,</div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno"><a class="line" href="../../d7/d71/class_u_e_1_1_f_property_bag_repository.html#af98ec1937b66d4e6ad92b1cbb4b88db5af72038b4e061056c8ac85eb4c14df9cc">   32</a></span>        <a class="code hl_enumvalue" href="../../d7/d71/class_u_e_1_1_f_property_bag_repository.html#af98ec1937b66d4e6ad92b1cbb4b88db5af72038b4e061056c8ac85eb4c14df9cc">SerializeExportReferencesOnLoad</a>,</div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno"><a class="line" href="../../d7/d71/class_u_e_1_1_f_property_bag_repository.html#af98ec1937b66d4e6ad92b1cbb4b88db5ac7a183bfe4a6fc4d8e68a3f1c1433721">   34</a></span>        <a class="code hl_enumvalue" href="../../d7/d71/class_u_e_1_1_f_property_bag_repository.html#af98ec1937b66d4e6ad92b1cbb4b88db5ac7a183bfe4a6fc4d8e68a3f1c1433721">ReplaceMissingReinstancedTypes</a>,</div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno"><a class="line" href="../../d7/d71/class_u_e_1_1_f_property_bag_repository.html#af98ec1937b66d4e6ad92b1cbb4b88db5acd152b754e9a34ba712a8412436f6ff5">   36</a></span>        <a class="code hl_enumvalue" href="../../d7/d71/class_u_e_1_1_f_property_bag_repository.html#af98ec1937b66d4e6ad92b1cbb4b88db5acd152b754e9a34ba712a8412436f6ff5">ReplaceDeadClassInstanceTypes</a>,</div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno"><a class="line" href="../../d7/d71/class_u_e_1_1_f_property_bag_repository.html#af98ec1937b66d4e6ad92b1cbb4b88db5af6f05b437fa1eeb13fa1c7b095fd1fbd">   38</a></span>        <a class="code hl_enumvalue" href="../../d7/d71/class_u_e_1_1_f_property_bag_repository.html#af98ec1937b66d4e6ad92b1cbb4b88db5af6f05b437fa1eeb13fa1c7b095fd1fbd">DoNotRestrictMissingTypeImports</a>,</div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno"><a class="line" href="../../d7/d71/class_u_e_1_1_f_property_bag_repository.html#af98ec1937b66d4e6ad92b1cbb4b88db5a5e46626ad07e67cb95dd252181326be4">   40</a></span>        <a class="code hl_enumvalue" href="../../d7/d71/class_u_e_1_1_f_property_bag_repository.html#af98ec1937b66d4e6ad92b1cbb4b88db5a5e46626ad07e67cb95dd252181326be4">AllowSavingPlaceholderExports</a>,</div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>    };</div>
+</div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span> </div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span><span class="preprocessor">#if WITH_EDITORONLY_DATA</span></div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span> </div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span><span class="keyword">private</span>:</div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>    <span class="keyword">struct </span>FPropertyBagAssociationData</div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>    {</div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>        <span class="keywordtype">void</span> <a class="code hl_enumvalue" href="../../dc/dff/_mass_commands_8h.html#ada4989417d36113d64cd894c61e9876aa0e181f89f47654b86f3beb42f5cc08b8">Destroy</a>();</div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span> </div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>        <a class="code hl_struct" href="../../d8/d87/struct_t_object_ptr.html">TObjectPtr&lt;UObject&gt;</a> InstanceDataObject = <span class="keyword">nullptr</span>;</div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>    };</div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>    <span class="comment">// TODO: Make private throughout and extend access permissions here or in wrapper classes? Don&#39;t want engine code modifying bags outside of serializers and details panels.</span></div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>    <span class="comment">//friend UObjectBase;</span></div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>    <span class="comment">//friend UStruct;</span></div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>    <span class="keyword">friend</span> <span class="keyword">struct </span>FScopedInstanceDataObjectLoad;</div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>    <span class="keyword">friend</span> <span class="keyword">class </span>FPropertyBagRepositoryLock;</div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>    <span class="keyword">mutable</span> <a class="code hl_typedef" href="../../df/d0a/_transactionally_safe_critical_section_8h.html#a5383d2b3158fda17c75fc35ad4d8f56d">FTransactionallySafeCriticalSection</a> CriticalSection;</div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span> </div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>    <span class="comment">// Lifetimes/ownership:</span></div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>    <span class="comment">// Managed within UObjectBase and synced with object lifetime. The repo tracks pointers to bags, not the bags themselves.</span></div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span></div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>    <span class="comment">// TODO: Currently will only exist in editor world, but could tracking per world make some sense for teardown in future? We&#39;re relying on object destruction to occur properly to free these up. </span></div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>    <a class="code hl_class" href="../../da/d41/class_t_map.html">TMap&lt;const UObject*, FPropertyBagAssociationData&gt;</a> AssociatedData;</div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>    </div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span>    <a class="code hl_class" href="../../da/d41/class_t_map.html">TMap&lt;const UObject*, const UObject*&gt;</a> InstanceDataObjectToOwner;</div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span> </div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>    FPropertyBagRepository();</div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span> </div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>    FPropertyBagRepository(<span class="keyword">const</span> FPropertyBagRepository &amp;) = <span class="keyword">delete</span>;</div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>    FPropertyBagRepository&amp; operator=(<span class="keyword">const</span> FPropertyBagRepository&amp;) = <span class="keyword">delete</span>;</div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>    </div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>    <span class="comment">// Singleton accessor</span></div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>    <span class="keyword">static</span> COREUOBJECT_API FPropertyBagRepository&amp; <a class="code hl_enumvalue" href="../../da/de5/namespace_u_e.html#ae509793ebbe38d4d76bbee03284ba4c5ac55582518cba2c464f29f5bae1c68def">Get</a>();</div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span> </div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span>    <span class="comment">// Reclaim space - TODO: Hook up to GC.</span></div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>    <span class="keywordtype">void</span> ShrinkMaps();</div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span> </div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>    <span class="comment">// Future version for reworked InstanceDataObjects - track InstanceDataObject rather than bag (directly):</span></div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span></div>
+<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span>    <a class="code hl_class" href="../../d7/d0b/class_u_object.html">UObject</a>* CreateInstanceDataObject(<a class="code hl_class" href="../../d7/d0b/class_u_object.html">UObject</a>* <a class="code hl_enumvalue" href="../../dc/d15/_sound_concurrency_8h.html#afb650a80877f36d539f59ff0e96f6123ab6f4a2ec6356bbd56d49f2096bf9d3d3">Owner</a>, <a class="code hl_class" href="../../db/d79/class_f_archive.html">FArchive</a>&amp; Archive, <a class="code hl_typedef" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a89241ea7101f26f05a4f1efd6be26b32">int64</a> StartOffset, <a class="code hl_typedef" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a89241ea7101f26f05a4f1efd6be26b32">int64</a> EndOffset, <span class="keywordtype">bool</span> bIsArchetype = <span class="keyword">false</span>);</div>
+<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span></div>
+<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span>    <a class="code hl_class" href="../../d7/d0b/class_u_object.html">UObject</a>* ReinstanceWithCachedUnknownPropertyTree(<a class="code hl_class" href="../../d7/d0b/class_u_object.html">UObject</a>* <a class="code hl_enumvalue" href="../../dc/d15/_sound_concurrency_8h.html#afb650a80877f36d539f59ff0e96f6123ab6f4a2ec6356bbd56d49f2096bf9d3d3">Owner</a>);</div>
+<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span>    </div>
+<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span>    <span class="comment">// called at the end of postload to copy data from Owner to its IDO</span></div>
+<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span>    COREUOBJECT_API <span class="keywordtype">void</span> PostLoadInstanceDataObject(<span class="keyword">const</span> <a class="code hl_class" href="../../d7/d0b/class_u_object.html">UObject</a>* <a class="code hl_enumvalue" href="../../dc/d15/_sound_concurrency_8h.html#afb650a80877f36d539f59ff0e96f6123ab6f4a2ec6356bbd56d49f2096bf9d3d3">Owner</a>);</div>
+<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span> </div>
+<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span>    <span class="comment">// TODO: Restrict property bag  destruction to within UObject::BeginDestroy() &amp; FPropertyBagProperty destructor.</span></div>
+<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span>    <span class="comment">// Removes bag, InstanceDataObject, and all associated data for this object.</span></div>
+<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span>    <span class="keywordtype">void</span> DestroyOuterBag(<span class="keyword">const</span> <a class="code hl_class" href="../../d7/d0b/class_u_object.html">UObject</a>* <a class="code hl_enumvalue" href="../../dc/d15/_sound_concurrency_8h.html#afb650a80877f36d539f59ff0e96f6123ab6f4a2ec6356bbd56d49f2096bf9d3d3">Owner</a>);</div>
+<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span></div>
+<div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span>    COREUOBJECT_API <span class="keywordtype">void</span> ReassociateObjects(<span class="keyword">const</span> <a class="code hl_class" href="../../da/d41/class_t_map.html">TMap&lt;UObject*, UObject*&gt;</a>&amp; ReplacedObjects);</div>
+<div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span> </div>
+<div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span>    <span class="keywordtype">void</span> PostEditChangeChainProperty(<a class="code hl_class" href="../../d7/d0b/class_u_object.html">UObject</a>* <a class="code hl_variable" href="../../d3/d19/_navigation_system_types_8h.html#afd9654171435c563939671aa701df70d">Object</a>, <span class="keyword">const</span> <a class="code hl_struct" href="../../d1/d44/struct_f_property_changed_chain_event.html">FPropertyChangedChainEvent</a>&amp; PropertyChangedEvent);</div>
+<div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span></div>
+<div class="line"><a id="l00121" name="l00121"></a><span class="lineno">  121</span>    COREUOBJECT_API <span class="keywordtype">bool</span> RequiresFixup(<span class="keyword">const</span> <a class="code hl_class" href="../../d7/d0b/class_u_object.html">UObject</a>* <a class="code hl_variable" href="../../d3/d19/_navigation_system_types_8h.html#afd9654171435c563939671aa701df70d">Object</a>, <span class="keywordtype">bool</span> bIncludeOuter = <span class="keyword">false</span>) <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00122" name="l00122"></a><span class="lineno">  122</span></div>
+<div class="line"><a id="l00128" name="l00128"></a><span class="lineno">  128</span>    COREUOBJECT_API <span class="keywordtype">bool</span> RequiresFixup(<span class="keyword">const</span> <a class="code hl_class" href="../../d7/d0b/class_u_object.html">UObject</a>* <a class="code hl_variable" href="../../d3/d19/_navigation_system_types_8h.html#afd9654171435c563939671aa701df70d">Object</a>, <span class="keyword">const</span> FPropertyPathName&amp; Path) <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00129" name="l00129"></a><span class="lineno">  129</span> </div>
+<div class="line"><a id="l00130" name="l00130"></a><span class="lineno">  130</span>    <span class="comment">// Accessors</span></div>
+<div class="line"><a id="l00131" name="l00131"></a><span class="lineno">  131</span>    COREUOBJECT_API <span class="keywordtype">bool</span> HasInstanceDataObject(<span class="keyword">const</span> <a class="code hl_class" href="../../d7/d0b/class_u_object.html">UObject</a>* <a class="code hl_enumvalue" href="../../dc/d15/_sound_concurrency_8h.html#afb650a80877f36d539f59ff0e96f6123ab6f4a2ec6356bbd56d49f2096bf9d3d3">Owner</a>) <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00132" name="l00132"></a><span class="lineno">  132</span>    COREUOBJECT_API <a class="code hl_class" href="../../d7/d0b/class_u_object.html">UObject</a>* FindInstanceDataObject(<span class="keyword">const</span> <a class="code hl_class" href="../../d7/d0b/class_u_object.html">UObject</a>* <a class="code hl_enumvalue" href="../../dc/d15/_sound_concurrency_8h.html#afb650a80877f36d539f59ff0e96f6123ab6f4a2ec6356bbd56d49f2096bf9d3d3">Owner</a>);</div>
+<div class="line"><a id="l00133" name="l00133"></a><span class="lineno">  133</span>    COREUOBJECT_API <span class="keyword">const</span> <a class="code hl_class" href="../../d7/d0b/class_u_object.html">UObject</a>* FindInstanceDataObject(<span class="keyword">const</span> <a class="code hl_class" href="../../d7/d0b/class_u_object.html">UObject</a>* <a class="code hl_enumvalue" href="../../dc/d15/_sound_concurrency_8h.html#afb650a80877f36d539f59ff0e96f6123ab6f4a2ec6356bbd56d49f2096bf9d3d3">Owner</a>) <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00134" name="l00134"></a><span class="lineno">  134</span>    COREUOBJECT_API <span class="keywordtype">void</span> FindNestedInstanceDataObject(<span class="keyword">const</span> <a class="code hl_class" href="../../d7/d0b/class_u_object.html">UObject</a>* <a class="code hl_enumvalue" href="../../dc/d15/_sound_concurrency_8h.html#afb650a80877f36d539f59ff0e96f6123ab6f4a2ec6356bbd56d49f2096bf9d3d3">Owner</a>, <span class="keywordtype">bool</span> bRequiresFixupOnly, <a class="code hl_class" href="../../d8/d95/class_t_function_ref.html">TFunctionRef</a>&lt;<span class="keywordtype">void</span>(<a class="code hl_class" href="../../d7/d0b/class_u_object.html">UObject</a>*)&gt; Callback);</div>
+<div class="line"><a id="l00135" name="l00135"></a><span class="lineno">  135</span>    <a class="code hl_define" href="../../d3/dd3/_core_misc_defines_8h.html#a4757708883b9b8b24f1eb0d5354049f2">UE_INTERNAL</a> <span class="keywordtype">void</span> AddReferencedInstanceDataObject(<span class="keyword">const</span> <a class="code hl_class" href="../../d7/d0b/class_u_object.html">UObject</a>* <a class="code hl_enumvalue" href="../../dc/d15/_sound_concurrency_8h.html#afb650a80877f36d539f59ff0e96f6123ab6f4a2ec6356bbd56d49f2096bf9d3d3">Owner</a>, <a class="code hl_class" href="../../df/d17/class_f_reference_collector.html">FReferenceCollector</a>&amp; Collector);</div>
+<div class="line"><a id="l00136" name="l00136"></a><span class="lineno">  136</span> </div>
+<div class="line"><a id="l00137" name="l00137"></a><span class="lineno">  137</span>    COREUOBJECT_API <a class="code hl_class" href="../../d7/d0b/class_u_object.html">UObject</a>* FindFirstInstanceThatNeedsFixup(<span class="keyword">const</span> <a class="code hl_class" href="../../dd/d50/class_u_class.html">UClass</a>* <a class="code hl_enumvalue" href="../../d8/d4d/_blueprint_dependencies_8h.html#adacd90b722cc92fa5c74fbacbea47c3aa9bd81329febf6efe22788e03ddeaf0af">Class</a>);</div>
+<div class="line"><a id="l00138" name="l00138"></a><span class="lineno">  138</span> </div>
+<div class="line"><a id="l00139" name="l00139"></a><span class="lineno">  139</span>    COREUOBJECT_API <span class="keyword">const</span> <a class="code hl_class" href="../../d7/d0b/class_u_object.html">UObject</a>* FindInstanceForDataObject(<span class="keyword">const</span> <a class="code hl_class" href="../../d7/d0b/class_u_object.html">UObject</a>* InstanceDataObject) <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00140" name="l00140"></a><span class="lineno">  140</span> </div>
+<div class="line"><a id="l00141" name="l00141"></a><span class="lineno">  141</span><span class="preprocessor">    #if STATS</span></div>
+<div class="line"><a id="l00142" name="l00142"></a><span class="lineno">  142</span>    <span class="keyword">struct </span>FPropertyBagRepositoryStats</div>
+<div class="line"><a id="l00143" name="l00143"></a><span class="lineno">  143</span>    {</div>
+<div class="line"><a id="l00144" name="l00144"></a><span class="lineno">  144</span>        <span class="keywordtype">size_t</span> IDOMemoryBytes;</div>
+<div class="line"><a id="l00145" name="l00145"></a><span class="lineno">  145</span>        <a class="code hl_typedef" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a8dbb3cd84ca9fd010dadfc3815eefa5d">int32</a> NumIDOs;</div>
+<div class="line"><a id="l00146" name="l00146"></a><span class="lineno">  146</span>        <a class="code hl_typedef" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a8dbb3cd84ca9fd010dadfc3815eefa5d">int32</a> NumIDOsWithLooseProperties;</div>
+<div class="line"><a id="l00147" name="l00147"></a><span class="lineno">  147</span>        <a class="code hl_typedef" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a8dbb3cd84ca9fd010dadfc3815eefa5d">int32</a> NumPlaceholderTypes;</div>
+<div class="line"><a id="l00148" name="l00148"></a><span class="lineno">  148</span>    };</div>
+<div class="line"><a id="l00149" name="l00149"></a><span class="lineno">  149</span> </div>
+<div class="line"><a id="l00150" name="l00150"></a><span class="lineno">  150</span>    <a class="code hl_define" href="../../d3/dd3/_core_misc_defines_8h.html#a4757708883b9b8b24f1eb0d5354049f2">UE_INTERNAL</a> <span class="keywordtype">void</span> GatherStats(FPropertyBagRepositoryStats&amp; Stats);</div>
+<div class="line"><a id="l00151" name="l00151"></a><span class="lineno">  151</span><span class="preprocessor">    #endif</span></div>
+<div class="line"><a id="l00152" name="l00152"></a><span class="lineno">  152</span> </div>
+<div class="line"><a id="l00153" name="l00153"></a><span class="lineno">  153</span>    <a class="code hl_define" href="../../d3/dd3/_core_misc_defines_8h.html#a4757708883b9b8b24f1eb0d5354049f2">UE_INTERNAL</a> <span class="keywordtype">void</span> DumpIDOs(FOutputDevice&amp; OutputDevice);</div>
+<div class="line"><a id="l00154" name="l00154"></a><span class="lineno">  154</span>    <a class="code hl_define" href="../../d3/dd3/_core_misc_defines_8h.html#a4757708883b9b8b24f1eb0d5354049f2">UE_INTERNAL</a> <span class="keywordtype">void</span> DumpPropertyBagPlaceholderTypes(FOutputDevice&amp; OutputDevice);</div>
+<div class="line"><a id="l00155" name="l00155"></a><span class="lineno">  155</span> </div>
+<div class="line"><a id="l00156" name="l00156"></a><span class="lineno">  156</span>    <span class="comment">// query for whether or not the given struct/class is a placeholder type</span></div>
+<div class="line"><a id="l00157" name="l00157"></a><span class="lineno">  157</span>    <span class="keyword">static</span> COREUOBJECT_API <span class="keywordtype">bool</span> <a class="code hl_function" href="../../d7/d71/class_u_e_1_1_f_property_bag_repository.html#aeb84857c45039a0696b214cf778414a3">IsPropertyBagPlaceholderType</a>(<span class="keyword">const</span> UStruct* Type);</div>
+<div class="line"><a id="l00158" name="l00158"></a><span class="lineno">  158</span>    <span class="comment">// query for whether or not the given object was created as a placeholder type</span></div>
+<div class="line"><a id="l00159" name="l00159"></a><span class="lineno">  159</span>    <span class="keyword">static</span> COREUOBJECT_API <span class="keywordtype">bool</span> <a class="code hl_function" href="../../d7/d71/class_u_e_1_1_f_property_bag_repository.html#a32f571f6a931bc48b44fab183bdec59a">IsPropertyBagPlaceholderObject</a>(<span class="keyword">const</span> UObject* Object);</div>
+<div class="line"><a id="l00160" name="l00160"></a><span class="lineno">  160</span>    <span class="comment">// query for whether or not creating property bag placeholder objects should be allowed</span></div>
+<div class="line"><a id="l00161" name="l00161"></a><span class="lineno">  161</span>    <span class="keyword">static</span> COREUOBJECT_API <span class="keywordtype">bool</span> <a class="code hl_function" href="../../d7/d71/class_u_e_1_1_f_property_bag_repository.html#a0bdbd6bb46fa0ee669fc7314796abff5">IsPropertyBagPlaceholderObjectSupportEnabled</a>();</div>
+<div class="line"><a id="l00162" name="l00162"></a><span class="lineno">  162</span>    <span class="comment">// query for whether or not a specific property bag placeholder object feature is enabled</span></div>
+<div class="line"><a id="l00163" name="l00163"></a><span class="lineno">  163</span>    <span class="keyword">static</span> COREUOBJECT_API <span class="keywordtype">bool</span> <a class="code hl_function" href="../../d7/d71/class_u_e_1_1_f_property_bag_repository.html#ac5ccc26a391c9d237d47e5cd67ff4143">IsPropertyBagPlaceholderObjectFeatureEnabled</a>(<a class="code hl_enumeration" href="../../d7/d71/class_u_e_1_1_f_property_bag_repository.html#af98ec1937b66d4e6ad92b1cbb4b88db5">EPlaceholderObjectFeature</a> Feature);</div>
+<div class="line"><a id="l00164" name="l00164"></a><span class="lineno">  164</span> </div>
+<div class="line"><a id="l00178" name="l00178"></a><span class="lineno">  178</span>    <span class="keyword">static</span> COREUOBJECT_API UStruct* CreatePropertyBagPlaceholderType(UObject* <a class="code hl_enumvalue" href="../../d1/d8a/_anim_node___anim_dynamics_8h.html#afaad9656e6554f964da78bac4fdbb3f2ae6e36dccbeaf26fca4a6813bf2e83a28">Outer</a>, UClass* <a class="code hl_enumvalue" href="../../d8/d4d/_blueprint_dependencies_8h.html#adacd90b722cc92fa5c74fbacbea47c3aa9bd81329febf6efe22788e03ddeaf0af">Class</a>, <a class="code hl_variable" href="../../d2/dc9/_s_anim_segments_panel_8h.html#a5feee5d8f9e49b79aaf8fa9c6ef73d33">FName</a> Name = NAME_None, <a class="code hl_enumeration" href="../../d5/d1e/_object_macros_8h.html#a1508ac1247bcd79c4921cf8497e72c79">EObjectFlags</a> <a class="code hl_enumvalue" href="../../d5/d1e/_object_macros_8h.html#ab1b4d2b5a96eee3af0fdf40789726115a4ea7801f17a4e5485e8b050c052fb443">Flags</a> = <a class="code hl_enumvalue" href="../../d5/d1e/_object_macros_8h.html#a1508ac1247bcd79c4921cf8497e72c79a14c96b9fc50739cf04faf2ba66d7eb72">RF_NoFlags</a>, UStruct* SuperStruct = <span class="keyword">nullptr</span>);</div>
+<div class="line"><a id="l00179" name="l00179"></a><span class="lineno">  179</span>    <span class="keyword">template</span>&lt;<span class="keyword">typename</span> T = UObject&gt;</div>
+<div class="line"><a id="l00180" name="l00180"></a><span class="lineno">  180</span>    <span class="keyword">static</span> UClass* CreatePropertyBagPlaceholderClass(UObject* <a class="code hl_enumvalue" href="../../d1/d8a/_anim_node___anim_dynamics_8h.html#afaad9656e6554f964da78bac4fdbb3f2ae6e36dccbeaf26fca4a6813bf2e83a28">Outer</a>, UClass* <a class="code hl_enumvalue" href="../../d8/d4d/_blueprint_dependencies_8h.html#adacd90b722cc92fa5c74fbacbea47c3aa9bd81329febf6efe22788e03ddeaf0af">Class</a>, <a class="code hl_variable" href="../../d2/dc9/_s_anim_segments_panel_8h.html#a5feee5d8f9e49b79aaf8fa9c6ef73d33">FName</a> Name = NAME_None, <a class="code hl_enumeration" href="../../d5/d1e/_object_macros_8h.html#a1508ac1247bcd79c4921cf8497e72c79">EObjectFlags</a> <a class="code hl_enumvalue" href="../../d5/d1e/_object_macros_8h.html#ab1b4d2b5a96eee3af0fdf40789726115a4ea7801f17a4e5485e8b050c052fb443">Flags</a> = <a class="code hl_enumvalue" href="../../d5/d1e/_object_macros_8h.html#a1508ac1247bcd79c4921cf8497e72c79a14c96b9fc50739cf04faf2ba66d7eb72">RF_NoFlags</a>)</div>
+<div class="line"><a id="l00181" name="l00181"></a><span class="lineno">  181</span>    {</div>
+<div class="line"><a id="l00182" name="l00182"></a><span class="lineno">  182</span>        <span class="keywordflow">return</span> <a class="code hl_function" href="../../d9/d41/_delegate_signature_impl_8inl.html#a81007001265f43f3a9b925add099558c">Cast&lt;UClass&gt;</a>(CreatePropertyBagPlaceholderType(<a class="code hl_enumvalue" href="../../d1/d8a/_anim_node___anim_dynamics_8h.html#afaad9656e6554f964da78bac4fdbb3f2ae6e36dccbeaf26fca4a6813bf2e83a28">Outer</a>, <a class="code hl_enumvalue" href="../../d8/d4d/_blueprint_dependencies_8h.html#adacd90b722cc92fa5c74fbacbea47c3aa9bd81329febf6efe22788e03ddeaf0af">Class</a>, Name, <a class="code hl_enumvalue" href="../../d5/d1e/_object_macros_8h.html#ab1b4d2b5a96eee3af0fdf40789726115a4ea7801f17a4e5485e8b050c052fb443">Flags</a>, T::StaticClass()));</div>
+<div class="line"><a id="l00183" name="l00183"></a><span class="lineno">  183</span>    }</div>
+<div class="line"><a id="l00184" name="l00184"></a><span class="lineno">  184</span> </div>
+<div class="line"><a id="l00185" name="l00185"></a><span class="lineno">  185</span><span class="keyword">private</span>:</div>
+<div class="line"><a id="l00186" name="l00186"></a><span class="lineno">  186</span>    <span class="keywordtype">void</span> <a class="code hl_variable" href="../../d9/db1/_unversioned_property_serialization_8cpp.html#aa6a5f618e102b90dfb31e5b43751501f">Lock</a>()<span class="keyword"> const </span>{ <a class="code hl_function" href="../../d0/db7/_mem_pro_8cpp.html#a23a24151ed5350ca540270a4fc25436d">CriticalSection</a>.Lock(); }</div>
+<div class="line"><a id="l00187" name="l00187"></a><span class="lineno">  187</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="../../d1/db6/_anim_sequence_transform_provider_8cpp.html#a079120e3c813c746f69766d6d485bb75">Unlock</a>()<span class="keyword"> const </span>{ <a class="code hl_function" href="../../d0/db7/_mem_pro_8cpp.html#a23a24151ed5350ca540270a4fc25436d">CriticalSection</a>.Unlock(); }</div>
+<div class="line"><a id="l00188" name="l00188"></a><span class="lineno">  188</span> </div>
+<div class="line"><a id="l00189" name="l00189"></a><span class="lineno">  189</span>    <span class="comment">// Internal functions requiring the repository to be locked before being called</span></div>
+<div class="line"><a id="l00190" name="l00190"></a><span class="lineno">  190</span> </div>
+<div class="line"><a id="l00191" name="l00191"></a><span class="lineno">  191</span>    <span class="comment">// Delete owner reference and disassociate all data. Returns success.</span></div>
+<div class="line"><a id="l00192" name="l00192"></a><span class="lineno">  192</span>    <span class="keywordtype">bool</span> RemoveAssociationUnsafe(<span class="keyword">const</span> UObject* <a class="code hl_enumvalue" href="../../dc/d15/_sound_concurrency_8h.html#afb650a80877f36d539f59ff0e96f6123ab6f4a2ec6356bbd56d49f2096bf9d3d3">Owner</a>);</div>
+<div class="line"><a id="l00193" name="l00193"></a><span class="lineno">  193</span> </div>
+<div class="line"><a id="l00194" name="l00194"></a><span class="lineno">  194</span><span class="preprocessor">#else</span></div>
+<div class="line"><a id="l00195" name="l00195"></a><span class="lineno">  195</span>    <span class="comment">// Stub out accessors when the system is not available in cooked builds</span></div>
+<div class="line"><a id="l00196" name="l00196"></a><span class="lineno">  196</span> </div>
+<div class="line"><a id="l00197" name="l00197"></a><span class="lineno">  197</span>    <span class="comment">// query for whether or not the given struct/class is a placeholder type</span></div>
+<div class="line"><a id="l00198" name="l00198"></a><span class="lineno"><a class="line" href="../../d7/d71/class_u_e_1_1_f_property_bag_repository.html#aeb84857c45039a0696b214cf778414a3">  198</a></span>    <span class="keyword">static</span> <span class="keyword">inline</span> <span class="keywordtype">bool</span> <a class="code hl_function" href="../../d7/d71/class_u_e_1_1_f_property_bag_repository.html#aeb84857c45039a0696b214cf778414a3">IsPropertyBagPlaceholderType</a>(<span class="keyword">const</span> <a class="code hl_class" href="../../d3/dbd/class_u_struct.html">UStruct</a>* <a class="code hl_class" href="../../d3/d81/struct_t_decay.html">Type</a>) { <span class="keywordflow">return</span> <span class="keyword">false</span>; }</div>
+<div class="line"><a id="l00199" name="l00199"></a><span class="lineno">  199</span>    <span class="comment">// query for whether or not the given object was created as a placeholder type</span></div>
+<div class="line"><a id="l00200" name="l00200"></a><span class="lineno"><a class="line" href="../../d7/d71/class_u_e_1_1_f_property_bag_repository.html#a32f571f6a931bc48b44fab183bdec59a">  200</a></span>    <span class="keyword">static</span> <span class="keyword">inline</span> <span class="keywordtype">bool</span> <a class="code hl_function" href="../../d7/d71/class_u_e_1_1_f_property_bag_repository.html#a32f571f6a931bc48b44fab183bdec59a">IsPropertyBagPlaceholderObject</a>(<span class="keyword">const</span> <a class="code hl_class" href="../../d7/d0b/class_u_object.html">UObject</a>* <a class="code hl_namespace" href="../../db/d07/namespace_u_e_1_1_object.html">Object</a>) { <span class="keywordflow">return</span> <span class="keyword">false</span>; }</div>
+<div class="line"><a id="l00201" name="l00201"></a><span class="lineno">  201</span>    <span class="comment">// query for whether or not creating property bag placeholder objects should be allowed</span></div>
+<div class="line"><a id="l00202" name="l00202"></a><span class="lineno"><a class="line" href="../../d7/d71/class_u_e_1_1_f_property_bag_repository.html#a0bdbd6bb46fa0ee669fc7314796abff5">  202</a></span>    <span class="keyword">static</span> <span class="keyword">inline</span> <span class="keywordtype">bool</span> <a class="code hl_function" href="../../d7/d71/class_u_e_1_1_f_property_bag_repository.html#a0bdbd6bb46fa0ee669fc7314796abff5">IsPropertyBagPlaceholderObjectSupportEnabled</a>() { <span class="keywordflow">return</span> <span class="keyword">false</span>; }</div>
+<div class="line"><a id="l00203" name="l00203"></a><span class="lineno">  203</span>    <span class="comment">// query for whether or not a specific property bag placeholder object feature is enabled</span></div>
+<div class="line"><a id="l00204" name="l00204"></a><span class="lineno"><a class="line" href="../../d7/d71/class_u_e_1_1_f_property_bag_repository.html#ac5ccc26a391c9d237d47e5cd67ff4143">  204</a></span>    <span class="keyword">static</span> <span class="keyword">inline</span> <span class="keywordtype">bool</span> <a class="code hl_function" href="../../d7/d71/class_u_e_1_1_f_property_bag_repository.html#ac5ccc26a391c9d237d47e5cd67ff4143">IsPropertyBagPlaceholderObjectFeatureEnabled</a>(<a class="code hl_enumeration" href="../../d7/d71/class_u_e_1_1_f_property_bag_repository.html#af98ec1937b66d4e6ad92b1cbb4b88db5">EPlaceholderObjectFeature</a> Feature) { <span class="keywordflow">return</span> <span class="keyword">false</span>; }</div>
+<div class="line"><a id="l00205" name="l00205"></a><span class="lineno">  205</span> </div>
+<div class="line"><a id="l00206" name="l00206"></a><span class="lineno">  206</span><span class="preprocessor">#endif </span><span class="comment">// WITH_EDITORONLY_DATA</span></div>
+<div class="line"><a id="l00207" name="l00207"></a><span class="lineno">  207</span> </div>
+<div class="line"><a id="l00208" name="l00208"></a><span class="lineno">  208</span>};</div>
+</div>
+<div class="line"><a id="l00209" name="l00209"></a><span class="lineno">  209</span> </div>
+<div class="line"><a id="l00210" name="l00210"></a><span class="lineno">  210</span>} <span class="comment">// UE</span></div>
+<div class="ttc" id="a_anim_node___anim_dynamics_8h_html_afaad9656e6554f964da78bac4fdbb3f2ae6e36dccbeaf26fca4a6813bf2e83a28"><div class="ttname"><a href="../../d1/d8a/_anim_node___anim_dynamics_8h.html#afaad9656e6554f964da78bac4fdbb3f2ae6e36dccbeaf26fca4a6813bf2e83a28">ESphericalLimitType::Outer</a></div><div class="ttdeci">@ Outer</div><div class="ttdef"><b>定义</b> AnimNode_AnimDynamics.h:207</div></div>
+<div class="ttc" id="a_anim_sequence_transform_provider_8cpp_html_a079120e3c813c746f69766d6d485bb75"><div class="ttname"><a href="../../d1/db6/_anim_sequence_transform_provider_8cpp.html#a079120e3c813c746f69766d6d485bb75">Unlock</a></div><div class="ttdeci">void Unlock(FRHICommandList &amp;RHICmdList, FRDGBuffer *Buffer)</div><div class="ttdef"><b>定义</b> AnimSequenceTransformProvider.cpp:900</div></div>
+<div class="ttc" id="a_blueprint_dependencies_8h_html_adacd90b722cc92fa5c74fbacbea47c3aa9bd81329febf6efe22788e03ddeaf0af"><div class="ttname"><a href="../../d8/d4d/_blueprint_dependencies_8h.html#adacd90b722cc92fa5c74fbacbea47c3aa9bd81329febf6efe22788e03ddeaf0af">EBPDependencyType::Class</a></div><div class="ttdeci">@ Class</div><div class="ttdef"><b>定义</b> BlueprintDependencies.h:16</div></div>
+<div class="ttc" id="a_core_2_public_2_h_a_l_2_platform_8h_html_a89241ea7101f26f05a4f1efd6be26b32"><div class="ttname"><a href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a89241ea7101f26f05a4f1efd6be26b32">int64</a></div><div class="ttdeci">FPlatformTypes::int64 int64</div><div class="ttdoc">A 64-bit signed integer.</div><div class="ttdef"><b>定义</b> Platform.h:1192</div></div>
+<div class="ttc" id="a_core_2_public_2_h_a_l_2_platform_8h_html_a8dbb3cd84ca9fd010dadfc3815eefa5d"><div class="ttname"><a href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a8dbb3cd84ca9fd010dadfc3815eefa5d">int32</a></div><div class="ttdeci">FPlatformTypes::int32 int32</div><div class="ttdoc">A 32-bit signed integer.</div><div class="ttdef"><b>定义</b> Platform.h:1190</div></div>
+<div class="ttc" id="a_core_misc_defines_8h_html_a4757708883b9b8b24f1eb0d5354049f2"><div class="ttname"><a href="../../d3/dd3/_core_misc_defines_8h.html#a4757708883b9b8b24f1eb0d5354049f2">UE_INTERNAL</a></div><div class="ttdeci">#define UE_INTERNAL</div><div class="ttdef"><b>定义</b> CoreMiscDefines.h:340</div></div>
+<div class="ttc" id="a_core_types_8h_html"><div class="ttname"><a href="../../db/d04/_core_types_8h.html">CoreTypes.h</a></div></div>
+<div class="ttc" id="a_delegate_signature_impl_8inl_html_a81007001265f43f3a9b925add099558c"><div class="ttname"><a href="../../d9/d41/_delegate_signature_impl_8inl.html#a81007001265f43f3a9b925add099558c">Cast</a></div><div class="ttdeci">TCopyQualifiersFromTo_T&lt; From, To &gt; * Cast(From *Src)</div><div class="ttdef"><b>定义</b> Casts.h:89</div></div>
+<div class="ttc" id="a_function_fwd_8h_html"><div class="ttname"><a href="../../d5/dc5/_function_fwd_8h.html">FunctionFwd.h</a></div></div>
+<div class="ttc" id="a_mass_commands_8h_html_ada4989417d36113d64cd894c61e9876aa0e181f89f47654b86f3beb42f5cc08b8"><div class="ttname"><a href="../../dc/dff/_mass_commands_8h.html#ada4989417d36113d64cd894c61e9876aa0e181f89f47654b86f3beb42f5cc08b8">EMassCommandOperationType::Destroy</a></div><div class="ttdeci">@ Destroy</div><div class="ttdef"><b>定义</b> MassCommands.h:123</div></div>
+<div class="ttc" id="a_mem_pro_8cpp_html_a23a24151ed5350ca540270a4fc25436d"><div class="ttname"><a href="../../d0/db7/_mem_pro_8cpp.html#a23a24151ed5350ca540270a4fc25436d">CriticalSection</a></div><div class="ttdeci">CriticalSection()</div><div class="ttdef"><b>定义</b> MemPro.cpp:1</div></div>
+<div class="ttc" id="a_navigation_system_types_8h_html_afd9654171435c563939671aa701df70d"><div class="ttname"><a href="../../d3/d19/_navigation_system_types_8h.html#afd9654171435c563939671aa701df70d">Object</a></div><div class="ttdeci">TWeakInterfacePtr&lt; INavigationInvokerInterface &gt; Object</div><div class="ttdef"><b>定义</b> NavigationSystemTypes.h:116</div></div>
+<div class="ttc" id="a_object_macros_8h_html_a1508ac1247bcd79c4921cf8497e72c79"><div class="ttname"><a href="../../d5/d1e/_object_macros_8h.html#a1508ac1247bcd79c4921cf8497e72c79">EObjectFlags</a></div><div class="ttdeci">EObjectFlags</div><div class="ttdef"><b>定义</b> ObjectMacros.h:583</div></div>
+<div class="ttc" id="a_object_macros_8h_html_a1508ac1247bcd79c4921cf8497e72c79a14c96b9fc50739cf04faf2ba66d7eb72"><div class="ttname"><a href="../../d5/d1e/_object_macros_8h.html#a1508ac1247bcd79c4921cf8497e72c79a14c96b9fc50739cf04faf2ba66d7eb72">RF_NoFlags</a></div><div class="ttdeci">@ RF_NoFlags</div><div class="ttdoc">No flags, used to avoid a cast</div><div class="ttdef"><b>定义</b> ObjectMacros.h:586</div></div>
+<div class="ttc" id="a_object_macros_8h_html_ab1b4d2b5a96eee3af0fdf40789726115a4ea7801f17a4e5485e8b050c052fb443"><div class="ttname"><a href="../../d5/d1e/_object_macros_8h.html#ab1b4d2b5a96eee3af0fdf40789726115a4ea7801f17a4e5485e8b050c052fb443">EEnumFlags::Flags</a></div><div class="ttdeci">@ Flags</div><div class="ttdef"><b>定义</b> ObjectMacros.h:723</div></div>
+<div class="ttc" id="a_object_ptr_8h_html"><div class="ttname"><a href="../../dd/dc2/_object_ptr_8h.html">ObjectPtr.h</a></div></div>
+<div class="ttc" id="a_s_anim_segments_panel_8h_html_a5feee5d8f9e49b79aaf8fa9c6ef73d33"><div class="ttname"><a href="../../d2/dc9/_s_anim_segments_panel_8h.html#a5feee5d8f9e49b79aaf8fa9c6ef73d33">FName</a></div><div class="ttdeci">int32 FName</div><div class="ttdef"><b>定义</b> SAnimSegmentsPanel.h:28</div></div>
+<div class="ttc" id="a_sound_concurrency_8h_html_afb650a80877f36d539f59ff0e96f6123ab6f4a2ec6356bbd56d49f2096bf9d3d3"><div class="ttname"><a href="../../dc/d15/_sound_concurrency_8h.html#afb650a80877f36d539f59ff0e96f6123ab6f4a2ec6356bbd56d49f2096bf9d3d3">EConcurrencyMode::Owner</a></div><div class="ttdeci">@ Owner</div><div class="ttdef"><b>定义</b> SoundConcurrency.h:236</div></div>
+<div class="ttc" id="a_transactionally_safe_critical_section_8h_html"><div class="ttname"><a href="../../df/d0a/_transactionally_safe_critical_section_8h.html">TransactionallySafeCriticalSection.h</a></div></div>
+<div class="ttc" id="a_transactionally_safe_critical_section_8h_html_a5383d2b3158fda17c75fc35ad4d8f56d"><div class="ttname"><a href="../../df/d0a/_transactionally_safe_critical_section_8h.html#a5383d2b3158fda17c75fc35ad4d8f56d">FTransactionallySafeCriticalSection</a></div><div class="ttdeci">::FCriticalSection FTransactionallySafeCriticalSection</div><div class="ttdef"><b>定义</b> TransactionallySafeCriticalSection.h:16</div></div>
+<div class="ttc" id="a_u_object_hash_8h_html"><div class="ttname"><a href="../../dc/d50/_u_object_hash_8h.html">UObjectHash.h</a></div></div>
+<div class="ttc" id="a_unversioned_property_serialization_8cpp_html_aa6a5f618e102b90dfb31e5b43751501f"><div class="ttname"><a href="../../d9/db1/_unversioned_property_serialization_8cpp.html#aa6a5f618e102b90dfb31e5b43751501f">Lock</a></div><div class="ttdeci">FRWLock Lock</div><div class="ttdef"><b>定义</b> UnversionedPropertySerialization.cpp:939</div></div>
+<div class="ttc" id="aclass_f_archive_html"><div class="ttname"><a href="../../db/d79/class_f_archive.html">FArchive</a></div><div class="ttdef"><b>定义</b> Archive.h:1217</div></div>
+<div class="ttc" id="aclass_f_memory_archive_html"><div class="ttname"><a href="../../db/df1/class_f_memory_archive.html">FMemoryArchive</a></div><div class="ttdef"><b>定义</b> MemoryArchive.h:15</div></div>
+<div class="ttc" id="aclass_f_reference_collector_html"><div class="ttname"><a href="../../df/d17/class_f_reference_collector.html">FReferenceCollector</a></div><div class="ttdef"><b>定义</b> UObjectGlobals.h:2532</div></div>
+<div class="ttc" id="aclass_t_function_ref_html"><div class="ttname"><a href="../../d8/d95/class_t_function_ref.html">TFunctionRef</a></div><div class="ttdef"><b>定义</b> DerivedDataBuildFunctionRegistry.h:8</div></div>
+<div class="ttc" id="aclass_t_map_html"><div class="ttname"><a href="../../da/d41/class_t_map.html">TMap</a></div><div class="ttdef"><b>定义</b> IAndroidDeviceDetection.h:12</div></div>
+<div class="ttc" id="aclass_u_class_html"><div class="ttname"><a href="../../dd/d50/class_u_class.html">UClass</a></div><div class="ttdef"><b>定义</b> Class.h:3894</div></div>
+<div class="ttc" id="aclass_u_e_1_1_f_property_bag_repository_html"><div class="ttname"><a href="../../d7/d71/class_u_e_1_1_f_property_bag_repository.html">UE::FPropertyBagRepository</a></div><div class="ttdef"><b>定义</b> PropertyBagRepository.h:22</div></div>
+<div class="ttc" id="aclass_u_e_1_1_f_property_bag_repository_html_a0bdbd6bb46fa0ee669fc7314796abff5"><div class="ttname"><a href="../../d7/d71/class_u_e_1_1_f_property_bag_repository.html#a0bdbd6bb46fa0ee669fc7314796abff5">UE::FPropertyBagRepository::IsPropertyBagPlaceholderObjectSupportEnabled</a></div><div class="ttdeci">static bool IsPropertyBagPlaceholderObjectSupportEnabled()</div><div class="ttdef"><b>定义</b> PropertyBagRepository.h:202</div></div>
+<div class="ttc" id="aclass_u_e_1_1_f_property_bag_repository_html_a32f571f6a931bc48b44fab183bdec59a"><div class="ttname"><a href="../../d7/d71/class_u_e_1_1_f_property_bag_repository.html#a32f571f6a931bc48b44fab183bdec59a">UE::FPropertyBagRepository::IsPropertyBagPlaceholderObject</a></div><div class="ttdeci">static bool IsPropertyBagPlaceholderObject(const UObject *Object)</div><div class="ttdef"><b>定义</b> PropertyBagRepository.h:200</div></div>
+<div class="ttc" id="aclass_u_e_1_1_f_property_bag_repository_html_ac5ccc26a391c9d237d47e5cd67ff4143"><div class="ttname"><a href="../../d7/d71/class_u_e_1_1_f_property_bag_repository.html#ac5ccc26a391c9d237d47e5cd67ff4143">UE::FPropertyBagRepository::IsPropertyBagPlaceholderObjectFeatureEnabled</a></div><div class="ttdeci">static bool IsPropertyBagPlaceholderObjectFeatureEnabled(EPlaceholderObjectFeature Feature)</div><div class="ttdef"><b>定义</b> PropertyBagRepository.h:204</div></div>
+<div class="ttc" id="aclass_u_e_1_1_f_property_bag_repository_html_aeb84857c45039a0696b214cf778414a3"><div class="ttname"><a href="../../d7/d71/class_u_e_1_1_f_property_bag_repository.html#aeb84857c45039a0696b214cf778414a3">UE::FPropertyBagRepository::IsPropertyBagPlaceholderType</a></div><div class="ttdeci">static bool IsPropertyBagPlaceholderType(const UStruct *Type)</div><div class="ttdef"><b>定义</b> PropertyBagRepository.h:198</div></div>
+<div class="ttc" id="aclass_u_e_1_1_f_property_bag_repository_html_af98ec1937b66d4e6ad92b1cbb4b88db5"><div class="ttname"><a href="../../d7/d71/class_u_e_1_1_f_property_bag_repository.html#af98ec1937b66d4e6ad92b1cbb4b88db5">UE::FPropertyBagRepository::EPlaceholderObjectFeature</a></div><div class="ttdeci">EPlaceholderObjectFeature</div><div class="ttdef"><b>定义</b> PropertyBagRepository.h:28</div></div>
+<div class="ttc" id="aclass_u_e_1_1_f_property_bag_repository_html_af98ec1937b66d4e6ad92b1cbb4b88db5a23c03bb99e414486e77a12f1d89d4d36"><div class="ttname"><a href="../../d7/d71/class_u_e_1_1_f_property_bag_repository.html#af98ec1937b66d4e6ad92b1cbb4b88db5a23c03bb99e414486e77a12f1d89d4d36">UE::FPropertyBagRepository::EPlaceholderObjectFeature::ReplaceMissingTypeImportsOnLoad</a></div><div class="ttdeci">@ ReplaceMissingTypeImportsOnLoad</div><div class="ttdef"><b>定义</b> PropertyBagRepository.h:30</div></div>
+<div class="ttc" id="aclass_u_e_1_1_f_property_bag_repository_html_af98ec1937b66d4e6ad92b1cbb4b88db5a5e46626ad07e67cb95dd252181326be4"><div class="ttname"><a href="../../d7/d71/class_u_e_1_1_f_property_bag_repository.html#af98ec1937b66d4e6ad92b1cbb4b88db5a5e46626ad07e67cb95dd252181326be4">UE::FPropertyBagRepository::EPlaceholderObjectFeature::AllowSavingPlaceholderExports</a></div><div class="ttdeci">@ AllowSavingPlaceholderExports</div><div class="ttdef"><b>定义</b> PropertyBagRepository.h:40</div></div>
+<div class="ttc" id="aclass_u_e_1_1_f_property_bag_repository_html_af98ec1937b66d4e6ad92b1cbb4b88db5ac7a183bfe4a6fc4d8e68a3f1c1433721"><div class="ttname"><a href="../../d7/d71/class_u_e_1_1_f_property_bag_repository.html#af98ec1937b66d4e6ad92b1cbb4b88db5ac7a183bfe4a6fc4d8e68a3f1c1433721">UE::FPropertyBagRepository::EPlaceholderObjectFeature::ReplaceMissingReinstancedTypes</a></div><div class="ttdeci">@ ReplaceMissingReinstancedTypes</div><div class="ttdef"><b>定义</b> PropertyBagRepository.h:34</div></div>
+<div class="ttc" id="aclass_u_e_1_1_f_property_bag_repository_html_af98ec1937b66d4e6ad92b1cbb4b88db5acd152b754e9a34ba712a8412436f6ff5"><div class="ttname"><a href="../../d7/d71/class_u_e_1_1_f_property_bag_repository.html#af98ec1937b66d4e6ad92b1cbb4b88db5acd152b754e9a34ba712a8412436f6ff5">UE::FPropertyBagRepository::EPlaceholderObjectFeature::ReplaceDeadClassInstanceTypes</a></div><div class="ttdeci">@ ReplaceDeadClassInstanceTypes</div><div class="ttdef"><b>定义</b> PropertyBagRepository.h:36</div></div>
+<div class="ttc" id="aclass_u_e_1_1_f_property_bag_repository_html_af98ec1937b66d4e6ad92b1cbb4b88db5af6f05b437fa1eeb13fa1c7b095fd1fbd"><div class="ttname"><a href="../../d7/d71/class_u_e_1_1_f_property_bag_repository.html#af98ec1937b66d4e6ad92b1cbb4b88db5af6f05b437fa1eeb13fa1c7b095fd1fbd">UE::FPropertyBagRepository::EPlaceholderObjectFeature::DoNotRestrictMissingTypeImports</a></div><div class="ttdeci">@ DoNotRestrictMissingTypeImports</div><div class="ttdef"><b>定义</b> PropertyBagRepository.h:38</div></div>
+<div class="ttc" id="aclass_u_e_1_1_f_property_bag_repository_html_af98ec1937b66d4e6ad92b1cbb4b88db5af72038b4e061056c8ac85eb4c14df9cc"><div class="ttname"><a href="../../d7/d71/class_u_e_1_1_f_property_bag_repository.html#af98ec1937b66d4e6ad92b1cbb4b88db5af72038b4e061056c8ac85eb4c14df9cc">UE::FPropertyBagRepository::EPlaceholderObjectFeature::SerializeExportReferencesOnLoad</a></div><div class="ttdeci">@ SerializeExportReferencesOnLoad</div><div class="ttdef"><b>定义</b> PropertyBagRepository.h:32</div></div>
+<div class="ttc" id="aclass_u_e_1_1_f_property_path_name_html"><div class="ttname"><a href="../../d2/da0/class_u_e_1_1_f_property_path_name.html">UE::FPropertyPathName</a></div><div class="ttdef"><b>定义</b> PropertyPathName.h:57</div></div>
+<div class="ttc" id="aclass_u_object_html"><div class="ttname"><a href="../../d7/d0b/class_u_object.html">UObject</a></div><div class="ttdef"><b>定义</b> Object.h:99</div></div>
+<div class="ttc" id="aclass_u_struct_html"><div class="ttname"><a href="../../d3/dbd/class_u_struct.html">UStruct</a></div><div class="ttdef"><b>定义</b> Class.h:499</div></div>
+<div class="ttc" id="anamespace_u_e_1_1_object_html"><div class="ttname"><a href="../../db/d07/namespace_u_e_1_1_object.html">UE::Object</a></div><div class="ttdef"><b>定义</b> Obj.cpp:2341</div></div>
+<div class="ttc" id="anamespace_u_e_html"><div class="ttname"><a href="../../da/de5/namespace_u_e.html">UE</a></div><div class="ttdef"><b>定义</b> AITestsCommon.cpp:13</div></div>
+<div class="ttc" id="anamespace_u_e_html_ae509793ebbe38d4d76bbee03284ba4c5ac55582518cba2c464f29f5bae1c68def"><div class="ttname"><a href="../../da/de5/namespace_u_e.html#ae509793ebbe38d4d76bbee03284ba4c5ac55582518cba2c464f29f5bae1c68def">UE::EHttpMethod::Get</a></div><div class="ttdeci">@ Get</div><div class="ttdef"><b>定义</b> HttpClient.h:51</div></div>
+<div class="ttc" id="apreprocessor_8c_html_adde6aaee8457bee49c2a92621fe22b79"><div class="ttname"><a href="../../dd/de9/preprocessor_8c.html#adde6aaee8457bee49c2a92621fe22b79">uint8</a></div><div class="ttdeci">unsigned char uint8</div><div class="ttdef"><b>定义</b> preprocessor.c:65</div></div>
+<div class="ttc" id="astruct_f_property_changed_chain_event_html"><div class="ttname"><a href="../../d1/d44/struct_f_property_changed_chain_event.html">FPropertyChangedChainEvent</a></div><div class="ttdef"><b>定义</b> UnrealType.h:7112</div></div>
+<div class="ttc" id="astruct_t_decay_html"><div class="ttname"><a href="../../d3/d81/struct_t_decay.html">Type</a></div></div>
+<div class="ttc" id="astruct_t_object_ptr_html"><div class="ttname"><a href="../../d8/d87/struct_t_object_ptr.html">TObjectPtr</a></div><div class="ttdef"><b>定义</b> ObjectPtr.h:520</div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+</div><!-- container -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a href="../../dir_0b6ee6e7e9547e675db4add2e5de97da.html">Engine</a></li><li class="navelem"><a href="../../dir_9579d1ecb2c7bf48cbe1049c41745cb4.html">Source</a></li><li class="navelem"><a href="../../dir_9f04efef762572853abdf73f62bebfcc.html">Runtime</a></li><li class="navelem"><a href="../../dir_87835aaea0d77a2a55fd49991cde0b5e.html">CoreUObject</a></li><li class="navelem"><a href="../../dir_a58269a1c001704b6bb2fb926776db5c.html">Internal</a></li><li class="navelem"><a href="../../dir_bef7cecd79d86b4e8af6add17f486f0e.html">UObject</a></li><li class="navelem"><a href="../../dd/d29/_property_bag_repository_8h.html">PropertyBagRepository.h</a></li>
+    <li class="footer">制作者 <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.15.0 </li>
+  </ul>
+</div>
+</body>
+</html>

@@ -1,0 +1,25 @@
+var dir_fe15321f14ea7de5ed555f2817775c61 =
+[
+    [ "GatherTextDetailCustomizations.cpp", "de/d09/_gather_text_detail_customizations_8cpp.html", "de/d09/_gather_text_detail_customizations_8cpp" ],
+    [ "GatherTextDetailCustomizations.h", "d9/d65/_gather_text_detail_customizations_8h.html", "d9/d65/_gather_text_detail_customizations_8h" ],
+    [ "LocalizationDashboard.cpp", "d0/d1e/_localization_dashboard_8cpp.html", "d0/d1e/_localization_dashboard_8cpp" ],
+    [ "LocalizationDashboard.h", "d6/da0/_localization_dashboard_8h.html", "d6/da0/_localization_dashboard_8h" ],
+    [ "LocalizationDashboardModule.cpp", "dc/d01/_localization_dashboard_module_8cpp.html", "dc/d01/_localization_dashboard_module_8cpp" ],
+    [ "LocalizationDashboardSettings.cpp", "d7/dd8/_localization_dashboard_settings_8cpp.html", null ],
+    [ "LocalizationDashboardSettings.h", "d4/d27/_localization_dashboard_settings_8h.html", "d4/d27/_localization_dashboard_settings_8h" ],
+    [ "LocalizationDashboardSettingsDetailCustomization.cpp", "d4/d12/_localization_dashboard_settings_detail_customization_8cpp.html", "d4/d12/_localization_dashboard_settings_detail_customization_8cpp" ],
+    [ "LocalizationDashboardSettingsDetailCustomization.h", "d1/d77/_localization_dashboard_settings_detail_customization_8h.html", "d1/d77/_localization_dashboard_settings_detail_customization_8h" ],
+    [ "LocalizationTargetDetailCustomization.cpp", "dc/d05/_localization_target_detail_customization_8cpp.html", "dc/d05/_localization_target_detail_customization_8cpp" ],
+    [ "LocalizationTargetDetailCustomization.h", "d5/d61/_localization_target_detail_customization_8h.html", "d5/d61/_localization_target_detail_customization_8h" ],
+    [ "LocalizationTargetSetDetailCustomization.cpp", "d8/d2c/_localization_target_set_detail_customization_8cpp.html", "d8/d2c/_localization_target_set_detail_customization_8cpp" ],
+    [ "LocalizationTargetSetDetailCustomization.h", "dc/d7a/_localization_target_set_detail_customization_8h.html", "dc/d7a/_localization_target_set_detail_customization_8h" ],
+    [ "SLocalizationDashboardTargetRow.cpp", "d6/def/_s_localization_dashboard_target_row_8cpp.html", "d6/def/_s_localization_dashboard_target_row_8cpp" ],
+    [ "SLocalizationDashboardTargetRow.h", "d2/da8/_s_localization_dashboard_target_row_8h.html", "d2/da8/_s_localization_dashboard_target_row_8h" ],
+    [ "SLocalizationTargetEditor.cpp", "d1/d55/_s_localization_target_editor_8cpp.html", null ],
+    [ "SLocalizationTargetEditor.h", "df/de1/_s_localization_target_editor_8h.html", "df/de1/_s_localization_target_editor_8h" ],
+    [ "SLocalizationTargetEditorCultureRow.cpp", "d3/d31/_s_localization_target_editor_culture_row_8cpp.html", "d3/d31/_s_localization_target_editor_culture_row_8cpp" ],
+    [ "SLocalizationTargetEditorCultureRow.h", "df/d70/_s_localization_target_editor_culture_row_8h.html", "df/d70/_s_localization_target_editor_culture_row_8h" ],
+    [ "SLocalizationTargetStatusButton.cpp", "d9/d32/_s_localization_target_status_button_8cpp.html", "d9/d32/_s_localization_target_status_button_8cpp" ],
+    [ "SLocalizationTargetStatusButton.h", "d5/d65/_s_localization_target_status_button_8h.html", "d5/d65/_s_localization_target_status_button_8h" ],
+    [ "TargetsTableEntry.h", "d3/dcd/_targets_table_entry_8h.html", "d3/dcd/_targets_table_entry_8h" ]
+];

@@ -1,0 +1,28 @@
+var class_u_user_interface_settings =
+[
+    [ "ConvertFontSizeFromDisplayToNative", "df/dd8/class_u_user_interface_settings.html#ae3dc8d9985efee63ed1bc265684e0011", null ],
+    [ "ConvertFontSizeFromNativeToDisplay", "df/dd8/class_u_user_interface_settings.html#a2e8e672ac53d478cac7642c69c0477f5", null ],
+    [ "ForceLoadResources", "df/dd8/class_u_user_interface_settings.html#a0ae112c9ff361351629d351fc018cea9", null ],
+    [ "GetDPIScaleBasedOnSize", "df/dd8/class_u_user_interface_settings.html#a8a7083de2416a3b10e568dc9735f3134", null ],
+    [ "GetFontDisplayDPI", "df/dd8/class_u_user_interface_settings.html#a07cd222ee4542e4de9d36d63d65796fb", null ],
+    [ "PostInitProperties", "df/dd8/class_u_user_interface_settings.html#aa05bb45c1d961198dec4c6c54a6f82b4", null ],
+    [ "UPROPERTY", "df/dd8/class_u_user_interface_settings.html#a06c2109d2371513180eb845576509194", null ],
+    [ "UPROPERTY", "df/dd8/class_u_user_interface_settings.html#ad4dbd09a9ac70c6267b7bb315eb72d37", null ],
+    [ "ApplicationScale", "df/dd8/class_u_user_interface_settings.html#a9ae0885989786b63ac8e5cfa9e525653", null ],
+    [ "bAllowHighDPIInGameMode", "df/dd8/class_u_user_interface_settings.html#a00d99e975ccb015d9e631d322a6e62de", null ],
+    [ "bAuthorizeAutomaticWidgetVariableCreation", "df/dd8/class_u_user_interface_settings.html#a132513a1677202f3701298b19356940c", null ],
+    [ "bLoadWidgetsOnDedicatedServer", "df/dd8/class_u_user_interface_settings.html#ac94eb7f442a480f7794f26e83e148b16", null ],
+    [ "CrosshairsCursor_DEPRECATED", "df/dd8/class_u_user_interface_settings.html#a906b7831982548e052d6086994928d06", null ],
+    [ "CustomScalingRuleClass", "df/dd8/class_u_user_interface_settings.html#a3ebf2cdd3bb8a44901a1a7f5d2556ee1", null ],
+    [ "DefaultCursor_DEPRECATED", "df/dd8/class_u_user_interface_settings.html#a358fe14dbe271d4f83a0d6b9ba3b9002", null ],
+    [ "DesignScreenSize", "df/dd8/class_u_user_interface_settings.html#a93f53ce82ed1521fa02371a927469355", null ],
+    [ "GrabHandClosedCursor_DEPRECATED", "df/dd8/class_u_user_interface_settings.html#a08b70335c51c273720dba114d7b5a686", null ],
+    [ "GrabHandCursor_DEPRECATED", "df/dd8/class_u_user_interface_settings.html#a2736a3ce4a28a5dbbac89c2a228f43d0", null ],
+    [ "HandCursor_DEPRECATED", "df/dd8/class_u_user_interface_settings.html#aedd6c6383005581ef96ed96ce6ca3bd6", null ],
+    [ "HardwareCursors", "df/dd8/class_u_user_interface_settings.html#ae7e38442ebb2cfc8072edf61873c35e5", null ],
+    [ "RenderFocusRule", "df/dd8/class_u_user_interface_settings.html#a406906c4d37223992f64345ad1ca3b52", null ],
+    [ "SlashedCircleCursor_DEPRECATED", "df/dd8/class_u_user_interface_settings.html#a3f397cc98b53d76c0a1047a34de994ec", null ],
+    [ "SoftwareCursors", "df/dd8/class_u_user_interface_settings.html#ade5c915203e309e0c7f0ea33e927035c", null ],
+    [ "TextEditBeamCursor_DEPRECATED", "df/dd8/class_u_user_interface_settings.html#a45168fb76ac0828cea17e0ce372fa9fd", null ],
+    [ "UIScaleRule", "df/dd8/class_u_user_interface_settings.html#a9ce7f9ec37fdef67457ecc125c1473db", null ]
+];

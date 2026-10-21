@@ -1,0 +1,5 @@
+var struct_u_e_1_1_private_1_1_t_queryable_transactional_type_3_01_int_type_00_01_e_ref_count_is_queryable_1_1_no_01_4 =
+[
+    [ "TQueryableTransactionalType", "d8/df2/struct_u_e_1_1_private_1_1_t_queryable_transactional_type_3_01_int_type_00_01_e_ref_count_is_queryable_1_1_no_01_4.html#a26db5604777a97ce7c796fc87840725f", null ],
+    [ "operator IntType", "d8/df2/struct_u_e_1_1_private_1_1_t_queryable_transactional_type_3_01_int_type_00_01_e_ref_count_is_queryable_1_1_no_01_4.html#aca001fe8a39f84b9b3bcd068e62008a6", null ]
+];

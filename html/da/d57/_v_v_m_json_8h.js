@@ -1,0 +1,46 @@
+var _v_v_m_json_8h =
+[
+    [ "JSON_FIELD", "da/d57/_v_v_m_json_8h.html#a70da5ae0ff36a01f5761b94d30ec2e79", null ],
+    [ "Verse::EValueJSONFormat", "de/d30/namespace_verse.html#a1b8b8c394269bd07bf57301852a334af", [
+      [ "Verse::EValueJSONFormat::Analytics", "de/d30/namespace_verse.html#a1b8b8c394269bd07bf57301852a334afaa768caa988605a2846599cf7e2d0c26a", null ],
+      [ "Verse::EValueJSONFormat::Persistence", "de/d30/namespace_verse.html#a1b8b8c394269bd07bf57301852a334afada0b472ac86851a3c0b623260d09546c", null ],
+      [ "Verse::EValueJSONFormat::Persona", "de/d30/namespace_verse.html#a1b8b8c394269bd07bf57301852a334afaad1fc7723ec4e642aaf175b3d4ee5a2f", null ]
+    ] ],
+    [ "Verse::EVisitState", "de/d30/namespace_verse.html#a6c0e94e6e5e78ce5bdec2dc0f0f3b74f", [
+      [ "Verse::EVisitState::Visiting", "de/d30/namespace_verse.html#a6c0e94e6e5e78ce5bdec2dc0f0f3b74faa9a6096d212c042ea0da2e828f7884d4", null ],
+      [ "Verse::EVisitState::Visited", "de/d30/namespace_verse.html#a6c0e94e6e5e78ce5bdec2dc0f0f3b74fa97997416a98b6bc65d68ffebc9d75206", null ]
+    ] ],
+    [ "Verse::Persona::InjectLLMDescription", "d7/d8b/namespace_verse_1_1_persona.html#ac4c0d16eedba5a1c2a1f5aa8db7d35da", null ],
+    [ "Verse::Int64ToJson", "de/d30/namespace_verse.html#a0fde47de8dfe6e7f7a7f8b96ff1d87dd", null ],
+    [ "Verse::Persona::LLMDescriptionAttributeName", "d7/d8b/namespace_verse_1_1_persona.html#a6c8ea182cd9bb31c395767139b3171a7", null ],
+    [ "Verse::Persona::LLMDescriptionFieldName", "d7/d8b/namespace_verse_1_1_persona.html#a3d6783ba0a817a8964ea85ec6410b503", null ],
+    [ "Verse::TryGetInt64", "de/d30/namespace_verse.html#aa0daa0a44dfbcca069226b03d81a1e81", null ],
+    [ "Verse::Unwrap", "de/d30/namespace_verse.html#a5ed7c3dcad641727942166f2e4f516f5", null ],
+    [ "Verse::Unwrap", "de/d30/namespace_verse.html#ae6e94ed2cc53b524b5f2a058320ddd55", null ],
+    [ "Verse::Wrap", "de/d30/namespace_verse.html#a9a0e9de515d9fdff38dca8086ea02238", null ],
+    [ "Verse::Wrap", "de/d30/namespace_verse.html#a039ee74c397d9aade26b748c69a6d8dd", null ],
+    [ "Verse::Persona::AnyOfString", "d7/d8b/namespace_verse_1_1_persona.html#a7652eb90b52a4c9f1b0ca5c73c336e5b", null ],
+    [ "Verse::Persona::ArrayString", "d7/d8b/namespace_verse_1_1_persona.html#a6a25e03e4e9ee837876a7de40a123b94", null ],
+    [ "Verse::Persona::BooleanString", "d7/d8b/namespace_verse_1_1_persona.html#a8b65be81b6f614fc0d853e6f79850520", null ],
+    [ "Verse::Persistence::ClassNameKey", "d2/d7c/namespace_verse_1_1_persistence.html#ade271f1b03784d2a52e66d4708fd83fe", null ],
+    [ "Verse::Persona::DescriptionString", "d7/d8b/namespace_verse_1_1_persona.html#a4537ea3ae5f74197ae42c1bd64e40a44", null ],
+    [ "Verse::Persona::EnumString", "d7/d8b/namespace_verse_1_1_persona.html#ae6f01b5c98cc6c824e4cea20859135d9", null ],
+    [ "Verse::Persona::IntegerString", "d7/d8b/namespace_verse_1_1_persona.html#a786a3683f4b17b3fd53a5c4e0c7cff23", null ],
+    [ "Verse::Persona::ItemsString", "d7/d8b/namespace_verse_1_1_persona.html#afe3adc889a2dd5698ebf93e9e3a137e5", null ],
+    [ "Verse::Persistence::KeyKey", "d2/d7c/namespace_verse_1_1_persistence.html#a9b04586523087341b9c0182347b25446", null ],
+    [ "Verse::Persona::KeyString", "d7/d8b/namespace_verse_1_1_persona.html#a1df26e64ae7fc24a220792f4740cc05b", null ],
+    [ "Verse::Persona::MaximumString", "d7/d8b/namespace_verse_1_1_persona.html#a74de774ae4bcecce029661f99e9a91aa", null ],
+    [ "Verse::Persona::MinimumString", "d7/d8b/namespace_verse_1_1_persona.html#acfd7716086e882faede4d233c25a15c2", null ],
+    [ "Verse::Persona::NullableString", "d7/d8b/namespace_verse_1_1_persona.html#ada24f372d92105bb874baf6eab3d0c58", null ],
+    [ "Verse::Persona::NumberString", "d7/d8b/namespace_verse_1_1_persona.html#a4f853be6fc158df145ad8412212b5c41", null ],
+    [ "Verse::Persona::ObjectString", "d7/d8b/namespace_verse_1_1_persona.html#a11d53cb0289cb64989b96de04b51ecbe", null ],
+    [ "Verse::Persistence::PackageNameKey", "d2/d7c/namespace_verse_1_1_persistence.html#a2917d0d59f8b7ced6a2e101c5d8d68b3", null ],
+    [ "Verse::Persona::PropertiesString", "d7/d8b/namespace_verse_1_1_persona.html#ace7f9b4c95b8e99e824d73cd9552ab05", null ],
+    [ "Verse::Persona::RequiredString", "d7/d8b/namespace_verse_1_1_persona.html#ac5db8c637717260bd71478616b293f68", null ],
+    [ "Verse::Persona::SchemaLink", "d7/d8b/namespace_verse_1_1_persona.html#a4b6efa196405c148dbb215c0401eb083", null ],
+    [ "Verse::Persona::SchemaString", "d7/d8b/namespace_verse_1_1_persona.html#a709871ddaf9db8c8ce6805d9a0419445", null ],
+    [ "Verse::Persona::StringString", "d7/d8b/namespace_verse_1_1_persona.html#ac08d8f79e9c9a48ef54527f84acff141", null ],
+    [ "Verse::Persona::TypeString", "d7/d8b/namespace_verse_1_1_persona.html#a6a9daa2af9f57874b8d010befa2ad52a", null ],
+    [ "Verse::Persistence::ValueKey", "d2/d7c/namespace_verse_1_1_persistence.html#a2484e2b80010cdb90a6f2a80807ba93e", null ],
+    [ "Verse::Persona::ValueString", "d7/d8b/namespace_verse_1_1_persona.html#aa166dda9fca15be9a9638f0a8f95eb1e", null ]
+];

@@ -1,0 +1,442 @@
+<!-- HTML header for doxygen 1.15.0-->
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh">
+<head>
+  <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=11" />
+  <meta name="generator" content="Doxygen 1.15.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>UE 5.8.4: Engine/Source/Runtime/Core/Public/ProfilingDebugging/StallDetector.h 源文件</title>
+  <link rel="icon" href="../../EdIconDefault.bmp" type="image/x-icon" />
+  <link href="../../tabs.css" rel="stylesheet" type="text/css" />
+  <script type="text/javascript" src="../../jquery.js"></script>
+  <script type="text/javascript" src="../../dynsections.js"></script>
+  <link href="../../navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../navtreedata.js"></script>
+<script type="text/javascript" src="../../navtree.js"></script>
+<script type="text/javascript" src="../../cookie.js"></script>
+  <link href="../../search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../search/searchdata.js"></script>
+<script type="text/javascript" src="../../search/search.js"></script>
+  <link href="../../doxygen.css" rel="stylesheet" type="text/css" />
+  <link href="../../doxygen-awesome.css" rel="stylesheet" type="text/css"/>
+<link href="../../doxygen-awesome-sidebar-only.css" rel="stylesheet" type="text/css"/>
+<link href="../../doxygen-awesome-sidebar-only-darkmode-toggle.css" rel="stylesheet" type="text/css"/>
+  <!-- ... other metadata & script includes ... -->
+  <script type="text/javascript" src="../../doxygen-awesome-darkmode-toggle.js"></script>
+  <script type="text/javascript">
+    DoxygenAwesomeDarkModeToggle.title = "Zwischen hellem/dunklem Modus wechseln"
+    DoxygenAwesomeDarkModeToggle.lightModeIcon = '🌞'
+    // icon from https://fonts.google.com/icons
+    DoxygenAwesomeDarkModeToggle.darkModeIcon = `<svg xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 24 24" height="24px" viewBox="0 0 24 24" width="24px" fill="#009793"><g><rect fill="none" height="24" width="24"/></g><g><g><path d="M8.1,14.15C9.77,14.63,11,16.17,11,18c0,0.68-0.19,1.31-0.48,1.87c0.48,0.09,0.97,0.14,1.48,0.14 c1.48,0,2.9-0.41,4.13-1.15c-2.62-0.92-5.23-2.82-6.8-5.86C7.74,9.94,7.78,7.09,8.29,4.9c-2.57,1.33-4.3,4.01-4.3,7.1c0,0,0,0,0,0 c0.01,0,0.01,0,0.02,0C5.66,12,7.18,12.83,8.1,14.15z" opacity=".3"/><path d="M19.78,17.51c-2.47,0-6.57-1.33-8.68-5.43C8.77,7.57,10.6,3.6,11.63,2.01C6.27,2.2,1.98,6.59,1.98,12 c0,0.14,0.02,0.28,0.02,0.42C2.61,12.16,3.28,12,3.98,12c0,0,0,0,0,0c0-3.09,1.73-5.77,4.3-7.1C7.78,7.09,7.74,9.94,9.32,13 c1.57,3.04,4.18,4.95,6.8,5.86c-1.23,0.74-2.65,1.15-4.13,1.15c-0.5,0-1-0.05-1.48-0.14c-0.37,0.7-0.94,1.27-1.64,1.64 c0.98,0.32,2.03,0.5,3.11,0.5c3.5,0,6.58-1.8,8.37-4.52C20.18,17.5,19.98,17.51,19.78,17.51z"/><path d="M7,16l-0.18,0C6.4,14.84,5.3,14,4,14c-1.66,0-3,1.34-3,3s1.34,3,3,3c0.62,0,2.49,0,3,0c1.1,0,2-0.9,2-2 C9,16.9,8.1,16,7,16z"/></g></g></svg>`
+    DoxygenAwesomeDarkModeToggle.init()
+  </script>
+  <script type="text/javascript" src="../../doxygen-awesome-fragment-copy-button.js"></script>
+  <script type="text/javascript">
+    DoxygenAwesomeFragmentCopyButton.title = "In die Zwischenablage kopieren"
+    // DoxygenAwesomeFragmentCopyButton.copyIcon = `<svg ...>`
+    // DoxygenAwesomeFragmentCopyButton.successIcon = `<svg ...>`
+    DoxygenAwesomeFragmentCopyButton.init()
+  </script>
+  <script type="text/javascript" src="../../doxygen-awesome-paragraph-link.js"></script>
+  <script type="text/javascript">
+    DoxygenAwesomeParagraphLink.title = "Abschnitt verknüpfen"
+    DoxygenAwesomeParagraphLink.icon = "¶"
+    DoxygenAwesomeParagraphLink.init()
+  </script>
+  <script type="text/javascript" src="../../doxygen-awesome-interactive-toc.js"></script>
+  <script type="text/javascript">
+    DoxygenAwesomeInteractiveToc.topOffset = 45
+    DoxygenAwesomeInteractiveToc.hideMobileMenu = false
+    DoxygenAwesomeInteractiveToc.init()
+  </script>
+</head>
+<body>
+    <div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+      <div id="titlearea">
+        <table cellspacing="0" cellpadding="0">
+          <tbody>
+            <tr id="projectrow">
+              <td id="projectlogo"><img alt="Logo" src="../../EdIconDefault.bmp"  /></td>
+              <td id="projectalign">
+                <div id="projectname">UE 5.8.4
+                </div>
+                <div id="projectbrief">Unreal Engine</div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <!-- end header part -->
+<!-- 制作者 Doxygen 1.15.0 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "../../search/",'.html');
+</script>
+<script type="text/javascript">
+$(function() { codefold.init(); });
+</script>
+<script type="text/javascript" src="../../menudata.js"></script>
+<script type="text/javascript" src="../../menu.js"></script>
+<script type="text/javascript">
+$(function() {
+  initMenu('../../',true,false,'search.php','搜索',true);
+  $(function() { init_search(); });
+});
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(function(){initNavTree('d7/d83/_runtime_2_core_2_public_2_profiling_debugging_2_stall_detector_8h_source.html','../../',''); });
+</script>
+<div id="container">
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">载入中...</div>
+<div class="SRStatus" id="Searching">搜索中...</div>
+<div class="SRStatus" id="NoMatches">未找到</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">StallDetector.h</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="../../d7/d83/_runtime_2_core_2_public_2_profiling_debugging_2_stall_detector_8h.html">浏览该文件的文档.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="comment">// Copyright Epic Games, Inc. All Rights Reserved.</span></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span> </div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="preprocessor">#pragma once</span></div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span> </div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="preprocessor">#include &quot;Containers/Array.h&quot;</span></div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="preprocessor">#include &quot;Containers/Set.h&quot;</span></div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="preprocessor">#include &quot;<a class="code" href="../../d7/d9b/_unreal_string_8h.html">Containers/UnrealString.h</a>&quot;</span></div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="preprocessor">#include &quot;<a class="code" href="../../db/d04/_core_types_8h.html">CoreTypes.h</a>&quot;</span></div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="preprocessor">#include &quot;<a class="code" href="../../d9/dfd/_delegate_8h.html">Delegates/Delegate.h</a>&quot;</span></div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="preprocessor">#include &quot;<a class="code" href="../../d4/db4/_generic_platform_crash_context_8h.html">GenericPlatform/GenericPlatformCrashContext.h</a>&quot;</span></div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="preprocessor">#include &quot;<a class="code" href="../../df/d05/_critical_section_8h.html">HAL/CriticalSection.h</a>&quot;</span></div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="preprocessor">#include &quot;<a class="code" href="../../d0/db9/_preprocessor_helpers_8h.html">HAL/PreprocessorHelpers.h</a>&quot;</span></div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="preprocessor">#include &quot;<a class="code" href="../../d7/dcd/_log_macros_8h.html">Logging/LogMacros.h</a>&quot;</span></div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="preprocessor">#include &quot;<a class="code" href="../../d9/d44/_build_8h.html">Misc/Build.h</a>&quot;</span></div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span><span class="preprocessor">#include &quot;<a class="code" href="../../d6/df1/_scope_lock_8h.html">Misc/ScopeLock.h</a>&quot;</span></div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span><span class="preprocessor">#include &quot;<a class="code" href="../../d8/daf/_counters_trace_8h.html">ProfilingDebugging/CountersTrace.h</a>&quot;</span></div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span> </div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span><span class="preprocessor">#include &lt;atomic&gt;</span></div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span> </div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span><span class="preprocessor">#ifndef STALL_DETECTOR</span></div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span><span class="preprocessor"> #if WITH_EDITOR &amp;&amp; ( PLATFORM_WINDOWS || PLATFORM_UNIX ) &amp;&amp; !UE_BUILD_SHIPPING &amp;&amp; COUNTERSTRACE_ENABLED &amp;&amp; !USING_THREAD_SANITISER &amp;&amp; !USING_INSTRUMENTATION</span></div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span><span class="preprocessor">  #define STALL_DETECTOR 1</span></div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span><span class="preprocessor"> #else</span></div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno"><a class="line" href="../../d7/d83/_runtime_2_core_2_public_2_profiling_debugging_2_stall_detector_8h.html#a6de83ea24242d3137b46d15859afe56c">   24</a></span><span class="preprocessor">  #define STALL_DETECTOR 0</span></div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span><span class="preprocessor"> #endif</span></div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span><span class="preprocessor">#endif </span><span class="comment">// STALL_DETECTOR</span></div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span> </div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span><span class="preprocessor">#if STALL_DETECTOR</span></div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span></div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span><span class="preprocessor">#define SCOPE_STALL_COUNTER(InName, InBudgetSeconds)                                                                                                                                 \</span></div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span><span class="preprocessor">    static_assert(UE_ARRAY_COUNT(UE_STRINGIZE(InName)) &lt;= UE::StallDetectorScopeMaxNameLength, &quot;Scope name must be less than UE::StallDetectorScopeMaxNameLength characters long &quot;); \</span></div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span><span class="preprocessor">    static UE::FStallDetectorStats UE_JOIN(StallDetectorStats, __LINE__)(TEXT(#InName), InBudgetSeconds, UE::EStallDetectorReportingMode::Disabled);                                 \</span></div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span><span class="preprocessor">    UE::FStallDetector UE_JOIN(ScopeStallDetector, __LINE__)(UE_JOIN(StallDetectorStats, __LINE__));</span></div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span></div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span><span class="preprocessor">#define SCOPE_STALL_REPORTER(InName, InBudgetSeconds)                                                                                                                                \</span></div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span><span class="preprocessor">    static_assert(UE_ARRAY_COUNT(UE_STRINGIZE(InName)) &lt;= UE::StallDetectorScopeMaxNameLength, &quot;Scope name must be less than UE::StallDetectorScopeMaxNameLength characters long &quot;); \</span></div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span><span class="preprocessor">    static UE::FStallDetectorStats UE_JOIN(StallDetectorStats, __LINE__)(TEXT(#InName), InBudgetSeconds, UE::EStallDetectorReportingMode::First);                                    \</span></div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span><span class="preprocessor">    UE::FStallDetector UE_JOIN(ScopeStallDetector, __LINE__)(UE_JOIN(StallDetectorStats, __LINE__));</span></div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span></div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span><span class="preprocessor">#define SCOPE_STALL_REPORTER_ALWAYS(InName, InBudgetSeconds)                                                                                                                         \</span></div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span><span class="preprocessor">    static_assert(UE_ARRAY_COUNT(UE_STRINGIZE(InName)) &lt;= UE::StallDetectorScopeMaxNameLength, &quot;Scope name must be less than UE::StallDetectorScopeMaxNameLength characters long &quot;); \</span></div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span><span class="preprocessor">    static UE::FStallDetectorStats UE_JOIN(StallDetectorStats, __LINE__)(TEXT(#InName), InBudgetSeconds, UE::EStallDetectorReportingMode::Always);                                   \</span></div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span><span class="preprocessor">    UE::FStallDetector UE_JOIN(ScopeStallDetector, __LINE__)(UE_JOIN(StallDetectorStats, __LINE__));</span></div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span></div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span><span class="preprocessor">#define SCOPE_STALL_DETECTOR_PAUSE() \</span></div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span><span class="preprocessor">    UE::FStallDetectorPause UE_JOIN(ScopeStallDetectorPause, __LINE__);</span></div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span> </div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span><span class="preprocessor">#else </span><span class="comment">// STALL_DETECTOR</span></div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span> </div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno"><a class="line" href="../../d7/d83/_runtime_2_core_2_public_2_profiling_debugging_2_stall_detector_8h.html#ad324665cd1c363f45ed2fe5c713e8706">   64</a></span><span class="preprocessor">#define SCOPE_STALL_COUNTER(InName, InBudgetSeconds)</span></div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno"><a class="line" href="../../d7/d83/_runtime_2_core_2_public_2_profiling_debugging_2_stall_detector_8h.html#acd37cdd20383b838494aa938de1b59bd">   65</a></span><span class="preprocessor">#define SCOPE_STALL_REPORTER(InName, InBudgetSeconds)</span></div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno"><a class="line" href="../../d7/d83/_runtime_2_core_2_public_2_profiling_debugging_2_stall_detector_8h.html#a340d8b7a0945514d4ec490674b4b6450">   66</a></span><span class="preprocessor">#define SCOPE_STALL_REPORTER_ALWAYS(InName, InBudgetSeconds)</span></div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno"><a class="line" href="../../d7/d83/_runtime_2_core_2_public_2_profiling_debugging_2_stall_detector_8h.html#a5376ec932ec1f1136e8568e94d6db122">   67</a></span><span class="preprocessor">#define SCOPE_STALL_DETECTOR_PAUSE()</span></div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span> </div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span><span class="preprocessor">#endif </span><span class="comment">// STALL_DETECTOR</span></div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span> </div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span><span class="preprocessor">#if STALL_DETECTOR</span></div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span> </div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>CORE_API <a class="code hl_define" href="../../de/d19/_log_category_8h.html#a43ea79f4ce7579e260155ad62a2e1d9a">DECLARE_LOG_CATEGORY_EXTERN</a>(LogStall, <a class="code hl_enumvalue" href="../../d4/dd7/_tool_menu_misc_8h.html#a7af3c9137c13dfad9fe897c12ae21017ace0be71e33226e4c1db2bcea5959f16b">Log</a>, <a class="code hl_enumvalue" href="../../db/da0/_hair_strands_composition_8cpp.html#a01ae254fc9c19378956c218ed4e9c32da54991d225c58ce0af43461d4e9a82312">All</a>);</div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span></div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span><span class="keyword">namespace </span><a class="code hl_namespace" href="../../da/de5/namespace_u_e.html">UE</a></div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>{</div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>    <span class="keyword">class </span>FStallDetector;</div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span> </div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span>    <span class="comment">// Stall detected event is fired on a worker thread when it is detected that a stall scope has been active for too long.</span></div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span>    <span class="comment">// Fired from a worker thread.</span></div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span>    <span class="keyword">struct </span>FStallDetectedParams</div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span>    {</div>
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span>        <a class="code hl_typedef" href="../../d7/d6a/_string_fwd_8h.html#a841e8ee04adcccfc0c78bd543334882f">FStringView</a> StatName;</div>
+<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span>        <a class="code hl_typedef" href="../../dd/de9/preprocessor_8c.html#a1134b580f8da4de94ca6b1de4d37975e">uint32</a> ThreadId;</div>
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span>        <a class="code hl_typedef" href="../../dd/de9/preprocessor_8c.html#abc0f5bc07737e498f287334775dff2b6">uint64</a> UniqueID;</div>
+<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span>        <a class="code hl_class" href="../../d6/db1/class_t_array.html">TArray&lt;uint64&gt;</a> Backtrace;</div>
+<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span>    };</div>
+<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span>    <a class="code hl_define" href="../../d6/d40/_delegate_combinations_8h.html#aa5c2c0ed55b15a19ec8a966b5596a680">DECLARE_TS_MULTICAST_DELEGATE_OneParam</a>(FOnStallDetected, <span class="keyword">const</span> FStallDetectedParams&amp;);</div>
+<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span> </div>
+<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span>    <span class="comment">// Stall completed event is fired synchronously on the stalling thread after it recovers from the stall.</span></div>
+<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span>    <span class="comment">// It may be fired without a matching StallDetected event in the case that the background detector&#39;s resolution</span></div>
+<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span>    <span class="comment">// is too low or that thread is blocked for some reason.</span></div>
+<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span>    <span class="keyword">struct </span>FStallCompletedParams</div>
+<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span>    {</div>
+<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span>        <a class="code hl_typedef" href="../../dd/de9/preprocessor_8c.html#a1134b580f8da4de94ca6b1de4d37975e">uint32</a> ThreadId;</div>
+<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span>        <a class="code hl_typedef" href="../../d7/d6a/_string_fwd_8h.html#a841e8ee04adcccfc0c78bd543334882f">FStringView</a> StatName;</div>
+<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span>        <span class="keywordtype">double</span> BudgetSeconds;</div>
+<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span>        <span class="keywordtype">double</span> OverbudgetSeconds;</div>
+<div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span>        <a class="code hl_typedef" href="../../dd/de9/preprocessor_8c.html#abc0f5bc07737e498f287334775dff2b6">uint64</a> UniqueID;</div>
+<div class="line"><a id="l00118" name="l00118"></a><span class="lineno">  118</span>        <span class="keywordtype">bool</span> bWasTriggered;</div>
+<div class="line"><a id="l00119" name="l00119"></a><span class="lineno">  119</span>    };</div>
+<div class="line"><a id="l00120" name="l00120"></a><span class="lineno">  120</span>    <a class="code hl_define" href="../../d6/d40/_delegate_combinations_8h.html#aa5c2c0ed55b15a19ec8a966b5596a680">DECLARE_TS_MULTICAST_DELEGATE_OneParam</a>(FOnStallCompleted, <span class="keyword">const</span> FStallCompletedParams&amp;);</div>
+<div class="line"><a id="l00121" name="l00121"></a><span class="lineno">  121</span></div>
+<div class="line"><a id="l00125" name="l00125"></a><span class="lineno">  125</span>    <span class="keyword">enum</span> EStallDetectorReportingMode</div>
+<div class="line"><a id="l00126" name="l00126"></a><span class="lineno">  126</span>    {</div>
+<div class="line"><a id="l00127" name="l00127"></a><span class="lineno">  127</span>        <a class="code hl_enumvalue" href="../../d1/dc3/_cooker_settings_8h.html#a6bfcf62e9c9f5639cd5ffaa585b7f6c8ab9f5c797ebbf55adccdd8539a65a0241">Disabled</a>,</div>
+<div class="line"><a id="l00128" name="l00128"></a><span class="lineno">  128</span>        <a class="code hl_enumvalue" href="../../dc/dcd/_edit_condition_parser_tests_8h.html#aac74ea723e1d36af4918cd37b3cc0065ac5222d41f21bc883f0c0b9754191b350">First</a>,</div>
+<div class="line"><a id="l00129" name="l00129"></a><span class="lineno">  129</span>        <a class="code hl_enumvalue" href="../../db/d03/_datasmith_export_options_8h.html#a0cd19612ef8ec5c76ea89c49ae6994aaa68eec46437c384d8dad18d5464ebc35c">Always</a></div>
+<div class="line"><a id="l00130" name="l00130"></a><span class="lineno">  130</span>    };</div>
+<div class="line"><a id="l00131" name="l00131"></a><span class="lineno">  131</span> </div>
+<div class="line"><a id="l00132" name="l00132"></a><span class="lineno">  132</span>    <span class="keyword">static</span> <span class="keyword">constexpr</span> <a class="code hl_typedef" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2c46f1fb01e11216aa2c983307deafb4">SIZE_T</a> StallDetectorStatNameBufferSize = 256;</div>
+<div class="line"><a id="l00133" name="l00133"></a><span class="lineno">  133</span>    <span class="keyword">static</span> <span class="keyword">constexpr</span> <a class="code hl_typedef" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a8dbb3cd84ca9fd010dadfc3815eefa5d">int32</a> StallDetectorMaxBacktraceEntries = 32;</div>
+<div class="line"><a id="l00134" name="l00134"></a><span class="lineno">  134</span> </div>
+<div class="line"><a id="l00135" name="l00135"></a><span class="lineno">  135</span>    <span class="keyword">class </span>FStallDetectorRunnable;</div>
+<div class="line"><a id="l00136" name="l00136"></a><span class="lineno">  136</span></div>
+<div class="line"><a id="l00140" name="l00140"></a><span class="lineno">  140</span>    <span class="keyword">class </span>FStallDetectorStats</div>
+<div class="line"><a id="l00141" name="l00141"></a><span class="lineno">  141</span>    {</div>
+<div class="line"><a id="l00142" name="l00142"></a><span class="lineno">  142</span>        <span class="keyword">friend</span> <span class="keyword">class </span>FStallDetectorRunnable;</div>
+<div class="line"><a id="l00143" name="l00143"></a><span class="lineno">  143</span> </div>
+<div class="line"><a id="l00144" name="l00144"></a><span class="lineno">  144</span>    <span class="keyword">public</span>:</div>
+<div class="line"><a id="l00148" name="l00148"></a><span class="lineno">  148</span>        CORE_API FStallDetectorStats(<span class="keyword">const</span> TCHAR* InName, <span class="keyword">const</span> <span class="keywordtype">double</span> InBudgetSeconds, <span class="keyword">const</span> EStallDetectorReportingMode InReportingMode);</div>
+<div class="line"><a id="l00149" name="l00149"></a><span class="lineno">  149</span></div>
+<div class="line"><a id="l00153" name="l00153"></a><span class="lineno">  153</span>        CORE_API ~FStallDetectorStats();</div>
+<div class="line"><a id="l00154" name="l00154"></a><span class="lineno">  154</span></div>
+<div class="line"><a id="l00158" name="l00158"></a><span class="lineno">  158</span>        CORE_API <span class="keywordtype">void</span> OnStallCompleted(<span class="keywordtype">double</span> InOverageSeconds);</div>
+<div class="line"><a id="l00159" name="l00159"></a><span class="lineno">  159</span> </div>
+<div class="line"><a id="l00160" name="l00160"></a><span class="lineno">  160</span>        <span class="keyword">struct </span>TabulatedResult</div>
+<div class="line"><a id="l00161" name="l00161"></a><span class="lineno">  161</span>        {</div>
+<div class="line"><a id="l00162" name="l00162"></a><span class="lineno">  162</span>            <span class="keyword">const</span> <a class="code hl_typedef" href="../../d4/d83/namespace_cross_compiler.html#ad4d968bae01be345ca4bcc2426796f38">TCHAR</a>* <a class="code hl_enumvalue" href="../../d1/d24/_content_browser_item_data_8h.html#ab996d81c628e8b9062d20ca9c39a64cda49ee3087348e8d44e1feda1917443987">Name</a> = <a class="code hl_define" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(<span class="stringliteral">&quot;&quot;</span>);</div>
+<div class="line"><a id="l00163" name="l00163"></a><span class="lineno">  163</span>            <span class="keywordtype">double</span> BudgetSeconds = 0.0;</div>
+<div class="line"><a id="l00164" name="l00164"></a><span class="lineno">  164</span>            <a class="code hl_typedef" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a89241ea7101f26f05a4f1efd6be26b32">int64</a> TriggerCount = 0;</div>
+<div class="line"><a id="l00165" name="l00165"></a><span class="lineno">  165</span>            <span class="keywordtype">double</span> OverageSeconds = 0.0;</div>
+<div class="line"><a id="l00166" name="l00166"></a><span class="lineno">  166</span>            <span class="keywordtype">double</span> OverageRatio = 0.0;</div>
+<div class="line"><a id="l00167" name="l00167"></a><span class="lineno">  167</span>        };</div>
+<div class="line"><a id="l00168" name="l00168"></a><span class="lineno">  168</span>        <span class="keyword">static</span> CORE_API <span class="keywordtype">void</span> TabulateStats(TArray&lt;TabulatedResult&gt;&amp; TabulatedResults);</div>
+<div class="line"><a id="l00169" name="l00169"></a><span class="lineno">  169</span> </div>
+<div class="line"><a id="l00170" name="l00170"></a><span class="lineno">  170</span>        <span class="comment">// The name to refer to this callsite in the codebase</span></div>
+<div class="line"><a id="l00171" name="l00171"></a><span class="lineno">  171</span>        <span class="keyword">const</span> <a class="code hl_typedef" href="../../d4/d83/namespace_cross_compiler.html#ad4d968bae01be345ca4bcc2426796f38">TCHAR</a>* <a class="code hl_enumvalue" href="../../d1/d24/_content_browser_item_data_8h.html#ab996d81c628e8b9062d20ca9c39a64cda49ee3087348e8d44e1feda1917443987">Name</a>;</div>
+<div class="line"><a id="l00172" name="l00172"></a><span class="lineno">  172</span> </div>
+<div class="line"><a id="l00173" name="l00173"></a><span class="lineno">  173</span>        <span class="comment">// The budgeted time we tolerate without sending a report</span></div>
+<div class="line"><a id="l00174" name="l00174"></a><span class="lineno">  174</span>        <span class="keyword">const</span> <span class="keywordtype">double</span> BudgetSeconds;</div>
+<div class="line"><a id="l00175" name="l00175"></a><span class="lineno">  175</span> </div>
+<div class="line"><a id="l00176" name="l00176"></a><span class="lineno">  176</span>        <span class="comment">// Drives the behavior about what to do when a budget is violated (triggered)</span></div>
+<div class="line"><a id="l00177" name="l00177"></a><span class="lineno">  177</span>        <span class="keyword">const</span> EStallDetectorReportingMode ReportingMode;</div>
+<div class="line"><a id="l00178" name="l00178"></a><span class="lineno">  178</span> </div>
+<div class="line"><a id="l00179" name="l00179"></a><span class="lineno">  179</span>        <span class="comment">// Has this been reported yet, this is different than the trigger count for coherency reasons</span></div>
+<div class="line"><a id="l00180" name="l00180"></a><span class="lineno">  180</span>        <span class="keywordtype">bool</span> bReported;</div>
+<div class="line"><a id="l00181" name="l00181"></a><span class="lineno">  181</span> </div>
+<div class="line"><a id="l00182" name="l00182"></a><span class="lineno">  182</span>        <span class="comment">// The total number of times all callsites have been triggered</span></div>
+<div class="line"><a id="l00183" name="l00183"></a><span class="lineno">  183</span>        <span class="keyword">static</span> CORE_API FCountersTrace::FCounterAtomicInt TotalTriggeredCount;</div>
+<div class="line"><a id="l00184" name="l00184"></a><span class="lineno">  184</span> </div>
+<div class="line"><a id="l00185" name="l00185"></a><span class="lineno">  185</span>        <span class="comment">// The total number of reports that have been sent</span></div>
+<div class="line"><a id="l00186" name="l00186"></a><span class="lineno">  186</span>        <span class="keyword">static</span> CORE_API FCountersTrace::FCounterAtomicInt TotalReportedCount;</div>
+<div class="line"><a id="l00187" name="l00187"></a><span class="lineno">  187</span> </div>
+<div class="line"><a id="l00188" name="l00188"></a><span class="lineno">  188</span>    <span class="keyword">private</span>:</div>
+<div class="line"><a id="l00189" name="l00189"></a><span class="lineno">  189</span>        <span class="comment">// The number of times this callsite has been triggered</span></div>
+<div class="line"><a id="l00190" name="l00190"></a><span class="lineno">  190</span>        <a class="code hl_typedef" href="../../d4/d83/namespace_cross_compiler.html#ad4d968bae01be345ca4bcc2426796f38">TCHAR</a> TriggerCountCounterName[StallDetectorStatNameBufferSize];</div>
+<div class="line"><a id="l00191" name="l00191"></a><span class="lineno">  191</span>        FCountersTrace::TCounter&lt;int64, TraceCounterType_Int&gt; TriggerCount;</div>
+<div class="line"><a id="l00192" name="l00192"></a><span class="lineno">  192</span> </div>
+<div class="line"><a id="l00193" name="l00193"></a><span class="lineno">  193</span>        <span class="comment">// The cumulative overage time for this callsite</span></div>
+<div class="line"><a id="l00194" name="l00194"></a><span class="lineno">  194</span>        <a class="code hl_typedef" href="../../d4/d83/namespace_cross_compiler.html#ad4d968bae01be345ca4bcc2426796f38">TCHAR</a> OverageSecondsCounterName[StallDetectorStatNameBufferSize];</div>
+<div class="line"><a id="l00195" name="l00195"></a><span class="lineno">  195</span>        FCountersTrace::TCounter&lt;double, TraceCounterType_Float&gt; OverageSeconds;</div>
+<div class="line"><a id="l00196" name="l00196"></a><span class="lineno">  196</span> </div>
+<div class="line"><a id="l00197" name="l00197"></a><span class="lineno">  197</span>        <span class="comment">// Guards access to the stats from multiple threads, for coherency</span></div>
+<div class="line"><a id="l00198" name="l00198"></a><span class="lineno">  198</span>        <span class="keyword">mutable</span> <a class="code hl_typedef" href="../../df/d05/_critical_section_8h.html#a3493a225a68d4748d7b1c85e8ae9d0b5">FCriticalSection</a> StatsSection;</div>
+<div class="line"><a id="l00199" name="l00199"></a><span class="lineno">  199</span>    };</div>
+<div class="line"><a id="l00200" name="l00200"></a><span class="lineno">  200</span></div>
+<div class="line"><a id="l00205" name="l00205"></a><span class="lineno">  205</span>    <span class="keyword">class </span>FStallTimer</div>
+<div class="line"><a id="l00206" name="l00206"></a><span class="lineno">  206</span>    {</div>
+<div class="line"><a id="l00207" name="l00207"></a><span class="lineno">  207</span>    <span class="keyword">public</span>:</div>
+<div class="line"><a id="l00211" name="l00211"></a><span class="lineno">  211</span>        CORE_API FStallTimer();</div>
+<div class="line"><a id="l00212" name="l00212"></a><span class="lineno">  212</span></div>
+<div class="line"><a id="l00216" name="l00216"></a><span class="lineno">  216</span>        CORE_API <span class="keywordtype">void</span> <a class="code hl_function" href="../../d0/db7/_mem_pro_8cpp.html#aaa7f2acd75bb8eec434a9d35b5693292">Reset</a>(<span class="keyword">const</span> <span class="keywordtype">double</span> InSeconds, <span class="keyword">const</span> <span class="keywordtype">double</span> InRemainingSeconds);</div>
+<div class="line"><a id="l00217" name="l00217"></a><span class="lineno">  217</span></div>
+<div class="line"><a id="l00221" name="l00221"></a><span class="lineno">  221</span>        CORE_API <span class="keywordtype">void</span> <a class="code hl_enumvalue" href="../../d5/d19/_u_i_command_info_8h.html#a4cbb850c17f5128fcb59e73c3de25e67a060bf2d587991d8f090a1309b285291c">Check</a>(<span class="keyword">const</span> <span class="keywordtype">double</span> InSeconds, <span class="keywordtype">double</span>&amp; OutDeltaSeconds, <span class="keywordtype">double</span>&amp; OutOverageSeconds);</div>
+<div class="line"><a id="l00222" name="l00222"></a><span class="lineno">  222</span></div>
+<div class="line"><a id="l00226" name="l00226"></a><span class="lineno">  226</span>        CORE_API <span class="keywordtype">void</span> <a class="code hl_enumvalue" href="../../d3/d41/_i_media_controls_8h.html#ac4a1445e21b39bb1f6f9c92413e0e7e7a105b296a83f9c105355403f3332af50f">Pause</a>(<span class="keyword">const</span> <span class="keywordtype">double</span> InSeconds);</div>
+<div class="line"><a id="l00227" name="l00227"></a><span class="lineno">  227</span></div>
+<div class="line"><a id="l00231" name="l00231"></a><span class="lineno">  231</span>        CORE_API <span class="keywordtype">void</span> <a class="code hl_enumvalue" href="../../d3/d41/_i_media_controls_8h.html#ac4a1445e21b39bb1f6f9c92413e0e7e7af1cefec9e2196c672a622347f1fbc325">Resume</a>(<span class="keyword">const</span> <span class="keywordtype">double</span> InSeconds);</div>
+<div class="line"><a id="l00232" name="l00232"></a><span class="lineno">  232</span> </div>
+<div class="line"><a id="l00233" name="l00233"></a><span class="lineno">  233</span>    <span class="keyword">private</span>:</div>
+<div class="line"><a id="l00234" name="l00234"></a><span class="lineno">  234</span>        <span class="comment">// To track pause/unpause calls</span></div>
+<div class="line"><a id="l00235" name="l00235"></a><span class="lineno">  235</span>        <a class="code hl_typedef" href="../../dd/de9/preprocessor_8c.html#a1134b580f8da4de94ca6b1de4d37975e">uint32</a> PauseCount;</div>
+<div class="line"><a id="l00236" name="l00236"></a><span class="lineno">  236</span> </div>
+<div class="line"><a id="l00237" name="l00237"></a><span class="lineno">  237</span>        <span class="comment">// The timestamp of when we last called Reset() or Check()</span></div>
+<div class="line"><a id="l00238" name="l00238"></a><span class="lineno">  238</span>        <span class="keywordtype">double</span> LastCheckSeconds;</div>
+<div class="line"><a id="l00239" name="l00239"></a><span class="lineno">  239</span> </div>
+<div class="line"><a id="l00240" name="l00240"></a><span class="lineno">  240</span>        <span class="comment">// The time remaining before we we go beyond the remaining time</span></div>
+<div class="line"><a id="l00241" name="l00241"></a><span class="lineno">  241</span>        <span class="keywordtype">double</span> RemainingSeconds;</div>
+<div class="line"><a id="l00242" name="l00242"></a><span class="lineno">  242</span> </div>
+<div class="line"><a id="l00243" name="l00243"></a><span class="lineno">  243</span>        <span class="comment">// Guards access to internal state from multiple threads</span></div>
+<div class="line"><a id="l00244" name="l00244"></a><span class="lineno">  244</span>        <a class="code hl_typedef" href="../../df/d05/_critical_section_8h.html#a3493a225a68d4748d7b1c85e8ae9d0b5">FCriticalSection</a> <a class="code hl_enumvalue" href="../../d6/ddb/_tool_element_registry_8h.html#a40ebde4a253ceec5bd5b7dc70bd70eb4ad2c24d59e0baff4d0155fbdf62590867">Section</a>;</div>
+<div class="line"><a id="l00245" name="l00245"></a><span class="lineno">  245</span>    };</div>
+<div class="line"><a id="l00246" name="l00246"></a><span class="lineno">  246</span></div>
+<div class="line"><a id="l00250" name="l00250"></a><span class="lineno">  250</span>    <span class="keyword">class </span>FStallDetector</div>
+<div class="line"><a id="l00251" name="l00251"></a><span class="lineno">  251</span>    {</div>
+<div class="line"><a id="l00252" name="l00252"></a><span class="lineno">  252</span>        <span class="keyword">friend</span> <span class="keyword">class </span>FStallDetectorRunnable;</div>
+<div class="line"><a id="l00253" name="l00253"></a><span class="lineno">  253</span> </div>
+<div class="line"><a id="l00254" name="l00254"></a><span class="lineno">  254</span>    <span class="keyword">public</span>:</div>
+<div class="line"><a id="l00258" name="l00258"></a><span class="lineno">  258</span>        CORE_API FStallDetector(FStallDetectorStats&amp; InStats);</div>
+<div class="line"><a id="l00259" name="l00259"></a><span class="lineno">  259</span></div>
+<div class="line"><a id="l00263" name="l00263"></a><span class="lineno">  263</span>        CORE_API ~FStallDetector();</div>
+<div class="line"><a id="l00264" name="l00264"></a><span class="lineno">  264</span></div>
+<div class="line"><a id="l00270" name="l00270"></a><span class="lineno">  270</span>        CORE_API <span class="keywordtype">void</span> CheckAndReset();</div>
+<div class="line"><a id="l00271" name="l00271"></a><span class="lineno">  271</span></div>
+<div class="line"><a id="l00275" name="l00275"></a><span class="lineno">  275</span>        CORE_API <span class="keywordtype">void</span> <a class="code hl_enumvalue" href="../../d3/d41/_i_media_controls_8h.html#ac4a1445e21b39bb1f6f9c92413e0e7e7a105b296a83f9c105355403f3332af50f">Pause</a>(<span class="keyword">const</span> <span class="keywordtype">double</span> InSeconds);</div>
+<div class="line"><a id="l00276" name="l00276"></a><span class="lineno">  276</span></div>
+<div class="line"><a id="l00280" name="l00280"></a><span class="lineno">  280</span>        CORE_API <span class="keywordtype">void</span> <a class="code hl_enumvalue" href="../../d3/d41/_i_media_controls_8h.html#ac4a1445e21b39bb1f6f9c92413e0e7e7af1cefec9e2196c672a622347f1fbc325">Resume</a>(<span class="keyword">const</span> <span class="keywordtype">double</span> InSeconds);</div>
+<div class="line"><a id="l00281" name="l00281"></a><span class="lineno">  281</span></div>
+<div class="line"><a id="l00285" name="l00285"></a><span class="lineno">  285</span>        FStallDetector* GetParent()</div>
+<div class="line"><a id="l00286" name="l00286"></a><span class="lineno">  286</span>        {</div>
+<div class="line"><a id="l00287" name="l00287"></a><span class="lineno">  287</span>            <span class="keywordflow">return</span> <a class="code hl_enumvalue" href="../../d4/d54/_constraint_8h.html#a00139ae49ad491d88da442b13ceb2a2ca30269022e9d8f51beaabb52e5d0de2b7">Parent</a>;</div>
+<div class="line"><a id="l00288" name="l00288"></a><span class="lineno">  288</span>        }</div>
+<div class="line"><a id="l00289" name="l00289"></a><span class="lineno">  289</span></div>
+<div class="line"><a id="l00293" name="l00293"></a><span class="lineno">  293</span>        <span class="keyword">static</span> CORE_API <span class="keywordtype">double</span> <a class="code hl_enumvalue" href="../../d6/d3d/_unit_conversion_8h.html#a9dbd83757db11891db81e11540fb669aa8f19a8c7566af54ea8981029730e5465">Seconds</a>();</div>
+<div class="line"><a id="l00294" name="l00294"></a><span class="lineno">  294</span></div>
+<div class="line"><a id="l00298" name="l00298"></a><span class="lineno">  298</span>        <span class="keyword">static</span> CORE_API <span class="keywordtype">void</span> Startup();</div>
+<div class="line"><a id="l00299" name="l00299"></a><span class="lineno">  299</span></div>
+<div class="line"><a id="l00303" name="l00303"></a><span class="lineno">  303</span>        <span class="keyword">static</span> CORE_API <span class="keywordtype">void</span> <a class="code hl_enumvalue" href="../../d9/df5/_analytics_session_summary_manager_8h.html#adb92fcb652840119c5c828c46e026759a1a4ebb180ba59b067782515ffee6e975">Shutdown</a>();</div>
+<div class="line"><a id="l00304" name="l00304"></a><span class="lineno">  304</span></div>
+<div class="line"><a id="l00308" name="l00308"></a><span class="lineno">  308</span>        <span class="keyword">static</span> CORE_API <span class="keywordtype">bool</span> IsRunning();</div>
+<div class="line"><a id="l00309" name="l00309"></a><span class="lineno">  309</span></div>
+<div class="line"><a id="l00315" name="l00315"></a><span class="lineno">  315</span>        <span class="keyword">static</span> CORE_API FOnStallDetected StallDetected;</div>
+<div class="line"><a id="l00316" name="l00316"></a><span class="lineno">  316</span></div>
+<div class="line"><a id="l00322" name="l00322"></a><span class="lineno">  322</span>        <span class="keyword">static</span> CORE_API FOnStallCompleted StallCompleted;</div>
+<div class="line"><a id="l00323" name="l00323"></a><span class="lineno">  323</span> </div>
+<div class="line"><a id="l00324" name="l00324"></a><span class="lineno">  324</span>    <span class="keyword">private</span>:</div>
+<div class="line"><a id="l00326" name="l00326"></a><span class="lineno">  326</span>        <span class="keyword">static</span> CORE_API TAtomic&lt;uint64&gt; UIDGenerator;</div>
+<div class="line"><a id="l00327" name="l00327"></a><span class="lineno">  327</span>        </div>
+<div class="line"><a id="l00328" name="l00328"></a><span class="lineno">  328</span>        <span class="comment">// The time provided, the deadline</span></div>
+<div class="line"><a id="l00329" name="l00329"></a><span class="lineno">  329</span>        FStallDetectorStats&amp; Stats;</div>
+<div class="line"><a id="l00330" name="l00330"></a><span class="lineno">  330</span> </div>
+<div class="line"><a id="l00331" name="l00331"></a><span class="lineno">  331</span>        <span class="comment">// A stall detector on the same thread with a longer lifetime if any</span></div>
+<div class="line"><a id="l00332" name="l00332"></a><span class="lineno">  332</span>        FStallDetector* <a class="code hl_enumvalue" href="../../d4/d54/_constraint_8h.html#a00139ae49ad491d88da442b13ceb2a2ca30269022e9d8f51beaabb52e5d0de2b7">Parent</a>;</div>
+<div class="line"><a id="l00333" name="l00333"></a><span class="lineno">  333</span> </div>
+<div class="line"><a id="l00334" name="l00334"></a><span class="lineno">  334</span>        <span class="comment">// Thread it was constructed on, and to stack trace when budgeted time is elapsed</span></div>
+<div class="line"><a id="l00335" name="l00335"></a><span class="lineno">  335</span>        <a class="code hl_typedef" href="../../dd/de9/preprocessor_8c.html#a1134b580f8da4de94ca6b1de4d37975e">uint32</a> ThreadId;</div>
+<div class="line"><a id="l00336" name="l00336"></a><span class="lineno">  336</span> </div>
+<div class="line"><a id="l00337" name="l00337"></a><span class="lineno">  337</span>        <span class="comment">// Did we actually start the detector (was the thread started at construction time)</span></div>
+<div class="line"><a id="l00338" name="l00338"></a><span class="lineno">  338</span>        <span class="keywordtype">bool</span> bStarted;</div>
+<div class="line"><a id="l00339" name="l00339"></a><span class="lineno">  339</span> </div>
+<div class="line"><a id="l00340" name="l00340"></a><span class="lineno">  340</span>        <span class="comment">// Persistent usage mode</span></div>
+<div class="line"><a id="l00341" name="l00341"></a><span class="lineno">  341</span>        <span class="keywordtype">bool</span> bPersistent;</div>
+<div class="line"><a id="l00342" name="l00342"></a><span class="lineno">  342</span> </div>
+<div class="line"><a id="l00343" name="l00343"></a><span class="lineno">  343</span>        <span class="comment">// Track whether a stall was detected from the background thread.</span></div>
+<div class="line"><a id="l00344" name="l00344"></a><span class="lineno">  344</span>        <span class="comment">// This is protected by the same mutex which protects the registered stall detector instances.</span></div>
+<div class="line"><a id="l00345" name="l00345"></a><span class="lineno">  345</span>        <span class="comment">// Only set from background thread, can be reset from another thread with CheckAndReset</span></div>
+<div class="line"><a id="l00346" name="l00346"></a><span class="lineno">  346</span>        <span class="keywordtype">bool</span> bTriggered;</div>
+<div class="line"><a id="l00347" name="l00347"></a><span class="lineno">  347</span> </div>
+<div class="line"><a id="l00348" name="l00348"></a><span class="lineno">  348</span>        <span class="comment">// The timer data for this detector</span></div>
+<div class="line"><a id="l00349" name="l00349"></a><span class="lineno">  349</span>        FStallTimer <a class="code hl_enumvalue" href="../../da/da0/namespace_build_patch_services.html#a828aab15ea4d205ee1ac28f9b42fd355aefb4777327e6f704fb1519c1882f93ec">Timer</a>;</div>
+<div class="line"><a id="l00350" name="l00350"></a><span class="lineno">  350</span> </div>
+<div class="line"><a id="l00351" name="l00351"></a><span class="lineno">  351</span>        <span class="comment">// Unique ID given to a StallDetector</span></div>
+<div class="line"><a id="l00352" name="l00352"></a><span class="lineno">  352</span>        <a class="code hl_typedef" href="../../dd/de9/preprocessor_8c.html#abc0f5bc07737e498f287334775dff2b6">uint64</a> UniqueID;</div>
+<div class="line"><a id="l00353" name="l00353"></a><span class="lineno">  353</span></div>
+<div class="line"><a id="l00360" name="l00360"></a><span class="lineno">  360</span>        CORE_API <span class="keywordtype">double</span> <a class="code hl_enumvalue" href="../../d5/d19/_u_i_command_info_8h.html#a4cbb850c17f5128fcb59e73c3de25e67a060bf2d587991d8f090a1309b285291c">Check</a>(<span class="keywordtype">bool</span> bFinalCheck, <span class="keywordtype">double</span> InCheckSeconds);</div>
+<div class="line"><a id="l00361" name="l00361"></a><span class="lineno">  361</span>    };</div>
+<div class="line"><a id="l00362" name="l00362"></a><span class="lineno">  362</span></div>
+<div class="line"><a id="l00366" name="l00366"></a><span class="lineno">  366</span>    <span class="keyword">class </span>FStallDetectorPause</div>
+<div class="line"><a id="l00367" name="l00367"></a><span class="lineno">  367</span>    {</div>
+<div class="line"><a id="l00368" name="l00368"></a><span class="lineno">  368</span>    <span class="keyword">public</span>:</div>
+<div class="line"><a id="l00369" name="l00369"></a><span class="lineno">  369</span>        CORE_API FStallDetectorPause();</div>
+<div class="line"><a id="l00370" name="l00370"></a><span class="lineno">  370</span>        CORE_API ~FStallDetectorPause();</div>
+<div class="line"><a id="l00371" name="l00371"></a><span class="lineno">  371</span>        <span class="keywordtype">bool</span> <a class="code hl_function" href="../../da/ddd/namespace_mem_pro.html#a04d2c7f51ed70cf7bb575a9562a38b57">IsPaused</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00372" name="l00372"></a><span class="lineno">  372</span> </div>
+<div class="line"><a id="l00373" name="l00373"></a><span class="lineno">  373</span>    <span class="keyword">private</span>:</div>
+<div class="line"><a id="l00374" name="l00374"></a><span class="lineno">  374</span>        <span class="keywordtype">bool</span> bPaused;</div>
+<div class="line"><a id="l00375" name="l00375"></a><span class="lineno">  375</span>    };</div>
+<div class="line"><a id="l00376" name="l00376"></a><span class="lineno">  376</span> </div>
+<div class="line"><a id="l00377" name="l00377"></a><span class="lineno">  377</span>    <span class="keyword">static</span> <span class="keyword">constexpr</span> <a class="code hl_typedef" href="../../d4/d83/namespace_cross_compiler.html#ad4d968bae01be345ca4bcc2426796f38">TCHAR</a> StallDetectorCounterPrefix[] = <a class="code hl_define" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(<span class="stringliteral">&quot;StallDetector/&quot;</span>);</div>
+<div class="line"><a id="l00378" name="l00378"></a><span class="lineno">  378</span>    <span class="keyword">static</span> <span class="keyword">constexpr</span> <a class="code hl_typedef" href="../../d4/d83/namespace_cross_compiler.html#ad4d968bae01be345ca4bcc2426796f38">TCHAR</a> StallDetectorTriggerCountSuffix[] = <a class="code hl_define" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(<span class="stringliteral">&quot; TriggerCount&quot;</span>);</div>
+<div class="line"><a id="l00379" name="l00379"></a><span class="lineno">  379</span>    <span class="keyword">static</span> <span class="keyword">constexpr</span> <a class="code hl_typedef" href="../../d4/d83/namespace_cross_compiler.html#ad4d968bae01be345ca4bcc2426796f38">TCHAR</a> StallDetectorOverageTimeSuffix[] = <a class="code hl_define" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(<span class="stringliteral">&quot; OverageSeconds&quot;</span>);</div>
+<div class="line"><a id="l00380" name="l00380"></a><span class="lineno">  380</span>    <span class="keyword">static</span> <span class="keyword">constexpr</span> <a class="code hl_typedef" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2c46f1fb01e11216aa2c983307deafb4">SIZE_T</a> StallDetectorScopeMaxNameLength = StallDetectorStatNameBufferSize - 1 - <a class="code hl_define" href="../../d2/dd1/_unreal_template_8h.html#ae8428b8628e371707a13a9ae07947217">UE_ARRAY_COUNT</a>(StallDetectorCounterPrefix)</div>
+<div class="line"><a id="l00381" name="l00381"></a><span class="lineno">  381</span>                                                            + FMath::Max(<a class="code hl_define" href="../../d2/dd1/_unreal_template_8h.html#ae8428b8628e371707a13a9ae07947217">UE_ARRAY_COUNT</a>(StallDetectorTriggerCountSuffix), <a class="code hl_define" href="../../d2/dd1/_unreal_template_8h.html#ae8428b8628e371707a13a9ae07947217">UE_ARRAY_COUNT</a>(StallDetectorOverageTimeSuffix));</div>
+<div class="line"><a id="l00382" name="l00382"></a><span class="lineno">  382</span>} <span class="comment">// namespace UE</span></div>
+<div class="line"><a id="l00383" name="l00383"></a><span class="lineno">  383</span><span class="preprocessor">#endif </span><span class="comment">// STALL_DETECTOR</span></div>
+<div class="ttc" id="a_analytics_session_summary_manager_8h_html_adb92fcb652840119c5c828c46e026759a1a4ebb180ba59b067782515ffee6e975"><div class="ttname"><a href="../../d9/df5/_analytics_session_summary_manager_8h.html#adb92fcb652840119c5c828c46e026759a1a4ebb180ba59b067782515ffee6e975">EAnalyticsSessionShutdownType::Shutdown</a></div><div class="ttdeci">@ Shutdown</div><div class="ttdef"><b>定义</b> AnalyticsSessionSummaryManager.h:25</div></div>
+<div class="ttc" id="a_build_8h_html"><div class="ttname"><a href="../../d9/d44/_build_8h.html">Build.h</a></div></div>
+<div class="ttc" id="a_constraint_8h_html_a00139ae49ad491d88da442b13ceb2a2ca30269022e9d8f51beaabb52e5d0de2b7"><div class="ttname"><a href="../../d4/d54/_constraint_8h.html#a00139ae49ad491d88da442b13ceb2a2ca30269022e9d8f51beaabb52e5d0de2b7">ETransformConstraintType::Parent</a></div><div class="ttdeci">@ Parent</div><div class="ttdef"><b>定义</b> Constraint.h:413</div></div>
+<div class="ttc" id="a_content_browser_item_data_8h_html_ab996d81c628e8b9062d20ca9c39a64cda49ee3087348e8d44e1feda1917443987"><div class="ttname"><a href="../../d1/d24/_content_browser_item_data_8h.html#ab996d81c628e8b9062d20ca9c39a64cda49ee3087348e8d44e1feda1917443987">EContentBrowserItemDataAttributeValueType::Name</a></div><div class="ttdeci">@ Name</div><div class="ttdef"><b>定义</b> ContentBrowserItemData.h:78</div></div>
+<div class="ttc" id="a_cooker_settings_8h_html_a6bfcf62e9c9f5639cd5ffaa585b7f6c8ab9f5c797ebbf55adccdd8539a65a0241"><div class="ttname"><a href="../../d1/dc3/_cooker_settings_8h.html#a6bfcf62e9c9f5639cd5ffaa585b7f6c8ab9f5c797ebbf55adccdd8539a65a0241">EBlueprintComponentDataCookingMethod::Disabled</a></div><div class="ttdeci">@ Disabled</div><div class="ttdef"><b>定义</b> CookerSettings.h:53</div></div>
+<div class="ttc" id="a_core_2_public_2_h_a_l_2_platform_8h_html_a2978f60d40d64f3605b5a99f66f292a9"><div class="ttname"><a href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a></div><div class="ttdeci">#define TEXT(x)</div><div class="ttdef"><b>定义</b> Platform.h:1332</div></div>
+<div class="ttc" id="a_core_2_public_2_h_a_l_2_platform_8h_html_a2c46f1fb01e11216aa2c983307deafb4"><div class="ttname"><a href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2c46f1fb01e11216aa2c983307deafb4">SIZE_T</a></div><div class="ttdeci">FPlatformTypes::SIZE_T SIZE_T</div><div class="ttdoc">An unsigned integer the same size as a pointer, the same as UPTRINT</div><div class="ttdef"><b>定义</b> Platform.h:1215</div></div>
+<div class="ttc" id="a_core_2_public_2_h_a_l_2_platform_8h_html_a89241ea7101f26f05a4f1efd6be26b32"><div class="ttname"><a href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a89241ea7101f26f05a4f1efd6be26b32">int64</a></div><div class="ttdeci">FPlatformTypes::int64 int64</div><div class="ttdoc">A 64-bit signed integer.</div><div class="ttdef"><b>定义</b> Platform.h:1192</div></div>
+<div class="ttc" id="a_core_2_public_2_h_a_l_2_platform_8h_html_a8dbb3cd84ca9fd010dadfc3815eefa5d"><div class="ttname"><a href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a8dbb3cd84ca9fd010dadfc3815eefa5d">int32</a></div><div class="ttdeci">FPlatformTypes::int32 int32</div><div class="ttdoc">A 32-bit signed integer.</div><div class="ttdef"><b>定义</b> Platform.h:1190</div></div>
+<div class="ttc" id="a_core_types_8h_html"><div class="ttname"><a href="../../db/d04/_core_types_8h.html">CoreTypes.h</a></div></div>
+<div class="ttc" id="a_counters_trace_8h_html"><div class="ttname"><a href="../../d8/daf/_counters_trace_8h.html">CountersTrace.h</a></div></div>
+<div class="ttc" id="a_critical_section_8h_html"><div class="ttname"><a href="../../df/d05/_critical_section_8h.html">CriticalSection.h</a></div></div>
+<div class="ttc" id="a_critical_section_8h_html_a3493a225a68d4748d7b1c85e8ae9d0b5"><div class="ttname"><a href="../../df/d05/_critical_section_8h.html#a3493a225a68d4748d7b1c85e8ae9d0b5">FCriticalSection</a></div><div class="ttdeci">UE::FPlatformRecursiveMutex FCriticalSection</div><div class="ttdef"><b>定义</b> CriticalSection.h:53</div></div>
+<div class="ttc" id="a_datasmith_export_options_8h_html_a0cd19612ef8ec5c76ea89c49ae6994aaa68eec46437c384d8dad18d5464ebc35c"><div class="ttname"><a href="../../db/d03/_datasmith_export_options_8h.html#a0cd19612ef8ec5c76ea89c49ae6994aaa68eec46437c384d8dad18d5464ebc35c">EDSExportLightmapUV::Always</a></div><div class="ttdeci">@ Always</div><div class="ttdef"><b>定义</b> DatasmithExportOptions.h:17</div></div>
+<div class="ttc" id="a_delegate_8h_html"><div class="ttname"><a href="../../d9/dfd/_delegate_8h.html">Delegate.h</a></div></div>
+<div class="ttc" id="a_delegate_combinations_8h_html_aa5c2c0ed55b15a19ec8a966b5596a680"><div class="ttname"><a href="../../d6/d40/_delegate_combinations_8h.html#aa5c2c0ed55b15a19ec8a966b5596a680">DECLARE_TS_MULTICAST_DELEGATE_OneParam</a></div><div class="ttdeci">#define DECLARE_TS_MULTICAST_DELEGATE_OneParam(DelegateName, Param1Type)</div><div class="ttdef"><b>定义</b> DelegateCombinations.h:50</div></div>
+<div class="ttc" id="a_edit_condition_parser_tests_8h_html_aac74ea723e1d36af4918cd37b3cc0065ac5222d41f21bc883f0c0b9754191b350"><div class="ttname"><a href="../../dc/dcd/_edit_condition_parser_tests_8h.html#aac74ea723e1d36af4918cd37b3cc0065ac5222d41f21bc883f0c0b9754191b350">First</a></div><div class="ttdeci">@ First</div><div class="ttdef"><b>定义</b> EditConditionParserTests.h:25</div></div>
+<div class="ttc" id="a_generic_platform_crash_context_8h_html"><div class="ttname"><a href="../../d4/db4/_generic_platform_crash_context_8h.html">GenericPlatformCrashContext.h</a></div></div>
+<div class="ttc" id="a_hair_strands_composition_8cpp_html_a01ae254fc9c19378956c218ed4e9c32da54991d225c58ce0af43461d4e9a82312"><div class="ttname"><a href="../../db/da0/_hair_strands_composition_8cpp.html#a01ae254fc9c19378956c218ed4e9c32da54991d225c58ce0af43461d4e9a82312">All</a></div><div class="ttdeci">@ All</div><div class="ttdef"><b>定义</b> HairStrandsComposition.cpp:54</div></div>
+<div class="ttc" id="a_i_media_controls_8h_html_ac4a1445e21b39bb1f6f9c92413e0e7e7a105b296a83f9c105355403f3332af50f"><div class="ttname"><a href="../../d3/d41/_i_media_controls_8h.html#ac4a1445e21b39bb1f6f9c92413e0e7e7a105b296a83f9c105355403f3332af50f">EMediaControl::Pause</a></div><div class="ttdeci">@ Pause</div><div class="ttdef"><b>定义</b> IMediaControls.h:21</div></div>
+<div class="ttc" id="a_i_media_controls_8h_html_ac4a1445e21b39bb1f6f9c92413e0e7e7af1cefec9e2196c672a622347f1fbc325"><div class="ttname"><a href="../../d3/d41/_i_media_controls_8h.html#ac4a1445e21b39bb1f6f9c92413e0e7e7af1cefec9e2196c672a622347f1fbc325">EMediaControl::Resume</a></div><div class="ttdeci">@ Resume</div><div class="ttdef"><b>定义</b> IMediaControls.h:24</div></div>
+<div class="ttc" id="a_log_category_8h_html_a43ea79f4ce7579e260155ad62a2e1d9a"><div class="ttname"><a href="../../de/d19/_log_category_8h.html#a43ea79f4ce7579e260155ad62a2e1d9a">DECLARE_LOG_CATEGORY_EXTERN</a></div><div class="ttdeci">#define DECLARE_LOG_CATEGORY_EXTERN(CategoryName, DefaultVerbosity, CompileTimeVerbosity)</div><div class="ttdef"><b>定义</b> LogCategory.h:133</div></div>
+<div class="ttc" id="a_log_macros_8h_html"><div class="ttname"><a href="../../d7/dcd/_log_macros_8h.html">LogMacros.h</a></div></div>
+<div class="ttc" id="a_mem_pro_8cpp_html_aaa7f2acd75bb8eec434a9d35b5693292"><div class="ttname"><a href="../../d0/db7/_mem_pro_8cpp.html#aaa7f2acd75bb8eec434a9d35b5693292">Reset</a></div><div class="ttdeci">void Reset()</div><div class="ttdef"><b>定义</b> MemPro.cpp:24</div></div>
+<div class="ttc" id="a_preprocessor_helpers_8h_html"><div class="ttname"><a href="../../d0/db9/_preprocessor_helpers_8h.html">PreprocessorHelpers.h</a></div></div>
+<div class="ttc" id="a_scope_lock_8h_html"><div class="ttname"><a href="../../d6/df1/_scope_lock_8h.html">ScopeLock.h</a></div></div>
+<div class="ttc" id="a_string_fwd_8h_html_a841e8ee04adcccfc0c78bd543334882f"><div class="ttname"><a href="../../d7/d6a/_string_fwd_8h.html#a841e8ee04adcccfc0c78bd543334882f">FStringView</a></div><div class="ttdeci">TStringView&lt; TCHAR &gt; FStringView</div><div class="ttdef"><b>定义</b> StringFwd.h:47</div></div>
+<div class="ttc" id="a_tool_element_registry_8h_html_a40ebde4a253ceec5bd5b7dc70bd70eb4ad2c24d59e0baff4d0155fbdf62590867"><div class="ttname"><a href="../../d6/ddb/_tool_element_registry_8h.html#a40ebde4a253ceec5bd5b7dc70bd70eb4ad2c24d59e0baff4d0155fbdf62590867">EToolElement::Section</a></div><div class="ttdeci">@ Section</div><div class="ttdef"><b>定义</b> ToolElementRegistry.h:18</div></div>
+<div class="ttc" id="a_tool_menu_misc_8h_html_a7af3c9137c13dfad9fe897c12ae21017ace0be71e33226e4c1db2bcea5959f16b"><div class="ttname"><a href="../../d4/dd7/_tool_menu_misc_8h.html#a7af3c9137c13dfad9fe897c12ae21017ace0be71e33226e4c1db2bcea5959f16b">EToolMenuInsertFallback::Log</a></div><div class="ttdeci">@ Log</div><div class="ttdef"><b>定义</b> ToolMenuMisc.h:76</div></div>
+<div class="ttc" id="a_u_i_command_info_8h_html_a4cbb850c17f5128fcb59e73c3de25e67a060bf2d587991d8f090a1309b285291c"><div class="ttname"><a href="../../d5/d19/_u_i_command_info_8h.html#a4cbb850c17f5128fcb59e73c3de25e67a060bf2d587991d8f090a1309b285291c">EUserInterfaceActionType::Check</a></div><div class="ttdeci">@ Check</div><div class="ttdef"><b>定义</b> UICommandInfo.h:34</div></div>
+<div class="ttc" id="a_unit_conversion_8h_html_a9dbd83757db11891db81e11540fb669aa8f19a8c7566af54ea8981029730e5465"><div class="ttname"><a href="../../d6/d3d/_unit_conversion_8h.html#a9dbd83757db11891db81e11540fb669aa8f19a8c7566af54ea8981029730e5465">EUnit::Seconds</a></div><div class="ttdeci">@ Seconds</div><div class="ttdef"><b>定义</b> UnitConversion.h:82</div></div>
+<div class="ttc" id="a_unreal_string_8h_html"><div class="ttname"><a href="../../d7/d9b/_unreal_string_8h.html">UnrealString.h</a></div></div>
+<div class="ttc" id="a_unreal_template_8h_html_ae8428b8628e371707a13a9ae07947217"><div class="ttname"><a href="../../d2/dd1/_unreal_template_8h.html#ae8428b8628e371707a13a9ae07947217">UE_ARRAY_COUNT</a></div><div class="ttdeci">#define UE_ARRAY_COUNT(array)</div><div class="ttdef"><b>定义</b> UnrealTemplate.h:222</div></div>
+<div class="ttc" id="aclass_t_array_html"><div class="ttname"><a href="../../d6/db1/class_t_array.html">TArray</a></div><div class="ttdef"><b>定义</b> Array.h:768</div></div>
+<div class="ttc" id="anamespace_build_patch_services_html_a828aab15ea4d205ee1ac28f9b42fd355aefb4777327e6f704fb1519c1882f93ec"><div class="ttname"><a href="../../da/da0/namespace_build_patch_services.html#a828aab15ea4d205ee1ac28f9b42fd355aefb4777327e6f704fb1519c1882f93ec">BuildPatchServices::EStatFormat::Timer</a></div><div class="ttdeci">@ Timer</div><div class="ttdef"><b>定义</b> StatsCollector.h:11</div></div>
+<div class="ttc" id="anamespace_cross_compiler_html_ad4d968bae01be345ca4bcc2426796f38"><div class="ttname"><a href="../../d4/d83/namespace_cross_compiler.html#ad4d968bae01be345ca4bcc2426796f38">CrossCompiler::TCHAR</a></div><div class="ttdeci">FPlatformTypes::TCHAR TCHAR</div><div class="ttdoc">Either ANSICHAR or WIDECHAR, depending on whether the platform supports wide characters or the requir...</div><div class="ttdef"><b>定义</b> HlslLexer.cpp:13</div></div>
+<div class="ttc" id="anamespace_mem_pro_html_a04d2c7f51ed70cf7bb575a9562a38b57"><div class="ttname"><a href="../../da/ddd/namespace_mem_pro.html#a04d2c7f51ed70cf7bb575a9562a38b57">MemPro::IsPaused</a></div><div class="ttdeci">bool IsPaused()</div><div class="ttdef"><b>定义</b> MemPro.cpp:2641</div></div>
+<div class="ttc" id="anamespace_u_e_html"><div class="ttname"><a href="../../da/de5/namespace_u_e.html">UE</a></div><div class="ttdef"><b>定义</b> AITestsCommon.cpp:13</div></div>
+<div class="ttc" id="apreprocessor_8c_html_a1134b580f8da4de94ca6b1de4d37975e"><div class="ttname"><a href="../../dd/de9/preprocessor_8c.html#a1134b580f8da4de94ca6b1de4d37975e">uint32</a></div><div class="ttdeci">unsigned int uint32</div><div class="ttdef"><b>定义</b> preprocessor.c:67</div></div>
+<div class="ttc" id="apreprocessor_8c_html_abc0f5bc07737e498f287334775dff2b6"><div class="ttname"><a href="../../dd/de9/preprocessor_8c.html#abc0f5bc07737e498f287334775dff2b6">uint64</a></div><div class="ttdeci">uint64_t uint64</div><div class="ttdef"><b>定义</b> preprocessor.c:75</div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+</div><!-- container -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a href="../../dir_0b6ee6e7e9547e675db4add2e5de97da.html">Engine</a></li><li class="navelem"><a href="../../dir_9579d1ecb2c7bf48cbe1049c41745cb4.html">Source</a></li><li class="navelem"><a href="../../dir_9f04efef762572853abdf73f62bebfcc.html">Runtime</a></li><li class="navelem"><a href="../../dir_3de6fe8d63806cea4bedcdcf5470dc5e.html">Core</a></li><li class="navelem"><a href="../../dir_399a9fb0bb7a487bf3d85aef916cb8c0.html">Public</a></li><li class="navelem"><a href="../../dir_51cd0152af4d17899f3bfa95a5ad60eb.html">ProfilingDebugging</a></li><li class="navelem"><a href="../../d7/d83/_runtime_2_core_2_public_2_profiling_debugging_2_stall_detector_8h.html">StallDetector.h</a></li>
+    <li class="footer">制作者 <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.15.0 </li>
+  </ul>
+</div>
+</body>
+</html>

@@ -1,0 +1,58 @@
+var _lumen_screen_probe_gather_8h =
+[
+    [ "EScreenProbeIndirectArgs", "dd/da8/_lumen_screen_probe_gather_8h.html#a2718d8c560b0e548381003ca5a002421", [
+      [ "GroupPerProbe", "dd/da8/_lumen_screen_probe_gather_8h.html#a2718d8c560b0e548381003ca5a002421a28cf8853253cdf158dc88abd874720e0", null ],
+      [ "ThreadPerProbe", "dd/da8/_lumen_screen_probe_gather_8h.html#a2718d8c560b0e548381003ca5a002421a2a45a09716b8d1b174ce3723d5d09467", null ],
+      [ "TraceCompaction", "dd/da8/_lumen_screen_probe_gather_8h.html#a2718d8c560b0e548381003ca5a002421aa82a5740edede9b5d69bd966e98f3a30", null ],
+      [ "ThreadPerTrace", "dd/da8/_lumen_screen_probe_gather_8h.html#a2718d8c560b0e548381003ca5a002421ad751ccd4bd0aa33388f83b0504c30967", null ],
+      [ "ThreadPerGather", "dd/da8/_lumen_screen_probe_gather_8h.html#a2718d8c560b0e548381003ca5a002421aa4815fabc247cded8896844190ef6646", null ],
+      [ "ThreadPerGatherWithBorder", "dd/da8/_lumen_screen_probe_gather_8h.html#a2718d8c560b0e548381003ca5a002421abe8cbb80554721516a050a55d8ab0bf0", null ],
+      [ "Max", "dd/da8/_lumen_screen_probe_gather_8h.html#a2718d8c560b0e548381003ca5a002421a6a061313d22e51e0f25b7cd4dc065233", null ]
+    ] ],
+    [ "EScreenProbeIntegrateTileClassification", "dd/da8/_lumen_screen_probe_gather_8h.html#a3db14feb2ee266e482f156b1ef108829", [
+      [ "SimpleDiffuse", "dd/da8/_lumen_screen_probe_gather_8h.html#a3db14feb2ee266e482f156b1ef108829ac8219587232c40698bca4e6841cd455c", null ],
+      [ "SupportImportanceSampleBRDF", "dd/da8/_lumen_screen_probe_gather_8h.html#a3db14feb2ee266e482f156b1ef108829ad642b72b2e81e6b0401223c3587e7923", null ],
+      [ "SupportAll", "dd/da8/_lumen_screen_probe_gather_8h.html#a3db14feb2ee266e482f156b1ef108829abc596e42177a873e8a35793a197c142c", null ],
+      [ "Num", "dd/da8/_lumen_screen_probe_gather_8h.html#a3db14feb2ee266e482f156b1ef108829ab3e3076d9b3c53bede50d468b647b109", null ]
+    ] ],
+    [ "EScreenProbeIrradianceFormat", "dd/da8/_lumen_screen_probe_gather_8h.html#ad8c4304d4c0e49003ad8b1522a44d5a1", [
+      [ "SH3", "dd/da8/_lumen_screen_probe_gather_8h.html#ad8c4304d4c0e49003ad8b1522a44d5a1acaad2a92ac8beff00ac55d303f097c5e", null ],
+      [ "Octahedral", "dd/da8/_lumen_screen_probe_gather_8h.html#ad8c4304d4c0e49003ad8b1522a44d5a1a73c93550679281add0a4fdf01cd6d218", null ],
+      [ "MAX", "dd/da8/_lumen_screen_probe_gather_8h.html#ad8c4304d4c0e49003ad8b1522a44d5a1a26a4b44a837bf97b972628509912b4a5", null ]
+    ] ],
+    [ "CanMaterialRenderInLumenTranslucencyRadianceCacheMarkPass", "dd/da8/_lumen_screen_probe_gather_8h.html#a883d36e5b56f0cc6275f7b1915a06997", null ],
+    [ "LumenScreenProbeGather::CompactTraces", "dc/ddb/namespace_lumen_screen_probe_gather.html#ac1137752bd84d5b9c7ea328788705586", null ],
+    [ "ComputeScreenSpaceShortRangeAO", "dd/da8/_lumen_screen_probe_gather_8h.html#af9c88e895381743d65bd3550f1ed003e", null ],
+    [ "FilterScreenProbes", "dd/da8/_lumen_screen_probe_gather_8h.html#aba1d649acbd5b2489cd93cd01bd04337", null ],
+    [ "GenerateImportanceSamplingRays", "dd/da8/_lumen_screen_probe_gather_8h.html#ae1bde9ce80c4a17494767042c41a2b8a", null ],
+    [ "LumenScreenProbeGather::GetMaxFramesAccumulated", "dc/ddb/namespace_lumen_screen_probe_gather.html#a3e945686910450f50509f1639c27104e", null ],
+    [ "LumenScreenProbeGather::GetRequestedIntegrateDownsampleFactor", "dc/ddb/namespace_lumen_screen_probe_gather.html#a004c43cb7dec1c85e1cc62c44d853efe", null ],
+    [ "LumenScreenProbeGather::GetScreenProbeIrradianceFormat", "dc/ddb/namespace_lumen_screen_probe_gather.html#af8e8ead4e57da11a6e8a73d1890f4811", null ],
+    [ "LumenScreenProbeGather::GetSpatialFilterDisocclusionFraction", "dc/ddb/namespace_lumen_screen_probe_gather.html#ac6731658132b54b7434ea50370607e76", null ],
+    [ "LumenScreenProbeGather::GetSpatialFilterDisocclusionMaxFrames", "dc/ddb/namespace_lumen_screen_probe_gather.html#a5d2cbe3a3c2c455fbfd07a589e9952c4", null ],
+    [ "LumenScreenProbeGather::GetStateFrameIndex", "dc/ddb/namespace_lumen_screen_probe_gather.html#ac9666b9fadcd6b8ff2eb8e68fd4b7170", null ],
+    [ "LumenScreenProbeGather::GetTracingOctahedronResolution", "dc/ddb/namespace_lumen_screen_probe_gather.html#ac35da014af227f00208c2470fa7eee91", null ],
+    [ "LumenScreenProbeGather::IsProbeTracingResolutionSupportedForImportanceSampling", "dc/ddb/namespace_lumen_screen_probe_gather.html#ae6008795bd69f0a200fa39ec0c7bc22d", null ],
+    [ "LumenScreenProbeGather::IsUsingDownsampledDepthAndNormal", "dc/ddb/namespace_lumen_screen_probe_gather.html#a296eae4dcce361f4c1053ad6cdb989f9", null ],
+    [ "LumenTranslucencyReflectionsMarkUsedProbes", "dd/da8/_lumen_screen_probe_gather_8h.html#a940df88f4b77248cef8f59a894d82b3b", null ],
+    [ "RenderHardwareRayTracingScreenProbe", "dd/da8/_lumen_screen_probe_gather_8h.html#ac3e1dbf2118a6791a81507cbcfbfe6fc", null ],
+    [ "RenderHardwareRayTracingShortRangeAO", "dd/da8/_lumen_screen_probe_gather_8h.html#a07a16becdfc4d8c037e22d72cabfb40e", null ],
+    [ "ScreenProbeGatherScreenData", "dd/da8/_lumen_screen_probe_gather_8h.html#a21f2ea4d4c417ae928676f2afaddba1b", null ],
+    [ "LumenScreenProbeGatherRadianceCache::SetupRadianceCacheInputs", "dd/d75/namespace_lumen_screen_probe_gather_radiance_cache.html#a0cd60f93a35eaae34fe6327665b08402", null ],
+    [ "LumenScreenProbeGather::SetupTileClassifyParameters", "dc/ddb/namespace_lumen_screen_probe_gather.html#a0bb81bddb5a06fbcab1b81075add4f3d", null ],
+    [ "LumenScreenProbeGather::SupportsHairScreenTraces", "dc/ddb/namespace_lumen_screen_probe_gather.html#af7e443f8024ee2bcbb404869b74867e4", null ],
+    [ "TraceScreenProbes", "dd/da8/_lumen_screen_probe_gather_8h.html#ac14c569472197a22f2b982748b6b9aac", null ],
+    [ "LumenScreenProbeGather::UseDisocclusionSpatialFilter", "dc/ddb/namespace_lumen_screen_probe_gather.html#a5ba6e85d41257d24c832ca4319327db6", null ],
+    [ "LumenScreenProbeGather::UseHitLighting", "dc/ddb/namespace_lumen_screen_probe_gather.html#a5c171ff4b27e775bfdc9ca85f4170b28", null ],
+    [ "LumenScreenProbeGather::UseImportanceSampling", "dc/ddb/namespace_lumen_screen_probe_gather.html#a26016bcf9e1dcf0d6c04568bd2419ef0", null ],
+    [ "LumenScreenProbeGather::UseProbeSpatialFilter", "dc/ddb/namespace_lumen_screen_probe_gather.html#aaa3708c30b8854c46fedbf3994cea075", null ],
+    [ "LumenScreenProbeGather::UseProbeTemporalFilter", "dc/ddb/namespace_lumen_screen_probe_gather.html#a6c1d19b34037823d112bc9e6961f1588", null ],
+    [ "LumenScreenProbeGather::UseRadianceCache", "dc/ddb/namespace_lumen_screen_probe_gather.html#afbbf16a62292f39f8233ccf4da30525a", null ],
+    [ "LumenScreenProbeGather::UseRadianceCacheSkyVisibility", "dc/ddb/namespace_lumen_screen_probe_gather.html#a872ea31e703cb0139fcdc732e91eade4", null ],
+    [ "LumenScreenProbeGather::UseRejectBasedOnNormal", "dc/ddb/namespace_lumen_screen_probe_gather.html#a9dd9b15491a185888fe4b8f12c6bb40d", null ],
+    [ "LumenScreenProbeGather::UseScreenProbeExtraAO", "dc/ddb/namespace_lumen_screen_probe_gather.html#ad99c4b36a36d556c6a109b7f7ffde0c7", null ],
+    [ "LumenScreenProbeGather::UseShortRangeAmbientOcclusion", "dc/ddb/namespace_lumen_screen_probe_gather.html#ad798b09b6e5a8f977aa7718607c471a6", null ],
+    [ "GLumenScreenProbeGatherNumMips", "dd/da8/_lumen_screen_probe_gather_8h.html#aaf13962712af2cc5ba67b3b5106c1dfe", null ],
+    [ "LumenScreenProbeGather::IrradianceProbeRes", "dc/ddb/namespace_lumen_screen_probe_gather.html#ab086091d17ccd7536d973e7c93266090", null ],
+    [ "LumenScreenProbeGather::IrradianceProbeWithBorderRes", "dc/ddb/namespace_lumen_screen_probe_gather.html#a6c3b9db05bd0484c15eab5bafdf210f8", null ]
+];

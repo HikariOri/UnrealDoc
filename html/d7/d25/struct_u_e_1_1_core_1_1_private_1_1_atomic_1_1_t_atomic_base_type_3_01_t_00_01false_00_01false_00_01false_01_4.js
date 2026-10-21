@@ -1,0 +1,4 @@
+var struct_u_e_1_1_core_1_1_private_1_1_atomic_1_1_t_atomic_base_type_3_01_t_00_01false_00_01false_00_01false_01_4 =
+[
+    [ "Type", "d7/d25/struct_u_e_1_1_core_1_1_private_1_1_atomic_1_1_t_atomic_base_type_3_01_t_00_01false_00_01false_00_01false_01_4.html#a5b5732d8cdbff04c3fc3f3ff9a188d21", null ]
+];

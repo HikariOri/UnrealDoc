@@ -1,0 +1,25 @@
+var struct_f_template_item =
+[
+    [ "GetDescription", "d2/dad/struct_f_template_item.html#af906f5fbe3c6febeac60e7b4c7fada0f", null ],
+    [ "GetDisplayName", "d2/dad/struct_f_template_item.html#a14d2358e9c47352282c9c4839dfb2a0a", null ],
+    [ "AssetTypes", "d2/dad/struct_f_template_item.html#a3cf8071a39b55537dd71f52417704966", null ],
+    [ "bIsBlankTemplate", "d2/dad/struct_f_template_item.html#a26a78ad307107b23ecb931bce8861460", null ],
+    [ "bIsEnterprise", "d2/dad/struct_f_template_item.html#afd50ee701d202092516582b6c3a49f6e", null ],
+    [ "BlueprintProjectFile", "d2/dad/struct_f_template_item.html#a7e1399d59356e770d680e63d25a3a606", null ],
+    [ "BlueprintTemplateDefs", "d2/dad/struct_f_template_item.html#a66fc00aabb433f317fed1b87cd206bd8", null ],
+    [ "bThumbnailAsIcon", "d2/dad/struct_f_template_item.html#a9140bc1c75bd15b4881210986509acec", null ],
+    [ "Categories", "d2/dad/struct_f_template_item.html#a86038cf92759a7c379f07b269eebdd0e", null ],
+    [ "ClassTypes", "d2/dad/struct_f_template_item.html#ac3c31584a61f4c8e8ad0642663a50776", null ],
+    [ "CodeProjectFile", "d2/dad/struct_f_template_item.html#a93deb3f06d808babf3d5f121cea8272c", null ],
+    [ "CodeTemplateDefs", "d2/dad/struct_f_template_item.html#ad7a467e4654888dbb29aae50ace3355f", null ],
+    [ "DescriptionOverride", "d2/dad/struct_f_template_item.html#a3ade9fa24204fbd08927c420e9d5eed4", null ],
+    [ "DisplayNameOverride", "d2/dad/struct_f_template_item.html#abb6b8c816c2c1583b5530c5b3b4a0ce2", null ],
+    [ "HiddenSettings", "d2/dad/struct_f_template_item.html#a951afc12d220d4671893d727bf17fc2c", null ],
+    [ "Key", "d2/dad/struct_f_template_item.html#abd4b51b615ce40ef2a9f13a100e6e897", null ],
+    [ "LocalizedDescriptions", "d2/dad/struct_f_template_item.html#a2594a25b12cd02fbb45e2a5a82d2104f", null ],
+    [ "LocalizedDisplayNames", "d2/dad/struct_f_template_item.html#af40d8100dc2de3cf2e21a609c72a94f8", null ],
+    [ "PluginWeak", "d2/dad/struct_f_template_item.html#ad65b4ef1601253e9e380817dae26b9df", null ],
+    [ "PreviewImage", "d2/dad/struct_f_template_item.html#a9a4fb183445f1ebfa0c3ded5be07de63", null ],
+    [ "SortKey", "d2/dad/struct_f_template_item.html#a4142cc2bc9ae4aad50a3b68349b8af08", null ],
+    [ "Thumbnail", "d2/dad/struct_f_template_item.html#a79b04e76578545a94c4299f1792ac787", null ]
+];

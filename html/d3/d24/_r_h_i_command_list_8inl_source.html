@@ -1,0 +1,540 @@
+<!-- HTML header for doxygen 1.15.0-->
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh">
+<head>
+  <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=11" />
+  <meta name="generator" content="Doxygen 1.15.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>UE 5.8.4: Engine/Source/Runtime/RHI/Public/RHICommandList.inl 源文件</title>
+  <link rel="icon" href="../../EdIconDefault.bmp" type="image/x-icon" />
+  <link href="../../tabs.css" rel="stylesheet" type="text/css" />
+  <script type="text/javascript" src="../../jquery.js"></script>
+  <script type="text/javascript" src="../../dynsections.js"></script>
+  <link href="../../navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../navtreedata.js"></script>
+<script type="text/javascript" src="../../navtree.js"></script>
+<script type="text/javascript" src="../../cookie.js"></script>
+  <link href="../../search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../search/searchdata.js"></script>
+<script type="text/javascript" src="../../search/search.js"></script>
+  <link href="../../doxygen.css" rel="stylesheet" type="text/css" />
+  <link href="../../doxygen-awesome.css" rel="stylesheet" type="text/css"/>
+<link href="../../doxygen-awesome-sidebar-only.css" rel="stylesheet" type="text/css"/>
+<link href="../../doxygen-awesome-sidebar-only-darkmode-toggle.css" rel="stylesheet" type="text/css"/>
+  <!-- ... other metadata & script includes ... -->
+  <script type="text/javascript" src="../../doxygen-awesome-darkmode-toggle.js"></script>
+  <script type="text/javascript">
+    DoxygenAwesomeDarkModeToggle.title = "Zwischen hellem/dunklem Modus wechseln"
+    DoxygenAwesomeDarkModeToggle.lightModeIcon = '🌞'
+    // icon from https://fonts.google.com/icons
+    DoxygenAwesomeDarkModeToggle.darkModeIcon = `<svg xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 24 24" height="24px" viewBox="0 0 24 24" width="24px" fill="#009793"><g><rect fill="none" height="24" width="24"/></g><g><g><path d="M8.1,14.15C9.77,14.63,11,16.17,11,18c0,0.68-0.19,1.31-0.48,1.87c0.48,0.09,0.97,0.14,1.48,0.14 c1.48,0,2.9-0.41,4.13-1.15c-2.62-0.92-5.23-2.82-6.8-5.86C7.74,9.94,7.78,7.09,8.29,4.9c-2.57,1.33-4.3,4.01-4.3,7.1c0,0,0,0,0,0 c0.01,0,0.01,0,0.02,0C5.66,12,7.18,12.83,8.1,14.15z" opacity=".3"/><path d="M19.78,17.51c-2.47,0-6.57-1.33-8.68-5.43C8.77,7.57,10.6,3.6,11.63,2.01C6.27,2.2,1.98,6.59,1.98,12 c0,0.14,0.02,0.28,0.02,0.42C2.61,12.16,3.28,12,3.98,12c0,0,0,0,0,0c0-3.09,1.73-5.77,4.3-7.1C7.78,7.09,7.74,9.94,9.32,13 c1.57,3.04,4.18,4.95,6.8,5.86c-1.23,0.74-2.65,1.15-4.13,1.15c-0.5,0-1-0.05-1.48-0.14c-0.37,0.7-0.94,1.27-1.64,1.64 c0.98,0.32,2.03,0.5,3.11,0.5c3.5,0,6.58-1.8,8.37-4.52C20.18,17.5,19.98,17.51,19.78,17.51z"/><path d="M7,16l-0.18,0C6.4,14.84,5.3,14,4,14c-1.66,0-3,1.34-3,3s1.34,3,3,3c0.62,0,2.49,0,3,0c1.1,0,2-0.9,2-2 C9,16.9,8.1,16,7,16z"/></g></g></svg>`
+    DoxygenAwesomeDarkModeToggle.init()
+  </script>
+  <script type="text/javascript" src="../../doxygen-awesome-fragment-copy-button.js"></script>
+  <script type="text/javascript">
+    DoxygenAwesomeFragmentCopyButton.title = "In die Zwischenablage kopieren"
+    // DoxygenAwesomeFragmentCopyButton.copyIcon = `<svg ...>`
+    // DoxygenAwesomeFragmentCopyButton.successIcon = `<svg ...>`
+    DoxygenAwesomeFragmentCopyButton.init()
+  </script>
+  <script type="text/javascript" src="../../doxygen-awesome-paragraph-link.js"></script>
+  <script type="text/javascript">
+    DoxygenAwesomeParagraphLink.title = "Abschnitt verknüpfen"
+    DoxygenAwesomeParagraphLink.icon = "¶"
+    DoxygenAwesomeParagraphLink.init()
+  </script>
+  <script type="text/javascript" src="../../doxygen-awesome-interactive-toc.js"></script>
+  <script type="text/javascript">
+    DoxygenAwesomeInteractiveToc.topOffset = 45
+    DoxygenAwesomeInteractiveToc.hideMobileMenu = false
+    DoxygenAwesomeInteractiveToc.init()
+  </script>
+</head>
+<body>
+    <div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+      <div id="titlearea">
+        <table cellspacing="0" cellpadding="0">
+          <tbody>
+            <tr id="projectrow">
+              <td id="projectlogo"><img alt="Logo" src="../../EdIconDefault.bmp"  /></td>
+              <td id="projectalign">
+                <div id="projectname">UE 5.8.4
+                </div>
+                <div id="projectbrief">Unreal Engine</div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <!-- end header part -->
+<!-- 制作者 Doxygen 1.15.0 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "../../search/",'.html');
+</script>
+<script type="text/javascript">
+$(function() { codefold.init(); });
+</script>
+<script type="text/javascript" src="../../menudata.js"></script>
+<script type="text/javascript" src="../../menu.js"></script>
+<script type="text/javascript">
+$(function() {
+  initMenu('../../',true,false,'search.php','搜索',true);
+  $(function() { init_search(); });
+});
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(function(){initNavTree('d3/d24/_r_h_i_command_list_8inl_source.html','../../',''); });
+</script>
+<div id="container">
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">载入中...</div>
+<div class="SRStatus" id="Searching">搜索中...</div>
+<div class="SRStatus" id="NoMatches">未找到</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">RHICommandList.inl</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="../../d3/d24/_r_h_i_command_list_8inl.html">浏览该文件的文档.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="comment">// Copyright Epic Games, Inc. All Rights Reserved.</span></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span> </div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="comment">/*=============================================================================</span></div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="comment">    RHICommandList.inl: RHI Command List inline definitions.</span></div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="comment">=============================================================================*/</span></div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span> </div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="preprocessor">#pragma once</span></div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span> </div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="keyword">class </span><a class="code hl_class" href="../../d6/d36/class_f_r_h_i_command_list_base.html">FRHICommandListBase</a>;</div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="keyword">class </span><a class="code hl_class" href="../../d2/d3a/class_f_r_h_i_command_list_executor.html">FRHICommandListExecutor</a>;</div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="keyword">class </span><a class="code hl_class" href="../../d3/d7d/class_f_r_h_i_command_list_immediate.html">FRHICommandListImmediate</a>;</div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="keyword">class </span><a class="code hl_class" href="../../d2/d83/class_f_r_h_i_resource.html">FRHIResource</a>;</div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="keyword">class </span><a class="code hl_class" href="../../d6/d02/class_f_scoped_r_h_i_thread_staller.html">FScopedRHIThreadStaller</a>;</div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="keyword">struct </span><a class="code hl_struct" href="../../d9/da2/struct_f_r_h_i_command_base.html">FRHICommandBase</a>;</div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span> </div>
+<div class="foldopen" id="foldopen00016" data-start="{" data-end="}">
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno"><a class="line" href="../../d6/d36/class_f_r_h_i_command_list_base.html#aedb7b35b0d1443eb6c3d6c0985c48d0b">   16</a></span><span class="keyword">inline</span> <span class="keywordtype">bool</span> <a class="code hl_function" href="../../d6/d36/class_f_r_h_i_command_list_base.html#aedb7b35b0d1443eb6c3d6c0985c48d0b">FRHICommandListBase::IsImmediate</a>()<span class="keyword"> const</span></div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span><span class="keyword"></span>{</div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>    <span class="keywordflow">return</span> <a class="code hl_variable" href="../../d6/d36/class_f_r_h_i_command_list_base.html#a27ba725f0d58aa7271e6282f7cfd5cfd">PersistentState</a>.bImmediate;</div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>}</div>
+</div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span> </div>
+<div class="foldopen" id="foldopen00021" data-start="{" data-end="}">
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno"><a class="line" href="../../d6/d36/class_f_r_h_i_command_list_base.html#a748b9419426884c15d38f4f39b38802d">   21</a></span><span class="keyword">inline</span> <a class="code hl_friend" href="../../d6/d36/class_f_r_h_i_command_list_base.html#aba80ea68fc7993fbf75e1fa7f1e8005f">FRHICommandListImmediate</a>&amp; <a class="code hl_function" href="../../d6/d36/class_f_r_h_i_command_list_base.html#a748b9419426884c15d38f4f39b38802d">FRHICommandListBase::GetAsImmediate</a>()</div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>{</div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>    <a class="code hl_define" href="../../d4/d75/_assertion_macros_8h.html#adda76c7007d2e32f3aa142897f5702a2">checkf</a>(<a class="code hl_function" href="../../d6/d36/class_f_r_h_i_command_list_base.html#aedb7b35b0d1443eb6c3d6c0985c48d0b">IsImmediate</a>(), <a class="code hl_define" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(<span class="stringliteral">&quot;This operation expects the immediate command list.&quot;</span>));</div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>    <span class="keywordflow">return</span> <span class="keyword">static_cast&lt;</span><a class="code hl_friend" href="../../d6/d36/class_f_r_h_i_command_list_base.html#aba80ea68fc7993fbf75e1fa7f1e8005f">FRHICommandListImmediate</a>&amp;<span class="keyword">&gt;</span>(*this);</div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>}</div>
+</div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span> </div>
+<div class="foldopen" id="foldopen00027" data-start="{" data-end="}">
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno"><a class="line" href="../../d6/d36/class_f_r_h_i_command_list_base.html#ab4210aaab27673a55fe6fa3250aa51ab">   27</a></span><span class="keyword">inline</span> <span class="keywordtype">bool</span> <a class="code hl_function" href="../../d6/d36/class_f_r_h_i_command_list_base.html#ab4210aaab27673a55fe6fa3250aa51ab">FRHICommandListBase::Bypass</a>()<span class="keyword"> const</span></div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span><span class="keyword"></span>{</div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span><span class="preprocessor">#if CAN_TOGGLE_COMMAND_LIST_BYPASS</span></div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>    <span class="keywordflow">return</span> <a class="code hl_variable" href="../../d1/d1d/_r_h_i_command_list_8h.html#a0ec491fdac3af21e2f81aca1b4b18725">GRHICommandList</a>.Bypass() &amp;&amp; <a class="code hl_function" href="../../d6/d36/class_f_r_h_i_command_list_base.html#aedb7b35b0d1443eb6c3d6c0985c48d0b">IsImmediate</a>();</div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span><span class="preprocessor">#else</span></div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>    <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span><span class="preprocessor">#endif</span></div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>}</div>
+</div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span> </div>
+<div class="foldopen" id="foldopen00036" data-start="{" data-end="}">
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno"><a class="line" href="../../d6/d02/class_f_scoped_r_h_i_thread_staller.html#ad8098dbedc6aaa63cd2ecd7dea45f73f">   36</a></span><span class="keyword">inline</span> <a class="code hl_function" href="../../d6/d02/class_f_scoped_r_h_i_thread_staller.html#a96c789201414d2ce5e4df3919970bdf1">FScopedRHIThreadStaller::FScopedRHIThreadStaller</a>(<span class="keyword">class</span> <a class="code hl_class" href="../../d3/d7d/class_f_r_h_i_command_list_immediate.html">FRHICommandListImmediate</a>&amp; InImmed, <span class="keywordtype">bool</span> bDoStall)</div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>    : Immed(nullptr)</div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>{</div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>    <span class="keywordflow">if</span> (bDoStall &amp;&amp; <a class="code hl_function" href="../../d1/d1d/_r_h_i_command_list_8h.html#afcde7253bbcdb63102586b74077dcb43">IsRunningRHIInSeparateThread</a>())</div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>    {</div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>        <a class="code hl_define" href="../../d4/d75/_assertion_macros_8h.html#a586e110623cde145b8a5bdefb429e144">check</a>(<a class="code hl_function" href="../../d2/d44/_threading_base_8cpp.html#ae8451c14c7ef063748eed400817f004d">IsInRenderingThread</a>());</div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>        <span class="keywordflow">if</span> (InImmed.<a class="code hl_function" href="../../d3/d7d/class_f_r_h_i_command_list_immediate.html#a3e7d6bd32e58c001e512fcc98e58c093">StallRHIThread</a>())</div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>        {</div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>            Immed = &amp;InImmed;</div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>        }</div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>    }</div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>}</div>
+</div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span> </div>
+<div class="foldopen" id="foldopen00049" data-start="{" data-end="}">
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno"><a class="line" href="../../d6/d02/class_f_scoped_r_h_i_thread_staller.html#ac7d4460f8f959e022b109dd7d6e33b58">   49</a></span><span class="keyword">inline</span> <a class="code hl_function" href="../../d6/d02/class_f_scoped_r_h_i_thread_staller.html#ac7d4460f8f959e022b109dd7d6e33b58">FScopedRHIThreadStaller::~FScopedRHIThreadStaller</a>()</div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>{</div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>    <span class="keywordflow">if</span> (Immed)</div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>    {</div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>        Immed-&gt;UnStallRHIThread();</div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>    }</div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>}</div>
+</div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span> </div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span><span class="keyword">namespace </span><a class="code hl_namespace" href="../../d2/d2c/namespace_pipeline_state_cache.html">PipelineStateCache</a></div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>{</div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>    <span class="comment">/* Evicts unused state entries based on r.pso.evictiontime time. Called in RHICommandList::BeginFrame */</span></div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>    <span class="keyword">extern</span> RHI_API <span class="keywordtype">void</span> <a class="code hl_function" href="../../d2/d2c/namespace_pipeline_state_cache.html#a49a0638c75ad21cb68ea1c2e9dbeced1">FlushResources</a>();</div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>}</div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span> </div>
+<div class="foldopen" id="foldopen00063" data-start="{" data-end="}">
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno"><a class="line" href="../../dd/de6/class_f_r_h_i_compute_command_list.html#a3ad474544c9ce6aaffab0b84b66c1684">   63</a></span><span class="keyword">inline</span> <span class="keywordtype">void</span> <a class="code hl_function" href="../../dd/de6/class_f_r_h_i_compute_command_list.html#a3ad474544c9ce6aaffab0b84b66c1684">FRHIComputeCommandList::SubmitCommandsHint</a>()</div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>{</div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>    <span class="keywordflow">if</span> (<a class="code hl_function" href="../../d6/d36/class_f_r_h_i_command_list_base.html#aedb7b35b0d1443eb6c3d6c0985c48d0b">IsImmediate</a>())</div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span>    {</div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>    <a class="code hl_define" href="../../d5/dc9/_generic_platform_compiler_pre_setup_8h.html#ab7724f3d5ff29ddc6ddc78d1c57d77c1">PRAGMA_DISABLE_DEPRECATION_WARNINGS</a></div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>        <span class="keyword">static_cast&lt;</span><a class="code hl_friend" href="../../d6/d36/class_f_r_h_i_command_list_base.html#aba80ea68fc7993fbf75e1fa7f1e8005f">FRHICommandListImmediate</a>&amp;<span class="keyword">&gt;</span>(*this).SubmitCommandsHint();</div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>    <a class="code hl_define" href="../../d5/dc9/_generic_platform_compiler_pre_setup_8h.html#a084b2ccd2e278a5d6b9f0088bd8f1474">PRAGMA_ENABLE_DEPRECATION_WARNINGS</a></div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>    }</div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>}</div>
+</div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span> </div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span><span class="comment">// Helper class for traversing a FRHICommandList</span></div>
+<div class="foldopen" id="foldopen00074" data-start="{" data-end="};">
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno"><a class="line" href="../../d4/dad/class_f_r_h_i_command_list_iterator.html">   74</a></span><span class="keyword">class </span><a class="code hl_function" href="../../d4/dad/class_f_r_h_i_command_list_iterator.html#a16f04d2572f79dc5cad62ebc3404217a">FRHICommandListIterator</a></div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>{</div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span><span class="keyword">public</span>:</div>
+<div class="foldopen" id="foldopen00077" data-start="{" data-end="}">
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno"><a class="line" href="../../d4/dad/class_f_r_h_i_command_list_iterator.html#a16f04d2572f79dc5cad62ebc3404217a">   77</a></span>    <a class="code hl_function" href="../../d4/dad/class_f_r_h_i_command_list_iterator.html#a16f04d2572f79dc5cad62ebc3404217a">FRHICommandListIterator</a>(<a class="code hl_class" href="../../d6/d36/class_f_r_h_i_command_list_base.html">FRHICommandListBase</a>&amp; CmdList)</div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>    {</div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>        CmdPtr = CmdList.<a class="code hl_variable" href="../../d6/d36/class_f_r_h_i_command_list_base.html#abd5f92408896b6f893616c68b62ccd15">Root</a>;</div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span><span class="preprocessor">#if DO_CHECK</span></div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>        NumCommands = 0;</div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span>        CmdListNumCommands = CmdList.<a class="code hl_variable" href="../../d6/d36/class_f_r_h_i_command_list_base.html#a6785c111373f3db89511fa62bf2fdbb6">NumCommands</a>;</div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span><span class="preprocessor">#endif</span></div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span>    }</div>
+</div>
+<div class="foldopen" id="foldopen00085" data-start="{" data-end="}">
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno"><a class="line" href="../../d4/dad/class_f_r_h_i_command_list_iterator.html#ad2b671303bc06013a3aafb572c3f66f8">   85</a></span>    <a class="code hl_function" href="../../d4/dad/class_f_r_h_i_command_list_iterator.html#ad2b671303bc06013a3aafb572c3f66f8">~FRHICommandListIterator</a>()</div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span>    {</div>
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span><span class="preprocessor">#if DO_CHECK</span></div>
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span>        <a class="code hl_define" href="../../d4/d75/_assertion_macros_8h.html#adda76c7007d2e32f3aa142897f5702a2">checkf</a>(CmdListNumCommands == NumCommands, <a class="code hl_define" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(<span class="stringliteral">&quot;Missed %d Commands!&quot;</span>), CmdListNumCommands - NumCommands);</div>
+<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span><span class="preprocessor">#endif</span></div>
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span>    }</div>
+</div>
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span> </div>
+<div class="foldopen" id="foldopen00092" data-start="{" data-end="}">
+<div class="line"><a id="l00092" name="l00092"></a><span class="lineno"><a class="line" href="../../d4/dad/class_f_r_h_i_command_list_iterator.html#ae1a5b94964ff14a01dbcb0c32d3170fd">   92</a></span>    <span class="keyword">inline</span> <span class="keywordtype">bool</span> <a class="code hl_function" href="../../d4/dad/class_f_r_h_i_command_list_iterator.html#ae1a5b94964ff14a01dbcb0c32d3170fd">HasCommandsLeft</a>()<span class="keyword"> const</span></div>
+<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span><span class="keyword">    </span>{</div>
+<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span>        <span class="keywordflow">return</span> !!CmdPtr;</div>
+<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span>    }</div>
+</div>
+<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span> </div>
+<div class="foldopen" id="foldopen00097" data-start="{" data-end="}">
+<div class="line"><a id="l00097" name="l00097"></a><span class="lineno"><a class="line" href="../../d4/dad/class_f_r_h_i_command_list_iterator.html#adcbd73eba4ef8daf31801b8d736a08a1">   97</a></span>    <span class="keyword">inline</span> <a class="code hl_struct" href="../../d9/da2/struct_f_r_h_i_command_base.html">FRHICommandBase</a>* <a class="code hl_function" href="../../d4/dad/class_f_r_h_i_command_list_iterator.html#adcbd73eba4ef8daf31801b8d736a08a1">NextCommand</a>()</div>
+<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span>    {</div>
+<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span>        <a class="code hl_struct" href="../../d9/da2/struct_f_r_h_i_command_base.html">FRHICommandBase</a>* RHICmd = CmdPtr;</div>
+<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span>        CmdPtr = RHICmd-&gt;<a class="code hl_variable" href="../../d9/da2/struct_f_r_h_i_command_base.html#afcff47bd39c295d5be86ddc8ec5085ef">Next</a>;</div>
+<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span><span class="preprocessor">#if DO_CHECK</span></div>
+<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span>        NumCommands++;</div>
+<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span><span class="preprocessor">#endif</span></div>
+<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span>        <span class="keywordflow">return</span> RHICmd;</div>
+<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span>    }</div>
+</div>
+<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span> </div>
+<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span><span class="keyword">private</span>:</div>
+<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span>    <a class="code hl_struct" href="../../d9/da2/struct_f_r_h_i_command_base.html">FRHICommandBase</a>* CmdPtr;</div>
+<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span> </div>
+<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span><span class="preprocessor">#if DO_CHECK</span></div>
+<div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span>    <a class="code hl_typedef" href="../../dd/de9/preprocessor_8c.html#a1134b580f8da4de94ca6b1de4d37975e">uint32</a> NumCommands;</div>
+<div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span>    <a class="code hl_typedef" href="../../dd/de9/preprocessor_8c.html#a1134b580f8da4de94ca6b1de4d37975e">uint32</a> CmdListNumCommands;</div>
+<div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span><span class="preprocessor">#endif</span></div>
+<div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span>};</div>
+</div>
+<div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span> </div>
+<div class="foldopen" id="foldopen00116" data-start="{" data-end="}">
+<div class="line"><a id="l00116" name="l00116"></a><span class="lineno"><a class="line" href="../../d6/da2/class_f_r_h_i_command_list_scoped_fence.html#aab9166e6579bc32a785395cd0186dbc5">  116</a></span><span class="keyword">inline</span> <a class="code hl_function" href="../../d6/da2/class_f_r_h_i_command_list_scoped_fence.html#aab9166e6579bc32a785395cd0186dbc5">FRHICommandListScopedFence::FRHICommandListScopedFence</a>(<a class="code hl_friend" href="../../d6/da2/class_f_r_h_i_command_list_scoped_fence.html#a411ab06f5131fa62ffdf517f7ee23a48">FRHICommandListBase</a>&amp; RHICmdList)</div>
+<div class="line"><a id="l00117" name="l00117"></a><span class="lineno">  117</span>    : RHICmdList(RHICmdList)</div>
+<div class="line"><a id="l00118" name="l00118"></a><span class="lineno">  118</span>    , Previous(RHICmdList.PersistentState.CurrentFenceScope)</div>
+<div class="line"><a id="l00119" name="l00119"></a><span class="lineno">  119</span>{</div>
+<div class="line"><a id="l00120" name="l00120"></a><span class="lineno">  120</span>    RHICmdList.PersistentState.CurrentFenceScope = <span class="keyword">this</span>;</div>
+<div class="line"><a id="l00121" name="l00121"></a><span class="lineno">  121</span>}</div>
+</div>
+<div class="line"><a id="l00122" name="l00122"></a><span class="lineno">  122</span> </div>
+<div class="foldopen" id="foldopen00123" data-start="{" data-end="}">
+<div class="line"><a id="l00123" name="l00123"></a><span class="lineno"><a class="line" href="../../d6/da2/class_f_r_h_i_command_list_scoped_fence.html#ace04eafac762cb111c11b15475d09075">  123</a></span><span class="keyword">inline</span> <a class="code hl_function" href="../../d6/da2/class_f_r_h_i_command_list_scoped_fence.html#ace04eafac762cb111c11b15475d09075">FRHICommandListScopedFence::~FRHICommandListScopedFence</a>()</div>
+<div class="line"><a id="l00124" name="l00124"></a><span class="lineno">  124</span>{</div>
+<div class="line"><a id="l00125" name="l00125"></a><span class="lineno">  125</span>    <span class="keywordflow">if</span> (bFenceRequested)</div>
+<div class="line"><a id="l00126" name="l00126"></a><span class="lineno">  126</span>    {</div>
+<div class="line"><a id="l00127" name="l00127"></a><span class="lineno">  127</span>        RHICmdList.PersistentState.CurrentFenceScope = <span class="keyword">nullptr</span>;</div>
+<div class="line"><a id="l00128" name="l00128"></a><span class="lineno">  128</span>        RHICmdList.RHIThreadFence(<span class="keyword">true</span>);</div>
+<div class="line"><a id="l00129" name="l00129"></a><span class="lineno">  129</span>    }</div>
+<div class="line"><a id="l00130" name="l00130"></a><span class="lineno">  130</span> </div>
+<div class="line"><a id="l00131" name="l00131"></a><span class="lineno">  131</span>    RHICmdList.PersistentState.CurrentFenceScope = Previous;</div>
+<div class="line"><a id="l00132" name="l00132"></a><span class="lineno">  132</span>}</div>
+</div>
+<div class="line"><a id="l00133" name="l00133"></a><span class="lineno">  133</span> </div>
+<div class="foldopen" id="foldopen00134" data-start="{" data-end="}">
+<div class="line"><a id="l00134" name="l00134"></a><span class="lineno"><a class="line" href="../../da/ddd/class_f_r_h_i_command_list_scoped_pipeline_guard.html#a74b57b67fad7f60dbe0ecf53d8d69b58">  134</a></span><span class="keyword">inline</span> <a class="code hl_function" href="../../da/ddd/class_f_r_h_i_command_list_scoped_pipeline_guard.html#a74b57b67fad7f60dbe0ecf53d8d69b58">FRHICommandListScopedPipelineGuard::FRHICommandListScopedPipelineGuard</a>(<a class="code hl_class" href="../../d6/d36/class_f_r_h_i_command_list_base.html">FRHICommandListBase</a>&amp; RHICmdList)</div>
+<div class="line"><a id="l00135" name="l00135"></a><span class="lineno">  135</span>    : RHICmdList(RHICmdList)</div>
+<div class="line"><a id="l00136" name="l00136"></a><span class="lineno">  136</span>{</div>
+<div class="line"><a id="l00137" name="l00137"></a><span class="lineno">  137</span>    <span class="keywordflow">if</span> (RHICmdList.GetPipeline() == <a class="code hl_enumvalue" href="../../d3/dca/_r_h_i_pipeline_8h.html#a82a997b164077aabe371ddccd823acdda6adf97f83acf6453d4a6a4b1070f3754">ERHIPipeline::None</a>)</div>
+<div class="line"><a id="l00138" name="l00138"></a><span class="lineno">  138</span>    {</div>
+<div class="line"><a id="l00139" name="l00139"></a><span class="lineno">  139</span>        RHICmdList.SwitchPipeline(ERHIPipeline::Graphics);</div>
+<div class="line"><a id="l00140" name="l00140"></a><span class="lineno">  140</span>        bPipelineSet = true;</div>
+<div class="line"><a id="l00141" name="l00141"></a><span class="lineno">  141</span>    }</div>
+<div class="line"><a id="l00142" name="l00142"></a><span class="lineno">  142</span>}</div>
+</div>
+<div class="line"><a id="l00143" name="l00143"></a><span class="lineno">  143</span> </div>
+<div class="foldopen" id="foldopen00144" data-start="{" data-end="}">
+<div class="line"><a id="l00144" name="l00144"></a><span class="lineno"><a class="line" href="../../da/ddd/class_f_r_h_i_command_list_scoped_pipeline_guard.html#a523fc8ea5a22b8c2b03f1760397613f2">  144</a></span><span class="keyword">inline</span> <a class="code hl_function" href="../../da/ddd/class_f_r_h_i_command_list_scoped_pipeline_guard.html#a523fc8ea5a22b8c2b03f1760397613f2">FRHICommandListScopedPipelineGuard::~FRHICommandListScopedPipelineGuard</a>()</div>
+<div class="line"><a id="l00145" name="l00145"></a><span class="lineno">  145</span>{</div>
+<div class="line"><a id="l00146" name="l00146"></a><span class="lineno">  146</span>    <span class="keywordflow">if</span> (bPipelineSet)</div>
+<div class="line"><a id="l00147" name="l00147"></a><span class="lineno">  147</span>    {</div>
+<div class="line"><a id="l00148" name="l00148"></a><span class="lineno">  148</span>        RHICmdList.SwitchPipeline(<a class="code hl_enumvalue" href="../../d3/dca/_r_h_i_pipeline_8h.html#a82a997b164077aabe371ddccd823acdda6adf97f83acf6453d4a6a4b1070f3754">ERHIPipeline::None</a>);</div>
+<div class="line"><a id="l00149" name="l00149"></a><span class="lineno">  149</span>    }</div>
+<div class="line"><a id="l00150" name="l00150"></a><span class="lineno">  150</span>}</div>
+</div>
+<div class="line"><a id="l00151" name="l00151"></a><span class="lineno">  151</span> </div>
+<div class="foldopen" id="foldopen00152" data-start="{" data-end="}">
+<div class="line"><a id="l00152" name="l00152"></a><span class="lineno"><a class="line" href="../../dd/dda/class_f_r_h_i_command_list_scoped_allow_extra_transitions.html#a3156e1b589179b51e9d9dabd726760d7">  152</a></span><span class="keyword">inline</span> <a class="code hl_function" href="../../dd/dda/class_f_r_h_i_command_list_scoped_allow_extra_transitions.html#a3156e1b589179b51e9d9dabd726760d7">FRHICommandListScopedAllowExtraTransitions::FRHICommandListScopedAllowExtraTransitions</a>(<a class="code hl_class" href="../../d6/d36/class_f_r_h_i_command_list_base.html">FRHICommandListBase</a>&amp; RHICmdList, <span class="keywordtype">bool</span> bInAllowExtraTransitions)</div>
+<div class="line"><a id="l00153" name="l00153"></a><span class="lineno">  153</span>    : RHICmdList(RHICmdList)</div>
+<div class="line"><a id="l00154" name="l00154"></a><span class="lineno">  154</span>{</div>
+<div class="line"><a id="l00155" name="l00155"></a><span class="lineno">  155</span>    bAllowExtraTransitions = RHICmdList.SetAllowExtraTransitions(bInAllowExtraTransitions);</div>
+<div class="line"><a id="l00156" name="l00156"></a><span class="lineno">  156</span>}</div>
+</div>
+<div class="line"><a id="l00157" name="l00157"></a><span class="lineno">  157</span> </div>
+<div class="foldopen" id="foldopen00158" data-start="{" data-end="}">
+<div class="line"><a id="l00158" name="l00158"></a><span class="lineno"><a class="line" href="../../dd/dda/class_f_r_h_i_command_list_scoped_allow_extra_transitions.html#af24af1899cb87cc6be2a9c3b2f7a3798">  158</a></span><span class="keyword">inline</span> <a class="code hl_function" href="../../dd/dda/class_f_r_h_i_command_list_scoped_allow_extra_transitions.html#af24af1899cb87cc6be2a9c3b2f7a3798">FRHICommandListScopedAllowExtraTransitions::~FRHICommandListScopedAllowExtraTransitions</a>()</div>
+<div class="line"><a id="l00159" name="l00159"></a><span class="lineno">  159</span>{</div>
+<div class="line"><a id="l00160" name="l00160"></a><span class="lineno">  160</span>    RHICmdList.SetAllowExtraTransitions(bAllowExtraTransitions);</div>
+<div class="line"><a id="l00161" name="l00161"></a><span class="lineno">  161</span>}</div>
+</div>
+<div class="line"><a id="l00162" name="l00162"></a><span class="lineno">  162</span> </div>
+<div class="foldopen" id="foldopen00163" data-start="{" data-end="}">
+<div class="line"><a id="l00163" name="l00163"></a><span class="lineno"><a class="line" href="../../d5/d06/class_f_r_h_i_resource_replace_batcher.html#af4d5851374c8a58b2a84762641e5f13e">  163</a></span><span class="keyword">inline</span> <a class="code hl_function" href="../../d5/d06/class_f_r_h_i_resource_replace_batcher.html#af4d5851374c8a58b2a84762641e5f13e">FRHIResourceReplaceBatcher::~FRHIResourceReplaceBatcher</a>()</div>
+<div class="line"><a id="l00164" name="l00164"></a><span class="lineno">  164</span>{</div>
+<div class="line"><a id="l00165" name="l00165"></a><span class="lineno">  165</span>    RHICmdList.ReplaceResources(<a class="code hl_function" href="../../d2/dd1/_unreal_template_8h.html#af9d82a97e855a2ee1464cc020639d843">MoveTemp</a>(Infos));</div>
+<div class="line"><a id="l00166" name="l00166"></a><span class="lineno">  166</span>}</div>
+</div>
+<div class="line"><a id="l00167" name="l00167"></a><span class="lineno">  167</span> </div>
+<div class="line"><a id="l00168" name="l00168"></a><span class="lineno">  168</span><span class="preprocessor">#if WITH_RHI_BREADCRUMBS</span></div>
+<div class="line"><a id="l00169" name="l00169"></a><span class="lineno">  169</span> </div>
+<div class="line"><a id="l00170" name="l00170"></a><span class="lineno">  170</span>    <span class="keyword">namespace </span>UE::RHI::Breadcrumbs::Private</div>
+<div class="line"><a id="l00171" name="l00171"></a><span class="lineno">  171</span>    {</div>
+<div class="line"><a id="l00172" name="l00172"></a><span class="lineno">  172</span>        <span class="keyword">inline</span> <a class="code hl_class" href="../../dd/de6/class_f_r_h_i_compute_command_list.html">FRHIComputeCommandList</a>&amp; GetRHICmdList(<a class="code hl_class" href="../../dd/de6/class_f_r_h_i_compute_command_list.html">FRHIComputeCommandList</a>&amp; RHICmdList) { <span class="keywordflow">return</span> RHICmdList; }</div>
+<div class="line"><a id="l00173" name="l00173"></a><span class="lineno">  173</span>        <span class="keyword">inline</span> FRHIComputeCommandList&amp; GetRHICmdList(IRHIComputeContext    &amp; RHIContext) { <span class="keywordflow">return</span> <span class="keyword">static_cast&lt;</span>FRHIComputeCommandList&amp;<span class="keyword">&gt;</span>(RHIContext.<a class="code hl_function" href="../../d2/db5/class_i_r_h_i_compute_context.html#ad2d195d2ff459a33cb5f4af0d35372f1">GetExecutingCommandList</a>()); }</div>
+<div class="line"><a id="l00174" name="l00174"></a><span class="lineno">  174</span> </div>
+<div class="line"><a id="l00175" name="l00175"></a><span class="lineno">  175</span>        <span class="keyword">inline</span> <a class="code hl_variable" href="../../d2/d8e/_s_anim_notify_panel_8h.html#a7483aa7f043c623f8990a95320be654d">FString</a> GetSafeBreadcrumbPath(<span class="keyword">auto</span>&amp;&amp; RHICmdList_Or_RHIContext)</div>
+<div class="line"><a id="l00176" name="l00176"></a><span class="lineno">  176</span>        {</div>
+<div class="line"><a id="l00177" name="l00177"></a><span class="lineno">  177</span>            FRHICommandListBase&amp; RHICmdList = GetRHICmdList(RHICmdList_Or_RHIContext);</div>
+<div class="line"><a id="l00178" name="l00178"></a><span class="lineno">  178</span>            FRHIBreadcrumbNode* <a class="code hl_enumvalue" href="../../dc/d14/_find_in_b_t_8h.html#aff1b3ad900d1554d1fb2a16fb8fe860aa6c3a6944a808a7c0bbb6788dbec54a9f">Node</a> = RHICmdList.GetCurrentBreadcrumbRef();</div>
+<div class="line"><a id="l00179" name="l00179"></a><span class="lineno">  179</span>            <span class="keywordflow">return</span> <a class="code hl_enumvalue" href="../../dc/d14/_find_in_b_t_8h.html#aff1b3ad900d1554d1fb2a16fb8fe860aa6c3a6944a808a7c0bbb6788dbec54a9f">Node</a> ? <a class="code hl_enumvalue" href="../../dc/d14/_find_in_b_t_8h.html#aff1b3ad900d1554d1fb2a16fb8fe860aa6c3a6944a808a7c0bbb6788dbec54a9f">Node</a>-&gt;GetFullPath() : <a class="code hl_define" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(<span class="stringliteral">&quot;NoBreadcrumb&quot;</span>);</div>
+<div class="line"><a id="l00180" name="l00180"></a><span class="lineno">  180</span>        }</div>
+<div class="line"><a id="l00181" name="l00181"></a><span class="lineno">  181</span>    }</div>
+<div class="line"><a id="l00182" name="l00182"></a><span class="lineno">  182</span> </div>
+<div class="line"><a id="l00183" name="l00183"></a><span class="lineno">  183</span>    <span class="keyword">template</span> &lt;<span class="keyword">typename</span> TDesc, <span class="keyword">typename</span>... TValues&gt;</div>
+<div class="line"><a id="l00184" name="l00184"></a><span class="lineno">  184</span>    <span class="keyword">inline</span> FRHIBreadcrumbNode* FRHIBreadcrumbAllocator::AllocBreadcrumb(TRHIBreadcrumbInitializer&lt;TDesc, TValues...&gt; <span class="keyword">const</span>&amp; Args)</div>
+<div class="line"><a id="l00185" name="l00185"></a><span class="lineno">  185</span>    {</div>
+<div class="line"><a id="l00186" name="l00186"></a><span class="lineno">  186</span>        TDesc <span class="keyword">const</span>* Desc = std::get&lt;0&gt;(Args);</div>
+<div class="line"><a id="l00187" name="l00187"></a><span class="lineno">  187</span>        <span class="keywordflow">if</span> (!Desc)</div>
+<div class="line"><a id="l00188" name="l00188"></a><span class="lineno">  188</span>        {</div>
+<div class="line"><a id="l00189" name="l00189"></a><span class="lineno">  189</span>            <span class="keywordflow">return</span> <span class="keyword">nullptr</span>;</div>
+<div class="line"><a id="l00190" name="l00190"></a><span class="lineno">  190</span>        }</div>
+<div class="line"><a id="l00191" name="l00191"></a><span class="lineno">  191</span> </div>
+<div class="line"><a id="l00192" name="l00192"></a><span class="lineno">  192</span>        <a class="code hl_struct" href="../../d2/db7/struct_u_e_1_1_r_h_i_1_1_g_p_u_profiler_1_1_f_g_p_u_stat.html">UE::RHI::GPUProfiler::FGPUStat</a>* GPUStat = std::get&lt;2&gt;(Args);</div>
+<div class="line"><a id="l00193" name="l00193"></a><span class="lineno">  193</span> </div>
+<div class="line"><a id="l00194" name="l00194"></a><span class="lineno">  194</span>        <span class="keywordflow">return</span> std::apply([&amp;](<span class="keyword">auto</span>&amp;&amp;... Values)</div>
+<div class="line"><a id="l00195" name="l00195"></a><span class="lineno">  195</span>        {</div>
+<div class="line"><a id="l00196" name="l00196"></a><span class="lineno">  196</span>            <span class="keyword">using </span>TType = UE::RHI::Breadcrumbs::Private::TRHIBreadcrumb&lt;TDesc&gt;;</div>
+<div class="line"><a id="l00197" name="l00197"></a><span class="lineno">  197</span>            <span class="keyword">static_assert</span>(std::is_trivially_destructible&lt;TType&gt;::value, <span class="stringliteral">&quot;Only trivially destructable types may be used with the RHI breadcrumb allocator.&quot;</span>);</div>
+<div class="line"><a id="l00198" name="l00198"></a><span class="lineno">  198</span> </div>
+<div class="line"><a id="l00199" name="l00199"></a><span class="lineno">  199</span>            <span class="keywordtype">void</span>* Addr = <a class="code hl_enumvalue" href="../../d1/d8a/_anim_node___anim_dynamics_8h.html#afaad9656e6554f964da78bac4fdbb3f2aa1684698ac3d8ffda353d0458c30b1e7">Inner</a>.Alloc(<span class="keyword">sizeof</span>(TType), <span class="keyword">alignof</span>(TType));</div>
+<div class="line"><a id="l00200" name="l00200"></a><span class="lineno">  200</span>            <span class="keywordflow">return</span> <span class="keyword">new</span> (Addr) TType(*<span class="keyword">this</span>, *Desc, GPUStat, std::forward&lt;<span class="keyword">decltype</span>(Values)&gt;(Values)...);</div>
+<div class="line"><a id="l00201" name="l00201"></a><span class="lineno">  201</span>        }, std::get&lt;1&gt;(Args));</div>
+<div class="line"><a id="l00202" name="l00202"></a><span class="lineno">  202</span>    }</div>
+<div class="line"><a id="l00203" name="l00203"></a><span class="lineno">  203</span> </div>
+<div class="line"><a id="l00204" name="l00204"></a><span class="lineno">  204</span>    <span class="keyword">template</span> &lt;<span class="keyword">typename</span> TDesc, <span class="keyword">typename</span>... TValues&gt;</div>
+<div class="line"><a id="l00205" name="l00205"></a><span class="lineno">  205</span>    <span class="keyword">inline</span> FRHIBreadcrumbScope::FRHIBreadcrumbScope(<a class="code hl_class" href="../../dd/de6/class_f_r_h_i_compute_command_list.html">FRHIComputeCommandList</a>&amp; RHICmdList, TRHIBreadcrumbInitializer&lt;TDesc, TValues...&gt;&amp;&amp; Args)</div>
+<div class="line"><a id="l00206" name="l00206"></a><span class="lineno">  206</span>        : FRHIBreadcrumbScope(RHICmdList, RHICmdList.GetBreadcrumbAllocator().AllocBreadcrumb(<a class="code hl_enumvalue" href="../../db/d37/namespace_u_e_1_1_shader_minifier.html#a15aa07c781e47faea659c4cfc5aec95fa942fc2710fabf2420410841b11be2c0a">Args</a>))</div>
+<div class="line"><a id="l00207" name="l00207"></a><span class="lineno">  207</span>    {}</div>
+<div class="line"><a id="l00208" name="l00208"></a><span class="lineno">  208</span> </div>
+<div class="line"><a id="l00209" name="l00209"></a><span class="lineno">  209</span>    <span class="keyword">inline</span> FRHIBreadcrumbScope::FRHIBreadcrumbScope(<a class="code hl_class" href="../../dd/de6/class_f_r_h_i_compute_command_list.html">FRHIComputeCommandList</a>&amp; RHICmdList, FRHIBreadcrumbNode* <a class="code hl_enumvalue" href="../../dc/d14/_find_in_b_t_8h.html#aff1b3ad900d1554d1fb2a16fb8fe860aa6c3a6944a808a7c0bbb6788dbec54a9f">Node</a>)</div>
+<div class="line"><a id="l00210" name="l00210"></a><span class="lineno">  210</span>        : RHICmdList(RHICmdList)</div>
+<div class="line"><a id="l00211" name="l00211"></a><span class="lineno">  211</span>        , <a class="code hl_enumvalue" href="../../dc/d14/_find_in_b_t_8h.html#aff1b3ad900d1554d1fb2a16fb8fe860aa6c3a6944a808a7c0bbb6788dbec54a9f">Node</a>(<a class="code hl_enumvalue" href="../../dc/d14/_find_in_b_t_8h.html#aff1b3ad900d1554d1fb2a16fb8fe860aa6c3a6944a808a7c0bbb6788dbec54a9f">Node</a>)</div>
+<div class="line"><a id="l00212" name="l00212"></a><span class="lineno">  212</span>    {</div>
+<div class="line"><a id="l00213" name="l00213"></a><span class="lineno">  213</span>        <span class="keywordflow">if</span> (<a class="code hl_enumvalue" href="../../dc/d14/_find_in_b_t_8h.html#aff1b3ad900d1554d1fb2a16fb8fe860aa6c3a6944a808a7c0bbb6788dbec54a9f">Node</a>)</div>
+<div class="line"><a id="l00214" name="l00214"></a><span class="lineno">  214</span>        {</div>
+<div class="line"><a id="l00215" name="l00215"></a><span class="lineno">  215</span>            <a class="code hl_enumvalue" href="../../dc/d14/_find_in_b_t_8h.html#aff1b3ad900d1554d1fb2a16fb8fe860aa6c3a6944a808a7c0bbb6788dbec54a9f">Node</a>-&gt;SetParent(RHICmdList.PersistentState.LocalBreadcrumb);</div>
+<div class="line"><a id="l00216" name="l00216"></a><span class="lineno">  216</span>            RHICmdList.BeginBreadcrumbCPU(<a class="code hl_enumvalue" href="../../dc/d14/_find_in_b_t_8h.html#aff1b3ad900d1554d1fb2a16fb8fe860aa6c3a6944a808a7c0bbb6788dbec54a9f">Node</a>, <span class="keyword">true</span>);</div>
+<div class="line"><a id="l00217" name="l00217"></a><span class="lineno">  217</span> </div>
+<div class="line"><a id="l00218" name="l00218"></a><span class="lineno">  218</span>            <span class="keywordflow">for</span> (<a class="code hl_enumeration" href="../../d3/dca/_r_h_i_pipeline_8h.html#a82a997b164077aabe371ddccd823acdd">ERHIPipeline</a> <a class="code hl_enumvalue" href="../../d3/d4a/_shader_compiler_core_8h.html#a5928a96ed4c4bf8d62533d1eb26579ccaaeaeaec51b4e6b88122f10ad96a8de72">Pipeline</a> : <a class="code hl_function" href="../../d5/da7/_enum_range_8h.html#a6661a691679a10800dc87144ad0126d9">MakeFlagsRange</a>(RHICmdList.GetPipelines()))</div>
+<div class="line"><a id="l00219" name="l00219"></a><span class="lineno">  219</span>            {</div>
+<div class="line"><a id="l00220" name="l00220"></a><span class="lineno">  220</span>                RHICmdList.BeginBreadcrumbGPU(<a class="code hl_enumvalue" href="../../dc/d14/_find_in_b_t_8h.html#aff1b3ad900d1554d1fb2a16fb8fe860aa6c3a6944a808a7c0bbb6788dbec54a9f">Node</a>, <a class="code hl_enumvalue" href="../../d3/d4a/_shader_compiler_core_8h.html#a5928a96ed4c4bf8d62533d1eb26579ccaaeaeaec51b4e6b88122f10ad96a8de72">Pipeline</a>);</div>
+<div class="line"><a id="l00221" name="l00221"></a><span class="lineno">  221</span>            }</div>
+<div class="line"><a id="l00222" name="l00222"></a><span class="lineno">  222</span>        }</div>
+<div class="line"><a id="l00223" name="l00223"></a><span class="lineno">  223</span>    }</div>
+<div class="line"><a id="l00224" name="l00224"></a><span class="lineno">  224</span> </div>
+<div class="line"><a id="l00225" name="l00225"></a><span class="lineno">  225</span>    <span class="keyword">inline</span> FRHIBreadcrumbScope::~FRHIBreadcrumbScope()</div>
+<div class="line"><a id="l00226" name="l00226"></a><span class="lineno">  226</span>    {</div>
+<div class="line"><a id="l00227" name="l00227"></a><span class="lineno">  227</span>        <span class="keywordflow">if</span> (<a class="code hl_enumvalue" href="../../dc/d14/_find_in_b_t_8h.html#aff1b3ad900d1554d1fb2a16fb8fe860aa6c3a6944a808a7c0bbb6788dbec54a9f">Node</a>)</div>
+<div class="line"><a id="l00228" name="l00228"></a><span class="lineno">  228</span>        {</div>
+<div class="line"><a id="l00229" name="l00229"></a><span class="lineno">  229</span>            <span class="keywordflow">for</span> (<a class="code hl_enumeration" href="../../d3/dca/_r_h_i_pipeline_8h.html#a82a997b164077aabe371ddccd823acdd">ERHIPipeline</a> <a class="code hl_enumvalue" href="../../d3/d4a/_shader_compiler_core_8h.html#a5928a96ed4c4bf8d62533d1eb26579ccaaeaeaec51b4e6b88122f10ad96a8de72">Pipeline</a> : <a class="code hl_function" href="../../d5/da7/_enum_range_8h.html#a6661a691679a10800dc87144ad0126d9">MakeFlagsRange</a>(RHICmdList.<a class="code hl_function" href="../../d6/d36/class_f_r_h_i_command_list_base.html#a8ea40611ee99da705954732822c9db26">GetPipelines</a>()))</div>
+<div class="line"><a id="l00230" name="l00230"></a><span class="lineno">  230</span>            {</div>
+<div class="line"><a id="l00231" name="l00231"></a><span class="lineno">  231</span>                RHICmdList.EndBreadcrumbGPU(<a class="code hl_enumvalue" href="../../dc/d14/_find_in_b_t_8h.html#aff1b3ad900d1554d1fb2a16fb8fe860aa6c3a6944a808a7c0bbb6788dbec54a9f">Node</a>, <a class="code hl_enumvalue" href="../../d3/d4a/_shader_compiler_core_8h.html#a5928a96ed4c4bf8d62533d1eb26579ccaaeaeaec51b4e6b88122f10ad96a8de72">Pipeline</a>);</div>
+<div class="line"><a id="l00232" name="l00232"></a><span class="lineno">  232</span>            }</div>
+<div class="line"><a id="l00233" name="l00233"></a><span class="lineno">  233</span> </div>
+<div class="line"><a id="l00234" name="l00234"></a><span class="lineno">  234</span>            RHICmdList.EndBreadcrumbCPU(<a class="code hl_enumvalue" href="../../dc/d14/_find_in_b_t_8h.html#aff1b3ad900d1554d1fb2a16fb8fe860aa6c3a6944a808a7c0bbb6788dbec54a9f">Node</a>, <span class="keyword">true</span>);</div>
+<div class="line"><a id="l00235" name="l00235"></a><span class="lineno">  235</span>        }</div>
+<div class="line"><a id="l00236" name="l00236"></a><span class="lineno">  236</span>    }</div>
+<div class="line"><a id="l00237" name="l00237"></a><span class="lineno">  237</span> </div>
+<div class="line"><a id="l00238" name="l00238"></a><span class="lineno">  238</span>    <span class="keyword">template</span> &lt;<span class="keyword">typename</span> TDesc, <span class="keyword">typename</span>... TValues&gt;</div>
+<div class="line"><a id="l00239" name="l00239"></a><span class="lineno">  239</span>    <span class="keyword">inline</span> FRHIBreadcrumbEventManual::FRHIBreadcrumbEventManual(<a class="code hl_class" href="../../dd/de6/class_f_r_h_i_compute_command_list.html">FRHIComputeCommandList</a>&amp; RHICmdList, TRHIBreadcrumbInitializer&lt;TDesc, TValues...&gt;&amp;&amp; Args)</div>
+<div class="line"><a id="l00240" name="l00240"></a><span class="lineno">  240</span>        : <a class="code hl_enumvalue" href="../../dc/d14/_find_in_b_t_8h.html#aff1b3ad900d1554d1fb2a16fb8fe860aa6c3a6944a808a7c0bbb6788dbec54a9f">Node</a>(RHICmdList.GetBreadcrumbAllocator().AllocBreadcrumb(<a class="code hl_enumvalue" href="../../db/d37/namespace_u_e_1_1_shader_minifier.html#a15aa07c781e47faea659c4cfc5aec95fa942fc2710fabf2420410841b11be2c0a">Args</a>))</div>
+<div class="line"><a id="l00241" name="l00241"></a><span class="lineno">  241</span>    #<a class="code hl_function" href="../../d3/db8/binka__ue__decode__test_8cpp.html#a374eb3a41808f317fb77da75985c3204">if</a> DO_CHECK</div>
+<div class="line"><a id="l00242" name="l00242"></a><span class="lineno">  242</span>        , <a class="code hl_enumvalue" href="../../d3/d4a/_shader_compiler_core_8h.html#a5928a96ed4c4bf8d62533d1eb26579ccaaeaeaec51b4e6b88122f10ad96a8de72">Pipeline</a>(RHICmdList.GetPipeline())</div>
+<div class="line"><a id="l00243" name="l00243"></a><span class="lineno">  243</span>        , ThreadId(<a class="code hl_typedef" href="../../de/d63/_android_platform_t_l_s_8h.html#a95c8772bb845763f629f7af070cd831e">FPlatformTLS</a>::<a class="code hl_function" href="../../d8/d5e/namespace_windows.html#a470bc3bb69629c116360080eea602ff4">GetCurrentThreadId</a>())</div>
+<div class="line"><a id="l00244" name="l00244"></a><span class="lineno">  244</span>    #endif</div>
+<div class="line"><a id="l00245" name="l00245"></a><span class="lineno">  245</span>    {</div>
+<div class="line"><a id="l00246" name="l00246"></a><span class="lineno">  246</span><span class="preprocessor">    #if DO_CHECK</span></div>
+<div class="line"><a id="l00247" name="l00247"></a><span class="lineno">  247</span>        <a class="code hl_define" href="../../d4/d75/_assertion_macros_8h.html#a586e110623cde145b8a5bdefb429e144">check</a>(<a class="code hl_enumvalue" href="../../d3/d4a/_shader_compiler_core_8h.html#a5928a96ed4c4bf8d62533d1eb26579ccaaeaeaec51b4e6b88122f10ad96a8de72">Pipeline</a> != <a class="code hl_enumvalue" href="../../d3/dca/_r_h_i_pipeline_8h.html#a82a997b164077aabe371ddccd823acdda6adf97f83acf6453d4a6a4b1070f3754">ERHIPipeline::None</a>);</div>
+<div class="line"><a id="l00248" name="l00248"></a><span class="lineno">  248</span><span class="preprocessor">    #endif</span></div>
+<div class="line"><a id="l00249" name="l00249"></a><span class="lineno">  249</span> </div>
+<div class="line"><a id="l00250" name="l00250"></a><span class="lineno">  250</span>        <a class="code hl_enumvalue" href="../../dc/d14/_find_in_b_t_8h.html#aff1b3ad900d1554d1fb2a16fb8fe860aa6c3a6944a808a7c0bbb6788dbec54a9f">Node</a>-&gt;SetParent(RHICmdList.PersistentState.LocalBreadcrumb);</div>
+<div class="line"><a id="l00251" name="l00251"></a><span class="lineno">  251</span>        RHICmdList.BeginBreadcrumbCPU(<a class="code hl_enumvalue" href="../../dc/d14/_find_in_b_t_8h.html#aff1b3ad900d1554d1fb2a16fb8fe860aa6c3a6944a808a7c0bbb6788dbec54a9f">Node</a>.Get(), <span class="keyword">true</span>);</div>
+<div class="line"><a id="l00252" name="l00252"></a><span class="lineno">  252</span>        RHICmdList.BeginBreadcrumbGPU(<a class="code hl_enumvalue" href="../../dc/d14/_find_in_b_t_8h.html#aff1b3ad900d1554d1fb2a16fb8fe860aa6c3a6944a808a7c0bbb6788dbec54a9f">Node</a>.Get(), RHICmdList.GetPipeline());</div>
+<div class="line"><a id="l00253" name="l00253"></a><span class="lineno">  253</span>    }</div>
+<div class="line"><a id="l00254" name="l00254"></a><span class="lineno">  254</span> </div>
+<div class="line"><a id="l00255" name="l00255"></a><span class="lineno">  255</span>    <span class="keyword">inline</span> <span class="keywordtype">void</span> FRHIBreadcrumbEventManual::End(<a class="code hl_class" href="../../dd/de6/class_f_r_h_i_compute_command_list.html">FRHIComputeCommandList</a>&amp; RHICmdList)</div>
+<div class="line"><a id="l00256" name="l00256"></a><span class="lineno">  256</span>    {</div>
+<div class="line"><a id="l00257" name="l00257"></a><span class="lineno">  257</span>        <a class="code hl_define" href="../../d4/d75/_assertion_macros_8h.html#adda76c7007d2e32f3aa142897f5702a2">checkf</a>(<a class="code hl_enumvalue" href="../../dc/d14/_find_in_b_t_8h.html#aff1b3ad900d1554d1fb2a16fb8fe860aa6c3a6944a808a7c0bbb6788dbec54a9f">Node</a>, <a class="code hl_define" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(<span class="stringliteral">&quot;Manual breadcrumb was already ended.&quot;</span>));</div>
+<div class="line"><a id="l00258" name="l00258"></a><span class="lineno">  258</span><span class="preprocessor">    #if DO_CHECK</span></div>
+<div class="line"><a id="l00259" name="l00259"></a><span class="lineno">  259</span>        <a class="code hl_define" href="../../d4/d75/_assertion_macros_8h.html#adda76c7007d2e32f3aa142897f5702a2">checkf</a>(<a class="code hl_enumvalue" href="../../d3/d4a/_shader_compiler_core_8h.html#a5928a96ed4c4bf8d62533d1eb26579ccaaeaeaec51b4e6b88122f10ad96a8de72">Pipeline</a> == RHICmdList.<a class="code hl_function" href="../../d6/d36/class_f_r_h_i_command_list_base.html#a2ed2982345d9d9389e12a6fa6fa328b9">GetPipeline</a>(), <a class="code hl_define" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(<span class="stringliteral">&quot;Manual breadcrumb was started and ended on different pipelines. Start: %s, End: %s&quot;</span>)</div>
+<div class="line"><a id="l00260" name="l00260"></a><span class="lineno">  260</span>            , *<a class="code hl_function" href="../../d1/d12/_r_h_i_strings_8cpp.html#a0ef6a61a3012fdcfdbced214745d84a2">GetRHIPipelineName</a>(<a class="code hl_enumvalue" href="../../d3/d4a/_shader_compiler_core_8h.html#a5928a96ed4c4bf8d62533d1eb26579ccaaeaeaec51b4e6b88122f10ad96a8de72">Pipeline</a>)</div>
+<div class="line"><a id="l00261" name="l00261"></a><span class="lineno">  261</span>            , *<a class="code hl_function" href="../../d1/d12/_r_h_i_strings_8cpp.html#a0ef6a61a3012fdcfdbced214745d84a2">GetRHIPipelineName</a>(RHICmdList.<a class="code hl_function" href="../../d6/d36/class_f_r_h_i_command_list_base.html#a2ed2982345d9d9389e12a6fa6fa328b9">GetPipeline</a>())</div>
+<div class="line"><a id="l00262" name="l00262"></a><span class="lineno">  262</span>        );</div>
+<div class="line"><a id="l00263" name="l00263"></a><span class="lineno">  263</span> </div>
+<div class="line"><a id="l00264" name="l00264"></a><span class="lineno">  264</span>        <a class="code hl_define" href="../../d4/d75/_assertion_macros_8h.html#adda76c7007d2e32f3aa142897f5702a2">checkf</a>(ThreadId == <a class="code hl_function" href="../../d6/d6f/struct_f_android_t_l_s.html#a334beea7f963e007bda9579dc0bf558a">FPlatformTLS::GetCurrentThreadId</a>(), <a class="code hl_define" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(<span class="stringliteral">&quot;Manual breadcrumbs must be started and ended on the same thread.&quot;</span>));</div>
+<div class="line"><a id="l00265" name="l00265"></a><span class="lineno">  265</span><span class="preprocessor">    #endif</span></div>
+<div class="line"><a id="l00266" name="l00266"></a><span class="lineno">  266</span> </div>
+<div class="line"><a id="l00267" name="l00267"></a><span class="lineno">  267</span>        RHICmdList.EndBreadcrumbGPU(<a class="code hl_enumvalue" href="../../dc/d14/_find_in_b_t_8h.html#aff1b3ad900d1554d1fb2a16fb8fe860aa6c3a6944a808a7c0bbb6788dbec54a9f">Node</a>.Get(), RHICmdList.<a class="code hl_function" href="../../d6/d36/class_f_r_h_i_command_list_base.html#a2ed2982345d9d9389e12a6fa6fa328b9">GetPipeline</a>());</div>
+<div class="line"><a id="l00268" name="l00268"></a><span class="lineno">  268</span>        RHICmdList.EndBreadcrumbCPU(<a class="code hl_enumvalue" href="../../dc/d14/_find_in_b_t_8h.html#aff1b3ad900d1554d1fb2a16fb8fe860aa6c3a6944a808a7c0bbb6788dbec54a9f">Node</a>.Get(), <span class="keyword">true</span>);</div>
+<div class="line"><a id="l00269" name="l00269"></a><span class="lineno">  269</span>        <a class="code hl_enumvalue" href="../../dc/d14/_find_in_b_t_8h.html#aff1b3ad900d1554d1fb2a16fb8fe860aa6c3a6944a808a7c0bbb6788dbec54a9f">Node</a> = {};</div>
+<div class="line"><a id="l00270" name="l00270"></a><span class="lineno">  270</span>    }</div>
+<div class="line"><a id="l00271" name="l00271"></a><span class="lineno">  271</span> </div>
+<div class="line"><a id="l00272" name="l00272"></a><span class="lineno">  272</span>    <span class="keyword">inline</span> FRHIBreadcrumbEventManual::~FRHIBreadcrumbEventManual()</div>
+<div class="line"><a id="l00273" name="l00273"></a><span class="lineno">  273</span>    {</div>
+<div class="line"><a id="l00274" name="l00274"></a><span class="lineno">  274</span>        <a class="code hl_define" href="../../d4/d75/_assertion_macros_8h.html#adda76c7007d2e32f3aa142897f5702a2">checkf</a>(!<a class="code hl_enumvalue" href="../../dc/d14/_find_in_b_t_8h.html#aff1b3ad900d1554d1fb2a16fb8fe860aa6c3a6944a808a7c0bbb6788dbec54a9f">Node</a>, <a class="code hl_define" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(<span class="stringliteral">&quot;Manual breadcrumb was destructed before it was ended.&quot;</span>));</div>
+<div class="line"><a id="l00275" name="l00275"></a><span class="lineno">  275</span>    }</div>
+<div class="line"><a id="l00276" name="l00276"></a><span class="lineno">  276</span> </div>
+<div class="line"><a id="l00277" name="l00277"></a><span class="lineno">  277</span><span class="preprocessor">#endif </span><span class="comment">// WITH_RHI_BREADCRUMBS</span></div>
+<div class="line"><a id="l00278" name="l00278"></a><span class="lineno">  278</span> </div>
+<div class="line"><a id="l00279" name="l00279"></a><span class="lineno">  279</span><span class="keyword">template</span> &lt;<span class="keyword">typename</span> RHICmdListType, <span class="keyword">typename</span> LAMBDA&gt;</div>
+<div class="foldopen" id="foldopen00280" data-start="{" data-end="}">
+<div class="line"><a id="l00280" name="l00280"></a><span class="lineno"><a class="line" href="../../df/d0f/struct_t_r_h_i_lambda_command_multi_pipe.html#a1db0d818c032ebfa399f551ec03d0287">  280</a></span><span class="keyword">inline</span> <span class="keywordtype">void</span> <a class="code hl_function" href="../../df/d0f/struct_t_r_h_i_lambda_command_multi_pipe.html#a1db0d818c032ebfa399f551ec03d0287">TRHILambdaCommandMultiPipe&lt;RHICmdListType, LAMBDA&gt;::ExecuteAndDestruct</a>(<a class="code hl_class" href="../../d6/d36/class_f_r_h_i_command_list_base.html">FRHICommandListBase</a>&amp; CmdList)</div>
+<div class="line"><a id="l00281" name="l00281"></a><span class="lineno">  281</span>{</div>
+<div class="line"><a id="l00282" name="l00282"></a><span class="lineno">  282</span>    <a class="code hl_define" href="../../df/d7e/_cpu_profiler_trace_8h.html#aacb5672948ece102155f0f3da096e506">TRACE_CPUPROFILER_EVENT_SCOPE_TEXT_ON_CHANNEL</a>(<a class="code hl_enumvalue" href="../../d1/d24/_content_browser_item_data_8h.html#ab996d81c628e8b9062d20ca9c39a64cda49ee3087348e8d44e1feda1917443987">Name</a>, RHICommandsChannel);</div>
+<div class="line"><a id="l00283" name="l00283"></a><span class="lineno">  283</span> </div>
+<div class="line"><a id="l00284" name="l00284"></a><span class="lineno">  284</span>    <a class="code hl_class" href="../../d0/d52/class_f_r_h_i_context_array.html">FRHIContextArray</a> Contexts { <a class="code hl_enumvalue" href="../../d3/dd3/_core_misc_defines_8h.html#ae2439dc56132c584738ca12e8213f8d1afddb65cae60df5e09922610b4e71838d">InPlace</a>, <span class="keyword">nullptr</span> };</div>
+<div class="line"><a id="l00285" name="l00285"></a><span class="lineno">  285</span>    <span class="keywordflow">for</span> (<a class="code hl_enumeration" href="../../d3/dca/_r_h_i_pipeline_8h.html#a82a997b164077aabe371ddccd823acdd">ERHIPipeline</a> <a class="code hl_enumvalue" href="../../d3/d4a/_shader_compiler_core_8h.html#a5928a96ed4c4bf8d62533d1eb26579ccaaeaeaec51b4e6b88122f10ad96a8de72">Pipeline</a> : <a class="code hl_function" href="../../d5/da7/_enum_range_8h.html#a6661a691679a10800dc87144ad0126d9">MakeFlagsRange</a>(<a class="code hl_variable" href="../../df/d0f/struct_t_r_h_i_lambda_command_multi_pipe.html#a80cc234ca3a63d3b8240ec9aaeab19ba">Pipelines</a>))</div>
+<div class="line"><a id="l00286" name="l00286"></a><span class="lineno">  286</span>    {</div>
+<div class="line"><a id="l00287" name="l00287"></a><span class="lineno">  287</span>        Contexts[<a class="code hl_enumvalue" href="../../d3/d4a/_shader_compiler_core_8h.html#a5928a96ed4c4bf8d62533d1eb26579ccaaeaeaec51b4e6b88122f10ad96a8de72">Pipeline</a>] = CmdList.<a class="code hl_variable" href="../../d6/d36/class_f_r_h_i_command_list_base.html#aacb6cf19504da34bf5cb3dfb2c4cb7a3">Contexts</a>[<a class="code hl_enumvalue" href="../../d3/d4a/_shader_compiler_core_8h.html#a5928a96ed4c4bf8d62533d1eb26579ccaaeaeaec51b4e6b88122f10ad96a8de72">Pipeline</a>];</div>
+<div class="line"><a id="l00288" name="l00288"></a><span class="lineno">  288</span>        <a class="code hl_define" href="../../d4/d75/_assertion_macros_8h.html#a586e110623cde145b8a5bdefb429e144">check</a>(Contexts[<a class="code hl_enumvalue" href="../../d3/d4a/_shader_compiler_core_8h.html#a5928a96ed4c4bf8d62533d1eb26579ccaaeaeaec51b4e6b88122f10ad96a8de72">Pipeline</a>]);</div>
+<div class="line"><a id="l00289" name="l00289"></a><span class="lineno">  289</span>    }</div>
+<div class="line"><a id="l00290" name="l00290"></a><span class="lineno">  290</span> </div>
+<div class="line"><a id="l00291" name="l00291"></a><span class="lineno">  291</span>    <span class="comment">// Static cast to enforce const type in lambda args</span></div>
+<div class="line"><a id="l00292" name="l00292"></a><span class="lineno">  292</span>    <a class="code hl_variable" href="../../df/d0f/struct_t_r_h_i_lambda_command_multi_pipe.html#aa220d91685284749e87b7a5e271d2005">Lambda</a>(<span class="keyword">static_cast&lt;</span><a class="code hl_class" href="../../d0/d52/class_f_r_h_i_context_array.html">FRHIContextArray</a> const&amp;<span class="keyword">&gt;</span>(Contexts));</div>
+<div class="line"><a id="l00293" name="l00293"></a><span class="lineno">  293</span>    <a class="code hl_variable" href="../../df/d0f/struct_t_r_h_i_lambda_command_multi_pipe.html#aa220d91685284749e87b7a5e271d2005">Lambda</a>.~LAMBDA();</div>
+<div class="line"><a id="l00294" name="l00294"></a><span class="lineno">  294</span>}</div>
+</div>
+<div class="ttc" id="a_android_platform_t_l_s_8h_html_a95c8772bb845763f629f7af070cd831e"><div class="ttname"><a href="../../de/d63/_android_platform_t_l_s_8h.html#a95c8772bb845763f629f7af070cd831e">FPlatformTLS</a></div><div class="ttdeci">FAndroidTLS FPlatformTLS</div><div class="ttdef"><b>定义</b> AndroidPlatformTLS.h:73</div></div>
+<div class="ttc" id="a_anim_node___anim_dynamics_8h_html_afaad9656e6554f964da78bac4fdbb3f2aa1684698ac3d8ffda353d0458c30b1e7"><div class="ttname"><a href="../../d1/d8a/_anim_node___anim_dynamics_8h.html#afaad9656e6554f964da78bac4fdbb3f2aa1684698ac3d8ffda353d0458c30b1e7">ESphericalLimitType::Inner</a></div><div class="ttdeci">@ Inner</div><div class="ttdef"><b>定义</b> AnimNode_AnimDynamics.h:206</div></div>
+<div class="ttc" id="a_assertion_macros_8h_html_a586e110623cde145b8a5bdefb429e144"><div class="ttname"><a href="../../d4/d75/_assertion_macros_8h.html#a586e110623cde145b8a5bdefb429e144">check</a></div><div class="ttdeci">#define check(expr)</div><div class="ttdef"><b>定义</b> AssertionMacros.h:319</div></div>
+<div class="ttc" id="a_assertion_macros_8h_html_adda76c7007d2e32f3aa142897f5702a2"><div class="ttname"><a href="../../d4/d75/_assertion_macros_8h.html#adda76c7007d2e32f3aa142897f5702a2">checkf</a></div><div class="ttdeci">#define checkf(expr, format,...)</div><div class="ttdef"><b>定义</b> AssertionMacros.h:320</div></div>
+<div class="ttc" id="a_content_browser_item_data_8h_html_ab996d81c628e8b9062d20ca9c39a64cda49ee3087348e8d44e1feda1917443987"><div class="ttname"><a href="../../d1/d24/_content_browser_item_data_8h.html#ab996d81c628e8b9062d20ca9c39a64cda49ee3087348e8d44e1feda1917443987">EContentBrowserItemDataAttributeValueType::Name</a></div><div class="ttdeci">@ Name</div><div class="ttdef"><b>定义</b> ContentBrowserItemData.h:78</div></div>
+<div class="ttc" id="a_core_2_public_2_h_a_l_2_platform_8h_html_a2978f60d40d64f3605b5a99f66f292a9"><div class="ttname"><a href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a></div><div class="ttdeci">#define TEXT(x)</div><div class="ttdef"><b>定义</b> Platform.h:1332</div></div>
+<div class="ttc" id="a_core_misc_defines_8h_html_ae2439dc56132c584738ca12e8213f8d1afddb65cae60df5e09922610b4e71838d"><div class="ttname"><a href="../../d3/dd3/_core_misc_defines_8h.html#ae2439dc56132c584738ca12e8213f8d1afddb65cae60df5e09922610b4e71838d">InPlace</a></div><div class="ttdeci">@ InPlace</div><div class="ttdef"><b>定义</b> CoreMiscDefines.h:157</div></div>
+<div class="ttc" id="a_cpu_profiler_trace_8h_html_aacb5672948ece102155f0f3da096e506"><div class="ttname"><a href="../../df/d7e/_cpu_profiler_trace_8h.html#aacb5672948ece102155f0f3da096e506">TRACE_CPUPROFILER_EVENT_SCOPE_TEXT_ON_CHANNEL</a></div><div class="ttdeci">#define TRACE_CPUPROFILER_EVENT_SCOPE_TEXT_ON_CHANNEL(Name, Channel)</div><div class="ttdef"><b>定义</b> CpuProfilerTrace.h:538</div></div>
+<div class="ttc" id="a_enum_range_8h_html_a6661a691679a10800dc87144ad0126d9"><div class="ttname"><a href="../../d5/da7/_enum_range_8h.html#a6661a691679a10800dc87144ad0126d9">MakeFlagsRange</a></div><div class="ttdeci">UE::EnumFlags::Private::TRange&lt; EnumType &gt; MakeFlagsRange(EnumType Flags)</div><div class="ttdef"><b>定义</b> EnumRange.h:285</div></div>
+<div class="ttc" id="a_find_in_b_t_8h_html_aff1b3ad900d1554d1fb2a16fb8fe860aa6c3a6944a808a7c0bbb6788dbec54a9f"><div class="ttname"><a href="../../dc/d14/_find_in_b_t_8h.html#aff1b3ad900d1554d1fb2a16fb8fe860aa6c3a6944a808a7c0bbb6788dbec54a9f">EFindInBTSearchType::Node</a></div><div class="ttdeci">@ Node</div><div class="ttdef"><b>定义</b> FindInBT.h:35</div></div>
+<div class="ttc" id="a_generic_platform_compiler_pre_setup_8h_html_a084b2ccd2e278a5d6b9f0088bd8f1474"><div class="ttname"><a href="../../d5/dc9/_generic_platform_compiler_pre_setup_8h.html#a084b2ccd2e278a5d6b9f0088bd8f1474">PRAGMA_ENABLE_DEPRECATION_WARNINGS</a></div><div class="ttdeci">#define PRAGMA_ENABLE_DEPRECATION_WARNINGS</div><div class="ttdef"><b>定义</b> GenericPlatformCompilerPreSetup.h:16</div></div>
+<div class="ttc" id="a_generic_platform_compiler_pre_setup_8h_html_ab7724f3d5ff29ddc6ddc78d1c57d77c1"><div class="ttname"><a href="../../d5/dc9/_generic_platform_compiler_pre_setup_8h.html#ab7724f3d5ff29ddc6ddc78d1c57d77c1">PRAGMA_DISABLE_DEPRECATION_WARNINGS</a></div><div class="ttdeci">#define PRAGMA_DISABLE_DEPRECATION_WARNINGS</div><div class="ttdef"><b>定义</b> GenericPlatformCompilerPreSetup.h:12</div></div>
+<div class="ttc" id="a_r_h_i_command_list_8h_html_a0ec491fdac3af21e2f81aca1b4b18725"><div class="ttname"><a href="../../d1/d1d/_r_h_i_command_list_8h.html#a0ec491fdac3af21e2f81aca1b4b18725">GRHICommandList</a></div><div class="ttdeci">RHI_API FRHICommandListExecutor GRHICommandList</div><div class="ttdef"><b>定义</b> RHICommandList.cpp:127</div></div>
+<div class="ttc" id="a_r_h_i_command_list_8h_html_afcde7253bbcdb63102586b74077dcb43"><div class="ttname"><a href="../../d1/d1d/_r_h_i_command_list_8h.html#afcde7253bbcdb63102586b74077dcb43">IsRunningRHIInSeparateThread</a></div><div class="ttdeci">bool IsRunningRHIInSeparateThread()</div><div class="ttdef"><b>定义</b> RHICommandList.h:158</div></div>
+<div class="ttc" id="a_r_h_i_pipeline_8h_html_a82a997b164077aabe371ddccd823acdd"><div class="ttname"><a href="../../d3/dca/_r_h_i_pipeline_8h.html#a82a997b164077aabe371ddccd823acdd">ERHIPipeline</a></div><div class="ttdeci">ERHIPipeline</div><div class="ttdef"><b>定义</b> RHIPipeline.h:13</div></div>
+<div class="ttc" id="a_r_h_i_pipeline_8h_html_a82a997b164077aabe371ddccd823acdda6adf97f83acf6453d4a6a4b1070f3754"><div class="ttname"><a href="../../d3/dca/_r_h_i_pipeline_8h.html#a82a997b164077aabe371ddccd823acdda6adf97f83acf6453d4a6a4b1070f3754">ERHIPipeline::None</a></div><div class="ttdeci">@ None</div><div class="ttdef"><b>定义</b> RHIPipeline.h:17</div></div>
+<div class="ttc" id="a_r_h_i_strings_8cpp_html_a0ef6a61a3012fdcfdbced214745d84a2"><div class="ttname"><a href="../../d1/d12/_r_h_i_strings_8cpp.html#a0ef6a61a3012fdcfdbced214745d84a2">GetRHIPipelineName</a></div><div class="ttdeci">FString GetRHIPipelineName(ERHIPipeline Pipeline)</div><div class="ttdef"><b>定义</b> RHIStrings.cpp:528</div></div>
+<div class="ttc" id="a_s_anim_notify_panel_8h_html_a7483aa7f043c623f8990a95320be654d"><div class="ttname"><a href="../../d2/d8e/_s_anim_notify_panel_8h.html#a7483aa7f043c623f8990a95320be654d">FString</a></div><div class="ttdeci">FOnGetScrubValue FString</div><div class="ttdef"><b>定义</b> SAnimNotifyPanel.h:38</div></div>
+<div class="ttc" id="a_shader_compiler_core_8h_html_a5928a96ed4c4bf8d62533d1eb26579ccaaeaeaec51b4e6b88122f10ad96a8de72"><div class="ttname"><a href="../../d3/d4a/_shader_compiler_core_8h.html#a5928a96ed4c4bf8d62533d1eb26579ccaaeaeaec51b4e6b88122f10ad96a8de72">EShaderCompileJobType::Pipeline</a></div><div class="ttdeci">@ Pipeline</div><div class="ttdef"><b>定义</b> ShaderCompilerCore.h:807</div></div>
+<div class="ttc" id="a_threading_base_8cpp_html_ae8451c14c7ef063748eed400817f004d"><div class="ttname"><a href="../../d2/d44/_threading_base_8cpp.html#ae8451c14c7ef063748eed400817f004d">IsInRenderingThread</a></div><div class="ttdeci">CORE_API bool IsInRenderingThread()</div><div class="ttdef"><b>定义</b> ThreadingBase.cpp:276</div></div>
+<div class="ttc" id="a_unreal_template_8h_html_af9d82a97e855a2ee1464cc020639d843"><div class="ttname"><a href="../../d2/dd1/_unreal_template_8h.html#af9d82a97e855a2ee1464cc020639d843">MoveTemp</a></div><div class="ttdeci">UE_INTRINSIC_CAST UE_REWRITE constexpr std::remove_reference_t&lt; T &gt; &amp;&amp; MoveTemp(T &amp;&amp;Obj) noexcept</div><div class="ttdef"><b>定义</b> UnrealTemplate.h:530</div></div>
+<div class="ttc" id="abinka__ue__decode__test_8cpp_html_a374eb3a41808f317fb77da75985c3204"><div class="ttname"><a href="../../d3/db8/binka__ue__decode__test_8cpp.html#a374eb3a41808f317fb77da75985c3204">if</a></div><div class="ttdeci">if(Failed) console_printf(&quot;Failed.\n&quot;)</div></div>
+<div class="ttc" id="aclass_f_r_h_i_command_list_base_html"><div class="ttname"><a href="../../d6/d36/class_f_r_h_i_command_list_base.html">FRHICommandListBase</a></div><div class="ttdef"><b>定义</b> RHICommandList.h:454</div></div>
+<div class="ttc" id="aclass_f_r_h_i_command_list_base_html_a27ba725f0d58aa7271e6282f7cfd5cfd"><div class="ttname"><a href="../../d6/d36/class_f_r_h_i_command_list_base.html#a27ba725f0d58aa7271e6282f7cfd5cfd">FRHICommandListBase::PersistentState</a></div><div class="ttdeci">struct FRHICommandListBase::FPersistentState PersistentState</div></div>
+<div class="ttc" id="aclass_f_r_h_i_command_list_base_html_a2ed2982345d9d9389e12a6fa6fa328b9"><div class="ttname"><a href="../../d6/d36/class_f_r_h_i_command_list_base.html#a2ed2982345d9d9389e12a6fa6fa328b9">FRHICommandListBase::GetPipeline</a></div><div class="ttdeci">ERHIPipeline GetPipeline() const</div><div class="ttdef"><b>定义</b> RHICommandList.h:685</div></div>
+<div class="ttc" id="aclass_f_r_h_i_command_list_base_html_a6785c111373f3db89511fa62bf2fdbb6"><div class="ttname"><a href="../../d6/d36/class_f_r_h_i_command_list_base.html#a6785c111373f3db89511fa62bf2fdbb6">FRHICommandListBase::NumCommands</a></div><div class="ttdeci">uint32 NumCommands</div><div class="ttdef"><b>定义</b> RHICommandList.h:1181</div></div>
+<div class="ttc" id="aclass_f_r_h_i_command_list_base_html_a748b9419426884c15d38f4f39b38802d"><div class="ttname"><a href="../../d6/d36/class_f_r_h_i_command_list_base.html#a748b9419426884c15d38f4f39b38802d">FRHICommandListBase::GetAsImmediate</a></div><div class="ttdeci">FRHICommandListImmediate &amp; GetAsImmediate()</div><div class="ttdef"><b>定义</b> RHICommandList.inl:21</div></div>
+<div class="ttc" id="aclass_f_r_h_i_command_list_base_html_a8ea40611ee99da705954732822c9db26"><div class="ttname"><a href="../../d6/d36/class_f_r_h_i_command_list_base.html#a8ea40611ee99da705954732822c9db26">FRHICommandListBase::GetPipelines</a></div><div class="ttdeci">ERHIPipeline GetPipelines() const</div><div class="ttdef"><b>定义</b> RHICommandList.h:691</div></div>
+<div class="ttc" id="aclass_f_r_h_i_command_list_base_html_aacb6cf19504da34bf5cb3dfb2c4cb7a3"><div class="ttname"><a href="../../d6/d36/class_f_r_h_i_command_list_base.html#aacb6cf19504da34bf5cb3dfb2c4cb7a3">FRHICommandListBase::Contexts</a></div><div class="ttdeci">FRHIContextArray Contexts</div><div class="ttdef"><b>定义</b> RHICommandList.h:1179</div></div>
+<div class="ttc" id="aclass_f_r_h_i_command_list_base_html_ab4210aaab27673a55fe6fa3250aa51ab"><div class="ttname"><a href="../../d6/d36/class_f_r_h_i_command_list_base.html#ab4210aaab27673a55fe6fa3250aa51ab">FRHICommandListBase::Bypass</a></div><div class="ttdeci">bool Bypass() const</div><div class="ttdef"><b>定义</b> RHICommandList.inl:27</div></div>
+<div class="ttc" id="aclass_f_r_h_i_command_list_base_html_aba80ea68fc7993fbf75e1fa7f1e8005f"><div class="ttname"><a href="../../d6/d36/class_f_r_h_i_command_list_base.html#aba80ea68fc7993fbf75e1fa7f1e8005f">FRHICommandListBase::FRHICommandListImmediate</a></div><div class="ttdeci">friend class FRHICommandListImmediate</div><div class="ttdef"><b>定义</b> RHICommandList.h:1367</div></div>
+<div class="ttc" id="aclass_f_r_h_i_command_list_base_html_abd5f92408896b6f893616c68b62ccd15"><div class="ttname"><a href="../../d6/d36/class_f_r_h_i_command_list_base.html#abd5f92408896b6f893616c68b62ccd15">FRHICommandListBase::Root</a></div><div class="ttdeci">FRHICommandBase * Root</div><div class="ttdef"><b>定义</b> RHICommandList.h:1165</div></div>
+<div class="ttc" id="aclass_f_r_h_i_command_list_base_html_aedb7b35b0d1443eb6c3d6c0985c48d0b"><div class="ttname"><a href="../../d6/d36/class_f_r_h_i_command_list_base.html#aedb7b35b0d1443eb6c3d6c0985c48d0b">FRHICommandListBase::IsImmediate</a></div><div class="ttdeci">bool IsImmediate() const</div><div class="ttdef"><b>定义</b> RHICommandList.inl:16</div></div>
+<div class="ttc" id="aclass_f_r_h_i_command_list_executor_html"><div class="ttname"><a href="../../d2/d3a/class_f_r_h_i_command_list_executor.html">FRHICommandListExecutor</a></div><div class="ttdef"><b>定义</b> RHICommandList.h:5048</div></div>
+<div class="ttc" id="aclass_f_r_h_i_command_list_immediate_html"><div class="ttname"><a href="../../d3/d7d/class_f_r_h_i_command_list_immediate.html">FRHICommandListImmediate</a></div><div class="ttdef"><b>定义</b> RHICommandList.h:4389</div></div>
+<div class="ttc" id="aclass_f_r_h_i_command_list_immediate_html_a3e7d6bd32e58c001e512fcc98e58c093"><div class="ttname"><a href="../../d3/d7d/class_f_r_h_i_command_list_immediate.html#a3e7d6bd32e58c001e512fcc98e58c093">FRHICommandListImmediate::StallRHIThread</a></div><div class="ttdeci">RHI_API bool StallRHIThread()</div><div class="ttdef"><b>定义</b> RHICommandList.cpp:1998</div></div>
+<div class="ttc" id="aclass_f_r_h_i_command_list_iterator_html_a16f04d2572f79dc5cad62ebc3404217a"><div class="ttname"><a href="../../d4/dad/class_f_r_h_i_command_list_iterator.html#a16f04d2572f79dc5cad62ebc3404217a">FRHICommandListIterator::FRHICommandListIterator</a></div><div class="ttdeci">FRHICommandListIterator(FRHICommandListBase &amp;CmdList)</div><div class="ttdef"><b>定义</b> RHICommandList.inl:77</div></div>
+<div class="ttc" id="aclass_f_r_h_i_command_list_iterator_html_ad2b671303bc06013a3aafb572c3f66f8"><div class="ttname"><a href="../../d4/dad/class_f_r_h_i_command_list_iterator.html#ad2b671303bc06013a3aafb572c3f66f8">FRHICommandListIterator::~FRHICommandListIterator</a></div><div class="ttdeci">~FRHICommandListIterator()</div><div class="ttdef"><b>定义</b> RHICommandList.inl:85</div></div>
+<div class="ttc" id="aclass_f_r_h_i_command_list_iterator_html_adcbd73eba4ef8daf31801b8d736a08a1"><div class="ttname"><a href="../../d4/dad/class_f_r_h_i_command_list_iterator.html#adcbd73eba4ef8daf31801b8d736a08a1">FRHICommandListIterator::NextCommand</a></div><div class="ttdeci">FRHICommandBase * NextCommand()</div><div class="ttdef"><b>定义</b> RHICommandList.inl:97</div></div>
+<div class="ttc" id="aclass_f_r_h_i_command_list_iterator_html_ae1a5b94964ff14a01dbcb0c32d3170fd"><div class="ttname"><a href="../../d4/dad/class_f_r_h_i_command_list_iterator.html#ae1a5b94964ff14a01dbcb0c32d3170fd">FRHICommandListIterator::HasCommandsLeft</a></div><div class="ttdeci">bool HasCommandsLeft() const</div><div class="ttdef"><b>定义</b> RHICommandList.inl:92</div></div>
+<div class="ttc" id="aclass_f_r_h_i_command_list_scoped_allow_extra_transitions_html_a3156e1b589179b51e9d9dabd726760d7"><div class="ttname"><a href="../../dd/dda/class_f_r_h_i_command_list_scoped_allow_extra_transitions.html#a3156e1b589179b51e9d9dabd726760d7">FRHICommandListScopedAllowExtraTransitions::FRHICommandListScopedAllowExtraTransitions</a></div><div class="ttdeci">FRHICommandListScopedAllowExtraTransitions(FRHICommandListBase &amp;RHICmdList, bool bAllowExtraTransitions)</div><div class="ttdef"><b>定义</b> RHICommandList.inl:152</div></div>
+<div class="ttc" id="aclass_f_r_h_i_command_list_scoped_allow_extra_transitions_html_af24af1899cb87cc6be2a9c3b2f7a3798"><div class="ttname"><a href="../../dd/dda/class_f_r_h_i_command_list_scoped_allow_extra_transitions.html#af24af1899cb87cc6be2a9c3b2f7a3798">FRHICommandListScopedAllowExtraTransitions::~FRHICommandListScopedAllowExtraTransitions</a></div><div class="ttdeci">~FRHICommandListScopedAllowExtraTransitions()</div><div class="ttdef"><b>定义</b> RHICommandList.inl:158</div></div>
+<div class="ttc" id="aclass_f_r_h_i_command_list_scoped_fence_html_a411ab06f5131fa62ffdf517f7ee23a48"><div class="ttname"><a href="../../d6/da2/class_f_r_h_i_command_list_scoped_fence.html#a411ab06f5131fa62ffdf517f7ee23a48">FRHICommandListScopedFence::FRHICommandListBase</a></div><div class="ttdeci">friend class FRHICommandListBase</div><div class="ttdef"><b>定义</b> RHICommandList.h:423</div></div>
+<div class="ttc" id="aclass_f_r_h_i_command_list_scoped_fence_html_aab9166e6579bc32a785395cd0186dbc5"><div class="ttname"><a href="../../d6/da2/class_f_r_h_i_command_list_scoped_fence.html#aab9166e6579bc32a785395cd0186dbc5">FRHICommandListScopedFence::FRHICommandListScopedFence</a></div><div class="ttdeci">FRHICommandListScopedFence(FRHICommandListBase &amp;RHICmdList)</div><div class="ttdef"><b>定义</b> RHICommandList.inl:116</div></div>
+<div class="ttc" id="aclass_f_r_h_i_command_list_scoped_fence_html_ace04eafac762cb111c11b15475d09075"><div class="ttname"><a href="../../d6/da2/class_f_r_h_i_command_list_scoped_fence.html#ace04eafac762cb111c11b15475d09075">FRHICommandListScopedFence::~FRHICommandListScopedFence</a></div><div class="ttdeci">~FRHICommandListScopedFence()</div><div class="ttdef"><b>定义</b> RHICommandList.inl:123</div></div>
+<div class="ttc" id="aclass_f_r_h_i_command_list_scoped_pipeline_guard_html_a523fc8ea5a22b8c2b03f1760397613f2"><div class="ttname"><a href="../../da/ddd/class_f_r_h_i_command_list_scoped_pipeline_guard.html#a523fc8ea5a22b8c2b03f1760397613f2">FRHICommandListScopedPipelineGuard::~FRHICommandListScopedPipelineGuard</a></div><div class="ttdeci">~FRHICommandListScopedPipelineGuard()</div><div class="ttdef"><b>定义</b> RHICommandList.inl:144</div></div>
+<div class="ttc" id="aclass_f_r_h_i_command_list_scoped_pipeline_guard_html_a74b57b67fad7f60dbe0ecf53d8d69b58"><div class="ttname"><a href="../../da/ddd/class_f_r_h_i_command_list_scoped_pipeline_guard.html#a74b57b67fad7f60dbe0ecf53d8d69b58">FRHICommandListScopedPipelineGuard::FRHICommandListScopedPipelineGuard</a></div><div class="ttdeci">FRHICommandListScopedPipelineGuard(FRHICommandListBase &amp;RHICmdList)</div><div class="ttdef"><b>定义</b> RHICommandList.inl:134</div></div>
+<div class="ttc" id="aclass_f_r_h_i_compute_command_list_html"><div class="ttname"><a href="../../dd/de6/class_f_r_h_i_compute_command_list.html">FRHIComputeCommandList</a></div><div class="ttdef"><b>定义</b> RHICommandList.h:2494</div></div>
+<div class="ttc" id="aclass_f_r_h_i_compute_command_list_html_a3ad474544c9ce6aaffab0b84b66c1684"><div class="ttname"><a href="../../dd/de6/class_f_r_h_i_compute_command_list.html#a3ad474544c9ce6aaffab0b84b66c1684">FRHIComputeCommandList::SubmitCommandsHint</a></div><div class="ttdeci">void SubmitCommandsHint()</div><div class="ttdef"><b>定义</b> RHICommandList.inl:63</div></div>
+<div class="ttc" id="aclass_f_r_h_i_context_array_html"><div class="ttname"><a href="../../d0/d52/class_f_r_h_i_context_array.html">FRHIContextArray</a></div><div class="ttdef"><b>定义</b> RHIResources.h:5640</div></div>
+<div class="ttc" id="aclass_f_r_h_i_resource_html"><div class="ttname"><a href="../../d2/d83/class_f_r_h_i_resource.html">FRHIResource</a></div><div class="ttdef"><b>定义</b> RHIResources.h:54</div></div>
+<div class="ttc" id="aclass_f_r_h_i_resource_replace_batcher_html_af4d5851374c8a58b2a84762641e5f13e"><div class="ttname"><a href="../../d5/d06/class_f_r_h_i_resource_replace_batcher.html#af4d5851374c8a58b2a84762641e5f13e">FRHIResourceReplaceBatcher::~FRHIResourceReplaceBatcher</a></div><div class="ttdeci">~FRHIResourceReplaceBatcher()</div><div class="ttdef"><b>定义</b> RHICommandList.inl:163</div></div>
+<div class="ttc" id="aclass_f_scoped_r_h_i_thread_staller_html"><div class="ttname"><a href="../../d6/d02/class_f_scoped_r_h_i_thread_staller.html">FScopedRHIThreadStaller</a></div><div class="ttdef"><b>定义</b> RHICommandList.h:4342</div></div>
+<div class="ttc" id="aclass_f_scoped_r_h_i_thread_staller_html_a96c789201414d2ce5e4df3919970bdf1"><div class="ttname"><a href="../../d6/d02/class_f_scoped_r_h_i_thread_staller.html#a96c789201414d2ce5e4df3919970bdf1">FScopedRHIThreadStaller::FScopedRHIThreadStaller</a></div><div class="ttdeci">FScopedRHIThreadStaller()=delete</div></div>
+<div class="ttc" id="aclass_f_scoped_r_h_i_thread_staller_html_ac7d4460f8f959e022b109dd7d6e33b58"><div class="ttname"><a href="../../d6/d02/class_f_scoped_r_h_i_thread_staller.html#ac7d4460f8f959e022b109dd7d6e33b58">FScopedRHIThreadStaller::~FScopedRHIThreadStaller</a></div><div class="ttdeci">~FScopedRHIThreadStaller()</div><div class="ttdef"><b>定义</b> RHICommandList.inl:49</div></div>
+<div class="ttc" id="aclass_i_r_h_i_compute_context_html_ad2d195d2ff459a33cb5f4af0d35372f1"><div class="ttname"><a href="../../d2/db5/class_i_r_h_i_compute_context.html#ad2d195d2ff459a33cb5f4af0d35372f1">IRHIComputeContext::GetExecutingCommandList</a></div><div class="ttdeci">FRHICommandListBase &amp; GetExecutingCommandList() const</div><div class="ttdef"><b>定义</b> RHIContext.h:543</div></div>
+<div class="ttc" id="anamespace_pipeline_state_cache_html"><div class="ttname"><a href="../../d2/d2c/namespace_pipeline_state_cache.html">PipelineStateCache</a></div><div class="ttdef"><b>定义</b> PipelineStateCache.cpp:26</div></div>
+<div class="ttc" id="anamespace_pipeline_state_cache_html_a49a0638c75ad21cb68ea1c2e9dbeced1"><div class="ttname"><a href="../../d2/d2c/namespace_pipeline_state_cache.html#a49a0638c75ad21cb68ea1c2e9dbeced1">PipelineStateCache::FlushResources</a></div><div class="ttdeci">RHI_API void FlushResources()</div><div class="ttdef"><b>定义</b> PipelineStateCache.cpp:4061</div></div>
+<div class="ttc" id="anamespace_u_e_1_1_shader_minifier_html_a15aa07c781e47faea659c4cfc5aec95fa942fc2710fabf2420410841b11be2c0a"><div class="ttname"><a href="../../db/d37/namespace_u_e_1_1_shader_minifier.html#a15aa07c781e47faea659c4cfc5aec95fa942fc2710fabf2420410841b11be2c0a">UE::ShaderMinifier::EBlockType::Args</a></div><div class="ttdeci">@ Args</div><div class="ttdef"><b>定义</b> ShaderMinifier.cpp:481</div></div>
+<div class="ttc" id="anamespace_windows_html_a470bc3bb69629c116360080eea602ff4"><div class="ttname"><a href="../../d8/d5e/namespace_windows.html#a470bc3bb69629c116360080eea602ff4">Windows::GetCurrentThreadId</a></div><div class="ttdeci">MINIMAL_WINDOWS_API DWORD WINAPI GetCurrentThreadId()</div></div>
+<div class="ttc" id="apreprocessor_8c_html_a1134b580f8da4de94ca6b1de4d37975e"><div class="ttname"><a href="../../dd/de9/preprocessor_8c.html#a1134b580f8da4de94ca6b1de4d37975e">uint32</a></div><div class="ttdeci">unsigned int uint32</div><div class="ttdef"><b>定义</b> preprocessor.c:67</div></div>
+<div class="ttc" id="astruct_f_android_t_l_s_html_a334beea7f963e007bda9579dc0bf558a"><div class="ttname"><a href="../../d6/d6f/struct_f_android_t_l_s.html#a334beea7f963e007bda9579dc0bf558a">FAndroidTLS::GetCurrentThreadId</a></div><div class="ttdeci">static uint32 GetCurrentThreadId(void)</div><div class="ttdef"><b>定义</b> AndroidPlatformTLS.h:20</div></div>
+<div class="ttc" id="astruct_f_r_h_i_command_base_html"><div class="ttname"><a href="../../d9/da2/struct_f_r_h_i_command_base.html">FRHICommandBase</a></div><div class="ttdef"><b>定义</b> RHICommandList.h:348</div></div>
+<div class="ttc" id="astruct_f_r_h_i_command_base_html_afcff47bd39c295d5be86ddc8ec5085ef"><div class="ttname"><a href="../../d9/da2/struct_f_r_h_i_command_base.html#afcff47bd39c295d5be86ddc8ec5085ef">FRHICommandBase::Next</a></div><div class="ttdeci">FRHICommandBase * Next</div><div class="ttdef"><b>定义</b> RHICommandList.h:349</div></div>
+<div class="ttc" id="astruct_t_r_h_i_lambda_command_multi_pipe_html_a1db0d818c032ebfa399f551ec03d0287"><div class="ttname"><a href="../../df/d0f/struct_t_r_h_i_lambda_command_multi_pipe.html#a1db0d818c032ebfa399f551ec03d0287">TRHILambdaCommandMultiPipe::ExecuteAndDestruct</a></div><div class="ttdeci">void ExecuteAndDestruct(FRHICommandListBase &amp;CmdList) override final</div><div class="ttdef"><b>定义</b> RHICommandList.inl:280</div></div>
+<div class="ttc" id="astruct_t_r_h_i_lambda_command_multi_pipe_html_a80cc234ca3a63d3b8240ec9aaeab19ba"><div class="ttname"><a href="../../df/d0f/struct_t_r_h_i_lambda_command_multi_pipe.html#a80cc234ca3a63d3b8240ec9aaeab19ba">TRHILambdaCommandMultiPipe::Pipelines</a></div><div class="ttdeci">ERHIPipeline Pipelines</div><div class="ttdef"><b>定义</b> RHICommandList.h:399</div></div>
+<div class="ttc" id="astruct_t_r_h_i_lambda_command_multi_pipe_html_aa220d91685284749e87b7a5e271d2005"><div class="ttname"><a href="../../df/d0f/struct_t_r_h_i_lambda_command_multi_pipe.html#aa220d91685284749e87b7a5e271d2005">TRHILambdaCommandMultiPipe::Lambda</a></div><div class="ttdeci">LAMBDA Lambda</div><div class="ttdef"><b>定义</b> RHICommandList.h:395</div></div>
+<div class="ttc" id="astruct_u_e_1_1_r_h_i_1_1_g_p_u_profiler_1_1_f_g_p_u_stat_html"><div class="ttname"><a href="../../d2/db7/struct_u_e_1_1_r_h_i_1_1_g_p_u_profiler_1_1_f_g_p_u_stat.html">UE::RHI::GPUProfiler::FGPUStat</a></div><div class="ttdef"><b>定义</b> GPUProfiler.h:469</div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+</div><!-- container -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a href="../../dir_0b6ee6e7e9547e675db4add2e5de97da.html">Engine</a></li><li class="navelem"><a href="../../dir_9579d1ecb2c7bf48cbe1049c41745cb4.html">Source</a></li><li class="navelem"><a href="../../dir_9f04efef762572853abdf73f62bebfcc.html">Runtime</a></li><li class="navelem"><a href="../../dir_17e95c33057ffb10235013ccaac986bc.html">RHI</a></li><li class="navelem"><a href="../../dir_0edda71014637a2b9d131f9d3572cc1a.html">Public</a></li><li class="navelem"><a href="../../d3/d24/_r_h_i_command_list_8inl.html">RHICommandList.inl</a></li>
+    <li class="footer">制作者 <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.15.0 </li>
+  </ul>
+</div>
+</body>
+</html>

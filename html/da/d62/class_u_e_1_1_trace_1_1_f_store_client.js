@@ -1,0 +1,27 @@
+var class_u_e_1_1_trace_1_1_f_store_client =
+[
+    [ "FStatus", "d1/d7d/struct_u_e_1_1_trace_1_1_f_store_client_1_1_f_status.html", "d1/d7d/struct_u_e_1_1_trace_1_1_f_store_client_1_1_f_status" ],
+    [ "FVersion", "d1/d73/struct_u_e_1_1_trace_1_1_f_store_client_1_1_f_version.html", "d1/d73/struct_u_e_1_1_trace_1_1_f_store_client_1_1_f_version" ],
+    [ "FTraceInfo", "d5/dcd/struct_u_e_1_1_trace_1_1_f_store_client_1_1_f_trace_info.html", "d5/dcd/struct_u_e_1_1_trace_1_1_f_store_client_1_1_f_trace_info" ],
+    [ "FTraceData", "d2/d60/struct_u_e_1_1_trace_1_1_f_store_client_1_1_f_trace_data.html", null ],
+    [ "FSessionInfo", "d8/d3d/struct_u_e_1_1_trace_1_1_f_store_client_1_1_f_session_info.html", "d8/d3d/struct_u_e_1_1_trace_1_1_f_store_client_1_1_f_session_info" ],
+    [ "~FStoreClient", "da/d62/class_u_e_1_1_trace_1_1_f_store_client.html#a2ba52119e08f92f9f1eaa50e97a65872", null ],
+    [ "GetSessionCount", "da/d62/class_u_e_1_1_trace_1_1_f_store_client.html#a673ed64be51d414ae66c0fbe711beffe", null ],
+    [ "GetSessionInfo", "da/d62/class_u_e_1_1_trace_1_1_f_store_client.html#aabfae5bbcf5a29e2b3ca51407e988f59", null ],
+    [ "GetSessionInfoByGuid", "da/d62/class_u_e_1_1_trace_1_1_f_store_client.html#a567ec7d1a19b31b45edf283a4b6d2eed", null ],
+    [ "GetSessionInfoById", "da/d62/class_u_e_1_1_trace_1_1_f_store_client.html#af818bb3c30ddb0f7416e2c98bb2b88fe", null ],
+    [ "GetSessionInfoByTraceId", "da/d62/class_u_e_1_1_trace_1_1_f_store_client.html#ade29a514cba3230be9e9df16ab87b460", null ],
+    [ "GetStatus", "da/d62/class_u_e_1_1_trace_1_1_f_store_client.html#a7882280c8564a3b64daecb9de244d7d7", null ],
+    [ "GetStoreAddress", "da/d62/class_u_e_1_1_trace_1_1_f_store_client.html#a4536248af6c0030416a0c41589467a0c", null ],
+    [ "GetStorePort", "da/d62/class_u_e_1_1_trace_1_1_f_store_client.html#ac3c209ee72b2565730dd9c9673ce70dc", null ],
+    [ "GetTraceCount", "da/d62/class_u_e_1_1_trace_1_1_f_store_client.html#a13b008cbe70eeb47dd4e00f16cbe7478", null ],
+    [ "GetTraceInfo", "da/d62/class_u_e_1_1_trace_1_1_f_store_client.html#abd19fbd1a150fa1c205321882e2caca0", null ],
+    [ "GetTraceInfoById", "da/d62/class_u_e_1_1_trace_1_1_f_store_client.html#a7a3d1dbb0ad34ed81f6aa5a219b205d3", null ],
+    [ "GetVersion", "da/d62/class_u_e_1_1_trace_1_1_f_store_client.html#a0046cf1a7f64602125b607b062be1c0f", null ],
+    [ "IsValid", "da/d62/class_u_e_1_1_trace_1_1_f_store_client.html#aca6ed24785617013aec63f35af22e7ee", null ],
+    [ "operator delete", "da/d62/class_u_e_1_1_trace_1_1_f_store_client.html#a9c5ce3bb34d532177bf024030b96c6a3", null ],
+    [ "ReadTrace", "da/d62/class_u_e_1_1_trace_1_1_f_store_client.html#a7695aace92d871588593a6310eea6997", null ],
+    [ "Reconnect", "da/d62/class_u_e_1_1_trace_1_1_f_store_client.html#a1ce65bed6e3f1e185b3f3fd274bb49d4", null ],
+    [ "SetSponsored", "da/d62/class_u_e_1_1_trace_1_1_f_store_client.html#ae222d8cc1c0406ca47188114922f7b2c", null ],
+    [ "SetStoreDirectories", "da/d62/class_u_e_1_1_trace_1_1_f_store_client.html#a53134aede83154308420052cc905537f", null ]
+];

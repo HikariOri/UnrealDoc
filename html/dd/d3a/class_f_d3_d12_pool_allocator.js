@@ -1,0 +1,35 @@
+var class_f_d3_d12_pool_allocator =
+[
+    [ "FrameFencedAllocationData", "d3/ded/struct_f_d3_d12_pool_allocator_1_1_frame_fenced_allocation_data.html", "d3/ded/struct_f_d3_d12_pool_allocator_1_1_frame_fenced_allocation_data" ],
+    [ "EAllocationType", "dd/d3a/class_f_d3_d12_pool_allocator.html#a6cf7aaeb45a8470b2937b7555fda3156", [
+      [ "Allocate", "dd/d3a/class_f_d3_d12_pool_allocator.html#a6cf7aaeb45a8470b2937b7555fda3156ac9baacf6cca6c54626e594639081177f", null ],
+      [ "DefragFree", "dd/d3a/class_f_d3_d12_pool_allocator.html#a6cf7aaeb45a8470b2937b7555fda3156a6b8273738e9d5b91ae58b63de0293cf2", null ],
+      [ "Free", "dd/d3a/class_f_d3_d12_pool_allocator.html#a6cf7aaeb45a8470b2937b7555fda3156ab24ce0cd392a5b0b8dedc66c25213594", null ]
+    ] ],
+    [ "FD3D12PoolAllocator", "dd/d3a/class_f_d3_d12_pool_allocator.html#a129741e4ce92e31493f61d8ad024716a", null ],
+    [ "~FD3D12PoolAllocator", "dd/d3a/class_f_d3_d12_pool_allocator.html#a2f1094921d77f9a476ec0d5a54603dbc", null ],
+    [ "AllocateResource", "dd/d3a/class_f_d3_d12_pool_allocator.html#aef7d486f8670e4c28bc9c924ff658211", null ],
+    [ "AllocDefaultResource", "dd/d3a/class_f_d3_d12_pool_allocator.html#aae9b34686012d3cda51e9d343bc13153", null ],
+    [ "CleanUpAllocations", "dd/d3a/class_f_d3_d12_pool_allocator.html#a40c5be12c9db7e09154dc5a46badf69b", null ],
+    [ "CreateNewPool", "dd/d3a/class_f_d3_d12_pool_allocator.html#a7532c7a14fd97d343de64a84294ab712", null ],
+    [ "CreatePlacedResource", "dd/d3a/class_f_d3_d12_pool_allocator.html#a678b00bfac0135286f54d02dbf33781a", null ],
+    [ "DeallocateResource", "dd/d3a/class_f_d3_d12_pool_allocator.html#a06042d7afd3e48d9fb2ba20a988be15f", null ],
+    [ "FlushPendingCopyOps", "dd/d3a/class_f_d3_d12_pool_allocator.html#aba62442f5bc342e15ef41f3830a37608", null ],
+    [ "GetAllocationStrategy", "dd/d3a/class_f_d3_d12_pool_allocator.html#aabd2634b8957aa5d587a50b12c537ca1", null ],
+    [ "GetBackingHeapAndAllocationOffsetInBytes", "dd/d3a/class_f_d3_d12_pool_allocator.html#abb04d07c5896f5843b7fce739f859e16", null ],
+    [ "GetBackingHeapAndAllocationOffsetInBytes", "dd/d3a/class_f_d3_d12_pool_allocator.html#a62e4ec1c7892eafb29603ab73fbb4e91", null ],
+    [ "GetBackingResource", "dd/d3a/class_f_d3_d12_pool_allocator.html#a1be22d98a3f75e46eeee31640fbe00c1", null ],
+    [ "GetPendingDeleteRequestSize", "dd/d3a/class_f_d3_d12_pool_allocator.html#a76366c420ae5978384bb909dd15a98b6", null ],
+    [ "HandleDefragRequest", "dd/d3a/class_f_d3_d12_pool_allocator.html#a957e45bf0491a417957973c432eac67f", null ],
+    [ "IsOwner", "dd/d3a/class_f_d3_d12_pool_allocator.html#a9838a6a1dc8cf10a120541d361f64de5", null ],
+    [ "SupportsAllocation", "dd/d3a/class_f_d3_d12_pool_allocator.html#a909e70ea0901c71a3ab415286101ed79", null ],
+    [ "TransferOwnership", "dd/d3a/class_f_d3_d12_pool_allocator.html#abec99ae213d4a366cdb6f873ba158611", null ],
+    [ "UpdateAllocationTracking", "dd/d3a/class_f_d3_d12_pool_allocator.html#aa55f62cdc5940a98f3e96a9eefaf874f", null ],
+    [ "AllocationDataPool", "dd/d3a/class_f_d3_d12_pool_allocator.html#ae7ba30a1945bced8a2269ad08d4738b8", null ],
+    [ "AllocationStrategy", "dd/d3a/class_f_d3_d12_pool_allocator.html#a6cd661d86d0c14ffe87dbf97591e2673", null ],
+    [ "FrameFencedOperations", "dd/d3a/class_f_d3_d12_pool_allocator.html#a55b0f96e0e636c36bc29f82a84bcf12d", null ],
+    [ "InitConfig", "dd/d3a/class_f_d3_d12_pool_allocator.html#afd6f628d33ceea676efc6201fc291e9e", null ],
+    [ "Name", "dd/d3a/class_f_d3_d12_pool_allocator.html#a6d992dbbe4ec574365aa3d0fcc5b67cc", null ],
+    [ "PendingCopyOps", "dd/d3a/class_f_d3_d12_pool_allocator.html#a6d3eb9cf7c0281db334a1f9459864367", null ],
+    [ "PendingDeleteRequestSize", "dd/d3a/class_f_d3_d12_pool_allocator.html#a5ff4a373a7d1c1ce0e5951f0e1817a20", null ]
+];

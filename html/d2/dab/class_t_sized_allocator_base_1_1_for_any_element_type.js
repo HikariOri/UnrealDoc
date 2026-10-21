@@ -1,0 +1,26 @@
+var class_t_sized_allocator_base_1_1_for_any_element_type =
+[
+    [ "ForAnyElementType", "d2/dab/class_t_sized_allocator_base_1_1_for_any_element_type.html#a471442b8aef85d3e67440edd689ff57c", null ],
+    [ "ForAnyElementType", "d2/dab/class_t_sized_allocator_base_1_1_for_any_element_type.html#aefdb47360826be1dc43f4290f6017e3e", null ],
+    [ "~ForAnyElementType", "d2/dab/class_t_sized_allocator_base_1_1_for_any_element_type.html#a79765062d4b1b2bddc51d87136257882", null ],
+    [ "ForAnyElementType", "d2/dab/class_t_sized_allocator_base_1_1_for_any_element_type.html#aee974a721bd73c3b7f3324e834e7b604", null ],
+    [ "CalculateSlackGrow", "d2/dab/class_t_sized_allocator_base_1_1_for_any_element_type.html#aaeed4c334cbbbb7133b4c3c5f43e39d2", null ],
+    [ "CalculateSlackGrow", "d2/dab/class_t_sized_allocator_base_1_1_for_any_element_type.html#a59cda0e03f9f4f64e1d87b59c619819f", null ],
+    [ "CalculateSlackReserve", "d2/dab/class_t_sized_allocator_base_1_1_for_any_element_type.html#aa204fa9147d096c097542c5756a5c35f", null ],
+    [ "CalculateSlackReserve", "d2/dab/class_t_sized_allocator_base_1_1_for_any_element_type.html#a1fda4a81b2dd7ac0d5d8df021505d3b4", null ],
+    [ "CalculateSlackShrink", "d2/dab/class_t_sized_allocator_base_1_1_for_any_element_type.html#a3d1462503e01f315d8f7f1c5dae4b490", null ],
+    [ "CalculateSlackShrink", "d2/dab/class_t_sized_allocator_base_1_1_for_any_element_type.html#a61fa70f607691ec8b5361a4f992d357f", null ],
+    [ "CallFree", "d2/dab/class_t_sized_allocator_base_1_1_for_any_element_type.html#a61a6aa34a9aa686463b181c886ad8e56", null ],
+    [ "CallRealloc", "d2/dab/class_t_sized_allocator_base_1_1_for_any_element_type.html#a8b22463a97c41e7e708d701fd0783c27", null ],
+    [ "GetAllocatedSize", "d2/dab/class_t_sized_allocator_base_1_1_for_any_element_type.html#a0ee5b29c52174513ecc6bf8ad8b73006", null ],
+    [ "GetAllocation", "d2/dab/class_t_sized_allocator_base_1_1_for_any_element_type.html#a0a736a72f27f47baff310f7c84664f3e", null ],
+    [ "GetInitialCapacity", "d2/dab/class_t_sized_allocator_base_1_1_for_any_element_type.html#a45f89abaf0fc23274d48eb01d71281ed", null ],
+    [ "HasAllocation", "d2/dab/class_t_sized_allocator_base_1_1_for_any_element_type.html#a7cd057a510786d1ed1a0d5de78fdcca3", null ],
+    [ "MoveToEmpty", "d2/dab/class_t_sized_allocator_base_1_1_for_any_element_type.html#a18ca81803c3090cc97746fdfa5ad5139", null ],
+    [ "MoveToEmptyFromOtherAllocator", "d2/dab/class_t_sized_allocator_base_1_1_for_any_element_type.html#a7bfecb26b83582fc81cac71de91da404", null ],
+    [ "operator=", "d2/dab/class_t_sized_allocator_base_1_1_for_any_element_type.html#a73a15332d0eadcae043618649f3640b5", null ],
+    [ "ResizeAllocation", "d2/dab/class_t_sized_allocator_base_1_1_for_any_element_type.html#ad70958d523cfc6f9dcca704497f7b4f7", null ],
+    [ "ResizeAllocation", "d2/dab/class_t_sized_allocator_base_1_1_for_any_element_type.html#accf70dee5981f856a9f71d97149c99de", null ],
+    [ "TSizedAllocatorBase", "d2/dab/class_t_sized_allocator_base_1_1_for_any_element_type.html#a05c1dcbe46f0086505ed2c4577c20ed7", null ],
+    [ "Data", "d2/dab/class_t_sized_allocator_base_1_1_for_any_element_type.html#a89690dcc680238cae404074562e62b62", null ]
+];

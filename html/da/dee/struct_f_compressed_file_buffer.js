@@ -1,0 +1,26 @@
+var struct_f_compressed_file_buffer =
+[
+    [ "FCompressedFileBuffer", "da/dee/struct_f_compressed_file_buffer.html#aa087386e4b6d6ffb28dedb5436558678", null ],
+    [ "BeginCompressFileToWorkingBuffer", "da/dee/struct_f_compressed_file_buffer.html#a1cfb69e91442fb5994a59cd05f378ef2", null ],
+    [ "Empty", "da/dee/struct_f_compressed_file_buffer.html#ad189092058b90a5813f334837cdbd1eb", null ],
+    [ "EndCompressFileToWorkingBuffer", "da/dee/struct_f_compressed_file_buffer.html#a3373afca10e13b2798fc8514dbdcbfb7", null ],
+    [ "EnsureBufferSpace", "da/dee/struct_f_compressed_file_buffer.html#ab570e215be101d42c5f77e0f4deea573", null ],
+    [ "GetDDCKeyString", "da/dee/struct_f_compressed_file_buffer.html#aeb68baaa516da990d8e32d1dcda13d58", null ],
+    [ "GetFileSize", "da/dee/struct_f_compressed_file_buffer.html#a36ccd22dfd8fd3ada149065178c88ab4", null ],
+    [ "GetSerializedSizeEstimate", "da/dee/struct_f_compressed_file_buffer.html#a16e20fd1460ffd08cc43a9726684ab45", null ],
+    [ "ReadSource", "da/dee/struct_f_compressed_file_buffer.html#aee270af4b9aafa2870bc13b47766ddc6", null ],
+    [ "Reinitialize", "da/dee/struct_f_compressed_file_buffer.html#adae8ded75ae88d4aa85b7b1b9c92f137", null ],
+    [ "ResetSource", "da/dee/struct_f_compressed_file_buffer.html#a618d3cf6b74b1a248474855da6ad5778", null ],
+    [ "SerializeDDCData", "da/dee/struct_f_compressed_file_buffer.html#a7a5061602bce1192d36d4f25c00b6c37", null ],
+    [ "SetSourceAsWorkingBuffer", "da/dee/struct_f_compressed_file_buffer.html#a938c8025bd2fd666ba81fd44e0b37054", null ],
+    [ "CompressedBlocks", "da/dee/struct_f_compressed_file_buffer.html#a9a71c07fdae5983e6f5e072320c33bce", null ],
+    [ "CompressedBuffer", "da/dee/struct_f_compressed_file_buffer.html#a8021d1821fff6a5fc162b6a90ffcf1cf", null ],
+    [ "CompressedBufferSize", "da/dee/struct_f_compressed_file_buffer.html#ab766680ffe758503e31e94250e3d75cd", null ],
+    [ "FileCompressionBlockSize", "da/dee/struct_f_compressed_file_buffer.html#ad4971bb9d4eda0a819b5dca70a386799", null ],
+    [ "FileCompressionMethod", "da/dee/struct_f_compressed_file_buffer.html#afed7ae6021ba2cf3e5ebd5cda1e36e6b", null ],
+    [ "OriginalSize", "da/dee/struct_f_compressed_file_buffer.html#a48f9389e33b650612f26bd13a8634a8a", null ],
+    [ "RehydrationBytes", "da/dee/struct_f_compressed_file_buffer.html#a55c4818d8a24eef8c94a94c67f963fb2", null ],
+    [ "RehydrationCount", "da/dee/struct_f_compressed_file_buffer.html#a1aa94173d5ca395a7e9024d112db05e2", null ],
+    [ "TotalCompressedSize", "da/dee/struct_f_compressed_file_buffer.html#a66c70b932be40239ede51d1902bf7a21", null ],
+    [ "UncompressedBuffer", "da/dee/struct_f_compressed_file_buffer.html#a601663be7e48d97eb14fb8eab5ac8a6e", null ]
+];

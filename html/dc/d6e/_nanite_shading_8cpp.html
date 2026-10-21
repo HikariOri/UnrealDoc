@@ -1,0 +1,805 @@
+<!-- HTML header for doxygen 1.15.0-->
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh">
+<head>
+  <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=11" />
+  <meta name="generator" content="Doxygen 1.15.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>UE 5.8.4: Engine/Source/Runtime/Renderer/Private/Nanite/NaniteShading.cpp 文件参考</title>
+  <link rel="icon" href="../../EdIconDefault.bmp" type="image/x-icon" />
+  <link href="../../tabs.css" rel="stylesheet" type="text/css" />
+  <script type="text/javascript" src="../../jquery.js"></script>
+  <script type="text/javascript" src="../../dynsections.js"></script>
+  <link href="../../navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../navtreedata.js"></script>
+<script type="text/javascript" src="../../navtree.js"></script>
+<script type="text/javascript" src="../../cookie.js"></script>
+  <link href="../../search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../search/searchdata.js"></script>
+<script type="text/javascript" src="../../search/search.js"></script>
+  <script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  extensions: ["tex2jax.js"],
+  jax: ["input/TeX","output/HTML-CSS"],
+});
+</script>
+<script type="text/javascript" async="async" src="https://cdn.jsdelivr.net/npm/mathjax@2/MathJax.js"></script>
+  <link href="../../doxygen.css" rel="stylesheet" type="text/css" />
+  <link href="../../doxygen-awesome.css" rel="stylesheet" type="text/css"/>
+<link href="../../doxygen-awesome-sidebar-only.css" rel="stylesheet" type="text/css"/>
+<link href="../../doxygen-awesome-sidebar-only-darkmode-toggle.css" rel="stylesheet" type="text/css"/>
+  <!-- ... other metadata & script includes ... -->
+  <script type="text/javascript" src="../../doxygen-awesome-darkmode-toggle.js"></script>
+  <script type="text/javascript">
+    DoxygenAwesomeDarkModeToggle.title = "Zwischen hellem/dunklem Modus wechseln"
+    DoxygenAwesomeDarkModeToggle.lightModeIcon = '🌞'
+    // icon from https://fonts.google.com/icons
+    DoxygenAwesomeDarkModeToggle.darkModeIcon = `<svg xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 24 24" height="24px" viewBox="0 0 24 24" width="24px" fill="#009793"><g><rect fill="none" height="24" width="24"/></g><g><g><path d="M8.1,14.15C9.77,14.63,11,16.17,11,18c0,0.68-0.19,1.31-0.48,1.87c0.48,0.09,0.97,0.14,1.48,0.14 c1.48,0,2.9-0.41,4.13-1.15c-2.62-0.92-5.23-2.82-6.8-5.86C7.74,9.94,7.78,7.09,8.29,4.9c-2.57,1.33-4.3,4.01-4.3,7.1c0,0,0,0,0,0 c0.01,0,0.01,0,0.02,0C5.66,12,7.18,12.83,8.1,14.15z" opacity=".3"/><path d="M19.78,17.51c-2.47,0-6.57-1.33-8.68-5.43C8.77,7.57,10.6,3.6,11.63,2.01C6.27,2.2,1.98,6.59,1.98,12 c0,0.14,0.02,0.28,0.02,0.42C2.61,12.16,3.28,12,3.98,12c0,0,0,0,0,0c0-3.09,1.73-5.77,4.3-7.1C7.78,7.09,7.74,9.94,9.32,13 c1.57,3.04,4.18,4.95,6.8,5.86c-1.23,0.74-2.65,1.15-4.13,1.15c-0.5,0-1-0.05-1.48-0.14c-0.37,0.7-0.94,1.27-1.64,1.64 c0.98,0.32,2.03,0.5,3.11,0.5c3.5,0,6.58-1.8,8.37-4.52C20.18,17.5,19.98,17.51,19.78,17.51z"/><path d="M7,16l-0.18,0C6.4,14.84,5.3,14,4,14c-1.66,0-3,1.34-3,3s1.34,3,3,3c0.62,0,2.49,0,3,0c1.1,0,2-0.9,2-2 C9,16.9,8.1,16,7,16z"/></g></g></svg>`
+    DoxygenAwesomeDarkModeToggle.init()
+  </script>
+  <script type="text/javascript" src="../../doxygen-awesome-fragment-copy-button.js"></script>
+  <script type="text/javascript">
+    DoxygenAwesomeFragmentCopyButton.title = "In die Zwischenablage kopieren"
+    // DoxygenAwesomeFragmentCopyButton.copyIcon = `<svg ...>`
+    // DoxygenAwesomeFragmentCopyButton.successIcon = `<svg ...>`
+    DoxygenAwesomeFragmentCopyButton.init()
+  </script>
+  <script type="text/javascript" src="../../doxygen-awesome-paragraph-link.js"></script>
+  <script type="text/javascript">
+    DoxygenAwesomeParagraphLink.title = "Abschnitt verknüpfen"
+    DoxygenAwesomeParagraphLink.icon = "¶"
+    DoxygenAwesomeParagraphLink.init()
+  </script>
+  <script type="text/javascript" src="../../doxygen-awesome-interactive-toc.js"></script>
+  <script type="text/javascript">
+    DoxygenAwesomeInteractiveToc.topOffset = 45
+    DoxygenAwesomeInteractiveToc.hideMobileMenu = false
+    DoxygenAwesomeInteractiveToc.init()
+  </script>
+</head>
+<body>
+    <div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+      <div id="titlearea">
+        <table cellspacing="0" cellpadding="0">
+          <tbody>
+            <tr id="projectrow">
+              <td id="projectlogo"><img alt="Logo" src="../../EdIconDefault.bmp"  /></td>
+              <td id="projectalign">
+                <div id="projectname">UE 5.8.4
+                </div>
+                <div id="projectbrief">Unreal Engine</div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <!-- end header part -->
+<!-- 制作者 Doxygen 1.15.0 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "../../search/",'.html');
+</script>
+<script type="text/javascript">
+$(function() { codefold.init(); });
+</script>
+<script type="text/javascript" src="../../menudata.js"></script>
+<script type="text/javascript" src="../../menu.js"></script>
+<script type="text/javascript">
+$(function() {
+  initMenu('../../',true,false,'search.php','搜索',true);
+  $(function() { init_search(); });
+});
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(function(){initNavTree('dc/d6e/_nanite_shading_8cpp.html','../../',''); });
+</script>
+<div id="container">
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">载入中...</div>
+<div class="SRStatus" id="Searching">搜索中...</div>
+<div class="SRStatus" id="NoMatches">未找到</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">NaniteShading.cpp 文件参考</div></div>
+</div><!--header-->
+<div class="contents">
+<div class="textblock"><code>#include &quot;<a class="el" href="../../d5/da1/_nanite_shading_8h_source.html">NaniteShading.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../dc/d5e/_core_minimal_8h_source.html">CoreMinimal.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d3/d90/_core_2_public_2_async_2_parallel_for_8h_source.html">Async/ParallelFor.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../dd/d24/_task_graph_interfaces_8h_source.html">Async/TaskGraphInterfaces.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d3/dc8/_base_pass_rendering_8h_source.html">BasePassRendering.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d0/d25/_component_recreate_render_state_context_8h_source.html">ComponentRecreateRenderStateContext.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../dd/d92/_array_view_8h_source.html">Containers/ArrayView.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../da/d31/_set_utilities_8h_source.html">Containers/SetUtilities.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d9/d6d/_sparse_set_8h_source.html">Containers/SparseSet.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../df/d65/_static_array_8h_source.html">Containers/StaticArray.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d8/df3/_data_driven_shader_platform_info_8h_source.html">DataDrivenShaderPlatformInfo.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d2/d75/_decal_rendering_shared_8h_source.html">DecalRenderingShared.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d8/db0/_dynamic_r_h_i_8h_source.html">DynamicRHI.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../db/dd8/_engine_types_8h_source.html">Engine/EngineTypes.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../db/d47/_concurrent_linear_allocator_8h_source.html">Experimental/ConcurrentLinearAllocator.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d1/db0/_robin_hood_hash_table_8h_source.html">Experimental/Containers/RobinHoodHashTable.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../da/d3c/_extensible_uniform_buffer_8h_source.html">ExtensibleUniformBuffer.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../da/d9b/_g_buffer_info_8h_source.html">GBufferInfo.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../dd/d5a/_global_shader_8h_source.html">GlobalShader.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d4/dd9/_i_console_manager_8h_source.html">HAL/IConsoleManager.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d9/dc8/_low_level_mem_tracker_8h_source.html">HAL/LowLevelMemTracker.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d0/d0a/_light_map_rendering_8h_source.html">LightMapRendering.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d7/dcd/_log_macros_8h_source.html">Logging/LogMacros.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../de/dde/_lumen_scene_card_capture_8h_source.html">Lumen/LumenSceneCardCapture.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d8/db2/_material_domain_8h_source.html">MaterialDomain.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d3/d09/_material_8h_source.html">Materials/Material.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../da/d7c/_material_interface_8h_source.html">Materials/MaterialInterface.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d0/dee/_material_relevance_8h_source.html">Materials/MaterialRelevance.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d1/de7/_material_render_proxy_8h_source.html">Materials/MaterialRenderProxy.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d3/db5/_material_shader_type_8h_source.html">MaterialShaderType.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d2/d3d/_material_shared_8h_source.html">MaterialShared.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d9/df8/_color_8h_source.html">Math/Color.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d2/d08/_mesh_draw_commands_8h_source.html">MeshDrawCommands.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d7/dbc/_mesh_material_shader_8h_source.html">MeshMaterialShader.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../db/dbe/_mesh_pass_processor_8h_source.html">MeshPassProcessor.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d9/d0d/_mesh_pass_utils_8h_source.html">MeshPassUtils.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d9/d11/_app_8h_source.html">Misc/App.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../db/dca/_large_world_coordinates_8h_source.html">Misc/LargeWorldCoordinates.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d7/d78/_nanite_8h_source.html">Nanite/Nanite.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d9/df0/_nanite_composition_8h_source.html">Nanite/NaniteComposition.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d0/ddd/_nanite_materials_scene_extension_8h_source.html">Nanite/NaniteMaterialsSceneExtension.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d9/d23/_nanite_shared_8h_source.html">Nanite/NaniteShared.h</a>&quot;</code><br />
+<code>#include &quot;NaniteDefinitions.h&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../df/d67/_nanite_scene_proxy_8h_source.html">NaniteSceneProxy.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d1/dc7/_nanite_translucency_8h_source.html">NaniteTranslucency.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d4/d19/_nanite_vertex_factory_8h_source.html">NaniteVertexFactory.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../dc/d52/_nanite_visualization_data_8h_source.html">NaniteVisualizationData.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../df/db5/_pipeline_state_cache_8h_source.html">PipelineStateCache.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../dc/d3a/_primitive_scene_info_8h_source.html">PrimitiveSceneInfo.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d8/d3e/_primitive_scene_proxy_8h_source.html">PrimitiveSceneProxy.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../dd/d43/_primitive_view_relevance_8h_source.html">PrimitiveViewRelevance.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../df/d7e/_cpu_profiler_trace_8h_source.html">ProfilingDebugging/CpuProfilerTrace.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d8/d2e/_tag_trace_8h_source.html">ProfilingDebugging/TagTrace.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d3/df9/_p_s_o_precache_8h_source.html">PSOPrecache.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d6/ddd/_p_s_o_precache_material_8h_source.html">PSOPrecacheMaterial.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../dd/da6/_renderer_interface_8h_source.html">RendererInterface.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d8/db3/_render_graph_builder_8h_source.html">RenderGraphBuilder.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d5/d32/_render_graph_utils_8h_source.html">RenderGraphUtils.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d3/dc5/_nanite_interface_8h_source.html">Rendering/NaniteInterface.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../dc/d79/_nanite_resources_8h_source.html">Rendering/NaniteResources.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d5/d98/_nanite_streaming_manager_8h_source.html">Rendering/NaniteStreamingManager.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../de/d01/_render_utils_8h_source.html">RenderUtils.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d5/dfb/_r_h_i_8h_source.html">RHI.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../da/db9/_r_h_i_breadcrumbs_8h_source.html">RHIBreadcrumbs.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d1/d1d/_r_h_i_command_list_8h_source.html">RHICommandList.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../db/dec/_r_h_i_resources_8h_source.html">RHIResources.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../de/d30/_r_h_i_shader_parameters_8h_source.html">RHIShaderParameters.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d8/d3d/_r_h_i_static_states_8h_source.html">RHIStaticStates.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d0/d94/_scene_interface_8h_source.html">SceneInterface.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../df/d35/_scene_management_8h_source.html">SceneManagement.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d5/dbc/_scene_private_8h_source.html">ScenePrivate.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d6/dda/_scene_rendering_8h_source.html">SceneRendering.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d4/dba/_scene_textures_8h_source.html">SceneTextures.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d9/d75/_scene_textures_config_8h_source.html">SceneTexturesConfig.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d6/d35/_scene_uniform_buffer_8h_source.html">SceneUniformBuffer.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d5/d3b/_scene_utils_8h_source.html">SceneUtils.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../dc/d7a/_scene_view_8h_source.html">SceneView.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d8/d34/_shader_8h_source.html">Shader.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d9/d2c/_shader_parameter_macros_8h_source.html">ShaderParameterMacros.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../de/d64/_shader_parameter_struct_8h_source.html">ShaderParameterStruct.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d6/d82/_shader_parameter_utils_8h_source.html">ShaderParameterUtils.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d9/d20/_shader_platform_config_8h_source.html">ShaderPlatformConfig.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d3/d48/_stats_8h_source.html">Stats/Stats.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d1/df1/_substrate_8h_source.html">Substrate/Substrate.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d0/d2a/_system_textures_8h_source.html">SystemTextures.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d1/d6d/_core_2_public_2_tasks_2_task_8h_source.html">Tasks/Task.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d6/d57/_unreal_engine_8h_source.html">UnrealEngine.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../db/d56/_variable_rate_shading_image_manager_8h_source.html">VariableRateShadingImageManager.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d5/d36/_vertex_factory_8h_source.html">VertexFactory.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../db/de1/_virtual_shadow_map_array_8h_source.html">VirtualShadowMaps/VirtualShadowMapArray.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d6/d90/_lumen_view_state_8h_source.html">Lumen/LumenViewState.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../db/d62/_p_s_o_precache_validation_8h_source.html">PSOPrecacheValidation.h</a>&quot;</code><br />
+</div><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-nested-classes" class="groupheader"><a id="nested-classes" name="nested-classes"></a>
+类</h2></td></tr>
+<tr class="memitem:FVisualizeClearTilesCS" id="r_FVisualizeClearTilesCS"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d04/class_f_visualize_clear_tiles_c_s.html">FVisualizeClearTilesCS</a></td></tr>
+<tr class="memitem:FShadingBinBuildCS" id="r_FShadingBinBuildCS"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/d78/class_f_shading_bin_build_c_s.html">FShadingBinBuildCS</a></td></tr>
+<tr class="memitem:FShadingGroupCS" id="r_FShadingGroupCS"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/db0/class_f_shading_group_c_s.html">FShadingGroupCS</a></td></tr>
+<tr class="memitem:FShadingBinReserveCS" id="r_FShadingBinReserveCS"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/d70/class_f_shading_bin_reserve_c_s.html">FShadingBinReserveCS</a></td></tr>
+<tr class="memitem:FShadingBinValidateCS" id="r_FShadingBinValidateCS"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d8/d61/class_f_shading_bin_validate_c_s.html">FShadingBinValidateCS</a></td></tr>
+<tr class="memitem:FClearCMaskRectCS" id="r_FClearCMaskRectCS"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/d94/class_f_clear_c_mask_rect_c_s.html">FClearCMaskRectCS</a></td></tr>
+<tr class="memitem:Nanite_3A_3AFShadingConfig" id="r_Nanite_3A_3AFShadingConfig"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/d70/struct_nanite_1_1_f_shading_config.html">Nanite::FShadingConfig</a></td></tr>
+<tr class="memitem:Nanite_3A_3AFNaniteShadingPassIntermediates" id="r_Nanite_3A_3AFNaniteShadingPassIntermediates"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/dfd/struct_nanite_1_1_f_nanite_shading_pass_intermediates.html">Nanite::FNaniteShadingPassIntermediates</a></td></tr>
+<tr class="memitem:FLumenShadingBinEntry" id="r_FLumenShadingBinEntry"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/d8c/struct_f_lumen_shading_bin_entry.html">FLumenShadingBinEntry</a></td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-namespaces" class="groupheader"><a id="namespaces" name="namespaces"></a>
+命名空间</h2></td></tr>
+<tr class="memitem:Nanite" id="r_Nanite"><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/d3d/namespace_nanite.html">Nanite</a></td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-func-members" class="groupheader"><a id="func-members" name="func-members"></a>
+函数</h2></td></tr>
+<tr class="memitem:aea02f6222f7dfadcc3122d1b616d3887" id="r_aea02f6222f7dfadcc3122d1b616d3887"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aea02f6222f7dfadcc3122d1b616d3887">UsingHighPrecisionGBuffer</a> ()</td></tr>
+<tr class="memitem:a0f062d85f3d47bec528a8f8f475d8c69" id="r_a0f062d85f3d47bec528a8f8f475d8c69"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a0f062d85f3d47bec528a8f8f475d8c69">CanUseShaderBundleWorkGraph</a> (<a class="el" href="../../de/d49/_r_h_i_shader_platform_8h.html#a424c00593a28eb7ade584eea91161acd">EShaderPlatform</a> Platform)</td></tr>
+<tr class="memitem:af11dcb3b1cfd2255181e9e071902d033" id="r_af11dcb3b1cfd2255181e9e071902d033"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af11dcb3b1cfd2255181e9e071902d033">IMPLEMENT_GLOBAL_SHADER</a> (<a class="el" href="../../df/d04/class_f_visualize_clear_tiles_c_s.html">FVisualizeClearTilesCS</a>, &quot;/Engine/<a class="el" href="../../d9/db1/namespace_private.html">Private</a>/<a class="el" href="../../d5/d3d/namespace_nanite.html">Nanite</a>/NaniteFastClear.usf&quot;, &quot;VisualizeClearTilesCS&quot;, <a class="el" href="../../da/dca/_r_h_i_definitions_8h.html#a0a3cc83cb6ebc79b66b43fae3ffee64ea2a84a18d7ac3d1fac11e3153f0abf73b">SF_Compute</a>)</td></tr>
+<tr class="memitem:a1a2dff251ac2fa866fbb77df41c3c6aa" id="r_a1a2dff251ac2fa866fbb77df41c3c6aa"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a1a2dff251ac2fa866fbb77df41c3c6aa">IMPLEMENT_GLOBAL_SHADER</a> (<a class="el" href="../../d0/d78/class_f_shading_bin_build_c_s.html">FShadingBinBuildCS</a>, &quot;/Engine/<a class="el" href="../../d9/db1/namespace_private.html">Private</a>/<a class="el" href="../../d5/d3d/namespace_nanite.html">Nanite</a>/NaniteShadeBinning.usf&quot;, &quot;ShadingBinBuildCS&quot;, <a class="el" href="../../da/dca/_r_h_i_definitions_8h.html#a0a3cc83cb6ebc79b66b43fae3ffee64ea2a84a18d7ac3d1fac11e3153f0abf73b">SF_Compute</a>)</td></tr>
+<tr class="memitem:a2caf2fca4db0778646c79e1c463b75f2" id="r_a2caf2fca4db0778646c79e1c463b75f2"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2caf2fca4db0778646c79e1c463b75f2">IMPLEMENT_GLOBAL_SHADER</a> (<a class="el" href="../../d5/db0/class_f_shading_group_c_s.html">FShadingGroupCS</a>, &quot;/Engine/<a class="el" href="../../d9/db1/namespace_private.html">Private</a>/<a class="el" href="../../d5/d3d/namespace_nanite.html">Nanite</a>/NaniteShadeBinning.usf&quot;, &quot;ShadingGroupCS&quot;, <a class="el" href="../../da/dca/_r_h_i_definitions_8h.html#a0a3cc83cb6ebc79b66b43fae3ffee64ea2a84a18d7ac3d1fac11e3153f0abf73b">SF_Compute</a>)</td></tr>
+<tr class="memitem:a4acace94956c2c8e17280230eeb91a00" id="r_a4acace94956c2c8e17280230eeb91a00"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4acace94956c2c8e17280230eeb91a00">IMPLEMENT_GLOBAL_SHADER</a> (<a class="el" href="../../d3/d70/class_f_shading_bin_reserve_c_s.html">FShadingBinReserveCS</a>, &quot;/Engine/<a class="el" href="../../d9/db1/namespace_private.html">Private</a>/<a class="el" href="../../d5/d3d/namespace_nanite.html">Nanite</a>/NaniteShadeBinning.usf&quot;, &quot;ShadingBinReserveCS&quot;, <a class="el" href="../../da/dca/_r_h_i_definitions_8h.html#a0a3cc83cb6ebc79b66b43fae3ffee64ea2a84a18d7ac3d1fac11e3153f0abf73b">SF_Compute</a>)</td></tr>
+<tr class="memitem:a5b8d0f17b8be72e6e12690422e580539" id="r_a5b8d0f17b8be72e6e12690422e580539"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5b8d0f17b8be72e6e12690422e580539">IMPLEMENT_GLOBAL_SHADER</a> (<a class="el" href="../../d8/d61/class_f_shading_bin_validate_c_s.html">FShadingBinValidateCS</a>, &quot;/Engine/<a class="el" href="../../d9/db1/namespace_private.html">Private</a>/<a class="el" href="../../d5/d3d/namespace_nanite.html">Nanite</a>/NaniteShadeBinning.usf&quot;, &quot;ShadingBinValidateCS&quot;, <a class="el" href="../../da/dca/_r_h_i_definitions_8h.html#a0a3cc83cb6ebc79b66b43fae3ffee64ea2a84a18d7ac3d1fac11e3153f0abf73b">SF_Compute</a>)</td></tr>
+<tr class="memitem:a1449cd7688d3de12a2b97a0ee09283f9" id="r_a1449cd7688d3de12a2b97a0ee09283f9"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a1449cd7688d3de12a2b97a0ee09283f9">IMPLEMENT_UNIFORM_BUFFER_STRUCT_EX</a> (FComputeShadingOutputs, &quot;ComputeShadingOutputs&quot;, <a class="el" href="../../da/d79/class_f_shader_parameters_metadata.html#af43cfb1aacfed0f8102eb8e0ff263c73aa46b211bd92d617c137e127ffb019d14">FShaderParametersMetadata::EUsageFlags::NeedsReflectedMembers</a>|<a class="el" href="../../da/d79/class_f_shader_parameters_metadata.html#af43cfb1aacfed0f8102eb8e0ff263c73ae6991dc9c9a7907a8f1817b1a65a162b">FShaderParametersMetadata::EUsageFlags::ManuallyBoundByPass</a>)</td></tr>
+<tr class="memitem:a3ab5b77464312d656cc76501b6a705cd" id="r_a3ab5b77464312d656cc76501b6a705cd"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a3ab5b77464312d656cc76501b6a705cd">IMPLEMENT_GLOBAL_SHADER</a> (<a class="el" href="../../d0/d94/class_f_clear_c_mask_rect_c_s.html">FClearCMaskRectCS</a>, &quot;/Engine/<a class="el" href="../../d9/db1/namespace_private.html">Private</a>/<a class="el" href="../../d5/d3d/namespace_nanite.html">Nanite</a>/NaniteShadeBinning.usf&quot;, &quot;ClearCMaskRectCS&quot;, <a class="el" href="../../da/dca/_r_h_i_definitions_8h.html#a0a3cc83cb6ebc79b66b43fae3ffee64ea2a84a18d7ac3d1fac11e3153f0abf73b">SF_Compute</a>)</td></tr>
+<tr class="memitem:a9bb017894f0558cc78824011714f0e33" id="r_a9bb017894f0558cc78824011714f0e33"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/d3d/namespace_nanite.html#a9bb017894f0558cc78824011714f0e33">Nanite::HasNoDerivativeOps</a> (<a class="el" href="../../d0/deb/class_f_r_h_i_compute_shader.html">FRHIComputeShader</a> *ComputeShaderRHI)</td></tr>
+<tr class="memitem:ae240368200b6da3dc6294eb1e24061a8" id="r_ae240368200b6da3dc6294eb1e24061a8"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../df/d63/_typed_element_query_capabilities_8inl.html#a72343342ce64c0755563ee6c5e27868d">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/d3d/namespace_nanite.html#ae240368200b6da3dc6294eb1e24061a8">Nanite::BuildShadingCommands</a> (<a class="el" href="../../d3/d85/class_f_r_d_g_builder.html">FRDGBuilder</a> &amp;GraphBuilder, <a class="el" href="../../d4/dfa/class_f_scene.html">FScene</a> &amp;Scene, <a class="el" href="../../d1/d14/namespace_e_nanite_mesh_pass.html#a3220742759b53adbe807275317e7a095">ENaniteMeshPass::Type</a> MeshPass, <a class="el" href="../../d5/d8c/struct_f_nanite_shading_commands.html">FNaniteShadingCommands</a> &amp;ShadingCommands, <a class="el" href="../../d5/d3d/namespace_nanite.html#ab1dcc68009d781437db7189a523807d3">EBuildShadingCommandsMode</a> Mode)</td></tr>
+<tr class="memitem:ace160eda95ec0f482a4278f7bdeb78ac" id="r_ace160eda95ec0f482a4278f7bdeb78ac"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../dd/de9/preprocessor_8c.html#a1134b580f8da4de94ca6b1de4d37975e">uint32</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/d3d/namespace_nanite.html#ace160eda95ec0f482a4278f7bdeb78ac">Nanite::PackMaterialBitFlags</a> (const <a class="el" href="../../dc/d8e/class_f_material.html">FMaterial</a> &amp;Material, <a class="el" href="../../dd/de9/preprocessor_8c.html#a1134b580f8da4de94ca6b1de4d37975e">uint32</a> BoundTargetMask, <a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a> bNoDerivativeOps, <a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a> bVoxel, <a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a> bCurve)</td></tr>
+<tr class="memitem:a866561afb9877cada7a8e44d1c294663" id="r_a866561afb9877cada7a8e44d1c294663"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/d3d/namespace_nanite.html#a866561afb9877cada7a8e44d1c294663">Nanite::LoadTranslucencyPassPipeline</a> (const <a class="el" href="../../d4/dfa/class_f_scene.html">FScene</a> &amp;Scene, <a class="el" href="../../d4/d34/class_nanite_1_1_f_scene_proxy_base.html">FSceneProxyBase</a> *SceneProxy, <a class="el" href="../../da/db5/struct_nanite_1_1_f_scene_proxy_base_1_1_f_material_section.html">FSceneProxyBase::FMaterialSection</a> &amp;Section, <a class="el" href="../../d1/def/struct_f_nanite_raster_pipeline.html">FNaniteRasterPipeline</a> &amp;Pipeline)</td></tr>
+<tr class="memitem:a6eec7f8af4763ac27be20c1e5222dd22" id="r_a6eec7f8af4763ac27be20c1e5222dd22"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/d3d/namespace_nanite.html#a6eec7f8af4763ac27be20c1e5222dd22">Nanite::LoadBasePassPipeline</a> (const <a class="el" href="../../d4/dfa/class_f_scene.html">FScene</a> &amp;Scene, <a class="el" href="../../d4/d34/class_nanite_1_1_f_scene_proxy_base.html">FSceneProxyBase</a> *SceneProxy, <a class="el" href="../../da/db5/struct_nanite_1_1_f_scene_proxy_base_1_1_f_material_section.html">FSceneProxyBase::FMaterialSection</a> &amp;Section, <a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a> bVoxel, <a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a> bCurve, <a class="el" href="../../d6/d58/struct_f_nanite_shading_pipeline.html">FNaniteShadingPipeline</a> &amp;ShadingPipeline)</td></tr>
+<tr class="memitem:a495deb25c087f2b8dbf623d470e2f2ce" id="r_a495deb25c087f2b8dbf623d470e2f2ce"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../df/d63/_typed_element_query_capabilities_8inl.html#a72343342ce64c0755563ee6c5e27868d">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/d3d/namespace_nanite.html#a495deb25c087f2b8dbf623d470e2f2ce">Nanite::RecordShadingParameters</a> (<a class="el" href="../../d2/d7e/struct_f_r_h_i_batched_shader_parameters.html">FRHIBatchedShaderParameters</a> &amp;BatchedParameters, <a class="el" href="../../d8/d55/struct_f_nanite_shading_command.html">FNaniteShadingCommand</a> &amp;ShadingCommand, const <a class="el" href="../../da/d70/struct_nanite_1_1_f_shading_config.html">FShadingConfig</a> &amp;ShadingConfig, const <a class="el" href="../../dd/de9/preprocessor_8c.html#a1134b580f8da4de94ca6b1de4d37975e">uint32</a> NumShadingBins, const <a class="el" href="../../dd/de9/preprocessor_8c.html#a1134b580f8da4de94ca6b1de4d37975e">uint32</a> NumShadingGroups, const <a class="el" href="../../d0/df6/_math_fwd_8h.html#ae9dab43f6ec78ca34e03de87a950a34d">FUint32Vector4</a> &amp;ViewRect, <a class="el" href="../../d6/d09/class_t_uniform_buffer_ref.html">TUniformBufferRef</a>&lt; FComputeShadingOutputs &gt; OutputTargetsBuffer)</td></tr>
+<tr class="memitem:a6d611f3d3ab2e318c26e58ec70d9c24b" id="r_a6d611f3d3ab2e318c26e58ec70d9c24b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../df/d63/_typed_element_query_capabilities_8inl.html#a72343342ce64c0755563ee6c5e27868d">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/d3d/namespace_nanite.html#a6d611f3d3ab2e318c26e58ec70d9c24b">Nanite::RecordShadingCommand</a> (<a class="el" href="../../dd/de6/class_f_r_h_i_compute_command_list.html">FRHIComputeCommandList</a> &amp;RHICmdList, <a class="el" href="../../d9/d24/class_f_r_h_i_buffer.html">FRHIBuffer</a> *IndirectArgsBuffer, const <a class="el" href="../../dd/de9/preprocessor_8c.html#a1134b580f8da4de94ca6b1de4d37975e">uint32</a> IndirectArgStride, const <a class="el" href="../../da/d70/struct_nanite_1_1_f_shading_config.html">FShadingConfig</a> &amp;ShadingConfig, <a class="el" href="../../d2/d7e/struct_f_r_h_i_batched_shader_parameters.html">FRHIBatchedShaderParameters</a> &amp;ShadingParameters, <a class="el" href="../../d8/d55/struct_f_nanite_shading_command.html">FNaniteShadingCommand</a> &amp;ShadingCommand)</td></tr>
+<tr class="memitem:a91e39905d7582117ba014cc50b5c010d" id="r_a91e39905d7582117ba014cc50b5c010d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/d3d/namespace_nanite.html#a91e39905d7582117ba014cc50b5c010d">Nanite::PrepareShadingCommand</a> (<a class="el" href="../../d8/d55/struct_f_nanite_shading_command.html">FNaniteShadingCommand</a> &amp;ShadingCommand, <a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a8dbb3cd84ca9fd010dadfc3815eefa5d">int32</a> PSOCollectorIndex)</td></tr>
+<tr class="memitem:a96fb02278b86c534ac0b82d40fb7425e" id="r_a96fb02278b86c534ac0b82d40fb7425e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/d3d/namespace_nanite.html#a96fb02278b86c534ac0b82d40fb7425e">Nanite::IsCommandVisible</a> (<a class="el" href="../../d8/d55/struct_f_nanite_shading_command.html">FNaniteShadingCommand</a> &amp;ShadingCommand, const <a class="el" href="../../d6/dfd/struct_nanite_1_1_f_nanite_shading_pass_intermediates.html">FNaniteShadingPassIntermediates</a> &amp;Intermediates)</td></tr>
+<tr class="memitem:a20c875368ee8953b00f36cd56d611bc9" id="r_a20c875368ee8953b00f36cd56d611bc9"><td class="memItemLeft" align="right" valign="top">FNaniteShadingPassParameters&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/d3d/namespace_nanite.html#a20c875368ee8953b00f36cd56d611bc9">Nanite::CreateNaniteShadingPassParams</a> (<a class="el" href="../../d3/d85/class_f_r_d_g_builder.html">FRDGBuilder</a> &amp;GraphBuilder, const <a class="el" href="../../d9/d6f/class_f_scene_renderer.html">FSceneRenderer</a> &amp;SceneRenderer, const <a class="el" href="../../d1/d9e/struct_f_scene_textures.html">FSceneTextures</a> &amp;SceneTextures, const <a class="el" href="../../dd/d2b/class_f_view_info.html">FViewInfo</a> &amp;View, const <a class="el" href="../../d0/df6/_math_fwd_8h.html#a0fb396f1ac08e81082181174c7bff43a">FIntRect</a> ViewRect, const <a class="el" href="../../de/dbb/struct_nanite_1_1_f_raster_results.html">FRasterResults</a> &amp;RasterResults, <a class="el" href="../../d6/d6d/_canvas_types_8h.html#aea265cf57883ec58a09111d4a17b8448">FRDGTextureRef</a> ShadingMask, <a class="el" href="../../d6/d6d/_canvas_types_8h.html#aea265cf57883ec58a09111d4a17b8448">FRDGTextureRef</a> VisBuffer64, <a class="el" href="../../d6/d6d/_canvas_types_8h.html#aea265cf57883ec58a09111d4a17b8448">FRDGTextureRef</a> DbgBuffer64, <a class="el" href="../../d6/d6d/_canvas_types_8h.html#aea265cf57883ec58a09111d4a17b8448">FRDGTextureRef</a> DbgBuffer32, <a class="el" href="../../d9/de1/_n_n_e_runtime_r_d_g_8h.html#a934d7411e595a58728f7ba3bb9aae740">FRDGBufferRef</a> VisibleClustersSWHW, <a class="el" href="../../d9/de1/_n_n_e_runtime_r_d_g_8h.html#a934d7411e595a58728f7ba3bb9aae740">FRDGBufferRef</a> AssemblyTransforms, <a class="el" href="../../d9/de1/_n_n_e_runtime_r_d_g_8h.html#a934d7411e595a58728f7ba3bb9aae740">FRDGBufferRef</a> MultiViewIndices, <a class="el" href="../../d9/de1/_n_n_e_runtime_r_d_g_8h.html#a934d7411e595a58728f7ba3bb9aae740">FRDGBufferRef</a> MultiViewRectScaleOffsets, <a class="el" href="../../d9/de1/_n_n_e_runtime_r_d_g_8h.html#a934d7411e595a58728f7ba3bb9aae740">FRDGBufferRef</a> ViewsBuffer, const <a class="el" href="../../dd/d84/struct_f_render_target_binding_slots.html">FRenderTargetBindingSlots</a> &amp;BasePassRenderTargets, const <a class="el" href="../../dd/de9/preprocessor_8c.html#a1134b580f8da4de94ca6b1de4d37975e">uint32</a> BoundTargetMask, const <a class="el" href="../../d3/d98/struct_nanite_1_1_f_shade_binning.html">FShadeBinning</a> &amp;<a class="el" href="../../d5/d3d/namespace_nanite.html#af3876e3e8508a50e9e4e220723d6632a">ShadeBinning</a>, const <a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a> SubstrateAdaptativeGbufferEnabled)</td></tr>
+<tr class="memitem:a0de9c3e3def46256dbbb512bcc30bb8a" id="r_a0de9c3e3def46256dbbb512bcc30bb8a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../df/d63/_typed_element_query_capabilities_8inl.html#a72343342ce64c0755563ee6c5e27868d">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/d3d/namespace_nanite.html#a0de9c3e3def46256dbbb512bcc30bb8a">Nanite::DispatchBasePass</a> (<a class="el" href="../../d3/d85/class_f_r_d_g_builder.html">FRDGBuilder</a> &amp;GraphBuilder, <a class="el" href="../../d5/d8c/struct_f_nanite_shading_commands.html">FNaniteShadingCommands</a> &amp;ShadingCommands, const <a class="el" href="../../d9/d6f/class_f_scene_renderer.html">FSceneRenderer</a> &amp;SceneRenderer, const <a class="el" href="../../d1/d9e/struct_f_scene_textures.html">FSceneTextures</a> &amp;SceneTextures, const <a class="el" href="../../dd/d84/struct_f_render_target_binding_slots.html">FRenderTargetBindingSlots</a> &amp;BasePassRenderTargets, const <a class="el" href="../../d4/dfa/class_f_scene.html">FScene</a> &amp;Scene, const <a class="el" href="../../dd/d2b/class_f_view_info.html">FViewInfo</a> &amp;View, const <a class="el" href="../../dd/de9/preprocessor_8c.html#a1134b580f8da4de94ca6b1de4d37975e">uint32</a> ViewIndex, const <a class="el" href="../../de/dbb/struct_nanite_1_1_f_raster_results.html">FRasterResults</a> &amp;RasterResults)</td></tr>
+<tr class="memitem:af3876e3e8508a50e9e4e220723d6632a" id="r_af3876e3e8508a50e9e4e220723d6632a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d3/d98/struct_nanite_1_1_f_shade_binning.html">FShadeBinning</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/d3d/namespace_nanite.html#af3876e3e8508a50e9e4e220723d6632a">Nanite::ShadeBinning</a> (<a class="el" href="../../d3/d85/class_f_r_d_g_builder.html">FRDGBuilder</a> &amp;GraphBuilder, const <a class="el" href="../../d4/dfa/class_f_scene.html">FScene</a> &amp;Scene, const <a class="el" href="../../dd/d2b/class_f_view_info.html">FViewInfo</a> &amp;View, const <a class="el" href="../../d0/df6/_math_fwd_8h.html#a0fb396f1ac08e81082181174c7bff43a">FIntRect</a> InViewRect, const <a class="el" href="../../d5/d8c/struct_f_nanite_shading_commands.html">FNaniteShadingCommands</a> &amp;ShadingCommands, const <a class="el" href="../../de/dbb/struct_nanite_1_1_f_raster_results.html">FRasterResults</a> &amp;RasterResults, const TConstArrayView&lt; <a class="el" href="../../d6/d6d/_canvas_types_8h.html#aea265cf57883ec58a09111d4a17b8448">FRDGTextureRef</a> &gt; ClearTargets)</td></tr>
+<tr class="memitem:a5db4362ed5e2528d8aa4ff5eaf6a6c53" id="r_a5db4362ed5e2528d8aa4ff5eaf6a6c53"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../df/d63/_typed_element_query_capabilities_8inl.html#a72343342ce64c0755563ee6c5e27868d">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/d3d/namespace_nanite.html#a5db4362ed5e2528d8aa4ff5eaf6a6c53">Nanite::CollectBasePassShadingPSOInitializers</a> (const <a class="el" href="../../dc/db5/struct_f_scene_textures_config.html">FSceneTexturesConfig</a> &amp;SceneTexturesConfig, const <a class="el" href="../../d3/d3e/struct_f_p_s_o_precache_vertex_factory_data.html">FPSOPrecacheVertexFactoryData</a> &amp;VertexFactoryData, const <a class="el" href="../../dc/d8e/class_f_material.html">FMaterial</a> &amp;Material, const <a class="el" href="../../dc/da1/struct_f_p_s_o_precache_params.html">FPSOPrecacheParams</a> &amp;PreCacheParams, <a class="el" href="../../dc/dcf/namespace_e_r_h_i_feature_level.html#a04bc2ae8f7bf478747a40da91e1753dd">ERHIFeatureLevel::Type</a> FeatureLevel, <a class="el" href="../../de/d49/_r_h_i_shader_platform_8h.html#a424c00593a28eb7ade584eea91161acd">EShaderPlatform</a> ShaderPlatform, <a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a8dbb3cd84ca9fd010dadfc3815eefa5d">int32</a> PSOCollectorIndex, <a class="el" href="../../d6/db1/class_t_array.html">TArray</a>&lt; <a class="el" href="../../dd/dd8/struct_f_p_s_o_precache_data.html">FPSOPrecacheData</a> &gt; &amp;PSOInitializers)</td></tr>
+<tr class="memitem:ab54af5d829858cd97961b1488284f467" id="r_ab54af5d829858cd97961b1488284f467"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../df/d63/_typed_element_query_capabilities_8inl.html#a72343342ce64c0755563ee6c5e27868d">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab54af5d829858cd97961b1488284f467">DispatchLumenMeshCapturePass</a> (<a class="el" href="../../d3/d85/class_f_r_d_g_builder.html">FRDGBuilder</a> &amp;GraphBuilder, <a class="el" href="../../d4/dfa/class_f_scene.html">FScene</a> &amp;Scene, <a class="el" href="../../dd/d2b/class_f_view_info.html">FViewInfo</a> *SharedView, <a class="el" href="../../d2/ddb/class_t_array_view.html">TArrayView</a>&lt; const <a class="el" href="../../de/d5b/class_f_card_page_render_data.html">FCardPageRenderData</a> &gt; CardPagesToRender, const <a class="el" href="../../de/dbb/struct_nanite_1_1_f_raster_results.html">Nanite::FRasterResults</a> &amp;RasterResults, const <a class="el" href="../../d7/d6e/struct_nanite_1_1_f_raster_context.html">Nanite::FRasterContext</a> &amp;RasterContext, FLumenCardPassUniformParameters *PassUniformParameters, <a class="el" href="../../d2/d51/_render_graph_fwd_8h.html#ad7fb1bf19241fbbd8f870dd76c6397bd">FRDGBufferSRVRef</a> RectMinMaxBufferSRV, <a class="el" href="../../dd/de9/preprocessor_8c.html#a1134b580f8da4de94ca6b1de4d37975e">uint32</a> NumRects, <a class="el" href="../../d0/df6/_math_fwd_8h.html#af6853de5e4fcb2bad3bd5fdd2e50bffd">FIntPoint</a> ViewportSize, <a class="el" href="../../d6/d6d/_canvas_types_8h.html#aea265cf57883ec58a09111d4a17b8448">FRDGTextureRef</a> AlbedoAtlasTexture, <a class="el" href="../../d6/d6d/_canvas_types_8h.html#aea265cf57883ec58a09111d4a17b8448">FRDGTextureRef</a> NormalAtlasTexture, <a class="el" href="../../d6/d6d/_canvas_types_8h.html#aea265cf57883ec58a09111d4a17b8448">FRDGTextureRef</a> EmissiveAtlasTexture, <a class="el" href="../../d6/d6d/_canvas_types_8h.html#aea265cf57883ec58a09111d4a17b8448">FRDGTextureRef</a> DepthAtlasTexture)</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-var-members" class="groupheader"><a id="var-members" name="var-members"></a>
+变量</h2></td></tr>
+<tr class="memitem:afa955f4ef706182bfd746a5ee3559a63" id="r_afa955f4ef706182bfd746a5ee3559a63"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d5/d78/class_t_auto_console_variable.html">TAutoConsoleVariable</a>&lt; <a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a8dbb3cd84ca9fd010dadfc3815eefa5d">int32</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#afa955f4ef706182bfd746a5ee3559a63">CVarNaniteShowDrawEvents</a></td></tr>
+<tr class="memitem:a4f40fe2b038bca1bf82cc1b93d63cca7" id="r_a4f40fe2b038bca1bf82cc1b93d63cca7"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d5/d78/class_t_auto_console_variable.html">TAutoConsoleVariable</a>&lt; <a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a8dbb3cd84ca9fd010dadfc3815eefa5d">int32</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4f40fe2b038bca1bf82cc1b93d63cca7">CVarRHICmdMinDrawsPerParallelCmdList</a></td></tr>
+<tr class="memitem:ab372cf221e57be194260253e4733a708" id="r_ab372cf221e57be194260253e4733a708"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a8dbb3cd84ca9fd010dadfc3815eefa5d">int32</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab372cf221e57be194260253e4733a708">GSkipDrawOnPSOPrecaching</a></td></tr>
+<tr class="memitem:add0c67ffae3bac096e9c02d61c771865" id="r_add0c67ffae3bac096e9c02d61c771865"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a8dbb3cd84ca9fd010dadfc3815eefa5d">int32</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#add0c67ffae3bac096e9c02d61c771865">GNaniteShowStats</a></td></tr>
+<tr class="memitem:aed7540063635f5ccb818e286ee394543" id="r_aed7540063635f5ccb818e286ee394543"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d5/d78/class_t_auto_console_variable.html">TAutoConsoleVariable</a>&lt; <a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a8dbb3cd84ca9fd010dadfc3815eefa5d">int32</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aed7540063635f5ccb818e286ee394543">CVarParallelBasePassBuild</a> (<a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;r.Nanite.ParallelBasePassBuild&quot;), 1, <a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;&quot;), <a class="el" href="../../d4/dd9/_i_console_manager_8h.html#a7f594f23c2b2c5687f1a502ebb3ba105a774ea60f41417af093a7ca56c4204a70">ECVF_RenderThreadSafe</a>)</td></tr>
+<tr class="memitem:a6c640e27546a0b626c52207aeee8ef9a" id="r_a6c640e27546a0b626c52207aeee8ef9a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d5/d78/class_t_auto_console_variable.html">TAutoConsoleVariable</a>&lt; <a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a8dbb3cd84ca9fd010dadfc3815eefa5d">int32</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6c640e27546a0b626c52207aeee8ef9a">CVarNaniteBundleEmulation</a> (<a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;r.Nanite.Bundle.Emulation&quot;), 0, <a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;Whether to force shader bundle dispatch emulation&quot;), FConsoleVariableDelegate::CreateLambda([](<a class="el" href="../../d7/dd4/class_i_console_variable.html">IConsoleVariable</a> *InVariable) { <a class="el" href="../../de/db3/class_f_global_component_recreate_render_state_context.html">FGlobalComponentRecreateRenderStateContext</a> Context;}), <a class="el" href="../../d4/dd9/_i_console_manager_8h.html#a7f594f23c2b2c5687f1a502ebb3ba105a774ea60f41417af093a7ca56c4204a70">ECVF_RenderThreadSafe</a>)</td></tr>
+<tr class="memitem:a6ac28a575fb45c181e36b20d6e0acceb" id="r_a6ac28a575fb45c181e36b20d6e0acceb"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a8dbb3cd84ca9fd010dadfc3815eefa5d">int32</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6ac28a575fb45c181e36b20d6e0acceb">GNaniteValidateShadeBinning</a> = 0</td></tr>
+</table>
+<a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">函数说明</h2>
+<a id="a0f062d85f3d47bec528a8f8f475d8c69" name="a0f062d85f3d47bec528a8f8f475d8c69"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0f062d85f3d47bec528a8f8f475d8c69">&#9670;&#160;</a></span>CanUseShaderBundleWorkGraph()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a> CanUseShaderBundleWorkGraph </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../de/d49/_r_h_i_shader_platform_8h.html#a424c00593a28eb7ade584eea91161acd">EShaderPlatform</a></td>          <td class="paramname"><span class="paramname"><em>Platform</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ab54af5d829858cd97961b1488284f467" name="ab54af5d829858cd97961b1488284f467"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab54af5d829858cd97961b1488284f467">&#9670;&#160;</a></span>DispatchLumenMeshCapturePass()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../df/d63/_typed_element_query_capabilities_8inl.html#a72343342ce64c0755563ee6c5e27868d">void</a> DispatchLumenMeshCapturePass </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d3/d85/class_f_r_d_g_builder.html">FRDGBuilder</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>GraphBuilder</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d4/dfa/class_f_scene.html">FScene</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>Scene</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../dd/d2b/class_f_view_info.html">FViewInfo</a> *</td>          <td class="paramname"><span class="paramname"><em>SharedView</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d2/ddb/class_t_array_view.html">TArrayView</a>&lt; const <a class="el" href="../../de/d5b/class_f_card_page_render_data.html">FCardPageRenderData</a> &gt;</td>          <td class="paramname"><span class="paramname"><em>CardPagesToRender</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="../../de/dbb/struct_nanite_1_1_f_raster_results.html">Nanite::FRasterResults</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>RasterResults</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="../../d7/d6e/struct_nanite_1_1_f_raster_context.html">Nanite::FRasterContext</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>RasterContext</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">FLumenCardPassUniformParameters *</td>          <td class="paramname"><span class="paramname"><em>PassUniformParameters</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d2/d51/_render_graph_fwd_8h.html#ad7fb1bf19241fbbd8f870dd76c6397bd">FRDGBufferSRVRef</a></td>          <td class="paramname"><span class="paramname"><em>RectMinMaxBufferSRV</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../dd/de9/preprocessor_8c.html#a1134b580f8da4de94ca6b1de4d37975e">uint32</a></td>          <td class="paramname"><span class="paramname"><em>NumRects</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d0/df6/_math_fwd_8h.html#af6853de5e4fcb2bad3bd5fdd2e50bffd">FIntPoint</a></td>          <td class="paramname"><span class="paramname"><em>ViewportSize</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d6/d6d/_canvas_types_8h.html#aea265cf57883ec58a09111d4a17b8448">FRDGTextureRef</a></td>          <td class="paramname"><span class="paramname"><em>AlbedoAtlasTexture</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d6/d6d/_canvas_types_8h.html#aea265cf57883ec58a09111d4a17b8448">FRDGTextureRef</a></td>          <td class="paramname"><span class="paramname"><em>NormalAtlasTexture</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d6/d6d/_canvas_types_8h.html#aea265cf57883ec58a09111d4a17b8448">FRDGTextureRef</a></td>          <td class="paramname"><span class="paramname"><em>EmissiveAtlasTexture</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d6/d6d/_canvas_types_8h.html#aea265cf57883ec58a09111d4a17b8448">FRDGTextureRef</a></td>          <td class="paramname"><span class="paramname"><em>DepthAtlasTexture</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a3ab5b77464312d656cc76501b6a705cd" name="a3ab5b77464312d656cc76501b6a705cd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3ab5b77464312d656cc76501b6a705cd">&#9670;&#160;</a></span>IMPLEMENT_GLOBAL_SHADER() <span class="overload">[1/6]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">IMPLEMENT_GLOBAL_SHADER </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d0/d94/class_f_clear_c_mask_rect_c_s.html">FClearCMaskRectCS</a></td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&quot;/Engine/<a class="el" href="../../d9/db1/namespace_private.html">Private</a>/<a class="el" href="../../d5/d3d/namespace_nanite.html">Nanite</a>/NaniteShadeBinning.usf&quot;</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&quot;ClearCMaskRectCS&quot;</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../da/dca/_r_h_i_definitions_8h.html#a0a3cc83cb6ebc79b66b43fae3ffee64ea2a84a18d7ac3d1fac11e3153f0abf73b">SF_Compute</a></td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a1a2dff251ac2fa866fbb77df41c3c6aa" name="a1a2dff251ac2fa866fbb77df41c3c6aa"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1a2dff251ac2fa866fbb77df41c3c6aa">&#9670;&#160;</a></span>IMPLEMENT_GLOBAL_SHADER() <span class="overload">[2/6]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">IMPLEMENT_GLOBAL_SHADER </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d0/d78/class_f_shading_bin_build_c_s.html">FShadingBinBuildCS</a></td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&quot;/Engine/<a class="el" href="../../d9/db1/namespace_private.html">Private</a>/<a class="el" href="../../d5/d3d/namespace_nanite.html">Nanite</a>/NaniteShadeBinning.usf&quot;</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&quot;ShadingBinBuildCS&quot;</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../da/dca/_r_h_i_definitions_8h.html#a0a3cc83cb6ebc79b66b43fae3ffee64ea2a84a18d7ac3d1fac11e3153f0abf73b">SF_Compute</a></td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a4acace94956c2c8e17280230eeb91a00" name="a4acace94956c2c8e17280230eeb91a00"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4acace94956c2c8e17280230eeb91a00">&#9670;&#160;</a></span>IMPLEMENT_GLOBAL_SHADER() <span class="overload">[3/6]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">IMPLEMENT_GLOBAL_SHADER </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d3/d70/class_f_shading_bin_reserve_c_s.html">FShadingBinReserveCS</a></td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&quot;/Engine/<a class="el" href="../../d9/db1/namespace_private.html">Private</a>/<a class="el" href="../../d5/d3d/namespace_nanite.html">Nanite</a>/NaniteShadeBinning.usf&quot;</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&quot;ShadingBinReserveCS&quot;</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../da/dca/_r_h_i_definitions_8h.html#a0a3cc83cb6ebc79b66b43fae3ffee64ea2a84a18d7ac3d1fac11e3153f0abf73b">SF_Compute</a></td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a5b8d0f17b8be72e6e12690422e580539" name="a5b8d0f17b8be72e6e12690422e580539"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5b8d0f17b8be72e6e12690422e580539">&#9670;&#160;</a></span>IMPLEMENT_GLOBAL_SHADER() <span class="overload">[4/6]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">IMPLEMENT_GLOBAL_SHADER </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d8/d61/class_f_shading_bin_validate_c_s.html">FShadingBinValidateCS</a></td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&quot;/Engine/<a class="el" href="../../d9/db1/namespace_private.html">Private</a>/<a class="el" href="../../d5/d3d/namespace_nanite.html">Nanite</a>/NaniteShadeBinning.usf&quot;</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&quot;ShadingBinValidateCS&quot;</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../da/dca/_r_h_i_definitions_8h.html#a0a3cc83cb6ebc79b66b43fae3ffee64ea2a84a18d7ac3d1fac11e3153f0abf73b">SF_Compute</a></td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a2caf2fca4db0778646c79e1c463b75f2" name="a2caf2fca4db0778646c79e1c463b75f2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2caf2fca4db0778646c79e1c463b75f2">&#9670;&#160;</a></span>IMPLEMENT_GLOBAL_SHADER() <span class="overload">[5/6]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">IMPLEMENT_GLOBAL_SHADER </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d5/db0/class_f_shading_group_c_s.html">FShadingGroupCS</a></td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&quot;/Engine/<a class="el" href="../../d9/db1/namespace_private.html">Private</a>/<a class="el" href="../../d5/d3d/namespace_nanite.html">Nanite</a>/NaniteShadeBinning.usf&quot;</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&quot;ShadingGroupCS&quot;</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../da/dca/_r_h_i_definitions_8h.html#a0a3cc83cb6ebc79b66b43fae3ffee64ea2a84a18d7ac3d1fac11e3153f0abf73b">SF_Compute</a></td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="af11dcb3b1cfd2255181e9e071902d033" name="af11dcb3b1cfd2255181e9e071902d033"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af11dcb3b1cfd2255181e9e071902d033">&#9670;&#160;</a></span>IMPLEMENT_GLOBAL_SHADER() <span class="overload">[6/6]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">IMPLEMENT_GLOBAL_SHADER </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../df/d04/class_f_visualize_clear_tiles_c_s.html">FVisualizeClearTilesCS</a></td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&quot;/Engine/<a class="el" href="../../d9/db1/namespace_private.html">Private</a>/<a class="el" href="../../d5/d3d/namespace_nanite.html">Nanite</a>/NaniteFastClear.usf&quot;</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&quot;VisualizeClearTilesCS&quot;</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../da/dca/_r_h_i_definitions_8h.html#a0a3cc83cb6ebc79b66b43fae3ffee64ea2a84a18d7ac3d1fac11e3153f0abf73b">SF_Compute</a></td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a1449cd7688d3de12a2b97a0ee09283f9" name="a1449cd7688d3de12a2b97a0ee09283f9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1449cd7688d3de12a2b97a0ee09283f9">&#9670;&#160;</a></span>IMPLEMENT_UNIFORM_BUFFER_STRUCT_EX()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">IMPLEMENT_UNIFORM_BUFFER_STRUCT_EX </td>
+          <td>(</td>
+          <td class="paramtype">FComputeShadingOutputs</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&quot;ComputeShadingOutputs&quot;</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../da/d79/class_f_shader_parameters_metadata.html#af43cfb1aacfed0f8102eb8e0ff263c73aa46b211bd92d617c137e127ffb019d14">FShaderParametersMetadata::EUsageFlags::NeedsReflectedMembers</a>|<a class="el" href="../../da/d79/class_f_shader_parameters_metadata.html#af43cfb1aacfed0f8102eb8e0ff263c73ae6991dc9c9a7907a8f1817b1a65a162b">FShaderParametersMetadata::EUsageFlags::ManuallyBoundByPass</a></td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aea02f6222f7dfadcc3122d1b616d3887" name="aea02f6222f7dfadcc3122d1b616d3887"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aea02f6222f7dfadcc3122d1b616d3887">&#9670;&#160;</a></span>UsingHighPrecisionGBuffer()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a> UsingHighPrecisionGBuffer </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a name="doc-var-members" id="doc-var-members"></a><h2 id="header-doc-var-members" class="groupheader">变量说明</h2>
+<a id="a6c640e27546a0b626c52207aeee8ef9a" name="a6c640e27546a0b626c52207aeee8ef9a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6c640e27546a0b626c52207aeee8ef9a">&#9670;&#160;</a></span>CVarNaniteBundleEmulation</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d5/d78/class_t_auto_console_variable.html">TAutoConsoleVariable</a>&lt; <a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a8dbb3cd84ca9fd010dadfc3815eefa5d">int32</a> &gt; CVarNaniteBundleEmulation(<a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;r.Nanite.Bundle.Emulation&quot;), 0, <a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;Whether to force shader bundle dispatch emulation&quot;), FConsoleVariableDelegate::CreateLambda([](<a class="el" href="../../d7/dd4/class_i_console_variable.html">IConsoleVariable</a> *InVariable) { <a class="el" href="../../de/db3/class_f_global_component_recreate_render_state_context.html">FGlobalComponentRecreateRenderStateContext</a> Context; }), <a class="el" href="../../d4/dd9/_i_console_manager_8h.html#a7f594f23c2b2c5687f1a502ebb3ba105a774ea60f41417af093a7ca56c4204a70">ECVF_RenderThreadSafe</a>) </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;r.Nanite.Bundle.Emulation&quot;)</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">0</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;Whether to force shader bundle dispatch emulation&quot;)</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">FConsoleVariableDelegate::CreateLambda([](<a class="el" href="../../d7/dd4/class_i_console_variable.html">IConsoleVariable</a> *InVariable) { <a class="el" href="../../de/db3/class_f_global_component_recreate_render_state_context.html">FGlobalComponentRecreateRenderStateContext</a> Context;})</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d4/dd9/_i_console_manager_8h.html#a7f594f23c2b2c5687f1a502ebb3ba105a774ea60f41417af093a7ca56c4204a70">ECVF_RenderThreadSafe</a></td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="afa955f4ef706182bfd746a5ee3559a63" name="afa955f4ef706182bfd746a5ee3559a63"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afa955f4ef706182bfd746a5ee3559a63">&#9670;&#160;</a></span>CVarNaniteShowDrawEvents</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d5/d78/class_t_auto_console_variable.html">TAutoConsoleVariable</a>&lt;<a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a8dbb3cd84ca9fd010dadfc3815eefa5d">int32</a>&gt; CVarNaniteShowDrawEvents</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel extern">extern</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aed7540063635f5ccb818e286ee394543" name="aed7540063635f5ccb818e286ee394543"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aed7540063635f5ccb818e286ee394543">&#9670;&#160;</a></span>CVarParallelBasePassBuild</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d5/d78/class_t_auto_console_variable.html">TAutoConsoleVariable</a>&lt; <a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a8dbb3cd84ca9fd010dadfc3815eefa5d">int32</a> &gt; CVarParallelBasePassBuild(<a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;r.Nanite.ParallelBasePassBuild&quot;), 1, <a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;&quot;), <a class="el" href="../../d4/dd9/_i_console_manager_8h.html#a7f594f23c2b2c5687f1a502ebb3ba105a774ea60f41417af093a7ca56c4204a70">ECVF_RenderThreadSafe</a>) </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;r.Nanite.ParallelBasePassBuild&quot;)</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">1</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;&quot;)</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d4/dd9/_i_console_manager_8h.html#a7f594f23c2b2c5687f1a502ebb3ba105a774ea60f41417af093a7ca56c4204a70">ECVF_RenderThreadSafe</a></td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a4f40fe2b038bca1bf82cc1b93d63cca7" name="a4f40fe2b038bca1bf82cc1b93d63cca7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4f40fe2b038bca1bf82cc1b93d63cca7">&#9670;&#160;</a></span>CVarRHICmdMinDrawsPerParallelCmdList</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d5/d78/class_t_auto_console_variable.html">TAutoConsoleVariable</a>&lt;<a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a8dbb3cd84ca9fd010dadfc3815eefa5d">int32</a>&gt; CVarRHICmdMinDrawsPerParallelCmdList</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel extern">extern</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="add0c67ffae3bac096e9c02d61c771865" name="add0c67ffae3bac096e9c02d61c771865"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#add0c67ffae3bac096e9c02d61c771865">&#9670;&#160;</a></span>GNaniteShowStats</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a8dbb3cd84ca9fd010dadfc3815eefa5d">int32</a> GNaniteShowStats</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel extern">extern</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a6ac28a575fb45c181e36b20d6e0acceb" name="a6ac28a575fb45c181e36b20d6e0acceb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6ac28a575fb45c181e36b20d6e0acceb">&#9670;&#160;</a></span>GNaniteValidateShadeBinning</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a8dbb3cd84ca9fd010dadfc3815eefa5d">int32</a> GNaniteValidateShadeBinning = 0</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ab372cf221e57be194260253e4733a708" name="ab372cf221e57be194260253e4733a708"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab372cf221e57be194260253e4733a708">&#9670;&#160;</a></span>GSkipDrawOnPSOPrecaching</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a8dbb3cd84ca9fd010dadfc3815eefa5d">int32</a> GSkipDrawOnPSOPrecaching</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel extern">extern</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<div id="page-nav" class="page-nav-panel">
+<div id="page-nav-resize-handle"></div>
+<div id="page-nav-tree">
+<div id="page-nav-contents">
+</div><!-- page-nav-contents -->
+</div><!-- page-nav-tree -->
+</div><!-- page-nav -->
+</div><!-- container -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a href="../../dir_0b6ee6e7e9547e675db4add2e5de97da.html">Engine</a></li><li class="navelem"><a href="../../dir_9579d1ecb2c7bf48cbe1049c41745cb4.html">Source</a></li><li class="navelem"><a href="../../dir_9f04efef762572853abdf73f62bebfcc.html">Runtime</a></li><li class="navelem"><a href="../../dir_5ed6327f04b0f38d3f6fe5caa38b0445.html">Renderer</a></li><li class="navelem"><a href="../../dir_e317dc6f09036e33460f39c550131623.html">Private</a></li><li class="navelem"><a href="../../dir_e6a22c62973a1fa89952ced1ef190df2.html">Nanite</a></li><li class="navelem"><a href="../../dc/d6e/_nanite_shading_8cpp.html">NaniteShading.cpp</a></li>
+    <li class="footer">制作者 <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.15.0 </li>
+  </ul>
+</div>
+</body>
+</html>

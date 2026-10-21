@@ -1,0 +1,26 @@
+var struct_f_action_history =
+[
+    [ "FActionInstance", "d8/dc7/struct_f_action_history.html#ab57f507fc429b26b8ab9d225f0416008", null ],
+    [ "AddAction", "d8/dc7/struct_f_action_history.html#a2293b7fc40bae43e2b12833524a56afa", null ],
+    [ "ClearResimClaims", "d8/dc7/struct_f_action_history.html#aa35c2ff1594ee27784518549d36316d0", null ],
+    [ "Deactivate", "d8/dc7/struct_f_action_history.html#aa8fe7c535ee9659cb4dea9f2abede4d8", null ],
+    [ "DeactivateAllByActionId", "d8/dc7/struct_f_action_history.html#a69b19d5961cf0b412e41afadbd64e473", null ],
+    [ "DeactivateEquivalentActionsInRange", "d8/dc7/struct_f_action_history.html#a29a1ae2085eb128196aaf4460aeaac8a", null ],
+    [ "FindActiveActionById", "d8/dc7/struct_f_action_history.html#a8c3dd734fc5092468cf1a690f6408f9b", null ],
+    [ "FindEquivalentActionInRange", "d8/dc7/struct_f_action_history.html#a4dfaa0568d01aacfd5cf7a312cbc8f0b", null ],
+    [ "FindFrameData", "d8/dc7/struct_f_action_history.html#ab3cfdd17842bdb0d881049ad38e668bf", null ],
+    [ "FindFrameData", "d8/dc7/struct_f_action_history.html#a278255c6fa7f597b08e19ebc31f5fedf", null ],
+    [ "FindOrAddFrameData", "d8/dc7/struct_f_action_history.html#a5a8ca43b4c6e161d132553728a662b0e", null ],
+    [ "GetAction", "d8/dc7/struct_f_action_history.html#a2e2419b38023651915cef2df58a5dcaa", null ],
+    [ "GetActionsToReplicate", "d8/dc7/struct_f_action_history.html#a0586a20fdb878d4471a10c1763b8fcd6", null ],
+    [ "GetFrameIndex", "d8/dc7/struct_f_action_history.html#a90b91a260f8ec9206d644230e5ba9ac4", null ],
+    [ "GetLocalFrame", "d8/dc7/struct_f_action_history.html#a14085ec702ca53a5ab62c22da6d49fdd", null ],
+    [ "HasEquivalentActionInRange", "d8/dc7/struct_f_action_history.html#aa1457c9d4947c523eb0e421ae4d15859", null ],
+    [ "Initialize", "d8/dc7/struct_f_action_history.html#a8dd8ba17d7443680c33ce43168fdcd75", null ],
+    [ "IsInitialized", "d8/dc7/struct_f_action_history.html#a412790c2d38fc81a9f97f8e23c0df5a1", null ],
+    [ "MakeCopy", "d8/dc7/struct_f_action_history.html#ad424cb52f683a763d70b6d3ac971a83f", null ],
+    [ "MarkClaimed", "d8/dc7/struct_f_action_history.html#a9beb4ae3d7ae446b2572d32d8953918d", null ],
+    [ "Reset", "d8/dc7/struct_f_action_history.html#a7cdca08e050b27f20b8fbc65ba1fa511", null ],
+    [ "FrameHistory", "d8/dc7/struct_f_action_history.html#a23d0aaf2a48533c824d2a484573e7346", null ],
+    [ "HistorySize", "d8/dc7/struct_f_action_history.html#abb519fe3a41571cd7fe0fe8bff414451", null ]
+];

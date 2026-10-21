@@ -1,0 +1,25 @@
+var class_u_gizmo_element_torus =
+[
+    [ "GetCurrentInnerRadius", "d6/da3/class_u_gizmo_element_torus.html#ad460395df7119a9c649f94fe39078c43", null ],
+    [ "GetEndCaps", "d6/da3/class_u_gizmo_element_torus.html#ad1b5b1f16cd92523d4eae164a51ab4e4", null ],
+    [ "GetHoverInnerRadiusMultiplier", "d6/da3/class_u_gizmo_element_torus.html#a3ccec6337db80f73e8469f61fbd9c30f", null ],
+    [ "GetInnerRadius", "d6/da3/class_u_gizmo_element_torus.html#ac5ae7271f4eb3ca0599fa869774db2bb", null ],
+    [ "GetInteractInnerRadiusMultiplier", "d6/da3/class_u_gizmo_element_torus.html#ae5c018edbe4316ef7ba1a13882a70892", null ],
+    [ "GetNumInnerSlices", "d6/da3/class_u_gizmo_element_torus.html#a71aa7322b929c9b17457727d5c658ddd", null ],
+    [ "GetSelectInnerRadiusMultiplier", "d6/da3/class_u_gizmo_element_torus.html#a540fdf2e9cce9232e59f837d8c72a014", null ],
+    [ "GetSubdueInnerRadiusMultiplier", "d6/da3/class_u_gizmo_element_torus.html#ae2610af916071bec94e768a19b0598bd", null ],
+    [ "IsGlancingAngle", "d6/da3/class_u_gizmo_element_torus.html#a3fce5927e3c285fe8f440dff346b5c2a", null ],
+    [ "LineTrace", "d6/da3/class_u_gizmo_element_torus.html#a1b20be8c2793bd1eda24ff9d62c1ecc0", null ],
+    [ "Render", "d6/da3/class_u_gizmo_element_torus.html#a3f13f4b9e398b6a68ad3fd4b99afd203", null ],
+    [ "SetEndCaps", "d6/da3/class_u_gizmo_element_torus.html#ae2550a5a9145d9cb692fb0a013fce359", null ],
+    [ "SetHoverInnerRadiusMultiplier", "d6/da3/class_u_gizmo_element_torus.html#a356af457d4b7046a64a20325534c362b", null ],
+    [ "SetInnerRadius", "d6/da3/class_u_gizmo_element_torus.html#af9a5aeb8b1885dc24db4f447287aae15", null ],
+    [ "SetInteractInnerRadiusMultiplier", "d6/da3/class_u_gizmo_element_torus.html#ae10843d221d0a7a4189a6e6600f55b6c", null ],
+    [ "SetNumInnerSlices", "d6/da3/class_u_gizmo_element_torus.html#ad20074ceaa2f693e745d5126adf39d9d", null ],
+    [ "SetSelectInnerRadiusMultiplier", "d6/da3/class_u_gizmo_element_torus.html#ae568b6f3f83e679877bcfba9dc7db163", null ],
+    [ "SetSubdueInnerRadiusMultiplier", "d6/da3/class_u_gizmo_element_torus.html#abf79094c2a29a4128264613eff7007cd", null ],
+    [ "bEndCaps", "d6/da3/class_u_gizmo_element_torus.html#a9193e4ba5d97a300ef93aed0dd7e4734", null ],
+    [ "InnerRadius", "d6/da3/class_u_gizmo_element_torus.html#afccd3ff6ef21b176a37e276886c58281", null ],
+    [ "InnerRadiusMultiplier", "d6/da3/class_u_gizmo_element_torus.html#a5e5e7ccbf6ee8eda15759475d424bb36", null ],
+    [ "NumInnerSlices", "d6/da3/class_u_gizmo_element_torus.html#ad4f54cf7daa38eb5ca68997716835aec", null ]
+];

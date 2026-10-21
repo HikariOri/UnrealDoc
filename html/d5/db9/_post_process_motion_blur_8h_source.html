@@ -1,0 +1,325 @@
+<!-- HTML header for doxygen 1.15.0-->
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh">
+<head>
+  <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=11" />
+  <meta name="generator" content="Doxygen 1.15.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>UE 5.8.4: Engine/Source/Runtime/Renderer/Private/PostProcess/PostProcessMotionBlur.h 源文件</title>
+  <link rel="icon" href="../../EdIconDefault.bmp" type="image/x-icon" />
+  <link href="../../tabs.css" rel="stylesheet" type="text/css" />
+  <script type="text/javascript" src="../../jquery.js"></script>
+  <script type="text/javascript" src="../../dynsections.js"></script>
+  <link href="../../navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../navtreedata.js"></script>
+<script type="text/javascript" src="../../navtree.js"></script>
+<script type="text/javascript" src="../../cookie.js"></script>
+  <link href="../../search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../search/searchdata.js"></script>
+<script type="text/javascript" src="../../search/search.js"></script>
+  <link href="../../doxygen.css" rel="stylesheet" type="text/css" />
+  <link href="../../doxygen-awesome.css" rel="stylesheet" type="text/css"/>
+<link href="../../doxygen-awesome-sidebar-only.css" rel="stylesheet" type="text/css"/>
+<link href="../../doxygen-awesome-sidebar-only-darkmode-toggle.css" rel="stylesheet" type="text/css"/>
+  <!-- ... other metadata & script includes ... -->
+  <script type="text/javascript" src="../../doxygen-awesome-darkmode-toggle.js"></script>
+  <script type="text/javascript">
+    DoxygenAwesomeDarkModeToggle.title = "Zwischen hellem/dunklem Modus wechseln"
+    DoxygenAwesomeDarkModeToggle.lightModeIcon = '🌞'
+    // icon from https://fonts.google.com/icons
+    DoxygenAwesomeDarkModeToggle.darkModeIcon = `<svg xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 24 24" height="24px" viewBox="0 0 24 24" width="24px" fill="#009793"><g><rect fill="none" height="24" width="24"/></g><g><g><path d="M8.1,14.15C9.77,14.63,11,16.17,11,18c0,0.68-0.19,1.31-0.48,1.87c0.48,0.09,0.97,0.14,1.48,0.14 c1.48,0,2.9-0.41,4.13-1.15c-2.62-0.92-5.23-2.82-6.8-5.86C7.74,9.94,7.78,7.09,8.29,4.9c-2.57,1.33-4.3,4.01-4.3,7.1c0,0,0,0,0,0 c0.01,0,0.01,0,0.02,0C5.66,12,7.18,12.83,8.1,14.15z" opacity=".3"/><path d="M19.78,17.51c-2.47,0-6.57-1.33-8.68-5.43C8.77,7.57,10.6,3.6,11.63,2.01C6.27,2.2,1.98,6.59,1.98,12 c0,0.14,0.02,0.28,0.02,0.42C2.61,12.16,3.28,12,3.98,12c0,0,0,0,0,0c0-3.09,1.73-5.77,4.3-7.1C7.78,7.09,7.74,9.94,9.32,13 c1.57,3.04,4.18,4.95,6.8,5.86c-1.23,0.74-2.65,1.15-4.13,1.15c-0.5,0-1-0.05-1.48-0.14c-0.37,0.7-0.94,1.27-1.64,1.64 c0.98,0.32,2.03,0.5,3.11,0.5c3.5,0,6.58-1.8,8.37-4.52C20.18,17.5,19.98,17.51,19.78,17.51z"/><path d="M7,16l-0.18,0C6.4,14.84,5.3,14,4,14c-1.66,0-3,1.34-3,3s1.34,3,3,3c0.62,0,2.49,0,3,0c1.1,0,2-0.9,2-2 C9,16.9,8.1,16,7,16z"/></g></g></svg>`
+    DoxygenAwesomeDarkModeToggle.init()
+  </script>
+  <script type="text/javascript" src="../../doxygen-awesome-fragment-copy-button.js"></script>
+  <script type="text/javascript">
+    DoxygenAwesomeFragmentCopyButton.title = "In die Zwischenablage kopieren"
+    // DoxygenAwesomeFragmentCopyButton.copyIcon = `<svg ...>`
+    // DoxygenAwesomeFragmentCopyButton.successIcon = `<svg ...>`
+    DoxygenAwesomeFragmentCopyButton.init()
+  </script>
+  <script type="text/javascript" src="../../doxygen-awesome-paragraph-link.js"></script>
+  <script type="text/javascript">
+    DoxygenAwesomeParagraphLink.title = "Abschnitt verknüpfen"
+    DoxygenAwesomeParagraphLink.icon = "¶"
+    DoxygenAwesomeParagraphLink.init()
+  </script>
+  <script type="text/javascript" src="../../doxygen-awesome-interactive-toc.js"></script>
+  <script type="text/javascript">
+    DoxygenAwesomeInteractiveToc.topOffset = 45
+    DoxygenAwesomeInteractiveToc.hideMobileMenu = false
+    DoxygenAwesomeInteractiveToc.init()
+  </script>
+</head>
+<body>
+    <div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+      <div id="titlearea">
+        <table cellspacing="0" cellpadding="0">
+          <tbody>
+            <tr id="projectrow">
+              <td id="projectlogo"><img alt="Logo" src="../../EdIconDefault.bmp"  /></td>
+              <td id="projectalign">
+                <div id="projectname">UE 5.8.4
+                </div>
+                <div id="projectbrief">Unreal Engine</div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <!-- end header part -->
+<!-- 制作者 Doxygen 1.15.0 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "../../search/",'.html');
+</script>
+<script type="text/javascript">
+$(function() { codefold.init(); });
+</script>
+<script type="text/javascript" src="../../menudata.js"></script>
+<script type="text/javascript" src="../../menu.js"></script>
+<script type="text/javascript">
+$(function() {
+  initMenu('../../',true,false,'search.php','搜索',true);
+  $(function() { init_search(); });
+});
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(function(){initNavTree('d5/db9/_post_process_motion_blur_8h_source.html','../../',''); });
+</script>
+<div id="container">
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">载入中...</div>
+<div class="SRStatus" id="Searching">搜索中...</div>
+<div class="SRStatus" id="NoMatches">未找到</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">PostProcessMotionBlur.h</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="../../d5/db9/_post_process_motion_blur_8h.html">浏览该文件的文档.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="comment">// Copyright Epic Games, Inc. All Rights Reserved.</span></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span> </div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="comment">/*=============================================================================</span></div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="comment">    PostProcessMotionBlur.h: Post process MotionBlur implementation.</span></div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="comment">=============================================================================*/</span></div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span> </div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="preprocessor">#pragma once</span></div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span> </div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="preprocessor">#include &quot;<a class="code" href="../../d7/d17/_screen_pass_8h.html">ScreenPass.h</a>&quot;</span></div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="preprocessor">#include &quot;<a class="code" href="../../d6/d2f/_translucent_rendering_8h.html">TranslucentRendering.h</a>&quot;</span></div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="preprocessor">#include &quot;<a class="code" href="../../d2/da1/_lens_distortion_8h.html">PostProcess/LensDistortion.h</a>&quot;</span></div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="preprocessor">#include &quot;<a class="code" href="../../df/d03/_translucent_pass_resource_8h.html">TranslucentPassResource.h</a>&quot;</span></div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span> </div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="comment">// Returns whether motion blur is enabled for the requested view.</span></div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span><span class="keywordtype">bool</span> <a class="code hl_function" href="../../d5/db9/_post_process_motion_blur_8h.html#aa6022ddea94ce73e278e12739359f818">IsMotionBlurEnabled</a>(<span class="keyword">const</span> <a class="code hl_class" href="../../dd/d2b/class_f_view_info.html">FViewInfo</a>&amp; <a class="code hl_enumvalue" href="../../d4/ded/_asset_type_activation_opened_method_8h.html#adf66f18a6bd35d59ab943dc1556b124fa4351cfebe4b61d8aa5efa1d020710005">View</a>);</div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span> </div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span><span class="comment">// Returns whether visualization of motion blur is enabled for the requested view.</span></div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span><span class="keywordtype">bool</span> <a class="code hl_function" href="../../d5/db9/_post_process_motion_blur_8h.html#a67bbe1f8afa2643e6e352e552a5a7d46">IsVisualizeMotionBlurEnabled</a>(<span class="keyword">const</span> <a class="code hl_class" href="../../dd/d2b/class_f_view_info.html">FViewInfo</a>&amp; <a class="code hl_enumvalue" href="../../d4/ded/_asset_type_activation_opened_method_8h.html#adf66f18a6bd35d59ab943dc1556b124fa4351cfebe4b61d8aa5efa1d020710005">View</a>);</div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span> </div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span><span class="comment">// The quality level of the motion blur pass.</span></div>
+<div class="foldopen" id="foldopen00021" data-start="{" data-end="};">
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno"><a class="line" href="../../d5/db9/_post_process_motion_blur_8h.html#a66f2042ab052886d1dba86a3ade0fbe3">   21</a></span><span class="keyword">enum class</span> <a class="code hl_enumeration" href="../../d5/db9/_post_process_motion_blur_8h.html#a66f2042ab052886d1dba86a3ade0fbe3">EMotionBlurQuality</a> : <a class="code hl_typedef" href="../../dd/de9/preprocessor_8c.html#a1134b580f8da4de94ca6b1de4d37975e">uint32</a></div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>{</div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno"><a class="line" href="../../d5/db9/_post_process_motion_blur_8h.html#a66f2042ab052886d1dba86a3ade0fbe3a28d0edd045e05cf5af64e35ae0c4c6ef">   23</a></span>    <a class="code hl_enumvalue" href="../../d5/db9/_post_process_motion_blur_8h.html#a66f2042ab052886d1dba86a3ade0fbe3a28d0edd045e05cf5af64e35ae0c4c6ef">Low</a>,</div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno"><a class="line" href="../../d5/db9/_post_process_motion_blur_8h.html#a66f2042ab052886d1dba86a3ade0fbe3a87f8a6ab85c9ced3702b4ea641ad4bb5">   24</a></span>    <a class="code hl_enumvalue" href="../../d5/db9/_post_process_motion_blur_8h.html#a66f2042ab052886d1dba86a3ade0fbe3a87f8a6ab85c9ced3702b4ea641ad4bb5">Medium</a>,</div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno"><a class="line" href="../../d5/db9/_post_process_motion_blur_8h.html#a66f2042ab052886d1dba86a3ade0fbe3a655d20c1ca69519ca647684edbb2db35">   25</a></span>    <a class="code hl_enumvalue" href="../../d5/db9/_post_process_motion_blur_8h.html#a66f2042ab052886d1dba86a3ade0fbe3a655d20c1ca69519ca647684edbb2db35">High</a>,</div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno"><a class="line" href="../../d5/db9/_post_process_motion_blur_8h.html#a66f2042ab052886d1dba86a3ade0fbe3af0b44f10edcd3bdee6720430ac4111cd">   26</a></span>    <a class="code hl_enumvalue" href="../../d5/db9/_post_process_motion_blur_8h.html#a66f2042ab052886d1dba86a3ade0fbe3af0b44f10edcd3bdee6720430ac4111cd">VeryHigh</a>,</div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno"><a class="line" href="../../d5/db9/_post_process_motion_blur_8h.html#a66f2042ab052886d1dba86a3ade0fbe3a26a4b44a837bf97b972628509912b4a5">   27</a></span>    <a class="code hl_enumvalue" href="../../d9/d79/_i_time_slider_8h.html#a2763734740d57f962594efe11286a4c5ad7e097bda6d981de2520f49fe74c25b7">MAX</a></div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>};</div>
+</div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span> </div>
+<div class="foldopen" id="foldopen00030" data-start="{" data-end="};">
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno"><a class="line" href="../../d5/db9/_post_process_motion_blur_8h.html#a59c51dd0e3c70cca4be382d6bcab8f87">   30</a></span><span class="keyword">enum class</span> <a class="code hl_enumeration" href="../../d5/db9/_post_process_motion_blur_8h.html#a59c51dd0e3c70cca4be382d6bcab8f87">EMotionBlurFilter</a> : <a class="code hl_typedef" href="../../dd/de9/preprocessor_8c.html#a1134b580f8da4de94ca6b1de4d37975e">uint32</a></div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>{</div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno"><a class="line" href="../../d5/db9/_post_process_motion_blur_8h.html#a59c51dd0e3c70cca4be382d6bcab8f87a1dbd464eef96e9cc4151734185a50c7a">   32</a></span>    <a class="code hl_enumvalue" href="../../d5/db9/_post_process_motion_blur_8h.html#a59c51dd0e3c70cca4be382d6bcab8f87a1dbd464eef96e9cc4151734185a50c7a">Unified</a>,</div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno"><a class="line" href="../../d5/db9/_post_process_motion_blur_8h.html#a59c51dd0e3c70cca4be382d6bcab8f87a218140cc94a645f77dd15a2af6f640c2">   33</a></span>    <a class="code hl_enumvalue" href="../../d5/db9/_post_process_motion_blur_8h.html#a59c51dd0e3c70cca4be382d6bcab8f87a218140cc94a645f77dd15a2af6f640c2">Separable</a></div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>};</div>
+</div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span> </div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span><span class="comment">// Returns whether motion blur also want half res input the scene color&#39;s MIP1.</span></div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span><span class="keywordtype">bool</span> <a class="code hl_function" href="../../d5/db9/_post_process_motion_blur_8h.html#a517b1905855bd478d8026bd1f3814fe9">DoesMotionBlurNeedsHalfResInput</a>();</div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span> </div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span><span class="comment">// Returns the global setting for motion blur quality.</span></div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span><a class="code hl_enumeration" href="../../d5/db9/_post_process_motion_blur_8h.html#a66f2042ab052886d1dba86a3ade0fbe3">EMotionBlurQuality</a> <a class="code hl_function" href="../../d5/db9/_post_process_motion_blur_8h.html#ae82aa153d670d8d777cd86c7447caaf9">GetMotionBlurQuality</a>();</div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span> </div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span><span class="comment">// Returns the global setting for motion blur filter.</span></div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span><a class="code hl_enumeration" href="../../d5/db9/_post_process_motion_blur_8h.html#a59c51dd0e3c70cca4be382d6bcab8f87">EMotionBlurFilter</a> <a class="code hl_function" href="../../d5/db9/_post_process_motion_blur_8h.html#a13f32d61f03b8499c6452a53363f1d33">GetMotionBlurFilter</a>();</div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span> </div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span><span class="comment">// Number of simultaneous direction motion blur can blur per tiles.</span></div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span><a class="code hl_typedef" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a8dbb3cd84ca9fd010dadfc3815eefa5d">int32</a> <a class="code hl_function" href="../../d5/db9/_post_process_motion_blur_8h.html#a71cfe319a2cd95fa5935652a30c2f802">GetMotionBlurDirections</a>();</div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span> </div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span><span class="comment">// Shader parameters for MotionBlurVelocityFlatten.ush when another pass can also generate the FVelocityFlattenTextures</span></div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span><a class="code hl_define" href="../../d9/d2c/_shader_parameter_macros_8h.html#a6a1326c3995c4e9aa0e0125d9ff159b3">BEGIN_SHADER_PARAMETER_STRUCT</a>(FVelocityFlattenParameters, )</div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>    <a class="code hl_define" href="../../d9/d2c/_shader_parameter_macros_8h.html#aed49b225fa9b8b3125805c599f23a040">SHADER_PARAMETER</a>(<a class="code hl_typedef" href="../../d0/df6/_math_fwd_8h.html#a2c5d5b1ab0233a3fda21e6e610f88bb4">FVector2f</a>, VelocityScale)</div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>    <a class="code hl_define" href="../../d9/d2c/_shader_parameter_macros_8h.html#aed49b225fa9b8b3125805c599f23a040">SHADER_PARAMETER</a>(<span class="keywordtype">float</span>, VelocityMax)</div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span><a class="code hl_define" href="../../d9/d2c/_shader_parameter_macros_8h.html#aa477d2fdd61a01ad3c8ac598cd96e343">END_SHADER_PARAMETER_STRUCT</a>()</div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span> </div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>FVelocityFlattenParameters <a class="code hl_function" href="../../d2/d5c/_post_process_motion_blur_8cpp.html#ab8ef9fad593f41ca3640b405653f3661">GetVelocityFlattenParameters</a>(const <a class="code hl_class" href="../../dd/d2b/class_f_view_info.html">FViewInfo</a>&amp; <a class="code hl_enumvalue" href="../../d4/ded/_asset_type_activation_opened_method_8h.html#adf66f18a6bd35d59ab943dc1556b124fa4351cfebe4b61d8aa5efa1d020710005">View</a>);</div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span> </div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span><span class="comment">// Textures generated by the velocity flattening pass.</span></div>
+<div class="foldopen" id="foldopen00057" data-start="{" data-end="};">
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno"><a class="line" href="../../d6/df5/struct_f_velocity_flatten_textures.html">   57</a></span>struct <a class="code hl_struct" href="../../d6/df5/struct_f_velocity_flatten_textures.html">FVelocityFlattenTextures</a></div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>{</div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno"><a class="line" href="../../d6/df5/struct_f_velocity_flatten_textures.html#ae7cbf55260420721816d0f672d0d743b">   59</a></span>    <span class="keyword">static</span> <span class="keyword">constexpr</span> <a class="code hl_typedef" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a8dbb3cd84ca9fd010dadfc3815eefa5d">int32</a> <a class="code hl_variable" href="../../d6/df5/struct_f_velocity_flatten_textures.html#ae7cbf55260420721816d0f672d0d743b">kMaxVelocityTileTextureCount</a> = 2;</div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno"><a class="line" href="../../d6/df5/struct_f_velocity_flatten_textures.html#ae0abb24f413f121e4ca2083668183307">   60</a></span>    <span class="keyword">static</span> <span class="keyword">constexpr</span> <a class="code hl_typedef" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a8dbb3cd84ca9fd010dadfc3815eefa5d">int32</a> <a class="code hl_variable" href="../../d6/df5/struct_f_velocity_flatten_textures.html#ae0abb24f413f121e4ca2083668183307">kTileSize</a> = 16;</div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span> </div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno"><a class="line" href="../../d6/df5/struct_f_velocity_flatten_textures.html#a2378b355b4027d41a4a11807ac6afb6c">   62</a></span>    <a class="code hl_struct" href="../../d3/df7/struct_f_screen_pass_texture.html">FScreenPassTexture</a> <a class="code hl_variable" href="../../d6/df5/struct_f_velocity_flatten_textures.html#a2378b355b4027d41a4a11807ac6afb6c">VelocityFlatten</a>;</div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno"><a class="line" href="../../d6/df5/struct_f_velocity_flatten_textures.html#a63ed71c0241b52401ae106074df765e1">   63</a></span>    <a class="code hl_struct" href="../../d3/df7/struct_f_screen_pass_texture.html">FScreenPassTexture</a> <a class="code hl_variable" href="../../d6/df5/struct_f_velocity_flatten_textures.html#a63ed71c0241b52401ae106074df765e1">VelocityTileArray</a>;</div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span> </div>
+<div class="foldopen" id="foldopen00065" data-start="{" data-end="}">
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno"><a class="line" href="../../d6/df5/struct_f_velocity_flatten_textures.html#a79ac67d39c7a8e2db6f09c847c3d5fe9">   65</a></span>    <span class="keywordtype">bool</span> <a class="code hl_function" href="../../d6/df5/struct_f_velocity_flatten_textures.html#a79ac67d39c7a8e2db6f09c847c3d5fe9">IsValid</a>()<span class="keyword"> const</span></div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span><span class="keyword">    </span>{</div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>        <span class="keywordflow">return</span> <a class="code hl_variable" href="../../d6/df5/struct_f_velocity_flatten_textures.html#a2378b355b4027d41a4a11807ac6afb6c">VelocityFlatten</a>.IsValid() &amp;&amp; <a class="code hl_variable" href="../../d6/df5/struct_f_velocity_flatten_textures.html#a63ed71c0241b52401ae106074df765e1">VelocityTileArray</a>.IsValid();</div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>    }</div>
+</div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span> </div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>    <span class="comment">// returns whether FVelocityFlattenTextures can be generated in external system.</span></div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>    <span class="keyword">static</span> <span class="keywordtype">bool</span> AllowExternal(<span class="keyword">const</span> <a class="code hl_class" href="../../dd/d2b/class_f_view_info.html">FViewInfo</a>&amp; <a class="code hl_enumvalue" href="../../d4/ded/_asset_type_activation_opened_method_8h.html#adf66f18a6bd35d59ab943dc1556b124fa4351cfebe4b61d8aa5efa1d020710005">View</a>);</div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>};</div>
+</div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span> </div>
+<div class="foldopen" id="foldopen00074" data-start="{" data-end="};">
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno"><a class="line" href="../../d1/dcc/struct_f_motion_blur_inputs.html">   74</a></span><span class="keyword">struct </span><a class="code hl_struct" href="../../d1/dcc/struct_f_motion_blur_inputs.html">FMotionBlurInputs</a></div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>{</div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno"><a class="line" href="../../d1/dcc/struct_f_motion_blur_inputs.html#a93e8b998abe3cc979fc92da5cc3d3391">   76</a></span>    <span class="keywordtype">bool</span> <a class="code hl_variable" href="../../d1/dcc/struct_f_motion_blur_inputs.html#a93e8b998abe3cc979fc92da5cc3d3391">bOutputHalfRes</a> = <span class="keyword">false</span>;</div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno"><a class="line" href="../../d1/dcc/struct_f_motion_blur_inputs.html#aff5a58a00a42a8ae62b892b1f866b22c">   77</a></span>    <span class="keywordtype">bool</span> <a class="code hl_variable" href="../../d1/dcc/struct_f_motion_blur_inputs.html#aff5a58a00a42a8ae62b892b1f866b22c">bOutputQuarterRes</a> = <span class="keyword">false</span>;</div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span> </div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>    <span class="comment">// [Optional] Render to the specified output. If invalid, a new texture is created and returned.</span></div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno"><a class="line" href="../../d1/dcc/struct_f_motion_blur_inputs.html#aeded7184795ea64ae7231e7905eed9f3">   80</a></span>    <a class="code hl_struct" href="../../d1/dae/struct_f_screen_pass_render_target.html">FScreenPassRenderTarget</a> <a class="code hl_variable" href="../../d1/dcc/struct_f_motion_blur_inputs.html#aeded7184795ea64ae7231e7905eed9f3">OverrideOutput</a>;</div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span> </div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span>    <span class="comment">// [Required] The input scene color and view rect.</span></div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno"><a class="line" href="../../d1/dcc/struct_f_motion_blur_inputs.html#ab9454d269f5a57ab1694866062796811">   83</a></span>    <a class="code hl_struct" href="../../de/d78/struct_f_screen_pass_texture_slice.html">FScreenPassTextureSlice</a> <a class="code hl_variable" href="../../d1/dcc/struct_f_motion_blur_inputs.html#ab9454d269f5a57ab1694866062796811">SceneColor</a>;</div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span> </div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span>    <span class="comment">// [Required] The input scene depth and view rect.</span></div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno"><a class="line" href="../../d1/dcc/struct_f_motion_blur_inputs.html#a2c0c9b3415e4660fe57d705c92702274">   86</a></span>    <a class="code hl_struct" href="../../d3/df7/struct_f_screen_pass_texture.html">FScreenPassTexture</a> <a class="code hl_variable" href="../../d1/dcc/struct_f_motion_blur_inputs.html#a2c0c9b3415e4660fe57d705c92702274">SceneDepth</a>;</div>
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span> </div>
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span>    <span class="comment">// [Required] The input scene velocity and view rect.</span></div>
+<div class="line"><a id="l00089" name="l00089"></a><span class="lineno"><a class="line" href="../../d1/dcc/struct_f_motion_blur_inputs.html#a28abd04e980c24d4598eed702aba077f">   89</a></span>    <a class="code hl_struct" href="../../d3/df7/struct_f_screen_pass_texture.html">FScreenPassTexture</a> <a class="code hl_variable" href="../../d1/dcc/struct_f_motion_blur_inputs.html#a28abd04e980c24d4598eed702aba077f">SceneVelocity</a>;</div>
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span> </div>
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span>    <span class="comment">// [Optional] The separate translucency buffer to be composited after motion blur</span></div>
+<div class="line"><a id="l00092" name="l00092"></a><span class="lineno"><a class="line" href="../../d1/dcc/struct_f_motion_blur_inputs.html#a0bf207c3b27b9d9d996b4a34c54861b7">   92</a></span>    <a class="code hl_struct" href="../../d5/d03/struct_f_translucency_pass_resources.html">FTranslucencyPassResources</a> <a class="code hl_variable" href="../../d1/dcc/struct_f_motion_blur_inputs.html#a0bf207c3b27b9d9d996b4a34c54861b7">PostMotionBlurTranslucency</a>;</div>
+<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span> </div>
+<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span>    <span class="comment">// [Required] Quality to use when processing motion blur.</span></div>
+<div class="line"><a id="l00095" name="l00095"></a><span class="lineno"><a class="line" href="../../d1/dcc/struct_f_motion_blur_inputs.html#a1a5a7c543e9950da903d906951982c87">   95</a></span>    <a class="code hl_enumeration" href="../../d5/db9/_post_process_motion_blur_8h.html#a66f2042ab052886d1dba86a3ade0fbe3">EMotionBlurQuality</a> <a class="code hl_variable" href="../../d1/dcc/struct_f_motion_blur_inputs.html#a1a5a7c543e9950da903d906951982c87">Quality</a> = <a class="code hl_enumvalue" href="../../d5/db9/_post_process_motion_blur_8h.html#a66f2042ab052886d1dba86a3ade0fbe3af0b44f10edcd3bdee6720430ac4111cd">EMotionBlurQuality::VeryHigh</a>;</div>
+<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span> </div>
+<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span>    <span class="comment">// [Required] Filter to use when processing motion blur.</span></div>
+<div class="line"><a id="l00098" name="l00098"></a><span class="lineno"><a class="line" href="../../d1/dcc/struct_f_motion_blur_inputs.html#ada0a2cac774de68e63b5d23d86fba089">   98</a></span>    <a class="code hl_enumeration" href="../../d5/db9/_post_process_motion_blur_8h.html#a59c51dd0e3c70cca4be382d6bcab8f87">EMotionBlurFilter</a> <a class="code hl_variable" href="../../d1/dcc/struct_f_motion_blur_inputs.html#ada0a2cac774de68e63b5d23d86fba089">Filter</a> = <a class="code hl_enumvalue" href="../../d5/db9/_post_process_motion_blur_8h.html#a59c51dd0e3c70cca4be382d6bcab8f87a218140cc94a645f77dd15a2af6f640c2">EMotionBlurFilter::Separable</a>;</div>
+<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span> </div>
+<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span>    <span class="comment">// [Optional] the velocity flatten is can be generated by a earlier pass.</span></div>
+<div class="line"><a id="l00101" name="l00101"></a><span class="lineno"><a class="line" href="../../d1/dcc/struct_f_motion_blur_inputs.html#abdc432beb3a22cf79b611b82b758fb8e">  101</a></span>    <a class="code hl_struct" href="../../d6/df5/struct_f_velocity_flatten_textures.html">FVelocityFlattenTextures</a> <a class="code hl_variable" href="../../d1/dcc/struct_f_motion_blur_inputs.html#abdc432beb3a22cf79b611b82b758fb8e">VelocityFlattenTextures</a>;</div>
+<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span> </div>
+<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span>    <span class="comment">// [Optional] Lens distortion applied on the scene color.</span></div>
+<div class="line"><a id="l00104" name="l00104"></a><span class="lineno"><a class="line" href="../../d1/dcc/struct_f_motion_blur_inputs.html#a9f5fc1562bb26c3fe925ca2dac304de0">  104</a></span>    <a class="code hl_struct" href="../../d0/d90/struct_f_lens_distortion_l_u_t.html">FLensDistortionLUT</a> <a class="code hl_variable" href="../../d1/dcc/struct_f_motion_blur_inputs.html#a9f5fc1562bb26c3fe925ca2dac304de0">LensDistortionLUT</a>;</div>
+<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span>};</div>
+</div>
+<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span> </div>
+<div class="foldopen" id="foldopen00107" data-start="{" data-end="};">
+<div class="line"><a id="l00107" name="l00107"></a><span class="lineno"><a class="line" href="../../d8/d16/struct_f_motion_blur_outputs.html">  107</a></span><span class="keyword">struct </span><a class="code hl_struct" href="../../d8/d16/struct_f_motion_blur_outputs.html">FMotionBlurOutputs</a></div>
+<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span>{</div>
+<div class="line"><a id="l00109" name="l00109"></a><span class="lineno"><a class="line" href="../../d8/d16/struct_f_motion_blur_outputs.html#ab28d9210e438bdae8e101ca68013a1a2">  109</a></span>    <a class="code hl_struct" href="../../de/d78/struct_f_screen_pass_texture_slice.html">FScreenPassTextureSlice</a> <a class="code hl_variable" href="../../d8/d16/struct_f_motion_blur_outputs.html#ab28d9210e438bdae8e101ca68013a1a2">FullRes</a>;</div>
+<div class="line"><a id="l00110" name="l00110"></a><span class="lineno"><a class="line" href="../../d8/d16/struct_f_motion_blur_outputs.html#a2e95761fbb8778bfbff08e3b1059947e">  110</a></span>    <a class="code hl_struct" href="../../d3/df7/struct_f_screen_pass_texture.html">FScreenPassTexture</a> <a class="code hl_variable" href="../../d8/d16/struct_f_motion_blur_outputs.html#a2e95761fbb8778bfbff08e3b1059947e">HalfRes</a>;</div>
+<div class="line"><a id="l00111" name="l00111"></a><span class="lineno"><a class="line" href="../../d8/d16/struct_f_motion_blur_outputs.html#a81c5a6300523b330bb3af623f2db2243">  111</a></span>    <a class="code hl_struct" href="../../d3/df7/struct_f_screen_pass_texture.html">FScreenPassTexture</a> <a class="code hl_variable" href="../../d8/d16/struct_f_motion_blur_outputs.html#a81c5a6300523b330bb3af623f2db2243">QuarterRes</a>;</div>
+<div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span>};</div>
+</div>
+<div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span> </div>
+<div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span><a class="code hl_struct" href="../../d8/d16/struct_f_motion_blur_outputs.html">FMotionBlurOutputs</a> <a class="code hl_function" href="../../d5/db9/_post_process_motion_blur_8h.html#ab30482457ca655c72c0b294bda3573a1">AddMotionBlurPass</a>(<a class="code hl_class" href="../../d3/d85/class_f_r_d_g_builder.html">FRDGBuilder</a>&amp; GraphBuilder, <span class="keyword">const</span> <a class="code hl_class" href="../../dd/d2b/class_f_view_info.html">FViewInfo</a>&amp; <a class="code hl_enumvalue" href="../../d4/ded/_asset_type_activation_opened_method_8h.html#adf66f18a6bd35d59ab943dc1556b124fa4351cfebe4b61d8aa5efa1d020710005">View</a>, <span class="keyword">const</span> <a class="code hl_struct" href="../../d1/dcc/struct_f_motion_blur_inputs.html">FMotionBlurInputs</a>&amp; Inputs);</div>
+<div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span><a class="code hl_struct" href="../../de/d78/struct_f_screen_pass_texture_slice.html">FScreenPassTextureSlice</a> <a class="code hl_function" href="../../d5/db9/_post_process_motion_blur_8h.html#a377c063c8d1678df74ddfd8fe67a8497">AddVisualizeMotionBlurPass</a>(<a class="code hl_class" href="../../d3/d85/class_f_r_d_g_builder.html">FRDGBuilder</a>&amp; GraphBuilder, <span class="keyword">const</span> <a class="code hl_class" href="../../dd/d2b/class_f_view_info.html">FViewInfo</a>&amp; <a class="code hl_enumvalue" href="../../d4/ded/_asset_type_activation_opened_method_8h.html#adf66f18a6bd35d59ab943dc1556b124fa4351cfebe4b61d8aa5efa1d020710005">View</a>, <span class="keyword">const</span> <a class="code hl_struct" href="../../d1/dcc/struct_f_motion_blur_inputs.html">FMotionBlurInputs</a>&amp; Inputs);</div>
+<div class="ttc" id="a_asset_type_activation_opened_method_8h_html_adf66f18a6bd35d59ab943dc1556b124fa4351cfebe4b61d8aa5efa1d020710005"><div class="ttname"><a href="../../d4/ded/_asset_type_activation_opened_method_8h.html#adf66f18a6bd35d59ab943dc1556b124fa4351cfebe4b61d8aa5efa1d020710005">EAssetTypeActivationOpenedMethod::View</a></div><div class="ttdeci">@ View</div><div class="ttdef"><b>定义</b> AssetTypeActivationOpenedMethod.h:19</div></div>
+<div class="ttc" id="a_core_2_public_2_h_a_l_2_platform_8h_html_a8dbb3cd84ca9fd010dadfc3815eefa5d"><div class="ttname"><a href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a8dbb3cd84ca9fd010dadfc3815eefa5d">int32</a></div><div class="ttdeci">FPlatformTypes::int32 int32</div><div class="ttdoc">A 32-bit signed integer.</div><div class="ttdef"><b>定义</b> Platform.h:1190</div></div>
+<div class="ttc" id="a_i_time_slider_8h_html_a2763734740d57f962594efe11286a4c5ad7e097bda6d981de2520f49fe74c25b7"><div class="ttname"><a href="../../d9/d79/_i_time_slider_8h.html#a2763734740d57f962594efe11286a4c5ad7e097bda6d981de2520f49fe74c25b7">MAX</a></div><div class="ttdeci">@ MAX</div><div class="ttdef"><b>定义</b> ITimeSlider.h:62</div></div>
+<div class="ttc" id="a_lens_distortion_8h_html"><div class="ttname"><a href="../../d2/da1/_lens_distortion_8h.html">LensDistortion.h</a></div></div>
+<div class="ttc" id="a_math_fwd_8h_html_a2c5d5b1ab0233a3fda21e6e610f88bb4"><div class="ttname"><a href="../../d0/df6/_math_fwd_8h.html#a2c5d5b1ab0233a3fda21e6e610f88bb4">FVector2f</a></div><div class="ttdeci">UE::Math::TVector2&lt; float &gt; FVector2f</div><div class="ttdef"><b>定义</b> MathFwd.h:74</div></div>
+<div class="ttc" id="a_post_process_motion_blur_8cpp_html_ab8ef9fad593f41ca3640b405653f3661"><div class="ttname"><a href="../../d2/d5c/_post_process_motion_blur_8cpp.html#ab8ef9fad593f41ca3640b405653f3661">GetVelocityFlattenParameters</a></div><div class="ttdeci">FVelocityFlattenParameters GetVelocityFlattenParameters(const FViewInfo &amp;View)</div><div class="ttdef"><b>定义</b> PostProcessMotionBlur.cpp:614</div></div>
+<div class="ttc" id="a_post_process_motion_blur_8h_html_a13f32d61f03b8499c6452a53363f1d33"><div class="ttname"><a href="../../d5/db9/_post_process_motion_blur_8h.html#a13f32d61f03b8499c6452a53363f1d33">GetMotionBlurFilter</a></div><div class="ttdeci">EMotionBlurFilter GetMotionBlurFilter()</div><div class="ttdef"><b>定义</b> PostProcessMotionBlur.cpp:199</div></div>
+<div class="ttc" id="a_post_process_motion_blur_8h_html_a377c063c8d1678df74ddfd8fe67a8497"><div class="ttname"><a href="../../d5/db9/_post_process_motion_blur_8h.html#a377c063c8d1678df74ddfd8fe67a8497">AddVisualizeMotionBlurPass</a></div><div class="ttdeci">FScreenPassTextureSlice AddVisualizeMotionBlurPass(FRDGBuilder &amp;GraphBuilder, const FViewInfo &amp;View, const FMotionBlurInputs &amp;Inputs)</div><div class="ttdef"><b>定义</b> PostProcessMotionBlur.cpp:1176</div></div>
+<div class="ttc" id="a_post_process_motion_blur_8h_html_a517b1905855bd478d8026bd1f3814fe9"><div class="ttname"><a href="../../d5/db9/_post_process_motion_blur_8h.html#a517b1905855bd478d8026bd1f3814fe9">DoesMotionBlurNeedsHalfResInput</a></div><div class="ttdeci">bool DoesMotionBlurNeedsHalfResInput()</div><div class="ttdef"><b>定义</b> PostProcessMotionBlur.cpp:186</div></div>
+<div class="ttc" id="a_post_process_motion_blur_8h_html_a59c51dd0e3c70cca4be382d6bcab8f87"><div class="ttname"><a href="../../d5/db9/_post_process_motion_blur_8h.html#a59c51dd0e3c70cca4be382d6bcab8f87">EMotionBlurFilter</a></div><div class="ttdeci">EMotionBlurFilter</div><div class="ttdef"><b>定义</b> PostProcessMotionBlur.h:31</div></div>
+<div class="ttc" id="a_post_process_motion_blur_8h_html_a59c51dd0e3c70cca4be382d6bcab8f87a1dbd464eef96e9cc4151734185a50c7a"><div class="ttname"><a href="../../d5/db9/_post_process_motion_blur_8h.html#a59c51dd0e3c70cca4be382d6bcab8f87a1dbd464eef96e9cc4151734185a50c7a">EMotionBlurFilter::Unified</a></div><div class="ttdeci">@ Unified</div><div class="ttdef"><b>定义</b> PostProcessMotionBlur.h:32</div></div>
+<div class="ttc" id="a_post_process_motion_blur_8h_html_a59c51dd0e3c70cca4be382d6bcab8f87a218140cc94a645f77dd15a2af6f640c2"><div class="ttname"><a href="../../d5/db9/_post_process_motion_blur_8h.html#a59c51dd0e3c70cca4be382d6bcab8f87a218140cc94a645f77dd15a2af6f640c2">EMotionBlurFilter::Separable</a></div><div class="ttdeci">@ Separable</div><div class="ttdef"><b>定义</b> PostProcessMotionBlur.h:33</div></div>
+<div class="ttc" id="a_post_process_motion_blur_8h_html_a66f2042ab052886d1dba86a3ade0fbe3"><div class="ttname"><a href="../../d5/db9/_post_process_motion_blur_8h.html#a66f2042ab052886d1dba86a3ade0fbe3">EMotionBlurQuality</a></div><div class="ttdeci">EMotionBlurQuality</div><div class="ttdef"><b>定义</b> PostProcessMotionBlur.h:22</div></div>
+<div class="ttc" id="a_post_process_motion_blur_8h_html_a66f2042ab052886d1dba86a3ade0fbe3a28d0edd045e05cf5af64e35ae0c4c6ef"><div class="ttname"><a href="../../d5/db9/_post_process_motion_blur_8h.html#a66f2042ab052886d1dba86a3ade0fbe3a28d0edd045e05cf5af64e35ae0c4c6ef">EMotionBlurQuality::Low</a></div><div class="ttdeci">@ Low</div><div class="ttdef"><b>定义</b> PostProcessMotionBlur.h:23</div></div>
+<div class="ttc" id="a_post_process_motion_blur_8h_html_a66f2042ab052886d1dba86a3ade0fbe3a655d20c1ca69519ca647684edbb2db35"><div class="ttname"><a href="../../d5/db9/_post_process_motion_blur_8h.html#a66f2042ab052886d1dba86a3ade0fbe3a655d20c1ca69519ca647684edbb2db35">EMotionBlurQuality::High</a></div><div class="ttdeci">@ High</div><div class="ttdef"><b>定义</b> PostProcessMotionBlur.h:25</div></div>
+<div class="ttc" id="a_post_process_motion_blur_8h_html_a66f2042ab052886d1dba86a3ade0fbe3a87f8a6ab85c9ced3702b4ea641ad4bb5"><div class="ttname"><a href="../../d5/db9/_post_process_motion_blur_8h.html#a66f2042ab052886d1dba86a3ade0fbe3a87f8a6ab85c9ced3702b4ea641ad4bb5">EMotionBlurQuality::Medium</a></div><div class="ttdeci">@ Medium</div><div class="ttdef"><b>定义</b> PostProcessMotionBlur.h:24</div></div>
+<div class="ttc" id="a_post_process_motion_blur_8h_html_a66f2042ab052886d1dba86a3ade0fbe3af0b44f10edcd3bdee6720430ac4111cd"><div class="ttname"><a href="../../d5/db9/_post_process_motion_blur_8h.html#a66f2042ab052886d1dba86a3ade0fbe3af0b44f10edcd3bdee6720430ac4111cd">EMotionBlurQuality::VeryHigh</a></div><div class="ttdeci">@ VeryHigh</div><div class="ttdef"><b>定义</b> PostProcessMotionBlur.h:26</div></div>
+<div class="ttc" id="a_post_process_motion_blur_8h_html_a67bbe1f8afa2643e6e352e552a5a7d46"><div class="ttname"><a href="../../d5/db9/_post_process_motion_blur_8h.html#a67bbe1f8afa2643e6e352e552a5a7d46">IsVisualizeMotionBlurEnabled</a></div><div class="ttdeci">bool IsVisualizeMotionBlurEnabled(const FViewInfo &amp;View)</div><div class="ttdef"><b>定义</b> PostProcessMotionBlur.cpp:148</div></div>
+<div class="ttc" id="a_post_process_motion_blur_8h_html_a71cfe319a2cd95fa5935652a30c2f802"><div class="ttname"><a href="../../d5/db9/_post_process_motion_blur_8h.html#a71cfe319a2cd95fa5935652a30c2f802">GetMotionBlurDirections</a></div><div class="ttdeci">int32 GetMotionBlurDirections()</div><div class="ttdef"><b>定义</b> PostProcessMotionBlur.cpp:204</div></div>
+<div class="ttc" id="a_post_process_motion_blur_8h_html_aa6022ddea94ce73e278e12739359f818"><div class="ttname"><a href="../../d5/db9/_post_process_motion_blur_8h.html#aa6022ddea94ce73e278e12739359f818">IsMotionBlurEnabled</a></div><div class="ttdeci">bool IsMotionBlurEnabled(const FViewInfo &amp;View)</div><div class="ttdef"><b>定义</b> PostProcessMotionBlur.cpp:128</div></div>
+<div class="ttc" id="a_post_process_motion_blur_8h_html_ab30482457ca655c72c0b294bda3573a1"><div class="ttname"><a href="../../d5/db9/_post_process_motion_blur_8h.html#ab30482457ca655c72c0b294bda3573a1">AddMotionBlurPass</a></div><div class="ttdeci">FMotionBlurOutputs AddMotionBlurPass(FRDGBuilder &amp;GraphBuilder, const FViewInfo &amp;View, const FMotionBlurInputs &amp;Inputs)</div><div class="ttdef"><b>定义</b> PostProcessMotionBlur.cpp:1334</div></div>
+<div class="ttc" id="a_post_process_motion_blur_8h_html_ae82aa153d670d8d777cd86c7447caaf9"><div class="ttname"><a href="../../d5/db9/_post_process_motion_blur_8h.html#ae82aa153d670d8d777cd86c7447caaf9">GetMotionBlurQuality</a></div><div class="ttdeci">EMotionBlurQuality GetMotionBlurQuality()</div><div class="ttdef"><b>定义</b> PostProcessMotionBlur.cpp:191</div></div>
+<div class="ttc" id="a_screen_pass_8h_html"><div class="ttname"><a href="../../d7/d17/_screen_pass_8h.html">ScreenPass.h</a></div></div>
+<div class="ttc" id="a_shader_parameter_macros_8h_html_a6a1326c3995c4e9aa0e0125d9ff159b3"><div class="ttname"><a href="../../d9/d2c/_shader_parameter_macros_8h.html#a6a1326c3995c4e9aa0e0125d9ff159b3">BEGIN_SHADER_PARAMETER_STRUCT</a></div><div class="ttdeci">#define BEGIN_SHADER_PARAMETER_STRUCT(StructTypeName, DllStorage)</div><div class="ttdef"><b>定义</b> ShaderParameterMacros.h:1411</div></div>
+<div class="ttc" id="a_shader_parameter_macros_8h_html_aa477d2fdd61a01ad3c8ac598cd96e343"><div class="ttname"><a href="../../d9/d2c/_shader_parameter_macros_8h.html#aa477d2fdd61a01ad3c8ac598cd96e343">END_SHADER_PARAMETER_STRUCT</a></div><div class="ttdeci">#define END_SHADER_PARAMETER_STRUCT()</div><div class="ttdef"><b>定义</b> ShaderParameterMacros.h:1414</div></div>
+<div class="ttc" id="a_shader_parameter_macros_8h_html_aed49b225fa9b8b3125805c599f23a040"><div class="ttname"><a href="../../d9/d2c/_shader_parameter_macros_8h.html#aed49b225fa9b8b3125805c599f23a040">SHADER_PARAMETER</a></div><div class="ttdeci">#define SHADER_PARAMETER(MemberType, MemberName)</div><div class="ttdef"><b>定义</b> ShaderParameterMacros.h:1613</div></div>
+<div class="ttc" id="a_translucent_pass_resource_8h_html"><div class="ttname"><a href="../../df/d03/_translucent_pass_resource_8h.html">TranslucentPassResource.h</a></div></div>
+<div class="ttc" id="a_translucent_rendering_8h_html"><div class="ttname"><a href="../../d6/d2f/_translucent_rendering_8h.html">TranslucentRendering.h</a></div></div>
+<div class="ttc" id="aclass_f_r_d_g_builder_html"><div class="ttname"><a href="../../d3/d85/class_f_r_d_g_builder.html">FRDGBuilder</a></div><div class="ttdef"><b>定义</b> RenderGraphBuilder.h:52</div></div>
+<div class="ttc" id="aclass_f_view_info_html"><div class="ttname"><a href="../../dd/d2b/class_f_view_info.html">FViewInfo</a></div><div class="ttdef"><b>定义</b> SceneRendering.h:1255</div></div>
+<div class="ttc" id="apreprocessor_8c_html_a1134b580f8da4de94ca6b1de4d37975e"><div class="ttname"><a href="../../dd/de9/preprocessor_8c.html#a1134b580f8da4de94ca6b1de4d37975e">uint32</a></div><div class="ttdeci">unsigned int uint32</div><div class="ttdef"><b>定义</b> preprocessor.c:67</div></div>
+<div class="ttc" id="astruct_f_lens_distortion_l_u_t_html"><div class="ttname"><a href="../../d0/d90/struct_f_lens_distortion_l_u_t.html">FLensDistortionLUT</a></div><div class="ttdef"><b>定义</b> LensDistortion.h:8</div></div>
+<div class="ttc" id="astruct_f_motion_blur_inputs_html"><div class="ttname"><a href="../../d1/dcc/struct_f_motion_blur_inputs.html">FMotionBlurInputs</a></div><div class="ttdef"><b>定义</b> PostProcessMotionBlur.h:75</div></div>
+<div class="ttc" id="astruct_f_motion_blur_inputs_html_a0bf207c3b27b9d9d996b4a34c54861b7"><div class="ttname"><a href="../../d1/dcc/struct_f_motion_blur_inputs.html#a0bf207c3b27b9d9d996b4a34c54861b7">FMotionBlurInputs::PostMotionBlurTranslucency</a></div><div class="ttdeci">FTranslucencyPassResources PostMotionBlurTranslucency</div><div class="ttdef"><b>定义</b> PostProcessMotionBlur.h:92</div></div>
+<div class="ttc" id="astruct_f_motion_blur_inputs_html_a1a5a7c543e9950da903d906951982c87"><div class="ttname"><a href="../../d1/dcc/struct_f_motion_blur_inputs.html#a1a5a7c543e9950da903d906951982c87">FMotionBlurInputs::Quality</a></div><div class="ttdeci">EMotionBlurQuality Quality</div><div class="ttdef"><b>定义</b> PostProcessMotionBlur.h:95</div></div>
+<div class="ttc" id="astruct_f_motion_blur_inputs_html_a28abd04e980c24d4598eed702aba077f"><div class="ttname"><a href="../../d1/dcc/struct_f_motion_blur_inputs.html#a28abd04e980c24d4598eed702aba077f">FMotionBlurInputs::SceneVelocity</a></div><div class="ttdeci">FScreenPassTexture SceneVelocity</div><div class="ttdef"><b>定义</b> PostProcessMotionBlur.h:89</div></div>
+<div class="ttc" id="astruct_f_motion_blur_inputs_html_a2c0c9b3415e4660fe57d705c92702274"><div class="ttname"><a href="../../d1/dcc/struct_f_motion_blur_inputs.html#a2c0c9b3415e4660fe57d705c92702274">FMotionBlurInputs::SceneDepth</a></div><div class="ttdeci">FScreenPassTexture SceneDepth</div><div class="ttdef"><b>定义</b> PostProcessMotionBlur.h:86</div></div>
+<div class="ttc" id="astruct_f_motion_blur_inputs_html_a93e8b998abe3cc979fc92da5cc3d3391"><div class="ttname"><a href="../../d1/dcc/struct_f_motion_blur_inputs.html#a93e8b998abe3cc979fc92da5cc3d3391">FMotionBlurInputs::bOutputHalfRes</a></div><div class="ttdeci">bool bOutputHalfRes</div><div class="ttdef"><b>定义</b> PostProcessMotionBlur.h:76</div></div>
+<div class="ttc" id="astruct_f_motion_blur_inputs_html_a9f5fc1562bb26c3fe925ca2dac304de0"><div class="ttname"><a href="../../d1/dcc/struct_f_motion_blur_inputs.html#a9f5fc1562bb26c3fe925ca2dac304de0">FMotionBlurInputs::LensDistortionLUT</a></div><div class="ttdeci">FLensDistortionLUT LensDistortionLUT</div><div class="ttdef"><b>定义</b> PostProcessMotionBlur.h:104</div></div>
+<div class="ttc" id="astruct_f_motion_blur_inputs_html_ab9454d269f5a57ab1694866062796811"><div class="ttname"><a href="../../d1/dcc/struct_f_motion_blur_inputs.html#ab9454d269f5a57ab1694866062796811">FMotionBlurInputs::SceneColor</a></div><div class="ttdeci">FScreenPassTextureSlice SceneColor</div><div class="ttdef"><b>定义</b> PostProcessMotionBlur.h:83</div></div>
+<div class="ttc" id="astruct_f_motion_blur_inputs_html_abdc432beb3a22cf79b611b82b758fb8e"><div class="ttname"><a href="../../d1/dcc/struct_f_motion_blur_inputs.html#abdc432beb3a22cf79b611b82b758fb8e">FMotionBlurInputs::VelocityFlattenTextures</a></div><div class="ttdeci">FVelocityFlattenTextures VelocityFlattenTextures</div><div class="ttdef"><b>定义</b> PostProcessMotionBlur.h:101</div></div>
+<div class="ttc" id="astruct_f_motion_blur_inputs_html_ada0a2cac774de68e63b5d23d86fba089"><div class="ttname"><a href="../../d1/dcc/struct_f_motion_blur_inputs.html#ada0a2cac774de68e63b5d23d86fba089">FMotionBlurInputs::Filter</a></div><div class="ttdeci">EMotionBlurFilter Filter</div><div class="ttdef"><b>定义</b> PostProcessMotionBlur.h:98</div></div>
+<div class="ttc" id="astruct_f_motion_blur_inputs_html_aeded7184795ea64ae7231e7905eed9f3"><div class="ttname"><a href="../../d1/dcc/struct_f_motion_blur_inputs.html#aeded7184795ea64ae7231e7905eed9f3">FMotionBlurInputs::OverrideOutput</a></div><div class="ttdeci">FScreenPassRenderTarget OverrideOutput</div><div class="ttdef"><b>定义</b> PostProcessMotionBlur.h:80</div></div>
+<div class="ttc" id="astruct_f_motion_blur_inputs_html_aff5a58a00a42a8ae62b892b1f866b22c"><div class="ttname"><a href="../../d1/dcc/struct_f_motion_blur_inputs.html#aff5a58a00a42a8ae62b892b1f866b22c">FMotionBlurInputs::bOutputQuarterRes</a></div><div class="ttdeci">bool bOutputQuarterRes</div><div class="ttdef"><b>定义</b> PostProcessMotionBlur.h:77</div></div>
+<div class="ttc" id="astruct_f_motion_blur_outputs_html"><div class="ttname"><a href="../../d8/d16/struct_f_motion_blur_outputs.html">FMotionBlurOutputs</a></div><div class="ttdef"><b>定义</b> PostProcessMotionBlur.h:108</div></div>
+<div class="ttc" id="astruct_f_motion_blur_outputs_html_a2e95761fbb8778bfbff08e3b1059947e"><div class="ttname"><a href="../../d8/d16/struct_f_motion_blur_outputs.html#a2e95761fbb8778bfbff08e3b1059947e">FMotionBlurOutputs::HalfRes</a></div><div class="ttdeci">FScreenPassTexture HalfRes</div><div class="ttdef"><b>定义</b> PostProcessMotionBlur.h:110</div></div>
+<div class="ttc" id="astruct_f_motion_blur_outputs_html_a81c5a6300523b330bb3af623f2db2243"><div class="ttname"><a href="../../d8/d16/struct_f_motion_blur_outputs.html#a81c5a6300523b330bb3af623f2db2243">FMotionBlurOutputs::QuarterRes</a></div><div class="ttdeci">FScreenPassTexture QuarterRes</div><div class="ttdef"><b>定义</b> PostProcessMotionBlur.h:111</div></div>
+<div class="ttc" id="astruct_f_motion_blur_outputs_html_ab28d9210e438bdae8e101ca68013a1a2"><div class="ttname"><a href="../../d8/d16/struct_f_motion_blur_outputs.html#ab28d9210e438bdae8e101ca68013a1a2">FMotionBlurOutputs::FullRes</a></div><div class="ttdeci">FScreenPassTextureSlice FullRes</div><div class="ttdef"><b>定义</b> PostProcessMotionBlur.h:109</div></div>
+<div class="ttc" id="astruct_f_screen_pass_render_target_html"><div class="ttname"><a href="../../d1/dae/struct_f_screen_pass_render_target.html">FScreenPassRenderTarget</a></div><div class="ttdef"><b>定义</b> ScreenPass.h:89</div></div>
+<div class="ttc" id="astruct_f_screen_pass_texture_html"><div class="ttname"><a href="../../d3/df7/struct_f_screen_pass_texture.html">FScreenPassTexture</a></div><div class="ttdef"><b>定义</b> ScreenPass.h:46</div></div>
+<div class="ttc" id="astruct_f_screen_pass_texture_slice_html"><div class="ttname"><a href="../../de/d78/struct_f_screen_pass_texture_slice.html">FScreenPassTextureSlice</a></div><div class="ttdef"><b>定义</b> ScreenPass.h:71</div></div>
+<div class="ttc" id="astruct_f_translucency_pass_resources_html"><div class="ttname"><a href="../../d5/d03/struct_f_translucency_pass_resources.html">FTranslucencyPassResources</a></div><div class="ttdef"><b>定义</b> TranslucentPassResource.h:28</div></div>
+<div class="ttc" id="astruct_f_velocity_flatten_textures_html"><div class="ttname"><a href="../../d6/df5/struct_f_velocity_flatten_textures.html">FVelocityFlattenTextures</a></div><div class="ttdef"><b>定义</b> PostProcessMotionBlur.h:58</div></div>
+<div class="ttc" id="astruct_f_velocity_flatten_textures_html_a2378b355b4027d41a4a11807ac6afb6c"><div class="ttname"><a href="../../d6/df5/struct_f_velocity_flatten_textures.html#a2378b355b4027d41a4a11807ac6afb6c">FVelocityFlattenTextures::VelocityFlatten</a></div><div class="ttdeci">FScreenPassTexture VelocityFlatten</div><div class="ttdef"><b>定义</b> PostProcessMotionBlur.h:62</div></div>
+<div class="ttc" id="astruct_f_velocity_flatten_textures_html_a63ed71c0241b52401ae106074df765e1"><div class="ttname"><a href="../../d6/df5/struct_f_velocity_flatten_textures.html#a63ed71c0241b52401ae106074df765e1">FVelocityFlattenTextures::VelocityTileArray</a></div><div class="ttdeci">FScreenPassTexture VelocityTileArray</div><div class="ttdef"><b>定义</b> PostProcessMotionBlur.h:63</div></div>
+<div class="ttc" id="astruct_f_velocity_flatten_textures_html_a79ac67d39c7a8e2db6f09c847c3d5fe9"><div class="ttname"><a href="../../d6/df5/struct_f_velocity_flatten_textures.html#a79ac67d39c7a8e2db6f09c847c3d5fe9">FVelocityFlattenTextures::IsValid</a></div><div class="ttdeci">bool IsValid() const</div><div class="ttdef"><b>定义</b> PostProcessMotionBlur.h:65</div></div>
+<div class="ttc" id="astruct_f_velocity_flatten_textures_html_ae0abb24f413f121e4ca2083668183307"><div class="ttname"><a href="../../d6/df5/struct_f_velocity_flatten_textures.html#ae0abb24f413f121e4ca2083668183307">FVelocityFlattenTextures::kTileSize</a></div><div class="ttdeci">static constexpr int32 kTileSize</div><div class="ttdef"><b>定义</b> PostProcessMotionBlur.h:60</div></div>
+<div class="ttc" id="astruct_f_velocity_flatten_textures_html_ae7cbf55260420721816d0f672d0d743b"><div class="ttname"><a href="../../d6/df5/struct_f_velocity_flatten_textures.html#ae7cbf55260420721816d0f672d0d743b">FVelocityFlattenTextures::kMaxVelocityTileTextureCount</a></div><div class="ttdeci">static constexpr int32 kMaxVelocityTileTextureCount</div><div class="ttdef"><b>定义</b> PostProcessMotionBlur.h:59</div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+</div><!-- container -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a href="../../dir_0b6ee6e7e9547e675db4add2e5de97da.html">Engine</a></li><li class="navelem"><a href="../../dir_9579d1ecb2c7bf48cbe1049c41745cb4.html">Source</a></li><li class="navelem"><a href="../../dir_9f04efef762572853abdf73f62bebfcc.html">Runtime</a></li><li class="navelem"><a href="../../dir_5ed6327f04b0f38d3f6fe5caa38b0445.html">Renderer</a></li><li class="navelem"><a href="../../dir_e317dc6f09036e33460f39c550131623.html">Private</a></li><li class="navelem"><a href="../../dir_f2aa76ded130b077846bc18bb76bacc2.html">PostProcess</a></li><li class="navelem"><a href="../../d5/db9/_post_process_motion_blur_8h.html">PostProcessMotionBlur.h</a></li>
+    <li class="footer">制作者 <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.15.0 </li>
+  </ul>
+</div>
+</body>
+</html>

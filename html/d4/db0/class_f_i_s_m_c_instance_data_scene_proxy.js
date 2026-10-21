@@ -1,0 +1,28 @@
+var class_f_i_s_m_c_instance_data_scene_proxy =
+[
+    [ "FISMPrecomputedSpatialHashDataPtr", "d4/db0/class_f_i_s_m_c_instance_data_scene_proxy.html#ad7cfab13218f4087439e548c5965afd1", null ],
+    [ "FISMCInstanceDataSceneProxy", "d4/db0/class_f_i_s_m_c_instance_data_scene_proxy.html#a9b08091adaf2e2f15b22b94ac2f3e914", null ],
+    [ "ApplyAttributeChanges", "d4/db0/class_f_i_s_m_c_instance_data_scene_proxy.html#a8051b5ffaef81279bb9d57d412a6f138", null ],
+    [ "ApplyDataChanges", "d4/db0/class_f_i_s_m_c_instance_data_scene_proxy.html#a22de6efdd037ec362da0de4b52f8d91d", null ],
+    [ "Build", "d4/db0/class_f_i_s_m_c_instance_data_scene_proxy.html#ae737ecfe57d3db0f926986aa0ed99666", null ],
+    [ "BuildFromLegacyData", "d4/db0/class_f_i_s_m_c_instance_data_scene_proxy.html#a55a3e9e9f4adcc080e2164bee4c82d5a", null ],
+    [ "BuildFromOptimizedDataBuffers", "d4/db0/class_f_i_s_m_c_instance_data_scene_proxy.html#a05738bbcbc34c11628d7d42b03a69c10", null ],
+    [ "CheckPlatformFeatureLevel", "d4/db0/class_f_i_s_m_c_instance_data_scene_proxy.html#a948a9913713aff614d48e0ee097c030f", null ],
+    [ "DebugDrawInstanceChanges", "d4/db0/class_f_i_s_m_c_instance_data_scene_proxy.html#af6ab1a27679f696e4073641683ee3f6c", null ],
+    [ "GetData", "d4/db0/class_f_i_s_m_c_instance_data_scene_proxy.html#aa2e65897d865949a2133a47372b49273", null ],
+    [ "GetUpdateTaskInfo", "d4/db0/class_f_i_s_m_c_instance_data_scene_proxy.html#aa847b50b526c7e39df03d8b0de7f4fbc", null ],
+    [ "TestAndApplyInstanceBufferSizeFixup", "d4/db0/class_f_i_s_m_c_instance_data_scene_proxy.html#aee406efc1a4c512674d4d7903aab67db", null ],
+    [ "Update", "d4/db0/class_f_i_s_m_c_instance_data_scene_proxy.html#a5a77ee8c913985a7f6798ca423074275", null ],
+    [ "UpdateIdMapping", "d4/db0/class_f_i_s_m_c_instance_data_scene_proxy.html#a9a82d63dd3e6b6bd164ed039ce90d191", null ],
+    [ "UpdatePrimitiveTransform", "d4/db0/class_f_i_s_m_c_instance_data_scene_proxy.html#a49e5a8f54f9e77d7b27d7263bc16ed97", null ],
+    [ "FPrimitiveInstanceDataManager", "d4/db0/class_f_i_s_m_c_instance_data_scene_proxy.html#a628939e66ae88b1930a9131fdd5dcafe", null ],
+    [ "bBuildOptimized", "d4/db0/class_f_i_s_m_c_instance_data_scene_proxy.html#ad033ae77524e26bd8163f087ea10bb2a", null ],
+    [ "bIsNew", "d4/db0/class_f_i_s_m_c_instance_data_scene_proxy.html#aed0664e022200709327276d67017e549", null ],
+    [ "bUseLegacyRenderingPath", "d4/db0/class_f_i_s_m_c_instance_data_scene_proxy.html#a86ec9ff6a36dd9a8f97197422397edfb", null ],
+    [ "FeatureLevel", "d4/db0/class_f_i_s_m_c_instance_data_scene_proxy.html#ad9cfd3aeaf16d6a2da0e902137df7778", null ],
+    [ "InstanceDataUpdateTaskInfo", "d4/db0/class_f_i_s_m_c_instance_data_scene_proxy.html#a93dbae0cf925757219934e89483ddc20", null ],
+    [ "InstanceIdIndexMap", "d4/db0/class_f_i_s_m_c_instance_data_scene_proxy.html#a92546937a2e681fdc8eb44896bafd18b", null ],
+    [ "PrecomputedOptimizationData", "d4/db0/class_f_i_s_m_c_instance_data_scene_proxy.html#a64603e87c4b7a4367c64a74d16d9d173", null ],
+    [ "ShaderPlatform", "d4/db0/class_f_i_s_m_c_instance_data_scene_proxy.html#ae61974c3aa4f51ee00cd6225a0ddfbe6", null ],
+    [ "ValidInstanceIdMask", "d4/db0/class_f_i_s_m_c_instance_data_scene_proxy.html#a67ae4e74072b824a595fbd16f1bd2647", null ]
+];

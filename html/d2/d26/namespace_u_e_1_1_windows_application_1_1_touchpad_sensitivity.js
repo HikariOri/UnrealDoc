@@ -1,0 +1,55 @@
+var namespace_u_e_1_1_windows_application_1_1_touchpad_sensitivity =
+[
+    [ "tagTOUCHPAD_PARAMETERS_V0", "d4/d9c/struct_u_e_1_1_windows_application_1_1_touchpad_sensitivity_1_1tag_t_o_u_c_h_p_a_d___p_a_r_a_m_e_t_e_r_s___v0.html", "d4/d9c/struct_u_e_1_1_windows_application_1_1_touchpad_sensitivity_1_1tag_t_o_u_c_h_p_a_d___p_a_r_a_m_e_t_e_r_s___v0" ],
+    [ "LEGACY_TOUCHPAD_FEATURES", "d2/d26/namespace_u_e_1_1_windows_application_1_1_touchpad_sensitivity.html#a6fd071ffd9314ee8a44a4fb64520ba82", null ],
+    [ "PTOUCHPAD_PARAMETERS_V0", "d2/d26/namespace_u_e_1_1_windows_application_1_1_touchpad_sensitivity.html#a2063d24c8a23d4777b4d46a3e18fad9a", null ],
+    [ "SetMaxTouchpadSensitivityProc", "d2/d26/namespace_u_e_1_1_windows_application_1_1_touchpad_sensitivity.html#aea62967d683ba3d13df1425e2e193112", null ],
+    [ "TOUCHPAD_PARAMETERS_V0", "d2/d26/namespace_u_e_1_1_windows_application_1_1_touchpad_sensitivity.html#adf2a93dd183ec4bd97b4ae63e1088cb2", null ],
+    [ "TOUCHPAD_SENSITIVITY_LEVEL", "d2/d26/namespace_u_e_1_1_windows_application_1_1_touchpad_sensitivity.html#a47717a8fc0d081fb6b86b9f260663916", null ],
+    [ "EForceMaxTouchpadSensitivityMode", "d2/d26/namespace_u_e_1_1_windows_application_1_1_touchpad_sensitivity.html#a78fe4982cdfbcda8899edff43502603d", [
+      [ "NotCached", "d2/d26/namespace_u_e_1_1_windows_application_1_1_touchpad_sensitivity.html#a78fe4982cdfbcda8899edff43502603da2d0f8340a2e4ba7158dd9f269b65b482", null ],
+      [ "DoNothing", "d2/d26/namespace_u_e_1_1_windows_application_1_1_touchpad_sensitivity.html#a78fe4982cdfbcda8899edff43502603da71b7f3fcd4098ebf8a3b387579d90dd7", null ],
+      [ "SetTouchpadParameters", "d2/d26/namespace_u_e_1_1_windows_application_1_1_touchpad_sensitivity.html#a78fe4982cdfbcda8899edff43502603dad53d7311a7158c08a7a65d54d213fe2e", null ],
+      [ "SetMaxTouchpadSensitivity", "d2/d26/namespace_u_e_1_1_windows_application_1_1_touchpad_sensitivity.html#a78fe4982cdfbcda8899edff43502603da48e6a091d96dcebafb568ed721cfa5ee", null ]
+    ] ],
+    [ "LEGACY_TOUCHPAD_FEATURES", "d2/d26/namespace_u_e_1_1_windows_application_1_1_touchpad_sensitivity.html#aae6ee185b0070ad0d9232c991ee120ff", [
+      [ "LEGACY_TOUCHPAD_FEATURE_NONE", "d2/d26/namespace_u_e_1_1_windows_application_1_1_touchpad_sensitivity.html#aae6ee185b0070ad0d9232c991ee120ffafc036d2e6910d1b7d94122ea98d0d21a", null ],
+      [ "LEGACY_TOUCHPAD_FEATURE_ENABLE_DISABLE", "d2/d26/namespace_u_e_1_1_windows_application_1_1_touchpad_sensitivity.html#aae6ee185b0070ad0d9232c991ee120ffa45c0a45c4782ec090a0b5a832403baee", null ],
+      [ "LEGACY_TOUCHPAD_FEATURE_REVERSE_SCROLL_DIRECTION", "d2/d26/namespace_u_e_1_1_windows_application_1_1_touchpad_sensitivity.html#aae6ee185b0070ad0d9232c991ee120ffa35a0d11a60f3deb18000f052de9fa5f8", null ]
+    ] ],
+    [ "TOUCHPAD_SENSITIVITY_LEVEL", "d2/d26/namespace_u_e_1_1_windows_application_1_1_touchpad_sensitivity.html#ac805d41d2c9dd711a7b5c18e3b535411", [
+      [ "TOUCHPAD_SENSITIVITY_LEVEL_MOST_SENSITIVE", "d2/d26/namespace_u_e_1_1_windows_application_1_1_touchpad_sensitivity.html#ac805d41d2c9dd711a7b5c18e3b535411a6478806361b074300f04c9b17ac698ef", null ],
+      [ "TOUCHPAD_SENSITIVITY_LEVEL_HIGH_SENSITIVITY", "d2/d26/namespace_u_e_1_1_windows_application_1_1_touchpad_sensitivity.html#ac805d41d2c9dd711a7b5c18e3b535411a4c108d09e7c888e4c1f96ece715adf37", null ],
+      [ "TOUCHPAD_SENSITIVITY_LEVEL_MEDIUM_SENSITIVITY", "d2/d26/namespace_u_e_1_1_windows_application_1_1_touchpad_sensitivity.html#ac805d41d2c9dd711a7b5c18e3b535411a3c699cd3c58638cb748795f450faea35", null ],
+      [ "TOUCHPAD_SENSITIVITY_LEVEL_LOW_SENSITIVITY", "d2/d26/namespace_u_e_1_1_windows_application_1_1_touchpad_sensitivity.html#ac805d41d2c9dd711a7b5c18e3b535411ad74a9c4bc79f10971e53600c38d56508", null ],
+      [ "TOUCHPAD_SENSITIVITY_LEVEL_LEAST_SENSITIVE", "d2/d26/namespace_u_e_1_1_windows_application_1_1_touchpad_sensitivity.html#ac805d41d2c9dd711a7b5c18e3b535411accb76461076d79329c4be851fd1ab8dc", null ],
+      [ "TOUCHPAD_SENSITIVITY_LEVEL_NOT_SET", "d2/d26/namespace_u_e_1_1_windows_application_1_1_touchpad_sensitivity.html#ac805d41d2c9dd711a7b5c18e3b535411a97530c33743c317ac418e6f0a1e66276", null ]
+    ] ],
+    [ "ApplyForceMaxTouchpadSensitivity", "d2/d26/namespace_u_e_1_1_windows_application_1_1_touchpad_sensitivity.html#aa7520eb39947f55b178d1e169bf16912", null ],
+    [ "CacheForceMaxTouchpadSensitivityMode", "d2/d26/namespace_u_e_1_1_windows_application_1_1_touchpad_sensitivity.html#a61f2096b8bd966c6cfd5889d03af7114", null ],
+    [ "ClearSavedSensitivityFromRegistry", "d2/d26/namespace_u_e_1_1_windows_application_1_1_touchpad_sensitivity.html#af5a2c70642bf3c60ff90351d045a69f1", null ],
+    [ "DECLARE_LOG_CATEGORY_EXTERN", "d2/d26/namespace_u_e_1_1_windows_application_1_1_touchpad_sensitivity.html#aa6a37dc5d76247477dc7cfc2fbf857d9", null ],
+    [ "DEFINE_LOG_CATEGORY", "d2/d26/namespace_u_e_1_1_windows_application_1_1_touchpad_sensitivity.html#ab3dad5c539d87bd2e892175d366bc2dc", null ],
+    [ "GetForceMaxTouchpadSensitivityMode", "d2/d26/namespace_u_e_1_1_windows_application_1_1_touchpad_sensitivity.html#af1dfae996e8d19973ec4b986f2b2608c", null ],
+    [ "GetForceMaxTouchpadSensitivityRestorationValue", "d2/d26/namespace_u_e_1_1_windows_application_1_1_touchpad_sensitivity.html#a96b1284dc6815316e37399be2080b43f", null ],
+    [ "GetRegistryStoreIdAndSection", "d2/d26/namespace_u_e_1_1_windows_application_1_1_touchpad_sensitivity.html#af3056c4750d0ef0afb729c47ba8bbbda", null ],
+    [ "HandleActivateApp", "d2/d26/namespace_u_e_1_1_windows_application_1_1_touchpad_sensitivity.html#a22fce5cb309f849b36a562755dc5aa40", null ],
+    [ "HandleDestroyApplication", "d2/d26/namespace_u_e_1_1_windows_application_1_1_touchpad_sensitivity.html#ae10c3d0feb76a5ca2f4758653bcfb7b0", null ],
+    [ "HandleShutDownAfterError", "d2/d26/namespace_u_e_1_1_windows_application_1_1_touchpad_sensitivity.html#a1f352b6d25783db42918411bc4dd0236", null ],
+    [ "HandleStartupApp", "d2/d26/namespace_u_e_1_1_windows_application_1_1_touchpad_sensitivity.html#a270ee9533b2aeeadebf1b421a968a3a1", null ],
+    [ "OnWMSettingChangeSetTouchpadParameters", "d2/d26/namespace_u_e_1_1_windows_application_1_1_touchpad_sensitivity.html#aea425e05418b7f2921dbc289b742550d", null ],
+    [ "ReadSavedSensitivityFromRegistry", "d2/d26/namespace_u_e_1_1_windows_application_1_1_touchpad_sensitivity.html#a8c7702a62c2b32c9b8f8bdf9521f5b44", null ],
+    [ "RemoveForceMaxTouchpadSensitivity", "d2/d26/namespace_u_e_1_1_windows_application_1_1_touchpad_sensitivity.html#a16ed0029c7bd8a41d66133cb76ed488c", null ],
+    [ "RemoveForceMaxTouchpadSensitivityOnErrorShutdown", "d2/d26/namespace_u_e_1_1_windows_application_1_1_touchpad_sensitivity.html#a81d977c66468d8d4b4e233077a038045", null ],
+    [ "SetMaxTouchpadSensitivity", "d2/d26/namespace_u_e_1_1_windows_application_1_1_touchpad_sensitivity.html#abad42ad12e4bbe44c1a132243fa5701b", null ],
+    [ "SupportsForceMaxTouchpadSensitivity", "d2/d26/namespace_u_e_1_1_windows_application_1_1_touchpad_sensitivity.html#a0479426942651fcc8b78e725399dea01", null ],
+    [ "TryCacheSetMaxTouchpadSensitivityProc", "d2/d26/namespace_u_e_1_1_windows_application_1_1_touchpad_sensitivity.html#a953c22370ea5fe1ee29e0c2dfb1b80ea", null ],
+    [ "WriteSavedSensitivityToRegistry", "d2/d26/namespace_u_e_1_1_windows_application_1_1_touchpad_sensitivity.html#afcfbc7db4fe8e20c4401bca1ca957f84", null ],
+    [ "CVarDisableForceMaxTouchpadSensitivity_SetMaxTouchpadSensitivity", "d2/d26/namespace_u_e_1_1_windows_application_1_1_touchpad_sensitivity.html#aaa164d8713a6fd9d10a7459a8624f668", null ],
+    [ "CVarDisableForceMaxTouchpadSensitivity_SetTouchpadParameters", "d2/d26/namespace_u_e_1_1_windows_application_1_1_touchpad_sensitivity.html#ab4e4cba5eefe133f53ed998ed3f79049", null ],
+    [ "CVarForceMaxTouchpadSensitivity", "d2/d26/namespace_u_e_1_1_windows_application_1_1_touchpad_sensitivity.html#a4ca3a16067ddf6116012eec77f998c0c", null ],
+    [ "CVarRestoreTouchpadSensitivityFromRegistry", "d2/d26/namespace_u_e_1_1_windows_application_1_1_touchpad_sensitivity.html#ab1235cd7317b22ce2fff6510c12afcd1", null ],
+    [ "CVarWriteSavedTouchpadSensitivityToRegistry", "d2/d26/namespace_u_e_1_1_windows_application_1_1_touchpad_sensitivity.html#ae199306f4717a58f2acd7c70bf12a6b9", null ],
+    [ "SPI_GETTOUCHPADPARAMETERS", "d2/d26/namespace_u_e_1_1_windows_application_1_1_touchpad_sensitivity.html#a67dc9c57f25003753dd91ec6193ce2b1", null ],
+    [ "SPI_SETTOUCHPADPARAMETERS", "d2/d26/namespace_u_e_1_1_windows_application_1_1_touchpad_sensitivity.html#a1756078cff9b72fb926a1e8b364b3485", null ]
+];

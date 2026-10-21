@@ -1,0 +1,47 @@
+var _primitive_scene_proxy_8h =
+[
+    [ "FDesiredLODLevel", "d1/d56/struct_f_desired_l_o_d_level.html", "d1/d56/struct_f_desired_l_o_d_level" ],
+    [ "FSimpleLightId", "df/d40/union_f_simple_light_id.html", "df/d40/union_f_simple_light_id" ],
+    [ "FSimpleLightEntry", "d0/df6/class_f_simple_light_entry.html", "d0/df6/class_f_simple_light_entry" ],
+    [ "FSimpleLightPerViewEntry", "d3/d6c/class_f_simple_light_per_view_entry.html", "d3/d6c/class_f_simple_light_per_view_entry" ],
+    [ "FSimpleLightInstacePerViewIndexData", "df/d24/class_f_simple_light_instace_per_view_index_data.html", "df/d24/class_f_simple_light_instace_per_view_index_data" ],
+    [ "FSimpleLightArray", "db/db4/class_f_simple_light_array.html", "db/db4/class_f_simple_light_array" ],
+    [ "FHeightfieldComponentDescription", "d3/d67/class_f_heightfield_component_description.html", "d3/d67/class_f_heightfield_component_description" ],
+    [ "FPrimitiveSceneProxy", "d7/d24/class_f_primitive_scene_proxy.html", "d7/d24/class_f_primitive_scene_proxy" ],
+    [ "FPrimitiveSceneProxy::FDebugMassData", "da/d28/struct_f_primitive_scene_proxy_1_1_f_debug_mass_data.html", "da/d28/struct_f_primitive_scene_proxy_1_1_f_debug_mass_data" ],
+    [ "Nanite::CoarseMeshStreamingHandle", "d5/d3d/namespace_nanite.html#aa17bad280a0ec923649ec6349030f918", null ],
+    [ "ERayTracingPrimitiveFlags", "d8/d3e/_primitive_scene_proxy_8h.html#a5f0841116afc64af6ed367a72b4fe9db", [
+      [ "None", "d8/d3e/_primitive_scene_proxy_8h.html#a5f0841116afc64af6ed367a72b4fe9dba6adf97f83acf6453d4a6a4b1070f3754", null ],
+      [ "UnsupportedProxyType", "d8/d3e/_primitive_scene_proxy_8h.html#a5f0841116afc64af6ed367a72b4fe9dba0ae4e5c650937010ec707172b41243f1", null ],
+      [ "Exclude", "d8/d3e/_primitive_scene_proxy_8h.html#a5f0841116afc64af6ed367a72b4fe9dba843f2812f595e7ec7c5036e89fde02d6", null ],
+      [ "Skip", "d8/d3e/_primitive_scene_proxy_8h.html#a5f0841116afc64af6ed367a72b4fe9dba72ef2b9b6965d078e3c7f95487a82d1c", null ],
+      [ "Dynamic", "d8/d3e/_primitive_scene_proxy_8h.html#a5f0841116afc64af6ed367a72b4fe9dba971fd8cc345d8bd9f92e9f7d88fdf20c", null ],
+      [ "CacheInstances", "d8/d3e/_primitive_scene_proxy_8h.html#a5f0841116afc64af6ed367a72b4fe9dbaa551381ef5947e2dc095527671bf91a9", null ],
+      [ "ComputeLOD", "d8/d3e/_primitive_scene_proxy_8h.html#a5f0841116afc64af6ed367a72b4fe9dba09c1188150318bb450cf9684a8831aea", null ],
+      [ "FarField", "d8/d3e/_primitive_scene_proxy_8h.html#a5f0841116afc64af6ed367a72b4fe9dba44a434d92d00a4517e2a35e997e903e4", null ],
+      [ "Streaming", "d8/d3e/_primitive_scene_proxy_8h.html#a5f0841116afc64af6ed367a72b4fe9dbaac21d502848247aa2f578d0f718f5d1d", null ]
+    ] ],
+    [ "ERayTracingProxyType", "d8/d3e/_primitive_scene_proxy_8h.html#a62b3f1f742d5704ae6294feb6ae1c94c", [
+      [ "None", "d8/d3e/_primitive_scene_proxy_8h.html#a62b3f1f742d5704ae6294feb6ae1c94ca6adf97f83acf6453d4a6a4b1070f3754", null ],
+      [ "StaticMesh", "d8/d3e/_primitive_scene_proxy_8h.html#a62b3f1f742d5704ae6294feb6ae1c94ca1eedc9d574c45e9e447a2046ff794cf3", null ],
+      [ "HierarchicalInstancedStaticMesh", "d8/d3e/_primitive_scene_proxy_8h.html#a62b3f1f742d5704ae6294feb6ae1c94cab3712241483f01d049358b1ed90a0590", null ],
+      [ "LandscapeGrass", "d8/d3e/_primitive_scene_proxy_8h.html#a62b3f1f742d5704ae6294feb6ae1c94caa7d24861d4280ddad442c4e3a0497090", null ],
+      [ "NaniteProxy", "d8/d3e/_primitive_scene_proxy_8h.html#a62b3f1f742d5704ae6294feb6ae1c94ca9b3629afc214e1ff3151e239b60b29fc", null ],
+      [ "SkeletalMesh", "d8/d3e/_primitive_scene_proxy_8h.html#a62b3f1f742d5704ae6294feb6ae1c94ca9852dd61aed3a5dd44d73a3aa08e1baa", null ],
+      [ "InstanceSkeletalMesh", "d8/d3e/_primitive_scene_proxy_8h.html#a62b3f1f742d5704ae6294feb6ae1c94caaa828085891893e1db6a3076f254d9cf", null ],
+      [ "All", "d8/d3e/_primitive_scene_proxy_8h.html#a62b3f1f742d5704ae6294feb6ae1c94cab1c94ca2fbc3e78fc30069c8d0f01680", null ]
+    ] ],
+    [ "CacheShadowDepthsFromPrimitivesUsingWPO", "d8/d3e/_primitive_scene_proxy_8h.html#afb2f02f0e609ab3875f2ea909face51d", null ],
+    [ "ENUM_CLASS_FLAGS", "d8/d3e/_primitive_scene_proxy_8h.html#aea762bc2ac3e5837bd21e36187140eff", null ],
+    [ "ENUM_CLASS_FLAGS", "d8/d3e/_primitive_scene_proxy_8h.html#a3619437e0cf5d546ee10334f1598d5c4", null ],
+    [ "GetTypeHash", "d8/d3e/_primitive_scene_proxy_8h.html#a776accfd120769444b2f7bf649ddd248", null ],
+    [ "IsAllowingApproximateOcclusionQueries", "d8/d3e/_primitive_scene_proxy_8h.html#a373c67ea3633d082f38bfb42c190a279", null ],
+    [ "IsParallelGatherDynamicMeshElementsEnabled", "d8/d3e/_primitive_scene_proxy_8h.html#a0829e0320aabdb23299042b5577f4967", null ],
+    [ "IsParallelGatherDynamicRayTracingInstancesEnabled", "d8/d3e/_primitive_scene_proxy_8h.html#adb56496351aaa835cecfb6dbf5d2df0f", null ],
+    [ "ShouldOptimizedWPOAffectNonNaniteShaderSelection", "d8/d3e/_primitive_scene_proxy_8h.html#a0005c571ee53a30af8dc365a4a93ccfc", null ],
+    [ "SupportsCachingMeshDrawCommands", "d8/d3e/_primitive_scene_proxy_8h.html#ad8d8a7b6935e3031db326181cf6aa06a", null ],
+    [ "SupportsCachingMeshDrawCommands", "d8/d3e/_primitive_scene_proxy_8h.html#a499e6b592017d9e86a0eb505dfb2009d", null ],
+    [ "SupportsNaniteRendering", "d8/d3e/_primitive_scene_proxy_8h.html#a0cfcd2e06eed4885f27581ec0a439e06", null ],
+    [ "SupportsNaniteRendering", "d8/d3e/_primitive_scene_proxy_8h.html#a1a8702ff664e1d55539b43cc4ffb5dd0", null ],
+    [ "SupportsNaniteRendering", "d8/d3e/_primitive_scene_proxy_8h.html#a9f74533f05d45dab49e21017431c31b2", null ]
+];

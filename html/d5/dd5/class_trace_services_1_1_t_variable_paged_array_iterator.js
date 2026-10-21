@@ -1,0 +1,25 @@
+var class_trace_services_1_1_t_variable_paged_array_iterator =
+[
+    [ "ArrayType", "d5/dd5/class_trace_services_1_1_t_variable_paged_array_iterator.html#a1937f11f809c9381e6ab861fd09c048e", null ],
+    [ "PageGroupType", "d5/dd5/class_trace_services_1_1_t_variable_paged_array_iterator.html#acea23c3aaa619d665124b2794b8f402b", null ],
+    [ "PageType", "d5/dd5/class_trace_services_1_1_t_variable_paged_array_iterator.html#a736e1c781c8a04f459c59cd10e050607", null ],
+    [ "TVariablePagedArrayIterator", "d5/dd5/class_trace_services_1_1_t_variable_paged_array_iterator.html#aa924c59750d08c63dfd6c60c34cd8fde", null ],
+    [ "TVariablePagedArrayIterator", "d5/dd5/class_trace_services_1_1_t_variable_paged_array_iterator.html#a4ca9edbf05e1bee5ad558e9caa2a9136", null ],
+    [ "GetCurrentItem", "d5/dd5/class_trace_services_1_1_t_variable_paged_array_iterator.html#af97dfb61208be6e02913606d6c291f16", null ],
+    [ "GetCurrentItemIndex", "d5/dd5/class_trace_services_1_1_t_variable_paged_array_iterator.html#adb8c9013604096bf60dcc162b6ae11e6", null ],
+    [ "GetCurrentPage", "d5/dd5/class_trace_services_1_1_t_variable_paged_array_iterator.html#a8028e92f1e22688a54f5423c89c2ffd4", null ],
+    [ "NextItem", "d5/dd5/class_trace_services_1_1_t_variable_paged_array_iterator.html#a111a2244076336f32e3589ef8b714fe2", null ],
+    [ "NextPage", "d5/dd5/class_trace_services_1_1_t_variable_paged_array_iterator.html#a23ed4cc4380e5a645f01f7de9ba5da89", null ],
+    [ "operator bool", "d5/dd5/class_trace_services_1_1_t_variable_paged_array_iterator.html#a96c49c09e4aeea13b638dcf5757a7453", null ],
+    [ "operator*", "d5/dd5/class_trace_services_1_1_t_variable_paged_array_iterator.html#a1654d1a3d64722b09fe0e83c188e31fd", null ],
+    [ "operator++", "d5/dd5/class_trace_services_1_1_t_variable_paged_array_iterator.html#ab761f31383fcfafbabc6423fcec71028", null ],
+    [ "operator++", "d5/dd5/class_trace_services_1_1_t_variable_paged_array_iterator.html#adeefcfb47346ef389ef0af0c70176ddd", null ],
+    [ "operator--", "d5/dd5/class_trace_services_1_1_t_variable_paged_array_iterator.html#a27b3e3e5ff7a645e81845ce559e9023f", null ],
+    [ "operator--", "d5/dd5/class_trace_services_1_1_t_variable_paged_array_iterator.html#aa1ba87d9429157ac51403dd5a3216170", null ],
+    [ "operator->", "d5/dd5/class_trace_services_1_1_t_variable_paged_array_iterator.html#a227ea3fb4834fd1c44f3bf1001ebc336", null ],
+    [ "PrevItem", "d5/dd5/class_trace_services_1_1_t_variable_paged_array_iterator.html#a4a163fc48d8e71401e40869a11f2ecf3", null ],
+    [ "PrevPage", "d5/dd5/class_trace_services_1_1_t_variable_paged_array_iterator.html#a9a02fad96fc7abad81611d5694b49a77", null ],
+    [ "SetPosition", "d5/dd5/class_trace_services_1_1_t_variable_paged_array_iterator.html#a6c5e7ba57bb404d4c5f518bbaaf95444", null ],
+    [ "SetPositionAtFirstItem", "d5/dd5/class_trace_services_1_1_t_variable_paged_array_iterator.html#ad8649519617eeefd7f2ecc91ecc35387", null ],
+    [ "SetPositionAtLastItem", "d5/dd5/class_trace_services_1_1_t_variable_paged_array_iterator.html#a9e5fc2bf4a703dfbe89dc79025343945", null ]
+];

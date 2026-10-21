@@ -1,0 +1,25 @@
+var class_u_typed_element_common_actions =
+[
+    [ "CanCopySelectedElements", "dc/dd5/class_u_typed_element_common_actions.html#a6c76350c15e963ed63be37bdf6f01e03", null ],
+    [ "CanDuplicateSelectedElements", "dc/dd5/class_u_typed_element_common_actions.html#a4dc99a102f9db872a089f443de38b8cb", null ],
+    [ "CanPasteElements", "dc/dd5/class_u_typed_element_common_actions.html#ac4322e4756c8641e1d3d15eb7b627349", null ],
+    [ "CopyNormalizedElements", "dc/dd5/class_u_typed_element_common_actions.html#ab8c3a03eaabeb613e47c9cf2c52d4881", null ],
+    [ "CopyNormalizedElements", "dc/dd5/class_u_typed_element_common_actions.html#a04a137dba1d25a74ca1ee9a98805d838", null ],
+    [ "CopyNormalizedElementsToString", "dc/dd5/class_u_typed_element_common_actions.html#a9896dfb0d12fe8c3b4eed8852d1ea9da", null ],
+    [ "CopySelectedElements", "dc/dd5/class_u_typed_element_common_actions.html#add9440a093d71af8d400cb9426727f6f", null ],
+    [ "CopySelectedElementsToString", "dc/dd5/class_u_typed_element_common_actions.html#ae3ef7d886a8cc5bd70dad671f363f776", null ],
+    [ "CutSelectedElements", "dc/dd5/class_u_typed_element_common_actions.html#adc36254a0f2adb6c30f929d9f6c0b764", null ],
+    [ "DeleteNormalizedElements", "dc/dd5/class_u_typed_element_common_actions.html#a459892019367eb13756804d0c6cbcc8c", null ],
+    [ "DeleteNormalizedElements", "dc/dd5/class_u_typed_element_common_actions.html#ac96f8bfb2ad533ddab84efcf591ba8a5", null ],
+    [ "DeleteSelectedElements", "dc/dd5/class_u_typed_element_common_actions.html#af26e7d1010a30e56c260cecbd3adc897", null ],
+    [ "DuplicateNormalizedElements", "dc/dd5/class_u_typed_element_common_actions.html#a6bc813c7692097bafb68aeab82516942", null ],
+    [ "DuplicateNormalizedElements", "dc/dd5/class_u_typed_element_common_actions.html#a65e6a8100cde2f8e2a5a22ae23bf0f84", null ],
+    [ "DuplicateSelectedElements", "dc/dd5/class_u_typed_element_common_actions.html#afce48dd5b7dded02cdbe9a0e2e6e0560", null ],
+    [ "K2_DuplicateSelectedElements", "dc/dd5/class_u_typed_element_common_actions.html#a4d698ace923c62bc675c6a6f7e383d5d", null ],
+    [ "K2_PasteElements", "dc/dd5/class_u_typed_element_common_actions.html#afeea3b7895b818b1292afa105f8c43de", null ],
+    [ "K2_PasteNormalizedElements", "dc/dd5/class_u_typed_element_common_actions.html#acc0847df110cd38efd247618f7ccb5e7", null ],
+    [ "PasteElements", "dc/dd5/class_u_typed_element_common_actions.html#a8ad3360c262001d2a9e39f03392b45b4", null ],
+    [ "PasteElementsFromString", "dc/dd5/class_u_typed_element_common_actions.html#ad5e81a2f9beb145d5129db80f8b3fe8a", null ],
+    [ "PasteNormalizedElements", "dc/dd5/class_u_typed_element_common_actions.html#a8adbc53bccb3c879213597a55c1babc9", null ],
+    [ "PasteNormalizedElementsFromString", "dc/dd5/class_u_typed_element_common_actions.html#a58041c03e300c4fa8d56c66d5dc3294f", null ]
+];

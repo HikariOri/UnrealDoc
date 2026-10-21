@@ -1,0 +1,354 @@
+<!-- HTML header for doxygen 1.15.0-->
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh">
+<head>
+  <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=11" />
+  <meta name="generator" content="Doxygen 1.15.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>UE 5.8.4: Engine/Source/Runtime/Renderer/Private/Lumen/LumenRadianceCache.h 源文件</title>
+  <link rel="icon" href="../../EdIconDefault.bmp" type="image/x-icon" />
+  <link href="../../tabs.css" rel="stylesheet" type="text/css" />
+  <script type="text/javascript" src="../../jquery.js"></script>
+  <script type="text/javascript" src="../../dynsections.js"></script>
+  <link href="../../navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../navtreedata.js"></script>
+<script type="text/javascript" src="../../navtree.js"></script>
+<script type="text/javascript" src="../../cookie.js"></script>
+  <link href="../../search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../search/searchdata.js"></script>
+<script type="text/javascript" src="../../search/search.js"></script>
+  <link href="../../doxygen.css" rel="stylesheet" type="text/css" />
+  <link href="../../doxygen-awesome.css" rel="stylesheet" type="text/css"/>
+<link href="../../doxygen-awesome-sidebar-only.css" rel="stylesheet" type="text/css"/>
+<link href="../../doxygen-awesome-sidebar-only-darkmode-toggle.css" rel="stylesheet" type="text/css"/>
+  <!-- ... other metadata & script includes ... -->
+  <script type="text/javascript" src="../../doxygen-awesome-darkmode-toggle.js"></script>
+  <script type="text/javascript">
+    DoxygenAwesomeDarkModeToggle.title = "Zwischen hellem/dunklem Modus wechseln"
+    DoxygenAwesomeDarkModeToggle.lightModeIcon = '🌞'
+    // icon from https://fonts.google.com/icons
+    DoxygenAwesomeDarkModeToggle.darkModeIcon = `<svg xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 24 24" height="24px" viewBox="0 0 24 24" width="24px" fill="#009793"><g><rect fill="none" height="24" width="24"/></g><g><g><path d="M8.1,14.15C9.77,14.63,11,16.17,11,18c0,0.68-0.19,1.31-0.48,1.87c0.48,0.09,0.97,0.14,1.48,0.14 c1.48,0,2.9-0.41,4.13-1.15c-2.62-0.92-5.23-2.82-6.8-5.86C7.74,9.94,7.78,7.09,8.29,4.9c-2.57,1.33-4.3,4.01-4.3,7.1c0,0,0,0,0,0 c0.01,0,0.01,0,0.02,0C5.66,12,7.18,12.83,8.1,14.15z" opacity=".3"/><path d="M19.78,17.51c-2.47,0-6.57-1.33-8.68-5.43C8.77,7.57,10.6,3.6,11.63,2.01C6.27,2.2,1.98,6.59,1.98,12 c0,0.14,0.02,0.28,0.02,0.42C2.61,12.16,3.28,12,3.98,12c0,0,0,0,0,0c0-3.09,1.73-5.77,4.3-7.1C7.78,7.09,7.74,9.94,9.32,13 c1.57,3.04,4.18,4.95,6.8,5.86c-1.23,0.74-2.65,1.15-4.13,1.15c-0.5,0-1-0.05-1.48-0.14c-0.37,0.7-0.94,1.27-1.64,1.64 c0.98,0.32,2.03,0.5,3.11,0.5c3.5,0,6.58-1.8,8.37-4.52C20.18,17.5,19.98,17.51,19.78,17.51z"/><path d="M7,16l-0.18,0C6.4,14.84,5.3,14,4,14c-1.66,0-3,1.34-3,3s1.34,3,3,3c0.62,0,2.49,0,3,0c1.1,0,2-0.9,2-2 C9,16.9,8.1,16,7,16z"/></g></g></svg>`
+    DoxygenAwesomeDarkModeToggle.init()
+  </script>
+  <script type="text/javascript" src="../../doxygen-awesome-fragment-copy-button.js"></script>
+  <script type="text/javascript">
+    DoxygenAwesomeFragmentCopyButton.title = "In die Zwischenablage kopieren"
+    // DoxygenAwesomeFragmentCopyButton.copyIcon = `<svg ...>`
+    // DoxygenAwesomeFragmentCopyButton.successIcon = `<svg ...>`
+    DoxygenAwesomeFragmentCopyButton.init()
+  </script>
+  <script type="text/javascript" src="../../doxygen-awesome-paragraph-link.js"></script>
+  <script type="text/javascript">
+    DoxygenAwesomeParagraphLink.title = "Abschnitt verknüpfen"
+    DoxygenAwesomeParagraphLink.icon = "¶"
+    DoxygenAwesomeParagraphLink.init()
+  </script>
+  <script type="text/javascript" src="../../doxygen-awesome-interactive-toc.js"></script>
+  <script type="text/javascript">
+    DoxygenAwesomeInteractiveToc.topOffset = 45
+    DoxygenAwesomeInteractiveToc.hideMobileMenu = false
+    DoxygenAwesomeInteractiveToc.init()
+  </script>
+</head>
+<body>
+    <div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+      <div id="titlearea">
+        <table cellspacing="0" cellpadding="0">
+          <tbody>
+            <tr id="projectrow">
+              <td id="projectlogo"><img alt="Logo" src="../../EdIconDefault.bmp"  /></td>
+              <td id="projectalign">
+                <div id="projectname">UE 5.8.4
+                </div>
+                <div id="projectbrief">Unreal Engine</div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <!-- end header part -->
+<!-- 制作者 Doxygen 1.15.0 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "../../search/",'.html');
+</script>
+<script type="text/javascript">
+$(function() { codefold.init(); });
+</script>
+<script type="text/javascript" src="../../menudata.js"></script>
+<script type="text/javascript" src="../../menu.js"></script>
+<script type="text/javascript">
+$(function() {
+  initMenu('../../',true,false,'search.php','搜索',true);
+  $(function() { init_search(); });
+});
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(function(){initNavTree('d9/d3e/_lumen_radiance_cache_8h_source.html','../../',''); });
+</script>
+<div id="container">
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">载入中...</div>
+<div class="SRStatus" id="Searching">搜索中...</div>
+<div class="SRStatus" id="NoMatches">未找到</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">LumenRadianceCache.h</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="../../d9/d3e/_lumen_radiance_cache_8h.html">浏览该文件的文档.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="comment">// Copyright Epic Games, Inc. All Rights Reserved.</span></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span> </div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="preprocessor">#pragma once</span></div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span> </div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="preprocessor">#include &quot;<a class="code" href="../../de/d27/_lumen_radiance_cache_interpolation_8h.html">LumenRadianceCacheInterpolation.h</a>&quot;</span></div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="preprocessor">#include &quot;<a class="code" href="../../da/d07/_lumen_tracing_utils_8h.html">LumenTracingUtils.h</a>&quot;</span></div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span> </div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="keyword">class </span>FSceneTextureParameters;</div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="keyword">class </span>FScreenProbeParameters;</div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span> </div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="keyword">namespace </span><a class="code hl_namespace" href="../../d6/de1/namespace_lumen_radiance_cache.html">LumenRadianceCache</a></div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span>{</div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span>    <span class="keyword">class </span>FRadianceCacheInputs;</div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span> </div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span>    <a class="code hl_define" href="../../d9/d2c/_shader_parameter_macros_8h.html#a6a1326c3995c4e9aa0e0125d9ff159b3">BEGIN_SHADER_PARAMETER_STRUCT</a>(FRadianceCacheMarkParameters, )</div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span>        <a class="code hl_define" href="../../d9/d2c/_shader_parameter_macros_8h.html#a8d9cf25453b2583b3635eba8d520e1ec">SHADER_PARAMETER_RDG_TEXTURE_UAV</a>(<a class="code hl_enumvalue" href="../../da/dca/_r_h_i_definitions_8h.html#aaa1363a45733f75a18e3e5debc4935c2a93fe5eb182a86ed07753ebe48bc42d57">RWTexture3D</a>&lt;<a class="code hl_typedef" href="../../dd/de9/preprocessor_8c.html#a91ad9478d81a7aaf2593e8d9c3d06a14">uint</a>&gt;, RWRadianceProbeIndirectionTexture)</div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span>        <a class="code hl_define" href="../../d9/d2c/_shader_parameter_macros_8h.html#a38c35db4ad72543eaf2f2e0028ea1a5a">SHADER_PARAMETER_ARRAY</a>(<a class="code hl_typedef" href="../../d0/df6/_math_fwd_8h.html#ae0aaacce11785349d3bd1206def2a6b8">FVector4f</a>, ClipmapCornerTWSAndCellSizeForMark, [MaxClipmaps])</div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>        <a class="code hl_define" href="../../d9/d2c/_shader_parameter_macros_8h.html#aed49b225fa9b8b3125805c599f23a040">SHADER_PARAMETER</a>(<a class="code hl_typedef" href="../../dd/de9/preprocessor_8c.html#a1134b580f8da4de94ca6b1de4d37975e">uint32</a>, RadianceProbeClipmapResolutionForMark)</div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>        <a class="code hl_define" href="../../d9/d2c/_shader_parameter_macros_8h.html#aed49b225fa9b8b3125805c599f23a040">SHADER_PARAMETER</a>(<a class="code hl_typedef" href="../../dd/de9/preprocessor_8c.html#a1134b580f8da4de94ca6b1de4d37975e">uint32</a>, NumRadianceProbeClipmapsForMark)</div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>        <a class="code hl_define" href="../../d9/d2c/_shader_parameter_macros_8h.html#aed49b225fa9b8b3125805c599f23a040">SHADER_PARAMETER</a>(<span class="keywordtype">float</span>, InvClipmapFadeSizeForMark)</div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>    <a class="code hl_define" href="../../d9/d2c/_shader_parameter_macros_8h.html#aa477d2fdd61a01ad3c8ac598cd96e343">END_SHADER_PARAMETER_STRUCT</a>()</div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>}</div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span> </div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno"><a class="line" href="../../d9/d3e/_lumen_radiance_cache_8h.html#ac6b962ae9bcca1f013dadd28c74f2453">   24</a></span><a class="code hl_define" href="../../d6/d40/_delegate_combinations_8h.html#ad627922db565f68dec22b3d95018186d">DECLARE_MULTICAST_DELEGATE_ThreeParams</a>(FMarkUsedRadianceCacheProbes, <a class="code hl_class" href="../../d3/d85/class_f_r_d_g_builder.html">FRDGBuilder</a>&amp;, const <a class="code hl_class" href="../../dd/d2b/class_f_view_info.html">FViewInfo</a>&amp;, const <a class="code hl_namespace" href="../../d6/de1/namespace_lumen_radiance_cache.html">LumenRadianceCache</a>::FRadianceCacheMarkParameters&amp;);</div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span> </div>
+<div class="foldopen" id="foldopen00026" data-start="{" data-end="};">
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno"><a class="line" href="../../d9/d0c/struct_f_radiance_cache_configuration.html">   26</a></span>struct <a class="code hl_struct" href="../../d9/d0c/struct_f_radiance_cache_configuration.html">FRadianceCacheConfiguration</a></div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>{</div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno"><a class="line" href="../../d9/d0c/struct_f_radiance_cache_configuration.html#a7d5a2fafeb35414ef0068e97ac5bb609">   28</a></span>    <span class="keywordtype">bool</span> <a class="code hl_variable" href="../../d9/d0c/struct_f_radiance_cache_configuration.html#a7d5a2fafeb35414ef0068e97ac5bb609">bFarField</a> = <span class="keyword">true</span>;</div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno"><a class="line" href="../../d9/d0c/struct_f_radiance_cache_configuration.html#aa43c2efefa5d85f6675dfc50cca25487">   29</a></span>    <span class="keywordtype">bool</span> <a class="code hl_variable" href="../../d9/d0c/struct_f_radiance_cache_configuration.html#aa43c2efefa5d85f6675dfc50cca25487">bSkyVisibility</a> = <span class="keyword">false</span>;</div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>};</div>
+</div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span> </div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span><span class="keyword">namespace </span><a class="code hl_namespace" href="../../d6/de1/namespace_lumen_radiance_cache.html">LumenRadianceCache</a></div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>{</div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>    <span class="comment">// Maximum number of adaptive probes per uniform probe cell. Must match usf</span></div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno"><a class="line" href="../../d6/de1/namespace_lumen_radiance_cache.html#a50210c3d97697f562edb7859f6e31e49">   35</a></span>    <span class="keyword">const</span> <a class="code hl_typedef" href="../../dd/de9/preprocessor_8c.html#a1134b580f8da4de94ca6b1de4d37975e">uint32</a> <a class="code hl_variable" href="../../d6/de1/namespace_lumen_radiance_cache.html#a50210c3d97697f562edb7859f6e31e49">MaxAdaptiveProbes</a> = 2;</div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span> </div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>    <span class="comment">// Maximum number of mip maps supported by FFixupBordersAndGenerateMipsCS</span></div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno"><a class="line" href="../../d6/de1/namespace_lumen_radiance_cache.html#a222f9dc437e08cc9cf155286f7394f70">   38</a></span>    <span class="keyword">const</span> <a class="code hl_typedef" href="../../dd/de9/preprocessor_8c.html#a1134b580f8da4de94ca6b1de4d37975e">uint32</a> <a class="code hl_variable" href="../../d6/de1/namespace_lumen_radiance_cache.html#a222f9dc437e08cc9cf155286f7394f70">MaxMipmaps</a> = 3;</div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span> </div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>    <span class="keyword">template</span>&lt;<span class="keyword">typename</span> T, u<span class="keywordtype">int</span>32 NumInlineElements = 4&gt;</div>
+<div class="foldopen" id="foldopen00041" data-start="{" data-end="};">
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno"><a class="line" href="../../d7/db4/class_lumen_radiance_cache_1_1_t_inline_array.html">   41</a></span>    <span class="keyword">class </span><a class="code hl_function" href="../../d7/db4/class_lumen_radiance_cache_1_1_t_inline_array.html#a8c9268664426e01d89e374ed405e540f">TInlineArray</a> : <span class="keyword">public</span> <a class="code hl_friend" href="../../d6/db1/class_t_array.html#aa262c41fb2786ee01ea853b18e55a362">TArray</a>&lt;T, TInlineAllocator&lt;NumInlineElements&gt;&gt;</div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>    {</div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>    <span class="keyword">public</span>:</div>
+<div class="foldopen" id="foldopen00044" data-start="{" data-end="}">
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno"><a class="line" href="../../d7/db4/class_lumen_radiance_cache_1_1_t_inline_array.html#a8c9268664426e01d89e374ed405e540f">   44</a></span>        <a class="code hl_function" href="../../d7/db4/class_lumen_radiance_cache_1_1_t_inline_array.html#a8c9268664426e01d89e374ed405e540f">TInlineArray</a>()</div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>        {}</div>
+</div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span> </div>
+<div class="foldopen" id="foldopen00047" data-start="{" data-end="}">
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno"><a class="line" href="../../d7/db4/class_lumen_radiance_cache_1_1_t_inline_array.html#a709ae26be5cf26376e12bc566275ec21">   47</a></span>        <a class="code hl_function" href="../../d7/db4/class_lumen_radiance_cache_1_1_t_inline_array.html#a709ae26be5cf26376e12bc566275ec21">TInlineArray</a>(<a class="code hl_typedef" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a8dbb3cd84ca9fd010dadfc3815eefa5d">int32</a> InNum) :</div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>            <a class="code hl_friend" href="../../d6/db1/class_t_array.html#aa262c41fb2786ee01ea853b18e55a362">TArray</a>&lt;T, <a class="code hl_typedef" href="../../dc/d3d/_container_allocation_policies_8h.html#a955ebaff17aade3efe4ecd32109bedea">TInlineAllocator</a>&lt;NumInlineElements&gt;&gt;()</div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>        {</div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>            <a class="code hl_friend" href="../../d6/db1/class_t_array.html#aa262c41fb2786ee01ea853b18e55a362">TArray&lt;T, TInlineAllocator&lt;NumInlineElements&gt;</a>&gt;<a class="code hl_function" href="../../d6/db1/class_t_array.html#a7beafbb0e2a3b7d746af8f1d8d5611c2">::AddZeroed</a>(InNum);</div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>        }</div>
+</div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>    };</div>
+</div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span> </div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>    <span class="comment">// The read-only inputs to a Radiance Cache update</span></div>
+<div class="foldopen" id="foldopen00055" data-start="{" data-end="};">
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno"><a class="line" href="../../da/d83/class_lumen_radiance_cache_1_1_f_update_inputs.html">   55</a></span>    <span class="keyword">class </span><a class="code hl_function" href="../../da/d83/class_lumen_radiance_cache_1_1_f_update_inputs.html#a86f642e2bf97cd1b5ab0935db3872be4">FUpdateInputs</a></div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>    {</div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>    <span class="keyword">public</span>:</div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno"><a class="line" href="../../da/d83/class_lumen_radiance_cache_1_1_f_update_inputs.html#a21b49457f7561e05b0860bae23479e4b">   58</a></span>        FRadianceCacheInputs <a class="code hl_variable" href="../../da/d83/class_lumen_radiance_cache_1_1_f_update_inputs.html#a21b49457f7561e05b0860bae23479e4b">RadianceCacheInputs</a>;</div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno"><a class="line" href="../../da/d83/class_lumen_radiance_cache_1_1_f_update_inputs.html#aae940e1476c247acb17836d5161ffd93">   59</a></span>        <a class="code hl_struct" href="../../d9/d0c/struct_f_radiance_cache_configuration.html">FRadianceCacheConfiguration</a> <a class="code hl_variable" href="../../da/d83/class_lumen_radiance_cache_1_1_f_update_inputs.html#aae940e1476c247acb17836d5161ffd93">Configuration</a>;</div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno"><a class="line" href="../../da/d83/class_lumen_radiance_cache_1_1_f_update_inputs.html#a56c5229af49260ba5763f633db3dbea9">   60</a></span>        <span class="keyword">const</span> <a class="code hl_class" href="../../dd/d2b/class_f_view_info.html">FViewInfo</a>&amp; <a class="code hl_variable" href="../../da/d83/class_lumen_radiance_cache_1_1_f_update_inputs.html#a56c5229af49260ba5763f633db3dbea9">View</a>;</div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno"><a class="line" href="../../da/d83/class_lumen_radiance_cache_1_1_f_update_inputs.html#ad945cd188e878e5764b9d38d931fc806">   61</a></span>        <span class="keyword">const</span> FScreenProbeParameters* <a class="code hl_variable" href="../../da/d83/class_lumen_radiance_cache_1_1_f_update_inputs.html#ad945cd188e878e5764b9d38d931fc806">ScreenProbeParameters</a>;</div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno"><a class="line" href="../../da/d83/class_lumen_radiance_cache_1_1_f_update_inputs.html#a61bc8d1c5fa17f945ef4bbda95ff2ddb">   62</a></span>        <a class="code hl_typedef" href="../../d2/d51/_render_graph_fwd_8h.html#ad7fb1bf19241fbbd8f870dd76c6397bd">FRDGBufferSRVRef</a> <a class="code hl_variable" href="../../da/d83/class_lumen_radiance_cache_1_1_f_update_inputs.html#a61bc8d1c5fa17f945ef4bbda95ff2ddb">BRDFProbabilityDensityFunctionSH</a>;</div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno"><a class="line" href="../../da/d83/class_lumen_radiance_cache_1_1_f_update_inputs.html#a72d536e74abe91007d6189a94b302682">   63</a></span>        <a class="code hl_typedef" href="../../d6/d6d/_canvas_types_8h.html#aea265cf57883ec58a09111d4a17b8448">FRDGTextureRef</a> <a class="code hl_variable" href="../../da/d83/class_lumen_radiance_cache_1_1_f_update_inputs.html#a72d536e74abe91007d6189a94b302682">RadianceProbeIndirectionTexture</a>;</div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span> </div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno"><a class="line" href="../../da/d83/class_lumen_radiance_cache_1_1_f_update_inputs.html#aae6ba06673d87a6a9b562fec1da55904">   65</a></span>        FMarkUsedRadianceCacheProbes <a class="code hl_variable" href="../../da/d83/class_lumen_radiance_cache_1_1_f_update_inputs.html#aae6ba06673d87a6a9b562fec1da55904">GraphicsMarkUsedRadianceCacheProbes</a>;</div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno"><a class="line" href="../../da/d83/class_lumen_radiance_cache_1_1_f_update_inputs.html#ac5b4a556cfe3770def0f6c9b64aa5922">   66</a></span>        FMarkUsedRadianceCacheProbes <a class="code hl_variable" href="../../da/d83/class_lumen_radiance_cache_1_1_f_update_inputs.html#ac5b4a556cfe3770def0f6c9b64aa5922">ComputeMarkUsedRadianceCacheProbes</a>;</div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span> </div>
+<div class="foldopen" id="foldopen00068" data-start="{" data-end="}">
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno"><a class="line" href="../../da/d83/class_lumen_radiance_cache_1_1_f_update_inputs.html#a86f642e2bf97cd1b5ab0935db3872be4">   68</a></span>        <a class="code hl_function" href="../../da/d83/class_lumen_radiance_cache_1_1_f_update_inputs.html#a86f642e2bf97cd1b5ab0935db3872be4">FUpdateInputs</a>(</div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>            <span class="keyword">const</span> FRadianceCacheInputs&amp; InRadianceCacheInputs,</div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>            <a class="code hl_struct" href="../../d9/d0c/struct_f_radiance_cache_configuration.html">FRadianceCacheConfiguration</a> InConfiguration,</div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>            <span class="keyword">const</span> <a class="code hl_class" href="../../dd/d2b/class_f_view_info.html">FViewInfo</a>&amp; InView,</div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>            <span class="keyword">const</span> FScreenProbeParameters* InScreenProbeParameters,</div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>            <a class="code hl_typedef" href="../../d2/d51/_render_graph_fwd_8h.html#ad7fb1bf19241fbbd8f870dd76c6397bd">FRDGBufferSRVRef</a> InBRDFProbabilityDensityFunctionSH,</div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>            FMarkUsedRadianceCacheProbes&amp;&amp; InGraphicsMarkUsedRadianceCacheProbes,</div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>            FMarkUsedRadianceCacheProbes&amp;&amp; InComputeMarkUsedRadianceCacheProbes,</div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>            <a class="code hl_typedef" href="../../d6/d6d/_canvas_types_8h.html#aea265cf57883ec58a09111d4a17b8448">FRDGTextureRef</a> InRadianceProbeIndirectionTexture = <span class="keyword">nullptr</span>) :</div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span>            <a class="code hl_variable" href="../../da/d83/class_lumen_radiance_cache_1_1_f_update_inputs.html#a21b49457f7561e05b0860bae23479e4b">RadianceCacheInputs</a>(InRadianceCacheInputs),</div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>            <a class="code hl_variable" href="../../da/d83/class_lumen_radiance_cache_1_1_f_update_inputs.html#aae940e1476c247acb17836d5161ffd93">Configuration</a>(InConfiguration),</div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>            <a class="code hl_variable" href="../../da/d83/class_lumen_radiance_cache_1_1_f_update_inputs.html#a56c5229af49260ba5763f633db3dbea9">View</a>(InView),</div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>            <a class="code hl_variable" href="../../da/d83/class_lumen_radiance_cache_1_1_f_update_inputs.html#ad945cd188e878e5764b9d38d931fc806">ScreenProbeParameters</a>(InScreenProbeParameters),</div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>            <a class="code hl_variable" href="../../da/d83/class_lumen_radiance_cache_1_1_f_update_inputs.html#a61bc8d1c5fa17f945ef4bbda95ff2ddb">BRDFProbabilityDensityFunctionSH</a>(InBRDFProbabilityDensityFunctionSH),</div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span>            <a class="code hl_variable" href="../../da/d83/class_lumen_radiance_cache_1_1_f_update_inputs.html#a72d536e74abe91007d6189a94b302682">RadianceProbeIndirectionTexture</a>(InRadianceProbeIndirectionTexture),</div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span>            <a class="code hl_variable" href="../../da/d83/class_lumen_radiance_cache_1_1_f_update_inputs.html#aae6ba06673d87a6a9b562fec1da55904">GraphicsMarkUsedRadianceCacheProbes</a>(<a class="code hl_function" href="../../d2/dd1/_unreal_template_8h.html#af9d82a97e855a2ee1464cc020639d843">MoveTemp</a>(InGraphicsMarkUsedRadianceCacheProbes)),</div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span>            <a class="code hl_variable" href="../../da/d83/class_lumen_radiance_cache_1_1_f_update_inputs.html#ac5b4a556cfe3770def0f6c9b64aa5922">ComputeMarkUsedRadianceCacheProbes</a>(<a class="code hl_function" href="../../d2/dd1/_unreal_template_8h.html#af9d82a97e855a2ee1464cc020639d843">MoveTemp</a>(InComputeMarkUsedRadianceCacheProbes))</div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span>        {}</div>
+</div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span> </div>
+<div class="foldopen" id="foldopen00087" data-start="{" data-end="}">
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno"><a class="line" href="../../da/d83/class_lumen_radiance_cache_1_1_f_update_inputs.html#a9dba79b22719c2e535ced80e3849e2df">   87</a></span>        <span class="keywordtype">bool</span> <a class="code hl_function" href="../../da/d83/class_lumen_radiance_cache_1_1_f_update_inputs.html#a9dba79b22719c2e535ced80e3849e2df">IsAnyCallbackBound</a>()<span class="keyword"> const</span></div>
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span><span class="keyword">        </span>{</div>
+<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span>            <span class="keywordflow">return</span> <a class="code hl_variable" href="../../da/d83/class_lumen_radiance_cache_1_1_f_update_inputs.html#ac5b4a556cfe3770def0f6c9b64aa5922">ComputeMarkUsedRadianceCacheProbes</a>.IsBound() || <a class="code hl_variable" href="../../da/d83/class_lumen_radiance_cache_1_1_f_update_inputs.html#aae6ba06673d87a6a9b562fec1da55904">GraphicsMarkUsedRadianceCacheProbes</a>.IsBound();</div>
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span>        }</div>
+</div>
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span>    };</div>
+</div>
+<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span> </div>
+<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span>    <span class="comment">// The outputs of a Radiance Cache update</span></div>
+<div class="foldopen" id="foldopen00094" data-start="{" data-end="};">
+<div class="line"><a id="l00094" name="l00094"></a><span class="lineno"><a class="line" href="../../d3/d63/class_lumen_radiance_cache_1_1_f_update_outputs.html">   94</a></span>    <span class="keyword">class </span><a class="code hl_function" href="../../d3/d63/class_lumen_radiance_cache_1_1_f_update_outputs.html#a516b4efa09e16926a75c2a4e8f1fde0f">FUpdateOutputs</a></div>
+<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span>    {</div>
+<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span>    <span class="keyword">public</span>:</div>
+<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span> </div>
+<div class="line"><a id="l00098" name="l00098"></a><span class="lineno"><a class="line" href="../../d3/d63/class_lumen_radiance_cache_1_1_f_update_outputs.html#ab6a944f1517834d2596e65c54df9f5c8">   98</a></span>        <a class="code hl_class" href="../../d6/da4/class_f_radiance_cache_state.html">FRadianceCacheState</a>&amp; <a class="code hl_variable" href="../../d3/d63/class_lumen_radiance_cache_1_1_f_update_outputs.html#ab6a944f1517834d2596e65c54df9f5c8">RadianceCacheState</a>;</div>
+<div class="line"><a id="l00099" name="l00099"></a><span class="lineno"><a class="line" href="../../d3/d63/class_lumen_radiance_cache_1_1_f_update_outputs.html#a5cbbb285ad193c71005ea69309dd6c19">   99</a></span>        FRadianceCacheInterpolationParameters&amp; <a class="code hl_variable" href="../../d3/d63/class_lumen_radiance_cache_1_1_f_update_outputs.html#a5cbbb285ad193c71005ea69309dd6c19">RadianceCacheParameters</a>;</div>
+<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span> </div>
+<div class="foldopen" id="foldopen00101" data-start="{" data-end="}">
+<div class="line"><a id="l00101" name="l00101"></a><span class="lineno"><a class="line" href="../../d3/d63/class_lumen_radiance_cache_1_1_f_update_outputs.html#a516b4efa09e16926a75c2a4e8f1fde0f">  101</a></span>        <a class="code hl_function" href="../../d3/d63/class_lumen_radiance_cache_1_1_f_update_outputs.html#a516b4efa09e16926a75c2a4e8f1fde0f">FUpdateOutputs</a>(<a class="code hl_class" href="../../d6/da4/class_f_radiance_cache_state.html">FRadianceCacheState</a>&amp; InRadianceCacheState,</div>
+<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span>            FRadianceCacheInterpolationParameters&amp; InRadianceCacheParameters) :</div>
+<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span>            <a class="code hl_variable" href="../../d3/d63/class_lumen_radiance_cache_1_1_f_update_outputs.html#ab6a944f1517834d2596e65c54df9f5c8">RadianceCacheState</a>(InRadianceCacheState),</div>
+<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span>            <a class="code hl_variable" href="../../d3/d63/class_lumen_radiance_cache_1_1_f_update_outputs.html#a5cbbb285ad193c71005ea69309dd6c19">RadianceCacheParameters</a>(InRadianceCacheParameters)</div>
+<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span>        {}</div>
+</div>
+<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span>    };</div>
+</div>
+<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span></div>
+<div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="../../d6/de1/namespace_lumen_radiance_cache.html#a7b81649d2bdf73ae3946d01aacd41be3">UpdateRadianceCaches</a>(</div>
+<div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span>        <a class="code hl_class" href="../../d3/d85/class_f_r_d_g_builder.html">FRDGBuilder</a>&amp; GraphBuilder, </div>
+<div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span>        <span class="keyword">const</span> <a class="code hl_struct" href="../../dc/da7/struct_f_lumen_scene_frame_temporaries.html">FLumenSceneFrameTemporaries</a>&amp; FrameTemporaries,</div>
+<div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span>        <span class="keyword">const</span> TInlineArray&lt;FUpdateInputs&gt;&amp; InputArray,</div>
+<div class="line"><a id="l00117" name="l00117"></a><span class="lineno">  117</span>        TInlineArray&lt;FUpdateOutputs&gt;&amp; OutputArray,</div>
+<div class="line"><a id="l00118" name="l00118"></a><span class="lineno">  118</span>        <span class="keyword">const</span> <a class="code hl_class" href="../../d4/dfa/class_f_scene.html">FScene</a>* <a class="code hl_enumvalue" href="../../d0/ddb/_datasmith_definitions_8h.html#a53c0bc858a7263a3651d29218934fa19a9ead0d38e06ec253ca0ecbf6ea56e59b">Scene</a>,</div>
+<div class="line"><a id="l00119" name="l00119"></a><span class="lineno">  119</span>        <span class="keyword">const</span> <a class="code hl_class" href="../../d5/d2b/class_f_view_family_info.html">FViewFamilyInfo</a>&amp; ViewFamily,</div>
+<div class="line"><a id="l00120" name="l00120"></a><span class="lineno">  120</span>        <span class="keyword">const</span> <a class="code hl_struct" href="../../d1/d9e/struct_f_scene_textures.html">FSceneTextures</a>&amp; SceneTextures,</div>
+<div class="line"><a id="l00121" name="l00121"></a><span class="lineno">  121</span>        <span class="keywordtype">bool</span> bPropagateGlobalLightingChange,</div>
+<div class="line"><a id="l00122" name="l00122"></a><span class="lineno">  122</span>        <a class="code hl_enumeration" href="../../d6/de8/_render_graph_definitions_8h.html#a3b73b7355dd6964375c48c23d5fb76da">ERDGPassFlags</a> ComputePassFlags = <a class="code hl_enumvalue" href="../../d6/de8/_render_graph_definitions_8h.html#a3b73b7355dd6964375c48c23d5fb76daaa623a8d0366bf079411aa30be45b2d10">ERDGPassFlags::Compute</a>);</div>
+<div class="line"><a id="l00123" name="l00123"></a><span class="lineno">  123</span> </div>
+<div class="line"><a id="l00124" name="l00124"></a><span class="lineno">  124</span>    <a class="code hl_typedef" href="../../d6/d6d/_canvas_types_8h.html#aea265cf57883ec58a09111d4a17b8448">FRDGTextureRef</a> <a class="code hl_function" href="../../d6/de1/namespace_lumen_radiance_cache.html#a8e132d3b6ee7f154edd50798805c926a">MarkForTranslucencyReflections</a>(</div>
+<div class="line"><a id="l00125" name="l00125"></a><span class="lineno">  125</span>        <a class="code hl_class" href="../../d3/d85/class_f_r_d_g_builder.html">FRDGBuilder</a>&amp; GraphBuilder,</div>
+<div class="line"><a id="l00126" name="l00126"></a><span class="lineno">  126</span>        <a class="code hl_class" href="../../dd/d2b/class_f_view_info.html">FViewInfo</a>&amp; <a class="code hl_enumvalue" href="../../d4/ded/_asset_type_activation_opened_method_8h.html#adf66f18a6bd35d59ab943dc1556b124fa4351cfebe4b61d8aa5efa1d020710005">View</a>,</div>
+<div class="line"><a id="l00127" name="l00127"></a><span class="lineno">  127</span>        <span class="keyword">const</span> <a class="code hl_class" href="../../d9/d6f/class_f_scene_renderer.html">FSceneRenderer</a>&amp; SceneRenderer,</div>
+<div class="line"><a id="l00128" name="l00128"></a><span class="lineno">  128</span>        <span class="keyword">const</span> <a class="code hl_struct" href="../../d1/d9e/struct_f_scene_textures.html">FSceneTextures</a>&amp; SceneTextures);</div>
+<div class="line"><a id="l00129" name="l00129"></a><span class="lineno">  129</span> </div>
+<div class="line"><a id="l00130" name="l00130"></a><span class="lineno"><a class="line" href="../../d6/de1/namespace_lumen_radiance_cache.html#af59d42dadbf861ec23478ad836afa44f">  130</a></span>    <a class="code hl_enumeration" href="../../d6/de8/_render_graph_definitions_8h.html#a3b73b7355dd6964375c48c23d5fb76da">ERDGPassFlags</a> <a class="code hl_function" href="../../d6/de1/namespace_lumen_radiance_cache.html#af59d42dadbf861ec23478ad836afa44f">GetLumenSceneLightingComputePassFlags</a>(<span class="keyword">const</span> <a class="code hl_struct" href="../../d4/dac/struct_f_engine_show_flags.html">FEngineShowFlags</a>&amp; EngineShowFlags);</div>
+<div class="line"><a id="l00131" name="l00131"></a><span class="lineno">  131</span>    <span class="keywordtype">bool</span> <a class="code hl_function" href="../../d6/de1/namespace_lumen_radiance_cache.html#a4bbf9426a86f6e62d6fbda3f63191fa2">UseHitLighting</a>(<span class="keyword">const</span> <a class="code hl_class" href="../../dd/d2b/class_f_view_info.html">FViewInfo</a>&amp; <a class="code hl_enumvalue" href="../../d4/ded/_asset_type_activation_opened_method_8h.html#adf66f18a6bd35d59ab943dc1556b124fa4351cfebe4b61d8aa5efa1d020710005">View</a>, <a class="code hl_enumeration" href="../../d7/d9b/_deferred_shading_renderer_types_8h.html#ae50b25db8b8777aa3ce45ae4b6d214f4">EDiffuseIndirectMethod</a> DiffuseIndirectMethod);</div>
+<div class="line"><a id="l00132" name="l00132"></a><span class="lineno">  132</span> </div>
+<div class="line"><a id="l00133" name="l00133"></a><span class="lineno">  133</span>    <a class="code hl_typedef" href="../../d0/df6/_math_fwd_8h.html#af6853de5e4fcb2bad3bd5fdd2e50bffd">FIntPoint</a> <a class="code hl_function" href="../../d6/de1/namespace_lumen_radiance_cache.html#a679db227c727e34a525f01786ed51182">GetProbeAtlasResolutionInProbes</a>(<a class="code hl_typedef" href="../../dd/de9/preprocessor_8c.html#a1134b580f8da4de94ca6b1de4d37975e">uint32</a> RequestedResolution);</div>
+<div class="line"><a id="l00134" name="l00134"></a><span class="lineno">  134</span> </div>
+<div class="line"><a id="l00135" name="l00135"></a><span class="lineno">  135</span>    <a class="code hl_typedef" href="../../d2/d51/_render_graph_fwd_8h.html#ad7fb1bf19241fbbd8f870dd76c6397bd">FRDGBufferSRVRef</a> <a class="code hl_function" href="../../d6/de1/namespace_lumen_radiance_cache.html#afe5bf204f67d491f6f671391ac7601dd">GetProbeValidSRV</a>(<a class="code hl_class" href="../../d3/d85/class_f_r_d_g_builder.html">FRDGBuilder</a>&amp; GraphBuilder, <a class="code hl_typedef" href="../../d9/de1/_n_n_e_runtime_r_d_g_8h.html#a934d7411e595a58728f7ba3bb9aae740">FRDGBufferRef</a> InProbeValid);</div>
+<div class="line"><a id="l00136" name="l00136"></a><span class="lineno">  136</span>}</div>
+<div class="line"><a id="l00137" name="l00137"></a><span class="lineno">  137</span> </div>
+<div class="line"><a id="l00138" name="l00138"></a><span class="lineno"><a class="line" href="../../d9/d3e/_lumen_radiance_cache_8h.html#a6b7f45f2a3e84c0e5144f1d18f4572cc">  138</a></span><span class="keyword">extern</span> <span class="keywordtype">void</span> <a class="code hl_function" href="../../da/d9d/_lumen_radiance_cache_8cpp.html#aedc179db36fc0640965f3cae8fc7b3de">MarkUsedProbesForVisualize</a>(<a class="code hl_class" href="../../d3/d85/class_f_r_d_g_builder.html">FRDGBuilder</a>&amp; GraphBuilder, <span class="keyword">const</span> <a class="code hl_class" href="../../dd/d2b/class_f_view_info.html">FViewInfo</a>&amp; <a class="code hl_enumvalue" href="../../d4/ded/_asset_type_activation_opened_method_8h.html#adf66f18a6bd35d59ab943dc1556b124fa4351cfebe4b61d8aa5efa1d020710005">View</a>, <span class="keyword">const</span> <span class="keyword">class</span> LumenRadianceCache::FRadianceCacheMarkParameters&amp; RadianceCacheMarkParameters, <a class="code hl_enumeration" href="../../d6/de8/_render_graph_definitions_8h.html#a3b73b7355dd6964375c48c23d5fb76da">ERDGPassFlags</a> ComputePassFlags = <a class="code hl_enumvalue" href="../../d6/de8/_render_graph_definitions_8h.html#a3b73b7355dd6964375c48c23d5fb76daaa623a8d0366bf079411aa30be45b2d10">ERDGPassFlags::Compute</a>);</div>
+<div class="ttc" id="a_asset_type_activation_opened_method_8h_html_adf66f18a6bd35d59ab943dc1556b124fa4351cfebe4b61d8aa5efa1d020710005"><div class="ttname"><a href="../../d4/ded/_asset_type_activation_opened_method_8h.html#adf66f18a6bd35d59ab943dc1556b124fa4351cfebe4b61d8aa5efa1d020710005">EAssetTypeActivationOpenedMethod::View</a></div><div class="ttdeci">@ View</div><div class="ttdef"><b>定义</b> AssetTypeActivationOpenedMethod.h:19</div></div>
+<div class="ttc" id="a_canvas_types_8h_html_aea265cf57883ec58a09111d4a17b8448"><div class="ttname"><a href="../../d6/d6d/_canvas_types_8h.html#aea265cf57883ec58a09111d4a17b8448">FRDGTextureRef</a></div><div class="ttdeci">FRDGTexture * FRDGTextureRef</div><div class="ttdef"><b>定义</b> CanvasTypes.h:34</div></div>
+<div class="ttc" id="a_container_allocation_policies_8h_html_a955ebaff17aade3efe4ecd32109bedea"><div class="ttname"><a href="../../dc/d3d/_container_allocation_policies_8h.html#a955ebaff17aade3efe4ecd32109bedea">TInlineAllocator</a></div><div class="ttdeci">TSizedInlineAllocator&lt; NumInlineElements, 32, SecondaryAllocator &gt; TInlineAllocator</div><div class="ttdef"><b>定义</b> ContainerAllocationPolicies.h:1328</div></div>
+<div class="ttc" id="a_core_2_public_2_h_a_l_2_platform_8h_html_a8dbb3cd84ca9fd010dadfc3815eefa5d"><div class="ttname"><a href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a8dbb3cd84ca9fd010dadfc3815eefa5d">int32</a></div><div class="ttdeci">FPlatformTypes::int32 int32</div><div class="ttdoc">A 32-bit signed integer.</div><div class="ttdef"><b>定义</b> Platform.h:1190</div></div>
+<div class="ttc" id="a_datasmith_definitions_8h_html_a53c0bc858a7263a3651d29218934fa19a9ead0d38e06ec253ca0ecbf6ea56e59b"><div class="ttname"><a href="../../d0/ddb/_datasmith_definitions_8h.html#a53c0bc858a7263a3651d29218934fa19a9ead0d38e06ec253ca0ecbf6ea56e59b">EDatasmithElementType::Scene</a></div><div class="ttdeci">@ Scene</div><div class="ttdef"><b>定义</b> DatasmithDefinitions.h:41</div></div>
+<div class="ttc" id="a_deferred_shading_renderer_types_8h_html_ae50b25db8b8777aa3ce45ae4b6d214f4"><div class="ttname"><a href="../../d7/d9b/_deferred_shading_renderer_types_8h.html#ae50b25db8b8777aa3ce45ae4b6d214f4">EDiffuseIndirectMethod</a></div><div class="ttdeci">EDiffuseIndirectMethod</div><div class="ttdef"><b>定义</b> DeferredShadingRendererTypes.h:6</div></div>
+<div class="ttc" id="a_delegate_combinations_8h_html_ad627922db565f68dec22b3d95018186d"><div class="ttname"><a href="../../d6/d40/_delegate_combinations_8h.html#ad627922db565f68dec22b3d95018186d">DECLARE_MULTICAST_DELEGATE_ThreeParams</a></div><div class="ttdeci">#define DECLARE_MULTICAST_DELEGATE_ThreeParams(DelegateName, Param1Type, Param2Type, Param3Type)</div><div class="ttdef"><b>定义</b> DelegateCombinations.h:67</div></div>
+<div class="ttc" id="a_lumen_radiance_cache_8cpp_html_aedc179db36fc0640965f3cae8fc7b3de"><div class="ttname"><a href="../../da/d9d/_lumen_radiance_cache_8cpp.html#aedc179db36fc0640965f3cae8fc7b3de">MarkUsedProbesForVisualize</a></div><div class="ttdeci">void MarkUsedProbesForVisualize(FRDGBuilder &amp;GraphBuilder, const FViewInfo &amp;View, const LumenRadianceCache::FRadianceCacheMarkParameters &amp;RadianceCacheMarkParameters, ERDGPassFlags ComputePassFlags)</div><div class="ttdef"><b>定义</b> LumenRadianceCache.cpp:274</div></div>
+<div class="ttc" id="a_lumen_radiance_cache_interpolation_8h_html"><div class="ttname"><a href="../../de/d27/_lumen_radiance_cache_interpolation_8h.html">LumenRadianceCacheInterpolation.h</a></div></div>
+<div class="ttc" id="a_lumen_tracing_utils_8h_html"><div class="ttname"><a href="../../da/d07/_lumen_tracing_utils_8h.html">LumenTracingUtils.h</a></div></div>
+<div class="ttc" id="a_math_fwd_8h_html_ae0aaacce11785349d3bd1206def2a6b8"><div class="ttname"><a href="../../d0/df6/_math_fwd_8h.html#ae0aaacce11785349d3bd1206def2a6b8">FVector4f</a></div><div class="ttdeci">UE::Math::TVector4&lt; float &gt; FVector4f</div><div class="ttdef"><b>定义</b> MathFwd.h:75</div></div>
+<div class="ttc" id="a_math_fwd_8h_html_af6853de5e4fcb2bad3bd5fdd2e50bffd"><div class="ttname"><a href="../../d0/df6/_math_fwd_8h.html#af6853de5e4fcb2bad3bd5fdd2e50bffd">FIntPoint</a></div><div class="ttdeci">FInt32Point FIntPoint</div><div class="ttdef"><b>定义</b> MathFwd.h:124</div></div>
+<div class="ttc" id="a_n_n_e_runtime_r_d_g_8h_html_a934d7411e595a58728f7ba3bb9aae740"><div class="ttname"><a href="../../d9/de1/_n_n_e_runtime_r_d_g_8h.html#a934d7411e595a58728f7ba3bb9aae740">FRDGBufferRef</a></div><div class="ttdeci">FRDGBuffer * FRDGBufferRef</div><div class="ttdef"><b>定义</b> NNERuntimeRDG.h:13</div></div>
+<div class="ttc" id="a_r_h_i_definitions_8h_html_aaa1363a45733f75a18e3e5debc4935c2a93fe5eb182a86ed07753ebe48bc42d57"><div class="ttname"><a href="../../da/dca/_r_h_i_definitions_8h.html#aaa1363a45733f75a18e3e5debc4935c2a93fe5eb182a86ed07753ebe48bc42d57">EShaderCodeResourceBindingType::RWTexture3D</a></div><div class="ttdeci">@ RWTexture3D</div><div class="ttdef"><b>定义</b> RHIDefinitions.h:560</div></div>
+<div class="ttc" id="a_render_graph_definitions_8h_html_a3b73b7355dd6964375c48c23d5fb76da"><div class="ttname"><a href="../../d6/de8/_render_graph_definitions_8h.html#a3b73b7355dd6964375c48c23d5fb76da">ERDGPassFlags</a></div><div class="ttdeci">ERDGPassFlags</div><div class="ttdef"><b>定义</b> RenderGraphDefinitions.h:130</div></div>
+<div class="ttc" id="a_render_graph_definitions_8h_html_a3b73b7355dd6964375c48c23d5fb76daaa623a8d0366bf079411aa30be45b2d10"><div class="ttname"><a href="../../d6/de8/_render_graph_definitions_8h.html#a3b73b7355dd6964375c48c23d5fb76daaa623a8d0366bf079411aa30be45b2d10">ERDGPassFlags::Compute</a></div><div class="ttdeci">@ Compute</div><div class="ttdef"><b>定义</b> RenderGraphDefinitions.h:138</div></div>
+<div class="ttc" id="a_render_graph_fwd_8h_html_ad7fb1bf19241fbbd8f870dd76c6397bd"><div class="ttname"><a href="../../d2/d51/_render_graph_fwd_8h.html#ad7fb1bf19241fbbd8f870dd76c6397bd">FRDGBufferSRVRef</a></div><div class="ttdeci">FRDGBufferSRV * FRDGBufferSRVRef</div><div class="ttdef"><b>定义</b> RenderGraphFwd.h:18</div></div>
+<div class="ttc" id="a_shader_parameter_macros_8h_html_a38c35db4ad72543eaf2f2e0028ea1a5a"><div class="ttname"><a href="../../d9/d2c/_shader_parameter_macros_8h.html#a38c35db4ad72543eaf2f2e0028ea1a5a">SHADER_PARAMETER_ARRAY</a></div><div class="ttdeci">#define SHADER_PARAMETER_ARRAY(MemberType, MemberName, ArrayDecl)</div><div class="ttdef"><b>定义</b> ShaderParameterMacros.h:1625</div></div>
+<div class="ttc" id="a_shader_parameter_macros_8h_html_a6a1326c3995c4e9aa0e0125d9ff159b3"><div class="ttname"><a href="../../d9/d2c/_shader_parameter_macros_8h.html#a6a1326c3995c4e9aa0e0125d9ff159b3">BEGIN_SHADER_PARAMETER_STRUCT</a></div><div class="ttdeci">#define BEGIN_SHADER_PARAMETER_STRUCT(StructTypeName, DllStorage)</div><div class="ttdef"><b>定义</b> ShaderParameterMacros.h:1411</div></div>
+<div class="ttc" id="a_shader_parameter_macros_8h_html_a8d9cf25453b2583b3635eba8d520e1ec"><div class="ttname"><a href="../../d9/d2c/_shader_parameter_macros_8h.html#a8d9cf25453b2583b3635eba8d520e1ec">SHADER_PARAMETER_RDG_TEXTURE_UAV</a></div><div class="ttdeci">#define SHADER_PARAMETER_RDG_TEXTURE_UAV(ShaderType, MemberName)</div><div class="ttdef"><b>定义</b> ShaderParameterMacros.h:1733</div></div>
+<div class="ttc" id="a_shader_parameter_macros_8h_html_aa477d2fdd61a01ad3c8ac598cd96e343"><div class="ttname"><a href="../../d9/d2c/_shader_parameter_macros_8h.html#aa477d2fdd61a01ad3c8ac598cd96e343">END_SHADER_PARAMETER_STRUCT</a></div><div class="ttdeci">#define END_SHADER_PARAMETER_STRUCT()</div><div class="ttdef"><b>定义</b> ShaderParameterMacros.h:1414</div></div>
+<div class="ttc" id="a_shader_parameter_macros_8h_html_aed49b225fa9b8b3125805c599f23a040"><div class="ttname"><a href="../../d9/d2c/_shader_parameter_macros_8h.html#aed49b225fa9b8b3125805c599f23a040">SHADER_PARAMETER</a></div><div class="ttdeci">#define SHADER_PARAMETER(MemberType, MemberName)</div><div class="ttdef"><b>定义</b> ShaderParameterMacros.h:1613</div></div>
+<div class="ttc" id="a_unreal_template_8h_html_af9d82a97e855a2ee1464cc020639d843"><div class="ttname"><a href="../../d2/dd1/_unreal_template_8h.html#af9d82a97e855a2ee1464cc020639d843">MoveTemp</a></div><div class="ttdeci">UE_INTRINSIC_CAST UE_REWRITE constexpr std::remove_reference_t&lt; T &gt; &amp;&amp; MoveTemp(T &amp;&amp;Obj) noexcept</div><div class="ttdef"><b>定义</b> UnrealTemplate.h:530</div></div>
+<div class="ttc" id="aclass_f_r_d_g_builder_html"><div class="ttname"><a href="../../d3/d85/class_f_r_d_g_builder.html">FRDGBuilder</a></div><div class="ttdef"><b>定义</b> RenderGraphBuilder.h:52</div></div>
+<div class="ttc" id="aclass_f_radiance_cache_state_html"><div class="ttname"><a href="../../d6/da4/class_f_radiance_cache_state.html">FRadianceCacheState</a></div><div class="ttdef"><b>定义</b> LumenViewState.h:235</div></div>
+<div class="ttc" id="aclass_f_scene_html"><div class="ttname"><a href="../../d4/dfa/class_f_scene.html">FScene</a></div><div class="ttdef"><b>定义</b> ScenePrivate.h:1625</div></div>
+<div class="ttc" id="aclass_f_scene_renderer_html"><div class="ttname"><a href="../../d9/d6f/class_f_scene_renderer.html">FSceneRenderer</a></div><div class="ttdef"><b>定义</b> SceneRendering.h:2219</div></div>
+<div class="ttc" id="aclass_f_view_family_info_html"><div class="ttname"><a href="../../d5/d2b/class_f_view_family_info.html">FViewFamilyInfo</a></div><div class="ttdef"><b>定义</b> SceneRendering.h:2096</div></div>
+<div class="ttc" id="aclass_f_view_info_html"><div class="ttname"><a href="../../dd/d2b/class_f_view_info.html">FViewInfo</a></div><div class="ttdef"><b>定义</b> SceneRendering.h:1255</div></div>
+<div class="ttc" id="aclass_lumen_radiance_cache_1_1_f_update_inputs_html_a21b49457f7561e05b0860bae23479e4b"><div class="ttname"><a href="../../da/d83/class_lumen_radiance_cache_1_1_f_update_inputs.html#a21b49457f7561e05b0860bae23479e4b">LumenRadianceCache::FUpdateInputs::RadianceCacheInputs</a></div><div class="ttdeci">FRadianceCacheInputs RadianceCacheInputs</div><div class="ttdef"><b>定义</b> LumenRadianceCache.h:58</div></div>
+<div class="ttc" id="aclass_lumen_radiance_cache_1_1_f_update_inputs_html_a56c5229af49260ba5763f633db3dbea9"><div class="ttname"><a href="../../da/d83/class_lumen_radiance_cache_1_1_f_update_inputs.html#a56c5229af49260ba5763f633db3dbea9">LumenRadianceCache::FUpdateInputs::View</a></div><div class="ttdeci">const FViewInfo &amp; View</div><div class="ttdef"><b>定义</b> LumenRadianceCache.h:60</div></div>
+<div class="ttc" id="aclass_lumen_radiance_cache_1_1_f_update_inputs_html_a61bc8d1c5fa17f945ef4bbda95ff2ddb"><div class="ttname"><a href="../../da/d83/class_lumen_radiance_cache_1_1_f_update_inputs.html#a61bc8d1c5fa17f945ef4bbda95ff2ddb">LumenRadianceCache::FUpdateInputs::BRDFProbabilityDensityFunctionSH</a></div><div class="ttdeci">FRDGBufferSRVRef BRDFProbabilityDensityFunctionSH</div><div class="ttdef"><b>定义</b> LumenRadianceCache.h:62</div></div>
+<div class="ttc" id="aclass_lumen_radiance_cache_1_1_f_update_inputs_html_a72d536e74abe91007d6189a94b302682"><div class="ttname"><a href="../../da/d83/class_lumen_radiance_cache_1_1_f_update_inputs.html#a72d536e74abe91007d6189a94b302682">LumenRadianceCache::FUpdateInputs::RadianceProbeIndirectionTexture</a></div><div class="ttdeci">FRDGTextureRef RadianceProbeIndirectionTexture</div><div class="ttdef"><b>定义</b> LumenRadianceCache.h:63</div></div>
+<div class="ttc" id="aclass_lumen_radiance_cache_1_1_f_update_inputs_html_a86f642e2bf97cd1b5ab0935db3872be4"><div class="ttname"><a href="../../da/d83/class_lumen_radiance_cache_1_1_f_update_inputs.html#a86f642e2bf97cd1b5ab0935db3872be4">LumenRadianceCache::FUpdateInputs::FUpdateInputs</a></div><div class="ttdeci">FUpdateInputs(const FRadianceCacheInputs &amp;InRadianceCacheInputs, FRadianceCacheConfiguration InConfiguration, const FViewInfo &amp;InView, const FScreenProbeParameters *InScreenProbeParameters, FRDGBufferSRVRef InBRDFProbabilityDensityFunctionSH, FMarkUsedRadianceCacheProbes &amp;&amp;InGraphicsMarkUsedRadianceCacheProbes, FMarkUsedRadianceCacheProbes &amp;&amp;InComputeMarkUsedRadianceCacheProbes, FRDGTextureRef InRadianceProbeIndirectionTexture=nullptr)</div><div class="ttdef"><b>定义</b> LumenRadianceCache.h:68</div></div>
+<div class="ttc" id="aclass_lumen_radiance_cache_1_1_f_update_inputs_html_a9dba79b22719c2e535ced80e3849e2df"><div class="ttname"><a href="../../da/d83/class_lumen_radiance_cache_1_1_f_update_inputs.html#a9dba79b22719c2e535ced80e3849e2df">LumenRadianceCache::FUpdateInputs::IsAnyCallbackBound</a></div><div class="ttdeci">bool IsAnyCallbackBound() const</div><div class="ttdef"><b>定义</b> LumenRadianceCache.h:87</div></div>
+<div class="ttc" id="aclass_lumen_radiance_cache_1_1_f_update_inputs_html_aae6ba06673d87a6a9b562fec1da55904"><div class="ttname"><a href="../../da/d83/class_lumen_radiance_cache_1_1_f_update_inputs.html#aae6ba06673d87a6a9b562fec1da55904">LumenRadianceCache::FUpdateInputs::GraphicsMarkUsedRadianceCacheProbes</a></div><div class="ttdeci">FMarkUsedRadianceCacheProbes GraphicsMarkUsedRadianceCacheProbes</div><div class="ttdef"><b>定义</b> LumenRadianceCache.h:65</div></div>
+<div class="ttc" id="aclass_lumen_radiance_cache_1_1_f_update_inputs_html_aae940e1476c247acb17836d5161ffd93"><div class="ttname"><a href="../../da/d83/class_lumen_radiance_cache_1_1_f_update_inputs.html#aae940e1476c247acb17836d5161ffd93">LumenRadianceCache::FUpdateInputs::Configuration</a></div><div class="ttdeci">FRadianceCacheConfiguration Configuration</div><div class="ttdef"><b>定义</b> LumenRadianceCache.h:59</div></div>
+<div class="ttc" id="aclass_lumen_radiance_cache_1_1_f_update_inputs_html_ac5b4a556cfe3770def0f6c9b64aa5922"><div class="ttname"><a href="../../da/d83/class_lumen_radiance_cache_1_1_f_update_inputs.html#ac5b4a556cfe3770def0f6c9b64aa5922">LumenRadianceCache::FUpdateInputs::ComputeMarkUsedRadianceCacheProbes</a></div><div class="ttdeci">FMarkUsedRadianceCacheProbes ComputeMarkUsedRadianceCacheProbes</div><div class="ttdef"><b>定义</b> LumenRadianceCache.h:66</div></div>
+<div class="ttc" id="aclass_lumen_radiance_cache_1_1_f_update_inputs_html_ad945cd188e878e5764b9d38d931fc806"><div class="ttname"><a href="../../da/d83/class_lumen_radiance_cache_1_1_f_update_inputs.html#ad945cd188e878e5764b9d38d931fc806">LumenRadianceCache::FUpdateInputs::ScreenProbeParameters</a></div><div class="ttdeci">const FScreenProbeParameters * ScreenProbeParameters</div><div class="ttdef"><b>定义</b> LumenRadianceCache.h:61</div></div>
+<div class="ttc" id="aclass_lumen_radiance_cache_1_1_f_update_outputs_html_a516b4efa09e16926a75c2a4e8f1fde0f"><div class="ttname"><a href="../../d3/d63/class_lumen_radiance_cache_1_1_f_update_outputs.html#a516b4efa09e16926a75c2a4e8f1fde0f">LumenRadianceCache::FUpdateOutputs::FUpdateOutputs</a></div><div class="ttdeci">FUpdateOutputs(FRadianceCacheState &amp;InRadianceCacheState, FRadianceCacheInterpolationParameters &amp;InRadianceCacheParameters)</div><div class="ttdef"><b>定义</b> LumenRadianceCache.h:101</div></div>
+<div class="ttc" id="aclass_lumen_radiance_cache_1_1_f_update_outputs_html_a5cbbb285ad193c71005ea69309dd6c19"><div class="ttname"><a href="../../d3/d63/class_lumen_radiance_cache_1_1_f_update_outputs.html#a5cbbb285ad193c71005ea69309dd6c19">LumenRadianceCache::FUpdateOutputs::RadianceCacheParameters</a></div><div class="ttdeci">FRadianceCacheInterpolationParameters &amp; RadianceCacheParameters</div><div class="ttdef"><b>定义</b> LumenRadianceCache.h:99</div></div>
+<div class="ttc" id="aclass_lumen_radiance_cache_1_1_f_update_outputs_html_ab6a944f1517834d2596e65c54df9f5c8"><div class="ttname"><a href="../../d3/d63/class_lumen_radiance_cache_1_1_f_update_outputs.html#ab6a944f1517834d2596e65c54df9f5c8">LumenRadianceCache::FUpdateOutputs::RadianceCacheState</a></div><div class="ttdeci">FRadianceCacheState &amp; RadianceCacheState</div><div class="ttdef"><b>定义</b> LumenRadianceCache.h:98</div></div>
+<div class="ttc" id="aclass_lumen_radiance_cache_1_1_t_inline_array_html_a709ae26be5cf26376e12bc566275ec21"><div class="ttname"><a href="../../d7/db4/class_lumen_radiance_cache_1_1_t_inline_array.html#a709ae26be5cf26376e12bc566275ec21">LumenRadianceCache::TInlineArray::TInlineArray</a></div><div class="ttdeci">TInlineArray(int32 InNum)</div><div class="ttdef"><b>定义</b> LumenRadianceCache.h:47</div></div>
+<div class="ttc" id="aclass_lumen_radiance_cache_1_1_t_inline_array_html_a8c9268664426e01d89e374ed405e540f"><div class="ttname"><a href="../../d7/db4/class_lumen_radiance_cache_1_1_t_inline_array.html#a8c9268664426e01d89e374ed405e540f">LumenRadianceCache::TInlineArray::TInlineArray</a></div><div class="ttdeci">TInlineArray()</div><div class="ttdef"><b>定义</b> LumenRadianceCache.h:44</div></div>
+<div class="ttc" id="aclass_t_array_html_a7beafbb0e2a3b7d746af8f1d8d5611c2"><div class="ttname"><a href="../../d6/db1/class_t_array.html#a7beafbb0e2a3b7d746af8f1d8d5611c2">TArray&lt; T, TInlineAllocator&lt; 4 &gt; &gt;::AddZeroed</a></div><div class="ttdeci">SizeType AddZeroed()</div><div class="ttdef"><b>定义</b> Array.h:3007</div></div>
+<div class="ttc" id="aclass_t_array_html_aa262c41fb2786ee01ea853b18e55a362"><div class="ttname"><a href="../../d6/db1/class_t_array.html#aa262c41fb2786ee01ea853b18e55a362">TArray&lt; T, TInlineAllocator&lt; 4 &gt; &gt;::TArray</a></div><div class="ttdeci">friend class TArray</div><div class="ttdef"><b>定义</b> Array.h:770</div></div>
+<div class="ttc" id="anamespace_lumen_radiance_cache_html"><div class="ttname"><a href="../../d6/de1/namespace_lumen_radiance_cache.html">LumenRadianceCache</a></div><div class="ttdef"><b>定义</b> DeferredShadingRenderer.h:56</div></div>
+<div class="ttc" id="anamespace_lumen_radiance_cache_html_a222f9dc437e08cc9cf155286f7394f70"><div class="ttname"><a href="../../d6/de1/namespace_lumen_radiance_cache.html#a222f9dc437e08cc9cf155286f7394f70">LumenRadianceCache::MaxMipmaps</a></div><div class="ttdeci">const uint32 MaxMipmaps</div><div class="ttdef"><b>定义</b> LumenRadianceCache.h:38</div></div>
+<div class="ttc" id="anamespace_lumen_radiance_cache_html_a4bbf9426a86f6e62d6fbda3f63191fa2"><div class="ttname"><a href="../../d6/de1/namespace_lumen_radiance_cache.html#a4bbf9426a86f6e62d6fbda3f63191fa2">LumenRadianceCache::UseHitLighting</a></div><div class="ttdeci">bool UseHitLighting(const FViewInfo &amp;View, EDiffuseIndirectMethod DiffuseIndirectMethod)</div><div class="ttdef"><b>定义</b> LumenRadianceCacheHardwareRayTracing.cpp:49</div></div>
+<div class="ttc" id="anamespace_lumen_radiance_cache_html_a50210c3d97697f562edb7859f6e31e49"><div class="ttname"><a href="../../d6/de1/namespace_lumen_radiance_cache.html#a50210c3d97697f562edb7859f6e31e49">LumenRadianceCache::MaxAdaptiveProbes</a></div><div class="ttdeci">const uint32 MaxAdaptiveProbes</div><div class="ttdef"><b>定义</b> LumenRadianceCache.h:35</div></div>
+<div class="ttc" id="anamespace_lumen_radiance_cache_html_a679db227c727e34a525f01786ed51182"><div class="ttname"><a href="../../d6/de1/namespace_lumen_radiance_cache.html#a679db227c727e34a525f01786ed51182">LumenRadianceCache::GetProbeAtlasResolutionInProbes</a></div><div class="ttdeci">FIntPoint GetProbeAtlasResolutionInProbes(uint32 RequestedResolution)</div><div class="ttdef"><b>定义</b> LumenRadianceCache.cpp:221</div></div>
+<div class="ttc" id="anamespace_lumen_radiance_cache_html_a7b81649d2bdf73ae3946d01aacd41be3"><div class="ttname"><a href="../../d6/de1/namespace_lumen_radiance_cache.html#a7b81649d2bdf73ae3946d01aacd41be3">LumenRadianceCache::UpdateRadianceCaches</a></div><div class="ttdeci">void UpdateRadianceCaches(FRDGBuilder &amp;GraphBuilder, const FLumenSceneFrameTemporaries &amp;FrameTemporaries, const TInlineArray&lt; FUpdateInputs &gt; &amp;InputArray, TInlineArray&lt; FUpdateOutputs &gt; &amp;OutputArray, const FScene *Scene, const FViewFamilyInfo &amp;ViewFamily, const FSceneTextures &amp;SceneTextures, bool bPropagateGlobalLightingChange, ERDGPassFlags ComputePassFlags)</div><div class="ttdef"><b>定义</b> LumenRadianceCache.cpp:1417</div></div>
+<div class="ttc" id="anamespace_lumen_radiance_cache_html_a8e132d3b6ee7f154edd50798805c926a"><div class="ttname"><a href="../../d6/de1/namespace_lumen_radiance_cache.html#a8e132d3b6ee7f154edd50798805c926a">LumenRadianceCache::MarkForTranslucencyReflections</a></div><div class="ttdeci">FRDGTextureRef MarkForTranslucencyReflections(FRDGBuilder &amp;GraphBuilder, FViewInfo &amp;View, const FSceneRenderer &amp;SceneRenderer, const FSceneTextures &amp;SceneTextures)</div><div class="ttdef"><b>定义</b> LumenRadianceCache.cpp:1378</div></div>
+<div class="ttc" id="anamespace_lumen_radiance_cache_html_af59d42dadbf861ec23478ad836afa44f"><div class="ttname"><a href="../../d6/de1/namespace_lumen_radiance_cache.html#af59d42dadbf861ec23478ad836afa44f">LumenRadianceCache::GetLumenSceneLightingComputePassFlags</a></div><div class="ttdeci">ERDGPassFlags GetLumenSceneLightingComputePassFlags(const FEngineShowFlags &amp;EngineShowFlags)</div></div>
+<div class="ttc" id="anamespace_lumen_radiance_cache_html_afe5bf204f67d491f6f671391ac7601dd"><div class="ttname"><a href="../../d6/de1/namespace_lumen_radiance_cache.html#afe5bf204f67d491f6f671391ac7601dd">LumenRadianceCache::GetProbeValidSRV</a></div><div class="ttdeci">FRDGBufferSRVRef GetProbeValidSRV(FRDGBuilder &amp;GraphBuilder, FRDGBufferRef InProbeValid)</div><div class="ttdef"><b>定义</b> LumenRadianceCache.cpp:1412</div></div>
+<div class="ttc" id="apreprocessor_8c_html_a1134b580f8da4de94ca6b1de4d37975e"><div class="ttname"><a href="../../dd/de9/preprocessor_8c.html#a1134b580f8da4de94ca6b1de4d37975e">uint32</a></div><div class="ttdeci">unsigned int uint32</div><div class="ttdef"><b>定义</b> preprocessor.c:67</div></div>
+<div class="ttc" id="apreprocessor_8c_html_a91ad9478d81a7aaf2593e8d9c3d06a14"><div class="ttname"><a href="../../dd/de9/preprocessor_8c.html#a91ad9478d81a7aaf2593e8d9c3d06a14">uint</a></div><div class="ttdeci">unsigned int uint</div><div class="ttdef"><b>定义</b> preprocessor.c:66</div></div>
+<div class="ttc" id="astruct_f_engine_show_flags_html"><div class="ttname"><a href="../../d4/dac/struct_f_engine_show_flags.html">FEngineShowFlags</a></div><div class="ttdef"><b>定义</b> ShowFlags.h:57</div></div>
+<div class="ttc" id="astruct_f_lumen_scene_frame_temporaries_html"><div class="ttname"><a href="../../dc/da7/struct_f_lumen_scene_frame_temporaries.html">FLumenSceneFrameTemporaries</a></div><div class="ttdef"><b>定义</b> LumenSceneData.h:997</div></div>
+<div class="ttc" id="astruct_f_radiance_cache_configuration_html"><div class="ttname"><a href="../../d9/d0c/struct_f_radiance_cache_configuration.html">FRadianceCacheConfiguration</a></div><div class="ttdef"><b>定义</b> LumenRadianceCache.h:27</div></div>
+<div class="ttc" id="astruct_f_radiance_cache_configuration_html_a7d5a2fafeb35414ef0068e97ac5bb609"><div class="ttname"><a href="../../d9/d0c/struct_f_radiance_cache_configuration.html#a7d5a2fafeb35414ef0068e97ac5bb609">FRadianceCacheConfiguration::bFarField</a></div><div class="ttdeci">bool bFarField</div><div class="ttdef"><b>定义</b> LumenRadianceCache.h:28</div></div>
+<div class="ttc" id="astruct_f_radiance_cache_configuration_html_aa43c2efefa5d85f6675dfc50cca25487"><div class="ttname"><a href="../../d9/d0c/struct_f_radiance_cache_configuration.html#aa43c2efefa5d85f6675dfc50cca25487">FRadianceCacheConfiguration::bSkyVisibility</a></div><div class="ttdeci">bool bSkyVisibility</div><div class="ttdef"><b>定义</b> LumenRadianceCache.h:29</div></div>
+<div class="ttc" id="astruct_f_scene_textures_html"><div class="ttname"><a href="../../d1/d9e/struct_f_scene_textures.html">FSceneTextures</a></div><div class="ttdef"><b>定义</b> SceneTextures.h:112</div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+</div><!-- container -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a href="../../dir_0b6ee6e7e9547e675db4add2e5de97da.html">Engine</a></li><li class="navelem"><a href="../../dir_9579d1ecb2c7bf48cbe1049c41745cb4.html">Source</a></li><li class="navelem"><a href="../../dir_9f04efef762572853abdf73f62bebfcc.html">Runtime</a></li><li class="navelem"><a href="../../dir_5ed6327f04b0f38d3f6fe5caa38b0445.html">Renderer</a></li><li class="navelem"><a href="../../dir_e317dc6f09036e33460f39c550131623.html">Private</a></li><li class="navelem"><a href="../../dir_161a7642c6d0198965c23f504e27c348.html">Lumen</a></li><li class="navelem"><a href="../../d9/d3e/_lumen_radiance_cache_8h.html">LumenRadianceCache.h</a></li>
+    <li class="footer">制作者 <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.15.0 </li>
+  </ul>
+</div>
+</body>
+</html>

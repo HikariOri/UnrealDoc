@@ -1,0 +1,28 @@
+var struct_f_notification_info =
+[
+    [ "FNotificationInfo", "d4/df7/struct_f_notification_info.html#a29b9a62f5873e0b847b14672dee1ef76", null ],
+    [ "FNotificationInfo", "d4/df7/struct_f_notification_info.html#ac5a50e368e68c5a0106fd024d5d374fc", null ],
+    [ "ShowCopyToClipboadHyperlink", "d4/df7/struct_f_notification_info.html#aed1ca5c50d4322bae5063325702c61dc", null ],
+    [ "bAllowThrottleWhenFrameRateIsLow", "d4/df7/struct_f_notification_info.html#ace7671847597c9475c7be03e34848ffd", null ],
+    [ "bFireAndForget", "d4/df7/struct_f_notification_info.html#abf54b10a4f12e8daf73581272a1913b1", null ],
+    [ "bUseCopyToClipboard", "d4/df7/struct_f_notification_info.html#a254388548b254f55ad06ad31b7acf358", null ],
+    [ "bUseLargeFont", "d4/df7/struct_f_notification_info.html#a4d604ec3fb5395b8b872a9e5044fa9b6", null ],
+    [ "bUseSuccessFailIcons", "d4/df7/struct_f_notification_info.html#ab44f4da87e5af96bc50a65b83d011f66", null ],
+    [ "bUseThrobber", "d4/df7/struct_f_notification_info.html#ac55c6e39336addab68d1a30c46a0f60e", null ],
+    [ "ButtonDetails", "d4/df7/struct_f_notification_info.html#ae917a61a8409bceef0eb5fa4741dce71", null ],
+    [ "CheckBoxState", "d4/df7/struct_f_notification_info.html#af8f4e8d2876e20dd7894466c9cc4f09f", null ],
+    [ "CheckBoxStateChanged", "d4/df7/struct_f_notification_info.html#a4db3f2cd23292c8712e965bdc7b3f7ac", null ],
+    [ "CheckBoxText", "d4/df7/struct_f_notification_info.html#a59d25a03e94624afd24b948136d6b1a3", null ],
+    [ "ContentWidget", "d4/df7/struct_f_notification_info.html#a18de6faec3e7f36cc1936f26c7a3eb04", null ],
+    [ "DefaultState", "d4/df7/struct_f_notification_info.html#a5f9d4f93ee20a629a1efa6b8b09ac501", null ],
+    [ "ExpireDuration", "d4/df7/struct_f_notification_info.html#ad805c2842bad83fe76f390c646f12422", null ],
+    [ "FadeInDuration", "d4/df7/struct_f_notification_info.html#ad278d3766889341dd324f41c5edfc896", null ],
+    [ "FadeOutDuration", "d4/df7/struct_f_notification_info.html#aacd8571b724f9a11217e4f3fe9a64b4c", null ],
+    [ "ForWindow", "d4/df7/struct_f_notification_info.html#a12c9a87eb35fab36701f8b005fe1f301", null ],
+    [ "Hyperlink", "d4/df7/struct_f_notification_info.html#af6ea3b57026d67f17d47b387269ec503", null ],
+    [ "HyperlinkText", "d4/df7/struct_f_notification_info.html#a2d449b333e11884f0e74970abace9191", null ],
+    [ "Image", "d4/df7/struct_f_notification_info.html#a29b003fbb7deb127dbd5fb642b41641e", null ],
+    [ "SubText", "d4/df7/struct_f_notification_info.html#af50b1126cae61bc2ae2435df368bf236", null ],
+    [ "Text", "d4/df7/struct_f_notification_info.html#a2e48697c281ddd48b42c1990081f99b2", null ],
+    [ "WidthOverride", "d4/df7/struct_f_notification_info.html#aa6bcb564e75534db8269c91cf869e7fd", null ]
+];

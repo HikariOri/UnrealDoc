@@ -1,0 +1,37 @@
+var class_i_perf_counters =
+[
+    [ "FJsonVariant", "d4/d4e/struct_i_perf_counters_1_1_f_json_variant.html", "d4/d4e/struct_i_perf_counters_1_1_f_json_variant" ],
+    [ "Histograms", "db/de0/struct_i_perf_counters_1_1_histograms.html", null ],
+    [ "TPerformanceHistogramMap", "d1/d40/class_i_perf_counters.html#af57d8d567ccb45a3a04a52946b2100a6", null ],
+    [ "Flags", "d1/d40/class_i_perf_counters.html#a0281b8cc2225b3616b5e1614e5d75d4e", [
+      [ "Transient", "d1/d40/class_i_perf_counters.html#a0281b8cc2225b3616b5e1614e5d75d4ea8e7024f49bb6fb09609137e77425eb7b", null ]
+    ] ],
+    [ "~IPerfCounters", "d1/d40/class_i_perf_counters.html#a7638307e331e3bc7c4ccaf2f188fd831", null ],
+    [ "Get", "d1/d40/class_i_perf_counters.html#a4bb1787f91911ca0e4c32314ac5916cb", null ],
+    [ "Get", "d1/d40/class_i_perf_counters.html#a045999b12fb670132d9f1d12b1b84edb", null ],
+    [ "Get", "d1/d40/class_i_perf_counters.html#a015fa66ab48933d17a40259601bee841", null ],
+    [ "Get", "d1/d40/class_i_perf_counters.html#ac1abd2485feb45aa2c2532d7d9874bd2", null ],
+    [ "GetAllCounters", "d1/d40/class_i_perf_counters.html#a44a3029f0e45333e452563d508d3bb14", null ],
+    [ "GetAllCountersAsJson", "d1/d40/class_i_perf_counters.html#a0a7b71ba508c89d7a583039280d26417", null ],
+    [ "GetInstanceName", "d1/d40/class_i_perf_counters.html#ae720640275a5eaca21242983de1b781d", null ],
+    [ "GetNumber", "d1/d40/class_i_perf_counters.html#a66cee9483e442a0f023a3f6659e1134d", null ],
+    [ "Increment", "d1/d40/class_i_perf_counters.html#a8c25ec26431d26c9423cccda0cdd4de3", null ],
+    [ "OnPerfCounterExecCommand", "d1/d40/class_i_perf_counters.html#af870c5b8c2a8a243dccade5767f72877", null ],
+    [ "PerformanceHistograms", "d1/d40/class_i_perf_counters.html#a86231d522032243edc9a29d78ffdc3fc", null ],
+    [ "ReportUnplayableCondition", "d1/d40/class_i_perf_counters.html#a52e08b36e4d0752f8bbe633ceac9dca8", null ],
+    [ "ResetStatsForNextPeriod", "d1/d40/class_i_perf_counters.html#aa454b9b789a35b6fcdc6588175fb2447", null ],
+    [ "Set", "d1/d40/class_i_perf_counters.html#ae0a7d5377634bda62dfb7e46d58ca60f", null ],
+    [ "Set", "d1/d40/class_i_perf_counters.html#af44db5749e81247a60ebb86d1b8507ce", null ],
+    [ "Set", "d1/d40/class_i_perf_counters.html#a25ac9fe9bb41cd21a0951b4a9d7b56f1", null ],
+    [ "Set", "d1/d40/class_i_perf_counters.html#af86b7e7039d46c733477b48fe1725973", null ],
+    [ "Set", "d1/d40/class_i_perf_counters.html#ae8af5c023172f9a031b11561d585d13a", null ],
+    [ "Set", "d1/d40/class_i_perf_counters.html#a02a9e77a629e73f529d575eddbdbdc37", null ],
+    [ "Set", "d1/d40/class_i_perf_counters.html#a3aa9f01c971f02a1de0fd77c6d886388", null ],
+    [ "Set", "d1/d40/class_i_perf_counters.html#a3e3f9b65b9ed529ba779c8cb81104ffc", null ],
+    [ "SetJson", "d1/d40/class_i_perf_counters.html#a5fede8e54cf0773a803e42e7e50eef8e", null ],
+    [ "SetNumber", "d1/d40/class_i_perf_counters.html#a5d6afc7a25bb6cf70d79b248473132a7", null ],
+    [ "SetString", "d1/d40/class_i_perf_counters.html#a7380bd08d3e70e87c137bb03721ce260", null ],
+    [ "StartMachineLoadTracking", "d1/d40/class_i_perf_counters.html#af34d7d298c366207e98e63c080a52f2b", null ],
+    [ "StartMachineLoadTracking", "d1/d40/class_i_perf_counters.html#af263e07c5f2e9920113c0c5bdf27447c", null ],
+    [ "StopMachineLoadTracking", "d1/d40/class_i_perf_counters.html#ad9fd73b6553d45fb0cf84c245b3c8f77", null ]
+];

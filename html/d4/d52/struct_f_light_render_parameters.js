@@ -1,0 +1,26 @@
+var struct_f_light_render_parameters =
+[
+    [ "GetLightExposureScale", "d4/d52/struct_f_light_render_parameters.html#a1bb426afcf3a0b98cdd0e0b91d1cd8cc", null ],
+    [ "MakeShaderParameters", "d4/d52/struct_f_light_render_parameters.html#ae3f9f589e5d0624d7b1764e3bc665652", null ],
+    [ "bAffectsTranslucentLighting", "d4/d52/struct_f_light_render_parameters.html#ad400c8adecc5035dc68feb2ced955dac", null ],
+    [ "Color", "d4/d52/struct_f_light_render_parameters.html#ab0afa1bc45a1da85a832544f1030e8e6", null ],
+    [ "DiffuseScale", "d4/d52/struct_f_light_render_parameters.html#a46a75f4fde4634888f70108171f6d524", null ],
+    [ "Direction", "d4/d52/struct_f_light_render_parameters.html#a4ded1a23caae9019524612fa0b1e6511", null ],
+    [ "FalloffExponent", "d4/d52/struct_f_light_render_parameters.html#a6c40abf5f5f93d1d152d39defdf823e6", null ],
+    [ "IESAtlasIndex", "d4/d52/struct_f_light_render_parameters.html#a24fb1ef4b58c01ad148244641dc7a626", null ],
+    [ "InverseExposureBlend", "d4/d52/struct_f_light_render_parameters.html#a42612f22b9465b2bc304e159147ab478", null ],
+    [ "InvRadius", "d4/d52/struct_f_light_render_parameters.html#aac05f489c220fd076c77a5dd006067d7", null ],
+    [ "LightFunctionAtlasLightIndex", "d4/d52/struct_f_light_render_parameters.html#a371ca90cf09f6a10fbda482a96021c78", null ],
+    [ "RectLightAtlasMaxLevel", "d4/d52/struct_f_light_render_parameters.html#abdca69011405746a94680480f4fed3e9", null ],
+    [ "RectLightAtlasUVOffset", "d4/d52/struct_f_light_render_parameters.html#a10c4d4a818a451595030e347f480856d", null ],
+    [ "RectLightAtlasUVScale", "d4/d52/struct_f_light_render_parameters.html#a8e417caf37b4eb42a496b5b8712bf0ac", null ],
+    [ "RectLightBarnCosAngle", "d4/d52/struct_f_light_render_parameters.html#a691c7cd0a43617b8d5fa5165a169a183", null ],
+    [ "RectLightBarnLength", "d4/d52/struct_f_light_render_parameters.html#a6bbc9aedf471a6645860dbb8fa799c18", null ],
+    [ "SoftSourceRadius", "d4/d52/struct_f_light_render_parameters.html#a77e440ae79c1d0e1207447adba5e030e", null ],
+    [ "SourceLength", "d4/d52/struct_f_light_render_parameters.html#a7951e79770c183798dcccbcdabbc9ae7", null ],
+    [ "SourceRadius", "d4/d52/struct_f_light_render_parameters.html#a184687032e9f82e70edc2ab06cb552fd", null ],
+    [ "SpecularScale", "d4/d52/struct_f_light_render_parameters.html#ab1754759dae0793f86fecc8358d1c3f6", null ],
+    [ "SpotAngles", "d4/d52/struct_f_light_render_parameters.html#af21ace9dfa8d9c701cf69968d8852028", null ],
+    [ "Tangent", "d4/d52/struct_f_light_render_parameters.html#a27b06d802feffec60bea2037d9f68500", null ],
+    [ "WorldPosition", "d4/d52/struct_f_light_render_parameters.html#ae7cc5e386f658a7892da2833f9529ce7", null ]
+];

@@ -1,0 +1,488 @@
+<!-- HTML header for doxygen 1.15.0-->
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh">
+<head>
+  <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=11" />
+  <meta name="generator" content="Doxygen 1.15.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>UE 5.8.4: Engine/Source/Runtime/Renderer/Private/Shadows/ShadowSceneRenderer.h 源文件</title>
+  <link rel="icon" href="../../EdIconDefault.bmp" type="image/x-icon" />
+  <link href="../../tabs.css" rel="stylesheet" type="text/css" />
+  <script type="text/javascript" src="../../jquery.js"></script>
+  <script type="text/javascript" src="../../dynsections.js"></script>
+  <link href="../../navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../navtreedata.js"></script>
+<script type="text/javascript" src="../../navtree.js"></script>
+<script type="text/javascript" src="../../cookie.js"></script>
+  <link href="../../search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../search/searchdata.js"></script>
+<script type="text/javascript" src="../../search/search.js"></script>
+  <link href="../../doxygen.css" rel="stylesheet" type="text/css" />
+  <link href="../../doxygen-awesome.css" rel="stylesheet" type="text/css"/>
+<link href="../../doxygen-awesome-sidebar-only.css" rel="stylesheet" type="text/css"/>
+<link href="../../doxygen-awesome-sidebar-only-darkmode-toggle.css" rel="stylesheet" type="text/css"/>
+  <!-- ... other metadata & script includes ... -->
+  <script type="text/javascript" src="../../doxygen-awesome-darkmode-toggle.js"></script>
+  <script type="text/javascript">
+    DoxygenAwesomeDarkModeToggle.title = "Zwischen hellem/dunklem Modus wechseln"
+    DoxygenAwesomeDarkModeToggle.lightModeIcon = '🌞'
+    // icon from https://fonts.google.com/icons
+    DoxygenAwesomeDarkModeToggle.darkModeIcon = `<svg xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 24 24" height="24px" viewBox="0 0 24 24" width="24px" fill="#009793"><g><rect fill="none" height="24" width="24"/></g><g><g><path d="M8.1,14.15C9.77,14.63,11,16.17,11,18c0,0.68-0.19,1.31-0.48,1.87c0.48,0.09,0.97,0.14,1.48,0.14 c1.48,0,2.9-0.41,4.13-1.15c-2.62-0.92-5.23-2.82-6.8-5.86C7.74,9.94,7.78,7.09,8.29,4.9c-2.57,1.33-4.3,4.01-4.3,7.1c0,0,0,0,0,0 c0.01,0,0.01,0,0.02,0C5.66,12,7.18,12.83,8.1,14.15z" opacity=".3"/><path d="M19.78,17.51c-2.47,0-6.57-1.33-8.68-5.43C8.77,7.57,10.6,3.6,11.63,2.01C6.27,2.2,1.98,6.59,1.98,12 c0,0.14,0.02,0.28,0.02,0.42C2.61,12.16,3.28,12,3.98,12c0,0,0,0,0,0c0-3.09,1.73-5.77,4.3-7.1C7.78,7.09,7.74,9.94,9.32,13 c1.57,3.04,4.18,4.95,6.8,5.86c-1.23,0.74-2.65,1.15-4.13,1.15c-0.5,0-1-0.05-1.48-0.14c-0.37,0.7-0.94,1.27-1.64,1.64 c0.98,0.32,2.03,0.5,3.11,0.5c3.5,0,6.58-1.8,8.37-4.52C20.18,17.5,19.98,17.51,19.78,17.51z"/><path d="M7,16l-0.18,0C6.4,14.84,5.3,14,4,14c-1.66,0-3,1.34-3,3s1.34,3,3,3c0.62,0,2.49,0,3,0c1.1,0,2-0.9,2-2 C9,16.9,8.1,16,7,16z"/></g></g></svg>`
+    DoxygenAwesomeDarkModeToggle.init()
+  </script>
+  <script type="text/javascript" src="../../doxygen-awesome-fragment-copy-button.js"></script>
+  <script type="text/javascript">
+    DoxygenAwesomeFragmentCopyButton.title = "In die Zwischenablage kopieren"
+    // DoxygenAwesomeFragmentCopyButton.copyIcon = `<svg ...>`
+    // DoxygenAwesomeFragmentCopyButton.successIcon = `<svg ...>`
+    DoxygenAwesomeFragmentCopyButton.init()
+  </script>
+  <script type="text/javascript" src="../../doxygen-awesome-paragraph-link.js"></script>
+  <script type="text/javascript">
+    DoxygenAwesomeParagraphLink.title = "Abschnitt verknüpfen"
+    DoxygenAwesomeParagraphLink.icon = "¶"
+    DoxygenAwesomeParagraphLink.init()
+  </script>
+  <script type="text/javascript" src="../../doxygen-awesome-interactive-toc.js"></script>
+  <script type="text/javascript">
+    DoxygenAwesomeInteractiveToc.topOffset = 45
+    DoxygenAwesomeInteractiveToc.hideMobileMenu = false
+    DoxygenAwesomeInteractiveToc.init()
+  </script>
+</head>
+<body>
+    <div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+      <div id="titlearea">
+        <table cellspacing="0" cellpadding="0">
+          <tbody>
+            <tr id="projectrow">
+              <td id="projectlogo"><img alt="Logo" src="../../EdIconDefault.bmp"  /></td>
+              <td id="projectalign">
+                <div id="projectname">UE 5.8.4
+                </div>
+                <div id="projectbrief">Unreal Engine</div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <!-- end header part -->
+<!-- 制作者 Doxygen 1.15.0 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "../../search/",'.html');
+</script>
+<script type="text/javascript">
+$(function() { codefold.init(); });
+</script>
+<script type="text/javascript" src="../../menudata.js"></script>
+<script type="text/javascript" src="../../menu.js"></script>
+<script type="text/javascript">
+$(function() {
+  initMenu('../../',true,false,'search.php','搜索',true);
+  $(function() { init_search(); });
+});
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(function(){initNavTree('db/d0b/_shadow_scene_renderer_8h_source.html','../../',''); });
+</script>
+<div id="container">
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">载入中...</div>
+<div class="SRStatus" id="Searching">搜索中...</div>
+<div class="SRStatus" id="NoMatches">未找到</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">ShadowSceneRenderer.h</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="../../db/d0b/_shadow_scene_renderer_8h.html">浏览该文件的文档.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="comment">// Copyright Epic Games, Inc. All Rights Reserved.</span></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="preprocessor">#pragma once</span></div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span> </div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#include &quot;<a class="code" href="../../dc/d5e/_core_minimal_8h.html">CoreMinimal.h</a>&quot;</span></div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="preprocessor">#include &quot;<a class="code" href="../../d5/d72/_sparse_array_8h.html">Containers/SparseArray.h</a>&quot;</span></div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="preprocessor">#include &quot;<a class="code" href="../../dd/d92/_array_view_8h.html">Containers/ArrayView.h</a>&quot;</span></div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="preprocessor">#include &quot;Containers/Array.h&quot;</span></div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="preprocessor">#include &quot;<a class="code" href="../../d1/d6d/_core_2_public_2_tasks_2_task_8h.html">Tasks/Task.h</a>&quot;</span></div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="preprocessor">#include &quot;<a class="code" href="../../da/dac/_light_scene_info_8h.html">LightSceneInfo.h</a>&quot;</span></div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="preprocessor">#include &quot;<a class="code" href="../../da/dc2/_shadow_scene_8h.html">ShadowScene.h</a>&quot;</span></div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="preprocessor">#include &quot;<a class="code" href="../../db/de1/_virtual_shadow_map_array_8h.html">VirtualShadowMaps/VirtualShadowMapArray.h</a>&quot;</span></div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="preprocessor">#include &quot;<a class="code" href="../../d1/deb/_virtual_shadow_map_projection_8h.html">VirtualShadowMaps/VirtualShadowMapProjection.h</a>&quot;</span></div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span> </div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="keyword">class </span><a class="code hl_class" href="../../d6/def/class_f_projected_shadow_info.html">FProjectedShadowInfo</a>;</div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span><span class="keyword">class </span><a class="code hl_class" href="../../db/d37/class_f_deferred_shading_scene_renderer.html">FDeferredShadingSceneRenderer</a>;</div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span><span class="keyword">class </span><a class="code hl_class" href="../../de/d5c/class_f_whole_scene_projected_shadow_initializer.html">FWholeSceneProjectedShadowInitializer</a>;</div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span><span class="keyword">class </span><a class="code hl_class" href="../../d3/d85/class_f_r_d_g_builder.html">FRDGBuilder</a>;</div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span><span class="keyword">class </span><a class="code hl_class" href="../../db/dbd/class_f_virtual_shadow_map_per_light_cache_entry.html">FVirtualShadowMapPerLightCacheEntry</a>;</div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span><span class="keyword">struct </span><a class="code hl_struct" href="../../dd/d2f/struct_f_nanite_visibility_query.html">FNaniteVisibilityQuery</a>;</div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span><span class="keyword">enum class</span> <a class="code hl_enumeration" href="../../d1/deb/_virtual_shadow_map_projection_8h.html#ac2746745ffdf80cf5e90716b3c18e743">EVirtualShadowMapProjectionInputType</a>;</div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span> </div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span><span class="keyword">namespace </span><a class="code hl_namespace" href="../../df/de6/namespace_u_e_1_1_renderer_1_1_private.html">UE::Renderer::Private</a></div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>{</div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>    <span class="keyword">class </span><a class="code hl_class" href="../../d6/d1d/class_u_e_1_1_renderer_1_1_private_1_1_i_shadow_invalidating_instances.html">IShadowInvalidatingInstances</a>;</div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>}</div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span></div>
+<div class="foldopen" id="foldopen00030" data-start="{" data-end="}">
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno"><a class="line" href="../../d8/d65/namespace_e_virtual_shadow_type_id.html">   30</a></span><span class="keyword">namespace </span><a class="code hl_namespace" href="../../d8/d65/namespace_e_virtual_shadow_type_id.html">EVirtualShadowTypeId</a></div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>{</div>
+<div class="foldopen" id="foldopen00032" data-start="{" data-end="};">
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno"><a class="line" href="../../d8/d65/namespace_e_virtual_shadow_type_id.html#a04239ade9e81de8d73373492c0899504">   32</a></span>    <span class="keyword">enum</span> <a class="code hl_enumeration" href="../../d8/d65/namespace_e_virtual_shadow_type_id.html#a04239ade9e81de8d73373492c0899504">Type</a> : <a class="code hl_typedef" href="../../dd/de9/preprocessor_8c.html#a1134b580f8da4de94ca6b1de4d37975e">uint32</a></div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>    {</div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>        <span class="comment">// Regular clipmap</span></div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno"><a class="line" href="../../d8/d65/namespace_e_virtual_shadow_type_id.html#a04239ade9e81de8d73373492c0899504a515a207fda2f6b8e2261e467012967ec">   35</a></span>        <a class="code hl_enumvalue" href="../../d8/d65/namespace_e_virtual_shadow_type_id.html#a04239ade9e81de8d73373492c0899504a515a207fda2f6b8e2261e467012967ec">Regular</a>,</div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>        <span class="comment">// First-person (3rd person) shadow map,</span></div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno"><a class="line" href="../../d8/d65/namespace_e_virtual_shadow_type_id.html#a04239ade9e81de8d73373492c0899504ab075c764a2d980787acd740e9232265e">   37</a></span>        <a class="code hl_enumvalue" href="../../d8/d65/namespace_e_virtual_shadow_type_id.html#a04239ade9e81de8d73373492c0899504ab075c764a2d980787acd740e9232265e">FirstPerson</a>,</div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>        </div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno"><a class="line" href="../../d8/d65/namespace_e_virtual_shadow_type_id.html#a04239ade9e81de8d73373492c0899504a1df07daff1c3057a9a63b6cf7829507f">   39</a></span>        <a class="code hl_enumvalue" href="../../d8/d65/namespace_e_virtual_shadow_type_id.html#a04239ade9e81de8d73373492c0899504a1df07daff1c3057a9a63b6cf7829507f">Max</a></div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>    };</div>
+</div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>}</div>
+</div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span></div>
+<div class="foldopen" id="foldopen00046" data-start="{" data-end="};">
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno"><a class="line" href="../../d8/d5f/class_f_shadow_scene_renderer.html">   46</a></span><span class="keyword">class </span><a class="code hl_function" href="../../d8/d5f/class_f_shadow_scene_renderer.html#a64fd089d9bc0afe15f5e238bbc69c431">FShadowSceneRenderer</a> : <span class="keyword">public</span> <a class="code hl_function" href="../../d8/dac/class_i_scene_extension_renderer.html#a1b0fc771876be348a2033343f97ee632">ISceneExtensionRenderer</a></div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>{</div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno"><a class="line" href="../../d8/d5f/class_f_shadow_scene_renderer.html#aacbde7946192068a3d3411dd9774589d">   49</a></span>    <a class="code hl_function" href="../../d8/d5f/class_f_shadow_scene_renderer.html#aacbde7946192068a3d3411dd9774589d">DECLARE_SCENE_EXTENSION_RENDERER</a>(<a class="code hl_function" href="../../d8/d5f/class_f_shadow_scene_renderer.html#a64fd089d9bc0afe15f5e238bbc69c431">FShadowSceneRenderer</a>, <a class="code hl_class" href="../../d9/d0b/class_f_shadow_scene.html">FShadowScene</a>);</div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span> </div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>    <a class="code hl_function" href="../../d8/d5f/class_f_shadow_scene_renderer.html#a64fd089d9bc0afe15f5e238bbc69c431">FShadowSceneRenderer</a>(<a class="code hl_class" href="../../db/d37/class_f_deferred_shading_scene_renderer.html">FDeferredShadingSceneRenderer</a>&amp; InDeferredShadingSceneRenderer, <a class="code hl_class" href="../../d9/d0b/class_f_shadow_scene.html">FShadowScene</a>&amp; InShadowScene);</div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span></div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>    <span class="keyword">static</span> <span class="keywordtype">float</span> <a class="code hl_function" href="../../d8/d5f/class_f_shadow_scene_renderer.html#a759ca3f0306d1271d0d9248e66db259c">ComputeNaniteShadowsLODScaleFactor</a>();</div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span></div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code hl_function" href="../../d8/d5f/class_f_shadow_scene_renderer.html#a40b3e0ce8e6bef3b0f17ec11582facf3">PreInitViews</a>(<a class="code hl_class" href="../../d3/d85/class_f_r_d_g_builder.html">FRDGBuilder</a>&amp; GraphBuilder) <span class="keyword">override</span>;</div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span></div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>    <a class="code hl_class" href="../../dd/dba/class_t_shared_ptr.html">TSharedPtr&lt;FVirtualShadowMapPerLightCacheEntry&gt;</a> <a class="code hl_function" href="../../d8/d5f/class_f_shadow_scene_renderer.html#a96ac40436395dd3770add24bae00c331">AddLocalLightShadow</a>(<span class="keyword">const</span> <a class="code hl_class" href="../../de/d5c/class_f_whole_scene_projected_shadow_initializer.html">FWholeSceneProjectedShadowInitializer</a>&amp; <a class="code hl_enumvalue" href="../../db/dec/_r_h_i_resources_8h.html#af114583fcac6c3ba574b8236e38391a6ae807e61ca16dbec95fce00d4e542b9cd">Initializer</a>, <a class="code hl_class" href="../../d6/def/class_f_projected_shadow_info.html">FProjectedShadowInfo</a>* ProjectedShadowInfo, <a class="code hl_class" href="../../df/d16/class_f_light_scene_info.html">FLightSceneInfo</a>* LightSceneInfo, <span class="keywordtype">float</span> MaxScreenRadius);</div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="../../d8/d5f/class_f_shadow_scene_renderer.html#acfcf03bc0cb10d2e3a21e2883c76a75b">AddDirectionalLightShadow</a>(<a class="code hl_class" href="../../df/d16/class_f_light_scene_info.html">FLightSceneInfo</a>&amp; LightSceneInfo, <a class="code hl_class" href="../../dd/d2b/class_f_view_info.html">FViewInfo</a>&amp; <a class="code hl_enumvalue" href="../../d4/ded/_asset_type_activation_opened_method_8h.html#adf66f18a6bd35d59ab943dc1556b124fa4351cfebe4b61d8aa5efa1d020710005">View</a>, <span class="keywordtype">float</span> MaxNonFarCascadeDistance, <a class="code hl_class" href="../../d6/db1/class_t_array.html">TArray&lt;FProjectedShadowInfo*, SceneRenderingAllocator&gt;</a>&amp; OutShadowInfosThatNeedCulling);</div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span></div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="../../d8/d5f/class_f_shadow_scene_renderer.html#ab5c05aa4fc4467386ea720746cce0864">PostInitDynamicShadowsSetup</a>();</div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span></div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="../../d8/d5f/class_f_shadow_scene_renderer.html#aa039a151a2e9267d78c7bcaf7d1a8c31">DispatchVirtualShadowMapViewAndCullingSetup</a>(<a class="code hl_class" href="../../d3/d85/class_f_r_d_g_builder.html">FRDGBuilder</a>&amp; GraphBuilder, TConstArrayView&lt;FProjectedShadowInfo*&gt; VirtualShadowMapShadows);</div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span> </div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="../../d8/d5f/class_f_shadow_scene_renderer.html#a122541d275f9dffaac00658a801daf5c">PostSetupDebugRender</a>();</div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span></div>
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno"><a class="line" href="../../d8/d5f/class_f_shadow_scene_renderer.html#ae7046e535acc098ee87b8a07e128e6d8">   88</a></span>    <span class="keywordtype">bool</span> <a class="code hl_function" href="../../d8/d5f/class_f_shadow_scene_renderer.html#ae7046e535acc098ee87b8a07e128e6d8">HasVirtualShadowMap</a>(<a class="code hl_class" href="../../db/d00/class_f_light_scene_id.html">FLightSceneId</a> LightId)<span class="keyword"> const </span>{ <span class="keywordflow">return</span> CommonSetups[LightId].bHasVirtualShadowMap; }</div>
+<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span></div>
+<div class="line"><a id="l00093" name="l00093"></a><span class="lineno"><a class="line" href="../../d8/d5f/class_f_shadow_scene_renderer.html#ae65383312fb32dc8ac6396dd185aebc1">   93</a></span>    <span class="keywordtype">bool</span> <a class="code hl_function" href="../../d8/d5f/class_f_shadow_scene_renderer.html#ae65383312fb32dc8ac6396dd185aebc1">HasVirtualClipMap</a>(<a class="code hl_class" href="../../db/d00/class_f_light_scene_id.html">FLightSceneId</a> LightId)<span class="keyword"> const </span>{ <span class="keywordflow">return</span> CommonSetups[LightId].bHasVirtualShadowMap &amp;&amp; CommonSetups[LightId].bIsDirectional; }</div>
+<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span></div>
+<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="../../d8/d5f/class_f_shadow_scene_renderer.html#a012bbd07c15a6be1df2b44189f841184">BeginMarkVirtualShadowMapPages</a>(</div>
+<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span>        <a class="code hl_class" href="../../d3/d85/class_f_r_d_g_builder.html">FRDGBuilder</a>&amp; GraphBuilder,</div>
+<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span>        <span class="keyword">const</span> <a class="code hl_struct" href="../../d6/d28/struct_f_single_layer_water_pre_pass_result.html">FSingleLayerWaterPrePassResult</a>* SingleLayerWaterPrePassResult,</div>
+<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span>        <span class="keyword">const</span> <a class="code hl_struct" href="../../da/d44/struct_f_front_layer_translucency_data.html">FFrontLayerTranslucencyData</a>&amp; FrontLayerTranslucencyData,</div>
+<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span>        <span class="keyword">const</span> <a class="code hl_class" href="../../d7/d35/class_froxel_1_1_f_renderer.html">Froxel::FRenderer</a>&amp; FroxelRenderer);</div>
+<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span></div>
+<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="../../d8/d5f/class_f_shadow_scene_renderer.html#a87b6f19f8f41fab63289744ad2792c36">RenderVirtualShadowMaps</a>(<a class="code hl_class" href="../../d3/d85/class_f_r_d_g_builder.html">FRDGBuilder</a>&amp; GraphBuilder, <span class="keywordtype">bool</span> bNaniteEnabled);</div>
+<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span> </div>
+<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span>    <span class="comment">/* Does any one pass shadow projection and generates screen space shadow mask bits</span></div>
+<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span><span class="comment">     * Call before beginning light loop/shadow projection, but after shadow map rendering</span></div>
+<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span><span class="comment">     */</span></div>
+<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="../../d8/d5f/class_f_shadow_scene_renderer.html#a97b5ae56f032894cdf3ba99af3d3b67d">RenderVirtualShadowMapProjectionMaskBits</a>(</div>
+<div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span>        <a class="code hl_class" href="../../d3/d85/class_f_r_d_g_builder.html">FRDGBuilder</a>&amp; GraphBuilder,</div>
+<div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span>        <a class="code hl_struct" href="../../d1/d92/struct_f_minimal_scene_textures.html">FMinimalSceneTextures</a>&amp; SceneTextures);</div>
+<div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span> </div>
+<div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="../../d8/d5f/class_f_shadow_scene_renderer.html#a2abfd25bfa052a1e5697461e2d78668c">RenderVirtualShadowMapProjection</a>(</div>
+<div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span>        <a class="code hl_class" href="../../d3/d85/class_f_r_d_g_builder.html">FRDGBuilder</a>&amp; GraphBuilder,</div>
+<div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span>        <span class="keyword">const</span> <a class="code hl_struct" href="../../d1/d92/struct_f_minimal_scene_textures.html">FMinimalSceneTextures</a>&amp; SceneTextures,</div>
+<div class="line"><a id="l00117" name="l00117"></a><span class="lineno">  117</span>        <a class="code hl_class" href="../../db/d00/class_f_light_scene_id.html">FLightSceneId</a> LightId,</div>
+<div class="line"><a id="l00118" name="l00118"></a><span class="lineno">  118</span>        <span class="keyword">const</span> <a class="code hl_class" href="../../dd/d2b/class_f_view_info.html">FViewInfo</a>&amp; <a class="code hl_enumvalue" href="../../d4/ded/_asset_type_activation_opened_method_8h.html#adf66f18a6bd35d59ab943dc1556b124fa4351cfebe4b61d8aa5efa1d020710005">View</a>, <a class="code hl_typedef" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a8dbb3cd84ca9fd010dadfc3815eefa5d">int32</a> ViewIndex,</div>
+<div class="line"><a id="l00119" name="l00119"></a><span class="lineno">  119</span>        <span class="keyword">const</span> <a class="code hl_typedef" href="../../d0/df6/_math_fwd_8h.html#a0fb396f1ac08e81082181174c7bff43a">FIntRect</a> ScissorRect,</div>
+<div class="line"><a id="l00120" name="l00120"></a><span class="lineno">  120</span>        <a class="code hl_enumeration" href="../../d1/deb/_virtual_shadow_map_projection_8h.html#ac2746745ffdf80cf5e90716b3c18e743">EVirtualShadowMapProjectionInputType</a> InputType,</div>
+<div class="line"><a id="l00121" name="l00121"></a><span class="lineno">  121</span>        <span class="keywordtype">bool</span> bModulateRGB,</div>
+<div class="line"><a id="l00122" name="l00122"></a><span class="lineno">  122</span>        <a class="code hl_struct" href="../../d2/dcb/struct_f_tiled_v_s_m_projection.html">FTiledVSMProjection</a>* TiledVSMProjection,</div>
+<div class="line"><a id="l00123" name="l00123"></a><span class="lineno">  123</span>        <a class="code hl_typedef" href="../../d6/d6d/_canvas_types_8h.html#aea265cf57883ec58a09111d4a17b8448">FRDGTextureRef</a> OutputShadowMaskTexture);</div>
+<div class="line"><a id="l00124" name="l00124"></a><span class="lineno">  124</span> </div>
+<div class="line"><a id="l00125" name="l00125"></a><span class="lineno">  125</span></div>
+<div class="line"><a id="l00129" name="l00129"></a><span class="lineno">  129</span>    <a class="code hl_class" href="../../d6/db1/class_t_array.html">TArray&lt;int32, SceneRenderingAllocator&gt;</a> <a class="code hl_function" href="../../d8/d5f/class_f_shadow_scene_renderer.html#ad973824fb19f2f214f9d511b518ba43d">GatherClipmapIds</a>(<a class="code hl_typedef" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a8dbb3cd84ca9fd010dadfc3815eefa5d">int32</a> ViewIndex) <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00130" name="l00130"></a><span class="lineno">  130</span></div>
+<div class="line"><a id="l00135" name="l00135"></a><span class="lineno">  135</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="../../d8/d5f/class_f_shadow_scene_renderer.html#a48cda437038e808144aa422849a83249">ApplyVirtualShadowMapProjectionForLight</a>(</div>
+<div class="line"><a id="l00136" name="l00136"></a><span class="lineno">  136</span>        <a class="code hl_class" href="../../d3/d85/class_f_r_d_g_builder.html">FRDGBuilder</a>&amp; GraphBuilder,</div>
+<div class="line"><a id="l00137" name="l00137"></a><span class="lineno">  137</span>        <span class="keyword">const</span> <a class="code hl_struct" href="../../d1/d92/struct_f_minimal_scene_textures.html">FMinimalSceneTextures</a>&amp; SceneTextures,</div>
+<div class="line"><a id="l00138" name="l00138"></a><span class="lineno">  138</span>        <span class="keyword">const</span> <a class="code hl_class" href="../../df/d16/class_f_light_scene_info.html">FLightSceneInfo</a>* LightSceneInfo,</div>
+<div class="line"><a id="l00139" name="l00139"></a><span class="lineno">  139</span>        <span class="keyword">const</span> <a class="code hl_enumeration" href="../../d1/deb/_virtual_shadow_map_projection_8h.html#ac2746745ffdf80cf5e90716b3c18e743">EVirtualShadowMapProjectionInputType</a> InputType,</div>
+<div class="line"><a id="l00140" name="l00140"></a><span class="lineno">  140</span>        <a class="code hl_typedef" href="../../d6/d6d/_canvas_types_8h.html#aea265cf57883ec58a09111d4a17b8448">FRDGTextureRef</a> OutputScreenShadowMaskTexture);</div>
+<div class="line"><a id="l00141" name="l00141"></a><span class="lineno">  141</span> </div>
+<div class="line"><a id="l00142" name="l00142"></a><span class="lineno">  142</span>    <span class="comment">// One pass projection stuff. Set up in RenderVitualShadowMapProjectionMaskBits</span></div>
+<div class="line"><a id="l00143" name="l00143"></a><span class="lineno"><a class="line" href="../../d8/d5f/class_f_shadow_scene_renderer.html#a3dc500eb9e16335b09c082f8db9e2efb">  143</a></span>    <a class="code hl_typedef" href="../../d6/d6d/_canvas_types_8h.html#aea265cf57883ec58a09111d4a17b8448">FRDGTextureRef</a> <a class="code hl_variable" href="../../d8/d5f/class_f_shadow_scene_renderer.html#a3dc500eb9e16335b09c082f8db9e2efb">VirtualShadowMapMaskBits</a> = <span class="keyword">nullptr</span>;</div>
+<div class="line"><a id="l00144" name="l00144"></a><span class="lineno"><a class="line" href="../../d8/d5f/class_f_shadow_scene_renderer.html#ac91335bea99b2ce555782fc480158a15">  144</a></span>    <a class="code hl_typedef" href="../../d6/d6d/_canvas_types_8h.html#aea265cf57883ec58a09111d4a17b8448">FRDGTextureRef</a> <a class="code hl_variable" href="../../d8/d5f/class_f_shadow_scene_renderer.html#ac91335bea99b2ce555782fc480158a15">VirtualShadowMapMaskBitsHairStrands</a> = <span class="keyword">nullptr</span>;</div>
+<div class="line"><a id="l00145" name="l00145"></a><span class="lineno"><a class="line" href="../../d8/d5f/class_f_shadow_scene_renderer.html#aeaf7a6fa9734210e52f4dd49b63bc843">  145</a></span>    <a class="code hl_class" href="../../d6/db1/class_t_array.html">TArray&lt;FRDGBufferRef&gt;</a> <a class="code hl_variable" href="../../d8/d5f/class_f_shadow_scene_renderer.html#aeaf7a6fa9734210e52f4dd49b63bc843">HairTransmittanceMaskBits</a>;</div>
+<div class="line"><a id="l00146" name="l00146"></a><span class="lineno">  146</span> </div>
+<div class="foldopen" id="foldopen00147" data-start="{" data-end="}">
+<div class="line"><a id="l00147" name="l00147"></a><span class="lineno"><a class="line" href="../../d8/d5f/class_f_shadow_scene_renderer.html#a636a20094384b2d4dc8d9048c4e6be01">  147</a></span>    <span class="keywordtype">bool</span> <a class="code hl_function" href="../../d8/d5f/class_f_shadow_scene_renderer.html#a636a20094384b2d4dc8d9048c4e6be01">UsePackedShadowMaskBits</a>()<span class="keyword"> const</span></div>
+<div class="line"><a id="l00148" name="l00148"></a><span class="lineno">  148</span><span class="keyword">    </span>{</div>
+<div class="line"><a id="l00149" name="l00149"></a><span class="lineno">  149</span>        <span class="keywordflow">return</span> <a class="code hl_variable" href="../../d8/d5f/class_f_shadow_scene_renderer.html#a3dc500eb9e16335b09c082f8db9e2efb">VirtualShadowMapMaskBits</a> != <span class="keyword">nullptr</span>;</div>
+<div class="line"><a id="l00150" name="l00150"></a><span class="lineno">  150</span>    }</div>
+</div>
+<div class="line"><a id="l00151" name="l00151"></a><span class="lineno">  151</span>    </div>
+<div class="foldopen" id="foldopen00152" data-start="{" data-end="}">
+<div class="line"><a id="l00152" name="l00152"></a><span class="lineno"><a class="line" href="../../d8/d5f/class_f_shadow_scene_renderer.html#ac38d4703ff5395d82f7f25b569cc9e59">  152</a></span>    <a class="code hl_typedef" href="../../de/db6/namespace_u_e_1_1_tasks.html#a915c637b794c7ae61b5aee943a7ca780">UE::Tasks::FTask</a> <a class="code hl_function" href="../../d8/d5f/class_f_shadow_scene_renderer.html#ac38d4703ff5395d82f7f25b569cc9e59">GetRendererSetupTask</a>()<span class="keyword"> const</span></div>
+<div class="line"><a id="l00153" name="l00153"></a><span class="lineno">  153</span><span class="keyword">    </span>{</div>
+<div class="line"><a id="l00154" name="l00154"></a><span class="lineno">  154</span>        <span class="keywordflow">return</span> RendererSetupTask;</div>
+<div class="line"><a id="l00155" name="l00155"></a><span class="lineno">  155</span>    }</div>
+</div>
+<div class="line"><a id="l00156" name="l00156"></a><span class="lineno">  156</span> </div>
+<div class="foldopen" id="foldopen00157" data-start="{" data-end="}">
+<div class="line"><a id="l00157" name="l00157"></a><span class="lineno"><a class="line" href="../../d8/d5f/class_f_shadow_scene_renderer.html#adf24201e46a11e8d65f8ccc6585a47ee">  157</a></span>    <span class="keywordtype">bool</span> <a class="code hl_function" href="../../d8/d5f/class_f_shadow_scene_renderer.html#adf24201e46a11e8d65f8ccc6585a47ee">AreAnyLightsUsingMegaLightsVSM</a>()<span class="keyword"> const</span></div>
+<div class="line"><a id="l00158" name="l00158"></a><span class="lineno">  158</span><span class="keyword">    </span>{</div>
+<div class="line"><a id="l00159" name="l00159"></a><span class="lineno">  159</span>        <span class="keywordflow">return</span> bNeedMegaLightsProjection;</div>
+<div class="line"><a id="l00160" name="l00160"></a><span class="lineno">  160</span>    }</div>
+</div>
+<div class="line"><a id="l00161" name="l00161"></a><span class="lineno">  161</span> </div>
+<div class="foldopen" id="foldopen00162" data-start="{" data-end="}">
+<div class="line"><a id="l00162" name="l00162"></a><span class="lineno"><a class="line" href="../../d8/d5f/class_f_shadow_scene_renderer.html#a7e5553203b212571a8657d940b1fc0cb">  162</a></span>    <span class="keywordtype">bool</span> <a class="code hl_function" href="../../d8/d5f/class_f_shadow_scene_renderer.html#a7e5553203b212571a8657d940b1fc0cb">AreAnyLocalLightsPresent</a>()<span class="keyword"> const</span></div>
+<div class="line"><a id="l00163" name="l00163"></a><span class="lineno">  163</span><span class="keyword">    </span>{</div>
+<div class="line"><a id="l00164" name="l00164"></a><span class="lineno">  164</span>        <span class="keywordflow">return</span> LocalLights.Num() &gt; 0;</div>
+<div class="line"><a id="l00165" name="l00165"></a><span class="lineno">  165</span>    }</div>
+</div>
+<div class="line"><a id="l00166" name="l00166"></a><span class="lineno">  166</span> </div>
+<div class="foldopen" id="foldopen00167" data-start="{" data-end="}">
+<div class="line"><a id="l00167" name="l00167"></a><span class="lineno"><a class="line" href="../../d8/d5f/class_f_shadow_scene_renderer.html#aecf0c7f1d8c3f30be9373462b8b1682e">  167</a></span>    <span class="keywordtype">bool</span> <a class="code hl_function" href="../../d8/d5f/class_f_shadow_scene_renderer.html#aecf0c7f1d8c3f30be9373462b8b1682e">HasNaniteVisibilityQuery</a>()<span class="keyword"> const</span></div>
+<div class="line"><a id="l00168" name="l00168"></a><span class="lineno">  168</span><span class="keyword">    </span>{</div>
+<div class="line"><a id="l00169" name="l00169"></a><span class="lineno">  169</span>        <span class="keywordflow">return</span> NaniteVisibilityQuery != <span class="keyword">nullptr</span>;</div>
+<div class="line"><a id="l00170" name="l00170"></a><span class="lineno">  170</span>    }</div>
+</div>
+<div class="line"><a id="l00171" name="l00171"></a><span class="lineno">  171</span> </div>
+<div class="line"><a id="l00172" name="l00172"></a><span class="lineno">  172</span>    <a class="code hl_class" href="../../d6/d1d/class_u_e_1_1_renderer_1_1_private_1_1_i_shadow_invalidating_instances.html">UE::Renderer::Private::IShadowInvalidatingInstances</a> *<a class="code hl_function" href="../../d8/d5f/class_f_shadow_scene_renderer.html#a9829c130199f859cd7212cf30e9853de">GetInvalidatingInstancesInterface</a>(<span class="keyword">const</span> <a class="code hl_class" href="../../d6/d2c/class_f_scene_view.html">FSceneView</a> *SceneView);</div>
+<div class="line"><a id="l00173" name="l00173"></a><span class="lineno">  173</span> </div>
+<div class="line"><a id="l00174" name="l00174"></a><span class="lineno"><a class="line" href="../../d8/d5f/class_f_shadow_scene_renderer.html#a4d2d3b4e61797345135f12c48b94c39d">  174</a></span>    <a class="code hl_class" href="../../d5/d20/class_f_virtual_shadow_map_array.html">FVirtualShadowMapArray</a>&amp; <a class="code hl_function" href="../../d8/d5f/class_f_shadow_scene_renderer.html#a4d2d3b4e61797345135f12c48b94c39d">GetVirtualShadowMapArray</a>() { <span class="keywordflow">return</span> VirtualShadowMapArray; }</div>
+<div class="line"><a id="l00175" name="l00175"></a><span class="lineno"><a class="line" href="../../d8/d5f/class_f_shadow_scene_renderer.html#a572e44004a3a91cee6ae8ef8108b6db4">  175</a></span>    <span class="keyword">const</span> <a class="code hl_class" href="../../d5/d20/class_f_virtual_shadow_map_array.html">FVirtualShadowMapArray</a>&amp; <a class="code hl_function" href="../../d8/d5f/class_f_shadow_scene_renderer.html#a572e44004a3a91cee6ae8ef8108b6db4">GetVirtualShadowMapArray</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> VirtualShadowMapArray; }</div>
+<div class="line"><a id="l00176" name="l00176"></a><span class="lineno">  176</span> </div>
+<div class="line"><a id="l00177" name="l00177"></a><span class="lineno">  177</span><span class="keyword">private</span>:</div>
+<div class="line"><a id="l00180" name="l00180"></a><span class="lineno">  180</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="../../d8/d5f/class_f_shadow_scene_renderer.html#a87b6f19f8f41fab63289744ad2792c36">RenderVirtualShadowMaps</a>(<a class="code hl_class" href="../../d3/d85/class_f_r_d_g_builder.html">FRDGBuilder</a>&amp; GraphBuilder, <span class="keywordtype">bool</span> bNaniteEnabled, <span class="keywordtype">bool</span> bUpdateNaniteStreaming);</div>
+<div class="line"><a id="l00181" name="l00181"></a><span class="lineno">  181</span> </div>
+<div class="line"><a id="l00182" name="l00182"></a><span class="lineno">  182</span>    <span class="keyword">struct </span>FViewData</div>
+<div class="line"><a id="l00183" name="l00183"></a><span class="lineno">  183</span>    {</div>
+<div class="line"><a id="l00184" name="l00184"></a><span class="lineno">  184</span>        <span class="keywordtype">float</span> ClipToViewSizeScale = 0.0f;</div>
+<div class="line"><a id="l00185" name="l00185"></a><span class="lineno">  185</span>        <span class="keywordtype">float</span> ClipToViewSizeBias = 0.0f;</div>
+<div class="line"><a id="l00186" name="l00186"></a><span class="lineno">  186</span>    };</div>
+<div class="line"><a id="l00187" name="l00187"></a><span class="lineno">  187</span> </div>
+<div class="line"><a id="l00188" name="l00188"></a><span class="lineno">  188</span>    <span class="comment">// Generally only one pass, but we collect this to handle exceptional cases</span></div>
+<div class="line"><a id="l00189" name="l00189"></a><span class="lineno">  189</span>    <span class="keyword">struct </span>FNaniteRenderPass</div>
+<div class="line"><a id="l00190" name="l00190"></a><span class="lineno">  190</span>    {</div>
+<div class="line"><a id="l00191" name="l00191"></a><span class="lineno">  191</span>        FSceneInstanceCullingQuery *SceneInstanceCullingQuery = <span class="keyword">nullptr</span>;</div>
+<div class="line"><a id="l00192" name="l00192"></a><span class="lineno">  192</span>        TArray&lt;FProjectedShadowInfo*, SceneRenderingAllocator&gt; Shadows;</div>
+<div class="line"><a id="l00193" name="l00193"></a><span class="lineno">  193</span>        <a class="code hl_typedef" href="../../dd/de9/preprocessor_8c.html#a1134b580f8da4de94ca6b1de4d37975e">uint32</a> TotalPrimaryViews = 0;</div>
+<div class="line"><a id="l00194" name="l00194"></a><span class="lineno">  194</span>        <a class="code hl_typedef" href="../../dd/de9/preprocessor_8c.html#a1134b580f8da4de94ca6b1de4d37975e">uint32</a> MaxNumMips = 0;</div>
+<div class="line"><a id="l00195" name="l00195"></a><span class="lineno">  195</span>        Nanite::FPackedViewArray* VirtualShadowMapViews = <span class="keyword">nullptr</span>;</div>
+<div class="line"><a id="l00196" name="l00196"></a><span class="lineno">  196</span>    };</div>
+<div class="line"><a id="l00197" name="l00197"></a><span class="lineno">  197</span> </div>
+<div class="line"><a id="l00198" name="l00198"></a><span class="lineno">  198</span>    <a class="code hl_typedef" href="../../de/db6/namespace_u_e_1_1_tasks.html#a915c637b794c7ae61b5aee943a7ca780">UE::Tasks::FTask</a> RendererSetupTask;</div>
+<div class="line"><a id="l00199" name="l00199"></a><span class="lineno">  199</span> </div>
+<div class="line"><a id="l00200" name="l00200"></a><span class="lineno">  200</span>    FVirtualShadowMapProjectionShaderData GetLocalLightProjectionShaderData(</div>
+<div class="line"><a id="l00201" name="l00201"></a><span class="lineno">  201</span>        <span class="keywordtype">float</span> ResolutionLODBiasLocal,</div>
+<div class="line"><a id="l00202" name="l00202"></a><span class="lineno">  202</span>        <span class="keyword">const</span> FProjectedShadowInfo* ProjectedShadowInfo,</div>
+<div class="line"><a id="l00203" name="l00203"></a><span class="lineno">  203</span>        <a class="code hl_typedef" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a8dbb3cd84ca9fd010dadfc3815eefa5d">int32</a> MapIndex) <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00204" name="l00204"></a><span class="lineno">  204</span> </div>
+<div class="line"><a id="l00205" name="l00205"></a><span class="lineno">  205</span>     <span class="keywordtype">void</span> UpdateLocalLightProjectionShaderDataMatrices(</div>
+<div class="line"><a id="l00206" name="l00206"></a><span class="lineno">  206</span>        <span class="keyword">const</span> FProjectedShadowInfo* ProjectedShadowInfo,</div>
+<div class="line"><a id="l00207" name="l00207"></a><span class="lineno">  207</span>        <a class="code hl_typedef" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a8dbb3cd84ca9fd010dadfc3815eefa5d">int32</a> MapIndex,</div>
+<div class="line"><a id="l00208" name="l00208"></a><span class="lineno">  208</span>        FVirtualShadowMapProjectionShaderData* OutProjectionShaderData) <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00209" name="l00209"></a><span class="lineno">  209</span> </div>
+<div class="line"><a id="l00210" name="l00210"></a><span class="lineno">  210</span>    <span class="keywordtype">void</span> CreateNaniteRenderPasses(</div>
+<div class="line"><a id="l00211" name="l00211"></a><span class="lineno">  211</span>        FRDGBuilder&amp; GraphBuilder,</div>
+<div class="line"><a id="l00212" name="l00212"></a><span class="lineno">  212</span>        TConstArrayView&lt;FViewInfo&gt; Views,</div>
+<div class="line"><a id="l00213" name="l00213"></a><span class="lineno">  213</span>        TConstArrayView&lt;FProjectedShadowInfo*&gt; <a class="code hl_enumvalue" href="../../d7/d35/_heterogeneous_volumes_8h.html#a8339ea328d8d2bad3cfb2c8697501e18adde98fa66ef8081029ffb8f24d643c89">Shadows</a>);</div>
+<div class="line"><a id="l00214" name="l00214"></a><span class="lineno">  214</span> </div>
+<div class="line"><a id="l00215" name="l00215"></a><span class="lineno">  215</span>    <span class="keyword">static</span> <span class="keywordtype">void</span> CreateNaniteViewsForPass(</div>
+<div class="line"><a id="l00216" name="l00216"></a><span class="lineno">  216</span>        FRDGBuilder&amp; GraphBuilder,</div>
+<div class="line"><a id="l00217" name="l00217"></a><span class="lineno">  217</span>        <span class="keyword">const</span> FVirtualShadowMapArray&amp; VirtualShadowMapArray,</div>
+<div class="line"><a id="l00218" name="l00218"></a><span class="lineno">  218</span>        TConstArrayView&lt;FViewInfo&gt; Views,</div>
+<div class="line"><a id="l00219" name="l00219"></a><span class="lineno">  219</span>        <span class="keywordtype">float</span> ShadowsLODScaleFactor,</div>
+<div class="line"><a id="l00220" name="l00220"></a><span class="lineno">  220</span>        FNaniteVirtualShadowMapRenderPass&amp; InOutRenderPass);</div>
+<div class="line"><a id="l00221" name="l00221"></a><span class="lineno">  221</span> </div>
+<div class="line"><a id="l00222" name="l00222"></a><span class="lineno">  222</span>    <span class="keywordtype">void</span> AllocateVirtualShadowMapIds();</div>
+<div class="line"><a id="l00223" name="l00223"></a><span class="lineno">  223</span> </div>
+<div class="line"><a id="l00224" name="l00224"></a><span class="lineno">  224</span>    <span class="keyword">struct </span>FLightCommonFrameSetup</div>
+<div class="line"><a id="l00225" name="l00225"></a><span class="lineno">  225</span>    {</div>
+<div class="line"><a id="l00226" name="l00226"></a><span class="lineno">  226</span>        <a class="code hl_typedef" href="../../dd/de9/preprocessor_8c.html#a1134b580f8da4de94ca6b1de4d37975e">uint32</a> bHasVirtualShadowMap : 1 = 0;</div>
+<div class="line"><a id="l00227" name="l00227"></a><span class="lineno">  227</span>        <a class="code hl_typedef" href="../../dd/de9/preprocessor_8c.html#a1134b580f8da4de94ca6b1de4d37975e">uint32</a> bIsDirectional : 1 = 0;</div>
+<div class="line"><a id="l00228" name="l00228"></a><span class="lineno">  228</span>        <span class="comment">// index into respective setup array, for a directional light this is the offset to the setup for the first view index </span></div>
+<div class="line"><a id="l00229" name="l00229"></a><span class="lineno">  229</span>        <a class="code hl_typedef" href="../../dd/de9/preprocessor_8c.html#a1134b580f8da4de94ca6b1de4d37975e">uint32</a> SetupIndex : 30 = 0;</div>
+<div class="line"><a id="l00230" name="l00230"></a><span class="lineno">  230</span>    };</div>
+<div class="line"><a id="l00231" name="l00231"></a><span class="lineno">  231</span> </div>
+<div class="line"><a id="l00232" name="l00232"></a><span class="lineno">  232</span>    <span class="comment">// Indexed by light scene ID</span></div>
+<div class="line"><a id="l00233" name="l00233"></a><span class="lineno">  233</span>    <a class="code hl_typedef" href="../../d0/d87/_scene_private_base_8h.html#a3883b16ab0b4c38212003bc38010f11e">TSceneRendererLightArray&lt;FLightCommonFrameSetup&gt;</a> CommonSetups;</div>
+<div class="line"><a id="l00234" name="l00234"></a><span class="lineno">  234</span> </div>
+<div class="line"><a id="l00235" name="l00235"></a><span class="lineno">  235</span>    <span class="keyword">struct </span>FLocalLightShadowFrameSetup</div>
+<div class="line"><a id="l00236" name="l00236"></a><span class="lineno">  236</span>    {</div>
+<div class="line"><a id="l00237" name="l00237"></a><span class="lineno">  237</span>        TSharedPtr&lt;FVirtualShadowMapPerLightCacheEntry&gt; PerLightCacheEntry;</div>
+<div class="line"><a id="l00238" name="l00238"></a><span class="lineno">  238</span>        <span class="comment">// link to legacy system stuff, to be removed in due time</span></div>
+<div class="line"><a id="l00239" name="l00239"></a><span class="lineno">  239</span>        FProjectedShadowInfo* ProjectedShadowInfo = <span class="keyword">nullptr</span>;</div>
+<div class="line"><a id="l00240" name="l00240"></a><span class="lineno">  240</span>        FLightSceneInfo* LightSceneInfo = <span class="keyword">nullptr</span>;</div>
+<div class="line"><a id="l00241" name="l00241"></a><span class="lineno">  241</span>    };</div>
+<div class="line"><a id="l00242" name="l00242"></a><span class="lineno">  242</span> </div>
+<div class="line"><a id="l00243" name="l00243"></a><span class="lineno">  243</span>    <span class="comment">// Indexed by order of allocation, represented in CommonSetups[LightId].SetupIndex</span></div>
+<div class="line"><a id="l00244" name="l00244"></a><span class="lineno">  244</span>    TArray&lt;FLocalLightShadowFrameSetup, SceneRenderingAllocator&gt; LocalLights;</div>
+<div class="line"><a id="l00245" name="l00245"></a><span class="lineno">  245</span> </div>
+<div class="line"><a id="l00246" name="l00246"></a><span class="lineno">  246</span>    <span class="keyword">struct </span>FDirectionalLightShadowFrameSetup</div>
+<div class="line"><a id="l00247" name="l00247"></a><span class="lineno">  247</span>    {</div>
+<div class="line"><a id="l00248" name="l00248"></a><span class="lineno">  248</span>        <span class="comment">// Search key</span></div>
+<div class="line"><a id="l00249" name="l00249"></a><span class="lineno">  249</span>        FLightSceneId LightId = {};</div>
+<div class="line"><a id="l00250" name="l00250"></a><span class="lineno">  250</span>        <span class="comment">// A clipmap may belong to more than one view (in stereo mode, specifically)</span></div>
+<div class="line"><a id="l00251" name="l00251"></a><span class="lineno">  251</span>        <a class="code hl_typedef" href="../../dd/de9/preprocessor_8c.html#a1134b580f8da4de94ca6b1de4d37975e">uint32</a> ViewMask = 0u;</div>
+<div class="line"><a id="l00252" name="l00252"></a><span class="lineno">  252</span> </div>
+<div class="line"><a id="l00253" name="l00253"></a><span class="lineno">  253</span>        FDirectionalLightShadowFrameSetup(FLightSceneId InLightId, <a class="code hl_typedef" href="../../dd/de9/preprocessor_8c.html#a1134b580f8da4de94ca6b1de4d37975e">uint32</a> InViewMask) </div>
+<div class="line"><a id="l00254" name="l00254"></a><span class="lineno">  254</span>            : LightId(InLightId)</div>
+<div class="line"><a id="l00255" name="l00255"></a><span class="lineno">  255</span>            , ViewMask(InViewMask)</div>
+<div class="line"><a id="l00256" name="l00256"></a><span class="lineno">  256</span>        {</div>
+<div class="line"><a id="l00257" name="l00257"></a><span class="lineno">  257</span>        }</div>
+<div class="line"><a id="l00258" name="l00258"></a><span class="lineno">  258</span> </div>
+<div class="foldopen" id="foldopen00259" data-start="{" data-end="};">
+<div class="line"><a id="l00259" name="l00259"></a><span class="lineno"><a class="line" href="../../d0/d81/struct_f_shadow_scene_renderer_1_1_f_directional_light_shadow_frame_setup_1_1_f_clipmap_info.html">  259</a></span>        <span class="keyword">struct </span><a class="code hl_struct" href="../../d0/d81/struct_f_shadow_scene_renderer_1_1_f_directional_light_shadow_frame_setup_1_1_f_clipmap_info.html">FClipmapInfo</a></div>
+<div class="line"><a id="l00260" name="l00260"></a><span class="lineno">  260</span>        {</div>
+<div class="line"><a id="l00261" name="l00261"></a><span class="lineno"><a class="line" href="../../d0/d81/struct_f_shadow_scene_renderer_1_1_f_directional_light_shadow_frame_setup_1_1_f_clipmap_info.html#a41e6eaa5c569793522e26edb7329d843">  261</a></span>            <a class="code hl_class" href="../../dd/dba/class_t_shared_ptr.html">TSharedPtr&lt;FVirtualShadowMapClipmap&gt;</a> <a class="code hl_variable" href="../../d0/d81/struct_f_shadow_scene_renderer_1_1_f_directional_light_shadow_frame_setup_1_1_f_clipmap_info.html#a41e6eaa5c569793522e26edb7329d843">Clipmap</a>;</div>
+<div class="line"><a id="l00262" name="l00262"></a><span class="lineno">  262</span>            <span class="comment">// for culling and other misc reasons.</span></div>
+<div class="line"><a id="l00263" name="l00263"></a><span class="lineno"><a class="line" href="../../d0/d81/struct_f_shadow_scene_renderer_1_1_f_directional_light_shadow_frame_setup_1_1_f_clipmap_info.html#a158d0d1791132224701355b4d9164f3c">  263</a></span>            <a class="code hl_class" href="../../d6/def/class_f_projected_shadow_info.html">FProjectedShadowInfo</a>* <a class="code hl_variable" href="../../d0/d81/struct_f_shadow_scene_renderer_1_1_f_directional_light_shadow_frame_setup_1_1_f_clipmap_info.html#a158d0d1791132224701355b4d9164f3c">ProjectedShadowInfo</a> = <span class="keyword">nullptr</span>;</div>
+<div class="line"><a id="l00264" name="l00264"></a><span class="lineno">  264</span>        };</div>
+</div>
+<div class="line"><a id="l00265" name="l00265"></a><span class="lineno">  265</span> </div>
+<div class="line"><a id="l00266" name="l00266"></a><span class="lineno">  266</span>        <span class="comment">// clipmaps, Indexed by the EVirtualShadowTypeId.</span></div>
+<div class="line"><a id="l00267" name="l00267"></a><span class="lineno">  267</span>        <a class="code hl_class" href="../../db/d96/class_t_static_array.html">TStaticArray&lt;FClipmapInfo, EVirtualShadowTypeId::Max&gt;</a> ClipmapInfos;</div>
+<div class="line"><a id="l00268" name="l00268"></a><span class="lineno">  268</span>    };</div>
+<div class="line"><a id="l00269" name="l00269"></a><span class="lineno">  269</span> </div>
+<div class="line"><a id="l00270" name="l00270"></a><span class="lineno">  270</span>    <span class="comment">// Indexed by CommonSetups[LightId].SetupIndex + ViewIndex</span></div>
+<div class="line"><a id="l00271" name="l00271"></a><span class="lineno">  271</span>    <a class="code hl_class" href="../../d6/db1/class_t_array.html">TArray&lt;FDirectionalLightShadowFrameSetup, SceneRenderingAllocator&gt;</a> DirectionalLights;</div>
+<div class="line"><a id="l00272" name="l00272"></a><span class="lineno">  272</span> </div>
+<div class="line"><a id="l00273" name="l00273"></a><span class="lineno">  273</span>    FDirectionalLightShadowFrameSetup* FindDirectional(<span class="keyword">const</span> <a class="code hl_class" href="../../db/d00/class_f_light_scene_id.html">FLightSceneId</a> LightId, <a class="code hl_typedef" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a8dbb3cd84ca9fd010dadfc3815eefa5d">int32</a> ViewIndex);</div>
+<div class="line"><a id="l00274" name="l00274"></a><span class="lineno">  274</span> </div>
+<div class="line"><a id="l00275" name="l00275"></a><span class="lineno">  275</span>    <span class="comment">// Links to other systems etc.</span></div>
+<div class="line"><a id="l00276" name="l00276"></a><span class="lineno">  276</span>    <a class="code hl_class" href="../../db/d37/class_f_deferred_shading_scene_renderer.html">FDeferredShadingSceneRenderer</a>&amp; SceneRenderer;</div>
+<div class="line"><a id="l00277" name="l00277"></a><span class="lineno">  277</span>    <a class="code hl_class" href="../../d4/dfa/class_f_scene.html">FScene</a>&amp; Scene;</div>
+<div class="line"><a id="l00278" name="l00278"></a><span class="lineno">  278</span>    <a class="code hl_class" href="../../d9/d0b/class_f_shadow_scene.html">FShadowScene</a>&amp; ShadowScene;</div>
+<div class="line"><a id="l00279" name="l00279"></a><span class="lineno">  279</span>    <a class="code hl_class" href="../../d5/d20/class_f_virtual_shadow_map_array.html">FVirtualShadowMapArray</a>&amp; VirtualShadowMapArray;</div>
+<div class="line"><a id="l00280" name="l00280"></a><span class="lineno">  280</span> </div>
+<div class="line"><a id="l00281" name="l00281"></a><span class="lineno">  281</span>    <a class="code hl_class" href="../../d6/db1/class_t_array.html">TArray&lt;FNaniteVirtualShadowMapRenderPass, SceneRenderingAllocator&gt;</a> NaniteRenderPasses;</div>
+<div class="line"><a id="l00282" name="l00282"></a><span class="lineno">  282</span> </div>
+<div class="line"><a id="l00283" name="l00283"></a><span class="lineno">  283</span>    <a class="code hl_struct" href="../../dd/d2f/struct_f_nanite_visibility_query.html">FNaniteVisibilityQuery</a>* NaniteVisibilityQuery = <span class="keyword">nullptr</span>;</div>
+<div class="line"><a id="l00284" name="l00284"></a><span class="lineno">  284</span>    <a class="code hl_class" href="../../d6/db1/class_t_array.html">TArray&lt;FViewData, SceneRenderingAllocator&gt;</a> ViewDatas;</div>
+<div class="line"><a id="l00285" name="l00285"></a><span class="lineno">  285</span> </div>
+<div class="line"><a id="l00286" name="l00286"></a><span class="lineno">  286</span>    <span class="comment">// One pass projection stuff. Set up in RenderVitualShadowMapProjectionMaskBits</span></div>
+<div class="line"><a id="l00287" name="l00287"></a><span class="lineno">  287</span>    <span class="keywordtype">bool</span> bShouldUseVirtualShadowMapOnePassProjection = <span class="keyword">false</span>;</div>
+<div class="line"><a id="l00288" name="l00288"></a><span class="lineno">  288</span>        </div>
+<div class="line"><a id="l00289" name="l00289"></a><span class="lineno">  289</span>    <a class="code hl_typedef" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a8dbb3cd84ca9fd010dadfc3815eefa5d">int32</a> DistantLightMode = 0;</div>
+<div class="line"><a id="l00290" name="l00290"></a><span class="lineno">  290</span> </div>
+<div class="line"><a id="l00291" name="l00291"></a><span class="lineno">  291</span>    <span class="comment">// Tracking for a given frame/render of which passes we need - clear in BeginRender</span></div>
+<div class="line"><a id="l00292" name="l00292"></a><span class="lineno">  292</span>    <span class="keywordtype">bool</span> bNeedVSMOnePassProjection = <span class="keyword">false</span>;</div>
+<div class="line"><a id="l00293" name="l00293"></a><span class="lineno">  293</span>    <span class="keywordtype">bool</span> bNeedMegaLightsProjection = <span class="keyword">false</span>;</div>
+<div class="line"><a id="l00294" name="l00294"></a><span class="lineno">  294</span> </div>
+<div class="line"><a id="l00295" name="l00295"></a><span class="lineno">  295</span>    <a class="code hl_class" href="../../d6/db1/class_t_array.html">TArray&lt;uint32, SceneRenderingAllocator&gt;</a> ExplicitChunkDrawInstanceIds;</div>
+<div class="line"><a id="l00296" name="l00296"></a><span class="lineno">  296</span>};</div>
+</div>
+<div class="ttc" id="a_array_view_8h_html"><div class="ttname"><a href="../../dd/d92/_array_view_8h.html">ArrayView.h</a></div></div>
+<div class="ttc" id="a_asset_type_activation_opened_method_8h_html_adf66f18a6bd35d59ab943dc1556b124fa4351cfebe4b61d8aa5efa1d020710005"><div class="ttname"><a href="../../d4/ded/_asset_type_activation_opened_method_8h.html#adf66f18a6bd35d59ab943dc1556b124fa4351cfebe4b61d8aa5efa1d020710005">EAssetTypeActivationOpenedMethod::View</a></div><div class="ttdeci">@ View</div><div class="ttdef"><b>定义</b> AssetTypeActivationOpenedMethod.h:19</div></div>
+<div class="ttc" id="a_canvas_types_8h_html_aea265cf57883ec58a09111d4a17b8448"><div class="ttname"><a href="../../d6/d6d/_canvas_types_8h.html#aea265cf57883ec58a09111d4a17b8448">FRDGTextureRef</a></div><div class="ttdeci">FRDGTexture * FRDGTextureRef</div><div class="ttdef"><b>定义</b> CanvasTypes.h:34</div></div>
+<div class="ttc" id="a_core_2_public_2_h_a_l_2_platform_8h_html_a8dbb3cd84ca9fd010dadfc3815eefa5d"><div class="ttname"><a href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a8dbb3cd84ca9fd010dadfc3815eefa5d">int32</a></div><div class="ttdeci">FPlatformTypes::int32 int32</div><div class="ttdoc">A 32-bit signed integer.</div><div class="ttdef"><b>定义</b> Platform.h:1190</div></div>
+<div class="ttc" id="a_core_2_public_2_tasks_2_task_8h_html"><div class="ttname"><a href="../../d1/d6d/_core_2_public_2_tasks_2_task_8h.html">Task.h</a></div></div>
+<div class="ttc" id="a_core_minimal_8h_html"><div class="ttname"><a href="../../dc/d5e/_core_minimal_8h.html">CoreMinimal.h</a></div></div>
+<div class="ttc" id="a_heterogeneous_volumes_8h_html_a8339ea328d8d2bad3cfb2c8697501e18adde98fa66ef8081029ffb8f24d643c89"><div class="ttname"><a href="../../d7/d35/_heterogeneous_volumes_8h.html#a8339ea328d8d2bad3cfb2c8697501e18adde98fa66ef8081029ffb8f24d643c89">EVoxelGridBuildMode::Shadows</a></div><div class="ttdeci">@ Shadows</div><div class="ttdef"><b>定义</b> HeterogeneousVolumes.h:419</div></div>
+<div class="ttc" id="a_light_scene_info_8h_html"><div class="ttname"><a href="../../da/dac/_light_scene_info_8h.html">LightSceneInfo.h</a></div></div>
+<div class="ttc" id="a_math_fwd_8h_html_a0fb396f1ac08e81082181174c7bff43a"><div class="ttname"><a href="../../d0/df6/_math_fwd_8h.html#a0fb396f1ac08e81082181174c7bff43a">FIntRect</a></div><div class="ttdeci">UE::Math::TIntRect&lt; int32 &gt; FIntRect</div><div class="ttdef"><b>定义</b> MathFwd.h:133</div></div>
+<div class="ttc" id="a_r_h_i_resources_8h_html_af114583fcac6c3ba574b8236e38391a6ae807e61ca16dbec95fce00d4e542b9cd"><div class="ttname"><a href="../../db/dec/_r_h_i_resources_8h.html#af114583fcac6c3ba574b8236e38391a6ae807e61ca16dbec95fce00d4e542b9cd">ERHIBufferInitAction::Initializer</a></div><div class="ttdeci">@ Initializer</div><div class="ttdef"><b>定义</b> RHIResources.h:1463</div></div>
+<div class="ttc" id="a_scene_private_base_8h_html_a3883b16ab0b4c38212003bc38010f11e"><div class="ttname"><a href="../../d0/d87/_scene_private_base_8h.html#a3883b16ab0b4c38212003bc38010f11e">TSceneRendererLightArray</a></div><div class="ttdeci">TIdBasedArray&lt; FLightSceneId, ItemType, SceneRenderingAllocator &gt; TSceneRendererLightArray</div><div class="ttdef"><b>定义</b> ScenePrivateBase.h:306</div></div>
+<div class="ttc" id="a_shadow_scene_8h_html"><div class="ttname"><a href="../../da/dc2/_shadow_scene_8h.html">ShadowScene.h</a></div></div>
+<div class="ttc" id="a_sparse_array_8h_html"><div class="ttname"><a href="../../d5/d72/_sparse_array_8h.html">SparseArray.h</a></div></div>
+<div class="ttc" id="a_virtual_shadow_map_array_8h_html"><div class="ttname"><a href="../../db/de1/_virtual_shadow_map_array_8h.html">VirtualShadowMapArray.h</a></div></div>
+<div class="ttc" id="a_virtual_shadow_map_projection_8h_html"><div class="ttname"><a href="../../d1/deb/_virtual_shadow_map_projection_8h.html">VirtualShadowMapProjection.h</a></div></div>
+<div class="ttc" id="a_virtual_shadow_map_projection_8h_html_ac2746745ffdf80cf5e90716b3c18e743"><div class="ttname"><a href="../../d1/deb/_virtual_shadow_map_projection_8h.html#ac2746745ffdf80cf5e90716b3c18e743">EVirtualShadowMapProjectionInputType</a></div><div class="ttdeci">EVirtualShadowMapProjectionInputType</div><div class="ttdef"><b>定义</b> VirtualShadowMapProjection.h:31</div></div>
+<div class="ttc" id="aclass_f_deferred_shading_scene_renderer_html"><div class="ttname"><a href="../../db/d37/class_f_deferred_shading_scene_renderer.html">FDeferredShadingSceneRenderer</a></div><div class="ttdef"><b>定义</b> DeferredShadingRenderer.h:261</div></div>
+<div class="ttc" id="aclass_f_light_scene_id_html"><div class="ttname"><a href="../../db/d00/class_f_light_scene_id.html">FLightSceneId</a></div><div class="ttdef"><b>定义</b> ScenePrivateBase.h:22</div></div>
+<div class="ttc" id="aclass_f_light_scene_info_html"><div class="ttname"><a href="../../df/d16/class_f_light_scene_info.html">FLightSceneInfo</a></div><div class="ttdef"><b>定义</b> LightSceneInfo.h:208</div></div>
+<div class="ttc" id="aclass_f_projected_shadow_info_html"><div class="ttname"><a href="../../d6/def/class_f_projected_shadow_info.html">FProjectedShadowInfo</a></div><div class="ttdef"><b>定义</b> ShadowRendering.h:337</div></div>
+<div class="ttc" id="aclass_f_r_d_g_builder_html"><div class="ttname"><a href="../../d3/d85/class_f_r_d_g_builder.html">FRDGBuilder</a></div><div class="ttdef"><b>定义</b> RenderGraphBuilder.h:52</div></div>
+<div class="ttc" id="aclass_f_scene_html"><div class="ttname"><a href="../../d4/dfa/class_f_scene.html">FScene</a></div><div class="ttdef"><b>定义</b> ScenePrivate.h:1625</div></div>
+<div class="ttc" id="aclass_f_scene_view_html"><div class="ttname"><a href="../../d6/d2c/class_f_scene_view.html">FSceneView</a></div><div class="ttdef"><b>定义</b> SceneView.h:1482</div></div>
+<div class="ttc" id="aclass_f_shadow_scene_html"><div class="ttname"><a href="../../d9/d0b/class_f_shadow_scene.html">FShadowScene</a></div><div class="ttdef"><b>定义</b> ShadowScene.h:27</div></div>
+<div class="ttc" id="aclass_f_shadow_scene_renderer_html_a012bbd07c15a6be1df2b44189f841184"><div class="ttname"><a href="../../d8/d5f/class_f_shadow_scene_renderer.html#a012bbd07c15a6be1df2b44189f841184">FShadowSceneRenderer::BeginMarkVirtualShadowMapPages</a></div><div class="ttdeci">void BeginMarkVirtualShadowMapPages(FRDGBuilder &amp;GraphBuilder, const FSingleLayerWaterPrePassResult *SingleLayerWaterPrePassResult, const FFrontLayerTranslucencyData &amp;FrontLayerTranslucencyData, const Froxel::FRenderer &amp;FroxelRenderer)</div><div class="ttdef"><b>定义</b> ShadowSceneRenderer.cpp:866</div></div>
+<div class="ttc" id="aclass_f_shadow_scene_renderer_html_a122541d275f9dffaac00658a801daf5c"><div class="ttname"><a href="../../d8/d5f/class_f_shadow_scene_renderer.html#a122541d275f9dffaac00658a801daf5c">FShadowSceneRenderer::PostSetupDebugRender</a></div><div class="ttdeci">void PostSetupDebugRender()</div><div class="ttdef"><b>定义</b> ShadowSceneRenderer.cpp:816</div></div>
+<div class="ttc" id="aclass_f_shadow_scene_renderer_html_a2abfd25bfa052a1e5697461e2d78668c"><div class="ttname"><a href="../../d8/d5f/class_f_shadow_scene_renderer.html#a2abfd25bfa052a1e5697461e2d78668c">FShadowSceneRenderer::RenderVirtualShadowMapProjection</a></div><div class="ttdeci">void RenderVirtualShadowMapProjection(FRDGBuilder &amp;GraphBuilder, const FMinimalSceneTextures &amp;SceneTextures, FLightSceneId LightId, const FViewInfo &amp;View, int32 ViewIndex, const FIntRect ScissorRect, EVirtualShadowMapProjectionInputType InputType, bool bModulateRGB, FTiledVSMProjection *TiledVSMProjection, FRDGTextureRef OutputShadowMaskTexture)</div><div class="ttdef"><b>定义</b> ShadowSceneRenderer.cpp:961</div></div>
+<div class="ttc" id="aclass_f_shadow_scene_renderer_html_a3dc500eb9e16335b09c082f8db9e2efb"><div class="ttname"><a href="../../d8/d5f/class_f_shadow_scene_renderer.html#a3dc500eb9e16335b09c082f8db9e2efb">FShadowSceneRenderer::VirtualShadowMapMaskBits</a></div><div class="ttdeci">FRDGTextureRef VirtualShadowMapMaskBits</div><div class="ttdef"><b>定义</b> ShadowSceneRenderer.h:143</div></div>
+<div class="ttc" id="aclass_f_shadow_scene_renderer_html_a40b3e0ce8e6bef3b0f17ec11582facf3"><div class="ttname"><a href="../../d8/d5f/class_f_shadow_scene_renderer.html#a40b3e0ce8e6bef3b0f17ec11582facf3">FShadowSceneRenderer::PreInitViews</a></div><div class="ttdeci">virtual void PreInitViews(FRDGBuilder &amp;GraphBuilder) override</div><div class="ttdef"><b>定义</b> ShadowSceneRenderer.cpp:161</div></div>
+<div class="ttc" id="aclass_f_shadow_scene_renderer_html_a48cda437038e808144aa422849a83249"><div class="ttname"><a href="../../d8/d5f/class_f_shadow_scene_renderer.html#a48cda437038e808144aa422849a83249">FShadowSceneRenderer::ApplyVirtualShadowMapProjectionForLight</a></div><div class="ttdeci">void ApplyVirtualShadowMapProjectionForLight(FRDGBuilder &amp;GraphBuilder, const FMinimalSceneTextures &amp;SceneTextures, const FLightSceneInfo *LightSceneInfo, const EVirtualShadowMapProjectionInputType InputType, FRDGTextureRef OutputScreenShadowMaskTexture)</div><div class="ttdef"><b>定义</b> ShadowSceneRenderer.cpp:1011</div></div>
+<div class="ttc" id="aclass_f_shadow_scene_renderer_html_a4d2d3b4e61797345135f12c48b94c39d"><div class="ttname"><a href="../../d8/d5f/class_f_shadow_scene_renderer.html#a4d2d3b4e61797345135f12c48b94c39d">FShadowSceneRenderer::GetVirtualShadowMapArray</a></div><div class="ttdeci">FVirtualShadowMapArray &amp; GetVirtualShadowMapArray()</div><div class="ttdef"><b>定义</b> ShadowSceneRenderer.h:174</div></div>
+<div class="ttc" id="aclass_f_shadow_scene_renderer_html_a572e44004a3a91cee6ae8ef8108b6db4"><div class="ttname"><a href="../../d8/d5f/class_f_shadow_scene_renderer.html#a572e44004a3a91cee6ae8ef8108b6db4">FShadowSceneRenderer::GetVirtualShadowMapArray</a></div><div class="ttdeci">const FVirtualShadowMapArray &amp; GetVirtualShadowMapArray() const</div><div class="ttdef"><b>定义</b> ShadowSceneRenderer.h:175</div></div>
+<div class="ttc" id="aclass_f_shadow_scene_renderer_html_a636a20094384b2d4dc8d9048c4e6be01"><div class="ttname"><a href="../../d8/d5f/class_f_shadow_scene_renderer.html#a636a20094384b2d4dc8d9048c4e6be01">FShadowSceneRenderer::UsePackedShadowMaskBits</a></div><div class="ttdeci">bool UsePackedShadowMaskBits() const</div><div class="ttdef"><b>定义</b> ShadowSceneRenderer.h:147</div></div>
+<div class="ttc" id="aclass_f_shadow_scene_renderer_html_a64fd089d9bc0afe15f5e238bbc69c431"><div class="ttname"><a href="../../d8/d5f/class_f_shadow_scene_renderer.html#a64fd089d9bc0afe15f5e238bbc69c431">FShadowSceneRenderer::FShadowSceneRenderer</a></div><div class="ttdeci">FShadowSceneRenderer(FDeferredShadingSceneRenderer &amp;InDeferredShadingSceneRenderer, FShadowScene &amp;InShadowScene)</div><div class="ttdef"><b>定义</b> ShadowSceneRenderer.cpp:132</div></div>
+<div class="ttc" id="aclass_f_shadow_scene_renderer_html_a759ca3f0306d1271d0d9248e66db259c"><div class="ttname"><a href="../../d8/d5f/class_f_shadow_scene_renderer.html#a759ca3f0306d1271d0d9248e66db259c">FShadowSceneRenderer::ComputeNaniteShadowsLODScaleFactor</a></div><div class="ttdeci">static float ComputeNaniteShadowsLODScaleFactor()</div><div class="ttdef"><b>定义</b> ShadowSceneRenderer.cpp:142</div></div>
+<div class="ttc" id="aclass_f_shadow_scene_renderer_html_a7e5553203b212571a8657d940b1fc0cb"><div class="ttname"><a href="../../d8/d5f/class_f_shadow_scene_renderer.html#a7e5553203b212571a8657d940b1fc0cb">FShadowSceneRenderer::AreAnyLocalLightsPresent</a></div><div class="ttdeci">bool AreAnyLocalLightsPresent() const</div><div class="ttdef"><b>定义</b> ShadowSceneRenderer.h:162</div></div>
+<div class="ttc" id="aclass_f_shadow_scene_renderer_html_a87b6f19f8f41fab63289744ad2792c36"><div class="ttname"><a href="../../d8/d5f/class_f_shadow_scene_renderer.html#a87b6f19f8f41fab63289744ad2792c36">FShadowSceneRenderer::RenderVirtualShadowMaps</a></div><div class="ttdeci">void RenderVirtualShadowMaps(FRDGBuilder &amp;GraphBuilder, bool bNaniteEnabled)</div><div class="ttdef"><b>定义</b> ShadowSceneRenderer.cpp:889</div></div>
+<div class="ttc" id="aclass_f_shadow_scene_renderer_html_a96ac40436395dd3770add24bae00c331"><div class="ttname"><a href="../../d8/d5f/class_f_shadow_scene_renderer.html#a96ac40436395dd3770add24bae00c331">FShadowSceneRenderer::AddLocalLightShadow</a></div><div class="ttdeci">TSharedPtr&lt; FVirtualShadowMapPerLightCacheEntry &gt; AddLocalLightShadow(const FWholeSceneProjectedShadowInitializer &amp;Initializer, FProjectedShadowInfo *ProjectedShadowInfo, FLightSceneInfo *LightSceneInfo, float MaxScreenRadius)</div><div class="ttdef"><b>定义</b> ShadowSceneRenderer.cpp:343</div></div>
+<div class="ttc" id="aclass_f_shadow_scene_renderer_html_a97b5ae56f032894cdf3ba99af3d3b67d"><div class="ttname"><a href="../../d8/d5f/class_f_shadow_scene_renderer.html#a97b5ae56f032894cdf3ba99af3d3b67d">FShadowSceneRenderer::RenderVirtualShadowMapProjectionMaskBits</a></div><div class="ttdeci">void RenderVirtualShadowMapProjectionMaskBits(FRDGBuilder &amp;GraphBuilder, FMinimalSceneTextures &amp;SceneTextures)</div><div class="ttdef"><b>定义</b> ShadowSceneRenderer.cpp:907</div></div>
+<div class="ttc" id="aclass_f_shadow_scene_renderer_html_a9829c130199f859cd7212cf30e9853de"><div class="ttname"><a href="../../d8/d5f/class_f_shadow_scene_renderer.html#a9829c130199f859cd7212cf30e9853de">FShadowSceneRenderer::GetInvalidatingInstancesInterface</a></div><div class="ttdeci">UE::Renderer::Private::IShadowInvalidatingInstances * GetInvalidatingInstancesInterface(const FSceneView *SceneView)</div><div class="ttdef"><b>定义</b> ShadowSceneRenderer.cpp:262</div></div>
+<div class="ttc" id="aclass_f_shadow_scene_renderer_html_aa039a151a2e9267d78c7bcaf7d1a8c31"><div class="ttname"><a href="../../d8/d5f/class_f_shadow_scene_renderer.html#aa039a151a2e9267d78c7bcaf7d1a8c31">FShadowSceneRenderer::DispatchVirtualShadowMapViewAndCullingSetup</a></div><div class="ttdeci">void DispatchVirtualShadowMapViewAndCullingSetup(FRDGBuilder &amp;GraphBuilder, TConstArrayView&lt; FProjectedShadowInfo * &gt; VirtualShadowMapShadows)</div><div class="ttdef"><b>定义</b> ShadowSceneRenderer.cpp:797</div></div>
+<div class="ttc" id="aclass_f_shadow_scene_renderer_html_aacbde7946192068a3d3411dd9774589d"><div class="ttname"><a href="../../d8/d5f/class_f_shadow_scene_renderer.html#aacbde7946192068a3d3411dd9774589d">FShadowSceneRenderer::DECLARE_SCENE_EXTENSION_RENDERER</a></div><div class="ttdeci">DECLARE_SCENE_EXTENSION_RENDERER(FShadowSceneRenderer, FShadowScene)</div></div>
+<div class="ttc" id="aclass_f_shadow_scene_renderer_html_ab5c05aa4fc4467386ea720746cce0864"><div class="ttname"><a href="../../d8/d5f/class_f_shadow_scene_renderer.html#ab5c05aa4fc4467386ea720746cce0864">FShadowSceneRenderer::PostInitDynamicShadowsSetup</a></div><div class="ttdeci">void PostInitDynamicShadowsSetup()</div><div class="ttdef"><b>定义</b> ShadowSceneRenderer.cpp:682</div></div>
+<div class="ttc" id="aclass_f_shadow_scene_renderer_html_ac38d4703ff5395d82f7f25b569cc9e59"><div class="ttname"><a href="../../d8/d5f/class_f_shadow_scene_renderer.html#ac38d4703ff5395d82f7f25b569cc9e59">FShadowSceneRenderer::GetRendererSetupTask</a></div><div class="ttdeci">UE::Tasks::FTask GetRendererSetupTask() const</div><div class="ttdef"><b>定义</b> ShadowSceneRenderer.h:152</div></div>
+<div class="ttc" id="aclass_f_shadow_scene_renderer_html_ac91335bea99b2ce555782fc480158a15"><div class="ttname"><a href="../../d8/d5f/class_f_shadow_scene_renderer.html#ac91335bea99b2ce555782fc480158a15">FShadowSceneRenderer::VirtualShadowMapMaskBitsHairStrands</a></div><div class="ttdeci">FRDGTextureRef VirtualShadowMapMaskBitsHairStrands</div><div class="ttdef"><b>定义</b> ShadowSceneRenderer.h:144</div></div>
+<div class="ttc" id="aclass_f_shadow_scene_renderer_html_acfcf03bc0cb10d2e3a21e2883c76a75b"><div class="ttname"><a href="../../d8/d5f/class_f_shadow_scene_renderer.html#acfcf03bc0cb10d2e3a21e2883c76a75b">FShadowSceneRenderer::AddDirectionalLightShadow</a></div><div class="ttdeci">void AddDirectionalLightShadow(FLightSceneInfo &amp;LightSceneInfo, FViewInfo &amp;View, float MaxNonFarCascadeDistance, TArray&lt; FProjectedShadowInfo *, SceneRenderingAllocator &gt; &amp;OutShadowInfosThatNeedCulling)</div><div class="ttdef"><b>定义</b> ShadowSceneRenderer.cpp:497</div></div>
+<div class="ttc" id="aclass_f_shadow_scene_renderer_html_ad973824fb19f2f214f9d511b518ba43d"><div class="ttname"><a href="../../d8/d5f/class_f_shadow_scene_renderer.html#ad973824fb19f2f214f9d511b518ba43d">FShadowSceneRenderer::GatherClipmapIds</a></div><div class="ttdeci">TArray&lt; int32, SceneRenderingAllocator &gt; GatherClipmapIds(int32 ViewIndex) const</div><div class="ttdef"><b>定义</b> ShadowSceneRenderer.cpp:990</div></div>
+<div class="ttc" id="aclass_f_shadow_scene_renderer_html_adf24201e46a11e8d65f8ccc6585a47ee"><div class="ttname"><a href="../../d8/d5f/class_f_shadow_scene_renderer.html#adf24201e46a11e8d65f8ccc6585a47ee">FShadowSceneRenderer::AreAnyLightsUsingMegaLightsVSM</a></div><div class="ttdeci">bool AreAnyLightsUsingMegaLightsVSM() const</div><div class="ttdef"><b>定义</b> ShadowSceneRenderer.h:157</div></div>
+<div class="ttc" id="aclass_f_shadow_scene_renderer_html_ae65383312fb32dc8ac6396dd185aebc1"><div class="ttname"><a href="../../d8/d5f/class_f_shadow_scene_renderer.html#ae65383312fb32dc8ac6396dd185aebc1">FShadowSceneRenderer::HasVirtualClipMap</a></div><div class="ttdeci">bool HasVirtualClipMap(FLightSceneId LightId) const</div><div class="ttdef"><b>定义</b> ShadowSceneRenderer.h:93</div></div>
+<div class="ttc" id="aclass_f_shadow_scene_renderer_html_ae7046e535acc098ee87b8a07e128e6d8"><div class="ttname"><a href="../../d8/d5f/class_f_shadow_scene_renderer.html#ae7046e535acc098ee87b8a07e128e6d8">FShadowSceneRenderer::HasVirtualShadowMap</a></div><div class="ttdeci">bool HasVirtualShadowMap(FLightSceneId LightId) const</div><div class="ttdef"><b>定义</b> ShadowSceneRenderer.h:88</div></div>
+<div class="ttc" id="aclass_f_shadow_scene_renderer_html_aeaf7a6fa9734210e52f4dd49b63bc843"><div class="ttname"><a href="../../d8/d5f/class_f_shadow_scene_renderer.html#aeaf7a6fa9734210e52f4dd49b63bc843">FShadowSceneRenderer::HairTransmittanceMaskBits</a></div><div class="ttdeci">TArray&lt; FRDGBufferRef &gt; HairTransmittanceMaskBits</div><div class="ttdef"><b>定义</b> ShadowSceneRenderer.h:145</div></div>
+<div class="ttc" id="aclass_f_shadow_scene_renderer_html_aecf0c7f1d8c3f30be9373462b8b1682e"><div class="ttname"><a href="../../d8/d5f/class_f_shadow_scene_renderer.html#aecf0c7f1d8c3f30be9373462b8b1682e">FShadowSceneRenderer::HasNaniteVisibilityQuery</a></div><div class="ttdeci">bool HasNaniteVisibilityQuery() const</div><div class="ttdef"><b>定义</b> ShadowSceneRenderer.h:167</div></div>
+<div class="ttc" id="aclass_f_view_info_html"><div class="ttname"><a href="../../dd/d2b/class_f_view_info.html">FViewInfo</a></div><div class="ttdef"><b>定义</b> SceneRendering.h:1255</div></div>
+<div class="ttc" id="aclass_f_virtual_shadow_map_array_html"><div class="ttname"><a href="../../d5/d20/class_f_virtual_shadow_map_array.html">FVirtualShadowMapArray</a></div><div class="ttdef"><b>定义</b> VirtualShadowMapArray.h:294</div></div>
+<div class="ttc" id="aclass_f_virtual_shadow_map_per_light_cache_entry_html"><div class="ttname"><a href="../../db/dbd/class_f_virtual_shadow_map_per_light_cache_entry.html">FVirtualShadowMapPerLightCacheEntry</a></div><div class="ttdef"><b>定义</b> VirtualShadowMapCacheManager.h:93</div></div>
+<div class="ttc" id="aclass_f_whole_scene_projected_shadow_initializer_html"><div class="ttname"><a href="../../de/d5c/class_f_whole_scene_projected_shadow_initializer.html">FWholeSceneProjectedShadowInitializer</a></div><div class="ttdef"><b>定义</b> SceneManagement.h:1034</div></div>
+<div class="ttc" id="aclass_froxel_1_1_f_renderer_html"><div class="ttname"><a href="../../d7/d35/class_froxel_1_1_f_renderer.html">Froxel::FRenderer</a></div><div class="ttdef"><b>定义</b> Froxel.h:69</div></div>
+<div class="ttc" id="aclass_i_scene_extension_renderer_html_a1b0fc771876be348a2033343f97ee632"><div class="ttname"><a href="../../d8/dac/class_i_scene_extension_renderer.html#a1b0fc771876be348a2033343f97ee632">ISceneExtensionRenderer::ISceneExtensionRenderer</a></div><div class="ttdeci">ISceneExtensionRenderer(FSceneRendererBase &amp;InSceneRenderer)</div><div class="ttdef"><b>定义</b> SceneExtensions.h:71</div></div>
+<div class="ttc" id="aclass_t_array_html"><div class="ttname"><a href="../../d6/db1/class_t_array.html">TArray</a></div><div class="ttdef"><b>定义</b> Array.h:768</div></div>
+<div class="ttc" id="aclass_t_shared_ptr_html"><div class="ttname"><a href="../../dd/dba/class_t_shared_ptr.html">TSharedPtr</a></div><div class="ttdef"><b>定义</b> SharedPointer.h:697</div></div>
+<div class="ttc" id="aclass_t_static_array_html"><div class="ttname"><a href="../../db/d96/class_t_static_array.html">TStaticArray</a></div><div class="ttdef"><b>定义</b> StaticArray.h:26</div></div>
+<div class="ttc" id="aclass_u_e_1_1_renderer_1_1_private_1_1_i_shadow_invalidating_instances_html"><div class="ttname"><a href="../../d6/d1d/class_u_e_1_1_renderer_1_1_private_1_1_i_shadow_invalidating_instances.html">UE::Renderer::Private::IShadowInvalidatingInstances</a></div><div class="ttdef"><b>定义</b> SceneRendererInterface.h:29</div></div>
+<div class="ttc" id="anamespace_e_virtual_shadow_type_id_html"><div class="ttname"><a href="../../d8/d65/namespace_e_virtual_shadow_type_id.html">EVirtualShadowTypeId</a></div><div class="ttdef"><b>定义</b> ShadowSceneRenderer.h:31</div></div>
+<div class="ttc" id="anamespace_e_virtual_shadow_type_id_html_a04239ade9e81de8d73373492c0899504"><div class="ttname"><a href="../../d8/d65/namespace_e_virtual_shadow_type_id.html#a04239ade9e81de8d73373492c0899504">EVirtualShadowTypeId::Type</a></div><div class="ttdeci">Type</div><div class="ttdef"><b>定义</b> ShadowSceneRenderer.h:33</div></div>
+<div class="ttc" id="anamespace_e_virtual_shadow_type_id_html_a04239ade9e81de8d73373492c0899504a1df07daff1c3057a9a63b6cf7829507f"><div class="ttname"><a href="../../d8/d65/namespace_e_virtual_shadow_type_id.html#a04239ade9e81de8d73373492c0899504a1df07daff1c3057a9a63b6cf7829507f">EVirtualShadowTypeId::Max</a></div><div class="ttdeci">@ Max</div><div class="ttdef"><b>定义</b> ShadowSceneRenderer.h:39</div></div>
+<div class="ttc" id="anamespace_e_virtual_shadow_type_id_html_a04239ade9e81de8d73373492c0899504a515a207fda2f6b8e2261e467012967ec"><div class="ttname"><a href="../../d8/d65/namespace_e_virtual_shadow_type_id.html#a04239ade9e81de8d73373492c0899504a515a207fda2f6b8e2261e467012967ec">EVirtualShadowTypeId::Regular</a></div><div class="ttdeci">@ Regular</div><div class="ttdef"><b>定义</b> ShadowSceneRenderer.h:35</div></div>
+<div class="ttc" id="anamespace_e_virtual_shadow_type_id_html_a04239ade9e81de8d73373492c0899504ab075c764a2d980787acd740e9232265e"><div class="ttname"><a href="../../d8/d65/namespace_e_virtual_shadow_type_id.html#a04239ade9e81de8d73373492c0899504ab075c764a2d980787acd740e9232265e">EVirtualShadowTypeId::FirstPerson</a></div><div class="ttdeci">@ FirstPerson</div><div class="ttdef"><b>定义</b> ShadowSceneRenderer.h:37</div></div>
+<div class="ttc" id="anamespace_u_e_1_1_renderer_1_1_private_html"><div class="ttname"><a href="../../df/de6/namespace_u_e_1_1_renderer_1_1_private.html">UE::Renderer::Private</a></div><div class="ttdef"><b>定义</b> SceneView.h:42</div></div>
+<div class="ttc" id="anamespace_u_e_1_1_tasks_html_a915c637b794c7ae61b5aee943a7ca780"><div class="ttname"><a href="../../de/db6/namespace_u_e_1_1_tasks.html#a915c637b794c7ae61b5aee943a7ca780">UE::Tasks::FTask</a></div><div class="ttdeci">Private::FTaskHandle FTask</div><div class="ttdef"><b>定义</b> Task.h:208</div></div>
+<div class="ttc" id="apreprocessor_8c_html_a1134b580f8da4de94ca6b1de4d37975e"><div class="ttname"><a href="../../dd/de9/preprocessor_8c.html#a1134b580f8da4de94ca6b1de4d37975e">uint32</a></div><div class="ttdeci">unsigned int uint32</div><div class="ttdef"><b>定义</b> preprocessor.c:67</div></div>
+<div class="ttc" id="astruct_f_front_layer_translucency_data_html"><div class="ttname"><a href="../../da/d44/struct_f_front_layer_translucency_data.html">FFrontLayerTranslucencyData</a></div><div class="ttdef"><b>定义</b> FrontLayerTranslucency.h:23</div></div>
+<div class="ttc" id="astruct_f_minimal_scene_textures_html"><div class="ttname"><a href="../../d1/d92/struct_f_minimal_scene_textures.html">FMinimalSceneTextures</a></div><div class="ttdef"><b>定义</b> SceneTextures.h:54</div></div>
+<div class="ttc" id="astruct_f_nanite_visibility_query_html"><div class="ttname"><a href="../../dd/d2f/struct_f_nanite_visibility_query.html">FNaniteVisibilityQuery</a></div><div class="ttdef"><b>定义</b> NaniteVisibility.cpp:54</div></div>
+<div class="ttc" id="astruct_f_shadow_scene_renderer_1_1_f_directional_light_shadow_frame_setup_1_1_f_clipmap_info_html"><div class="ttname"><a href="../../d0/d81/struct_f_shadow_scene_renderer_1_1_f_directional_light_shadow_frame_setup_1_1_f_clipmap_info.html">FShadowSceneRenderer::FDirectionalLightShadowFrameSetup::FClipmapInfo</a></div><div class="ttdef"><b>定义</b> ShadowSceneRenderer.h:260</div></div>
+<div class="ttc" id="astruct_f_shadow_scene_renderer_1_1_f_directional_light_shadow_frame_setup_1_1_f_clipmap_info_html_a158d0d1791132224701355b4d9164f3c"><div class="ttname"><a href="../../d0/d81/struct_f_shadow_scene_renderer_1_1_f_directional_light_shadow_frame_setup_1_1_f_clipmap_info.html#a158d0d1791132224701355b4d9164f3c">FShadowSceneRenderer::FDirectionalLightShadowFrameSetup::FClipmapInfo::ProjectedShadowInfo</a></div><div class="ttdeci">FProjectedShadowInfo * ProjectedShadowInfo</div><div class="ttdef"><b>定义</b> ShadowSceneRenderer.h:263</div></div>
+<div class="ttc" id="astruct_f_shadow_scene_renderer_1_1_f_directional_light_shadow_frame_setup_1_1_f_clipmap_info_html_a41e6eaa5c569793522e26edb7329d843"><div class="ttname"><a href="../../d0/d81/struct_f_shadow_scene_renderer_1_1_f_directional_light_shadow_frame_setup_1_1_f_clipmap_info.html#a41e6eaa5c569793522e26edb7329d843">FShadowSceneRenderer::FDirectionalLightShadowFrameSetup::FClipmapInfo::Clipmap</a></div><div class="ttdeci">TSharedPtr&lt; FVirtualShadowMapClipmap &gt; Clipmap</div><div class="ttdef"><b>定义</b> ShadowSceneRenderer.h:261</div></div>
+<div class="ttc" id="astruct_f_single_layer_water_pre_pass_result_html"><div class="ttname"><a href="../../d6/d28/struct_f_single_layer_water_pre_pass_result.html">FSingleLayerWaterPrePassResult</a></div><div class="ttdef"><b>定义</b> SingleLayerWaterRendering.h:22</div></div>
+<div class="ttc" id="astruct_f_tiled_v_s_m_projection_html"><div class="ttname"><a href="../../d2/dcb/struct_f_tiled_v_s_m_projection.html">FTiledVSMProjection</a></div><div class="ttdef"><b>定义</b> VirtualShadowMapProjection.h:22</div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+</div><!-- container -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a href="../../dir_0b6ee6e7e9547e675db4add2e5de97da.html">Engine</a></li><li class="navelem"><a href="../../dir_9579d1ecb2c7bf48cbe1049c41745cb4.html">Source</a></li><li class="navelem"><a href="../../dir_9f04efef762572853abdf73f62bebfcc.html">Runtime</a></li><li class="navelem"><a href="../../dir_5ed6327f04b0f38d3f6fe5caa38b0445.html">Renderer</a></li><li class="navelem"><a href="../../dir_e317dc6f09036e33460f39c550131623.html">Private</a></li><li class="navelem"><a href="../../dir_e823304c0b3e445b9202e1a6300e7e02.html">Shadows</a></li><li class="navelem"><a href="../../db/d0b/_shadow_scene_renderer_8h.html">ShadowSceneRenderer.h</a></li>
+    <li class="footer">制作者 <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.15.0 </li>
+  </ul>
+</div>
+</body>
+</html>

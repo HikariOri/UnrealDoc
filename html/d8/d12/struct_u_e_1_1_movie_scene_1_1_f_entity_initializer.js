@@ -1,0 +1,4 @@
+var struct_u_e_1_1_movie_scene_1_1_f_entity_initializer =
+[
+    [ "FEntityAllocationInitializationInfo", "de/d99/struct_u_e_1_1_movie_scene_1_1_f_entity_initializer_1_1_f_entity_allocation_initialization_info.html", "de/d99/struct_u_e_1_1_movie_scene_1_1_f_entity_initializer_1_1_f_entity_allocation_initialization_info" ]
+];

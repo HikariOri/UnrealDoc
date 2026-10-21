@@ -1,0 +1,782 @@
+<!-- HTML header for doxygen 1.15.0-->
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh">
+<head>
+  <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=11" />
+  <meta name="generator" content="Doxygen 1.15.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>UE 5.8.4: Engine/Source/Runtime/Renderer/Private/HairStrands/HairStrandsVoxelization.cpp 文件参考</title>
+  <link rel="icon" href="../../EdIconDefault.bmp" type="image/x-icon" />
+  <link href="../../tabs.css" rel="stylesheet" type="text/css" />
+  <script type="text/javascript" src="../../jquery.js"></script>
+  <script type="text/javascript" src="../../dynsections.js"></script>
+  <link href="../../navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../navtreedata.js"></script>
+<script type="text/javascript" src="../../navtree.js"></script>
+<script type="text/javascript" src="../../cookie.js"></script>
+  <link href="../../search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../search/searchdata.js"></script>
+<script type="text/javascript" src="../../search/search.js"></script>
+  <script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  extensions: ["tex2jax.js"],
+  jax: ["input/TeX","output/HTML-CSS"],
+});
+</script>
+<script type="text/javascript" async="async" src="https://cdn.jsdelivr.net/npm/mathjax@2/MathJax.js"></script>
+  <link href="../../doxygen.css" rel="stylesheet" type="text/css" />
+  <link href="../../doxygen-awesome.css" rel="stylesheet" type="text/css"/>
+<link href="../../doxygen-awesome-sidebar-only.css" rel="stylesheet" type="text/css"/>
+<link href="../../doxygen-awesome-sidebar-only-darkmode-toggle.css" rel="stylesheet" type="text/css"/>
+  <!-- ... other metadata & script includes ... -->
+  <script type="text/javascript" src="../../doxygen-awesome-darkmode-toggle.js"></script>
+  <script type="text/javascript">
+    DoxygenAwesomeDarkModeToggle.title = "Zwischen hellem/dunklem Modus wechseln"
+    DoxygenAwesomeDarkModeToggle.lightModeIcon = '🌞'
+    // icon from https://fonts.google.com/icons
+    DoxygenAwesomeDarkModeToggle.darkModeIcon = `<svg xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 24 24" height="24px" viewBox="0 0 24 24" width="24px" fill="#009793"><g><rect fill="none" height="24" width="24"/></g><g><g><path d="M8.1,14.15C9.77,14.63,11,16.17,11,18c0,0.68-0.19,1.31-0.48,1.87c0.48,0.09,0.97,0.14,1.48,0.14 c1.48,0,2.9-0.41,4.13-1.15c-2.62-0.92-5.23-2.82-6.8-5.86C7.74,9.94,7.78,7.09,8.29,4.9c-2.57,1.33-4.3,4.01-4.3,7.1c0,0,0,0,0,0 c0.01,0,0.01,0,0.02,0C5.66,12,7.18,12.83,8.1,14.15z" opacity=".3"/><path d="M19.78,17.51c-2.47,0-6.57-1.33-8.68-5.43C8.77,7.57,10.6,3.6,11.63,2.01C6.27,2.2,1.98,6.59,1.98,12 c0,0.14,0.02,0.28,0.02,0.42C2.61,12.16,3.28,12,3.98,12c0,0,0,0,0,0c0-3.09,1.73-5.77,4.3-7.1C7.78,7.09,7.74,9.94,9.32,13 c1.57,3.04,4.18,4.95,6.8,5.86c-1.23,0.74-2.65,1.15-4.13,1.15c-0.5,0-1-0.05-1.48-0.14c-0.37,0.7-0.94,1.27-1.64,1.64 c0.98,0.32,2.03,0.5,3.11,0.5c3.5,0,6.58-1.8,8.37-4.52C20.18,17.5,19.98,17.51,19.78,17.51z"/><path d="M7,16l-0.18,0C6.4,14.84,5.3,14,4,14c-1.66,0-3,1.34-3,3s1.34,3,3,3c0.62,0,2.49,0,3,0c1.1,0,2-0.9,2-2 C9,16.9,8.1,16,7,16z"/></g></g></svg>`
+    DoxygenAwesomeDarkModeToggle.init()
+  </script>
+  <script type="text/javascript" src="../../doxygen-awesome-fragment-copy-button.js"></script>
+  <script type="text/javascript">
+    DoxygenAwesomeFragmentCopyButton.title = "In die Zwischenablage kopieren"
+    // DoxygenAwesomeFragmentCopyButton.copyIcon = `<svg ...>`
+    // DoxygenAwesomeFragmentCopyButton.successIcon = `<svg ...>`
+    DoxygenAwesomeFragmentCopyButton.init()
+  </script>
+  <script type="text/javascript" src="../../doxygen-awesome-paragraph-link.js"></script>
+  <script type="text/javascript">
+    DoxygenAwesomeParagraphLink.title = "Abschnitt verknüpfen"
+    DoxygenAwesomeParagraphLink.icon = "¶"
+    DoxygenAwesomeParagraphLink.init()
+  </script>
+  <script type="text/javascript" src="../../doxygen-awesome-interactive-toc.js"></script>
+  <script type="text/javascript">
+    DoxygenAwesomeInteractiveToc.topOffset = 45
+    DoxygenAwesomeInteractiveToc.hideMobileMenu = false
+    DoxygenAwesomeInteractiveToc.init()
+  </script>
+</head>
+<body>
+    <div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+      <div id="titlearea">
+        <table cellspacing="0" cellpadding="0">
+          <tbody>
+            <tr id="projectrow">
+              <td id="projectlogo"><img alt="Logo" src="../../EdIconDefault.bmp"  /></td>
+              <td id="projectalign">
+                <div id="projectname">UE 5.8.4
+                </div>
+                <div id="projectbrief">Unreal Engine</div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <!-- end header part -->
+<!-- 制作者 Doxygen 1.15.0 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "../../search/",'.html');
+</script>
+<script type="text/javascript">
+$(function() { codefold.init(); });
+</script>
+<script type="text/javascript" src="../../menudata.js"></script>
+<script type="text/javascript" src="../../menu.js"></script>
+<script type="text/javascript">
+$(function() {
+  initMenu('../../',true,false,'search.php','搜索',true);
+  $(function() { init_search(); });
+});
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(function(){initNavTree('d2/dc6/_hair_strands_voxelization_8cpp.html','../../',''); });
+</script>
+<div id="container">
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">载入中...</div>
+<div class="SRStatus" id="Searching">搜索中...</div>
+<div class="SRStatus" id="NoMatches">未找到</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">HairStrandsVoxelization.cpp 文件参考</div></div>
+</div><!--header-->
+<div class="contents">
+<div class="textblock"><code>#include &quot;<a class="el" href="../../d2/db4/_hair_strands_voxelization_8h_source.html">HairStrandsVoxelization.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d7/d74/_hair_strands_raster_common_8h_source.html">HairStrandsRasterCommon.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../df/da4/_hair_strands_utils_8h_source.html">HairStrandsUtils.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d0/d19/_hair_strands_l_u_t_8h_source.html">HairStrandsLUT.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d8/d34/_shader_8h_source.html">Shader.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../dd/d5a/_global_shader_8h_source.html">GlobalShader.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../db/dc7/_shader_parameters_8h_source.html">ShaderParameters.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../de/d64/_shader_parameter_struct_8h_source.html">ShaderParameterStruct.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d6/d19/_scene_texture_parameters_8h_source.html">SceneTextureParameters.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d8/dc2/_shader_print_parameters_8h_source.html">ShaderPrintParameters.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d5/d32/_render_graph_utils_8h_source.html">RenderGraphUtils.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d5/d66/_post_processing_8h_source.html">PostProcess/PostProcessing.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d5/dbc/_scene_private_8h_source.html">ScenePrivate.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d8/df3/_data_driven_shader_platform_info_8h_source.html">DataDrivenShaderPlatformInfo.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../dc/dc6/_scene_view_state_8h_source.html">SceneViewState.h</a>&quot;</code><br />
+</div><div class="textblock"><div class="dynheader">
+HairStrandsVoxelization.cpp 的引用(Include)关系图:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d9/d1d/_hair_strands_voxelization_8cpp__incl.svg" width="4575" height="848"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+</div><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-nested-classes" class="groupheader"><a id="nested-classes" name="nested-classes"></a>
+类</h2></td></tr>
+<tr class="memitem:FVirtualVoxelInjectOpaqueCS" id="r_FVirtualVoxelInjectOpaqueCS"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/d59/class_f_virtual_voxel_inject_opaque_c_s.html">FVirtualVoxelInjectOpaqueCS</a></td></tr>
+<tr class="memitem:FVoxelAllocatePageIndexCS" id="r_FVoxelAllocatePageIndexCS"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d8/d61/class_f_voxel_allocate_page_index_c_s.html">FVoxelAllocatePageIndexCS</a></td></tr>
+<tr class="memitem:FVoxelMarkValidPageIndex_5FPrepareCS" id="r_FVoxelMarkValidPageIndex_5FPrepareCS"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/d88/class_f_voxel_mark_valid_page_index___prepare_c_s.html">FVoxelMarkValidPageIndex_PrepareCS</a></td></tr>
+<tr class="memitem:FVoxelAllocateVoxelPageCS" id="r_FVoxelAllocateVoxelPageCS"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/d8a/class_f_voxel_allocate_voxel_page_c_s.html">FVoxelAllocateVoxelPageCS</a></td></tr>
+<tr class="memitem:FVoxelAddNodeDescCS" id="r_FVoxelAddNodeDescCS"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/dbe/class_f_voxel_add_node_desc_c_s.html">FVoxelAddNodeDescCS</a></td></tr>
+<tr class="memitem:FVoxelAddIndirectBufferCS" id="r_FVoxelAddIndirectBufferCS"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/dc0/class_f_voxel_add_indirect_buffer_c_s.html">FVoxelAddIndirectBufferCS</a></td></tr>
+<tr class="memitem:FVoxelIndPageClearCS" id="r_FVoxelIndPageClearCS"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/d8b/class_f_voxel_ind_page_clear_c_s.html">FVoxelIndPageClearCS</a></td></tr>
+<tr class="memitem:FVoxelAdaptiveFeedbackCS" id="r_FVoxelAdaptiveFeedbackCS"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/d61/class_f_voxel_adaptive_feedback_c_s.html">FVoxelAdaptiveFeedbackCS</a></td></tr>
+<tr class="memitem:FVoxelRasterComputeCS" id="r_FVoxelRasterComputeCS"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/dbb/class_f_voxel_raster_compute_c_s.html">FVoxelRasterComputeCS</a></td></tr>
+<tr class="memitem:FInstanceData" id="r_FInstanceData"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/d22/struct_f_instance_data.html">FInstanceData</a></td></tr>
+<tr class="memitem:FVirtualVoxelGenerateMipCS" id="r_FVirtualVoxelGenerateMipCS"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/da5/class_f_virtual_voxel_generate_mip_c_s.html">FVirtualVoxelGenerateMipCS</a></td></tr>
+<tr class="memitem:FVirtualVoxelIndirectArgMipCS" id="r_FVirtualVoxelIndirectArgMipCS"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d8/dfa/class_f_virtual_voxel_indirect_arg_mip_c_s.html">FVirtualVoxelIndirectArgMipCS</a></td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-func-members" class="groupheader"><a id="func-members" name="func-members"></a>
+函数</h2></td></tr>
+<tr class="memitem:ac28d1f087b7a574062f84ca8beb4f7e1" id="r_ac28d1f087b7a574062f84ca8beb4f7e1"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac28d1f087b7a574062f84ca8beb4f7e1">DECLARE_GPU_STAT</a> (HairStrandsIndVoxelPageClear)</td></tr>
+<tr class="memitem:abba647c8b57d9ba552f6e2263ad66628" id="r_abba647c8b57d9ba552f6e2263ad66628"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#abba647c8b57d9ba552f6e2263ad66628">DECLARE_GPU_STAT</a> (HairStrandsVoxelize)</td></tr>
+<tr class="memitem:a2153942c286e487e61005278fa2b3d98" id="r_a2153942c286e487e61005278fa2b3d98"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2153942c286e487e61005278fa2b3d98">DECLARE_GPU_STAT</a> (HairStrandsDensityMipGen)</td></tr>
+<tr class="memitem:ae02f59703b8dc15b007856e97b44eeb7" id="r_ae02f59703b8dc15b007856e97b44eeb7"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../df/d63/_typed_element_query_capabilities_8inl.html#a72343342ce64c0755563ee6c5e27868d">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae02f59703b8dc15b007856e97b44eeb7">GetVoxelPageResolution</a> (<a class="el" href="../../dd/de9/preprocessor_8c.html#a1134b580f8da4de94ca6b1de4d37975e">uint32</a> &amp;OutPageResolution, <a class="el" href="../../dd/de9/preprocessor_8c.html#a1134b580f8da4de94ca6b1de4d37975e">uint32</a> &amp;OutPageResolutionLog2)</td></tr>
+<tr class="memitem:a3470007f7040d9d81ee9ff3646492736" id="r_a3470007f7040d9d81ee9ff3646492736"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a3470007f7040d9d81ee9ff3646492736">IsHairStrandsVoxelizationEnable</a> (<a class="el" href="../../de/d49/_r_h_i_shader_platform_8h.html#a424c00593a28eb7ade584eea91161acd">EShaderPlatform</a> ShaderPlatform)</td></tr>
+<tr class="memdesc:a3470007f7040d9d81ee9ff3646492736"><td class="mdescLeft">&#160;</td><td class="mdescRight">Global enable/disable for hair voxelization  <br /></td></tr>
+<tr class="memitem:ae508aa9bce3e18e5700695a83960a302" id="r_ae508aa9bce3e18e5700695a83960a302"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae508aa9bce3e18e5700695a83960a302">IsHairStrandsForVoxelTransmittanceAndShadowEnable</a> (<a class="el" href="../../de/d49/_r_h_i_shader_platform_8h.html#a424c00593a28eb7ade584eea91161acd">EShaderPlatform</a> ShaderPlatform)</td></tr>
+<tr class="memitem:a04f590e1d0186f4eb6636592c47bb55c" id="r_a04f590e1d0186f4eb6636592c47bb55c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a04f590e1d0186f4eb6636592c47bb55c">IsHairStrandsGPUDrivenVoxelizationEnabled</a> ()</td></tr>
+<tr class="memitem:adb5b3dd1d1af3e4c11d699ec4a50537b" id="r_adb5b3dd1d1af3e4c11d699ec4a50537b"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#adb5b3dd1d1af3e4c11d699ec4a50537b">IMPLEMENT_GLOBAL_SHADER_PARAMETER_STRUCT</a> (FVirtualVoxelParameters, &quot;VirtualVoxel&quot;)</td></tr>
+<tr class="memitem:a0c3a23c8034df69b6e3e3e77ee3965cc" id="r_a0c3a23c8034df69b6e3e3e77ee3965cc"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a0c3a23c8034df69b6e3e3e77ee3965cc">IMPLEMENT_GLOBAL_SHADER</a> (<a class="el" href="../../d9/d59/class_f_virtual_voxel_inject_opaque_c_s.html">FVirtualVoxelInjectOpaqueCS</a>, &quot;/Engine/<a class="el" href="../../d9/db1/namespace_private.html">Private</a>/<a class="el" href="../../d2/d6a/namespace_hair_strands.html">HairStrands</a>/HairStrandsVoxelRasterCompute.usf&quot;, &quot;MainCS&quot;, <a class="el" href="../../da/dca/_r_h_i_definitions_8h.html#a0a3cc83cb6ebc79b66b43fae3ffee64ea2a84a18d7ac3d1fac11e3153f0abf73b">SF_Compute</a>)</td></tr>
+<tr class="memitem:a73ef31c91215d904b117769b3d997c50" id="r_a73ef31c91215d904b117769b3d997c50"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a73ef31c91215d904b117769b3d997c50">IMPLEMENT_GLOBAL_SHADER</a> (<a class="el" href="../../d3/d88/class_f_voxel_mark_valid_page_index___prepare_c_s.html">FVoxelMarkValidPageIndex_PrepareCS</a>, &quot;/Engine/<a class="el" href="../../d9/db1/namespace_private.html">Private</a>/<a class="el" href="../../d2/d6a/namespace_hair_strands.html">HairStrands</a>/HairStrandsVoxelRasterCompute.usf&quot;, &quot;MarkValid_PrepareCS&quot;, <a class="el" href="../../da/dca/_r_h_i_definitions_8h.html#a0a3cc83cb6ebc79b66b43fae3ffee64ea2a84a18d7ac3d1fac11e3153f0abf73b">SF_Compute</a>)</td></tr>
+<tr class="memitem:ab265eb863d4a0073a8317ed81cf5efd0" id="r_ab265eb863d4a0073a8317ed81cf5efd0"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab265eb863d4a0073a8317ed81cf5efd0">IMPLEMENT_GLOBAL_SHADER</a> (<a class="el" href="../../d8/d61/class_f_voxel_allocate_page_index_c_s.html">FVoxelAllocatePageIndexCS</a>, &quot;/Engine/<a class="el" href="../../d9/db1/namespace_private.html">Private</a>/<a class="el" href="../../d2/d6a/namespace_hair_strands.html">HairStrands</a>/HairStrandsVoxelRasterCompute.usf&quot;, &quot;AllocatePageIndex&quot;, <a class="el" href="../../da/dca/_r_h_i_definitions_8h.html#a0a3cc83cb6ebc79b66b43fae3ffee64ea2a84a18d7ac3d1fac11e3153f0abf73b">SF_Compute</a>)</td></tr>
+<tr class="memitem:a193150a48f070d673b7ed96abf4836d6" id="r_a193150a48f070d673b7ed96abf4836d6"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a193150a48f070d673b7ed96abf4836d6">IMPLEMENT_GLOBAL_SHADER</a> (<a class="el" href="../../db/d8a/class_f_voxel_allocate_voxel_page_c_s.html">FVoxelAllocateVoxelPageCS</a>, &quot;/Engine/<a class="el" href="../../d9/db1/namespace_private.html">Private</a>/<a class="el" href="../../d2/d6a/namespace_hair_strands.html">HairStrands</a>/HairStrandsVoxelRasterCompute.usf&quot;, &quot;AllocateCS&quot;, <a class="el" href="../../da/dca/_r_h_i_definitions_8h.html#a0a3cc83cb6ebc79b66b43fae3ffee64ea2a84a18d7ac3d1fac11e3153f0abf73b">SF_Compute</a>)</td></tr>
+<tr class="memitem:a4ec46814c32c1be1530c84c67fff6ff4" id="r_a4ec46814c32c1be1530c84c67fff6ff4"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4ec46814c32c1be1530c84c67fff6ff4">IMPLEMENT_GLOBAL_SHADER</a> (<a class="el" href="../../dd/dbe/class_f_voxel_add_node_desc_c_s.html">FVoxelAddNodeDescCS</a>, &quot;/Engine/<a class="el" href="../../d9/db1/namespace_private.html">Private</a>/<a class="el" href="../../d2/d6a/namespace_hair_strands.html">HairStrands</a>/HairStrandsVoxelRasterCompute.usf&quot;, &quot;AddDescCS&quot;, <a class="el" href="../../da/dca/_r_h_i_definitions_8h.html#a0a3cc83cb6ebc79b66b43fae3ffee64ea2a84a18d7ac3d1fac11e3153f0abf73b">SF_Compute</a>)</td></tr>
+<tr class="memitem:affa0f2ab6f240fc89c8c4f3514338b1e" id="r_affa0f2ab6f240fc89c8c4f3514338b1e"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#affa0f2ab6f240fc89c8c4f3514338b1e">IMPLEMENT_GLOBAL_SHADER</a> (<a class="el" href="../../d6/dc0/class_f_voxel_add_indirect_buffer_c_s.html">FVoxelAddIndirectBufferCS</a>, &quot;/Engine/<a class="el" href="../../d9/db1/namespace_private.html">Private</a>/<a class="el" href="../../d2/d6a/namespace_hair_strands.html">HairStrands</a>/HairStrandsVoxelRasterCompute.usf&quot;, &quot;AddIndirectBufferCS&quot;, <a class="el" href="../../da/dca/_r_h_i_definitions_8h.html#a0a3cc83cb6ebc79b66b43fae3ffee64ea2a84a18d7ac3d1fac11e3153f0abf73b">SF_Compute</a>)</td></tr>
+<tr class="memitem:a0edd6b3c0fff9f2e82ee9a427f1749c6" id="r_a0edd6b3c0fff9f2e82ee9a427f1749c6"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a0edd6b3c0fff9f2e82ee9a427f1749c6">IMPLEMENT_GLOBAL_SHADER</a> (<a class="el" href="../../db/d8b/class_f_voxel_ind_page_clear_c_s.html">FVoxelIndPageClearCS</a>, &quot;/Engine/<a class="el" href="../../d9/db1/namespace_private.html">Private</a>/<a class="el" href="../../d2/d6a/namespace_hair_strands.html">HairStrands</a>/HairStrandsVoxelRasterCompute.usf&quot;, &quot;VoxelIndPageClearCS&quot;, <a class="el" href="../../da/dca/_r_h_i_definitions_8h.html#a0a3cc83cb6ebc79b66b43fae3ffee64ea2a84a18d7ac3d1fac11e3153f0abf73b">SF_Compute</a>)</td></tr>
+<tr class="memitem:a456f33819befe9a29602623e76e4d6c3" id="r_a456f33819befe9a29602623e76e4d6c3"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a456f33819befe9a29602623e76e4d6c3">IMPLEMENT_GLOBAL_SHADER</a> (<a class="el" href="../../db/d61/class_f_voxel_adaptive_feedback_c_s.html">FVoxelAdaptiveFeedbackCS</a>, &quot;/Engine/<a class="el" href="../../d9/db1/namespace_private.html">Private</a>/<a class="el" href="../../d2/d6a/namespace_hair_strands.html">HairStrands</a>/HairStrandsVoxelRasterCompute.usf&quot;, &quot;FeedbackCS&quot;, <a class="el" href="../../da/dca/_r_h_i_definitions_8h.html#a0a3cc83cb6ebc79b66b43fae3ffee64ea2a84a18d7ac3d1fac11e3153f0abf73b">SF_Compute</a>)</td></tr>
+<tr class="memitem:a5d38a66c096ee83180a2990c17b0c20d" id="r_a5d38a66c096ee83180a2990c17b0c20d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d0/df6/_math_fwd_8h.html#ac900284388a4a5ca150dbd45a0347fe6">FIntVector</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5d38a66c096ee83180a2990c17b0c20d">CeilToInt</a> (const <a class="el" href="../../d0/df6/_math_fwd_8h.html#adda141358ecae99df7ba663b9e637078">FVector</a> &amp;V)</td></tr>
+<tr class="memitem:af5be8c911b068fae56b2cc94953b156b" id="r_af5be8c911b068fae56b2cc94953b156b"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af5be8c911b068fae56b2cc94953b156b">IMPLEMENT_GLOBAL_SHADER</a> (<a class="el" href="../../d5/dbb/class_f_voxel_raster_compute_c_s.html">FVoxelRasterComputeCS</a>, &quot;/Engine/<a class="el" href="../../d9/db1/namespace_private.html">Private</a>/<a class="el" href="../../d2/d6a/namespace_hair_strands.html">HairStrands</a>/HairStrandsVoxelRasterCompute.usf&quot;, &quot;MainCS&quot;, <a class="el" href="../../da/dca/_r_h_i_definitions_8h.html#a0a3cc83cb6ebc79b66b43fae3ffee64ea2a84a18d7ac3d1fac11e3153f0abf73b">SF_Compute</a>)</td></tr>
+<tr class="memitem:ab42bc78e125c5b0f62da5f9753b28389" id="r_ab42bc78e125c5b0f62da5f9753b28389"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab42bc78e125c5b0f62da5f9753b28389">IsHairStrandContinuousDecimationReorderingEnabled</a> ()</td></tr>
+<tr class="memitem:a4e5c2fb6da40768c43af5fc4aadfb6b2" id="r_a4e5c2fb6da40768c43af5fc4aadfb6b2"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4e5c2fb6da40768c43af5fc4aadfb6b2">IMPLEMENT_GLOBAL_SHADER</a> (<a class="el" href="../../df/da5/class_f_virtual_voxel_generate_mip_c_s.html">FVirtualVoxelGenerateMipCS</a>, &quot;/Engine/<a class="el" href="../../d9/db1/namespace_private.html">Private</a>/<a class="el" href="../../d2/d6a/namespace_hair_strands.html">HairStrands</a>/HairStrandsVoxelRasterCompute.usf&quot;, &quot;MainCS&quot;, <a class="el" href="../../da/dca/_r_h_i_definitions_8h.html#a0a3cc83cb6ebc79b66b43fae3ffee64ea2a84a18d7ac3d1fac11e3153f0abf73b">SF_Compute</a>)</td></tr>
+<tr class="memitem:a8c489c1985fe6345ed2a1d2dff77f03f" id="r_a8c489c1985fe6345ed2a1d2dff77f03f"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8c489c1985fe6345ed2a1d2dff77f03f">IMPLEMENT_GLOBAL_SHADER</a> (<a class="el" href="../../d8/dfa/class_f_virtual_voxel_indirect_arg_mip_c_s.html">FVirtualVoxelIndirectArgMipCS</a>, &quot;/Engine/<a class="el" href="../../d9/db1/namespace_private.html">Private</a>/<a class="el" href="../../d2/d6a/namespace_hair_strands.html">HairStrands</a>/HairStrandsVoxelRasterCompute.usf&quot;, &quot;MainCS&quot;, <a class="el" href="../../da/dca/_r_h_i_definitions_8h.html#a0a3cc83cb6ebc79b66b43fae3ffee64ea2a84a18d7ac3d1fac11e3153f0abf73b">SF_Compute</a>)</td></tr>
+<tr class="memitem:ac71d36921d57edd11cc524df4302aeba" id="r_ac71d36921d57edd11cc524df4302aeba"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../df/d63/_typed_element_query_capabilities_8inl.html#a72343342ce64c0755563ee6c5e27868d">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac71d36921d57edd11cc524df4302aeba">VoxelizeHairStrands</a> (<a class="el" href="../../d3/d85/class_f_r_d_g_builder.html">FRDGBuilder</a> &amp;GraphBuilder, const <a class="el" href="../../d4/dfa/class_f_scene.html">FScene</a> *Scene, <a class="el" href="../../dd/d2b/class_f_view_info.html">FViewInfo</a> &amp;View, <a class="el" href="../../df/d60/class_f_instance_culling_manager.html">FInstanceCullingManager</a> &amp;InstanceCullingManager, const <a class="el" href="../../d0/df6/_math_fwd_8h.html#adda141358ecae99df7ba663b9e637078">FVector</a> &amp;PreViewStereoCorrection)</td></tr>
+</table>
+<a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">函数说明</h2>
+<a id="a5d38a66c096ee83180a2990c17b0c20d" name="a5d38a66c096ee83180a2990c17b0c20d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5d38a66c096ee83180a2990c17b0c20d">&#9670;&#160;</a></span>CeilToInt()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d0/df6/_math_fwd_8h.html#ac900284388a4a5ca150dbd45a0347fe6">FIntVector</a> CeilToInt </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="../../d0/df6/_math_fwd_8h.html#adda141358ecae99df7ba663b9e637078">FVector</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>V</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a2153942c286e487e61005278fa2b3d98" name="a2153942c286e487e61005278fa2b3d98"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2153942c286e487e61005278fa2b3d98">&#9670;&#160;</a></span>DECLARE_GPU_STAT() <span class="overload">[1/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">DECLARE_GPU_STAT </td>
+          <td>(</td>
+          <td class="paramtype">HairStrandsDensityMipGen</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ac28d1f087b7a574062f84ca8beb4f7e1" name="ac28d1f087b7a574062f84ca8beb4f7e1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac28d1f087b7a574062f84ca8beb4f7e1">&#9670;&#160;</a></span>DECLARE_GPU_STAT() <span class="overload">[2/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">DECLARE_GPU_STAT </td>
+          <td>(</td>
+          <td class="paramtype">HairStrandsIndVoxelPageClear</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="abba647c8b57d9ba552f6e2263ad66628" name="abba647c8b57d9ba552f6e2263ad66628"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abba647c8b57d9ba552f6e2263ad66628">&#9670;&#160;</a></span>DECLARE_GPU_STAT() <span class="overload">[3/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">DECLARE_GPU_STAT </td>
+          <td>(</td>
+          <td class="paramtype">HairStrandsVoxelize</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ae02f59703b8dc15b007856e97b44eeb7" name="ae02f59703b8dc15b007856e97b44eeb7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae02f59703b8dc15b007856e97b44eeb7">&#9670;&#160;</a></span>GetVoxelPageResolution()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../df/d63/_typed_element_query_capabilities_8inl.html#a72343342ce64c0755563ee6c5e27868d">void</a> GetVoxelPageResolution </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../dd/de9/preprocessor_8c.html#a1134b580f8da4de94ca6b1de4d37975e">uint32</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>OutPageResolution</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../dd/de9/preprocessor_8c.html#a1134b580f8da4de94ca6b1de4d37975e">uint32</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>OutPageResolutionLog2</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a4e5c2fb6da40768c43af5fc4aadfb6b2" name="a4e5c2fb6da40768c43af5fc4aadfb6b2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4e5c2fb6da40768c43af5fc4aadfb6b2">&#9670;&#160;</a></span>IMPLEMENT_GLOBAL_SHADER() <span class="overload">[1/11]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">IMPLEMENT_GLOBAL_SHADER </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../df/da5/class_f_virtual_voxel_generate_mip_c_s.html">FVirtualVoxelGenerateMipCS</a></td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&quot;/Engine/<a class="el" href="../../d9/db1/namespace_private.html">Private</a>/<a class="el" href="../../d2/d6a/namespace_hair_strands.html">HairStrands</a>/HairStrandsVoxelRasterCompute.usf&quot;</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&quot;MainCS&quot;</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../da/dca/_r_h_i_definitions_8h.html#a0a3cc83cb6ebc79b66b43fae3ffee64ea2a84a18d7ac3d1fac11e3153f0abf73b">SF_Compute</a></td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a8c489c1985fe6345ed2a1d2dff77f03f" name="a8c489c1985fe6345ed2a1d2dff77f03f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8c489c1985fe6345ed2a1d2dff77f03f">&#9670;&#160;</a></span>IMPLEMENT_GLOBAL_SHADER() <span class="overload">[2/11]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">IMPLEMENT_GLOBAL_SHADER </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d8/dfa/class_f_virtual_voxel_indirect_arg_mip_c_s.html">FVirtualVoxelIndirectArgMipCS</a></td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&quot;/Engine/<a class="el" href="../../d9/db1/namespace_private.html">Private</a>/<a class="el" href="../../d2/d6a/namespace_hair_strands.html">HairStrands</a>/HairStrandsVoxelRasterCompute.usf&quot;</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&quot;MainCS&quot;</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../da/dca/_r_h_i_definitions_8h.html#a0a3cc83cb6ebc79b66b43fae3ffee64ea2a84a18d7ac3d1fac11e3153f0abf73b">SF_Compute</a></td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a0c3a23c8034df69b6e3e3e77ee3965cc" name="a0c3a23c8034df69b6e3e3e77ee3965cc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0c3a23c8034df69b6e3e3e77ee3965cc">&#9670;&#160;</a></span>IMPLEMENT_GLOBAL_SHADER() <span class="overload">[3/11]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">IMPLEMENT_GLOBAL_SHADER </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d9/d59/class_f_virtual_voxel_inject_opaque_c_s.html">FVirtualVoxelInjectOpaqueCS</a></td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&quot;/Engine/<a class="el" href="../../d9/db1/namespace_private.html">Private</a>/<a class="el" href="../../d2/d6a/namespace_hair_strands.html">HairStrands</a>/HairStrandsVoxelRasterCompute.usf&quot;</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&quot;MainCS&quot;</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../da/dca/_r_h_i_definitions_8h.html#a0a3cc83cb6ebc79b66b43fae3ffee64ea2a84a18d7ac3d1fac11e3153f0abf73b">SF_Compute</a></td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a456f33819befe9a29602623e76e4d6c3" name="a456f33819befe9a29602623e76e4d6c3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a456f33819befe9a29602623e76e4d6c3">&#9670;&#160;</a></span>IMPLEMENT_GLOBAL_SHADER() <span class="overload">[4/11]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">IMPLEMENT_GLOBAL_SHADER </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../db/d61/class_f_voxel_adaptive_feedback_c_s.html">FVoxelAdaptiveFeedbackCS</a></td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&quot;/Engine/<a class="el" href="../../d9/db1/namespace_private.html">Private</a>/<a class="el" href="../../d2/d6a/namespace_hair_strands.html">HairStrands</a>/HairStrandsVoxelRasterCompute.usf&quot;</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&quot;FeedbackCS&quot;</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../da/dca/_r_h_i_definitions_8h.html#a0a3cc83cb6ebc79b66b43fae3ffee64ea2a84a18d7ac3d1fac11e3153f0abf73b">SF_Compute</a></td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="affa0f2ab6f240fc89c8c4f3514338b1e" name="affa0f2ab6f240fc89c8c4f3514338b1e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#affa0f2ab6f240fc89c8c4f3514338b1e">&#9670;&#160;</a></span>IMPLEMENT_GLOBAL_SHADER() <span class="overload">[5/11]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">IMPLEMENT_GLOBAL_SHADER </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d6/dc0/class_f_voxel_add_indirect_buffer_c_s.html">FVoxelAddIndirectBufferCS</a></td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&quot;/Engine/<a class="el" href="../../d9/db1/namespace_private.html">Private</a>/<a class="el" href="../../d2/d6a/namespace_hair_strands.html">HairStrands</a>/HairStrandsVoxelRasterCompute.usf&quot;</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&quot;AddIndirectBufferCS&quot;</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../da/dca/_r_h_i_definitions_8h.html#a0a3cc83cb6ebc79b66b43fae3ffee64ea2a84a18d7ac3d1fac11e3153f0abf73b">SF_Compute</a></td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a4ec46814c32c1be1530c84c67fff6ff4" name="a4ec46814c32c1be1530c84c67fff6ff4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4ec46814c32c1be1530c84c67fff6ff4">&#9670;&#160;</a></span>IMPLEMENT_GLOBAL_SHADER() <span class="overload">[6/11]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">IMPLEMENT_GLOBAL_SHADER </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../dd/dbe/class_f_voxel_add_node_desc_c_s.html">FVoxelAddNodeDescCS</a></td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&quot;/Engine/<a class="el" href="../../d9/db1/namespace_private.html">Private</a>/<a class="el" href="../../d2/d6a/namespace_hair_strands.html">HairStrands</a>/HairStrandsVoxelRasterCompute.usf&quot;</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&quot;AddDescCS&quot;</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../da/dca/_r_h_i_definitions_8h.html#a0a3cc83cb6ebc79b66b43fae3ffee64ea2a84a18d7ac3d1fac11e3153f0abf73b">SF_Compute</a></td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ab265eb863d4a0073a8317ed81cf5efd0" name="ab265eb863d4a0073a8317ed81cf5efd0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab265eb863d4a0073a8317ed81cf5efd0">&#9670;&#160;</a></span>IMPLEMENT_GLOBAL_SHADER() <span class="overload">[7/11]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">IMPLEMENT_GLOBAL_SHADER </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d8/d61/class_f_voxel_allocate_page_index_c_s.html">FVoxelAllocatePageIndexCS</a></td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&quot;/Engine/<a class="el" href="../../d9/db1/namespace_private.html">Private</a>/<a class="el" href="../../d2/d6a/namespace_hair_strands.html">HairStrands</a>/HairStrandsVoxelRasterCompute.usf&quot;</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&quot;AllocatePageIndex&quot;</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../da/dca/_r_h_i_definitions_8h.html#a0a3cc83cb6ebc79b66b43fae3ffee64ea2a84a18d7ac3d1fac11e3153f0abf73b">SF_Compute</a></td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a193150a48f070d673b7ed96abf4836d6" name="a193150a48f070d673b7ed96abf4836d6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a193150a48f070d673b7ed96abf4836d6">&#9670;&#160;</a></span>IMPLEMENT_GLOBAL_SHADER() <span class="overload">[8/11]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">IMPLEMENT_GLOBAL_SHADER </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../db/d8a/class_f_voxel_allocate_voxel_page_c_s.html">FVoxelAllocateVoxelPageCS</a></td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&quot;/Engine/<a class="el" href="../../d9/db1/namespace_private.html">Private</a>/<a class="el" href="../../d2/d6a/namespace_hair_strands.html">HairStrands</a>/HairStrandsVoxelRasterCompute.usf&quot;</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&quot;AllocateCS&quot;</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../da/dca/_r_h_i_definitions_8h.html#a0a3cc83cb6ebc79b66b43fae3ffee64ea2a84a18d7ac3d1fac11e3153f0abf73b">SF_Compute</a></td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a0edd6b3c0fff9f2e82ee9a427f1749c6" name="a0edd6b3c0fff9f2e82ee9a427f1749c6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0edd6b3c0fff9f2e82ee9a427f1749c6">&#9670;&#160;</a></span>IMPLEMENT_GLOBAL_SHADER() <span class="overload">[9/11]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">IMPLEMENT_GLOBAL_SHADER </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../db/d8b/class_f_voxel_ind_page_clear_c_s.html">FVoxelIndPageClearCS</a></td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&quot;/Engine/<a class="el" href="../../d9/db1/namespace_private.html">Private</a>/<a class="el" href="../../d2/d6a/namespace_hair_strands.html">HairStrands</a>/HairStrandsVoxelRasterCompute.usf&quot;</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&quot;VoxelIndPageClearCS&quot;</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../da/dca/_r_h_i_definitions_8h.html#a0a3cc83cb6ebc79b66b43fae3ffee64ea2a84a18d7ac3d1fac11e3153f0abf73b">SF_Compute</a></td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a73ef31c91215d904b117769b3d997c50" name="a73ef31c91215d904b117769b3d997c50"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a73ef31c91215d904b117769b3d997c50">&#9670;&#160;</a></span>IMPLEMENT_GLOBAL_SHADER() <span class="overload">[10/11]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">IMPLEMENT_GLOBAL_SHADER </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d3/d88/class_f_voxel_mark_valid_page_index___prepare_c_s.html">FVoxelMarkValidPageIndex_PrepareCS</a></td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&quot;/Engine/<a class="el" href="../../d9/db1/namespace_private.html">Private</a>/<a class="el" href="../../d2/d6a/namespace_hair_strands.html">HairStrands</a>/HairStrandsVoxelRasterCompute.usf&quot;</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&quot;MarkValid_PrepareCS&quot;</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../da/dca/_r_h_i_definitions_8h.html#a0a3cc83cb6ebc79b66b43fae3ffee64ea2a84a18d7ac3d1fac11e3153f0abf73b">SF_Compute</a></td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="af5be8c911b068fae56b2cc94953b156b" name="af5be8c911b068fae56b2cc94953b156b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af5be8c911b068fae56b2cc94953b156b">&#9670;&#160;</a></span>IMPLEMENT_GLOBAL_SHADER() <span class="overload">[11/11]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">IMPLEMENT_GLOBAL_SHADER </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d5/dbb/class_f_voxel_raster_compute_c_s.html">FVoxelRasterComputeCS</a></td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&quot;/Engine/<a class="el" href="../../d9/db1/namespace_private.html">Private</a>/<a class="el" href="../../d2/d6a/namespace_hair_strands.html">HairStrands</a>/HairStrandsVoxelRasterCompute.usf&quot;</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&quot;MainCS&quot;</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../da/dca/_r_h_i_definitions_8h.html#a0a3cc83cb6ebc79b66b43fae3ffee64ea2a84a18d7ac3d1fac11e3153f0abf73b">SF_Compute</a></td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="adb5b3dd1d1af3e4c11d699ec4a50537b" name="adb5b3dd1d1af3e4c11d699ec4a50537b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adb5b3dd1d1af3e4c11d699ec4a50537b">&#9670;&#160;</a></span>IMPLEMENT_GLOBAL_SHADER_PARAMETER_STRUCT()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">IMPLEMENT_GLOBAL_SHADER_PARAMETER_STRUCT </td>
+          <td>(</td>
+          <td class="paramtype">FVirtualVoxelParameters</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&quot;VirtualVoxel&quot;</td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ab42bc78e125c5b0f62da5f9753b28389" name="ab42bc78e125c5b0f62da5f9753b28389"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab42bc78e125c5b0f62da5f9753b28389">&#9670;&#160;</a></span>IsHairStrandContinuousDecimationReorderingEnabled()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a> IsHairStrandContinuousDecimationReorderingEnabled </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ae508aa9bce3e18e5700695a83960a302" name="ae508aa9bce3e18e5700695a83960a302"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae508aa9bce3e18e5700695a83960a302">&#9670;&#160;</a></span>IsHairStrandsForVoxelTransmittanceAndShadowEnable()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a> IsHairStrandsForVoxelTransmittanceAndShadowEnable </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../de/d49/_r_h_i_shader_platform_8h.html#a424c00593a28eb7ade584eea91161acd">EShaderPlatform</a></td>          <td class="paramname"><span class="paramname"><em>ShaderPlatform</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a04f590e1d0186f4eb6636592c47bb55c" name="a04f590e1d0186f4eb6636592c47bb55c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a04f590e1d0186f4eb6636592c47bb55c">&#9670;&#160;</a></span>IsHairStrandsGPUDrivenVoxelizationEnabled()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a> IsHairStrandsGPUDrivenVoxelizationEnabled </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a3470007f7040d9d81ee9ff3646492736" name="a3470007f7040d9d81ee9ff3646492736"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3470007f7040d9d81ee9ff3646492736">&#9670;&#160;</a></span>IsHairStrandsVoxelizationEnable()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a> IsHairStrandsVoxelizationEnable </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../de/d49/_r_h_i_shader_platform_8h.html#a424c00593a28eb7ade584eea91161acd">EShaderPlatform</a></td>          <td class="paramname"><span class="paramname"><em>ShaderPlatform</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Global enable/disable for hair voxelization </p>
+
+</div>
+</div>
+<a id="ac71d36921d57edd11cc524df4302aeba" name="ac71d36921d57edd11cc524df4302aeba"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac71d36921d57edd11cc524df4302aeba">&#9670;&#160;</a></span>VoxelizeHairStrands()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../df/d63/_typed_element_query_capabilities_8inl.html#a72343342ce64c0755563ee6c5e27868d">void</a> VoxelizeHairStrands </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d3/d85/class_f_r_d_g_builder.html">FRDGBuilder</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>GraphBuilder</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="../../d4/dfa/class_f_scene.html">FScene</a> *</td>          <td class="paramname"><span class="paramname"><em>Scene</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../dd/d2b/class_f_view_info.html">FViewInfo</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>View</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../df/d60/class_f_instance_culling_manager.html">FInstanceCullingManager</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>InstanceCullingManager</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="../../d0/df6/_math_fwd_8h.html#adda141358ecae99df7ba663b9e637078">FVector</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>PreViewStereoCorrection</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<div id="page-nav" class="page-nav-panel">
+<div id="page-nav-resize-handle"></div>
+<div id="page-nav-tree">
+<div id="page-nav-contents">
+</div><!-- page-nav-contents -->
+</div><!-- page-nav-tree -->
+</div><!-- page-nav -->
+</div><!-- container -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a href="../../dir_0b6ee6e7e9547e675db4add2e5de97da.html">Engine</a></li><li class="navelem"><a href="../../dir_9579d1ecb2c7bf48cbe1049c41745cb4.html">Source</a></li><li class="navelem"><a href="../../dir_9f04efef762572853abdf73f62bebfcc.html">Runtime</a></li><li class="navelem"><a href="../../dir_5ed6327f04b0f38d3f6fe5caa38b0445.html">Renderer</a></li><li class="navelem"><a href="../../dir_e317dc6f09036e33460f39c550131623.html">Private</a></li><li class="navelem"><a href="../../dir_435f6a225fbc217d89708df97130f984.html">HairStrands</a></li><li class="navelem"><a href="../../d2/dc6/_hair_strands_voxelization_8cpp.html">HairStrandsVoxelization.cpp</a></li>
+    <li class="footer">制作者 <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.15.0 </li>
+  </ul>
+</div>
+</body>
+</html>

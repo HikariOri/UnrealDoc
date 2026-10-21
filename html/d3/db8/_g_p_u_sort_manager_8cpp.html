@@ -1,0 +1,536 @@
+<!-- HTML header for doxygen 1.15.0-->
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh">
+<head>
+  <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=11" />
+  <meta name="generator" content="Doxygen 1.15.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>UE 5.8.4: Engine/Source/Runtime/Engine/Private/GPUSortManager.cpp 文件参考</title>
+  <link rel="icon" href="../../EdIconDefault.bmp" type="image/x-icon" />
+  <link href="../../tabs.css" rel="stylesheet" type="text/css" />
+  <script type="text/javascript" src="../../jquery.js"></script>
+  <script type="text/javascript" src="../../dynsections.js"></script>
+  <link href="../../navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../navtreedata.js"></script>
+<script type="text/javascript" src="../../navtree.js"></script>
+<script type="text/javascript" src="../../cookie.js"></script>
+  <link href="../../search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../search/searchdata.js"></script>
+<script type="text/javascript" src="../../search/search.js"></script>
+  <script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  extensions: ["tex2jax.js"],
+  jax: ["input/TeX","output/HTML-CSS"],
+});
+</script>
+<script type="text/javascript" async="async" src="https://cdn.jsdelivr.net/npm/mathjax@2/MathJax.js"></script>
+  <link href="../../doxygen.css" rel="stylesheet" type="text/css" />
+  <link href="../../doxygen-awesome.css" rel="stylesheet" type="text/css"/>
+<link href="../../doxygen-awesome-sidebar-only.css" rel="stylesheet" type="text/css"/>
+<link href="../../doxygen-awesome-sidebar-only-darkmode-toggle.css" rel="stylesheet" type="text/css"/>
+  <!-- ... other metadata & script includes ... -->
+  <script type="text/javascript" src="../../doxygen-awesome-darkmode-toggle.js"></script>
+  <script type="text/javascript">
+    DoxygenAwesomeDarkModeToggle.title = "Zwischen hellem/dunklem Modus wechseln"
+    DoxygenAwesomeDarkModeToggle.lightModeIcon = '🌞'
+    // icon from https://fonts.google.com/icons
+    DoxygenAwesomeDarkModeToggle.darkModeIcon = `<svg xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 24 24" height="24px" viewBox="0 0 24 24" width="24px" fill="#009793"><g><rect fill="none" height="24" width="24"/></g><g><g><path d="M8.1,14.15C9.77,14.63,11,16.17,11,18c0,0.68-0.19,1.31-0.48,1.87c0.48,0.09,0.97,0.14,1.48,0.14 c1.48,0,2.9-0.41,4.13-1.15c-2.62-0.92-5.23-2.82-6.8-5.86C7.74,9.94,7.78,7.09,8.29,4.9c-2.57,1.33-4.3,4.01-4.3,7.1c0,0,0,0,0,0 c0.01,0,0.01,0,0.02,0C5.66,12,7.18,12.83,8.1,14.15z" opacity=".3"/><path d="M19.78,17.51c-2.47,0-6.57-1.33-8.68-5.43C8.77,7.57,10.6,3.6,11.63,2.01C6.27,2.2,1.98,6.59,1.98,12 c0,0.14,0.02,0.28,0.02,0.42C2.61,12.16,3.28,12,3.98,12c0,0,0,0,0,0c0-3.09,1.73-5.77,4.3-7.1C7.78,7.09,7.74,9.94,9.32,13 c1.57,3.04,4.18,4.95,6.8,5.86c-1.23,0.74-2.65,1.15-4.13,1.15c-0.5,0-1-0.05-1.48-0.14c-0.37,0.7-0.94,1.27-1.64,1.64 c0.98,0.32,2.03,0.5,3.11,0.5c3.5,0,6.58-1.8,8.37-4.52C20.18,17.5,19.98,17.51,19.78,17.51z"/><path d="M7,16l-0.18,0C6.4,14.84,5.3,14,4,14c-1.66,0-3,1.34-3,3s1.34,3,3,3c0.62,0,2.49,0,3,0c1.1,0,2-0.9,2-2 C9,16.9,8.1,16,7,16z"/></g></g></svg>`
+    DoxygenAwesomeDarkModeToggle.init()
+  </script>
+  <script type="text/javascript" src="../../doxygen-awesome-fragment-copy-button.js"></script>
+  <script type="text/javascript">
+    DoxygenAwesomeFragmentCopyButton.title = "In die Zwischenablage kopieren"
+    // DoxygenAwesomeFragmentCopyButton.copyIcon = `<svg ...>`
+    // DoxygenAwesomeFragmentCopyButton.successIcon = `<svg ...>`
+    DoxygenAwesomeFragmentCopyButton.init()
+  </script>
+  <script type="text/javascript" src="../../doxygen-awesome-paragraph-link.js"></script>
+  <script type="text/javascript">
+    DoxygenAwesomeParagraphLink.title = "Abschnitt verknüpfen"
+    DoxygenAwesomeParagraphLink.icon = "¶"
+    DoxygenAwesomeParagraphLink.init()
+  </script>
+  <script type="text/javascript" src="../../doxygen-awesome-interactive-toc.js"></script>
+  <script type="text/javascript">
+    DoxygenAwesomeInteractiveToc.topOffset = 45
+    DoxygenAwesomeInteractiveToc.hideMobileMenu = false
+    DoxygenAwesomeInteractiveToc.init()
+  </script>
+</head>
+<body>
+    <div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+      <div id="titlearea">
+        <table cellspacing="0" cellpadding="0">
+          <tbody>
+            <tr id="projectrow">
+              <td id="projectlogo"><img alt="Logo" src="../../EdIconDefault.bmp"  /></td>
+              <td id="projectalign">
+                <div id="projectname">UE 5.8.4
+                </div>
+                <div id="projectbrief">Unreal Engine</div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <!-- end header part -->
+<!-- 制作者 Doxygen 1.15.0 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "../../search/",'.html');
+</script>
+<script type="text/javascript">
+$(function() { codefold.init(); });
+</script>
+<script type="text/javascript" src="../../menudata.js"></script>
+<script type="text/javascript" src="../../menu.js"></script>
+<script type="text/javascript">
+$(function() {
+  initMenu('../../',true,false,'search.php','搜索',true);
+  $(function() { init_search(); });
+});
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(function(){initNavTree('d3/db8/_g_p_u_sort_manager_8cpp.html','../../',''); });
+</script>
+<div id="container">
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">载入中...</div>
+<div class="SRStatus" id="Searching">搜索中...</div>
+<div class="SRStatus" id="NoMatches">未找到</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">GPUSortManager.cpp 文件参考</div></div>
+</div><!--header-->
+<div class="contents">
+<div class="textblock"><code>#include &quot;<a class="el" href="../../dd/d1f/_g_p_u_sort_manager_8h_source.html">GPUSortManager.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d2/d63/_g_p_u_sort_8h_source.html">GPUSort.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d6/d27/_g_p_u_bitonic_sort_8h_source.html">GPUBitonicSort.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../dd/d5a/_global_shader_8h_source.html">GlobalShader.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d7/db5/_float16_8h_source.html">Math/Float16.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d6/d82/_shader_parameter_utils_8h_source.html">ShaderParameterUtils.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../dd/d45/_f_x_system_8h_source.html">FXSystem.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d5/d32/_render_graph_utils_8h_source.html">RenderGraphUtils.h</a>&quot;</code><br />
+</div><div class="textblock"><div class="dynheader">
+GPUSortManager.cpp 的引用(Include)关系图:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d8/da3/_g_p_u_sort_manager_8cpp__incl.svg" width="5656" height="950"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+</div><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-nested-classes" class="groupheader"><a id="nested-classes" name="nested-classes"></a>
+类</h2></td></tr>
+<tr class="memitem:FGPUSortDummyUAV" id="r_FGPUSortDummyUAV"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/d6f/class_f_g_p_u_sort_dummy_u_a_v.html">FGPUSortDummyUAV</a></td></tr>
+<tr class="memitem:FCopyUIntBufferCS" id="r_FCopyUIntBufferCS"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d2/dd2/class_f_copy_u_int_buffer_c_s.html">FCopyUIntBufferCS</a></td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-define-members" class="groupheader"><a id="define-members" name="define-members"></a>
+宏定义</h2></td></tr>
+<tr class="memitem:a04e76e90939df4fe25fe5500f5e90dc6" id="r_a04e76e90939df4fe25fe5500f5e90dc6"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a04e76e90939df4fe25fe5500f5e90dc6">COPYUINTCS_BUFFER_COUNT</a>&#160;&#160;&#160;3</td></tr>
+<tr class="memitem:ae44d73ce91e49866aaaa3fdc69b915ef" id="r_ae44d73ce91e49866aaaa3fdc69b915ef"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae44d73ce91e49866aaaa3fdc69b915ef">COPYUINTCS_THREAD_COUNT</a>&#160;&#160;&#160;64</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-enum-members" class="groupheader"><a id="enum-members" name="enum-members"></a>
+枚举</h2></td></tr>
+<tr class="memitem:aab4e7bb70a7da416c7cf6281d8bee356" id="r_aab4e7bb70a7da416c7cf6281d8bee356"><td class="memItemLeft" align="right" valign="top">enum class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aab4e7bb70a7da416c7cf6281d8bee356">EGPUSortAlgorithm</a> : int32 { <a class="el" href="#aab4e7bb70a7da416c7cf6281d8bee356a06b9281e396db002010bde1de57262eb">Auto</a> = -1
+, <a class="el" href="#aab4e7bb70a7da416c7cf6281d8bee356adcadf58d64b674ba14d35a8d5bccfcca">Radix</a> = 0
+, <a class="el" href="#aab4e7bb70a7da416c7cf6281d8bee356ac8224730944738de4b62f2ca2155262e">Bitonic</a> = 1
+ }</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-func-members" class="groupheader"><a id="func-members" name="func-members"></a>
+函数</h2></td></tr>
+<tr class="memitem:a86ab6be62fda4a98aa42ef9f807b8b6f" id="r_a86ab6be62fda4a98aa42ef9f807b8b6f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="#aab4e7bb70a7da416c7cf6281d8bee356">EGPUSortAlgorithm</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a86ab6be62fda4a98aa42ef9f807b8b6f">GetPreferredGPUSortAlgorithm</a> (<a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a8dbb3cd84ca9fd010dadfc3815eefa5d">int32</a> Count)</td></tr>
+<tr class="memitem:ae94536c2fd131b68386a1b176f328539" id="r_ae94536c2fd131b68386a1b176f328539"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae94536c2fd131b68386a1b176f328539">DECLARE_GPU_STAT_NAMED</a> (GPUKeyGenAndSort, <a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;GPU KeyGen &amp; Sort&quot;))</td></tr>
+<tr class="memitem:acec4eb9767f0141b6967257f421bbc62" id="r_acec4eb9767f0141b6967257f421bbc62"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#acec4eb9767f0141b6967257f421bbc62">IMPLEMENT_SHADER_TYPE</a> (, <a class="el" href="../../d2/dd2/class_f_copy_u_int_buffer_c_s.html">FCopyUIntBufferCS</a>, <a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;/Engine/<a class="el" href="../../d9/db1/namespace_private.html">Private</a>/CopyUIntBuffer.usf&quot;), <a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;MainCS&quot;), <a class="el" href="../../da/dca/_r_h_i_definitions_8h.html#a0a3cc83cb6ebc79b66b43fae3ffee64ea2a84a18d7ac3d1fac11e3153f0abf73b">SF_Compute</a>)</td></tr>
+<tr class="memitem:a58ff6a6755410d24d26568cfaa590297" id="r_a58ff6a6755410d24d26568cfaa590297"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../df/d63/_typed_element_query_capabilities_8inl.html#a72343342ce64c0755563ee6c5e27868d">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a58ff6a6755410d24d26568cfaa590297">CopyUIntBufferToTargets</a> (<a class="el" href="../../d9/dfe/class_f_r_h_i_command_list.html">FRHICommandList</a> &amp;RHICmdList, <a class="el" href="../../dc/dcf/namespace_e_r_h_i_feature_level.html#a04bc2ae8f7bf478747a40da91e1753dd">ERHIFeatureLevel::Type</a> FeatureLevel, <a class="el" href="../../dd/d14/class_f_r_h_i_shader_resource_view.html">FRHIShaderResourceView</a> *SourceSRV, <a class="el" href="../../d2/dab/class_f_r_h_i_unordered_access_view.html">FRHIUnorderedAccessView</a> *const *TargetUAVs, <a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a8dbb3cd84ca9fd010dadfc3815eefa5d">int32</a> *TargetSizes, <a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a8dbb3cd84ca9fd010dadfc3815eefa5d">int32</a> StartingOffset, <a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a8dbb3cd84ca9fd010dadfc3815eefa5d">int32</a> NumTargets)</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-var-members" class="groupheader"><a id="var-members" name="var-members"></a>
+变量</h2></td></tr>
+<tr class="memitem:a75cf51cb81fc80b7bff8dbac64742937" id="r_a75cf51cb81fc80b7bff8dbac64742937"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a8dbb3cd84ca9fd010dadfc3815eefa5d">int32</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a75cf51cb81fc80b7bff8dbac64742937">GGPUSortFrameCountBeforeBufferShrinking</a> = 100</td></tr>
+<tr class="memitem:afac54ea1ae53e7d06414029a54689fb5" id="r_afac54ea1ae53e7d06414029a54689fb5"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a8dbb3cd84ca9fd010dadfc3815eefa5d">int32</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#afac54ea1ae53e7d06414029a54689fb5">GGPUSortMinBufferSize</a> = 8192</td></tr>
+<tr class="memitem:a83e827dc9e6c7dfc2c53a7fcc9231519" id="r_a83e827dc9e6c7dfc2c53a7fcc9231519"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../df/d2a/_s_anim_notify_shared_8h.html#ac7c94e837fed3f8e4bb3dd94d7bd2ecf">float</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a83e827dc9e6c7dfc2c53a7fcc9231519">GGPUSortBufferSlack</a> = 2.f</td></tr>
+<tr class="memitem:a2b0d02308243d4188182aec1e3f8ff19" id="r_a2b0d02308243d4188182aec1e3f8ff19"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a8dbb3cd84ca9fd010dadfc3815eefa5d">int32</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2b0d02308243d4188182aec1e3f8ff19">GGPUSortStressTest</a> = 0</td></tr>
+<tr class="memitem:ab9af208010cd15b74f70f9a00feb1b6f" id="r_ab9af208010cd15b74f70f9a00feb1b6f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a8dbb3cd84ca9fd010dadfc3815eefa5d">int32</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab9af208010cd15b74f70f9a00feb1b6f">GGPUSortAlgorithm</a> = (<a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a8dbb3cd84ca9fd010dadfc3815eefa5d">int32</a>)<a class="el" href="#aab4e7bb70a7da416c7cf6281d8bee356a06b9281e396db002010bde1de57262eb">EGPUSortAlgorithm::Auto</a></td></tr>
+<tr class="memitem:a9873eeea0004e4cf24b7ac68928f123d" id="r_a9873eeea0004e4cf24b7ac68928f123d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d2/d79/class_f_auto_console_variable_ref.html">FAutoConsoleVariableRef</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9873eeea0004e4cf24b7ac68928f123d">CVarGPUSortAlgorithm</a> (<a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;fx.GPUSort.Algorithm&quot;), <a class="el" href="#ab9af208010cd15b74f70f9a00feb1b6f">GGPUSortAlgorithm</a>, <a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;GPU sort: 0=Radix (scales to high counts), 1=Bitonic (low overhead at low counts), -1=Auto (default; choose by fx.GPUSort.Bitonic.AutoThresholdLog2).&quot;), ECVF_Default)</td></tr>
+<tr class="memitem:af47da4edef6de9d3758d0f04c1f57c95" id="r_af47da4edef6de9d3758d0f04c1f57c95"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a8dbb3cd84ca9fd010dadfc3815eefa5d">int32</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af47da4edef6de9d3758d0f04c1f57c95">GGPUSortBitonicAutoThresholdLog2</a> = 17</td></tr>
+<tr class="memitem:a87b3291877531ccf43adb7a544f0c928" id="r_a87b3291877531ccf43adb7a544f0c928"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d2/d79/class_f_auto_console_variable_ref.html">FAutoConsoleVariableRef</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a87b3291877531ccf43adb7a544f0c928">CVarGPUSortBitonicAutoThresholdLog2</a> (<a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;fx.GPUSort.Bitonic.AutoThresholdLog2&quot;), <a class="el" href="#af47da4edef6de9d3758d0f04c1f57c95">GGPUSortBitonicAutoThresholdLog2</a>, <a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;Auto-mode threshold (log2): use Bitonic when Count &lt;= (1 &lt;&lt; value) (default=17, 131072).&quot;), ECVF_Default)</td></tr>
+</table>
+<a name="doc-define-members" id="doc-define-members"></a><h2 id="header-doc-define-members" class="groupheader">宏定义说明</h2>
+<a id="a04e76e90939df4fe25fe5500f5e90dc6" name="a04e76e90939df4fe25fe5500f5e90dc6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a04e76e90939df4fe25fe5500f5e90dc6">&#9670;&#160;</a></span>COPYUINTCS_BUFFER_COUNT</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define COPYUINTCS_BUFFER_COUNT&#160;&#160;&#160;3</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ae44d73ce91e49866aaaa3fdc69b915ef" name="ae44d73ce91e49866aaaa3fdc69b915ef"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae44d73ce91e49866aaaa3fdc69b915ef">&#9670;&#160;</a></span>COPYUINTCS_THREAD_COUNT</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define COPYUINTCS_THREAD_COUNT&#160;&#160;&#160;64</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a name="doc-enum-members" id="doc-enum-members"></a><h2 id="header-doc-enum-members" class="groupheader">枚举类型说明</h2>
+<a id="aab4e7bb70a7da416c7cf6281d8bee356" name="aab4e7bb70a7da416c7cf6281d8bee356"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aab4e7bb70a7da416c7cf6281d8bee356">&#9670;&#160;</a></span>EGPUSortAlgorithm</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum class <a class="el" href="#aab4e7bb70a7da416c7cf6281d8bee356">EGPUSortAlgorithm</a> : <a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a8dbb3cd84ca9fd010dadfc3815eefa5d">int32</a></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel strong">strong</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<table class="fieldtable">
+<tr><th colspan="2">枚举值</th></tr><tr><td class="fieldname"><a id="aab4e7bb70a7da416c7cf6281d8bee356a06b9281e396db002010bde1de57262eb" name="aab4e7bb70a7da416c7cf6281d8bee356a06b9281e396db002010bde1de57262eb"></a>Auto&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="aab4e7bb70a7da416c7cf6281d8bee356adcadf58d64b674ba14d35a8d5bccfcca" name="aab4e7bb70a7da416c7cf6281d8bee356adcadf58d64b674ba14d35a8d5bccfcca"></a>Radix&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="aab4e7bb70a7da416c7cf6281d8bee356ac8224730944738de4b62f2ca2155262e" name="aab4e7bb70a7da416c7cf6281d8bee356ac8224730944738de4b62f2ca2155262e"></a>Bitonic&#160;</td><td class="fielddoc"></td></tr>
+</table>
+
+</div>
+</div>
+<a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">函数说明</h2>
+<a id="a58ff6a6755410d24d26568cfaa590297" name="a58ff6a6755410d24d26568cfaa590297"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a58ff6a6755410d24d26568cfaa590297">&#9670;&#160;</a></span>CopyUIntBufferToTargets()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../df/d63/_typed_element_query_capabilities_8inl.html#a72343342ce64c0755563ee6c5e27868d">void</a> CopyUIntBufferToTargets </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d9/dfe/class_f_r_h_i_command_list.html">FRHICommandList</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>RHICmdList</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../dc/dcf/namespace_e_r_h_i_feature_level.html#a04bc2ae8f7bf478747a40da91e1753dd">ERHIFeatureLevel::Type</a></td>          <td class="paramname"><span class="paramname"><em>FeatureLevel</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../dd/d14/class_f_r_h_i_shader_resource_view.html">FRHIShaderResourceView</a> *</td>          <td class="paramname"><span class="paramname"><em>SourceSRV</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d2/dab/class_f_r_h_i_unordered_access_view.html">FRHIUnorderedAccessView</a> *const *</td>          <td class="paramname"><span class="paramname"><em>TargetUAVs</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a8dbb3cd84ca9fd010dadfc3815eefa5d">int32</a> *</td>          <td class="paramname"><span class="paramname"><em>TargetSizes</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a8dbb3cd84ca9fd010dadfc3815eefa5d">int32</a></td>          <td class="paramname"><span class="paramname"><em>StartingOffset</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a8dbb3cd84ca9fd010dadfc3815eefa5d">int32</a></td>          <td class="paramname"><span class="paramname"><em>NumTargets</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Copy one uint buffer into several overlapping targets. Each target is expected to be bigger than the previous one, so that copy resumes where it left. Ex : (ABCDEFGHIJK) -&gt; (ABC&ndash;, &mdash;DEFGHI-, ------&mdash;JK&mdash;) This is essentially used to manage growable buffers in cases the binding needs to be set before the final size required is known. In this scenario, the smaller buffers are temporary and only the final (biggest) buffer becomes persistent, this is why it has apparently unused space at the beginning but it will be used the next frame to hold all of the data. Note that required calls to RHICmdList.Transition need to be handled before and after this function.</p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">RHICmdList</td><td>- The command list used to issue the dispatch. </td></tr>
+    <tr><td class="paramname">FeatureLevel</td><td>- The current feature level, used to access the global shadermap. </td></tr>
+    <tr><td class="paramname">SourceSRV</td><td>- The source uint buffer to be copied into the others. </td></tr>
+    <tr><td class="paramname">TargetUAVs</td><td>- The destination overlapping uint buffers. </td></tr>
+    <tr><td class="paramname">TargetSizes</td><td>- The copy size of each of the buffers. Once a buffer size is reached, the copy targets the next buffer. </td></tr>
+    <tr><td class="paramname">StartingOffset</td><td>- The starting position at which the copy starts. Applies for both the source and targets. </td></tr>
+    <tr><td class="paramname">NumTargets</td><td>- The number of elements in TargetUAVs and TargetSizes. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ae94536c2fd131b68386a1b176f328539" name="ae94536c2fd131b68386a1b176f328539"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae94536c2fd131b68386a1b176f328539">&#9670;&#160;</a></span>DECLARE_GPU_STAT_NAMED()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">DECLARE_GPU_STAT_NAMED </td>
+          <td>(</td>
+          <td class="paramtype">GPUKeyGenAndSort</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;GPU KeyGen &amp; Sort&quot;)</td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a86ab6be62fda4a98aa42ef9f807b8b6f" name="a86ab6be62fda4a98aa42ef9f807b8b6f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a86ab6be62fda4a98aa42ef9f807b8b6f">&#9670;&#160;</a></span>GetPreferredGPUSortAlgorithm()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="#aab4e7bb70a7da416c7cf6281d8bee356">EGPUSortAlgorithm</a> GetPreferredGPUSortAlgorithm </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a8dbb3cd84ca9fd010dadfc3815eefa5d">int32</a></td>          <td class="paramname"><span class="paramname"><em>Count</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="acec4eb9767f0141b6967257f421bbc62" name="acec4eb9767f0141b6967257f421bbc62"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acec4eb9767f0141b6967257f421bbc62">&#9670;&#160;</a></span>IMPLEMENT_SHADER_TYPE()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">IMPLEMENT_SHADER_TYPE </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d2/dd2/class_f_copy_u_int_buffer_c_s.html">FCopyUIntBufferCS</a></td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;/Engine/<a class="el" href="../../d9/db1/namespace_private.html">Private</a>/CopyUIntBuffer.usf&quot;)</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;MainCS&quot;)</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../da/dca/_r_h_i_definitions_8h.html#a0a3cc83cb6ebc79b66b43fae3ffee64ea2a84a18d7ac3d1fac11e3153f0abf73b">SF_Compute</a></td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a name="doc-var-members" id="doc-var-members"></a><h2 id="header-doc-var-members" class="groupheader">变量说明</h2>
+<a id="a9873eeea0004e4cf24b7ac68928f123d" name="a9873eeea0004e4cf24b7ac68928f123d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9873eeea0004e4cf24b7ac68928f123d">&#9670;&#160;</a></span>CVarGPUSortAlgorithm</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d2/d79/class_f_auto_console_variable_ref.html">FAutoConsoleVariableRef</a> CVarGPUSortAlgorithm(<a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;fx.GPUSort.Algorithm&quot;), <a class="el" href="#ab9af208010cd15b74f70f9a00feb1b6f">GGPUSortAlgorithm</a>, <a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;GPU sort: 0=Radix (scales to high counts), 1=Bitonic (low overhead at low counts), -1=Auto (default; choose by fx.GPUSort.Bitonic.AutoThresholdLog2).&quot;), ECVF_Default) </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;fx.GPUSort.Algorithm&quot;)</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="#ab9af208010cd15b74f70f9a00feb1b6f">GGPUSortAlgorithm</a></td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;GPU sort: 0=Radix (scales to high counts), 1=Bitonic (low overhead at low counts), -1=Auto (default; choose by fx.GPUSort.Bitonic.AutoThresholdLog2).&quot;)</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d4/dd9/_i_console_manager_8h.html#a7f594f23c2b2c5687f1a502ebb3ba105a67b9bfb43c52f383b7ccefb8fe69a306">ECVF_Default</a></td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a87b3291877531ccf43adb7a544f0c928" name="a87b3291877531ccf43adb7a544f0c928"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a87b3291877531ccf43adb7a544f0c928">&#9670;&#160;</a></span>CVarGPUSortBitonicAutoThresholdLog2</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d2/d79/class_f_auto_console_variable_ref.html">FAutoConsoleVariableRef</a> CVarGPUSortBitonicAutoThresholdLog2(<a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;fx.GPUSort.Bitonic.AutoThresholdLog2&quot;), <a class="el" href="#af47da4edef6de9d3758d0f04c1f57c95">GGPUSortBitonicAutoThresholdLog2</a>, <a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;Auto-mode threshold (log2): use Bitonic when Count &lt;= (1 &lt;&lt; value) (default=17, 131072).&quot;), ECVF_Default) </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;fx.GPUSort.Bitonic.AutoThresholdLog2&quot;)</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="#af47da4edef6de9d3758d0f04c1f57c95">GGPUSortBitonicAutoThresholdLog2</a></td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;Auto-mode threshold (log2): use Bitonic when Count &lt;= (1 &lt;&lt; value) (default=17, 131072).&quot;)</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d4/dd9/_i_console_manager_8h.html#a7f594f23c2b2c5687f1a502ebb3ba105a67b9bfb43c52f383b7ccefb8fe69a306">ECVF_Default</a></td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ab9af208010cd15b74f70f9a00feb1b6f" name="ab9af208010cd15b74f70f9a00feb1b6f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab9af208010cd15b74f70f9a00feb1b6f">&#9670;&#160;</a></span>GGPUSortAlgorithm</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a8dbb3cd84ca9fd010dadfc3815eefa5d">int32</a> GGPUSortAlgorithm = (<a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a8dbb3cd84ca9fd010dadfc3815eefa5d">int32</a>)<a class="el" href="#aab4e7bb70a7da416c7cf6281d8bee356a06b9281e396db002010bde1de57262eb">EGPUSortAlgorithm::Auto</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="af47da4edef6de9d3758d0f04c1f57c95" name="af47da4edef6de9d3758d0f04c1f57c95"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af47da4edef6de9d3758d0f04c1f57c95">&#9670;&#160;</a></span>GGPUSortBitonicAutoThresholdLog2</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a8dbb3cd84ca9fd010dadfc3815eefa5d">int32</a> GGPUSortBitonicAutoThresholdLog2 = 17</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a83e827dc9e6c7dfc2c53a7fcc9231519" name="a83e827dc9e6c7dfc2c53a7fcc9231519"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a83e827dc9e6c7dfc2c53a7fcc9231519">&#9670;&#160;</a></span>GGPUSortBufferSlack</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../df/d2a/_s_anim_notify_shared_8h.html#ac7c94e837fed3f8e4bb3dd94d7bd2ecf">float</a> GGPUSortBufferSlack = 2.f</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a75cf51cb81fc80b7bff8dbac64742937" name="a75cf51cb81fc80b7bff8dbac64742937"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a75cf51cb81fc80b7bff8dbac64742937">&#9670;&#160;</a></span>GGPUSortFrameCountBeforeBufferShrinking</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a8dbb3cd84ca9fd010dadfc3815eefa5d">int32</a> GGPUSortFrameCountBeforeBufferShrinking = 100</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="afac54ea1ae53e7d06414029a54689fb5" name="afac54ea1ae53e7d06414029a54689fb5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afac54ea1ae53e7d06414029a54689fb5">&#9670;&#160;</a></span>GGPUSortMinBufferSize</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a8dbb3cd84ca9fd010dadfc3815eefa5d">int32</a> GGPUSortMinBufferSize = 8192</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a2b0d02308243d4188182aec1e3f8ff19" name="a2b0d02308243d4188182aec1e3f8ff19"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2b0d02308243d4188182aec1e3f8ff19">&#9670;&#160;</a></span>GGPUSortStressTest</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a8dbb3cd84ca9fd010dadfc3815eefa5d">int32</a> GGPUSortStressTest = 0</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<div id="page-nav" class="page-nav-panel">
+<div id="page-nav-resize-handle"></div>
+<div id="page-nav-tree">
+<div id="page-nav-contents">
+</div><!-- page-nav-contents -->
+</div><!-- page-nav-tree -->
+</div><!-- page-nav -->
+</div><!-- container -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a href="../../dir_0b6ee6e7e9547e675db4add2e5de97da.html">Engine</a></li><li class="navelem"><a href="../../dir_9579d1ecb2c7bf48cbe1049c41745cb4.html">Source</a></li><li class="navelem"><a href="../../dir_9f04efef762572853abdf73f62bebfcc.html">Runtime</a></li><li class="navelem"><a href="../../dir_750344885b5b0dabc1066bd532c992d7.html">Engine</a></li><li class="navelem"><a href="../../dir_0f80cfe80f66a90345f34a7a0d31ead6.html">Private</a></li><li class="navelem"><a href="../../d3/db8/_g_p_u_sort_manager_8cpp.html">GPUSortManager.cpp</a></li>
+    <li class="footer">制作者 <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.15.0 </li>
+  </ul>
+</div>
+</body>
+</html>

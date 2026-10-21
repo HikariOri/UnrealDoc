@@ -1,0 +1,26 @@
+var struct_f_subsurface_profile_struct =
+[
+    [ "FSubsurfaceProfileStruct", "da/d46/struct_f_subsurface_profile_struct.html#a4693ef1ffa4b25dfec3fb9b28500d101", null ],
+    [ "Invalidate", "da/d46/struct_f_subsurface_profile_struct.html#a20d0647e8aa01a9a4a172e933380242d", null ],
+    [ "bEnableBurley", "da/d46/struct_f_subsurface_profile_struct.html#a4d36eb7a3a7722fa37f5daeec8139a45", null ],
+    [ "bEnableMeanFreePath", "da/d46/struct_f_subsurface_profile_struct.html#aa531fea1502e20fab8f4175a72948c73", null ],
+    [ "BoundaryColorBleed", "da/d46/struct_f_subsurface_profile_struct.html#a43f5f89970c5b96c5bd09c433f3980ad", null ],
+    [ "DistanceScale", "da/d46/struct_f_subsurface_profile_struct.html#a2970b018ca9b766e57b17b80d15747c1", null ],
+    [ "ExtinctionScale", "da/d46/struct_f_subsurface_profile_struct.html#aec58040839a71c4c103fc0b66eee797e", null ],
+    [ "FalloffColor", "da/d46/struct_f_subsurface_profile_struct.html#a521c625bfc65296cfe42c9949e24d60f", null ],
+    [ "Implementation", "da/d46/struct_f_subsurface_profile_struct.html#a55dcd0414a48426259eddf1f66663bd3", null ],
+    [ "IOR", "da/d46/struct_f_subsurface_profile_struct.html#add2635abf9b6ee1a2fffdd1fcb432c28", null ],
+    [ "LobeMix", "da/d46/struct_f_subsurface_profile_struct.html#af75735324cd190a705041899db312615", null ],
+    [ "MeanFreePathColor", "da/d46/struct_f_subsurface_profile_struct.html#a64a7218ce2e5361993172471e3f000d5", null ],
+    [ "MeanFreePathDistance", "da/d46/struct_f_subsurface_profile_struct.html#a3a7c569c8403051774d9425c33113587", null ],
+    [ "NormalScale", "da/d46/struct_f_subsurface_profile_struct.html#aa52118d572d37a054241c5576381d4e5", null ],
+    [ "Roughness0", "da/d46/struct_f_subsurface_profile_struct.html#a41a6e106bb2adf02ca8e8da05d3d6c94", null ],
+    [ "Roughness1", "da/d46/struct_f_subsurface_profile_struct.html#acc5489397244ac970db96b40b9e9700a", null ],
+    [ "ScatteringDistribution", "da/d46/struct_f_subsurface_profile_struct.html#a391d60631fb65802eb85348a1930010f", null ],
+    [ "ScatterRadius", "da/d46/struct_f_subsurface_profile_struct.html#a38163e94f6e465fdb52013cd1ccd5483", null ],
+    [ "SubsurfaceColor", "da/d46/struct_f_subsurface_profile_struct.html#ad81c7420b54d578a6f048a2879b863f7", null ],
+    [ "SurfaceAlbedo", "da/d46/struct_f_subsurface_profile_struct.html#a0d89afb50d1764c431aae8235195fbc4", null ],
+    [ "Tint", "da/d46/struct_f_subsurface_profile_struct.html#a09364cdd18bdb2473899c6ac3c37ccf6", null ],
+    [ "TransmissionTintColor", "da/d46/struct_f_subsurface_profile_struct.html#af1f89dfd7999d8fdff59a8f8cd4cfc97", null ],
+    [ "WorldUnitScale", "da/d46/struct_f_subsurface_profile_struct.html#a9342f688fd19b6a83095e7e44445e014", null ]
+];

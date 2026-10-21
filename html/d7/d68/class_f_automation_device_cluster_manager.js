@@ -1,0 +1,27 @@
+var class_f_automation_device_cluster_manager =
+[
+    [ "AddDeviceFromMessage", "d7/d68/class_f_automation_device_cluster_manager.html#abd888cfd937c59093224fe2b4ac4f5d5", null ],
+    [ "DeviceEnabled", "d7/d68/class_f_automation_device_cluster_manager.html#aeba719069fccafa07453e34563c54b68", null ],
+    [ "DisableDevice", "d7/d68/class_f_automation_device_cluster_manager.html#a902957dc6e45aa4773e67d19b3dc148b", null ],
+    [ "FindDevice", "d7/d68/class_f_automation_device_cluster_manager.html#a780c6961da7ac93ade70c6f146926629", null ],
+    [ "GetClusterDeviceName", "d7/d68/class_f_automation_device_cluster_manager.html#a0ed8c53c34d2552dcfcfeeeb313e91d1", null ],
+    [ "GetClusterDeviceType", "d7/d68/class_f_automation_device_cluster_manager.html#abe4b5b6f31f821ee948d1de7dc1c6a32", null ],
+    [ "GetClusterGameInstance", "d7/d68/class_f_automation_device_cluster_manager.html#ac0da284c77b358521d5078a667beabdf", null ],
+    [ "GetClusterGameInstanceId", "d7/d68/class_f_automation_device_cluster_manager.html#af865d2d5f4027af00cfeac43370208a4", null ],
+    [ "GetClusterGroupName", "d7/d68/class_f_automation_device_cluster_manager.html#abe30ca63b41a65ec726cff6c52c33a49", null ],
+    [ "GetDeviceInfo", "d7/d68/class_f_automation_device_cluster_manager.html#ac2077e35ebe1516161f3c1c0a67eec49", null ],
+    [ "GetDeviceMessageAddress", "d7/d68/class_f_automation_device_cluster_manager.html#ac12cf85d662551a9505e1a718d36133d", null ],
+    [ "GetDevicesReservedForTest", "d7/d68/class_f_automation_device_cluster_manager.html#adf83d067f126886a2f5b4d290dde0fd6", null ],
+    [ "GetNumActiveDevicesInCluster", "d7/d68/class_f_automation_device_cluster_manager.html#a19e0bfe281484a88292faa638133a312", null ],
+    [ "GetNumClusters", "d7/d68/class_f_automation_device_cluster_manager.html#a21f83ea4b28b298912b60d0d91d1104a", null ],
+    [ "GetNumDevicesInCluster", "d7/d68/class_f_automation_device_cluster_manager.html#a0a1828a310e44db86477eb2fb3691ca5", null ],
+    [ "GetTest", "d7/d68/class_f_automation_device_cluster_manager.html#af5987832d3dd557d95540d014bd9df8f", null ],
+    [ "GetTotalNumDevices", "d7/d68/class_f_automation_device_cluster_manager.html#af3501f2329b15c0aa322816831ae811a", null ],
+    [ "HasActiveDevice", "d7/d68/class_f_automation_device_cluster_manager.html#a9f11726b8f794f284ccc626a0dac1216", null ],
+    [ "ReGroupDevices", "d7/d68/class_f_automation_device_cluster_manager.html#a13be4d04f1b31eb3806139ff1f1e4d97", null ],
+    [ "Remove", "d7/d68/class_f_automation_device_cluster_manager.html#abaec805e0f50f1f3107d6688a24f26b1", null ],
+    [ "Reset", "d7/d68/class_f_automation_device_cluster_manager.html#a65cb8a67ea73505b4eb1969a9f1910e5", null ],
+    [ "ResetAllDevicesRunningTest", "d7/d68/class_f_automation_device_cluster_manager.html#a704d93b267c1247f8e1362887ef68b73", null ],
+    [ "SetTest", "d7/d68/class_f_automation_device_cluster_manager.html#ad0eae0b66919f127de106efca4e1da0e", null ],
+    [ "UpdateDeviceFromMessage", "d7/d68/class_f_automation_device_cluster_manager.html#adaa677248d70668b36f792bfc2382785", null ]
+];

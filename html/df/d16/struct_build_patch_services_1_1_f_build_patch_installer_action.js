@@ -1,0 +1,27 @@
+var struct_build_patch_services_1_1_f_build_patch_installer_action =
+[
+    [ "FBuildPatchInstallerAction", "df/d16/struct_build_patch_services_1_1_f_build_patch_installer_action.html#a6a77f4303ce1ad7d7afd09570c1e76f0", null ],
+    [ "GetCloudSubdirectory", "df/d16/struct_build_patch_services_1_1_f_build_patch_installer_action.html#a85114701a88ecc9bd644ba6634b15f2b", null ],
+    [ "GetCurrentManifest", "df/d16/struct_build_patch_services_1_1_f_build_patch_installer_action.html#acfe19bebd773cfaecb594b8a2ec5e94b", null ],
+    [ "GetCurrentOrInstallManifest", "df/d16/struct_build_patch_services_1_1_f_build_patch_installer_action.html#a26a84a40c6d6c00526e0815fe732088a", null ],
+    [ "GetInstallManifest", "df/d16/struct_build_patch_services_1_1_f_build_patch_installer_action.html#a99358074266f773698a323f38b848613", null ],
+    [ "GetInstallOrCurrentManifest", "df/d16/struct_build_patch_services_1_1_f_build_patch_installer_action.html#ab51a37264898f695352827372495cc2e", null ],
+    [ "GetInstallSubdirectory", "df/d16/struct_build_patch_services_1_1_f_build_patch_installer_action.html#af18c4bfe67880693f7b0c7556a6f40b9", null ],
+    [ "GetInstallTags", "df/d16/struct_build_patch_services_1_1_f_build_patch_installer_action.html#aa27b879f36b91a84f32678f6a083cc15", null ],
+    [ "GetSharedCurrentManifest", "df/d16/struct_build_patch_services_1_1_f_build_patch_installer_action.html#abc018758672ede61eb5262ca7d368297", null ],
+    [ "GetSharedCurrentOrInstallManifest", "df/d16/struct_build_patch_services_1_1_f_build_patch_installer_action.html#a03913034da1b6dc097130bf3047ece9a", null ],
+    [ "GetSharedInstallManifest", "df/d16/struct_build_patch_services_1_1_f_build_patch_installer_action.html#ad0c46718954bef7aab8862bc2fe744c5", null ],
+    [ "GetSharedInstallOrCurrentManifest", "df/d16/struct_build_patch_services_1_1_f_build_patch_installer_action.html#a5bf0cac491790fea29921d73b77b99f9", null ],
+    [ "GetUniqueBuildId", "df/d16/struct_build_patch_services_1_1_f_build_patch_installer_action.html#ae3ce92e84d38f592c848a22f9a8f2d57", null ],
+    [ "IsInstall", "df/d16/struct_build_patch_services_1_1_f_build_patch_installer_action.html#ae895f8181067d7e279457bfe23a2b495", null ],
+    [ "IsRepair", "df/d16/struct_build_patch_services_1_1_f_build_patch_installer_action.html#a1259b67b8da5a7a3ffdd5ea7debb62f1", null ],
+    [ "IsUninstall", "df/d16/struct_build_patch_services_1_1_f_build_patch_installer_action.html#abaa9d693454d1118c62752d35d5ecda0", null ],
+    [ "IsUpdate", "df/d16/struct_build_patch_services_1_1_f_build_patch_installer_action.html#af74a258170277310983839b323912a34", null ],
+    [ "IsVerifyOnly", "df/d16/struct_build_patch_services_1_1_f_build_patch_installer_action.html#a0967038ae1f1d6fa7eb386ff5a636329", null ],
+    [ "SetDeltaManifest", "df/d16/struct_build_patch_services_1_1_f_build_patch_installer_action.html#a6ecdcce8522cffc6d22fb0b2913ee2b8", null ],
+    [ "TryGetCurrentManifest", "df/d16/struct_build_patch_services_1_1_f_build_patch_installer_action.html#a8b815bc6ab05e28ea47652b068420de1", null ],
+    [ "TryGetInstallManifest", "df/d16/struct_build_patch_services_1_1_f_build_patch_installer_action.html#a7b54e2237b8ba1262fb84149a947a934", null ],
+    [ "TryGetSharedCurrentManifest", "df/d16/struct_build_patch_services_1_1_f_build_patch_installer_action.html#ab92170288d4243aa285565ef68c53838", null ],
+    [ "TryGetSharedInstallManifest", "df/d16/struct_build_patch_services_1_1_f_build_patch_installer_action.html#a33d0296c4c3233b25a0b245a3d5d2ee5", null ],
+    [ "FBuildPatchManifestSet", "df/d16/struct_build_patch_services_1_1_f_build_patch_installer_action.html#af28fe88620014a89f25ed920794e6e98", null ]
+];

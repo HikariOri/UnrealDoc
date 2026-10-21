@@ -1,0 +1,27 @@
+var struct_f_target_device_service_pong =
+[
+    [ "Aggregated", "da/d0b/struct_f_target_device_service_pong.html#a9c1d76d80598509461c026630bb770dd", null ],
+    [ "AllDevicesDefaultVariant", "da/d0b/struct_f_target_device_service_pong.html#a634b956226d17220aac5cbfc71395f10", null ],
+    [ "AllDevicesName", "da/d0b/struct_f_target_device_service_pong.html#af3af14b45fc907416abafed41453c799", null ],
+    [ "Architecture", "da/d0b/struct_f_target_device_service_pong.html#a16662eb208865cb7bb1a0f2d04e6c419", null ],
+    [ "Authorized", "da/d0b/struct_f_target_device_service_pong.html#a33250b1afe992d23c4b5488efa5ee705", null ],
+    [ "Connected", "da/d0b/struct_f_target_device_service_pong.html#a4cfbb9cf4b3b6093ead936fd4fd5ea39", null ],
+    [ "ConnectionType", "da/d0b/struct_f_target_device_service_pong.html#ab1bc18f3fa07f786aa5431b8364b29c5", null ],
+    [ "DefaultVariant", "da/d0b/struct_f_target_device_service_pong.html#ad70f57bf8bfe42c39bc093e5a3a02e5a", null ],
+    [ "DeviceUser", "da/d0b/struct_f_target_device_service_pong.html#a571fdf5bf33c50a2e79feb977fce79c4", null ],
+    [ "DeviceUserPassword", "da/d0b/struct_f_target_device_service_pong.html#a50726cbd49e6a72aa69b96f3e5100032", null ],
+    [ "HostName", "da/d0b/struct_f_target_device_service_pong.html#a8c7337f86547621730b5286e55667553", null ],
+    [ "HostUser", "da/d0b/struct_f_target_device_service_pong.html#af79796a559f54e10b868316db22e41b0", null ],
+    [ "Make", "da/d0b/struct_f_target_device_service_pong.html#a12a9d212f6ff5df60c1bec1ec44f23ac", null ],
+    [ "Model", "da/d0b/struct_f_target_device_service_pong.html#a6a1b707481eca00963ce8ff9bd0b942a", null ],
+    [ "Name", "da/d0b/struct_f_target_device_service_pong.html#ae85ca1bfd43d11808367ba2fc5df4bac", null ],
+    [ "OSVersion", "da/d0b/struct_f_target_device_service_pong.html#ab3b09099cafba8ba95c7234d8c745c37", null ],
+    [ "Shared", "da/d0b/struct_f_target_device_service_pong.html#a89cacb35e2df7476c023cb1f40cc7266", null ],
+    [ "SupportsMultiLaunch", "da/d0b/struct_f_target_device_service_pong.html#ac0d5889a3514ade302f3eb430188f853", null ],
+    [ "SupportsPowerOff", "da/d0b/struct_f_target_device_service_pong.html#a9c47c8f48979dcf6ab75a1a7fbb88f39", null ],
+    [ "SupportsPowerOn", "da/d0b/struct_f_target_device_service_pong.html#abff41c1ed136b551eb222dd778e89945", null ],
+    [ "SupportsReboot", "da/d0b/struct_f_target_device_service_pong.html#ae85b8cd8497b8cac273437dd3ee23e8f", null ],
+    [ "SupportsVariants", "da/d0b/struct_f_target_device_service_pong.html#a35ed66fb3cce70036ace83b12e6880a8", null ],
+    [ "Type", "da/d0b/struct_f_target_device_service_pong.html#abbb9439b96ef186022b0c16cf3371c4f", null ],
+    [ "Variants", "da/d0b/struct_f_target_device_service_pong.html#acbd488c2965dc3c4988ddfbf964855e1", null ]
+];

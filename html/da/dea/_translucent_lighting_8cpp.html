@@ -1,0 +1,1831 @@
+<!-- HTML header for doxygen 1.15.0-->
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh">
+<head>
+  <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=11" />
+  <meta name="generator" content="Doxygen 1.15.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>UE 5.8.4: Engine/Source/Runtime/Renderer/Private/TranslucentLighting.cpp 文件参考</title>
+  <link rel="icon" href="../../EdIconDefault.bmp" type="image/x-icon" />
+  <link href="../../tabs.css" rel="stylesheet" type="text/css" />
+  <script type="text/javascript" src="../../jquery.js"></script>
+  <script type="text/javascript" src="../../dynsections.js"></script>
+  <link href="../../navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../navtreedata.js"></script>
+<script type="text/javascript" src="../../navtree.js"></script>
+<script type="text/javascript" src="../../cookie.js"></script>
+  <link href="../../search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../search/searchdata.js"></script>
+<script type="text/javascript" src="../../search/search.js"></script>
+  <script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  extensions: ["tex2jax.js"],
+  jax: ["input/TeX","output/HTML-CSS"],
+});
+</script>
+<script type="text/javascript" async="async" src="https://cdn.jsdelivr.net/npm/mathjax@2/MathJax.js"></script>
+  <link href="../../doxygen.css" rel="stylesheet" type="text/css" />
+  <link href="../../doxygen-awesome.css" rel="stylesheet" type="text/css"/>
+<link href="../../doxygen-awesome-sidebar-only.css" rel="stylesheet" type="text/css"/>
+<link href="../../doxygen-awesome-sidebar-only-darkmode-toggle.css" rel="stylesheet" type="text/css"/>
+  <!-- ... other metadata & script includes ... -->
+  <script type="text/javascript" src="../../doxygen-awesome-darkmode-toggle.js"></script>
+  <script type="text/javascript">
+    DoxygenAwesomeDarkModeToggle.title = "Zwischen hellem/dunklem Modus wechseln"
+    DoxygenAwesomeDarkModeToggle.lightModeIcon = '🌞'
+    // icon from https://fonts.google.com/icons
+    DoxygenAwesomeDarkModeToggle.darkModeIcon = `<svg xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 24 24" height="24px" viewBox="0 0 24 24" width="24px" fill="#009793"><g><rect fill="none" height="24" width="24"/></g><g><g><path d="M8.1,14.15C9.77,14.63,11,16.17,11,18c0,0.68-0.19,1.31-0.48,1.87c0.48,0.09,0.97,0.14,1.48,0.14 c1.48,0,2.9-0.41,4.13-1.15c-2.62-0.92-5.23-2.82-6.8-5.86C7.74,9.94,7.78,7.09,8.29,4.9c-2.57,1.33-4.3,4.01-4.3,7.1c0,0,0,0,0,0 c0.01,0,0.01,0,0.02,0C5.66,12,7.18,12.83,8.1,14.15z" opacity=".3"/><path d="M19.78,17.51c-2.47,0-6.57-1.33-8.68-5.43C8.77,7.57,10.6,3.6,11.63,2.01C6.27,2.2,1.98,6.59,1.98,12 c0,0.14,0.02,0.28,0.02,0.42C2.61,12.16,3.28,12,3.98,12c0,0,0,0,0,0c0-3.09,1.73-5.77,4.3-7.1C7.78,7.09,7.74,9.94,9.32,13 c1.57,3.04,4.18,4.95,6.8,5.86c-1.23,0.74-2.65,1.15-4.13,1.15c-0.5,0-1-0.05-1.48-0.14c-0.37,0.7-0.94,1.27-1.64,1.64 c0.98,0.32,2.03,0.5,3.11,0.5c3.5,0,6.58-1.8,8.37-4.52C20.18,17.5,19.98,17.51,19.78,17.51z"/><path d="M7,16l-0.18,0C6.4,14.84,5.3,14,4,14c-1.66,0-3,1.34-3,3s1.34,3,3,3c0.62,0,2.49,0,3,0c1.1,0,2-0.9,2-2 C9,16.9,8.1,16,7,16z"/></g></g></svg>`
+    DoxygenAwesomeDarkModeToggle.init()
+  </script>
+  <script type="text/javascript" src="../../doxygen-awesome-fragment-copy-button.js"></script>
+  <script type="text/javascript">
+    DoxygenAwesomeFragmentCopyButton.title = "In die Zwischenablage kopieren"
+    // DoxygenAwesomeFragmentCopyButton.copyIcon = `<svg ...>`
+    // DoxygenAwesomeFragmentCopyButton.successIcon = `<svg ...>`
+    DoxygenAwesomeFragmentCopyButton.init()
+  </script>
+  <script type="text/javascript" src="../../doxygen-awesome-paragraph-link.js"></script>
+  <script type="text/javascript">
+    DoxygenAwesomeParagraphLink.title = "Abschnitt verknüpfen"
+    DoxygenAwesomeParagraphLink.icon = "¶"
+    DoxygenAwesomeParagraphLink.init()
+  </script>
+  <script type="text/javascript" src="../../doxygen-awesome-interactive-toc.js"></script>
+  <script type="text/javascript">
+    DoxygenAwesomeInteractiveToc.topOffset = 45
+    DoxygenAwesomeInteractiveToc.hideMobileMenu = false
+    DoxygenAwesomeInteractiveToc.init()
+  </script>
+</head>
+<body>
+    <div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+      <div id="titlearea">
+        <table cellspacing="0" cellpadding="0">
+          <tbody>
+            <tr id="projectrow">
+              <td id="projectlogo"><img alt="Logo" src="../../EdIconDefault.bmp"  /></td>
+              <td id="projectalign">
+                <div id="projectname">UE 5.8.4
+                </div>
+                <div id="projectbrief">Unreal Engine</div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <!-- end header part -->
+<!-- 制作者 Doxygen 1.15.0 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "../../search/",'.html');
+</script>
+<script type="text/javascript">
+$(function() { codefold.init(); });
+</script>
+<script type="text/javascript" src="../../menudata.js"></script>
+<script type="text/javascript" src="../../menu.js"></script>
+<script type="text/javascript">
+$(function() {
+  initMenu('../../',true,false,'search.php','搜索',true);
+  $(function() { init_search(); });
+});
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(function(){initNavTree('da/dea/_translucent_lighting_8cpp.html','../../',''); });
+</script>
+<div id="container">
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">载入中...</div>
+<div class="SRStatus" id="Searching">搜索中...</div>
+<div class="SRStatus" id="NoMatches">未找到</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">TranslucentLighting.cpp 文件参考</div></div>
+</div><!--header-->
+<div class="contents">
+<div class="textblock"><code>#include &quot;<a class="el" href="../../d3/d97/_translucent_lighting_8h_source.html">TranslucentLighting.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../dc/d5e/_core_minimal_8h_source.html">CoreMinimal.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d3/d48/_stats_8h_source.html">Stats/Stats.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d4/dd9/_i_console_manager_8h_source.html">HAL/IConsoleManager.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../df/d42/_engine_defines_8h_source.html">EngineDefines.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d5/dfb/_r_h_i_8h_source.html">RHI.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d5/d7b/_render_resource_8h_source.html">RenderResource.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d7/de7/_hit_proxies_8h_source.html">HitProxies.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../da/ded/_final_post_process_settings_8h_source.html">FinalPostProcessSettings.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../db/dc7/_shader_parameters_8h_source.html">ShaderParameters.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../dd/da6/_renderer_interface_8h_source.html">RendererInterface.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../dd/d43/_primitive_view_relevance_8h_source.html">PrimitiveViewRelevance.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d8/d34/_shader_8h_source.html">Shader.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../db/d5a/_static_bound_shader_state_8h_source.html">StaticBoundShaderState.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d5/d3b/_scene_utils_8h_source.html">SceneUtils.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d8/d3d/_r_h_i_static_states_8h_source.html">RHIStaticStates.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d3/d73/_primitive_drawing_utils_8h_source.html">PrimitiveDrawingUtils.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d3/d31/_map_build_data_registry_8h_source.html">Engine/MapBuildDataRegistry.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d2/da3/_light_component_8h_source.html">Components/LightComponent.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d3/d09/_material_8h_source.html">Materials/Material.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d5/d0f/_scene_render_targets_8h_source.html">PostProcess/SceneRenderTargets.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../da/dac/_light_scene_info_8h_source.html">LightSceneInfo.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../dd/d5a/_global_shader_8h_source.html">GlobalShader.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d3/db5/_material_shader_type_8h_source.html">MaterialShaderType.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../dd/d3d/_material_shader_8h_source.html">MaterialShader.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../dd/def/_mesh_material_shader_type_8h_source.html">MeshMaterialShaderType.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d7/dbc/_mesh_material_shader_8h_source.html">MeshMaterialShader.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d1/d43/_shadow_rendering_8h_source.html">ShadowRendering.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d6/dda/_scene_rendering_8h_source.html">SceneRendering.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../db/d71/_deferred_shading_renderer_8h_source.html">DeferredShadingRenderer.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d6/d2f/_translucent_rendering_8h_source.html">TranslucentRendering.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d2/d2b/_clear_quad_8h_source.html">ClearQuad.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d5/dbc/_scene_private_8h_source.html">ScenePrivate.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../da/ddb/_one_color_shader_8h_source.html">OneColorShader.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../da/db6/_light_grid_8h_source.html">LightGrid.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../df/d39/_light_function_rendering_8h_source.html">LightFunctionRendering.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d0/da7/_light_rendering_8h_source.html">LightRendering.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../df/d95/_screen_rendering_8h_source.html">ScreenRendering.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d2/d5d/_ambient_cubemap_parameters_8h_source.html">AmbientCubemapParameters.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d2/d81/_volume_rendering_8h_source.html">VolumeRendering.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d5/dc3/_volume_lighting_8h_source.html">VolumeLighting.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../df/db5/_pipeline_state_cache_8h_source.html">PipelineStateCache.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../de/d89/_visualize_texture_8h_source.html">VisualizeTexture.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d3/d4c/_mesh_pass_processor_8inl_source.html">MeshPassProcessor.inl</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../dc/d7f/_sky_atmosphere_rendering_8h_source.html">SkyAtmosphereRendering.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d5/d99/_volumetric_cloud_rendering_8h_source.html">VolumetricCloudRendering.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d9/dcd/_translucent_lighting_view_state_8h_source.html">TranslucentLightingViewState.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d1/ddc/_render_core_8h_source.html">RenderCore.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d0/d60/_static_mesh_batch_8h_source.html">StaticMeshBatch.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d1/d96/_light_function_atlas_8h_source.html">LightFunctionAtlas.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d7/d35/_heterogeneous_volumes_8h_source.html">HeterogeneousVolumes/HeterogeneousVolumes.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d3/dc8/_base_pass_rendering_8h_source.html">BasePassRendering.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../de/dec/_blue_noise_8h_source.html">BlueNoise.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d8/d9e/_p_s_o_precache_settings_8h_source.html">PSOPrecacheSettings.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d0/d6b/_simple_mesh_draw_command_pass_8h_source.html">SimpleMeshDrawCommandPass.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../dc/dc6/_scene_view_state_8h_source.html">SceneViewState.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d4/dee/_texture_fallbacks_r_d_g_8h_source.html">TextureFallbacksRDG.h</a>&quot;</code><br />
+</div><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-nested-classes" class="groupheader"><a id="nested-classes" name="nested-classes"></a>
+类</h2></td></tr>
+<tr class="memitem:FTranslucencyDepthShaderElementData" id="r_FTranslucencyDepthShaderElementData"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d8/d15/class_f_translucency_depth_shader_element_data.html">FTranslucencyDepthShaderElementData</a></td></tr>
+<tr class="memitem:FTranslucencyShadowDepthVS" id="r_FTranslucencyShadowDepthVS"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/db4/class_f_translucency_shadow_depth_v_s.html">FTranslucencyShadowDepthVS</a></td></tr>
+<tr class="memitem:TTranslucencyShadowDepthVS_3C_20ShaderMode_20_3E" id="r_TTranslucencyShadowDepthVS_3C_20ShaderMode_20_3E"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d8/d6b/class_t_translucency_shadow_depth_v_s.html">TTranslucencyShadowDepthVS&lt; ShaderMode &gt;</a></td></tr>
+<tr class="memitem:FTranslucencyShadowDepthPS" id="r_FTranslucencyShadowDepthPS"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/d17/class_f_translucency_shadow_depth_p_s.html">FTranslucencyShadowDepthPS</a></td></tr>
+<tr class="memitem:TTranslucencyShadowDepthPS_3C_20ShaderMode_20_3E" id="r_TTranslucencyShadowDepthPS_3C_20ShaderMode_20_3E"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/d61/class_t_translucency_shadow_depth_p_s.html">TTranslucencyShadowDepthPS&lt; ShaderMode &gt;</a></td></tr>
+<tr class="memitem:FTranslucencyDepthPassMeshProcessor" id="r_FTranslucencyDepthPassMeshProcessor"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/dff/class_f_translucency_depth_pass_mesh_processor.html">FTranslucencyDepthPassMeshProcessor</a></td></tr>
+<tr class="memitem:FDilateMarkedVoxelsCS" id="r_FDilateMarkedVoxelsCS"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/d8e/class_f_dilate_marked_voxels_c_s.html">FDilateMarkedVoxelsCS</a></td></tr>
+<tr class="memitem:FGatherMarkedVoxelsCS" id="r_FGatherMarkedVoxelsCS"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d8/d0c/class_f_gather_marked_voxels_c_s.html">FGatherMarkedVoxelsCS</a></td></tr>
+<tr class="memitem:FInitIndirectArgsCS" id="r_FInitIndirectArgsCS"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/d81/class_f_init_indirect_args_c_s.html">FInitIndirectArgsCS</a></td></tr>
+<tr class="memitem:FFilterTranslucentVolumeCS" id="r_FFilterTranslucentVolumeCS"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d1e/class_f_filter_translucent_volume_c_s.html">FFilterTranslucentVolumeCS</a></td></tr>
+<tr class="memitem:FTranslucentLightingInjectPS" id="r_FTranslucentLightingInjectPS"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/d35/class_f_translucent_lighting_inject_p_s.html">FTranslucentLightingInjectPS</a></td></tr>
+<tr class="memitem:FTranslucentLightingInjectBatchCS" id="r_FTranslucentLightingInjectBatchCS"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d1e/class_f_translucent_lighting_inject_batch_c_s.html">FTranslucentLightingInjectBatchCS</a></td></tr>
+<tr class="memitem:FClearTranslucentLightingVolumeCS" id="r_FClearTranslucentLightingVolumeCS"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/d23/class_f_clear_translucent_lighting_volume_c_s.html">FClearTranslucentLightingVolumeCS</a></td></tr>
+<tr class="memitem:FInjectAmbientCubemapPS" id="r_FInjectAmbientCubemapPS"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/dae/class_f_inject_ambient_cubemap_p_s.html">FInjectAmbientCubemapPS</a></td></tr>
+<tr class="memitem:FSimpleLightTranslucentLightingInjectPS" id="r_FSimpleLightTranslucentLightingInjectPS"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/dca/class_f_simple_light_translucent_lighting_inject_p_s.html">FSimpleLightTranslucentLightingInjectPS</a></td></tr>
+<tr class="memitem:FFrustumCullVoxelsCS" id="r_FFrustumCullVoxelsCS"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/d29/class_f_frustum_cull_voxels_c_s.html">FFrustumCullVoxelsCS</a></td></tr>
+<tr class="memitem:FDebugTranslucencyLightingVolumeCS" id="r_FDebugTranslucencyLightingVolumeCS"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/db5/class_f_debug_translucency_lighting_volume_c_s.html">FDebugTranslucencyLightingVolumeCS</a></td></tr>
+<tr class="memitem:FVisualizeTranslucencyVolumeVS" id="r_FVisualizeTranslucencyVolumeVS"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d2/d1a/class_f_visualize_translucency_volume_v_s.html">FVisualizeTranslucencyVolumeVS</a></td></tr>
+<tr class="memitem:FVisualizeTranslucencyVolumePS" id="r_FVisualizeTranslucencyVolumePS"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/deb/class_f_visualize_translucency_volume_p_s.html">FVisualizeTranslucencyVolumePS</a></td></tr>
+<tr class="memitem:FTranslucentLightingMaterialPSOCollector" id="r_FTranslucentLightingMaterialPSOCollector"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/de0/class_f_translucent_lighting_material_p_s_o_collector.html">FTranslucentLightingMaterialPSOCollector</a></td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-enum-members" class="groupheader"><a id="enum-members" name="enum-members"></a>
+枚举</h2></td></tr>
+<tr class="memitem:ae4c47648c8912db9dd9a54f3ec44257a" id="r_ae4c47648c8912db9dd9a54f3ec44257a"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae4c47648c8912db9dd9a54f3ec44257a">ETranslucencyShadowDepthShaderMode</a> { <a class="el" href="#ae4c47648c8912db9dd9a54f3ec44257aa03f7f6a3b34d40fe12d11b05d63e560a">TranslucencyShadowDepth_PerspectiveCorrect</a>
+, <a class="el" href="#ae4c47648c8912db9dd9a54f3ec44257aac37b91413ce397b6ccab920c8ccb12f3">TranslucencyShadowDepth_Standard</a>
+ }</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-func-members" class="groupheader"><a id="func-members" name="func-members"></a>
+函数</h2></td></tr>
+<tr class="memitem:ab76e6c2b8ab9c57fd620db6d4cca80f0" id="r_ab76e6c2b8ab9c57fd620db6d4cca80f0"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab76e6c2b8ab9c57fd620db6d4cca80f0">DECLARE_GPU_STAT_NAMED</a> (TranslucentLighting, <a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;Translucent Lighting&quot;))</td></tr>
+<tr class="memitem:a7d3a4a1e465c4f169bfde3db10697343" id="r_a7d3a4a1e465c4f169bfde3db10697343"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d2/d79/class_f_auto_console_variable_ref.html">FAutoConsoleVariableRef</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7d3a4a1e465c4f169bfde3db10697343">CVarTranslucencyLightingVolumes</a> (<a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;r.TranslucencyLightingVolume&quot;), <a class="el" href="#a6a75e785acfb26204a3747a1b2196f3b">GUseTranslucencyLightingVolumes</a>, <a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;0:off, otherwise on, default is 1&quot;), ECVF_RenderThreadSafe|<a class="el" href="../../d4/dd9/_i_console_manager_8h.html#a7f594f23c2b2c5687f1a502ebb3ba105a5fb4e7a0526f4a0c350d71e18956527c">ECVF_Scalability</a>)</td></tr>
+<tr class="memitem:af1b5f03ff6c80089f025d16634583e6a" id="r_af1b5f03ff6c80089f025d16634583e6a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d2/d79/class_f_auto_console_variable_ref.html">FAutoConsoleVariableRef</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af1b5f03ff6c80089f025d16634583e6a">CVarTranslucencyLightingVolumeBlur</a> (<a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;r.TranslucencyLightingVolume.Blur&quot;), <a class="el" href="#ac934ed0fdb5ae4011ccff3c36757ca85">GTranslucencyLightingVolumeBlur</a>, <a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;0:off, otherwise on, default is 1&quot;), ECVF_Scalability|<a class="el" href="../../d4/dd9/_i_console_manager_8h.html#a7f594f23c2b2c5687f1a502ebb3ba105a774ea60f41417af093a7ca56c4204a70">ECVF_RenderThreadSafe</a>)</td></tr>
+<tr class="memitem:a7f8e2cfc6b0edebe47df369c0e8a96b6" id="r_a7f8e2cfc6b0edebe47df369c0e8a96b6"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d2/d79/class_f_auto_console_variable_ref.html">FAutoConsoleVariableRef</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7f8e2cfc6b0edebe47df369c0e8a96b6">CVarTranslucencyLightingVolumeDim</a> (<a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;r.TranslucencyLightingVolume.Dim&quot;), <a class="el" href="#a258afe04b9487c787790a1d89244b44a">GTranslucencyLightingVolumeDim</a>, <a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;Dimensions of the volume textures used <a class="el" href="../../d3/db8/binka__ue__decode__test_8cpp.html#ac1ee511585a5c7a2d58c146185895b72">for</a> translucency lighting.  Larger textures result in higher resolution but lower performance.&quot;), <a class="el" href="../../d4/dd9/_i_console_manager_8h.html#a7f594f23c2b2c5687f1a502ebb3ba105a5fb4e7a0526f4a0c350d71e18956527c">ECVF_Scalability</a>|<a class="el" href="../../d4/dd9/_i_console_manager_8h.html#a7f594f23c2b2c5687f1a502ebb3ba105a774ea60f41417af093a7ca56c4204a70">ECVF_RenderThreadSafe</a>)</td></tr>
+<tr class="memitem:a56d7e899f919aca3a79d5044626b7dc1" id="r_a56d7e899f919aca3a79d5044626b7dc1"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../df/d2a/_s_anim_notify_shared_8h.html#ac7c94e837fed3f8e4bb3dd94d7bd2ecf">float</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a56d7e899f919aca3a79d5044626b7dc1">GetTranslucencyLightingVolumePositionOffsetRadius</a> ()</td></tr>
+<tr class="memitem:a5b411f8dd4e9e10131f47f53acd30081" id="r_a5b411f8dd4e9e10131f47f53acd30081"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a8dbb3cd84ca9fd010dadfc3815eefa5d">int32</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5b411f8dd4e9e10131f47f53acd30081">GetTranslucencyLightingVolumeDim</a> ()</td></tr>
+<tr class="memitem:afde226003255a5fd16f840f840943d88" id="r_afde226003255a5fd16f840f840943d88"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../df/d2a/_s_anim_notify_shared_8h.html#ac7c94e837fed3f8e4bb3dd94d7bd2ecf">float</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#afde226003255a5fd16f840f840943d88">GetTranslucencyLightingVolumeInnerDistance</a> ()</td></tr>
+<tr class="memitem:a5f38a17bcf78139110819f1ff7555371" id="r_a5f38a17bcf78139110819f1ff7555371"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../df/d2a/_s_anim_notify_shared_8h.html#ac7c94e837fed3f8e4bb3dd94d7bd2ecf">float</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5f38a17bcf78139110819f1ff7555371">GetTranslucencyLightingVolumeOuterDistance</a> ()</td></tr>
+<tr class="memitem:aa5ef742566ac3cf0bd4a6ded56267846" id="r_aa5ef742566ac3cf0bd4a6ded56267846"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../df/d63/_typed_element_query_capabilities_8inl.html#a72343342ce64c0755563ee6c5e27868d">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa5ef742566ac3cf0bd4a6ded56267846">ReleaseTranslucencyLightingVolumeHistory</a> (<a class="el" href="../../d2/ddb/class_t_array_view.html">TArrayView</a>&lt; <a class="el" href="../../dd/d2b/class_f_view_info.html">FViewInfo</a> &gt; Views)</td></tr>
+<tr class="memitem:a9b2f76981de20678d9434274aaca840d" id="r_a9b2f76981de20678d9434274aaca840d"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9b2f76981de20678d9434274aaca840d">IMPLEMENT_STATIC_UNIFORM_BUFFER_STRUCT</a> (FTranslucencyDepthPassUniformParameters, &quot;TranslucentDepthPass&quot;, SceneTextures)</td></tr>
+<tr class="memitem:afe5631b9e83931ba81cb49488355f058" id="r_afe5631b9e83931ba81cb49488355f058"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../df/d63/_typed_element_query_capabilities_8inl.html#a72343342ce64c0755563ee6c5e27868d">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#afe5631b9e83931ba81cb49488355f058">SetupTranslucencyDepthPassUniformBuffer</a> (const <a class="el" href="../../d6/def/class_f_projected_shadow_info.html">FProjectedShadowInfo</a> *ShadowInfo, <a class="el" href="../../d3/d85/class_f_r_d_g_builder.html">FRDGBuilder</a> &amp;GraphBuilder, const <a class="el" href="../../dd/d2b/class_f_view_info.html">FViewInfo</a> &amp;View, FTranslucencyDepthPassUniformParameters &amp;TranslucencyDepthPassParameters)</td></tr>
+<tr class="memitem:adab677fbf9c22b1f1a3053e17c89ad96" id="r_adab677fbf9c22b1f1a3053e17c89ad96"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#adab677fbf9c22b1f1a3053e17c89ad96">IMPLEMENT_MATERIAL_SHADER_TYPE</a> (template&lt;&gt;, <a class="el" href="../../d8/d6b/class_t_translucency_shadow_depth_v_s.html">TTranslucencyShadowDepthVS</a>&lt; <a class="el" href="#ae4c47648c8912db9dd9a54f3ec44257aa03f7f6a3b34d40fe12d11b05d63e560a">TranslucencyShadowDepth_PerspectiveCorrect</a> &gt;, <a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;/Engine/<a class="el" href="../../d9/db1/namespace_private.html">Private</a>/TranslucentShadowDepthShaders.usf&quot;), <a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;MainVS&quot;), <a class="el" href="../../da/dca/_r_h_i_definitions_8h.html#a0a3cc83cb6ebc79b66b43fae3ffee64ea57b843d1079d918ef496ded337a171d2">SF_Vertex</a>)</td></tr>
+<tr class="memitem:af109e57504ccae98e92e73a3ec22ffc7" id="r_af109e57504ccae98e92e73a3ec22ffc7"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af109e57504ccae98e92e73a3ec22ffc7">IMPLEMENT_MATERIAL_SHADER_TYPE</a> (template&lt;&gt;, <a class="el" href="../../d8/d6b/class_t_translucency_shadow_depth_v_s.html">TTranslucencyShadowDepthVS</a>&lt; <a class="el" href="#ae4c47648c8912db9dd9a54f3ec44257aac37b91413ce397b6ccab920c8ccb12f3">TranslucencyShadowDepth_Standard</a> &gt;, <a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;/Engine/<a class="el" href="../../d9/db1/namespace_private.html">Private</a>/TranslucentShadowDepthShaders.usf&quot;), <a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;MainVS&quot;), <a class="el" href="../../da/dca/_r_h_i_definitions_8h.html#a0a3cc83cb6ebc79b66b43fae3ffee64ea57b843d1079d918ef496ded337a171d2">SF_Vertex</a>)</td></tr>
+<tr class="memitem:a89423f5ecbae0c5b4cab66bea9537f33" id="r_a89423f5ecbae0c5b4cab66bea9537f33"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a89423f5ecbae0c5b4cab66bea9537f33">IMPLEMENT_MATERIAL_SHADER_TYPE</a> (template&lt;&gt;, <a class="el" href="../../d3/d61/class_t_translucency_shadow_depth_p_s.html">TTranslucencyShadowDepthPS</a>&lt; <a class="el" href="#ae4c47648c8912db9dd9a54f3ec44257aa03f7f6a3b34d40fe12d11b05d63e560a">TranslucencyShadowDepth_PerspectiveCorrect</a> &gt;, <a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;/Engine/<a class="el" href="../../d9/db1/namespace_private.html">Private</a>/TranslucentShadowDepthShaders.usf&quot;), <a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;MainOpacityPS&quot;), <a class="el" href="../../da/dca/_r_h_i_definitions_8h.html#a0a3cc83cb6ebc79b66b43fae3ffee64eaf50bfe1c5c23e92a75ba64d89bcd3bfa">SF_Pixel</a>)</td></tr>
+<tr class="memitem:a8e501f2bb8af1d647de04c9f8d00a942" id="r_a8e501f2bb8af1d647de04c9f8d00a942"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8e501f2bb8af1d647de04c9f8d00a942">IMPLEMENT_MATERIAL_SHADER_TYPE</a> (template&lt;&gt;, <a class="el" href="../../d3/d61/class_t_translucency_shadow_depth_p_s.html">TTranslucencyShadowDepthPS</a>&lt; <a class="el" href="#ae4c47648c8912db9dd9a54f3ec44257aac37b91413ce397b6ccab920c8ccb12f3">TranslucencyShadowDepth_Standard</a> &gt;, <a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;/Engine/<a class="el" href="../../d9/db1/namespace_private.html">Private</a>/TranslucentShadowDepthShaders.usf&quot;), <a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;MainOpacityPS&quot;), <a class="el" href="../../da/dca/_r_h_i_definitions_8h.html#a0a3cc83cb6ebc79b66b43fae3ffee64eaf50bfe1c5c23e92a75ba64d89bcd3bfa">SF_Pixel</a>)</td></tr>
+<tr class="memitem:a43a6f389a6b3dbc0bc70d3c16ae78c57" id="r_a43a6f389a6b3dbc0bc70d3c16ae78c57"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a43a6f389a6b3dbc0bc70d3c16ae78c57">IMPLEMENT_GLOBAL_SHADER</a> (<a class="el" href="../../d9/d8e/class_f_dilate_marked_voxels_c_s.html">FDilateMarkedVoxelsCS</a>, &quot;/Engine/<a class="el" href="../../d9/db1/namespace_private.html">Private</a>/TranslucentLightingShaders.usf&quot;, &quot;DilateMarkedVoxelsCS&quot;, <a class="el" href="../../da/dca/_r_h_i_definitions_8h.html#a0a3cc83cb6ebc79b66b43fae3ffee64ea2a84a18d7ac3d1fac11e3153f0abf73b">SF_Compute</a>)</td></tr>
+<tr class="memitem:a4d40fff101879e989c8318282533d9f0" id="r_a4d40fff101879e989c8318282533d9f0"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4d40fff101879e989c8318282533d9f0">IMPLEMENT_GLOBAL_SHADER</a> (<a class="el" href="../../d8/d0c/class_f_gather_marked_voxels_c_s.html">FGatherMarkedVoxelsCS</a>, &quot;/Engine/<a class="el" href="../../d9/db1/namespace_private.html">Private</a>/TranslucentLightingShaders.usf&quot;, &quot;GatherMarkedVoxelsCS&quot;, <a class="el" href="../../da/dca/_r_h_i_definitions_8h.html#a0a3cc83cb6ebc79b66b43fae3ffee64ea2a84a18d7ac3d1fac11e3153f0abf73b">SF_Compute</a>)</td></tr>
+<tr class="memitem:a20f2a18b500f24b0c28e68f083281be4" id="r_a20f2a18b500f24b0c28e68f083281be4"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a20f2a18b500f24b0c28e68f083281be4">IMPLEMENT_GLOBAL_SHADER</a> (<a class="el" href="../../d5/d81/class_f_init_indirect_args_c_s.html">FInitIndirectArgsCS</a>, &quot;/Engine/<a class="el" href="../../d9/db1/namespace_private.html">Private</a>/TranslucentLightingShaders.usf&quot;, &quot;InitIndirectArgsCS&quot;, <a class="el" href="../../da/dca/_r_h_i_definitions_8h.html#a0a3cc83cb6ebc79b66b43fae3ffee64ea2a84a18d7ac3d1fac11e3153f0abf73b">SF_Compute</a>)</td></tr>
+<tr class="memitem:ae61d5e5138c948fe848cd04674391ad6" id="r_ae61d5e5138c948fe848cd04674391ad6"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae61d5e5138c948fe848cd04674391ad6">IMPLEMENT_GLOBAL_SHADER</a> (<a class="el" href="../../d6/d1e/class_f_filter_translucent_volume_c_s.html">FFilterTranslucentVolumeCS</a>, &quot;/Engine/<a class="el" href="../../d9/db1/namespace_private.html">Private</a>/TranslucentLightingShaders.usf&quot;, &quot;FilterTranslucentVolumeCS&quot;, <a class="el" href="../../da/dca/_r_h_i_definitions_8h.html#a0a3cc83cb6ebc79b66b43fae3ffee64ea2a84a18d7ac3d1fac11e3153f0abf73b">SF_Compute</a>)</td></tr>
+<tr class="memitem:a539f99e12bdecce84ba29d20c0c7249c" id="r_a539f99e12bdecce84ba29d20c0c7249c"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a539f99e12bdecce84ba29d20c0c7249c">IMPLEMENT_MATERIAL_SHADER_TYPE</a> (, <a class="el" href="../../d7/d35/class_f_translucent_lighting_inject_p_s.html">FTranslucentLightingInjectPS</a>, <a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;/Engine/<a class="el" href="../../d9/db1/namespace_private.html">Private</a>/TranslucentLightInjectionShaders.usf&quot;), <a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;InjectMainPS&quot;), <a class="el" href="../../da/dca/_r_h_i_definitions_8h.html#a0a3cc83cb6ebc79b66b43fae3ffee64eaf50bfe1c5c23e92a75ba64d89bcd3bfa">SF_Pixel</a>)</td></tr>
+<tr class="memitem:a60da4e947d4d5f58840db331523b6264" id="r_a60da4e947d4d5f58840db331523b6264"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a60da4e947d4d5f58840db331523b6264">IMPLEMENT_GLOBAL_SHADER</a> (<a class="el" href="../../d6/d1e/class_f_translucent_lighting_inject_batch_c_s.html">FTranslucentLightingInjectBatchCS</a>, &quot;/Engine/<a class="el" href="../../d9/db1/namespace_private.html">Private</a>/TranslucentLightInjectionShaders.usf&quot;, &quot;InjectBatchMainCS&quot;, <a class="el" href="../../da/dca/_r_h_i_definitions_8h.html#a0a3cc83cb6ebc79b66b43fae3ffee64ea2a84a18d7ac3d1fac11e3153f0abf73b">SF_Compute</a>)</td></tr>
+<tr class="memitem:afbf9c7e26ca9f9bc7e621d88c9f39b5b" id="r_afbf9c7e26ca9f9bc7e621d88c9f39b5b"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#afbf9c7e26ca9f9bc7e621d88c9f39b5b">IMPLEMENT_GLOBAL_SHADER</a> (<a class="el" href="../../da/d23/class_f_clear_translucent_lighting_volume_c_s.html">FClearTranslucentLightingVolumeCS</a>, &quot;/Engine/<a class="el" href="../../d9/db1/namespace_private.html">Private</a>/TranslucentLightInjectionShaders.usf&quot;, &quot;ClearTranslucentLightingVolumeCS&quot;, <a class="el" href="../../da/dca/_r_h_i_definitions_8h.html#a0a3cc83cb6ebc79b66b43fae3ffee64ea2a84a18d7ac3d1fac11e3153f0abf73b">SF_Compute</a>)</td></tr>
+<tr class="memitem:a40f8fd18f4f41a5201cd171a129e61c3" id="r_a40f8fd18f4f41a5201cd171a129e61c3"><td class="memItemLeft" align="right" valign="top">FTranslucencyLightingVolumeParameters&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a40f8fd18f4f41a5201cd171a129e61c3">GetTranslucencyLightingVolumeParameters</a> (<a class="el" href="../../d3/d85/class_f_r_d_g_builder.html">FRDGBuilder</a> &amp;GraphBuilder, const <a class="el" href="../../d7/d42/struct_f_translucency_lighting_volume_textures.html">FTranslucencyLightingVolumeTextures</a> &amp;Textures, const <a class="el" href="../../dd/d2b/class_f_view_info.html">FViewInfo</a> &amp;View)</td></tr>
+<tr class="memitem:ac781a31e697efca58a283a4dbb3c2936" id="r_ac781a31e697efca58a283a4dbb3c2936"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac781a31e697efca58a283a4dbb3c2936">IsTranslucencyLightingVolumeUsingVoxelMarkingSupported</a> ()</td></tr>
+<tr class="memitem:a5fa46b4cfaa4876fef20a9d3cbae4c0e" id="r_a5fa46b4cfaa4876fef20a9d3cbae4c0e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5fa46b4cfaa4876fef20a9d3cbae4c0e">IsTranslucencyLightingVolumeUsingVoxelMarking</a> ()</td></tr>
+<tr class="memitem:a2dbdf940955e2f462d9b433327a47700" id="r_a2dbdf940955e2f462d9b433327a47700"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2dbdf940955e2f462d9b433327a47700">IsTranslucencyLightingVolumeUsingBlueNoise</a> ()</td></tr>
+<tr class="memitem:a426e58f3b53768d07afd0d3ec533cbcc" id="r_a426e58f3b53768d07afd0d3ec533cbcc"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a426e58f3b53768d07afd0d3ec533cbcc">IMPLEMENT_GLOBAL_SHADER</a> (<a class="el" href="../../d0/dae/class_f_inject_ambient_cubemap_p_s.html">FInjectAmbientCubemapPS</a>, &quot;/Engine/<a class="el" href="../../d9/db1/namespace_private.html">Private</a>/TranslucentLightingShaders.usf&quot;, &quot;InjectAmbientCubemapMainPS&quot;, <a class="el" href="../../da/dca/_r_h_i_definitions_8h.html#a0a3cc83cb6ebc79b66b43fae3ffee64eaf50bfe1c5c23e92a75ba64d89bcd3bfa">SF_Pixel</a>)</td></tr>
+<tr class="memitem:a9372f16fa520e8a84bc962a616eb80d0" id="r_a9372f16fa520e8a84bc962a616eb80d0"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../df/d63/_typed_element_query_capabilities_8inl.html#a72343342ce64c0755563ee6c5e27868d">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9372f16fa520e8a84bc962a616eb80d0">InjectTranslucencyLightingVolumeAmbientCubemap</a> (<a class="el" href="../../d3/d85/class_f_r_d_g_builder.html">FRDGBuilder</a> &amp;GraphBuilder, const <a class="el" href="../../d2/ddb/class_t_array_view.html">TArrayView</a>&lt; const <a class="el" href="../../dd/d2b/class_f_view_info.html">FViewInfo</a> &gt; Views, const <a class="el" href="../../d7/d42/struct_f_translucency_lighting_volume_textures.html">FTranslucencyLightingVolumeTextures</a> &amp;Textures)</td></tr>
+<tr class="memitem:ab76f8ac80431d17370ed2096d307f3e5" id="r_ab76f8ac80431d17370ed2096d307f3e5"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../de/d18/struct_f_volume_bounds.html">FVolumeBounds</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab76f8ac80431d17370ed2096d307f3e5">CalculateLightVolumeBounds</a> (const <a class="el" href="../../d0/df6/_math_fwd_8h.html#a874bfd2b2f1402de001accc5f481ed73">FSphere</a> &amp;LightBounds, const <a class="el" href="../../dd/d2b/class_f_view_info.html">FViewInfo</a> &amp;View, <a class="el" href="../../dd/de9/preprocessor_8c.html#a1134b580f8da4de94ca6b1de4d37975e">uint32</a> VolumeCascadeIndex, <a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a> bDirectionalLight)</td></tr>
+<tr class="memitem:a5d1130fbf2ef943a018aff2167173d71" id="r_a5d1130fbf2ef943a018aff2167173d71"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../df/d63/_typed_element_query_capabilities_8inl.html#a72343342ce64c0755563ee6c5e27868d">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5d1130fbf2ef943a018aff2167173d71">InjectTranslucencyLightingVolume</a> (<a class="el" href="../../d3/d85/class_f_r_d_g_builder.html">FRDGBuilder</a> &amp;GraphBuilder, const <a class="el" href="../../dd/d2b/class_f_view_info.html">FViewInfo</a> &amp;View, const <a class="el" href="../../dd/de9/preprocessor_8c.html#a1134b580f8da4de94ca6b1de4d37975e">uint32</a> ViewIndex, const <a class="el" href="../../d4/dfa/class_f_scene.html">FScene</a> *Scene, const <a class="el" href="../../d9/d6f/class_f_scene_renderer.html">FSceneRenderer</a> &amp;Renderer, const <a class="el" href="../../db/d2c/struct_f_translucent_light_injection_collector.html">FTranslucentLightInjectionCollector</a> &amp;Collector, <a class="el" href="../../d7/d42/struct_f_translucency_lighting_volume_textures.html">FTranslucencyLightingVolumeTextures</a> &amp;Textures)</td></tr>
+<tr class="memitem:a696f620fb7068495dcedfae8d399545d" id="r_a696f620fb7068495dcedfae8d399545d"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a696f620fb7068495dcedfae8d399545d">IMPLEMENT_GLOBAL_SHADER</a> (<a class="el" href="../../d5/dca/class_f_simple_light_translucent_lighting_inject_p_s.html">FSimpleLightTranslucentLightingInjectPS</a>, &quot;/Engine/<a class="el" href="../../d9/db1/namespace_private.html">Private</a>/TranslucentLightInjectionShaders.usf&quot;, &quot;SimpleLightInjectMainPS&quot;, <a class="el" href="../../da/dca/_r_h_i_definitions_8h.html#a0a3cc83cb6ebc79b66b43fae3ffee64eaf50bfe1c5c23e92a75ba64d89bcd3bfa">SF_Pixel</a>)</td></tr>
+<tr class="memitem:a88863dcfaba8071b4a35d26492b3a407" id="r_a88863dcfaba8071b4a35d26492b3a407"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../df/d63/_typed_element_query_capabilities_8inl.html#a72343342ce64c0755563ee6c5e27868d">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a88863dcfaba8071b4a35d26492b3a407">InjectSimpleTranslucencyLightingVolumeArray</a> (<a class="el" href="../../d3/d85/class_f_r_d_g_builder.html">FRDGBuilder</a> &amp;GraphBuilder, const <a class="el" href="../../dd/d2b/class_f_view_info.html">FViewInfo</a> &amp;View, const <a class="el" href="../../dd/de9/preprocessor_8c.html#a1134b580f8da4de94ca6b1de4d37975e">uint32</a> ViewIndex, const <a class="el" href="../../dd/de9/preprocessor_8c.html#a1134b580f8da4de94ca6b1de4d37975e">uint32</a> ViewCount, const <a class="el" href="../../d7/d42/struct_f_translucency_lighting_volume_textures.html">FTranslucencyLightingVolumeTextures</a> &amp;Textures, const <a class="el" href="../../db/db4/class_f_simple_light_array.html">FSimpleLightArray</a> &amp;SimpleLights)</td></tr>
+<tr class="memitem:a0dd71fdff8d322248b64e40872cf2642" id="r_a0dd71fdff8d322248b64e40872cf2642"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a0dd71fdff8d322248b64e40872cf2642">IMPLEMENT_GLOBAL_SHADER</a> (<a class="el" href="../../dd/d29/class_f_frustum_cull_voxels_c_s.html">FFrustumCullVoxelsCS</a>, &quot;/Engine/<a class="el" href="../../d9/db1/namespace_private.html">Private</a>/TranslucentLightingShaders.usf&quot;, &quot;FrustumCullVoxelsCS&quot;, <a class="el" href="../../da/dca/_r_h_i_definitions_8h.html#a0a3cc83cb6ebc79b66b43fae3ffee64ea2a84a18d7ac3d1fac11e3153f0abf73b">SF_Compute</a>)</td></tr>
+<tr class="memitem:a24cc597554dfb2b3476502d806e5d30b" id="r_a24cc597554dfb2b3476502d806e5d30b"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a24cc597554dfb2b3476502d806e5d30b">IMPLEMENT_GLOBAL_SHADER</a> (<a class="el" href="../../da/db5/class_f_debug_translucency_lighting_volume_c_s.html">FDebugTranslucencyLightingVolumeCS</a>, &quot;/Engine/<a class="el" href="../../d9/db1/namespace_private.html">Private</a>/TranslucentLightingShaders.usf&quot;, &quot;DebugTranslucencyLightingVolumeCS&quot;, <a class="el" href="../../da/dca/_r_h_i_definitions_8h.html#a0a3cc83cb6ebc79b66b43fae3ffee64ea2a84a18d7ac3d1fac11e3153f0abf73b">SF_Compute</a>)</td></tr>
+<tr class="memitem:a10556cbd043889e0c528c6aad228f9c6" id="r_a10556cbd043889e0c528c6aad228f9c6"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../df/d63/_typed_element_query_capabilities_8inl.html#a72343342ce64c0755563ee6c5e27868d">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a10556cbd043889e0c528c6aad228f9c6">FilterTranslucencyLightingVolume</a> (<a class="el" href="../../d3/d85/class_f_r_d_g_builder.html">FRDGBuilder</a> &amp;GraphBuilder, <a class="el" href="../../d2/ddb/class_t_array_view.html">TArrayView</a>&lt; <a class="el" href="../../dd/d2b/class_f_view_info.html">FViewInfo</a> &gt; Views, <a class="el" href="../../d7/d42/struct_f_translucency_lighting_volume_textures.html">FTranslucencyLightingVolumeTextures</a> &amp;Textures, const <a class="el" href="../../da/d39/struct_f_sorted_light_set_scene_info.html">FSortedLightSetSceneInfo</a> &amp;SortedLightSet)</td></tr>
+<tr class="memitem:a025856dc926474a3eb66904a2e3f8a33" id="r_a025856dc926474a3eb66904a2e3f8a33"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a025856dc926474a3eb66904a2e3f8a33">IMPLEMENT_GLOBAL_SHADER</a> (<a class="el" href="../../d2/d1a/class_f_visualize_translucency_volume_v_s.html">FVisualizeTranslucencyVolumeVS</a>, &quot;/Engine/<a class="el" href="../../d9/db1/namespace_private.html">Private</a>/TranslucencyVolumeVisualize.usf&quot;, &quot;VisualizeTranslucencyVolumeVS&quot;, <a class="el" href="../../da/dca/_r_h_i_definitions_8h.html#a0a3cc83cb6ebc79b66b43fae3ffee64ea57b843d1079d918ef496ded337a171d2">SF_Vertex</a>)</td></tr>
+<tr class="memitem:a04deef157c4b2e31229bce1191e93639" id="r_a04deef157c4b2e31229bce1191e93639"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a04deef157c4b2e31229bce1191e93639">IMPLEMENT_GLOBAL_SHADER</a> (<a class="el" href="../../d7/deb/class_f_visualize_translucency_volume_p_s.html">FVisualizeTranslucencyVolumePS</a>, &quot;/Engine/<a class="el" href="../../d9/db1/namespace_private.html">Private</a>/TranslucencyVolumeVisualize.usf&quot;, &quot;VisualizeTranslucencyVolumePS&quot;, <a class="el" href="../../da/dca/_r_h_i_definitions_8h.html#a0a3cc83cb6ebc79b66b43fae3ffee64eaf50bfe1c5c23e92a75ba64d89bcd3bfa">SF_Pixel</a>)</td></tr>
+<tr class="memitem:af207fe9e683d2887be0a607aae68fd3c" id="r_af207fe9e683d2887be0a607aae68fd3c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../da/d78/class_i_p_s_o_collector.html">IPSOCollector</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af207fe9e683d2887be0a607aae68fd3c">CreateTranslucentLightingMaterialPSOCollector</a> (<a class="el" href="../../dc/dcf/namespace_e_r_h_i_feature_level.html#a04bc2ae8f7bf478747a40da91e1753dd">ERHIFeatureLevel::Type</a> FeatureLevel)</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-var-members" class="groupheader"><a id="var-members" name="var-members"></a>
+变量</h2></td></tr>
+<tr class="memitem:a2fd70df006c5b26dcf8ee159caf8109f" id="r_a2fd70df006c5b26dcf8ee159caf8109f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2fd70df006c5b26dcf8ee159caf8109f">GUseTranslucencyShadowDepths</a> = <a class="el" href="../../d3/df7/radaudio__common_8h.html#ade27a78a51a66a5cfb6f09cf36bcfde9a08f175a5505a10b9ed657defeb050e4b">true</a></td></tr>
+<tr class="memitem:a6a75e785acfb26204a3747a1b2196f3b" id="r_a6a75e785acfb26204a3747a1b2196f3b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a8dbb3cd84ca9fd010dadfc3815eefa5d">int32</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6a75e785acfb26204a3747a1b2196f3b">GUseTranslucencyLightingVolumes</a> = 1</td></tr>
+<tr class="memitem:a327a2ab8af8bf7c0b36ed2fe52eeca78" id="r_a327a2ab8af8bf7c0b36ed2fe52eeca78"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../df/d2a/_s_anim_notify_shared_8h.html#ac7c94e837fed3f8e4bb3dd94d7bd2ecf">float</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a327a2ab8af8bf7c0b36ed2fe52eeca78">GTranslucencyLightingVolumeMinFOV</a> = 45</td></tr>
+<tr class="memitem:a56d7f0fcd4724c7b3735bd33eb1c7595" id="r_a56d7f0fcd4724c7b3735bd33eb1c7595"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../df/d2a/_s_anim_notify_shared_8h.html#ac7c94e837fed3f8e4bb3dd94d7bd2ecf">float</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a56d7f0fcd4724c7b3735bd33eb1c7595">GTranslucencyLightingVolumeFOVSnapFactor</a> = 10</td></tr>
+<tr class="memitem:ac934ed0fdb5ae4011ccff3c36757ca85" id="r_ac934ed0fdb5ae4011ccff3c36757ca85"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a8dbb3cd84ca9fd010dadfc3815eefa5d">int32</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac934ed0fdb5ae4011ccff3c36757ca85">GTranslucencyLightingVolumeBlur</a> = 1</td></tr>
+<tr class="memitem:a258afe04b9487c787790a1d89244b44a" id="r_a258afe04b9487c787790a1d89244b44a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a8dbb3cd84ca9fd010dadfc3815eefa5d">int32</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a258afe04b9487c787790a1d89244b44a">GTranslucencyLightingVolumeDim</a> = 64</td></tr>
+<tr class="memitem:a8337a0b1c35396da03dc9a1944b407a3" id="r_a8337a0b1c35396da03dc9a1944b407a3"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a8dbb3cd84ca9fd010dadfc3815eefa5d">int32</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8337a0b1c35396da03dc9a1944b407a3">GTranslucencyLightingVolumeAdaptToPerspective</a> = 0</td></tr>
+<tr class="memitem:ab8b7ceb7d392a8ff06f5745a6e091527" id="r_ab8b7ceb7d392a8ff06f5745a6e091527"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a8dbb3cd84ca9fd010dadfc3815eefa5d">int32</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab8b7ceb7d392a8ff06f5745a6e091527">GTranslucencyLightingVolumeVisualize</a> = 0</td></tr>
+<tr class="memitem:a2983785e86942bde9d6f8617531b2c9a" id="r_a2983785e86942bde9d6f8617531b2c9a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../df/d2a/_s_anim_notify_shared_8h.html#ac7c94e837fed3f8e4bb3dd94d7bd2ecf">float</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2983785e86942bde9d6f8617531b2c9a">GTranslucencyLightingVolumeVisualizeRadiusScale</a> = 2.0f</td></tr>
+<tr class="memitem:a6b4a939e3069de1d9ce8bfb11cb97626" id="r_a6b4a939e3069de1d9ce8bfb11cb97626"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d2/d79/class_f_auto_console_variable_ref.html">FAutoConsoleVariableRef</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6b4a939e3069de1d9ce8bfb11cb97626">CVarTranslucencyLightingVolumeVisualizeRadiusScale</a> (<a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;r.TranslucencyLightingVolume.Visualize.RadiusScale&quot;), <a class="el" href="#a2983785e86942bde9d6f8617531b2c9a">GTranslucencyLightingVolumeVisualizeRadiusScale</a>, <a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;Scales the size of the spheres used to visualize the translucency lighting volume.&quot;), <a class="el" href="../../d4/dd9/_i_console_manager_8h.html#a7f594f23c2b2c5687f1a502ebb3ba105a774ea60f41417af093a7ca56c4204a70">ECVF_RenderThreadSafe</a>)</td></tr>
+<tr class="memitem:a4d1bc17f7252aafc23684462ec98d06d" id="r_a4d1bc17f7252aafc23684462ec98d06d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a8dbb3cd84ca9fd010dadfc3815eefa5d">int32</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4d1bc17f7252aafc23684462ec98d06d">GTranslucencyLightingVolumeVisualizeCascadeIndex</a> = -1</td></tr>
+<tr class="memitem:a90f682da04be06e1ad48cf7427240866" id="r_a90f682da04be06e1ad48cf7427240866"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d2/d79/class_f_auto_console_variable_ref.html">FAutoConsoleVariableRef</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a90f682da04be06e1ad48cf7427240866">CVarTranslucencyLightingVolumeVisualizeCascadeIndex</a> (<a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;r.TranslucencyLightingVolume.VisualizeCascadeIndex&quot;), <a class="el" href="#a4d1bc17f7252aafc23684462ec98d06d">GTranslucencyLightingVolumeVisualizeCascadeIndex</a>, <a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;Selects which translucency lighting volume cascade should be visualized. -1 visualizes all cascades at once.&quot;), <a class="el" href="../../d4/dd9/_i_console_manager_8h.html#a7f594f23c2b2c5687f1a502ebb3ba105a774ea60f41417af093a7ca56c4204a70">ECVF_RenderThreadSafe</a>)</td></tr>
+<tr class="memitem:ad04ef854ed87912c481436bfe34293a9" id="r_ad04ef854ed87912c481436bfe34293a9"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a8dbb3cd84ca9fd010dadfc3815eefa5d">int32</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad04ef854ed87912c481436bfe34293a9">GTranslucencyLightingVolumeDebug</a> = 0</td></tr>
+<tr class="memitem:a6645593efb32bbb80bbc0b010ce67697" id="r_a6645593efb32bbb80bbc0b010ce67697"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a8dbb3cd84ca9fd010dadfc3815eefa5d">int32</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6645593efb32bbb80bbc0b010ce67697">GTranslucencyLightingVolumeDebugFreezePosition</a> = 0</td></tr>
+<tr class="memitem:abd32b4924830cf1f1405eb1698d0cc18" id="r_abd32b4924830cf1f1405eb1698d0cc18"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../db/d5a/class_f_register_p_s_o_collector_create_function.html">FRegisterPSOCollectorCreateFunction</a> RegisterTranslucentLightingMaterialPSOCollector &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#abd32b4924830cf1f1405eb1698d0cc18">CreateTranslucentLightingMaterialPSOCollector</a></td></tr>
+<tr class="memitem:a0fb2cc60886426d4bcfac1cecd6e4e3a" id="r_a0fb2cc60886426d4bcfac1cecd6e4e3a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../db/d12/class_f_auto_console_variable_deprecated.html">FAutoConsoleVariableDeprecated</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a0fb2cc60886426d4bcfac1cecd6e4e3a">CVarTranslucentLightingVolumes</a> (<a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;r.TranslucentLightingVolume&quot;), <a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;r.TranslucencyLightingVolume&quot;), <a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;5.7&quot;))</td></tr>
+<tr class="memitem:a69d926d5451e7bdf503a31fecad07034" id="r_a69d926d5451e7bdf503a31fecad07034"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../db/d12/class_f_auto_console_variable_deprecated.html">FAutoConsoleVariableDeprecated</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a69d926d5451e7bdf503a31fecad07034">CVarTranslucentVolumeMinFOV</a> (<a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;r.TranslucentVolumeMinFOV&quot;), <a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;r.TranslucencyLightingVolume.MinFOV&quot;), <a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;5.7&quot;))</td></tr>
+<tr class="memitem:a5db7ef30b5cc06fe9f9afcd61e916492" id="r_a5db7ef30b5cc06fe9f9afcd61e916492"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../db/d12/class_f_auto_console_variable_deprecated.html">FAutoConsoleVariableDeprecated</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5db7ef30b5cc06fe9f9afcd61e916492">CVarTranslucentVolumeFOVSnapFactor</a> (<a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;r.TranslucentVolumeFOVSnapFactor&quot;), <a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;r.TranslucencyLightingVolume.FOVSnapFactor&quot;), <a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;5.7&quot;))</td></tr>
+<tr class="memitem:a39b0438ab4a946d211737d530f5480a6" id="r_a39b0438ab4a946d211737d530f5480a6"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../db/d12/class_f_auto_console_variable_deprecated.html">FAutoConsoleVariableDeprecated</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a39b0438ab4a946d211737d530f5480a6">CVarTranslucentVolumeBlur</a> (<a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;r.TranslucencyVolumeBlur&quot;), <a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;r.TranslucencyLightingVolume.Blur&quot;), <a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;5.7&quot;))</td></tr>
+<tr class="memitem:a0129dd0264e3d6340953849771745c6c" id="r_a0129dd0264e3d6340953849771745c6c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../db/d12/class_f_auto_console_variable_deprecated.html">FAutoConsoleVariableDeprecated</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a0129dd0264e3d6340953849771745c6c">CVarTranslucentVolumeDim</a> (<a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;r.TranslucencyLightingVolumeDim&quot;), <a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;r.TranslucencyLightingVolume.Dim&quot;), <a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;5.7&quot;))</td></tr>
+<tr class="memitem:a0c1cd2fd9fcaca955a06ba83bb3decdc" id="r_a0c1cd2fd9fcaca955a06ba83bb3decdc"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../db/d12/class_f_auto_console_variable_deprecated.html">FAutoConsoleVariableDeprecated</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a0c1cd2fd9fcaca955a06ba83bb3decdc">CVarTranslucentVolumeInnerDistance</a> (<a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;r.TranslucencyLightingVolumeInnerDistance&quot;), <a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;r.TranslucencyLightingVolume.InnerDistance&quot;), <a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;5.7&quot;))</td></tr>
+<tr class="memitem:a2eff5d27a95ba4b983d10ca6570eb92e" id="r_a2eff5d27a95ba4b983d10ca6570eb92e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../db/d12/class_f_auto_console_variable_deprecated.html">FAutoConsoleVariableDeprecated</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2eff5d27a95ba4b983d10ca6570eb92e">CVarTranslucentVolumeOuterDistance</a> (<a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;r.TranslucencyLightingVolumeOuterDistance&quot;), <a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;r.TranslucencyLightingVolume.OuterDistance&quot;), <a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;5.7&quot;))</td></tr>
+</table>
+<a name="doc-enum-members" id="doc-enum-members"></a><h2 id="header-doc-enum-members" class="groupheader">枚举类型说明</h2>
+<a id="ae4c47648c8912db9dd9a54f3ec44257a" name="ae4c47648c8912db9dd9a54f3ec44257a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae4c47648c8912db9dd9a54f3ec44257a">&#9670;&#160;</a></span>ETranslucencyShadowDepthShaderMode</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="#ae4c47648c8912db9dd9a54f3ec44257a">ETranslucencyShadowDepthShaderMode</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<table class="fieldtable">
+<tr><th colspan="2">枚举值</th></tr><tr><td class="fieldname"><a id="ae4c47648c8912db9dd9a54f3ec44257aa03f7f6a3b34d40fe12d11b05d63e560a" name="ae4c47648c8912db9dd9a54f3ec44257aa03f7f6a3b34d40fe12d11b05d63e560a"></a>TranslucencyShadowDepth_PerspectiveCorrect&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="ae4c47648c8912db9dd9a54f3ec44257aac37b91413ce397b6ccab920c8ccb12f3" name="ae4c47648c8912db9dd9a54f3ec44257aac37b91413ce397b6ccab920c8ccb12f3"></a>TranslucencyShadowDepth_Standard&#160;</td><td class="fielddoc"></td></tr>
+</table>
+
+</div>
+</div>
+<a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">函数说明</h2>
+<a id="ab76f8ac80431d17370ed2096d307f3e5" name="ab76f8ac80431d17370ed2096d307f3e5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab76f8ac80431d17370ed2096d307f3e5">&#9670;&#160;</a></span>CalculateLightVolumeBounds()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../de/d18/struct_f_volume_bounds.html">FVolumeBounds</a> CalculateLightVolumeBounds </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="../../d0/df6/_math_fwd_8h.html#a874bfd2b2f1402de001accc5f481ed73">FSphere</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>LightBounds</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="../../dd/d2b/class_f_view_info.html">FViewInfo</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>View</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../dd/de9/preprocessor_8c.html#a1134b580f8da4de94ca6b1de4d37975e">uint32</a></td>          <td class="paramname"><span class="paramname"><em>VolumeCascadeIndex</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a></td>          <td class="paramname"><span class="paramname"><em>bDirectionalLight</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Calculates volume texture bounds for the given light in the given translucency lighting volume cascade. </p>
+
+</div>
+</div>
+<a id="af207fe9e683d2887be0a607aae68fd3c" name="af207fe9e683d2887be0a607aae68fd3c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af207fe9e683d2887be0a607aae68fd3c">&#9670;&#160;</a></span>CreateTranslucentLightingMaterialPSOCollector()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../da/d78/class_i_p_s_o_collector.html">IPSOCollector</a> * CreateTranslucentLightingMaterialPSOCollector </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../dc/dcf/namespace_e_r_h_i_feature_level.html#a04bc2ae8f7bf478747a40da91e1753dd">ERHIFeatureLevel::Type</a></td>          <td class="paramname"><span class="paramname"><em>FeatureLevel</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="af1b5f03ff6c80089f025d16634583e6a" name="af1b5f03ff6c80089f025d16634583e6a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af1b5f03ff6c80089f025d16634583e6a">&#9670;&#160;</a></span>CVarTranslucencyLightingVolumeBlur()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d2/d79/class_f_auto_console_variable_ref.html">FAutoConsoleVariableRef</a> CVarTranslucencyLightingVolumeBlur </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;r.TranslucencyLightingVolume.Blur&quot;)</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="#ac934ed0fdb5ae4011ccff3c36757ca85">GTranslucencyLightingVolumeBlur</a></td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;0:off, otherwise on, default is 1&quot;)</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d4/dd9/_i_console_manager_8h.html#a7f594f23c2b2c5687f1a502ebb3ba105a5fb4e7a0526f4a0c350d71e18956527c">ECVF_Scalability</a>|</td>          <td class="paramname"><span class="paramname"><em>ECVF_RenderThreadSafe</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a7f8e2cfc6b0edebe47df369c0e8a96b6" name="a7f8e2cfc6b0edebe47df369c0e8a96b6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7f8e2cfc6b0edebe47df369c0e8a96b6">&#9670;&#160;</a></span>CVarTranslucencyLightingVolumeDim()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d2/d79/class_f_auto_console_variable_ref.html">FAutoConsoleVariableRef</a> CVarTranslucencyLightingVolumeDim </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;r.TranslucencyLightingVolume.Dim&quot;)</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="#a258afe04b9487c787790a1d89244b44a">GTranslucencyLightingVolumeDim</a></td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;Dimensions of the volume textures used <a class="el" href="../../d3/db8/binka__ue__decode__test_8cpp.html#ac1ee511585a5c7a2d58c146185895b72">for</a> translucency lighting.  Larger textures result in higher resolution but lower performance.&quot;)</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d4/dd9/_i_console_manager_8h.html#a7f594f23c2b2c5687f1a502ebb3ba105a5fb4e7a0526f4a0c350d71e18956527c">ECVF_Scalability</a>|</td>          <td class="paramname"><span class="paramname"><em>ECVF_RenderThreadSafe</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a7d3a4a1e465c4f169bfde3db10697343" name="a7d3a4a1e465c4f169bfde3db10697343"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7d3a4a1e465c4f169bfde3db10697343">&#9670;&#160;</a></span>CVarTranslucencyLightingVolumes()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d2/d79/class_f_auto_console_variable_ref.html">FAutoConsoleVariableRef</a> CVarTranslucencyLightingVolumes </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;r.TranslucencyLightingVolume&quot;)</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d0/d34/_mega_lights_8cpp.html#a6a75e785acfb26204a3747a1b2196f3b">GUseTranslucencyLightingVolumes</a></td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;0:off, otherwise on, default is 1&quot;)</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d4/dd9/_i_console_manager_8h.html#a7f594f23c2b2c5687f1a502ebb3ba105a774ea60f41417af093a7ca56c4204a70">ECVF_RenderThreadSafe</a>|</td>          <td class="paramname"><span class="paramname"><em>ECVF_Scalability</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ab76e6c2b8ab9c57fd620db6d4cca80f0" name="ab76e6c2b8ab9c57fd620db6d4cca80f0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab76e6c2b8ab9c57fd620db6d4cca80f0">&#9670;&#160;</a></span>DECLARE_GPU_STAT_NAMED()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">DECLARE_GPU_STAT_NAMED </td>
+          <td>(</td>
+          <td class="paramtype">TranslucentLighting</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;Translucent Lighting&quot;)</td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a10556cbd043889e0c528c6aad228f9c6" name="a10556cbd043889e0c528c6aad228f9c6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a10556cbd043889e0c528c6aad228f9c6">&#9670;&#160;</a></span>FilterTranslucencyLightingVolume()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../df/d63/_typed_element_query_capabilities_8inl.html#a72343342ce64c0755563ee6c5e27868d">void</a> FilterTranslucencyLightingVolume </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d3/d85/class_f_r_d_g_builder.html">FRDGBuilder</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>GraphBuilder</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d2/ddb/class_t_array_view.html">TArrayView</a>&lt; <a class="el" href="../../dd/d2b/class_f_view_info.html">FViewInfo</a> &gt;</td>          <td class="paramname"><span class="paramname"><em>Views</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d7/d42/struct_f_translucency_lighting_volume_textures.html">FTranslucencyLightingVolumeTextures</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>Textures</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="../../da/d39/struct_f_sorted_light_set_scene_info.html">FSortedLightSetSceneInfo</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>SortedLightSet</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a5b411f8dd4e9e10131f47f53acd30081" name="a5b411f8dd4e9e10131f47f53acd30081"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5b411f8dd4e9e10131f47f53acd30081">&#9670;&#160;</a></span>GetTranslucencyLightingVolumeDim()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a8dbb3cd84ca9fd010dadfc3815eefa5d">int32</a> GetTranslucencyLightingVolumeDim </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Function returning current translucency lighting volume dimensions. </p>
+
+</div>
+</div>
+<a id="afde226003255a5fd16f840f840943d88" name="afde226003255a5fd16f840f840943d88"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afde226003255a5fd16f840f840943d88">&#9670;&#160;</a></span>GetTranslucencyLightingVolumeInnerDistance()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../df/d2a/_s_anim_notify_shared_8h.html#ac7c94e837fed3f8e4bb3dd94d7bd2ecf">float</a> GetTranslucencyLightingVolumeInnerDistance </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a5f38a17bcf78139110819f1ff7555371" name="a5f38a17bcf78139110819f1ff7555371"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5f38a17bcf78139110819f1ff7555371">&#9670;&#160;</a></span>GetTranslucencyLightingVolumeOuterDistance()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../df/d2a/_s_anim_notify_shared_8h.html#ac7c94e837fed3f8e4bb3dd94d7bd2ecf">float</a> GetTranslucencyLightingVolumeOuterDistance </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a40f8fd18f4f41a5201cd171a129e61c3" name="a40f8fd18f4f41a5201cd171a129e61c3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a40f8fd18f4f41a5201cd171a129e61c3">&#9670;&#160;</a></span>GetTranslucencyLightingVolumeParameters()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">FTranslucencyLightingVolumeParameters GetTranslucencyLightingVolumeParameters </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d3/d85/class_f_r_d_g_builder.html">FRDGBuilder</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>GraphBuilder</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="../../d7/d42/struct_f_translucency_lighting_volume_textures.html">FTranslucencyLightingVolumeTextures</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>Textures</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="../../dd/d2b/class_f_view_info.html">FViewInfo</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>View</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Initializes translucency volume lighting shader parameters from an optional textures struct. If null or uninitialized, fallback textures are used. </p>
+
+</div>
+</div>
+<a id="a56d7e899f919aca3a79d5044626b7dc1" name="a56d7e899f919aca3a79d5044626b7dc1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a56d7e899f919aca3a79d5044626b7dc1">&#9670;&#160;</a></span>GetTranslucencyLightingVolumePositionOffsetRadius()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../df/d2a/_s_anim_notify_shared_8h.html#ac7c94e837fed3f8e4bb3dd94d7bd2ecf">float</a> GetTranslucencyLightingVolumePositionOffsetRadius </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="afbf9c7e26ca9f9bc7e621d88c9f39b5b" name="afbf9c7e26ca9f9bc7e621d88c9f39b5b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afbf9c7e26ca9f9bc7e621d88c9f39b5b">&#9670;&#160;</a></span>IMPLEMENT_GLOBAL_SHADER() <span class="overload">[1/12]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">IMPLEMENT_GLOBAL_SHADER </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../da/d23/class_f_clear_translucent_lighting_volume_c_s.html">FClearTranslucentLightingVolumeCS</a></td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&quot;/Engine/<a class="el" href="../../d9/db1/namespace_private.html">Private</a>/TranslucentLightInjectionShaders.usf&quot;</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&quot;ClearTranslucentLightingVolumeCS&quot;</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../da/dca/_r_h_i_definitions_8h.html#a0a3cc83cb6ebc79b66b43fae3ffee64ea2a84a18d7ac3d1fac11e3153f0abf73b">SF_Compute</a></td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a24cc597554dfb2b3476502d806e5d30b" name="a24cc597554dfb2b3476502d806e5d30b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a24cc597554dfb2b3476502d806e5d30b">&#9670;&#160;</a></span>IMPLEMENT_GLOBAL_SHADER() <span class="overload">[2/12]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">IMPLEMENT_GLOBAL_SHADER </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../da/db5/class_f_debug_translucency_lighting_volume_c_s.html">FDebugTranslucencyLightingVolumeCS</a></td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&quot;/Engine/<a class="el" href="../../d9/db1/namespace_private.html">Private</a>/TranslucentLightingShaders.usf&quot;</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&quot;DebugTranslucencyLightingVolumeCS&quot;</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../da/dca/_r_h_i_definitions_8h.html#a0a3cc83cb6ebc79b66b43fae3ffee64ea2a84a18d7ac3d1fac11e3153f0abf73b">SF_Compute</a></td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a43a6f389a6b3dbc0bc70d3c16ae78c57" name="a43a6f389a6b3dbc0bc70d3c16ae78c57"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a43a6f389a6b3dbc0bc70d3c16ae78c57">&#9670;&#160;</a></span>IMPLEMENT_GLOBAL_SHADER() <span class="overload">[3/12]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">IMPLEMENT_GLOBAL_SHADER </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d9/d8e/class_f_dilate_marked_voxels_c_s.html">FDilateMarkedVoxelsCS</a></td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&quot;/Engine/<a class="el" href="../../d9/db1/namespace_private.html">Private</a>/TranslucentLightingShaders.usf&quot;</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&quot;DilateMarkedVoxelsCS&quot;</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../da/dca/_r_h_i_definitions_8h.html#a0a3cc83cb6ebc79b66b43fae3ffee64ea2a84a18d7ac3d1fac11e3153f0abf73b">SF_Compute</a></td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ae61d5e5138c948fe848cd04674391ad6" name="ae61d5e5138c948fe848cd04674391ad6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae61d5e5138c948fe848cd04674391ad6">&#9670;&#160;</a></span>IMPLEMENT_GLOBAL_SHADER() <span class="overload">[4/12]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">IMPLEMENT_GLOBAL_SHADER </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d6/d1e/class_f_filter_translucent_volume_c_s.html">FFilterTranslucentVolumeCS</a></td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&quot;/Engine/<a class="el" href="../../d9/db1/namespace_private.html">Private</a>/TranslucentLightingShaders.usf&quot;</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&quot;FilterTranslucentVolumeCS&quot;</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../da/dca/_r_h_i_definitions_8h.html#a0a3cc83cb6ebc79b66b43fae3ffee64ea2a84a18d7ac3d1fac11e3153f0abf73b">SF_Compute</a></td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a0dd71fdff8d322248b64e40872cf2642" name="a0dd71fdff8d322248b64e40872cf2642"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0dd71fdff8d322248b64e40872cf2642">&#9670;&#160;</a></span>IMPLEMENT_GLOBAL_SHADER() <span class="overload">[5/12]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">IMPLEMENT_GLOBAL_SHADER </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../dd/d29/class_f_frustum_cull_voxels_c_s.html">FFrustumCullVoxelsCS</a></td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&quot;/Engine/<a class="el" href="../../d9/db1/namespace_private.html">Private</a>/TranslucentLightingShaders.usf&quot;</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&quot;FrustumCullVoxelsCS&quot;</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../da/dca/_r_h_i_definitions_8h.html#a0a3cc83cb6ebc79b66b43fae3ffee64ea2a84a18d7ac3d1fac11e3153f0abf73b">SF_Compute</a></td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a4d40fff101879e989c8318282533d9f0" name="a4d40fff101879e989c8318282533d9f0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4d40fff101879e989c8318282533d9f0">&#9670;&#160;</a></span>IMPLEMENT_GLOBAL_SHADER() <span class="overload">[6/12]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">IMPLEMENT_GLOBAL_SHADER </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d8/d0c/class_f_gather_marked_voxels_c_s.html">FGatherMarkedVoxelsCS</a></td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&quot;/Engine/<a class="el" href="../../d9/db1/namespace_private.html">Private</a>/TranslucentLightingShaders.usf&quot;</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&quot;GatherMarkedVoxelsCS&quot;</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../da/dca/_r_h_i_definitions_8h.html#a0a3cc83cb6ebc79b66b43fae3ffee64ea2a84a18d7ac3d1fac11e3153f0abf73b">SF_Compute</a></td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a20f2a18b500f24b0c28e68f083281be4" name="a20f2a18b500f24b0c28e68f083281be4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a20f2a18b500f24b0c28e68f083281be4">&#9670;&#160;</a></span>IMPLEMENT_GLOBAL_SHADER() <span class="overload">[7/12]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">IMPLEMENT_GLOBAL_SHADER </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d5/d81/class_f_init_indirect_args_c_s.html">FInitIndirectArgsCS</a></td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&quot;/Engine/<a class="el" href="../../d9/db1/namespace_private.html">Private</a>/TranslucentLightingShaders.usf&quot;</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&quot;InitIndirectArgsCS&quot;</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../da/dca/_r_h_i_definitions_8h.html#a0a3cc83cb6ebc79b66b43fae3ffee64ea2a84a18d7ac3d1fac11e3153f0abf73b">SF_Compute</a></td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a426e58f3b53768d07afd0d3ec533cbcc" name="a426e58f3b53768d07afd0d3ec533cbcc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a426e58f3b53768d07afd0d3ec533cbcc">&#9670;&#160;</a></span>IMPLEMENT_GLOBAL_SHADER() <span class="overload">[8/12]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">IMPLEMENT_GLOBAL_SHADER </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d0/dae/class_f_inject_ambient_cubemap_p_s.html">FInjectAmbientCubemapPS</a></td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&quot;/Engine/<a class="el" href="../../d9/db1/namespace_private.html">Private</a>/TranslucentLightingShaders.usf&quot;</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&quot;InjectAmbientCubemapMainPS&quot;</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../da/dca/_r_h_i_definitions_8h.html#a0a3cc83cb6ebc79b66b43fae3ffee64eaf50bfe1c5c23e92a75ba64d89bcd3bfa">SF_Pixel</a></td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a696f620fb7068495dcedfae8d399545d" name="a696f620fb7068495dcedfae8d399545d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a696f620fb7068495dcedfae8d399545d">&#9670;&#160;</a></span>IMPLEMENT_GLOBAL_SHADER() <span class="overload">[9/12]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">IMPLEMENT_GLOBAL_SHADER </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d5/dca/class_f_simple_light_translucent_lighting_inject_p_s.html">FSimpleLightTranslucentLightingInjectPS</a></td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&quot;/Engine/<a class="el" href="../../d9/db1/namespace_private.html">Private</a>/TranslucentLightInjectionShaders.usf&quot;</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&quot;SimpleLightInjectMainPS&quot;</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../da/dca/_r_h_i_definitions_8h.html#a0a3cc83cb6ebc79b66b43fae3ffee64eaf50bfe1c5c23e92a75ba64d89bcd3bfa">SF_Pixel</a></td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a60da4e947d4d5f58840db331523b6264" name="a60da4e947d4d5f58840db331523b6264"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a60da4e947d4d5f58840db331523b6264">&#9670;&#160;</a></span>IMPLEMENT_GLOBAL_SHADER() <span class="overload">[10/12]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">IMPLEMENT_GLOBAL_SHADER </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d6/d1e/class_f_translucent_lighting_inject_batch_c_s.html">FTranslucentLightingInjectBatchCS</a></td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&quot;/Engine/<a class="el" href="../../d9/db1/namespace_private.html">Private</a>/TranslucentLightInjectionShaders.usf&quot;</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&quot;InjectBatchMainCS&quot;</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../da/dca/_r_h_i_definitions_8h.html#a0a3cc83cb6ebc79b66b43fae3ffee64ea2a84a18d7ac3d1fac11e3153f0abf73b">SF_Compute</a></td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a04deef157c4b2e31229bce1191e93639" name="a04deef157c4b2e31229bce1191e93639"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a04deef157c4b2e31229bce1191e93639">&#9670;&#160;</a></span>IMPLEMENT_GLOBAL_SHADER() <span class="overload">[11/12]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">IMPLEMENT_GLOBAL_SHADER </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d7/deb/class_f_visualize_translucency_volume_p_s.html">FVisualizeTranslucencyVolumePS</a></td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&quot;/Engine/<a class="el" href="../../d9/db1/namespace_private.html">Private</a>/TranslucencyVolumeVisualize.usf&quot;</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&quot;VisualizeTranslucencyVolumePS&quot;</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../da/dca/_r_h_i_definitions_8h.html#a0a3cc83cb6ebc79b66b43fae3ffee64eaf50bfe1c5c23e92a75ba64d89bcd3bfa">SF_Pixel</a></td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a025856dc926474a3eb66904a2e3f8a33" name="a025856dc926474a3eb66904a2e3f8a33"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a025856dc926474a3eb66904a2e3f8a33">&#9670;&#160;</a></span>IMPLEMENT_GLOBAL_SHADER() <span class="overload">[12/12]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">IMPLEMENT_GLOBAL_SHADER </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d2/d1a/class_f_visualize_translucency_volume_v_s.html">FVisualizeTranslucencyVolumeVS</a></td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&quot;/Engine/<a class="el" href="../../d9/db1/namespace_private.html">Private</a>/TranslucencyVolumeVisualize.usf&quot;</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&quot;VisualizeTranslucencyVolumeVS&quot;</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../da/dca/_r_h_i_definitions_8h.html#a0a3cc83cb6ebc79b66b43fae3ffee64ea57b843d1079d918ef496ded337a171d2">SF_Vertex</a></td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a539f99e12bdecce84ba29d20c0c7249c" name="a539f99e12bdecce84ba29d20c0c7249c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a539f99e12bdecce84ba29d20c0c7249c">&#9670;&#160;</a></span>IMPLEMENT_MATERIAL_SHADER_TYPE() <span class="overload">[1/5]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../de/da9/namespace_light_function_atlas.html#a934d5efdf03aa9d1c4098475b66558e8">IMPLEMENT_MATERIAL_SHADER_TYPE</a> </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d7/d35/class_f_translucent_lighting_inject_p_s.html">FTranslucentLightingInjectPS</a></td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;/Engine/<a class="el" href="../../d9/db1/namespace_private.html">Private</a>/TranslucentLightInjectionShaders.usf&quot;)</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;InjectMainPS&quot;)</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../da/dca/_r_h_i_definitions_8h.html#a0a3cc83cb6ebc79b66b43fae3ffee64eaf50bfe1c5c23e92a75ba64d89bcd3bfa">SF_Pixel</a></td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a89423f5ecbae0c5b4cab66bea9537f33" name="a89423f5ecbae0c5b4cab66bea9537f33"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a89423f5ecbae0c5b4cab66bea9537f33">&#9670;&#160;</a></span>IMPLEMENT_MATERIAL_SHADER_TYPE() <span class="overload">[2/5]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../de/da9/namespace_light_function_atlas.html#a934d5efdf03aa9d1c4098475b66558e8">IMPLEMENT_MATERIAL_SHADER_TYPE</a> </td>
+          <td>(</td>
+          <td class="paramtype">template&lt;&gt;</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d3/d61/class_t_translucency_shadow_depth_p_s.html">TTranslucencyShadowDepthPS</a>&lt; <a class="el" href="#ae4c47648c8912db9dd9a54f3ec44257aa03f7f6a3b34d40fe12d11b05d63e560a">TranslucencyShadowDepth_PerspectiveCorrect</a> &gt;</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;/Engine/<a class="el" href="../../d9/db1/namespace_private.html">Private</a>/TranslucentShadowDepthShaders.usf&quot;)</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;MainOpacityPS&quot;)</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../da/dca/_r_h_i_definitions_8h.html#a0a3cc83cb6ebc79b66b43fae3ffee64eaf50bfe1c5c23e92a75ba64d89bcd3bfa">SF_Pixel</a></td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a8e501f2bb8af1d647de04c9f8d00a942" name="a8e501f2bb8af1d647de04c9f8d00a942"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8e501f2bb8af1d647de04c9f8d00a942">&#9670;&#160;</a></span>IMPLEMENT_MATERIAL_SHADER_TYPE() <span class="overload">[3/5]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../de/da9/namespace_light_function_atlas.html#a934d5efdf03aa9d1c4098475b66558e8">IMPLEMENT_MATERIAL_SHADER_TYPE</a> </td>
+          <td>(</td>
+          <td class="paramtype">template&lt;&gt;</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d3/d61/class_t_translucency_shadow_depth_p_s.html">TTranslucencyShadowDepthPS</a>&lt; <a class="el" href="#ae4c47648c8912db9dd9a54f3ec44257aac37b91413ce397b6ccab920c8ccb12f3">TranslucencyShadowDepth_Standard</a> &gt;</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;/Engine/<a class="el" href="../../d9/db1/namespace_private.html">Private</a>/TranslucentShadowDepthShaders.usf&quot;)</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;MainOpacityPS&quot;)</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../da/dca/_r_h_i_definitions_8h.html#a0a3cc83cb6ebc79b66b43fae3ffee64eaf50bfe1c5c23e92a75ba64d89bcd3bfa">SF_Pixel</a></td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="adab677fbf9c22b1f1a3053e17c89ad96" name="adab677fbf9c22b1f1a3053e17c89ad96"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adab677fbf9c22b1f1a3053e17c89ad96">&#9670;&#160;</a></span>IMPLEMENT_MATERIAL_SHADER_TYPE() <span class="overload">[4/5]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../de/da9/namespace_light_function_atlas.html#a934d5efdf03aa9d1c4098475b66558e8">IMPLEMENT_MATERIAL_SHADER_TYPE</a> </td>
+          <td>(</td>
+          <td class="paramtype">template&lt;&gt;</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d8/d6b/class_t_translucency_shadow_depth_v_s.html">TTranslucencyShadowDepthVS</a>&lt; <a class="el" href="#ae4c47648c8912db9dd9a54f3ec44257aa03f7f6a3b34d40fe12d11b05d63e560a">TranslucencyShadowDepth_PerspectiveCorrect</a> &gt;</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;/Engine/<a class="el" href="../../d9/db1/namespace_private.html">Private</a>/TranslucentShadowDepthShaders.usf&quot;)</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;MainVS&quot;)</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../da/dca/_r_h_i_definitions_8h.html#a0a3cc83cb6ebc79b66b43fae3ffee64ea57b843d1079d918ef496ded337a171d2">SF_Vertex</a></td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="af109e57504ccae98e92e73a3ec22ffc7" name="af109e57504ccae98e92e73a3ec22ffc7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af109e57504ccae98e92e73a3ec22ffc7">&#9670;&#160;</a></span>IMPLEMENT_MATERIAL_SHADER_TYPE() <span class="overload">[5/5]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../de/da9/namespace_light_function_atlas.html#a934d5efdf03aa9d1c4098475b66558e8">IMPLEMENT_MATERIAL_SHADER_TYPE</a> </td>
+          <td>(</td>
+          <td class="paramtype">template&lt;&gt;</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d8/d6b/class_t_translucency_shadow_depth_v_s.html">TTranslucencyShadowDepthVS</a>&lt; <a class="el" href="#ae4c47648c8912db9dd9a54f3ec44257aac37b91413ce397b6ccab920c8ccb12f3">TranslucencyShadowDepth_Standard</a> &gt;</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;/Engine/<a class="el" href="../../d9/db1/namespace_private.html">Private</a>/TranslucentShadowDepthShaders.usf&quot;)</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;MainVS&quot;)</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../da/dca/_r_h_i_definitions_8h.html#a0a3cc83cb6ebc79b66b43fae3ffee64ea57b843d1079d918ef496ded337a171d2">SF_Vertex</a></td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a9b2f76981de20678d9434274aaca840d" name="a9b2f76981de20678d9434274aaca840d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9b2f76981de20678d9434274aaca840d">&#9670;&#160;</a></span>IMPLEMENT_STATIC_UNIFORM_BUFFER_STRUCT()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">IMPLEMENT_STATIC_UNIFORM_BUFFER_STRUCT </td>
+          <td>(</td>
+          <td class="paramtype">FTranslucencyDepthPassUniformParameters</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&quot;TranslucentDepthPass&quot;</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">SceneTextures</td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a88863dcfaba8071b4a35d26492b3a407" name="a88863dcfaba8071b4a35d26492b3a407"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a88863dcfaba8071b4a35d26492b3a407">&#9670;&#160;</a></span>InjectSimpleTranslucencyLightingVolumeArray()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../df/d63/_typed_element_query_capabilities_8inl.html#a72343342ce64c0755563ee6c5e27868d">void</a> InjectSimpleTranslucencyLightingVolumeArray </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d3/d85/class_f_r_d_g_builder.html">FRDGBuilder</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>GraphBuilder</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="../../dd/d2b/class_f_view_info.html">FViewInfo</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>View</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="../../dd/de9/preprocessor_8c.html#a1134b580f8da4de94ca6b1de4d37975e">uint32</a></td>          <td class="paramname"><span class="paramname"><em>ViewIndex</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="../../dd/de9/preprocessor_8c.html#a1134b580f8da4de94ca6b1de4d37975e">uint32</a></td>          <td class="paramname"><span class="paramname"><em>ViewCount</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="../../d7/d42/struct_f_translucency_lighting_volume_textures.html">FTranslucencyLightingVolumeTextures</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>Textures</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="../../db/db4/class_f_simple_light_array.html">FSimpleLightArray</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>SimpleLights</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a5d1130fbf2ef943a018aff2167173d71" name="a5d1130fbf2ef943a018aff2167173d71"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5d1130fbf2ef943a018aff2167173d71">&#9670;&#160;</a></span>InjectTranslucencyLightingVolume()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../df/d63/_typed_element_query_capabilities_8inl.html#a72343342ce64c0755563ee6c5e27868d">void</a> InjectTranslucencyLightingVolume </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d3/d85/class_f_r_d_g_builder.html">FRDGBuilder</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>GraphBuilder</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="../../dd/d2b/class_f_view_info.html">FViewInfo</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>View</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="../../dd/de9/preprocessor_8c.html#a1134b580f8da4de94ca6b1de4d37975e">uint32</a></td>          <td class="paramname"><span class="paramname"><em>ViewIndex</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="../../d4/dfa/class_f_scene.html">FScene</a> *</td>          <td class="paramname"><span class="paramname"><em>Scene</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="../../d9/d6f/class_f_scene_renderer.html">FSceneRenderer</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>Renderer</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="../../db/d2c/struct_f_translucent_light_injection_collector.html">FTranslucentLightInjectionCollector</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>Collector</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d7/d42/struct_f_translucency_lighting_volume_textures.html">FTranslucencyLightingVolumeTextures</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>Textures</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Injects all the lights in LightInjectionData into the translucency lighting volume textures. </p>
+
+</div>
+</div>
+<a id="a9372f16fa520e8a84bc962a616eb80d0" name="a9372f16fa520e8a84bc962a616eb80d0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9372f16fa520e8a84bc962a616eb80d0">&#9670;&#160;</a></span>InjectTranslucencyLightingVolumeAmbientCubemap()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../df/d63/_typed_element_query_capabilities_8inl.html#a72343342ce64c0755563ee6c5e27868d">void</a> InjectTranslucencyLightingVolumeAmbientCubemap </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d3/d85/class_f_r_d_g_builder.html">FRDGBuilder</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>GraphBuilder</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="../../d2/ddb/class_t_array_view.html">TArrayView</a>&lt; const <a class="el" href="../../dd/d2b/class_f_view_info.html">FViewInfo</a> &gt;</td>          <td class="paramname"><span class="paramname"><em>Views</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="../../d7/d42/struct_f_translucency_lighting_volume_textures.html">FTranslucencyLightingVolumeTextures</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>Textures</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a2dbdf940955e2f462d9b433327a47700" name="a2dbdf940955e2f462d9b433327a47700"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2dbdf940955e2f462d9b433327a47700">&#9670;&#160;</a></span>IsTranslucencyLightingVolumeUsingBlueNoise()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a> IsTranslucencyLightingVolumeUsingBlueNoise </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a5fa46b4cfaa4876fef20a9d3cbae4c0e" name="a5fa46b4cfaa4876fef20a9d3cbae4c0e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5fa46b4cfaa4876fef20a9d3cbae4c0e">&#9670;&#160;</a></span>IsTranslucencyLightingVolumeUsingVoxelMarking()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a> IsTranslucencyLightingVolumeUsingVoxelMarking </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ac781a31e697efca58a283a4dbb3c2936" name="ac781a31e697efca58a283a4dbb3c2936"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac781a31e697efca58a283a4dbb3c2936">&#9670;&#160;</a></span>IsTranslucencyLightingVolumeUsingVoxelMarkingSupported()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a> IsTranslucencyLightingVolumeUsingVoxelMarkingSupported </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aa5ef742566ac3cf0bd4a6ded56267846" name="aa5ef742566ac3cf0bd4a6ded56267846"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa5ef742566ac3cf0bd4a6ded56267846">&#9670;&#160;</a></span>ReleaseTranslucencyLightingVolumeHistory()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../df/d63/_typed_element_query_capabilities_8inl.html#a72343342ce64c0755563ee6c5e27868d">void</a> ReleaseTranslucencyLightingVolumeHistory </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d2/ddb/class_t_array_view.html">TArrayView</a>&lt; <a class="el" href="../../dd/d2b/class_f_view_info.html">FViewInfo</a> &gt;</td>          <td class="paramname"><span class="paramname"><em>Views</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="afe5631b9e83931ba81cb49488355f058" name="afe5631b9e83931ba81cb49488355f058"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afe5631b9e83931ba81cb49488355f058">&#9670;&#160;</a></span>SetupTranslucencyDepthPassUniformBuffer()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../df/d63/_typed_element_query_capabilities_8inl.html#a72343342ce64c0755563ee6c5e27868d">void</a> SetupTranslucencyDepthPassUniformBuffer </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="../../d6/def/class_f_projected_shadow_info.html">FProjectedShadowInfo</a> *</td>          <td class="paramname"><span class="paramname"><em>ShadowInfo</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d3/d85/class_f_r_d_g_builder.html">FRDGBuilder</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>GraphBuilder</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="../../dd/d2b/class_f_view_info.html">FViewInfo</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>View</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">FTranslucencyDepthPassUniformParameters &amp;</td>          <td class="paramname"><span class="paramname"><em>TranslucencyDepthPassParameters</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a name="doc-var-members" id="doc-var-members"></a><h2 id="header-doc-var-members" class="groupheader">变量说明</h2>
+<a id="abd32b4924830cf1f1405eb1698d0cc18" name="abd32b4924830cf1f1405eb1698d0cc18"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abd32b4924830cf1f1405eb1698d0cc18">&#9670;&#160;</a></span>CreateTranslucentLightingMaterialPSOCollector</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../db/d5a/class_f_register_p_s_o_collector_create_function.html">FRegisterPSOCollectorCreateFunction</a> RegisterTranslucentLightingMaterialPSOCollector&amp; CreateTranslucentLightingMaterialPSOCollector</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a90f682da04be06e1ad48cf7427240866" name="a90f682da04be06e1ad48cf7427240866"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a90f682da04be06e1ad48cf7427240866">&#9670;&#160;</a></span>CVarTranslucencyLightingVolumeVisualizeCascadeIndex</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d2/d79/class_f_auto_console_variable_ref.html">FAutoConsoleVariableRef</a> CVarTranslucencyLightingVolumeVisualizeCascadeIndex(<a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;r.TranslucencyLightingVolume.VisualizeCascadeIndex&quot;), <a class="el" href="#a4d1bc17f7252aafc23684462ec98d06d">GTranslucencyLightingVolumeVisualizeCascadeIndex</a>, <a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;Selects which translucency lighting volume cascade should be visualized. -1 visualizes all cascades at once.&quot;), <a class="el" href="../../d4/dd9/_i_console_manager_8h.html#a7f594f23c2b2c5687f1a502ebb3ba105a774ea60f41417af093a7ca56c4204a70">ECVF_RenderThreadSafe</a>) </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;r.TranslucencyLightingVolume.VisualizeCascadeIndex&quot;)</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="#a4d1bc17f7252aafc23684462ec98d06d">GTranslucencyLightingVolumeVisualizeCascadeIndex</a></td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;Selects which translucency lighting volume cascade should be visualized. -1 visualizes all cascades at once.&quot;)</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d4/dd9/_i_console_manager_8h.html#a7f594f23c2b2c5687f1a502ebb3ba105a774ea60f41417af093a7ca56c4204a70">ECVF_RenderThreadSafe</a></td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a6b4a939e3069de1d9ce8bfb11cb97626" name="a6b4a939e3069de1d9ce8bfb11cb97626"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6b4a939e3069de1d9ce8bfb11cb97626">&#9670;&#160;</a></span>CVarTranslucencyLightingVolumeVisualizeRadiusScale</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d2/d79/class_f_auto_console_variable_ref.html">FAutoConsoleVariableRef</a> CVarTranslucencyLightingVolumeVisualizeRadiusScale(<a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;r.TranslucencyLightingVolume.Visualize.RadiusScale&quot;), <a class="el" href="#a2983785e86942bde9d6f8617531b2c9a">GTranslucencyLightingVolumeVisualizeRadiusScale</a>, <a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;Scales the size of the spheres used to visualize the translucency lighting volume.&quot;), <a class="el" href="../../d4/dd9/_i_console_manager_8h.html#a7f594f23c2b2c5687f1a502ebb3ba105a774ea60f41417af093a7ca56c4204a70">ECVF_RenderThreadSafe</a>) </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;r.TranslucencyLightingVolume.Visualize.RadiusScale&quot;)</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="#a2983785e86942bde9d6f8617531b2c9a">GTranslucencyLightingVolumeVisualizeRadiusScale</a></td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;Scales the size of the spheres used to visualize the translucency lighting volume.&quot;)</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d4/dd9/_i_console_manager_8h.html#a7f594f23c2b2c5687f1a502ebb3ba105a774ea60f41417af093a7ca56c4204a70">ECVF_RenderThreadSafe</a></td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a0fb2cc60886426d4bcfac1cecd6e4e3a" name="a0fb2cc60886426d4bcfac1cecd6e4e3a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0fb2cc60886426d4bcfac1cecd6e4e3a">&#9670;&#160;</a></span>CVarTranslucentLightingVolumes</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../db/d12/class_f_auto_console_variable_deprecated.html">FAutoConsoleVariableDeprecated</a> CVarTranslucentLightingVolumes(<a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;r.TranslucentLightingVolume&quot;), <a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;r.TranslucencyLightingVolume&quot;), <a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;5.7&quot;)) </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;r.TranslucentLightingVolume&quot;)</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;r.TranslucencyLightingVolume&quot;)</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;5.7&quot;)</td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a39b0438ab4a946d211737d530f5480a6" name="a39b0438ab4a946d211737d530f5480a6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a39b0438ab4a946d211737d530f5480a6">&#9670;&#160;</a></span>CVarTranslucentVolumeBlur</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../db/d12/class_f_auto_console_variable_deprecated.html">FAutoConsoleVariableDeprecated</a> CVarTranslucentVolumeBlur(<a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;r.TranslucencyVolumeBlur&quot;), <a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;r.TranslucencyLightingVolume.Blur&quot;), <a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;5.7&quot;)) </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;r.TranslucencyVolumeBlur&quot;)</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;r.TranslucencyLightingVolume.Blur&quot;)</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;5.7&quot;)</td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a0129dd0264e3d6340953849771745c6c" name="a0129dd0264e3d6340953849771745c6c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0129dd0264e3d6340953849771745c6c">&#9670;&#160;</a></span>CVarTranslucentVolumeDim</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../db/d12/class_f_auto_console_variable_deprecated.html">FAutoConsoleVariableDeprecated</a> CVarTranslucentVolumeDim(<a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;r.TranslucencyLightingVolumeDim&quot;), <a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;r.TranslucencyLightingVolume.Dim&quot;), <a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;5.7&quot;)) </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;r.TranslucencyLightingVolumeDim&quot;)</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;r.TranslucencyLightingVolume.Dim&quot;)</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;5.7&quot;)</td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a5db7ef30b5cc06fe9f9afcd61e916492" name="a5db7ef30b5cc06fe9f9afcd61e916492"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5db7ef30b5cc06fe9f9afcd61e916492">&#9670;&#160;</a></span>CVarTranslucentVolumeFOVSnapFactor</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../db/d12/class_f_auto_console_variable_deprecated.html">FAutoConsoleVariableDeprecated</a> CVarTranslucentVolumeFOVSnapFactor(<a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;r.TranslucentVolumeFOVSnapFactor&quot;), <a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;r.TranslucencyLightingVolume.FOVSnapFactor&quot;), <a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;5.7&quot;)) </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;r.TranslucentVolumeFOVSnapFactor&quot;)</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;r.TranslucencyLightingVolume.FOVSnapFactor&quot;)</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;5.7&quot;)</td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a0c1cd2fd9fcaca955a06ba83bb3decdc" name="a0c1cd2fd9fcaca955a06ba83bb3decdc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0c1cd2fd9fcaca955a06ba83bb3decdc">&#9670;&#160;</a></span>CVarTranslucentVolumeInnerDistance</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../db/d12/class_f_auto_console_variable_deprecated.html">FAutoConsoleVariableDeprecated</a> CVarTranslucentVolumeInnerDistance(<a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;r.TranslucencyLightingVolumeInnerDistance&quot;), <a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;r.TranslucencyLightingVolume.InnerDistance&quot;), <a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;5.7&quot;)) </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;r.TranslucencyLightingVolumeInnerDistance&quot;)</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;r.TranslucencyLightingVolume.InnerDistance&quot;)</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;5.7&quot;)</td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a69d926d5451e7bdf503a31fecad07034" name="a69d926d5451e7bdf503a31fecad07034"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a69d926d5451e7bdf503a31fecad07034">&#9670;&#160;</a></span>CVarTranslucentVolumeMinFOV</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../db/d12/class_f_auto_console_variable_deprecated.html">FAutoConsoleVariableDeprecated</a> CVarTranslucentVolumeMinFOV(<a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;r.TranslucentVolumeMinFOV&quot;), <a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;r.TranslucencyLightingVolume.MinFOV&quot;), <a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;5.7&quot;)) </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;r.TranslucentVolumeMinFOV&quot;)</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;r.TranslucencyLightingVolume.MinFOV&quot;)</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;5.7&quot;)</td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a2eff5d27a95ba4b983d10ca6570eb92e" name="a2eff5d27a95ba4b983d10ca6570eb92e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2eff5d27a95ba4b983d10ca6570eb92e">&#9670;&#160;</a></span>CVarTranslucentVolumeOuterDistance</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../db/d12/class_f_auto_console_variable_deprecated.html">FAutoConsoleVariableDeprecated</a> CVarTranslucentVolumeOuterDistance(<a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;r.TranslucencyLightingVolumeOuterDistance&quot;), <a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;r.TranslucencyLightingVolume.OuterDistance&quot;), <a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;5.7&quot;)) </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;r.TranslucencyLightingVolumeOuterDistance&quot;)</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;r.TranslucencyLightingVolume.OuterDistance&quot;)</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;5.7&quot;)</td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a8337a0b1c35396da03dc9a1944b407a3" name="a8337a0b1c35396da03dc9a1944b407a3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8337a0b1c35396da03dc9a1944b407a3">&#9670;&#160;</a></span>GTranslucencyLightingVolumeAdaptToPerspective</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a8dbb3cd84ca9fd010dadfc3815eefa5d">int32</a> GTranslucencyLightingVolumeAdaptToPerspective = 0</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ac934ed0fdb5ae4011ccff3c36757ca85" name="ac934ed0fdb5ae4011ccff3c36757ca85"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac934ed0fdb5ae4011ccff3c36757ca85">&#9670;&#160;</a></span>GTranslucencyLightingVolumeBlur</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a8dbb3cd84ca9fd010dadfc3815eefa5d">int32</a> GTranslucencyLightingVolumeBlur = 1</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ad04ef854ed87912c481436bfe34293a9" name="ad04ef854ed87912c481436bfe34293a9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad04ef854ed87912c481436bfe34293a9">&#9670;&#160;</a></span>GTranslucencyLightingVolumeDebug</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a8dbb3cd84ca9fd010dadfc3815eefa5d">int32</a> GTranslucencyLightingVolumeDebug = 0</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a6645593efb32bbb80bbc0b010ce67697" name="a6645593efb32bbb80bbc0b010ce67697"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6645593efb32bbb80bbc0b010ce67697">&#9670;&#160;</a></span>GTranslucencyLightingVolumeDebugFreezePosition</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a8dbb3cd84ca9fd010dadfc3815eefa5d">int32</a> GTranslucencyLightingVolumeDebugFreezePosition = 0</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a258afe04b9487c787790a1d89244b44a" name="a258afe04b9487c787790a1d89244b44a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a258afe04b9487c787790a1d89244b44a">&#9670;&#160;</a></span>GTranslucencyLightingVolumeDim</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a8dbb3cd84ca9fd010dadfc3815eefa5d">int32</a> GTranslucencyLightingVolumeDim = 64</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a56d7f0fcd4724c7b3735bd33eb1c7595" name="a56d7f0fcd4724c7b3735bd33eb1c7595"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a56d7f0fcd4724c7b3735bd33eb1c7595">&#9670;&#160;</a></span>GTranslucencyLightingVolumeFOVSnapFactor</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../df/d2a/_s_anim_notify_shared_8h.html#ac7c94e837fed3f8e4bb3dd94d7bd2ecf">float</a> GTranslucencyLightingVolumeFOVSnapFactor = 10</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a327a2ab8af8bf7c0b36ed2fe52eeca78" name="a327a2ab8af8bf7c0b36ed2fe52eeca78"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a327a2ab8af8bf7c0b36ed2fe52eeca78">&#9670;&#160;</a></span>GTranslucencyLightingVolumeMinFOV</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../df/d2a/_s_anim_notify_shared_8h.html#ac7c94e837fed3f8e4bb3dd94d7bd2ecf">float</a> GTranslucencyLightingVolumeMinFOV = 45</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ab8b7ceb7d392a8ff06f5745a6e091527" name="ab8b7ceb7d392a8ff06f5745a6e091527"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab8b7ceb7d392a8ff06f5745a6e091527">&#9670;&#160;</a></span>GTranslucencyLightingVolumeVisualize</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a8dbb3cd84ca9fd010dadfc3815eefa5d">int32</a> GTranslucencyLightingVolumeVisualize = 0</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a4d1bc17f7252aafc23684462ec98d06d" name="a4d1bc17f7252aafc23684462ec98d06d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4d1bc17f7252aafc23684462ec98d06d">&#9670;&#160;</a></span>GTranslucencyLightingVolumeVisualizeCascadeIndex</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a8dbb3cd84ca9fd010dadfc3815eefa5d">int32</a> GTranslucencyLightingVolumeVisualizeCascadeIndex = -1</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a2983785e86942bde9d6f8617531b2c9a" name="a2983785e86942bde9d6f8617531b2c9a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2983785e86942bde9d6f8617531b2c9a">&#9670;&#160;</a></span>GTranslucencyLightingVolumeVisualizeRadiusScale</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../df/d2a/_s_anim_notify_shared_8h.html#ac7c94e837fed3f8e4bb3dd94d7bd2ecf">float</a> GTranslucencyLightingVolumeVisualizeRadiusScale = 2.0f</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a6a75e785acfb26204a3747a1b2196f3b" name="a6a75e785acfb26204a3747a1b2196f3b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6a75e785acfb26204a3747a1b2196f3b">&#9670;&#160;</a></span>GUseTranslucencyLightingVolumes</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a8dbb3cd84ca9fd010dadfc3815eefa5d">int32</a> GUseTranslucencyLightingVolumes = 1</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a2fd70df006c5b26dcf8ee159caf8109f" name="a2fd70df006c5b26dcf8ee159caf8109f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2fd70df006c5b26dcf8ee159caf8109f">&#9670;&#160;</a></span>GUseTranslucencyShadowDepths</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a> GUseTranslucencyShadowDepths = <a class="el" href="../../d3/df7/radaudio__common_8h.html#ade27a78a51a66a5cfb6f09cf36bcfde9a08f175a5505a10b9ed657defeb050e4b">true</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Whether to allow rendering translucency shadow depths. </p>
+
+</div>
+</div>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<div id="page-nav" class="page-nav-panel">
+<div id="page-nav-resize-handle"></div>
+<div id="page-nav-tree">
+<div id="page-nav-contents">
+</div><!-- page-nav-contents -->
+</div><!-- page-nav-tree -->
+</div><!-- page-nav -->
+</div><!-- container -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a href="../../dir_0b6ee6e7e9547e675db4add2e5de97da.html">Engine</a></li><li class="navelem"><a href="../../dir_9579d1ecb2c7bf48cbe1049c41745cb4.html">Source</a></li><li class="navelem"><a href="../../dir_9f04efef762572853abdf73f62bebfcc.html">Runtime</a></li><li class="navelem"><a href="../../dir_5ed6327f04b0f38d3f6fe5caa38b0445.html">Renderer</a></li><li class="navelem"><a href="../../dir_e317dc6f09036e33460f39c550131623.html">Private</a></li><li class="navelem"><a href="../../da/dea/_translucent_lighting_8cpp.html">TranslucentLighting.cpp</a></li>
+    <li class="footer">制作者 <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.15.0 </li>
+  </ul>
+</div>
+</body>
+</html>

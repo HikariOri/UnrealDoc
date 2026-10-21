@@ -1,0 +1,25 @@
+var class_f_local_pc_target_device =
+[
+    [ "FLocalPcTargetDevice", "da/da7/class_f_local_pc_target_device.html#ae3a332be46dc257416861019b79fd097", null ],
+    [ "AdjustShutdownPrivileges", "da/da7/class_f_local_pc_target_device.html#a397927dd38f62b9e2d32129c0c6e73fa", null ],
+    [ "Connect", "da/da7/class_f_local_pc_target_device.html#a77f537ec5cbdfe6b641dea8501654ffc", null ],
+    [ "Disconnect", "da/da7/class_f_local_pc_target_device.html#a7330003b4eb8dc06fbd6bf65f0feec71", null ],
+    [ "GetDeviceType", "da/da7/class_f_local_pc_target_device.html#a47e3f557c429e922b5987f15872a6684", null ],
+    [ "GetId", "da/da7/class_f_local_pc_target_device.html#a4349b0bf9322d4ecd9743e61e6323aaa", null ],
+    [ "GetName", "da/da7/class_f_local_pc_target_device.html#a022f10de45dd671da5f3dca849020ad8", null ],
+    [ "GetOperatingSystemName", "da/da7/class_f_local_pc_target_device.html#ac2a23ca586f3311eb1adfca49071a0fb", null ],
+    [ "GetPlatformControls", "da/da7/class_f_local_pc_target_device.html#aff328c7b35bf72fdcffc30604e4badc3", null ],
+    [ "GetPlatformSettings", "da/da7/class_f_local_pc_target_device.html#ac738fef68d11b5308acb4c8d0077d9ed", null ],
+    [ "GetProcessSnapshot", "da/da7/class_f_local_pc_target_device.html#ae6ade9f5f2189836b5c8bf906a720e72", null ],
+    [ "GetUserCredentials", "da/da7/class_f_local_pc_target_device.html#a926aaab8ffb668b945b342d4b1f8db6b", null ],
+    [ "IsConnected", "da/da7/class_f_local_pc_target_device.html#a808fd8c839d9e7ed409f1425833aec8b", null ],
+    [ "IsDefault", "da/da7/class_f_local_pc_target_device.html#ae251d405342b4d61a4b9246384dc904c", null ],
+    [ "PowerOff", "da/da7/class_f_local_pc_target_device.html#aa074c41d1945863a8d51fc5755f51922", null ],
+    [ "PowerOn", "da/da7/class_f_local_pc_target_device.html#a32da8099a1dab4ba14d8240132c53813", null ],
+    [ "Reboot", "da/da7/class_f_local_pc_target_device.html#a107095bcb7ffaf0fde0aa3cc1439a4f4", null ],
+    [ "SetUserCredentials", "da/da7/class_f_local_pc_target_device.html#af618d2ad10c4c298ab2e423e537f12fd", null ],
+    [ "SupportsFeature", "da/da7/class_f_local_pc_target_device.html#a3a3adefd6c308ba372855b485ad142d8", null ],
+    [ "TerminateProcess", "da/da7/class_f_local_pc_target_device.html#a61049fd55550ee4fbf56c8300184df0a", null ],
+    [ "Processes", "da/da7/class_f_local_pc_target_device.html#a22b9259e13e57649ac0de77ea9a23b32", null ],
+    [ "TargetPlatformControls", "da/da7/class_f_local_pc_target_device.html#acbf16a734c65de151f6e53f6c8fb8c18", null ]
+];

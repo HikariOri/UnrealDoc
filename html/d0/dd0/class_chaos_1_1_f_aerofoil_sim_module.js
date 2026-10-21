@@ -1,0 +1,26 @@
+var class_chaos_1_1_f_aerofoil_sim_module =
+[
+    [ "FAerofoilSimModule", "d0/dd0/class_chaos_1_1_f_aerofoil_sim_module.html#a7dddc924164e18885b1b18d3fa258192", null ],
+    [ "~FAerofoilSimModule", "d0/dd0/class_chaos_1_1_f_aerofoil_sim_module.html#a163f6207c1da2c484d7149829a0b7da1", null ],
+    [ "Animate", "d0/dd0/class_chaos_1_1_f_aerofoil_sim_module.html#ac2159f23431353d83bddc5081befdf6b", null ],
+    [ "CalcAngleOfAttackDegrees", "d0/dd0/class_chaos_1_1_f_aerofoil_sim_module.html#a5e19e731a4ca44edf3ea143bdbad514e", null ],
+    [ "CalcCentreOfLift", "d0/dd0/class_chaos_1_1_f_aerofoil_sim_module.html#a1cbe9813f6c4851753e3f1fc0ed85f8b", null ],
+    [ "CalcDragCoefficient", "d0/dd0/class_chaos_1_1_f_aerofoil_sim_module.html#a962d257d60b213276f82233610ed2654", null ],
+    [ "CalcDynamicPressure", "d0/dd0/class_chaos_1_1_f_aerofoil_sim_module.html#acaf09791ca733274bd3b77227a734a9a", null ],
+    [ "CalcLiftCoefficient", "d0/dd0/class_chaos_1_1_f_aerofoil_sim_module.html#a0b347eb66a83f26607dedd9af96cbcdc", null ],
+    [ "DEFINE_CHAOSSIMTYPENAME", "d0/dd0/class_chaos_1_1_f_aerofoil_sim_module.html#a5e8a264669b6e5aecd842a258db7e61d", null ],
+    [ "GenerateNetData", "d0/dd0/class_chaos_1_1_f_aerofoil_sim_module.html#a2b60ede7c66e086aef7d67f91183d724", null ],
+    [ "GenerateOutputData", "d0/dd0/class_chaos_1_1_f_aerofoil_sim_module.html#af9360e9e54c243c4063b7643351318b1", null ],
+    [ "GetCenterOfLiftOffset", "d0/dd0/class_chaos_1_1_f_aerofoil_sim_module.html#a53052f7e428dd5646720d259d8cfbce6", null ],
+    [ "GetDebugName", "d0/dd0/class_chaos_1_1_f_aerofoil_sim_module.html#a5a9c01d852ea42fddbd14e6bc2e42f7e", null ],
+    [ "GetForce", "d0/dd0/class_chaos_1_1_f_aerofoil_sim_module.html#a1287c7b6a7495e5fd8e3f4658c29457f", null ],
+    [ "IsBehaviourType", "d0/dd0/class_chaos_1_1_f_aerofoil_sim_module.html#ad840c1e56cd7c2d9f7939df2bd0441bf", null ],
+    [ "SetControlSurface", "d0/dd0/class_chaos_1_1_f_aerofoil_sim_module.html#ac292dd629ea0019ff2b02f1c9ecd79fe", null ],
+    [ "SetDensityOfMedium", "d0/dd0/class_chaos_1_1_f_aerofoil_sim_module.html#ad48ec64e12366b2c4657538b827d8eb5", null ],
+    [ "Simulate", "d0/dd0/class_chaos_1_1_f_aerofoil_sim_module.html#a86d2bd72c0da70b716b9b1bc67d96c9d", null ],
+    [ "AerofoilId", "d0/dd0/class_chaos_1_1_f_aerofoil_sim_module.html#ad14fc8fd615e9af1d917c3e5e0817a9b", null ],
+    [ "AirflowNormal", "d0/dd0/class_chaos_1_1_f_aerofoil_sim_module.html#adc489239a81f8d125ea6cb2e03a79a4c", null ],
+    [ "AngleOfAttack", "d0/dd0/class_chaos_1_1_f_aerofoil_sim_module.html#a6017f2216911444224e6be395653424c", null ],
+    [ "ControlSurfaceAngle", "d0/dd0/class_chaos_1_1_f_aerofoil_sim_module.html#a0eacb6637a3ba09f1c720f61347dac09", null ],
+    [ "CurrentAirDensity", "d0/dd0/class_chaos_1_1_f_aerofoil_sim_module.html#a8d0aae598c8d7e42a267974575ee380e", null ]
+];

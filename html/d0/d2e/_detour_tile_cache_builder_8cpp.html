@@ -1,0 +1,1066 @@
+<!-- HTML header for doxygen 1.15.0-->
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh">
+<head>
+  <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=11" />
+  <meta name="generator" content="Doxygen 1.15.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>UE 5.8.4: Engine/Source/Runtime/Navmesh/Private/DetourTileCache/DetourTileCacheBuilder.cpp 文件参考</title>
+  <link rel="icon" href="../../EdIconDefault.bmp" type="image/x-icon" />
+  <link href="../../tabs.css" rel="stylesheet" type="text/css" />
+  <script type="text/javascript" src="../../jquery.js"></script>
+  <script type="text/javascript" src="../../dynsections.js"></script>
+  <link href="../../navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../navtreedata.js"></script>
+<script type="text/javascript" src="../../navtree.js"></script>
+<script type="text/javascript" src="../../cookie.js"></script>
+  <link href="../../search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../search/searchdata.js"></script>
+<script type="text/javascript" src="../../search/search.js"></script>
+  <script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  extensions: ["tex2jax.js"],
+  jax: ["input/TeX","output/HTML-CSS"],
+});
+</script>
+<script type="text/javascript" async="async" src="https://cdn.jsdelivr.net/npm/mathjax@2/MathJax.js"></script>
+  <link href="../../doxygen.css" rel="stylesheet" type="text/css" />
+  <link href="../../doxygen-awesome.css" rel="stylesheet" type="text/css"/>
+<link href="../../doxygen-awesome-sidebar-only.css" rel="stylesheet" type="text/css"/>
+<link href="../../doxygen-awesome-sidebar-only-darkmode-toggle.css" rel="stylesheet" type="text/css"/>
+  <!-- ... other metadata & script includes ... -->
+  <script type="text/javascript" src="../../doxygen-awesome-darkmode-toggle.js"></script>
+  <script type="text/javascript">
+    DoxygenAwesomeDarkModeToggle.title = "Zwischen hellem/dunklem Modus wechseln"
+    DoxygenAwesomeDarkModeToggle.lightModeIcon = '🌞'
+    // icon from https://fonts.google.com/icons
+    DoxygenAwesomeDarkModeToggle.darkModeIcon = `<svg xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 24 24" height="24px" viewBox="0 0 24 24" width="24px" fill="#009793"><g><rect fill="none" height="24" width="24"/></g><g><g><path d="M8.1,14.15C9.77,14.63,11,16.17,11,18c0,0.68-0.19,1.31-0.48,1.87c0.48,0.09,0.97,0.14,1.48,0.14 c1.48,0,2.9-0.41,4.13-1.15c-2.62-0.92-5.23-2.82-6.8-5.86C7.74,9.94,7.78,7.09,8.29,4.9c-2.57,1.33-4.3,4.01-4.3,7.1c0,0,0,0,0,0 c0.01,0,0.01,0,0.02,0C5.66,12,7.18,12.83,8.1,14.15z" opacity=".3"/><path d="M19.78,17.51c-2.47,0-6.57-1.33-8.68-5.43C8.77,7.57,10.6,3.6,11.63,2.01C6.27,2.2,1.98,6.59,1.98,12 c0,0.14,0.02,0.28,0.02,0.42C2.61,12.16,3.28,12,3.98,12c0,0,0,0,0,0c0-3.09,1.73-5.77,4.3-7.1C7.78,7.09,7.74,9.94,9.32,13 c1.57,3.04,4.18,4.95,6.8,5.86c-1.23,0.74-2.65,1.15-4.13,1.15c-0.5,0-1-0.05-1.48-0.14c-0.37,0.7-0.94,1.27-1.64,1.64 c0.98,0.32,2.03,0.5,3.11,0.5c3.5,0,6.58-1.8,8.37-4.52C20.18,17.5,19.98,17.51,19.78,17.51z"/><path d="M7,16l-0.18,0C6.4,14.84,5.3,14,4,14c-1.66,0-3,1.34-3,3s1.34,3,3,3c0.62,0,2.49,0,3,0c1.1,0,2-0.9,2-2 C9,16.9,8.1,16,7,16z"/></g></g></svg>`
+    DoxygenAwesomeDarkModeToggle.init()
+  </script>
+  <script type="text/javascript" src="../../doxygen-awesome-fragment-copy-button.js"></script>
+  <script type="text/javascript">
+    DoxygenAwesomeFragmentCopyButton.title = "In die Zwischenablage kopieren"
+    // DoxygenAwesomeFragmentCopyButton.copyIcon = `<svg ...>`
+    // DoxygenAwesomeFragmentCopyButton.successIcon = `<svg ...>`
+    DoxygenAwesomeFragmentCopyButton.init()
+  </script>
+  <script type="text/javascript" src="../../doxygen-awesome-paragraph-link.js"></script>
+  <script type="text/javascript">
+    DoxygenAwesomeParagraphLink.title = "Abschnitt verknüpfen"
+    DoxygenAwesomeParagraphLink.icon = "¶"
+    DoxygenAwesomeParagraphLink.init()
+  </script>
+  <script type="text/javascript" src="../../doxygen-awesome-interactive-toc.js"></script>
+  <script type="text/javascript">
+    DoxygenAwesomeInteractiveToc.topOffset = 45
+    DoxygenAwesomeInteractiveToc.hideMobileMenu = false
+    DoxygenAwesomeInteractiveToc.init()
+  </script>
+</head>
+<body>
+    <div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+      <div id="titlearea">
+        <table cellspacing="0" cellpadding="0">
+          <tbody>
+            <tr id="projectrow">
+              <td id="projectlogo"><img alt="Logo" src="../../EdIconDefault.bmp"  /></td>
+              <td id="projectalign">
+                <div id="projectname">UE 5.8.4
+                </div>
+                <div id="projectbrief">Unreal Engine</div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <!-- end header part -->
+<!-- 制作者 Doxygen 1.15.0 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "../../search/",'.html');
+</script>
+<script type="text/javascript">
+$(function() { codefold.init(); });
+</script>
+<script type="text/javascript" src="../../menudata.js"></script>
+<script type="text/javascript" src="../../menu.js"></script>
+<script type="text/javascript">
+$(function() {
+  initMenu('../../',true,false,'search.php','搜索',true);
+  $(function() { init_search(); });
+});
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(function(){initNavTree('d0/d2e/_detour_tile_cache_builder_8cpp.html','../../',''); });
+</script>
+<div id="container">
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">载入中...</div>
+<div class="SRStatus" id="Searching">搜索中...</div>
+<div class="SRStatus" id="NoMatches">未找到</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">DetourTileCacheBuilder.cpp 文件参考</div></div>
+</div><!--header-->
+<div class="contents">
+<div class="textblock"><code>#include &quot;<a class="el" href="../../d7/df3/_detour_tile_cache_builder_8h_source.html">DetourTileCache/DetourTileCacheBuilder.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../dc/d41/_detour_common_8h_source.html">Detour/DetourCommon.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../da/d60/_detour_assert_8h_source.html">Detour/DetourAssert.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../da/d32/_detour_debug_draw_8h_source.html">DebugUtils/DetourDebugDraw.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d3/d48/_stats_8h_source.html">Stats/Stats.h</a>&quot;</code><br />
+<code>#include &lt;limits&gt;</code><br />
+</div><div class="textblock"><div class="dynheader">
+DetourTileCacheBuilder.cpp 的引用(Include)关系图:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d9/dff/_detour_tile_cache_builder_8cpp__incl.svg" width="3676" height="1030"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+</div><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-nested-classes" class="groupheader"><a id="nested-classes" name="nested-classes"></a>
+类</h2></td></tr>
+<tr class="memitem:dtTempContour" id="r_dtTempContour"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/dfd/structdt_temp_contour.html">dtTempContour</a></td></tr>
+<tr class="memitem:TileCacheData_3A_3AdtEdge" id="r_TileCacheData_3A_3AdtEdge"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/d05/struct_tile_cache_data_1_1dt_edge.html">TileCacheData::dtEdge</a></td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-namespaces" class="groupheader"><a id="namespaces" name="namespaces"></a>
+命名空间</h2></td></tr>
+<tr class="memitem:TileCacheFunc" id="r_TileCacheFunc"><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/dd8/namespace_tile_cache_func.html">TileCacheFunc</a></td></tr>
+<tr class="memitem:TileCacheData" id="r_TileCacheData"><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/d9b/namespace_tile_cache_data.html">TileCacheData</a></td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-func-members" class="groupheader"><a id="func-members" name="func-members"></a>
+函数</h2></td></tr>
+<tr class="memitem:a7ae319714b536347e4e9e1912e55be8a" id="r_a7ae319714b536347e4e9e1912e55be8a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../df/d67/structdt_tile_cache_contour_set.html">dtTileCacheContourSet</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7ae319714b536347e4e9e1912e55be8a">dtAllocTileCacheContourSet</a> (<a class="el" href="../../de/d10/structdt_tile_cache_alloc.html">dtTileCacheAlloc</a> *alloc)</td></tr>
+<tr class="memitem:abc76def8bcf87c7c15ad4a308126de6f" id="r_abc76def8bcf87c7c15ad4a308126de6f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../df/d63/_typed_element_query_capabilities_8inl.html#a72343342ce64c0755563ee6c5e27868d">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#abc76def8bcf87c7c15ad4a308126de6f">dtFreeTileCacheContourSet</a> (<a class="el" href="../../de/d10/structdt_tile_cache_alloc.html">dtTileCacheAlloc</a> *alloc, <a class="el" href="../../df/d67/structdt_tile_cache_contour_set.html">dtTileCacheContourSet</a> *cset)</td></tr>
+<tr class="memitem:a1c5d6b1aaf7fd7e4b4cf2530fc55b64d" id="r_a1c5d6b1aaf7fd7e4b4cf2530fc55b64d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../df/d26/structdt_tile_cache_poly_mesh.html">dtTileCachePolyMesh</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a1c5d6b1aaf7fd7e4b4cf2530fc55b64d">dtAllocTileCachePolyMesh</a> (<a class="el" href="../../de/d10/structdt_tile_cache_alloc.html">dtTileCacheAlloc</a> *alloc)</td></tr>
+<tr class="memitem:a6b46fb526524261ff8383bc38d9e1983" id="r_a6b46fb526524261ff8383bc38d9e1983"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../df/d63/_typed_element_query_capabilities_8inl.html#a72343342ce64c0755563ee6c5e27868d">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6b46fb526524261ff8383bc38d9e1983">dtFreeTileCachePolyMesh</a> (<a class="el" href="../../de/d10/structdt_tile_cache_alloc.html">dtTileCacheAlloc</a> *alloc, <a class="el" href="../../df/d26/structdt_tile_cache_poly_mesh.html">dtTileCachePolyMesh</a> *lmesh)</td></tr>
+<tr class="memitem:aebec85cad1b5154b14ddd1cde36bfb64" id="r_aebec85cad1b5154b14ddd1cde36bfb64"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../dc/d01/structdt_tile_cache_poly_mesh_detail.html">dtTileCachePolyMeshDetail</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aebec85cad1b5154b14ddd1cde36bfb64">dtAllocTileCachePolyMeshDetail</a> (<a class="el" href="../../de/d10/structdt_tile_cache_alloc.html">dtTileCacheAlloc</a> *alloc)</td></tr>
+<tr class="memitem:ad14ab84677f55ad8586ac80c1d7e3d30" id="r_ad14ab84677f55ad8586ac80c1d7e3d30"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../df/d63/_typed_element_query_capabilities_8inl.html#a72343342ce64c0755563ee6c5e27868d">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad14ab84677f55ad8586ac80c1d7e3d30">dtFreeTileCachePolyMeshDetail</a> (<a class="el" href="../../de/d10/structdt_tile_cache_alloc.html">dtTileCacheAlloc</a> *alloc, <a class="el" href="../../dc/d01/structdt_tile_cache_poly_mesh_detail.html">dtTileCachePolyMeshDetail</a> *dmesh)</td></tr>
+<tr class="memitem:a1051679efc892964c0ee214c710499fd" id="r_a1051679efc892964c0ee214c710499fd"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d1/da3/structdt_tile_cache_distance_field.html">dtTileCacheDistanceField</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a1051679efc892964c0ee214c710499fd">dtAllocTileCacheDistanceField</a> (<a class="el" href="../../de/d10/structdt_tile_cache_alloc.html">dtTileCacheAlloc</a> *alloc)</td></tr>
+<tr class="memitem:a8f8088c5db847bdfbaca3ca68371b3bf" id="r_a8f8088c5db847bdfbaca3ca68371b3bf"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../df/d63/_typed_element_query_capabilities_8inl.html#a72343342ce64c0755563ee6c5e27868d">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8f8088c5db847bdfbaca3ca68371b3bf">dtFreeTileCacheDistanceField</a> (<a class="el" href="../../de/d10/structdt_tile_cache_alloc.html">dtTileCacheAlloc</a> *alloc, <a class="el" href="../../d1/da3/structdt_tile_cache_distance_field.html">dtTileCacheDistanceField</a> *dfield)</td></tr>
+<tr class="memitem:a5a3cf96c46724c82c5c6c8aca631ecb2" id="r_a5a3cf96c46724c82c5c6c8aca631ecb2"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5a3cf96c46724c82c5c6c8aca631ecb2">overlapRangeExl</a> (const unsigned short amin, const unsigned short amax, const unsigned short bmin, const unsigned short bmax, const unsigned short ya, const unsigned short eya, const unsigned short yb, const unsigned short eyb, const int walkableClimb)</td></tr>
+<tr class="memitem:a6635a8154ca59303c17c8a2c3f28cedc" id="r_a6635a8154ca59303c17c8a2c3f28cedc"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6635a8154ca59303c17c8a2c3f28cedc">ileft</a> (const unsigned short *a, const unsigned short *b, const unsigned short *c)</td></tr>
+<tr class="memitem:a41ef7e2b8ade5de0e31bbb4d275dd652" id="r_a41ef7e2b8ade5de0e31bbb4d275dd652"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d4/d76/_recast_graph_a_star_8h.html#a4f23c0dcf28d9e299a4aa06af5b9ada3">dtStatus</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a41ef7e2b8ade5de0e31bbb4d275dd652">dtBuildTileCacheContours</a> (<a class="el" href="../../de/d10/structdt_tile_cache_alloc.html">dtTileCacheAlloc</a> *alloc, <a class="el" href="../../df/d3f/structdt_tile_cache_layer.html">dtTileCacheLayer</a> &amp;layer, const int walkableClimb, const <a class="el" href="../../d1/d31/_detour_large_world_coordinates_8h.html#aa83f4da7014f338a74ae515398293045">dtReal</a> maxError, const <a class="el" href="../../d1/d31/_detour_large_world_coordinates_8h.html#aa83f4da7014f338a74ae515398293045">dtReal</a> simplificationElevationRatio, const <a class="el" href="../../d1/d31/_detour_large_world_coordinates_8h.html#aa83f4da7014f338a74ae515398293045">dtReal</a> cs, const <a class="el" href="../../d1/d31/_detour_large_world_coordinates_8h.html#aa83f4da7014f338a74ae515398293045">dtReal</a> ch, <a class="el" href="../../df/d67/structdt_tile_cache_contour_set.html">dtTileCacheContourSet</a> &amp;lcset, const <a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a> skipContourSimplification)</td></tr>
+<tr class="memitem:a2198ce594280787ad201642656e4f73b" id="r_a2198ce594280787ad201642656e4f73b"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2198ce594280787ad201642656e4f73b">computeVertexHash2</a> (int x, int y, int z)</td></tr>
+<tr class="memitem:a4a1a4d8e8b3c2031946fd252b1a1ba57" id="r_a4a1a4d8e8b3c2031946fd252b1a1ba57"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/dd8/namespace_tile_cache_func.html#a4a1a4d8e8b3c2031946fd252b1a1ba57">TileCacheFunc::prev</a> (int i, int n)</td></tr>
+<tr class="memitem:a0040707c29fc5f1b074b2891cb07310d" id="r_a0040707c29fc5f1b074b2891cb07310d"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/dd8/namespace_tile_cache_func.html#a0040707c29fc5f1b074b2891cb07310d">TileCacheFunc::next</a> (int i, int n)</td></tr>
+<tr class="memitem:a91197017705adf9682512ca4a76de53b" id="r_a91197017705adf9682512ca4a76de53b"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/dd8/namespace_tile_cache_func.html#a91197017705adf9682512ca4a76de53b">TileCacheFunc::area2</a> (const unsigned short *a, const unsigned short *b, const unsigned short *c)</td></tr>
+<tr class="memitem:aad242aefa81866afd8d18f2742d96b32" id="r_aad242aefa81866afd8d18f2742d96b32"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/dd8/namespace_tile_cache_func.html#aad242aefa81866afd8d18f2742d96b32">TileCacheFunc::xorb</a> (<a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a> x, <a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a> y)</td></tr>
+<tr class="memitem:a8985294a62a22bb374961f2305ad1250" id="r_a8985294a62a22bb374961f2305ad1250"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/dd8/namespace_tile_cache_func.html#a8985294a62a22bb374961f2305ad1250">TileCacheFunc::left</a> (const unsigned short *a, const unsigned short *b, const unsigned short *c)</td></tr>
+<tr class="memitem:a46288a6216879483167a3713e9a5b395" id="r_a46288a6216879483167a3713e9a5b395"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/dd8/namespace_tile_cache_func.html#a46288a6216879483167a3713e9a5b395">TileCacheFunc::leftOn</a> (const unsigned short *a, const unsigned short *b, const unsigned short *c)</td></tr>
+<tr class="memitem:a3ce970ebd1e539d8c26cfe6c82024ad4" id="r_a3ce970ebd1e539d8c26cfe6c82024ad4"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/dd8/namespace_tile_cache_func.html#a3ce970ebd1e539d8c26cfe6c82024ad4">TileCacheFunc::collinear</a> (const unsigned short *a, const unsigned short *b, const unsigned short *c)</td></tr>
+<tr class="memitem:abdd673372f074f506e0a25f2fa65529a" id="r_abdd673372f074f506e0a25f2fa65529a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/dd8/namespace_tile_cache_func.html#abdd673372f074f506e0a25f2fa65529a">TileCacheFunc::uleft</a> (const unsigned short *a, const unsigned short *b, const unsigned short *c)</td></tr>
+<tr class="memitem:a79895284f4c36c0ba4372b2bb14f856b" id="r_a79895284f4c36c0ba4372b2bb14f856b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d4/d76/_recast_graph_a_star_8h.html#a4f23c0dcf28d9e299a4aa06af5b9ada3">dtStatus</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a79895284f4c36c0ba4372b2bb14f856b">dtBuildTileCachePolyMesh</a> (<a class="el" href="../../de/d10/structdt_tile_cache_alloc.html">dtTileCacheAlloc</a> *alloc, <a class="el" href="../../d8/d9e/classdt_tile_cache_log_context.html">dtTileCacheLogContext</a> *ctx, <a class="el" href="../../df/d67/structdt_tile_cache_contour_set.html">dtTileCacheContourSet</a> &amp;lcset, <a class="el" href="../../df/d26/structdt_tile_cache_poly_mesh.html">dtTileCachePolyMesh</a> &amp;mesh, const int walkableClimb)</td></tr>
+<tr class="memitem:a5eed0a6d5af3502bb6ca497dd011c89c" id="r_a5eed0a6d5af3502bb6ca497dd011c89c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d4/d76/_recast_graph_a_star_8h.html#a4f23c0dcf28d9e299a4aa06af5b9ada3">dtStatus</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5eed0a6d5af3502bb6ca497dd011c89c">dtMarkCylinderArea</a> (<a class="el" href="../../df/d3f/structdt_tile_cache_layer.html">dtTileCacheLayer</a> &amp;layer, const <a class="el" href="../../d1/d31/_detour_large_world_coordinates_8h.html#aa83f4da7014f338a74ae515398293045">dtReal</a> *orig, const <a class="el" href="../../d1/d31/_detour_large_world_coordinates_8h.html#aa83f4da7014f338a74ae515398293045">dtReal</a> cs, const <a class="el" href="../../d1/d31/_detour_large_world_coordinates_8h.html#aa83f4da7014f338a74ae515398293045">dtReal</a> ch, const <a class="el" href="../../d1/d31/_detour_large_world_coordinates_8h.html#aa83f4da7014f338a74ae515398293045">dtReal</a> *pos, const <a class="el" href="../../d1/d31/_detour_large_world_coordinates_8h.html#aa83f4da7014f338a74ae515398293045">dtReal</a> radius, const <a class="el" href="../../d1/d31/_detour_large_world_coordinates_8h.html#aa83f4da7014f338a74ae515398293045">dtReal</a> <a class="el" href="../../d0/d6f/2_89_810_2include_2oodle2tex_8h.html#a96ed1bba5d3129018e6ede25ff604879">height</a>, const unsigned char areaId)</td></tr>
+<tr class="memitem:ac242c7dc9cecaa771b971460310dc5b1" id="r_ac242c7dc9cecaa771b971460310dc5b1"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d4/d76/_recast_graph_a_star_8h.html#a4f23c0dcf28d9e299a4aa06af5b9ada3">dtStatus</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac242c7dc9cecaa771b971460310dc5b1">dtMarkBoxArea</a> (<a class="el" href="../../df/d3f/structdt_tile_cache_layer.html">dtTileCacheLayer</a> &amp;layer, const <a class="el" href="../../d1/d31/_detour_large_world_coordinates_8h.html#aa83f4da7014f338a74ae515398293045">dtReal</a> *orig, const <a class="el" href="../../d1/d31/_detour_large_world_coordinates_8h.html#aa83f4da7014f338a74ae515398293045">dtReal</a> cs, const <a class="el" href="../../d1/d31/_detour_large_world_coordinates_8h.html#aa83f4da7014f338a74ae515398293045">dtReal</a> ch, const <a class="el" href="../../d1/d31/_detour_large_world_coordinates_8h.html#aa83f4da7014f338a74ae515398293045">dtReal</a> *pos, const <a class="el" href="../../d1/d31/_detour_large_world_coordinates_8h.html#aa83f4da7014f338a74ae515398293045">dtReal</a> *extent, const unsigned char areaId)</td></tr>
+<tr class="memitem:a3d0b55a243374b572525cbdead00aeb3" id="r_a3d0b55a243374b572525cbdead00aeb3"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d4/d76/_recast_graph_a_star_8h.html#a4f23c0dcf28d9e299a4aa06af5b9ada3">dtStatus</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a3d0b55a243374b572525cbdead00aeb3">dtMarkConvexArea</a> (<a class="el" href="../../df/d3f/structdt_tile_cache_layer.html">dtTileCacheLayer</a> &amp;layer, const <a class="el" href="../../d1/d31/_detour_large_world_coordinates_8h.html#aa83f4da7014f338a74ae515398293045">dtReal</a> *orig, const <a class="el" href="../../d1/d31/_detour_large_world_coordinates_8h.html#aa83f4da7014f338a74ae515398293045">dtReal</a> cs, const <a class="el" href="../../d1/d31/_detour_large_world_coordinates_8h.html#aa83f4da7014f338a74ae515398293045">dtReal</a> ch, const <a class="el" href="../../d1/d31/_detour_large_world_coordinates_8h.html#aa83f4da7014f338a74ae515398293045">dtReal</a> *verts, const int nverts, const <a class="el" href="../../d1/d31/_detour_large_world_coordinates_8h.html#aa83f4da7014f338a74ae515398293045">dtReal</a> hmin, const <a class="el" href="../../d1/d31/_detour_large_world_coordinates_8h.html#aa83f4da7014f338a74ae515398293045">dtReal</a> hmax, const unsigned char areaId)</td></tr>
+<tr class="memitem:a9ed62ad8a829988fbc725b976c0df642" id="r_a9ed62ad8a829988fbc725b976c0df642"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d4/d76/_recast_graph_a_star_8h.html#a4f23c0dcf28d9e299a4aa06af5b9ada3">dtStatus</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9ed62ad8a829988fbc725b976c0df642">dtReplaceCylinderArea</a> (<a class="el" href="../../df/d3f/structdt_tile_cache_layer.html">dtTileCacheLayer</a> &amp;layer, const <a class="el" href="../../d1/d31/_detour_large_world_coordinates_8h.html#aa83f4da7014f338a74ae515398293045">dtReal</a> *orig, const <a class="el" href="../../d1/d31/_detour_large_world_coordinates_8h.html#aa83f4da7014f338a74ae515398293045">dtReal</a> cs, const <a class="el" href="../../d1/d31/_detour_large_world_coordinates_8h.html#aa83f4da7014f338a74ae515398293045">dtReal</a> ch, const <a class="el" href="../../d1/d31/_detour_large_world_coordinates_8h.html#aa83f4da7014f338a74ae515398293045">dtReal</a> *pos, const <a class="el" href="../../d1/d31/_detour_large_world_coordinates_8h.html#aa83f4da7014f338a74ae515398293045">dtReal</a> radius, const <a class="el" href="../../d1/d31/_detour_large_world_coordinates_8h.html#aa83f4da7014f338a74ae515398293045">dtReal</a> <a class="el" href="../../d0/d6f/2_89_810_2include_2oodle2tex_8h.html#a96ed1bba5d3129018e6ede25ff604879">height</a>, const unsigned char areaId, const unsigned char filterAreaId)</td></tr>
+<tr class="memitem:af047b22e83a1ec5ac66e8170f30ee5a8" id="r_af047b22e83a1ec5ac66e8170f30ee5a8"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d4/d76/_recast_graph_a_star_8h.html#a4f23c0dcf28d9e299a4aa06af5b9ada3">dtStatus</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af047b22e83a1ec5ac66e8170f30ee5a8">dtReplaceBoxArea</a> (<a class="el" href="../../df/d3f/structdt_tile_cache_layer.html">dtTileCacheLayer</a> &amp;layer, const <a class="el" href="../../d1/d31/_detour_large_world_coordinates_8h.html#aa83f4da7014f338a74ae515398293045">dtReal</a> *orig, const <a class="el" href="../../d1/d31/_detour_large_world_coordinates_8h.html#aa83f4da7014f338a74ae515398293045">dtReal</a> cs, const <a class="el" href="../../d1/d31/_detour_large_world_coordinates_8h.html#aa83f4da7014f338a74ae515398293045">dtReal</a> ch, const <a class="el" href="../../d1/d31/_detour_large_world_coordinates_8h.html#aa83f4da7014f338a74ae515398293045">dtReal</a> *pos, const <a class="el" href="../../d1/d31/_detour_large_world_coordinates_8h.html#aa83f4da7014f338a74ae515398293045">dtReal</a> *extent, const unsigned char areaId, const unsigned char filterAreaId)</td></tr>
+<tr class="memitem:ab2f86a3431d2720f579dd05ee58ec706" id="r_ab2f86a3431d2720f579dd05ee58ec706"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d4/d76/_recast_graph_a_star_8h.html#a4f23c0dcf28d9e299a4aa06af5b9ada3">dtStatus</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab2f86a3431d2720f579dd05ee58ec706">dtReplaceConvexArea</a> (<a class="el" href="../../df/d3f/structdt_tile_cache_layer.html">dtTileCacheLayer</a> &amp;layer, const <a class="el" href="../../d1/d31/_detour_large_world_coordinates_8h.html#aa83f4da7014f338a74ae515398293045">dtReal</a> *orig, const <a class="el" href="../../d1/d31/_detour_large_world_coordinates_8h.html#aa83f4da7014f338a74ae515398293045">dtReal</a> cs, const <a class="el" href="../../d1/d31/_detour_large_world_coordinates_8h.html#aa83f4da7014f338a74ae515398293045">dtReal</a> ch, const <a class="el" href="../../d1/d31/_detour_large_world_coordinates_8h.html#aa83f4da7014f338a74ae515398293045">dtReal</a> *verts, const int nverts, const <a class="el" href="../../d1/d31/_detour_large_world_coordinates_8h.html#aa83f4da7014f338a74ae515398293045">dtReal</a> hmin, const <a class="el" href="../../d1/d31/_detour_large_world_coordinates_8h.html#aa83f4da7014f338a74ae515398293045">dtReal</a> hmax, const unsigned char areaId, const unsigned char filterAreaId)</td></tr>
+<tr class="memitem:aed60a7844df4fea1178423e0cd358121" id="r_aed60a7844df4fea1178423e0cd358121"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d4/d76/_recast_graph_a_star_8h.html#a4f23c0dcf28d9e299a4aa06af5b9ada3">dtStatus</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aed60a7844df4fea1178423e0cd358121">dtReplaceArea</a> (<a class="el" href="../../df/d3f/structdt_tile_cache_layer.html">dtTileCacheLayer</a> &amp;layer, const unsigned char areaId, const unsigned char filterAreaId)</td></tr>
+<tr class="memitem:ab93f2160e3f4ffed18d06d3127c69fdb" id="r_ab93f2160e3f4ffed18d06d3127c69fdb"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d4/d76/_recast_graph_a_star_8h.html#a4f23c0dcf28d9e299a4aa06af5b9ada3">dtStatus</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab93f2160e3f4ffed18d06d3127c69fdb">dtBuildTileCacheLayer</a> (<a class="el" href="../../d5/d2e/structdt_tile_cache_compressor.html">dtTileCacheCompressor</a> *comp, <a class="el" href="../../d3/daa/structdt_tile_cache_layer_header.html">dtTileCacheLayerHeader</a> *header, const unsigned short *heights, const unsigned char *areas, const unsigned char *cons, unsigned char **outData, int *outDataSize)</td></tr>
+<tr class="memitem:a5d8bca7845ae4c593726e2c0062ed0a7" id="r_a5d8bca7845ae4c593726e2c0062ed0a7"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../df/d63/_typed_element_query_capabilities_8inl.html#a72343342ce64c0755563ee6c5e27868d">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5d8bca7845ae4c593726e2c0062ed0a7">dtFreeTileCacheLayer</a> (<a class="el" href="../../de/d10/structdt_tile_cache_alloc.html">dtTileCacheAlloc</a> *alloc, <a class="el" href="../../df/d3f/structdt_tile_cache_layer.html">dtTileCacheLayer</a> *layer)</td></tr>
+<tr class="memitem:aa3a6c8c70386d5700cf71c7ebbf00f26" id="r_aa3a6c8c70386d5700cf71c7ebbf00f26"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d4/d76/_recast_graph_a_star_8h.html#a4f23c0dcf28d9e299a4aa06af5b9ada3">dtStatus</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa3a6c8c70386d5700cf71c7ebbf00f26">dtDecompressTileCacheLayer</a> (<a class="el" href="../../de/d10/structdt_tile_cache_alloc.html">dtTileCacheAlloc</a> *alloc, <a class="el" href="../../d5/d2e/structdt_tile_cache_compressor.html">dtTileCacheCompressor</a> *comp, const unsigned char *compressed, const int <a class="el" href="../../d4/dc6/_trace_log_2_private_2_trace_2_l_z4_2lz4_8h.html#a0f9a0600771a3eb50c56e55266a7da49">compressedSize</a>, <a class="el" href="../../df/d3f/structdt_tile_cache_layer.html">dtTileCacheLayer</a> **layerOut)</td></tr>
+<tr class="memitem:af7089fb5010342e6c48ca705a8f49928" id="r_af7089fb5010342e6c48ca705a8f49928"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af7089fb5010342e6c48ca705a8f49928">dtTileCacheHeaderSwapEndian</a> (unsigned char *data, const int dataSize)</td></tr>
+</table>
+<a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">函数说明</h2>
+<a id="a2198ce594280787ad201642656e4f73b" name="a2198ce594280787ad201642656e4f73b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2198ce594280787ad201642656e4f73b">&#9670;&#160;</a></span>computeVertexHash2()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int computeVertexHash2 </td>
+          <td>(</td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>x</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>y</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>z</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a7ae319714b536347e4e9e1912e55be8a" name="a7ae319714b536347e4e9e1912e55be8a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7ae319714b536347e4e9e1912e55be8a">&#9670;&#160;</a></span>dtAllocTileCacheContourSet()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../df/d67/structdt_tile_cache_contour_set.html">dtTileCacheContourSet</a> * dtAllocTileCacheContourSet </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../de/d10/structdt_tile_cache_alloc.html">dtTileCacheAlloc</a> *</td>          <td class="paramname"><span class="paramname"><em>alloc</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a1051679efc892964c0ee214c710499fd" name="a1051679efc892964c0ee214c710499fd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1051679efc892964c0ee214c710499fd">&#9670;&#160;</a></span>dtAllocTileCacheDistanceField()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d1/da3/structdt_tile_cache_distance_field.html">dtTileCacheDistanceField</a> * dtAllocTileCacheDistanceField </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../de/d10/structdt_tile_cache_alloc.html">dtTileCacheAlloc</a> *</td>          <td class="paramname"><span class="paramname"><em>alloc</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a1c5d6b1aaf7fd7e4b4cf2530fc55b64d" name="a1c5d6b1aaf7fd7e4b4cf2530fc55b64d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1c5d6b1aaf7fd7e4b4cf2530fc55b64d">&#9670;&#160;</a></span>dtAllocTileCachePolyMesh()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../df/d26/structdt_tile_cache_poly_mesh.html">dtTileCachePolyMesh</a> * dtAllocTileCachePolyMesh </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../de/d10/structdt_tile_cache_alloc.html">dtTileCacheAlloc</a> *</td>          <td class="paramname"><span class="paramname"><em>alloc</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aebec85cad1b5154b14ddd1cde36bfb64" name="aebec85cad1b5154b14ddd1cde36bfb64"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aebec85cad1b5154b14ddd1cde36bfb64">&#9670;&#160;</a></span>dtAllocTileCachePolyMeshDetail()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../dc/d01/structdt_tile_cache_poly_mesh_detail.html">dtTileCachePolyMeshDetail</a> * dtAllocTileCachePolyMeshDetail </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../de/d10/structdt_tile_cache_alloc.html">dtTileCacheAlloc</a> *</td>          <td class="paramname"><span class="paramname"><em>alloc</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a41ef7e2b8ade5de0e31bbb4d275dd652" name="a41ef7e2b8ade5de0e31bbb4d275dd652"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a41ef7e2b8ade5de0e31bbb4d275dd652">&#9670;&#160;</a></span>dtBuildTileCacheContours()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d4/d76/_recast_graph_a_star_8h.html#a4f23c0dcf28d9e299a4aa06af5b9ada3">dtStatus</a> dtBuildTileCacheContours </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../de/d10/structdt_tile_cache_alloc.html">dtTileCacheAlloc</a> *</td>          <td class="paramname"><span class="paramname"><em>alloc</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../df/d3f/structdt_tile_cache_layer.html">dtTileCacheLayer</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>layer</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const int</td>          <td class="paramname"><span class="paramname"><em>walkableClimb</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="../../d1/d31/_detour_large_world_coordinates_8h.html#aa83f4da7014f338a74ae515398293045">dtReal</a></td>          <td class="paramname"><span class="paramname"><em>maxError</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="../../d1/d31/_detour_large_world_coordinates_8h.html#aa83f4da7014f338a74ae515398293045">dtReal</a></td>          <td class="paramname"><span class="paramname"><em>simplificationElevationRatio</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="../../d1/d31/_detour_large_world_coordinates_8h.html#aa83f4da7014f338a74ae515398293045">dtReal</a></td>          <td class="paramname"><span class="paramname"><em>cs</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="../../d1/d31/_detour_large_world_coordinates_8h.html#aa83f4da7014f338a74ae515398293045">dtReal</a></td>          <td class="paramname"><span class="paramname"><em>ch</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../df/d67/structdt_tile_cache_contour_set.html">dtTileCacheContourSet</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>lcset</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a></td>          <td class="paramname"><span class="paramname"><em>skipContourSimplification</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ab93f2160e3f4ffed18d06d3127c69fdb" name="ab93f2160e3f4ffed18d06d3127c69fdb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab93f2160e3f4ffed18d06d3127c69fdb">&#9670;&#160;</a></span>dtBuildTileCacheLayer()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d4/d76/_recast_graph_a_star_8h.html#a4f23c0dcf28d9e299a4aa06af5b9ada3">dtStatus</a> dtBuildTileCacheLayer </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d5/d2e/structdt_tile_cache_compressor.html">dtTileCacheCompressor</a> *</td>          <td class="paramname"><span class="paramname"><em>comp</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d3/daa/structdt_tile_cache_layer_header.html">dtTileCacheLayerHeader</a> *</td>          <td class="paramname"><span class="paramname"><em>header</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const unsigned short *</td>          <td class="paramname"><span class="paramname"><em>heights</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const unsigned char *</td>          <td class="paramname"><span class="paramname"><em>areas</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const unsigned char *</td>          <td class="paramname"><span class="paramname"><em>cons</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">unsigned char **</td>          <td class="paramname"><span class="paramname"><em>outData</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int *</td>          <td class="paramname"><span class="paramname"><em>outDataSize</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a79895284f4c36c0ba4372b2bb14f856b" name="a79895284f4c36c0ba4372b2bb14f856b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a79895284f4c36c0ba4372b2bb14f856b">&#9670;&#160;</a></span>dtBuildTileCachePolyMesh()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d4/d76/_recast_graph_a_star_8h.html#a4f23c0dcf28d9e299a4aa06af5b9ada3">dtStatus</a> dtBuildTileCachePolyMesh </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../de/d10/structdt_tile_cache_alloc.html">dtTileCacheAlloc</a> *</td>          <td class="paramname"><span class="paramname"><em>alloc</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d8/d9e/classdt_tile_cache_log_context.html">dtTileCacheLogContext</a> *</td>          <td class="paramname"><span class="paramname"><em>ctx</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../df/d67/structdt_tile_cache_contour_set.html">dtTileCacheContourSet</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>lcset</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../df/d26/structdt_tile_cache_poly_mesh.html">dtTileCachePolyMesh</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>mesh</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const int</td>          <td class="paramname"><span class="paramname"><em>walkableClimb</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aa3a6c8c70386d5700cf71c7ebbf00f26" name="aa3a6c8c70386d5700cf71c7ebbf00f26"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa3a6c8c70386d5700cf71c7ebbf00f26">&#9670;&#160;</a></span>dtDecompressTileCacheLayer()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d4/d76/_recast_graph_a_star_8h.html#a4f23c0dcf28d9e299a4aa06af5b9ada3">dtStatus</a> dtDecompressTileCacheLayer </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../de/d10/structdt_tile_cache_alloc.html">dtTileCacheAlloc</a> *</td>          <td class="paramname"><span class="paramname"><em>alloc</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d5/d2e/structdt_tile_cache_compressor.html">dtTileCacheCompressor</a> *</td>          <td class="paramname"><span class="paramname"><em>comp</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const unsigned char *</td>          <td class="paramname"><span class="paramname"><em>compressed</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const int</td>          <td class="paramname"><span class="paramname"><em>compressedSize</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../df/d3f/structdt_tile_cache_layer.html">dtTileCacheLayer</a> **</td>          <td class="paramname"><span class="paramname"><em>layerOut</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="abc76def8bcf87c7c15ad4a308126de6f" name="abc76def8bcf87c7c15ad4a308126de6f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abc76def8bcf87c7c15ad4a308126de6f">&#9670;&#160;</a></span>dtFreeTileCacheContourSet()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../df/d63/_typed_element_query_capabilities_8inl.html#a72343342ce64c0755563ee6c5e27868d">void</a> dtFreeTileCacheContourSet </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../de/d10/structdt_tile_cache_alloc.html">dtTileCacheAlloc</a> *</td>          <td class="paramname"><span class="paramname"><em>alloc</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../df/d67/structdt_tile_cache_contour_set.html">dtTileCacheContourSet</a> *</td>          <td class="paramname"><span class="paramname"><em>cset</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a8f8088c5db847bdfbaca3ca68371b3bf" name="a8f8088c5db847bdfbaca3ca68371b3bf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8f8088c5db847bdfbaca3ca68371b3bf">&#9670;&#160;</a></span>dtFreeTileCacheDistanceField()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../df/d63/_typed_element_query_capabilities_8inl.html#a72343342ce64c0755563ee6c5e27868d">void</a> dtFreeTileCacheDistanceField </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../de/d10/structdt_tile_cache_alloc.html">dtTileCacheAlloc</a> *</td>          <td class="paramname"><span class="paramname"><em>alloc</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d1/da3/structdt_tile_cache_distance_field.html">dtTileCacheDistanceField</a> *</td>          <td class="paramname"><span class="paramname"><em>dfield</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a5d8bca7845ae4c593726e2c0062ed0a7" name="a5d8bca7845ae4c593726e2c0062ed0a7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5d8bca7845ae4c593726e2c0062ed0a7">&#9670;&#160;</a></span>dtFreeTileCacheLayer()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../df/d63/_typed_element_query_capabilities_8inl.html#a72343342ce64c0755563ee6c5e27868d">void</a> dtFreeTileCacheLayer </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../de/d10/structdt_tile_cache_alloc.html">dtTileCacheAlloc</a> *</td>          <td class="paramname"><span class="paramname"><em>alloc</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../df/d3f/structdt_tile_cache_layer.html">dtTileCacheLayer</a> *</td>          <td class="paramname"><span class="paramname"><em>layer</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a6b46fb526524261ff8383bc38d9e1983" name="a6b46fb526524261ff8383bc38d9e1983"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6b46fb526524261ff8383bc38d9e1983">&#9670;&#160;</a></span>dtFreeTileCachePolyMesh()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../df/d63/_typed_element_query_capabilities_8inl.html#a72343342ce64c0755563ee6c5e27868d">void</a> dtFreeTileCachePolyMesh </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../de/d10/structdt_tile_cache_alloc.html">dtTileCacheAlloc</a> *</td>          <td class="paramname"><span class="paramname"><em>alloc</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../df/d26/structdt_tile_cache_poly_mesh.html">dtTileCachePolyMesh</a> *</td>          <td class="paramname"><span class="paramname"><em>lmesh</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ad14ab84677f55ad8586ac80c1d7e3d30" name="ad14ab84677f55ad8586ac80c1d7e3d30"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad14ab84677f55ad8586ac80c1d7e3d30">&#9670;&#160;</a></span>dtFreeTileCachePolyMeshDetail()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../df/d63/_typed_element_query_capabilities_8inl.html#a72343342ce64c0755563ee6c5e27868d">void</a> dtFreeTileCachePolyMeshDetail </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../de/d10/structdt_tile_cache_alloc.html">dtTileCacheAlloc</a> *</td>          <td class="paramname"><span class="paramname"><em>alloc</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../dc/d01/structdt_tile_cache_poly_mesh_detail.html">dtTileCachePolyMeshDetail</a> *</td>          <td class="paramname"><span class="paramname"><em>dmesh</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ac242c7dc9cecaa771b971460310dc5b1" name="ac242c7dc9cecaa771b971460310dc5b1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac242c7dc9cecaa771b971460310dc5b1">&#9670;&#160;</a></span>dtMarkBoxArea()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d4/d76/_recast_graph_a_star_8h.html#a4f23c0dcf28d9e299a4aa06af5b9ada3">dtStatus</a> dtMarkBoxArea </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../df/d3f/structdt_tile_cache_layer.html">dtTileCacheLayer</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>layer</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="../../d1/d31/_detour_large_world_coordinates_8h.html#aa83f4da7014f338a74ae515398293045">dtReal</a> *</td>          <td class="paramname"><span class="paramname"><em>orig</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="../../d1/d31/_detour_large_world_coordinates_8h.html#aa83f4da7014f338a74ae515398293045">dtReal</a></td>          <td class="paramname"><span class="paramname"><em>cs</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="../../d1/d31/_detour_large_world_coordinates_8h.html#aa83f4da7014f338a74ae515398293045">dtReal</a></td>          <td class="paramname"><span class="paramname"><em>ch</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="../../d1/d31/_detour_large_world_coordinates_8h.html#aa83f4da7014f338a74ae515398293045">dtReal</a> *</td>          <td class="paramname"><span class="paramname"><em>pos</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="../../d1/d31/_detour_large_world_coordinates_8h.html#aa83f4da7014f338a74ae515398293045">dtReal</a> *</td>          <td class="paramname"><span class="paramname"><em>extent</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const unsigned char</td>          <td class="paramname"><span class="paramname"><em>areaId</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a3d0b55a243374b572525cbdead00aeb3" name="a3d0b55a243374b572525cbdead00aeb3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3d0b55a243374b572525cbdead00aeb3">&#9670;&#160;</a></span>dtMarkConvexArea()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d4/d76/_recast_graph_a_star_8h.html#a4f23c0dcf28d9e299a4aa06af5b9ada3">dtStatus</a> dtMarkConvexArea </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../df/d3f/structdt_tile_cache_layer.html">dtTileCacheLayer</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>layer</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="../../d1/d31/_detour_large_world_coordinates_8h.html#aa83f4da7014f338a74ae515398293045">dtReal</a> *</td>          <td class="paramname"><span class="paramname"><em>orig</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="../../d1/d31/_detour_large_world_coordinates_8h.html#aa83f4da7014f338a74ae515398293045">dtReal</a></td>          <td class="paramname"><span class="paramname"><em>cs</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="../../d1/d31/_detour_large_world_coordinates_8h.html#aa83f4da7014f338a74ae515398293045">dtReal</a></td>          <td class="paramname"><span class="paramname"><em>ch</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="../../d1/d31/_detour_large_world_coordinates_8h.html#aa83f4da7014f338a74ae515398293045">dtReal</a> *</td>          <td class="paramname"><span class="paramname"><em>verts</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const int</td>          <td class="paramname"><span class="paramname"><em>nverts</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="../../d1/d31/_detour_large_world_coordinates_8h.html#aa83f4da7014f338a74ae515398293045">dtReal</a></td>          <td class="paramname"><span class="paramname"><em>hmin</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="../../d1/d31/_detour_large_world_coordinates_8h.html#aa83f4da7014f338a74ae515398293045">dtReal</a></td>          <td class="paramname"><span class="paramname"><em>hmax</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const unsigned char</td>          <td class="paramname"><span class="paramname"><em>areaId</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a5eed0a6d5af3502bb6ca497dd011c89c" name="a5eed0a6d5af3502bb6ca497dd011c89c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5eed0a6d5af3502bb6ca497dd011c89c">&#9670;&#160;</a></span>dtMarkCylinderArea()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d4/d76/_recast_graph_a_star_8h.html#a4f23c0dcf28d9e299a4aa06af5b9ada3">dtStatus</a> dtMarkCylinderArea </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../df/d3f/structdt_tile_cache_layer.html">dtTileCacheLayer</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>layer</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="../../d1/d31/_detour_large_world_coordinates_8h.html#aa83f4da7014f338a74ae515398293045">dtReal</a> *</td>          <td class="paramname"><span class="paramname"><em>orig</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="../../d1/d31/_detour_large_world_coordinates_8h.html#aa83f4da7014f338a74ae515398293045">dtReal</a></td>          <td class="paramname"><span class="paramname"><em>cs</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="../../d1/d31/_detour_large_world_coordinates_8h.html#aa83f4da7014f338a74ae515398293045">dtReal</a></td>          <td class="paramname"><span class="paramname"><em>ch</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="../../d1/d31/_detour_large_world_coordinates_8h.html#aa83f4da7014f338a74ae515398293045">dtReal</a> *</td>          <td class="paramname"><span class="paramname"><em>pos</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="../../d1/d31/_detour_large_world_coordinates_8h.html#aa83f4da7014f338a74ae515398293045">dtReal</a></td>          <td class="paramname"><span class="paramname"><em>radius</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="../../d1/d31/_detour_large_world_coordinates_8h.html#aa83f4da7014f338a74ae515398293045">dtReal</a></td>          <td class="paramname"><span class="paramname"><em>height</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const unsigned char</td>          <td class="paramname"><span class="paramname"><em>areaId</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aed60a7844df4fea1178423e0cd358121" name="aed60a7844df4fea1178423e0cd358121"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aed60a7844df4fea1178423e0cd358121">&#9670;&#160;</a></span>dtReplaceArea()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d4/d76/_recast_graph_a_star_8h.html#a4f23c0dcf28d9e299a4aa06af5b9ada3">dtStatus</a> dtReplaceArea </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../df/d3f/structdt_tile_cache_layer.html">dtTileCacheLayer</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>layer</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const unsigned char</td>          <td class="paramname"><span class="paramname"><em>areaId</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const unsigned char</td>          <td class="paramname"><span class="paramname"><em>filterAreaId</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="af047b22e83a1ec5ac66e8170f30ee5a8" name="af047b22e83a1ec5ac66e8170f30ee5a8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af047b22e83a1ec5ac66e8170f30ee5a8">&#9670;&#160;</a></span>dtReplaceBoxArea()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d4/d76/_recast_graph_a_star_8h.html#a4f23c0dcf28d9e299a4aa06af5b9ada3">dtStatus</a> dtReplaceBoxArea </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../df/d3f/structdt_tile_cache_layer.html">dtTileCacheLayer</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>layer</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="../../d1/d31/_detour_large_world_coordinates_8h.html#aa83f4da7014f338a74ae515398293045">dtReal</a> *</td>          <td class="paramname"><span class="paramname"><em>orig</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="../../d1/d31/_detour_large_world_coordinates_8h.html#aa83f4da7014f338a74ae515398293045">dtReal</a></td>          <td class="paramname"><span class="paramname"><em>cs</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="../../d1/d31/_detour_large_world_coordinates_8h.html#aa83f4da7014f338a74ae515398293045">dtReal</a></td>          <td class="paramname"><span class="paramname"><em>ch</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="../../d1/d31/_detour_large_world_coordinates_8h.html#aa83f4da7014f338a74ae515398293045">dtReal</a> *</td>          <td class="paramname"><span class="paramname"><em>pos</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="../../d1/d31/_detour_large_world_coordinates_8h.html#aa83f4da7014f338a74ae515398293045">dtReal</a> *</td>          <td class="paramname"><span class="paramname"><em>extent</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const unsigned char</td>          <td class="paramname"><span class="paramname"><em>areaId</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const unsigned char</td>          <td class="paramname"><span class="paramname"><em>filterAreaId</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ab2f86a3431d2720f579dd05ee58ec706" name="ab2f86a3431d2720f579dd05ee58ec706"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab2f86a3431d2720f579dd05ee58ec706">&#9670;&#160;</a></span>dtReplaceConvexArea()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d4/d76/_recast_graph_a_star_8h.html#a4f23c0dcf28d9e299a4aa06af5b9ada3">dtStatus</a> dtReplaceConvexArea </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../df/d3f/structdt_tile_cache_layer.html">dtTileCacheLayer</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>layer</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="../../d1/d31/_detour_large_world_coordinates_8h.html#aa83f4da7014f338a74ae515398293045">dtReal</a> *</td>          <td class="paramname"><span class="paramname"><em>orig</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="../../d1/d31/_detour_large_world_coordinates_8h.html#aa83f4da7014f338a74ae515398293045">dtReal</a></td>          <td class="paramname"><span class="paramname"><em>cs</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="../../d1/d31/_detour_large_world_coordinates_8h.html#aa83f4da7014f338a74ae515398293045">dtReal</a></td>          <td class="paramname"><span class="paramname"><em>ch</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="../../d1/d31/_detour_large_world_coordinates_8h.html#aa83f4da7014f338a74ae515398293045">dtReal</a> *</td>          <td class="paramname"><span class="paramname"><em>verts</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const int</td>          <td class="paramname"><span class="paramname"><em>nverts</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="../../d1/d31/_detour_large_world_coordinates_8h.html#aa83f4da7014f338a74ae515398293045">dtReal</a></td>          <td class="paramname"><span class="paramname"><em>hmin</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="../../d1/d31/_detour_large_world_coordinates_8h.html#aa83f4da7014f338a74ae515398293045">dtReal</a></td>          <td class="paramname"><span class="paramname"><em>hmax</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const unsigned char</td>          <td class="paramname"><span class="paramname"><em>areaId</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const unsigned char</td>          <td class="paramname"><span class="paramname"><em>filterAreaId</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a9ed62ad8a829988fbc725b976c0df642" name="a9ed62ad8a829988fbc725b976c0df642"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9ed62ad8a829988fbc725b976c0df642">&#9670;&#160;</a></span>dtReplaceCylinderArea()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d4/d76/_recast_graph_a_star_8h.html#a4f23c0dcf28d9e299a4aa06af5b9ada3">dtStatus</a> dtReplaceCylinderArea </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../df/d3f/structdt_tile_cache_layer.html">dtTileCacheLayer</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>layer</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="../../d1/d31/_detour_large_world_coordinates_8h.html#aa83f4da7014f338a74ae515398293045">dtReal</a> *</td>          <td class="paramname"><span class="paramname"><em>orig</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="../../d1/d31/_detour_large_world_coordinates_8h.html#aa83f4da7014f338a74ae515398293045">dtReal</a></td>          <td class="paramname"><span class="paramname"><em>cs</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="../../d1/d31/_detour_large_world_coordinates_8h.html#aa83f4da7014f338a74ae515398293045">dtReal</a></td>          <td class="paramname"><span class="paramname"><em>ch</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="../../d1/d31/_detour_large_world_coordinates_8h.html#aa83f4da7014f338a74ae515398293045">dtReal</a> *</td>          <td class="paramname"><span class="paramname"><em>pos</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="../../d1/d31/_detour_large_world_coordinates_8h.html#aa83f4da7014f338a74ae515398293045">dtReal</a></td>          <td class="paramname"><span class="paramname"><em>radius</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="../../d1/d31/_detour_large_world_coordinates_8h.html#aa83f4da7014f338a74ae515398293045">dtReal</a></td>          <td class="paramname"><span class="paramname"><em>height</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const unsigned char</td>          <td class="paramname"><span class="paramname"><em>areaId</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const unsigned char</td>          <td class="paramname"><span class="paramname"><em>filterAreaId</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="af7089fb5010342e6c48ca705a8f49928" name="af7089fb5010342e6c48ca705a8f49928"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af7089fb5010342e6c48ca705a8f49928">&#9670;&#160;</a></span>dtTileCacheHeaderSwapEndian()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a> dtTileCacheHeaderSwapEndian </td>
+          <td>(</td>
+          <td class="paramtype">unsigned char *</td>          <td class="paramname"><span class="paramname"><em>data</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const int</td>          <td class="paramname"><span class="paramname"><em>dataSize</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Swaps the endianess of the compressed tile data's header (<a class="el" href="../../d3/daa/structdt_tile_cache_layer_header.html">dtTileCacheLayerHeader</a>). Tile layer data does not need endian swapping as it consist only of bytes. <a class="el" href="../../da/de5/namespace_u_e.html">UE</a>: not anymore, there are short types as well now </p><dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in,out]</td><td class="paramname">data</td><td>The tile data array. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">dataSize</td><td>The size of the data array. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a6635a8154ca59303c17c8a2c3f28cedc" name="a6635a8154ca59303c17c8a2c3f28cedc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6635a8154ca59303c17c8a2c3f28cedc">&#9670;&#160;</a></span>ileft()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a> ileft </td>
+          <td>(</td>
+          <td class="paramtype">const unsigned short *</td>          <td class="paramname"><span class="paramname"><em>a</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const unsigned short *</td>          <td class="paramname"><span class="paramname"><em>b</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const unsigned short *</td>          <td class="paramname"><span class="paramname"><em>c</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a5a3cf96c46724c82c5c6c8aca631ecb2" name="a5a3cf96c46724c82c5c6c8aca631ecb2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5a3cf96c46724c82c5c6c8aca631ecb2">&#9670;&#160;</a></span>overlapRangeExl()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a> overlapRangeExl </td>
+          <td>(</td>
+          <td class="paramtype">const unsigned short</td>          <td class="paramname"><span class="paramname"><em>amin</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const unsigned short</td>          <td class="paramname"><span class="paramname"><em>amax</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const unsigned short</td>          <td class="paramname"><span class="paramname"><em>bmin</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const unsigned short</td>          <td class="paramname"><span class="paramname"><em>bmax</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const unsigned short</td>          <td class="paramname"><span class="paramname"><em>ya</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const unsigned short</td>          <td class="paramname"><span class="paramname"><em>eya</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const unsigned short</td>          <td class="paramname"><span class="paramname"><em>yb</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const unsigned short</td>          <td class="paramname"><span class="paramname"><em>eyb</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const int</td>          <td class="paramname"><span class="paramname"><em>walkableClimb</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<div id="page-nav" class="page-nav-panel">
+<div id="page-nav-resize-handle"></div>
+<div id="page-nav-tree">
+<div id="page-nav-contents">
+</div><!-- page-nav-contents -->
+</div><!-- page-nav-tree -->
+</div><!-- page-nav -->
+</div><!-- container -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a href="../../dir_0b6ee6e7e9547e675db4add2e5de97da.html">Engine</a></li><li class="navelem"><a href="../../dir_9579d1ecb2c7bf48cbe1049c41745cb4.html">Source</a></li><li class="navelem"><a href="../../dir_9f04efef762572853abdf73f62bebfcc.html">Runtime</a></li><li class="navelem"><a href="../../dir_e2b08ac3e94f9f372561ca377a34d989.html">Navmesh</a></li><li class="navelem"><a href="../../dir_88b08274d3a9e6d0c85562d193fc8163.html">Private</a></li><li class="navelem"><a href="../../dir_6f5815698c396a855dea0a39b4838146.html">DetourTileCache</a></li><li class="navelem"><a href="../../d0/d2e/_detour_tile_cache_builder_8cpp.html">DetourTileCacheBuilder.cpp</a></li>
+    <li class="footer">制作者 <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.15.0 </li>
+  </ul>
+</div>
+</body>
+</html>

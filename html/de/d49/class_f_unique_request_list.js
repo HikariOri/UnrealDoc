@@ -1,0 +1,28 @@
+var class_f_unique_request_list =
+[
+    [ "FUniqueRequestList", "de/d49/class_f_unique_request_list.html#a1d2dbb5a89ad1cd96abbe16d6e2ca8a5", null ],
+    [ "AddAdaptiveAllocationRequest", "de/d49/class_f_unique_request_list.html#aba74138d58f0ae2486e4cc1386778d17", null ],
+    [ "AddContinuousUpdateRequest", "de/d49/class_f_unique_request_list.html#a78966e7bc8452603b366601a26c90a0a", null ],
+    [ "AddDirectMappingRequest", "de/d49/class_f_unique_request_list.html#ab81f4c9aa8da7893b0e39f07d1ab9ddb", null ],
+    [ "AddDirectMappingRequest", "de/d49/class_f_unique_request_list.html#a6e1e4eae817ea78158d80a591ca5361b", null ],
+    [ "AddLoadRequest", "de/d49/class_f_unique_request_list.html#a69e3d4464cc71730daf085663d868ef3", null ],
+    [ "AddMappingRequest", "de/d49/class_f_unique_request_list.html#a48ebecc0515df22eee67628e94d23559", null ],
+    [ "GetAdaptiveAllocationRequest", "de/d49/class_f_unique_request_list.html#aa900c502a4ff4e33782a39724a360fe9", null ],
+    [ "GetContinuousUpdateRequest", "de/d49/class_f_unique_request_list.html#a5a93f9bc419200b0339c9fa7d5b262f6", null ],
+    [ "GetDirectMappingRequest", "de/d49/class_f_unique_request_list.html#acec4e3ae35099ceb0a88b169165d8be7", null ],
+    [ "GetGroupMask", "de/d49/class_f_unique_request_list.html#a398b8702d51c7f286e749b846210af43", null ],
+    [ "GetLoadRequest", "de/d49/class_f_unique_request_list.html#a6415b734eb9cfe1edd49b667f23b7679", null ],
+    [ "GetMappingRequest", "de/d49/class_f_unique_request_list.html#a7ac8c10d42e3f353bf1328c9b1d96865", null ],
+    [ "GetNumAdaptiveAllocationRequests", "de/d49/class_f_unique_request_list.html#a8870cdb25e9c27b89fd5a19d3f3e7087", null ],
+    [ "GetNumContinuousUpdateRequests", "de/d49/class_f_unique_request_list.html#a98344951a0b6f341d157fa5f16b13541", null ],
+    [ "GetNumDirectMappingRequests", "de/d49/class_f_unique_request_list.html#a6f99233caa6727e5b902aaeafd904e5e", null ],
+    [ "GetNumLoadRequests", "de/d49/class_f_unique_request_list.html#a4f25610c60687dd739575c99acf2afa5", null ],
+    [ "GetNumMappingRequests", "de/d49/class_f_unique_request_list.html#a6c04dfd02c340b9311fbd3ce9e518416", null ],
+    [ "GetNumNonStreamingLoadRequests", "de/d49/class_f_unique_request_list.html#a2ccaa47cb26fa0ddde03c1f38e771314", null ],
+    [ "Initialize", "de/d49/class_f_unique_request_list.html#a74c6f0d6a3e8596648be13e9d7f41b29", null ],
+    [ "IsLocked", "de/d49/class_f_unique_request_list.html#a8942d60a9ad055b2caf5e17efc5d4e88", null ],
+    [ "LockLoadRequest", "de/d49/class_f_unique_request_list.html#ab63eb6211a39977d26ca442c451598d5", null ],
+    [ "MergeRequests", "de/d49/class_f_unique_request_list.html#a8363d9088cbe4f337cca402683207104", null ],
+    [ "Reset", "de/d49/class_f_unique_request_list.html#ac2d99b1a712b35eb39a449ee0ad66b15", null ],
+    [ "SortRequests", "de/d49/class_f_unique_request_list.html#ac2f04a0c2f5dd0672cee089e7ed31c10", null ]
+];

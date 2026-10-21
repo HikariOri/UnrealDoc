@@ -1,0 +1,25 @@
+var struct_f_shared_crash_context =
+[
+    [ "CrashFilesDirectory", "d4/d0a/struct_f_shared_crash_context.html#a81b22a7c039d9cb2302a36594c66a7dd", null ],
+    [ "CrashingThreadId", "d4/d0a/struct_f_shared_crash_context.html#a813358c927cae5f49c897fc5d37fdbd4", null ],
+    [ "CrashType", "d4/d0a/struct_f_shared_crash_context.html#abace5097fbc94864cfe261063071902b", null ],
+    [ "DynamicData", "d4/d0a/struct_f_shared_crash_context.html#a282103fcb9582b55bbd0f4b7983f59e4", null ],
+    [ "EnabledPluginsNum", "d4/d0a/struct_f_shared_crash_context.html#a53d3ea003acadaf7b10601b5e011a5b8", null ],
+    [ "EnabledPluginsOffset", "d4/d0a/struct_f_shared_crash_context.html#a57ab51ab261ce5568b00321215dea958", null ],
+    [ "EngineDataNum", "d4/d0a/struct_f_shared_crash_context.html#a5925ddb3201518b09d68f1ceb95d5288", null ],
+    [ "EngineDataOffset", "d4/d0a/struct_f_shared_crash_context.html#a05996139126caf74a9faaee1fed259b1", null ],
+    [ "ErrorMessage", "d4/d0a/struct_f_shared_crash_context.html#a5bb33625a046dcd38cb767988b3c12b4", null ],
+    [ "ErrorProgramCounter", "d4/d0a/struct_f_shared_crash_context.html#abd77e10acfb56f8bb8f65df14c4ebf90", null ],
+    [ "ExceptionProgramCounter", "d4/d0a/struct_f_shared_crash_context.html#a0205a8c3f47e570b4ed581ac4888fe5a", null ],
+    [ "FilePathsNum", "d4/d0a/struct_f_shared_crash_context.html#a7daae3910a11415c7d3f0729f01e301a", null ],
+    [ "FilePathsOffset", "d4/d0a/struct_f_shared_crash_context.html#acf4d977895c88ef0fc112fe4b47dba96", null ],
+    [ "GameDataNum", "d4/d0a/struct_f_shared_crash_context.html#a893cec624f5119dea5278a7cf8050cd9", null ],
+    [ "GameDataOffset", "d4/d0a/struct_f_shared_crash_context.html#a35d0fc705a17a538feff499abee18361", null ],
+    [ "GPUBreadcrumbs", "d4/d0a/struct_f_shared_crash_context.html#a488d5c673347e92c89a13807b0fb011c", null ],
+    [ "NumThreads", "d4/d0a/struct_f_shared_crash_context.html#aa255fd9f7c666c35a952144b9fcd5d9c", null ],
+    [ "PlatformCrashContext", "d4/d0a/struct_f_shared_crash_context.html#afa02e9e78faa1d4a1901fd3d6cd01b9f", null ],
+    [ "SessionContext", "d4/d0a/struct_f_shared_crash_context.html#a420305d85b4b0fef4635bacfd8eb60fc", null ],
+    [ "ThreadIds", "d4/d0a/struct_f_shared_crash_context.html#a50d69134ba944a610d96b98e036c3a1e", null ],
+    [ "ThreadNames", "d4/d0a/struct_f_shared_crash_context.html#abe0c98348912e3bf4e1fdf188096c29f", null ],
+    [ "UserSettings", "d4/d0a/struct_f_shared_crash_context.html#af91e78b88493e0e1a31a604702c01736", null ]
+];

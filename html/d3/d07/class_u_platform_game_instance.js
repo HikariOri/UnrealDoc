@@ -1,0 +1,26 @@
+var class_u_platform_game_instance =
+[
+    [ "BeginDestroy", "d3/d07/class_u_platform_game_instance.html#aed4c5481ad6a6e44b859d9467fbcba60", null ],
+    [ "DECLARE_DYNAMIC_MULTICAST_DELEGATE", "d3/d07/class_u_platform_game_instance.html#a883a590bd7bb263e72ed7c6703aa7581", null ],
+    [ "DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam", "d3/d07/class_u_platform_game_instance.html#afa234ce7f9095ec9bddd1da45de3fd89", null ],
+    [ "DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam", "d3/d07/class_u_platform_game_instance.html#a12e8f7b8c5569af5358037e6a751545c", null ],
+    [ "DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam", "d3/d07/class_u_platform_game_instance.html#ac1733457092605693d47456ffc66082f", null ],
+    [ "DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam", "d3/d07/class_u_platform_game_instance.html#aa52795a0d660e994c61e69114d230d98", null ],
+    [ "DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam", "d3/d07/class_u_platform_game_instance.html#a3ab82c16f83b3737854eeffb03df3570", null ],
+    [ "DECLARE_DYNAMIC_MULTICAST_DELEGATE_ThreeParams", "d3/d07/class_u_platform_game_instance.html#a012dc1d0d36224737d5d4be0d18bd833", null ],
+    [ "DECLARE_DYNAMIC_MULTICAST_DELEGATE_TwoParams", "d3/d07/class_u_platform_game_instance.html#af2685a902a76eeaf607955d7ac0f8b12", null ],
+    [ "PostInitProperties", "d3/d07/class_u_platform_game_instance.html#a2a5ee92e40443894398a1328dce63b41", null ],
+    [ "ApplicationFailedToRegisterForRemoteNotificationsDelegate", "d3/d07/class_u_platform_game_instance.html#a2ee10cb5933547d153c95898c0934303", null ],
+    [ "ApplicationHasEnteredForegroundDelegate", "d3/d07/class_u_platform_game_instance.html#acdeed0d494f6c3cd5d16f2ba5e3b78dc", null ],
+    [ "ApplicationHasReactivatedDelegate", "d3/d07/class_u_platform_game_instance.html#a3e08880130a2110b01c4401d6fd79ba8", null ],
+    [ "ApplicationReceivedLocalNotificationDelegate", "d3/d07/class_u_platform_game_instance.html#ae6740b724f56c648cf7f7232829710ec", null ],
+    [ "ApplicationReceivedRemoteNotificationDelegate", "d3/d07/class_u_platform_game_instance.html#aa936010c7c8a99b7b0d932024fec41b3", null ],
+    [ "ApplicationReceivedScreenOrientationChangedNotificationDelegate", "d3/d07/class_u_platform_game_instance.html#aac2fed91a041f46dc09cbb2389dbf2ca", null ],
+    [ "ApplicationReceivedStartupArgumentsDelegate", "d3/d07/class_u_platform_game_instance.html#ad270ec2b2c0864daa763d3141e5cc1e3", null ],
+    [ "ApplicationRegisteredForRemoteNotificationsDelegate", "d3/d07/class_u_platform_game_instance.html#a711d5735e9235679d54c9938c869742a", null ],
+    [ "ApplicationRegisteredForUserNotificationsDelegate", "d3/d07/class_u_platform_game_instance.html#a57f927510ca5316e80f6d0e891dba13d", null ],
+    [ "ApplicationShouldUnloadResourcesDelegate", "d3/d07/class_u_platform_game_instance.html#aaedfcf1af2bf9ebff6a6ebba75581acf", null ],
+    [ "ApplicationWillDeactivateDelegate", "d3/d07/class_u_platform_game_instance.html#aa52ea2c6e2a11fc5bb375abd4bd02805", null ],
+    [ "ApplicationWillEnterBackgroundDelegate", "d3/d07/class_u_platform_game_instance.html#a08f7feecc962caf2a3d97b6ead04bd38", null ],
+    [ "ApplicationWillTerminateDelegate", "d3/d07/class_u_platform_game_instance.html#a1f0f422057d78279ea75eb382ffa710e", null ]
+];

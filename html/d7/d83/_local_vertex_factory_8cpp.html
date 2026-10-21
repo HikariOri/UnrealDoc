@@ -1,0 +1,522 @@
+<!-- HTML header for doxygen 1.15.0-->
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh">
+<head>
+  <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=11" />
+  <meta name="generator" content="Doxygen 1.15.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>UE 5.8.4: Engine/Source/Runtime/Engine/Private/LocalVertexFactory.cpp 文件参考</title>
+  <link rel="icon" href="../../EdIconDefault.bmp" type="image/x-icon" />
+  <link href="../../tabs.css" rel="stylesheet" type="text/css" />
+  <script type="text/javascript" src="../../jquery.js"></script>
+  <script type="text/javascript" src="../../dynsections.js"></script>
+  <link href="../../navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../navtreedata.js"></script>
+<script type="text/javascript" src="../../navtree.js"></script>
+<script type="text/javascript" src="../../cookie.js"></script>
+  <link href="../../search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../search/searchdata.js"></script>
+<script type="text/javascript" src="../../search/search.js"></script>
+  <script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  extensions: ["tex2jax.js"],
+  jax: ["input/TeX","output/HTML-CSS"],
+});
+</script>
+<script type="text/javascript" async="async" src="https://cdn.jsdelivr.net/npm/mathjax@2/MathJax.js"></script>
+  <link href="../../doxygen.css" rel="stylesheet" type="text/css" />
+  <link href="../../doxygen-awesome.css" rel="stylesheet" type="text/css"/>
+<link href="../../doxygen-awesome-sidebar-only.css" rel="stylesheet" type="text/css"/>
+<link href="../../doxygen-awesome-sidebar-only-darkmode-toggle.css" rel="stylesheet" type="text/css"/>
+  <!-- ... other metadata & script includes ... -->
+  <script type="text/javascript" src="../../doxygen-awesome-darkmode-toggle.js"></script>
+  <script type="text/javascript">
+    DoxygenAwesomeDarkModeToggle.title = "Zwischen hellem/dunklem Modus wechseln"
+    DoxygenAwesomeDarkModeToggle.lightModeIcon = '🌞'
+    // icon from https://fonts.google.com/icons
+    DoxygenAwesomeDarkModeToggle.darkModeIcon = `<svg xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 24 24" height="24px" viewBox="0 0 24 24" width="24px" fill="#009793"><g><rect fill="none" height="24" width="24"/></g><g><g><path d="M8.1,14.15C9.77,14.63,11,16.17,11,18c0,0.68-0.19,1.31-0.48,1.87c0.48,0.09,0.97,0.14,1.48,0.14 c1.48,0,2.9-0.41,4.13-1.15c-2.62-0.92-5.23-2.82-6.8-5.86C7.74,9.94,7.78,7.09,8.29,4.9c-2.57,1.33-4.3,4.01-4.3,7.1c0,0,0,0,0,0 c0.01,0,0.01,0,0.02,0C5.66,12,7.18,12.83,8.1,14.15z" opacity=".3"/><path d="M19.78,17.51c-2.47,0-6.57-1.33-8.68-5.43C8.77,7.57,10.6,3.6,11.63,2.01C6.27,2.2,1.98,6.59,1.98,12 c0,0.14,0.02,0.28,0.02,0.42C2.61,12.16,3.28,12,3.98,12c0,0,0,0,0,0c0-3.09,1.73-5.77,4.3-7.1C7.78,7.09,7.74,9.94,9.32,13 c1.57,3.04,4.18,4.95,6.8,5.86c-1.23,0.74-2.65,1.15-4.13,1.15c-0.5,0-1-0.05-1.48-0.14c-0.37,0.7-0.94,1.27-1.64,1.64 c0.98,0.32,2.03,0.5,3.11,0.5c3.5,0,6.58-1.8,8.37-4.52C20.18,17.5,19.98,17.51,19.78,17.51z"/><path d="M7,16l-0.18,0C6.4,14.84,5.3,14,4,14c-1.66,0-3,1.34-3,3s1.34,3,3,3c0.62,0,2.49,0,3,0c1.1,0,2-0.9,2-2 C9,16.9,8.1,16,7,16z"/></g></g></svg>`
+    DoxygenAwesomeDarkModeToggle.init()
+  </script>
+  <script type="text/javascript" src="../../doxygen-awesome-fragment-copy-button.js"></script>
+  <script type="text/javascript">
+    DoxygenAwesomeFragmentCopyButton.title = "In die Zwischenablage kopieren"
+    // DoxygenAwesomeFragmentCopyButton.copyIcon = `<svg ...>`
+    // DoxygenAwesomeFragmentCopyButton.successIcon = `<svg ...>`
+    DoxygenAwesomeFragmentCopyButton.init()
+  </script>
+  <script type="text/javascript" src="../../doxygen-awesome-paragraph-link.js"></script>
+  <script type="text/javascript">
+    DoxygenAwesomeParagraphLink.title = "Abschnitt verknüpfen"
+    DoxygenAwesomeParagraphLink.icon = "¶"
+    DoxygenAwesomeParagraphLink.init()
+  </script>
+  <script type="text/javascript" src="../../doxygen-awesome-interactive-toc.js"></script>
+  <script type="text/javascript">
+    DoxygenAwesomeInteractiveToc.topOffset = 45
+    DoxygenAwesomeInteractiveToc.hideMobileMenu = false
+    DoxygenAwesomeInteractiveToc.init()
+  </script>
+</head>
+<body>
+    <div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+      <div id="titlearea">
+        <table cellspacing="0" cellpadding="0">
+          <tbody>
+            <tr id="projectrow">
+              <td id="projectlogo"><img alt="Logo" src="../../EdIconDefault.bmp"  /></td>
+              <td id="projectalign">
+                <div id="projectname">UE 5.8.4
+                </div>
+                <div id="projectbrief">Unreal Engine</div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <!-- end header part -->
+<!-- 制作者 Doxygen 1.15.0 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "../../search/",'.html');
+</script>
+<script type="text/javascript">
+$(function() { codefold.init(); });
+</script>
+<script type="text/javascript" src="../../menudata.js"></script>
+<script type="text/javascript" src="../../menu.js"></script>
+<script type="text/javascript">
+$(function() {
+  initMenu('../../',true,false,'search.php','搜索',true);
+  $(function() { init_search(); });
+});
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(function(){initNavTree('d7/d83/_local_vertex_factory_8cpp.html','../../',''); });
+</script>
+<div id="container">
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">载入中...</div>
+<div class="SRStatus" id="Searching">搜索中...</div>
+<div class="SRStatus" id="NoMatches">未找到</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">LocalVertexFactory.cpp 文件参考</div></div>
+</div><!--header-->
+<div class="contents">
+<div class="textblock"><code>#include &quot;<a class="el" href="../../d6/db9/_local_vertex_factory_8h_source.html">LocalVertexFactory.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d4/d05/_mesh_batch_8h_source.html">MeshBatch.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d7/d5a/_mesh_draw_shader_bindings_8h_source.html">MeshDrawShaderBindings.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d9/d77/_skeletal_render_public_8h_source.html">SkeletalRenderPublic.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d2/d98/_speed_tree_wind_8h_source.html">SpeedTreeWind.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d1/db5/_delayed_auto_register_8h_source.html">Misc/DelayedAutoRegister.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d6/dca/_color_vertex_buffer_8h_source.html">Rendering/ColorVertexBuffer.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d8/db2/_material_domain_8h_source.html">MaterialDomain.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d7/dbc/_mesh_material_shader_8h_source.html">MeshMaterialShader.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d6/dd7/_primitive_uniform_shader_parameters_8h_source.html">PrimitiveUniformShaderParameters.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d9/de4/_load_time_tracker_8h_source.html">ProfilingDebugging/LoadTimeTracker.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d6/ddf/_g_p_u_skin_cache_8h_source.html">GPUSkinCache.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d2/d23/_g_p_u_skin_vertex_factory_8h_source.html">GPUSkinVertexFactory.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../de/d01/_render_utils_8h_source.html">RenderUtils.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d0/d94/_scene_interface_8h_source.html">SceneInterface.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../df/dd7/_static_mesh_vertex_buffer_8h_source.html">Rendering/StaticMeshVertexBuffer.h</a>&quot;</code><br />
+</div><div class="textblock"><div class="dynheader">
+LocalVertexFactory.cpp 的引用(Include)关系图:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d0/db0/_local_vertex_factory_8cpp__incl.svg" width="4134" height="880"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+</div><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-nested-classes" class="groupheader"><a id="nested-classes" name="nested-classes"></a>
+类</h2></td></tr>
+<tr class="memitem:FSpeedTreeWindNullUniformBuffer" id="r_FSpeedTreeWindNullUniformBuffer"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d2b/class_f_speed_tree_wind_null_uniform_buffer.html">FSpeedTreeWindNullUniformBuffer</a></td></tr>
+<tr class="memitem:FGPUSkinPassThroughFactoryNullUniformBuffer" id="r_FGPUSkinPassThroughFactoryNullUniformBuffer"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/d37/class_f_g_p_u_skin_pass_through_factory_null_uniform_buffer.html">FGPUSkinPassThroughFactoryNullUniformBuffer</a></td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-func-members" class="groupheader"><a id="func-members" name="func-members"></a>
+函数</h2></td></tr>
+<tr class="memitem:a8e98342856af5242fa5631dc4d9eb312" id="r_a8e98342856af5242fa5631dc4d9eb312"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8e98342856af5242fa5631dc4d9eb312">IMPLEMENT_TYPE_LAYOUT</a> (<a class="el" href="../../d9/da7/class_f_local_vertex_factory_shader_parameters_base.html">FLocalVertexFactoryShaderParametersBase</a>)</td></tr>
+<tr class="memitem:a963623a83e6ca3a3266d364d618d132f" id="r_a963623a83e6ca3a3266d364d618d132f"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a963623a83e6ca3a3266d364d618d132f">IMPLEMENT_TYPE_LAYOUT</a> (<a class="el" href="../../d5/dbc/class_f_local_vertex_factory_shader_parameters.html">FLocalVertexFactoryShaderParameters</a>)</td></tr>
+<tr class="memitem:a41e99823ff6c6fd239d69d4ae73db01e" id="r_a41e99823ff6c6fd239d69d4ae73db01e"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a41e99823ff6c6fd239d69d4ae73db01e">IMPLEMENT_GLOBAL_SHADER_PARAMETER_STRUCT</a> (FLocalVertexFactoryUniformShaderParameters, &quot;LocalVF&quot;)</td></tr>
+<tr class="memitem:a743675c5ff06cd98ec90f33ee2bf2007" id="r_a743675c5ff06cd98ec90f33ee2bf2007"><td class="memItemLeft" align="right" valign="top">FLocalVertexFactoryInstanceDitherParameters&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a743675c5ff06cd98ec90f33ee2bf2007">MakeNullLocalVertexFactoryInstanceDitherParameters</a> ()</td></tr>
+<tr class="memitem:acdb6251847ce0307083e0bf3472d0050" id="r_acdb6251847ce0307083e0bf3472d0050"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../df/d63/_typed_element_query_capabilities_8inl.html#a72343342ce64c0755563ee6c5e27868d">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#acdb6251847ce0307083e0bf3472d0050">GetLocalVFUniformShaderParameters</a> (FLocalVertexFactoryUniformShaderParameters &amp;UniformParameters, const <a class="el" href="../../db/d27/class_f_local_vertex_factory.html">FLocalVertexFactory</a> *LocalVertexFactory, <a class="el" href="../../dd/de9/preprocessor_8c.html#a1134b580f8da4de94ca6b1de4d37975e">uint32</a> LODLightmapDataIndex, <a class="el" href="../../d9/db9/class_f_color_vertex_buffer.html">FColorVertexBuffer</a> *OverrideColorVertexBuffer, <a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a8dbb3cd84ca9fd010dadfc3815eefa5d">int32</a> BaseVertexIndex, <a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a8dbb3cd84ca9fd010dadfc3815eefa5d">int32</a> PreSkinBaseVertexIndex)</td></tr>
+<tr class="memitem:a0dc1582547dfbe4014cd52d58927f798" id="r_a0dc1582547dfbe4014cd52d58927f798"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d6/d09/class_t_uniform_buffer_ref.html">TUniformBufferRef</a>&lt; FLocalVertexFactoryUniformShaderParameters &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a0dc1582547dfbe4014cd52d58927f798">CreateLocalVFUniformBuffer</a> (const <a class="el" href="../../db/d27/class_f_local_vertex_factory.html">FLocalVertexFactory</a> *LocalVertexFactory, <a class="el" href="../../dd/de9/preprocessor_8c.html#a1134b580f8da4de94ca6b1de4d37975e">uint32</a> LODLightmapDataIndex, <a class="el" href="../../d9/db9/class_f_color_vertex_buffer.html">FColorVertexBuffer</a> *OverrideColorVertexBuffer, <a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a8dbb3cd84ca9fd010dadfc3815eefa5d">int32</a> BaseVertexIndex, <a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a8dbb3cd84ca9fd010dadfc3815eefa5d">int32</a> PreSkinBaseVertexIndex, const FLocalVertexFactoryInstanceDitherParameters *OptionalInstanceDitherParameters, <a class="el" href="../../da/dca/_r_h_i_definitions_8h.html#a44efee7815674a346059a25f9b3c2085">EUniformBufferUsage</a> UniformBufferUsage)</td></tr>
+<tr class="memitem:a969ae2d662069396b21578840ff6d6ee" id="r_a969ae2d662069396b21578840ff6d6ee"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a969ae2d662069396b21578840ff6d6ee">DoesPlatformUseInstancedStaticMeshVertexFactory</a> (const <a class="el" href="../../dc/d1d/struct_f_static_shader_platform.html">FStaticShaderPlatform</a> ShaderPlatform)</td></tr>
+<tr class="memitem:a712460591b2e64aa522abb012433ad10" id="r_a712460591b2e64aa522abb012433ad10"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../df/d63/_typed_element_query_capabilities_8inl.html#a72343342ce64c0755563ee6c5e27868d">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a712460591b2e64aa522abb012433ad10">AddStaticMeshTextureCoordinateElements</a> (<a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a8dbb3cd84ca9fd010dadfc3815eefa5d">int32</a> BaseTexCoordAttribute, const <a class="el" href="../../d2/ddb/class_t_array_view.html">TArrayView</a>&lt; <a class="el" href="../../dc/dd1/struct_f_vertex_stream_component.html">FVertexStreamComponent</a> &gt; &amp;TextureCoordinates, <a class="el" href="../../d5/dfb/_r_h_i_8h.html#a02c38c526c2bf3dbb51b51289c987d76">FVertexDeclarationElementList</a> &amp;Elements, <a class="el" href="../../db/d71/class_f_vertex_factory.html#a1869c42d1bb49da18b2525bbc2dc9d6d">FVertexFactory::FVertexStreamList</a> &amp;InOutStreams)</td></tr>
+<tr class="memitem:ac3772ed56b25e98f534516687165c33e" id="r_ac3772ed56b25e98f534516687165c33e"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac3772ed56b25e98f534516687165c33e">IMPLEMENT_VERTEX_FACTORY_PARAMETER_TYPE</a> (<a class="el" href="../../db/d27/class_f_local_vertex_factory.html">FLocalVertexFactory</a>, <a class="el" href="../../da/dca/_r_h_i_definitions_8h.html#a0a3cc83cb6ebc79b66b43fae3ffee64ea57b843d1079d918ef496ded337a171d2">SF_Vertex</a>, <a class="el" href="../../d5/dbc/class_f_local_vertex_factory_shader_parameters.html">FLocalVertexFactoryShaderParameters</a>)</td></tr>
+<tr class="memitem:a945c7e8d59730f58bda70a266ed44acd" id="r_a945c7e8d59730f58bda70a266ed44acd"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a945c7e8d59730f58bda70a266ed44acd">IMPLEMENT_VERTEX_FACTORY_TYPE</a> (<a class="el" href="../../db/d27/class_f_local_vertex_factory.html">FLocalVertexFactory</a>,&quot;/Engine/<a class="el" href="../../d9/db1/namespace_private.html">Private</a>/LocalVertexFactory.ush&quot;, <a class="el" href="../../d5/d36/_vertex_factory_8h.html#a90ff84cf590831bdd1a9c8cccf4399c5aeb69c6b2df2ded2bb67d7b221c8c2cc2">EVertexFactoryFlags::UsedWithMaterials</a>|<a class="el" href="../../d5/d36/_vertex_factory_8h.html#a90ff84cf590831bdd1a9c8cccf4399c5ac13444505c5eb940d5cb001843e5113e">EVertexFactoryFlags::SupportsStaticLighting</a>|<a class="el" href="../../d5/d36/_vertex_factory_8h.html#a90ff84cf590831bdd1a9c8cccf4399c5a4c28412b1100aeb7b1e60371e2c060c2">EVertexFactoryFlags::SupportsDynamicLighting</a>|<a class="el" href="../../d5/d36/_vertex_factory_8h.html#a90ff84cf590831bdd1a9c8cccf4399c5a5e3042306c543d001b6e1ac6ccef1db0">EVertexFactoryFlags::SupportsPrecisePrevWorldPos</a>|<a class="el" href="../../d5/d36/_vertex_factory_8h.html#a90ff84cf590831bdd1a9c8cccf4399c5a9d11d7568c75657954b3b33b51e78158">EVertexFactoryFlags::SupportsPositionOnly</a>|<a class="el" href="../../d5/d36/_vertex_factory_8h.html#a90ff84cf590831bdd1a9c8cccf4399c5a4c3b7e8b24ea7a25d908e1b5b2dca00e">EVertexFactoryFlags::SupportsCachingMeshDrawCommands</a>|<a class="el" href="../../d5/d36/_vertex_factory_8h.html#a90ff84cf590831bdd1a9c8cccf4399c5af539c48fb29362f7bded3df11d3201e5">EVertexFactoryFlags::SupportsPrimitiveIdStream</a>|<a class="el" href="../../d5/d36/_vertex_factory_8h.html#a90ff84cf590831bdd1a9c8cccf4399c5ae6b976d000f173362a2818fa59f0f00d">EVertexFactoryFlags::SupportsRayTracing</a>|<a class="el" href="../../d5/d36/_vertex_factory_8h.html#a90ff84cf590831bdd1a9c8cccf4399c5a6b206e2bf77836ece4a9d5d25d1d473a">EVertexFactoryFlags::SupportsRayTracingDynamicGeometry</a>|<a class="el" href="../../d5/d36/_vertex_factory_8h.html#a90ff84cf590831bdd1a9c8cccf4399c5a460a30339325d1ad7a491ce616d27276">EVertexFactoryFlags::SupportsLightmapBaking</a>|<a class="el" href="../../d5/d36/_vertex_factory_8h.html#a90ff84cf590831bdd1a9c8cccf4399c5abad3db38903096ed907c69c4685f425f">EVertexFactoryFlags::SupportsManualVertexFetch</a>|<a class="el" href="../../d5/d36/_vertex_factory_8h.html#a90ff84cf590831bdd1a9c8cccf4399c5a3cb55ebb1a87832ef147328ffa47fe23">EVertexFactoryFlags::SupportsPSOPrecaching</a>|<a class="el" href="../../d5/d36/_vertex_factory_8h.html#a90ff84cf590831bdd1a9c8cccf4399c5a22364090d08096794977a9e997b5a842">EVertexFactoryFlags::SupportsGPUSkinPassThrough</a>|<a class="el" href="../../d5/d36/_vertex_factory_8h.html#a90ff84cf590831bdd1a9c8cccf4399c5aedc39abfc0c19522973c65ec30dc7b06">EVertexFactoryFlags::SupportsLumenMeshCards</a>|<a class="el" href="../../d5/d36/_vertex_factory_8h.html#a90ff84cf590831bdd1a9c8cccf4399c5ac60c089e2a0d97b82b1b83dcf8cadaa4">EVertexFactoryFlags::SupportsTriangleSorting</a>)</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-var-members" class="groupheader"><a id="var-members" name="var-members"></a>
+变量</h2></td></tr>
+<tr class="memitem:ab4929737f5d3912575af2a27d74137be" id="r_ab4929737f5d3912575af2a27d74137be"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d5/d78/class_t_auto_console_variable.html">TAutoConsoleVariable</a>&lt; <a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a8dbb3cd84ca9fd010dadfc3815eefa5d">int32</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab4929737f5d3912575af2a27d74137be">CVarIgnoreLVFUsageMode</a> (<a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;r.Material.IgnoreLVFUsageMode&quot;), 0, <a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;Setting to adjust how UsedWithStaticMesh material flag is interpreted.\n&quot;), <a class="el" href="../../d4/dd9/_i_console_manager_8h.html#a7f594f23c2b2c5687f1a502ebb3ba105ae46c8f2e23889626e29de22874c4cf1d">ECVF_ReadOnly</a>)</td></tr>
+<tr class="memitem:a8596ed44e77570769090962ce98cf1af" id="r_a8596ed44e77570769090962ce98cf1af"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d2/d79/class_f_auto_console_variable_ref.html">FAutoConsoleVariableRef</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8596ed44e77570769090962ce98cf1af">CVarUseInstancedStaticMeshVertexFactory</a> (<a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;r.InstancedStaticMeshes.UseInstancedStaticMeshVertexFactory&quot;), GUseInstancedStaticMeshVertexFactory, <a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;  When disabled some platforms - notably those without full GPU scene - will still enable the separate ISM VF.&quot;), <a class="el" href="../../d4/dd9/_i_console_manager_8h.html#a7f594f23c2b2c5687f1a502ebb3ba105ae46c8f2e23889626e29de22874c4cf1d">ECVF_ReadOnly</a>)</td></tr>
+</table>
+<a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">函数说明</h2>
+<a id="a712460591b2e64aa522abb012433ad10" name="a712460591b2e64aa522abb012433ad10"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a712460591b2e64aa522abb012433ad10">&#9670;&#160;</a></span>AddStaticMeshTextureCoordinateElements()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../df/d63/_typed_element_query_capabilities_8inl.html#a72343342ce64c0755563ee6c5e27868d">void</a> AddStaticMeshTextureCoordinateElements </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a8dbb3cd84ca9fd010dadfc3815eefa5d">int32</a></td>          <td class="paramname"><span class="paramname"><em>BaseTexCoordAttribute</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="../../d2/ddb/class_t_array_view.html">TArrayView</a>&lt; <a class="el" href="../../dc/dd1/struct_f_vertex_stream_component.html">FVertexStreamComponent</a> &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>TextureCoordinates</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d5/dfb/_r_h_i_8h.html#a02c38c526c2bf3dbb51b51289c987d76">FVertexDeclarationElementList</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>Elements</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../db/d71/class_f_vertex_factory.html#a1869c42d1bb49da18b2525bbc2dc9d6d">FVertexFactory::FVertexStreamList</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>InOutStreams</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a0dc1582547dfbe4014cd52d58927f798" name="a0dc1582547dfbe4014cd52d58927f798"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0dc1582547dfbe4014cd52d58927f798">&#9670;&#160;</a></span>CreateLocalVFUniformBuffer()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d6/d09/class_t_uniform_buffer_ref.html">TUniformBufferRef</a>&lt; FLocalVertexFactoryUniformShaderParameters &gt; CreateLocalVFUniformBuffer </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="../../db/d27/class_f_local_vertex_factory.html">FLocalVertexFactory</a> *</td>          <td class="paramname"><span class="paramname"><em>LocalVertexFactory</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../dd/de9/preprocessor_8c.html#a1134b580f8da4de94ca6b1de4d37975e">uint32</a></td>          <td class="paramname"><span class="paramname"><em>LODLightmapDataIndex</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d9/db9/class_f_color_vertex_buffer.html">FColorVertexBuffer</a> *</td>          <td class="paramname"><span class="paramname"><em>OverrideColorVertexBuffer</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a8dbb3cd84ca9fd010dadfc3815eefa5d">int32</a></td>          <td class="paramname"><span class="paramname"><em>BaseVertexIndex</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a8dbb3cd84ca9fd010dadfc3815eefa5d">int32</a></td>          <td class="paramname"><span class="paramname"><em>PreSkinBaseVertexIndex</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const FLocalVertexFactoryInstanceDitherParameters *</td>          <td class="paramname"><span class="paramname"><em>OptionalInstanceDitherParameters</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../da/dca/_r_h_i_definitions_8h.html#a44efee7815674a346059a25f9b3c2085">EUniformBufferUsage</a></td>          <td class="paramname"><span class="paramname"><em>UniformBufferUsage</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a969ae2d662069396b21578840ff6d6ee" name="a969ae2d662069396b21578840ff6d6ee"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a969ae2d662069396b21578840ff6d6ee">&#9670;&#160;</a></span>DoesPlatformUseInstancedStaticMeshVertexFactory()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a> DoesPlatformUseInstancedStaticMeshVertexFactory </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="../../dc/d1d/struct_f_static_shader_platform.html">FStaticShaderPlatform</a></td>          <td class="paramname"><span class="paramname"><em>ShaderPlatform</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="acdb6251847ce0307083e0bf3472d0050" name="acdb6251847ce0307083e0bf3472d0050"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acdb6251847ce0307083e0bf3472d0050">&#9670;&#160;</a></span>GetLocalVFUniformShaderParameters()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../df/d63/_typed_element_query_capabilities_8inl.html#a72343342ce64c0755563ee6c5e27868d">void</a> GetLocalVFUniformShaderParameters </td>
+          <td>(</td>
+          <td class="paramtype">FLocalVertexFactoryUniformShaderParameters &amp;</td>          <td class="paramname"><span class="paramname"><em>UniformParameters</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="../../db/d27/class_f_local_vertex_factory.html">FLocalVertexFactory</a> *</td>          <td class="paramname"><span class="paramname"><em>LocalVertexFactory</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../dd/de9/preprocessor_8c.html#a1134b580f8da4de94ca6b1de4d37975e">uint32</a></td>          <td class="paramname"><span class="paramname"><em>LODLightmapDataIndex</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d9/db9/class_f_color_vertex_buffer.html">FColorVertexBuffer</a> *</td>          <td class="paramname"><span class="paramname"><em>OverrideColorVertexBuffer</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a8dbb3cd84ca9fd010dadfc3815eefa5d">int32</a></td>          <td class="paramname"><span class="paramname"><em>BaseVertexIndex</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a8dbb3cd84ca9fd010dadfc3815eefa5d">int32</a></td>          <td class="paramname"><span class="paramname"><em>PreSkinBaseVertexIndex</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a41e99823ff6c6fd239d69d4ae73db01e" name="a41e99823ff6c6fd239d69d4ae73db01e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a41e99823ff6c6fd239d69d4ae73db01e">&#9670;&#160;</a></span>IMPLEMENT_GLOBAL_SHADER_PARAMETER_STRUCT()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">IMPLEMENT_GLOBAL_SHADER_PARAMETER_STRUCT </td>
+          <td>(</td>
+          <td class="paramtype">FLocalVertexFactoryUniformShaderParameters</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&quot;LocalVF&quot;</td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a963623a83e6ca3a3266d364d618d132f" name="a963623a83e6ca3a3266d364d618d132f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a963623a83e6ca3a3266d364d618d132f">&#9670;&#160;</a></span>IMPLEMENT_TYPE_LAYOUT() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">IMPLEMENT_TYPE_LAYOUT </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d5/dbc/class_f_local_vertex_factory_shader_parameters.html">FLocalVertexFactoryShaderParameters</a></td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a8e98342856af5242fa5631dc4d9eb312" name="a8e98342856af5242fa5631dc4d9eb312"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8e98342856af5242fa5631dc4d9eb312">&#9670;&#160;</a></span>IMPLEMENT_TYPE_LAYOUT() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">IMPLEMENT_TYPE_LAYOUT </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d9/da7/class_f_local_vertex_factory_shader_parameters_base.html">FLocalVertexFactoryShaderParametersBase</a></td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ac3772ed56b25e98f534516687165c33e" name="ac3772ed56b25e98f534516687165c33e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac3772ed56b25e98f534516687165c33e">&#9670;&#160;</a></span>IMPLEMENT_VERTEX_FACTORY_PARAMETER_TYPE()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">IMPLEMENT_VERTEX_FACTORY_PARAMETER_TYPE </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../db/d27/class_f_local_vertex_factory.html">FLocalVertexFactory</a></td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../da/dca/_r_h_i_definitions_8h.html#a0a3cc83cb6ebc79b66b43fae3ffee64ea57b843d1079d918ef496ded337a171d2">SF_Vertex</a></td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d5/dbc/class_f_local_vertex_factory_shader_parameters.html">FLocalVertexFactoryShaderParameters</a></td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a945c7e8d59730f58bda70a266ed44acd" name="a945c7e8d59730f58bda70a266ed44acd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a945c7e8d59730f58bda70a266ed44acd">&#9670;&#160;</a></span>IMPLEMENT_VERTEX_FACTORY_TYPE()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">IMPLEMENT_VERTEX_FACTORY_TYPE </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../db/d27/class_f_local_vertex_factory.html">FLocalVertexFactory</a></td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&quot;/Engine/<a class="el" href="../../d9/db1/namespace_private.html">Private</a>/LocalVertexFactory.ush&quot;</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d5/d36/_vertex_factory_8h.html#a90ff84cf590831bdd1a9c8cccf4399c5aeb69c6b2df2ded2bb67d7b221c8c2cc2">EVertexFactoryFlags::UsedWithMaterials</a>|<a class="el" href="../../d5/d36/_vertex_factory_8h.html#a90ff84cf590831bdd1a9c8cccf4399c5ac13444505c5eb940d5cb001843e5113e">EVertexFactoryFlags::SupportsStaticLighting</a>|<a class="el" href="../../d5/d36/_vertex_factory_8h.html#a90ff84cf590831bdd1a9c8cccf4399c5a4c28412b1100aeb7b1e60371e2c060c2">EVertexFactoryFlags::SupportsDynamicLighting</a>|<a class="el" href="../../d5/d36/_vertex_factory_8h.html#a90ff84cf590831bdd1a9c8cccf4399c5a5e3042306c543d001b6e1ac6ccef1db0">EVertexFactoryFlags::SupportsPrecisePrevWorldPos</a>|<a class="el" href="../../d5/d36/_vertex_factory_8h.html#a90ff84cf590831bdd1a9c8cccf4399c5a9d11d7568c75657954b3b33b51e78158">EVertexFactoryFlags::SupportsPositionOnly</a>|<a class="el" href="../../d5/d36/_vertex_factory_8h.html#a90ff84cf590831bdd1a9c8cccf4399c5a4c3b7e8b24ea7a25d908e1b5b2dca00e">EVertexFactoryFlags::SupportsCachingMeshDrawCommands</a>|<a class="el" href="../../d5/d36/_vertex_factory_8h.html#a90ff84cf590831bdd1a9c8cccf4399c5af539c48fb29362f7bded3df11d3201e5">EVertexFactoryFlags::SupportsPrimitiveIdStream</a>|<a class="el" href="../../d5/d36/_vertex_factory_8h.html#a90ff84cf590831bdd1a9c8cccf4399c5ae6b976d000f173362a2818fa59f0f00d">EVertexFactoryFlags::SupportsRayTracing</a>|<a class="el" href="../../d5/d36/_vertex_factory_8h.html#a90ff84cf590831bdd1a9c8cccf4399c5a6b206e2bf77836ece4a9d5d25d1d473a">EVertexFactoryFlags::SupportsRayTracingDynamicGeometry</a>|<a class="el" href="../../d5/d36/_vertex_factory_8h.html#a90ff84cf590831bdd1a9c8cccf4399c5a460a30339325d1ad7a491ce616d27276">EVertexFactoryFlags::SupportsLightmapBaking</a>|<a class="el" href="../../d5/d36/_vertex_factory_8h.html#a90ff84cf590831bdd1a9c8cccf4399c5abad3db38903096ed907c69c4685f425f">EVertexFactoryFlags::SupportsManualVertexFetch</a>|<a class="el" href="../../d5/d36/_vertex_factory_8h.html#a90ff84cf590831bdd1a9c8cccf4399c5a3cb55ebb1a87832ef147328ffa47fe23">EVertexFactoryFlags::SupportsPSOPrecaching</a>|<a class="el" href="../../d5/d36/_vertex_factory_8h.html#a90ff84cf590831bdd1a9c8cccf4399c5a22364090d08096794977a9e997b5a842">EVertexFactoryFlags::SupportsGPUSkinPassThrough</a>|<a class="el" href="../../d5/d36/_vertex_factory_8h.html#a90ff84cf590831bdd1a9c8cccf4399c5aedc39abfc0c19522973c65ec30dc7b06">EVertexFactoryFlags::SupportsLumenMeshCards</a>|<a class="el" href="../../d5/d36/_vertex_factory_8h.html#a90ff84cf590831bdd1a9c8cccf4399c5ac60c089e2a0d97b82b1b83dcf8cadaa4">EVertexFactoryFlags::SupportsTriangleSorting</a></td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a743675c5ff06cd98ec90f33ee2bf2007" name="a743675c5ff06cd98ec90f33ee2bf2007"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a743675c5ff06cd98ec90f33ee2bf2007">&#9670;&#160;</a></span>MakeNullLocalVertexFactoryInstanceDitherParameters()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">FLocalVertexFactoryInstanceDitherParameters MakeNullLocalVertexFactoryInstanceDitherParameters </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a name="doc-var-members" id="doc-var-members"></a><h2 id="header-doc-var-members" class="groupheader">变量说明</h2>
+<a id="ab4929737f5d3912575af2a27d74137be" name="ab4929737f5d3912575af2a27d74137be"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab4929737f5d3912575af2a27d74137be">&#9670;&#160;</a></span>CVarIgnoreLVFUsageMode</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d5/d78/class_t_auto_console_variable.html">TAutoConsoleVariable</a>&lt; <a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a8dbb3cd84ca9fd010dadfc3815eefa5d">int32</a> &gt; CVarIgnoreLVFUsageMode(<a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;r.Material.IgnoreLVFUsageMode&quot;), 0, <a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;Setting to adjust how UsedWithStaticMesh material flag is interpreted.\n&quot;), <a class="el" href="../../d4/dd9/_i_console_manager_8h.html#a7f594f23c2b2c5687f1a502ebb3ba105ae46c8f2e23889626e29de22874c4cf1d">ECVF_ReadOnly</a>) </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;r.Material.IgnoreLVFUsageMode&quot;)</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">0</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;Setting to adjust how UsedWithStaticMesh material flag is interpreted.\n&quot;)</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d4/dd9/_i_console_manager_8h.html#a7f594f23c2b2c5687f1a502ebb3ba105ae46c8f2e23889626e29de22874c4cf1d">ECVF_ReadOnly</a></td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a8596ed44e77570769090962ce98cf1af" name="a8596ed44e77570769090962ce98cf1af"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8596ed44e77570769090962ce98cf1af">&#9670;&#160;</a></span>CVarUseInstancedStaticMeshVertexFactory</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d2/d79/class_f_auto_console_variable_ref.html">FAutoConsoleVariableRef</a> CVarUseInstancedStaticMeshVertexFactory(<a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;r.InstancedStaticMeshes.UseInstancedStaticMeshVertexFactory&quot;), GUseInstancedStaticMeshVertexFactory, <a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;  When disabled some platforms - notably those without full GPU scene - will still enable the separate ISM VF.&quot;), <a class="el" href="../../d4/dd9/_i_console_manager_8h.html#a7f594f23c2b2c5687f1a502ebb3ba105ae46c8f2e23889626e29de22874c4cf1d">ECVF_ReadOnly</a>) </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;r.InstancedStaticMeshes.UseInstancedStaticMeshVertexFactory&quot;)</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">GUseInstancedStaticMeshVertexFactory</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;  When disabled some platforms - notably those without full GPU scene - will still enable the separate ISM VF.&quot;)</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d4/dd9/_i_console_manager_8h.html#a7f594f23c2b2c5687f1a502ebb3ba105ae46c8f2e23889626e29de22874c4cf1d">ECVF_ReadOnly</a></td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<div id="page-nav" class="page-nav-panel">
+<div id="page-nav-resize-handle"></div>
+<div id="page-nav-tree">
+<div id="page-nav-contents">
+</div><!-- page-nav-contents -->
+</div><!-- page-nav-tree -->
+</div><!-- page-nav -->
+</div><!-- container -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a href="../../dir_0b6ee6e7e9547e675db4add2e5de97da.html">Engine</a></li><li class="navelem"><a href="../../dir_9579d1ecb2c7bf48cbe1049c41745cb4.html">Source</a></li><li class="navelem"><a href="../../dir_9f04efef762572853abdf73f62bebfcc.html">Runtime</a></li><li class="navelem"><a href="../../dir_750344885b5b0dabc1066bd532c992d7.html">Engine</a></li><li class="navelem"><a href="../../dir_0f80cfe80f66a90345f34a7a0d31ead6.html">Private</a></li><li class="navelem"><a href="../../d7/d83/_local_vertex_factory_8cpp.html">LocalVertexFactory.cpp</a></li>
+    <li class="footer">制作者 <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.15.0 </li>
+  </ul>
+</div>
+</body>
+</html>

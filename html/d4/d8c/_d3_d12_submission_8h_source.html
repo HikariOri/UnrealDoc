@@ -1,0 +1,654 @@
+<!-- HTML header for doxygen 1.15.0-->
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh">
+<head>
+  <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=11" />
+  <meta name="generator" content="Doxygen 1.15.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>UE 5.8.4: Engine/Source/Runtime/D3D12RHI/Private/D3D12Submission.h 源文件</title>
+  <link rel="icon" href="../../EdIconDefault.bmp" type="image/x-icon" />
+  <link href="../../tabs.css" rel="stylesheet" type="text/css" />
+  <script type="text/javascript" src="../../jquery.js"></script>
+  <script type="text/javascript" src="../../dynsections.js"></script>
+  <link href="../../navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../navtreedata.js"></script>
+<script type="text/javascript" src="../../navtree.js"></script>
+<script type="text/javascript" src="../../cookie.js"></script>
+  <link href="../../search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../search/searchdata.js"></script>
+<script type="text/javascript" src="../../search/search.js"></script>
+  <link href="../../doxygen.css" rel="stylesheet" type="text/css" />
+  <link href="../../doxygen-awesome.css" rel="stylesheet" type="text/css"/>
+<link href="../../doxygen-awesome-sidebar-only.css" rel="stylesheet" type="text/css"/>
+<link href="../../doxygen-awesome-sidebar-only-darkmode-toggle.css" rel="stylesheet" type="text/css"/>
+  <!-- ... other metadata & script includes ... -->
+  <script type="text/javascript" src="../../doxygen-awesome-darkmode-toggle.js"></script>
+  <script type="text/javascript">
+    DoxygenAwesomeDarkModeToggle.title = "Zwischen hellem/dunklem Modus wechseln"
+    DoxygenAwesomeDarkModeToggle.lightModeIcon = '🌞'
+    // icon from https://fonts.google.com/icons
+    DoxygenAwesomeDarkModeToggle.darkModeIcon = `<svg xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 24 24" height="24px" viewBox="0 0 24 24" width="24px" fill="#009793"><g><rect fill="none" height="24" width="24"/></g><g><g><path d="M8.1,14.15C9.77,14.63,11,16.17,11,18c0,0.68-0.19,1.31-0.48,1.87c0.48,0.09,0.97,0.14,1.48,0.14 c1.48,0,2.9-0.41,4.13-1.15c-2.62-0.92-5.23-2.82-6.8-5.86C7.74,9.94,7.78,7.09,8.29,4.9c-2.57,1.33-4.3,4.01-4.3,7.1c0,0,0,0,0,0 c0.01,0,0.01,0,0.02,0C5.66,12,7.18,12.83,8.1,14.15z" opacity=".3"/><path d="M19.78,17.51c-2.47,0-6.57-1.33-8.68-5.43C8.77,7.57,10.6,3.6,11.63,2.01C6.27,2.2,1.98,6.59,1.98,12 c0,0.14,0.02,0.28,0.02,0.42C2.61,12.16,3.28,12,3.98,12c0,0,0,0,0,0c0-3.09,1.73-5.77,4.3-7.1C7.78,7.09,7.74,9.94,9.32,13 c1.57,3.04,4.18,4.95,6.8,5.86c-1.23,0.74-2.65,1.15-4.13,1.15c-0.5,0-1-0.05-1.48-0.14c-0.37,0.7-0.94,1.27-1.64,1.64 c0.98,0.32,2.03,0.5,3.11,0.5c3.5,0,6.58-1.8,8.37-4.52C20.18,17.5,19.98,17.51,19.78,17.51z"/><path d="M7,16l-0.18,0C6.4,14.84,5.3,14,4,14c-1.66,0-3,1.34-3,3s1.34,3,3,3c0.62,0,2.49,0,3,0c1.1,0,2-0.9,2-2 C9,16.9,8.1,16,7,16z"/></g></g></svg>`
+    DoxygenAwesomeDarkModeToggle.init()
+  </script>
+  <script type="text/javascript" src="../../doxygen-awesome-fragment-copy-button.js"></script>
+  <script type="text/javascript">
+    DoxygenAwesomeFragmentCopyButton.title = "In die Zwischenablage kopieren"
+    // DoxygenAwesomeFragmentCopyButton.copyIcon = `<svg ...>`
+    // DoxygenAwesomeFragmentCopyButton.successIcon = `<svg ...>`
+    DoxygenAwesomeFragmentCopyButton.init()
+  </script>
+  <script type="text/javascript" src="../../doxygen-awesome-paragraph-link.js"></script>
+  <script type="text/javascript">
+    DoxygenAwesomeParagraphLink.title = "Abschnitt verknüpfen"
+    DoxygenAwesomeParagraphLink.icon = "¶"
+    DoxygenAwesomeParagraphLink.init()
+  </script>
+  <script type="text/javascript" src="../../doxygen-awesome-interactive-toc.js"></script>
+  <script type="text/javascript">
+    DoxygenAwesomeInteractiveToc.topOffset = 45
+    DoxygenAwesomeInteractiveToc.hideMobileMenu = false
+    DoxygenAwesomeInteractiveToc.init()
+  </script>
+</head>
+<body>
+    <div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+      <div id="titlearea">
+        <table cellspacing="0" cellpadding="0">
+          <tbody>
+            <tr id="projectrow">
+              <td id="projectlogo"><img alt="Logo" src="../../EdIconDefault.bmp"  /></td>
+              <td id="projectalign">
+                <div id="projectname">UE 5.8.4
+                </div>
+                <div id="projectbrief">Unreal Engine</div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <!-- end header part -->
+<!-- 制作者 Doxygen 1.15.0 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "../../search/",'.html');
+</script>
+<script type="text/javascript">
+$(function() { codefold.init(); });
+</script>
+<script type="text/javascript" src="../../menudata.js"></script>
+<script type="text/javascript" src="../../menu.js"></script>
+<script type="text/javascript">
+$(function() {
+  initMenu('../../',true,false,'search.php','搜索',true);
+  $(function() { init_search(); });
+});
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(function(){initNavTree('d4/d8c/_d3_d12_submission_8h_source.html','../../',''); });
+</script>
+<div id="container">
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">载入中...</div>
+<div class="SRStatus" id="Searching">搜索中...</div>
+<div class="SRStatus" id="NoMatches">未找到</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">D3D12Submission.h</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="../../d4/d8c/_d3_d12_submission_8h.html">浏览该文件的文档.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="comment">// Copyright Epic Games, Inc. All Rights Reserved.</span></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span> </div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="preprocessor">#pragma once</span></div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span> </div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="preprocessor">#include &quot;<a class="code" href="../../dd/d24/_task_graph_interfaces_8h.html">Async/TaskGraphInterfaces.h</a>&quot;</span></div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="preprocessor">#include &quot;<a class="code" href="../../d7/d2a/_d3_d12_bindless_descriptors_8h.html">D3D12BindlessDescriptors.h</a>&quot;</span></div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="preprocessor">#include &quot;<a class="code" href="../../d4/df2/_d3_d12_query_8h.html">D3D12Query.h</a>&quot;</span></div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="preprocessor">#include &quot;<a class="code" href="../../d6/dd6/_d3_d12_queue_8h.html">D3D12Queue.h</a>&quot;</span></div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="preprocessor">#include &quot;<a class="code" href="../../d7/d2e/_d3_d12_r_h_i_common_8h.html">D3D12RHICommon.h</a>&quot;</span></div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="preprocessor">#include &quot;<a class="code" href="../../da/da2/_core_2_public_2_templates_2_function_8h.html">Templates/Function.h</a>&quot;</span></div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="preprocessor">#include &quot;<a class="code" href="../../d3/d13/_ref_counting_8h.html">Templates/RefCounting.h</a>&quot;</span></div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="preprocessor">#include &quot;<a class="code" href="../../da/db9/_r_h_i_breadcrumbs_8h.html">RHIBreadcrumbs.h</a>&quot;</span></div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="preprocessor">#include &quot;<a class="code" href="../../df/ddd/_g_p_u_profiler_8h.html">GPUProfiler.h</a>&quot;</span></div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span> </div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span><span class="keyword">enum class</span> <a class="code hl_enumeration" href="../../d6/dd6/_d3_d12_queue_8h.html#ac3690361fe491f309cb9dbba3be17899">ED3D12QueueType</a>;</div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span> </div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span><span class="keyword">class </span><a class="code hl_class" href="../../d7/dc0/class_f_d3_d12_command_allocator.html">FD3D12CommandAllocator</a>;</div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span><span class="keyword">class </span><a class="code hl_class" href="../../d5/d3e/class_f_d3_d12_command_list.html">FD3D12CommandList</a>;</div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span><span class="keyword">class </span><a class="code hl_class" href="../../d3/d95/class_f_d3_d12_dynamic_r_h_i.html">FD3D12DynamicRHI</a>;</div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span><span class="keyword">class </span><a class="code hl_class" href="../../d7/dea/class_f_d3_d12_query_heap.html">FD3D12QueryHeap</a>;</div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span><span class="keyword">class </span><a class="code hl_class" href="../../df/d45/class_f_d3_d12_queue.html">FD3D12Queue</a>;</div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span><span class="keyword">class </span><a class="code hl_class" href="../../da/d46/class_f_d3_d12_timing.html">FD3D12Timing</a>;</div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span><span class="keyword">class </span><a class="code hl_class" href="../../d5/d14/class_f_d3_d12_buffer.html">FD3D12Buffer</a>;</div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span><span class="keyword">class </span><a class="code hl_class" href="../../d7/d81/class_f_d3_d12_resource.html">FD3D12Resource</a>;</div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span><span class="keyword">class </span><a class="code hl_class" href="../../d3/d1d/class_f_d3_d12_viewport.html">FD3D12Viewport</a>;</div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span> </div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span><span class="keyword">class </span><a class="code hl_class" href="../../d7/d30/class_f_d3_d12_sync_point.html">FD3D12SyncPoint</a>;</div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno"><a class="line" href="../../d4/d8c/_d3_d12_submission_8h.html#adbb2f662e14f16511f1a596f70c6141a">   28</a></span><span class="keyword">using </span><a class="code hl_typedef" href="../../d1/d3d/_d3_d12_descriptor_cache_8h.html#adbb2f662e14f16511f1a596f70c6141a">FD3D12SyncPointRef</a> = <a class="code hl_class" href="../../d7/d10/class_t_ref_count_ptr.html">TRefCountPtr&lt;FD3D12SyncPoint&gt;</a>;</div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span> </div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span><span class="comment">// Helper macro to create a static FName from a string literal, avoiding repeated FName construction.</span></div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno"><a class="line" href="../../d4/d8c/_d3_d12_submission_8h.html#aeb4f7c6dd48c2e993e99016ac25c59e4">   31</a></span><span class="preprocessor">#define UE_D3D12_STATIC_FNAME(String) (([]() -&gt; const FName&amp; { static const FName Name(TEXT(String)); return Name; })())</span></div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span> </div>
+<div class="foldopen" id="foldopen00033" data-start="{" data-end="};">
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno"><a class="line" href="../../d4/d8c/_d3_d12_submission_8h.html#aba37fe0da83e0434eae3e3822907203c">   33</a></span><span class="keyword">enum class</span> <a class="code hl_enumeration" href="../../d4/d8c/_d3_d12_submission_8h.html#aba37fe0da83e0434eae3e3822907203c">ED3D12SyncPointType</a></div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>{</div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>    <span class="comment">// Sync points of this type do not include an FGraphEvent, so cannot</span></div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>    <span class="comment">// report completion to the CPU (via either IsComplete() or Wait())</span></div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno"><a class="line" href="../../d4/d8c/_d3_d12_submission_8h.html#aba37fe0da83e0434eae3e3822907203ca9926354d7edfc0d51ec9d308f084b9bd">   37</a></span>    <a class="code hl_enumvalue" href="../../d4/d8c/_d3_d12_submission_8h.html#aba37fe0da83e0434eae3e3822907203ca9926354d7edfc0d51ec9d308f084b9bd">GPUOnly</a>,</div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span> </div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>    <span class="comment">// Sync points of this type include an FGraphEvent. The IsComplete() and Wait() functions</span></div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>    <span class="comment">// can be used to poll for completion from the CPU, or block the CPU, respectively.</span></div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno"><a class="line" href="../../d4/d8c/_d3_d12_submission_8h.html#aba37fe0da83e0434eae3e3822907203ca848312663120391333919c25c4f8bc98">   41</a></span>    <a class="code hl_enumvalue" href="../../d4/d8c/_d3_d12_submission_8h.html#aba37fe0da83e0434eae3e3822907203ca848312663120391333919c25c4f8bc98">GPUAndCPU</a>,</div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>};</div>
+</div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span> </div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span><span class="comment">// Fence type used by the device queues to manage GPU completion</span></div>
+<div class="foldopen" id="foldopen00045" data-start="{" data-end="};">
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno"><a class="line" href="../../d8/db0/struct_f_d3_d12_fence.html">   45</a></span><span class="keyword">struct </span><a class="code hl_function" href="../../d8/db0/struct_f_d3_d12_fence.html#a39a5810da24b8b2a44d46c587deba63b">FD3D12Fence</a></div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>{</div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno"><a class="line" href="../../d8/db0/struct_f_d3_d12_fence.html#ac5c66b491f163e2dd05ce9987deb890e">   47</a></span>    <a class="code hl_class" href="../../df/d45/class_f_d3_d12_queue.html">FD3D12Queue</a>* <span class="keyword">const</span> <a class="code hl_variable" href="../../d8/db0/struct_f_d3_d12_fence.html#ac5c66b491f163e2dd05ce9987deb890e">OwnerQueue</a>;</div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno"><a class="line" href="../../d8/db0/struct_f_d3_d12_fence.html#a2a48dbcbd392d835f79a221eea62d2d6">   48</a></span>    <a class="code hl_class" href="../../d7/d10/class_t_ref_count_ptr.html">TRefCountPtr&lt;ID3D12Fence&gt;</a> <a class="code hl_variable" href="../../d8/db0/struct_f_d3_d12_fence.html#a2a48dbcbd392d835f79a221eea62d2d6">D3DFence</a>;</div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno"><a class="line" href="../../d8/db0/struct_f_d3_d12_fence.html#a69df8c29fd17a1d4e52b4fc679f4ac92">   49</a></span>    <a class="code hl_typedef" href="../../dd/de9/preprocessor_8c.html#abc0f5bc07737e498f287334775dff2b6">uint64</a> <a class="code hl_variable" href="../../d8/db0/struct_f_d3_d12_fence.html#a69df8c29fd17a1d4e52b4fc679f4ac92">NextCompletionValue</a> = 1;</div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno"><a class="line" href="../../d8/db0/struct_f_d3_d12_fence.html#af1dee7b7b35ba5922e97bebda34e23b1">   50</a></span>    std::atomic&lt;uint64&gt; <a class="code hl_variable" href="../../d8/db0/struct_f_d3_d12_fence.html#af1dee7b7b35ba5922e97bebda34e23b1">LastSignaledValue</a> = 0;</div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno"><a class="line" href="../../d8/db0/struct_f_d3_d12_fence.html#a2cdb3b40ecca6fe26c7d2ff72e36987a">   51</a></span>    <span class="keywordtype">bool</span> <a class="code hl_variable" href="../../d8/db0/struct_f_d3_d12_fence.html#a2cdb3b40ecca6fe26c7d2ff72e36987a">bInterruptAwaited</a> = <span class="keyword">false</span>;</div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span> </div>
+<div class="foldopen" id="foldopen00053" data-start="{" data-end="}">
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno"><a class="line" href="../../d8/db0/struct_f_d3_d12_fence.html#a39a5810da24b8b2a44d46c587deba63b">   53</a></span>    <a class="code hl_function" href="../../d8/db0/struct_f_d3_d12_fence.html#a39a5810da24b8b2a44d46c587deba63b">FD3D12Fence</a>(<a class="code hl_class" href="../../df/d45/class_f_d3_d12_queue.html">FD3D12Queue</a>* <a class="code hl_variable" href="../../d8/db0/struct_f_d3_d12_fence.html#ac5c66b491f163e2dd05ce9987deb890e">OwnerQueue</a>)</div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>        : <a class="code hl_variable" href="../../d8/db0/struct_f_d3_d12_fence.html#ac5c66b491f163e2dd05ce9987deb890e">OwnerQueue</a>(<a class="code hl_variable" href="../../d8/db0/struct_f_d3_d12_fence.html#ac5c66b491f163e2dd05ce9987deb890e">OwnerQueue</a>)</div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>    {}</div>
+</div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>};</div>
+</div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span> </div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span><span class="comment">// Used by FD3D12SyncPoint and the submission thread to fix up signaled fence values at the end-of-pipe</span></div>
+<div class="foldopen" id="foldopen00059" data-start="{" data-end="};">
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno"><a class="line" href="../../df/d73/struct_f_d3_d12_resolved_fence.html">   59</a></span><span class="keyword">struct </span><a class="code hl_function" href="../../df/d73/struct_f_d3_d12_resolved_fence.html#ae3d6a8513627de8515cf738eb04a4483">FD3D12ResolvedFence</a></div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>{</div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno"><a class="line" href="../../df/d73/struct_f_d3_d12_resolved_fence.html#aa9cdb8e81f73baa04ccfe04e934b9b1b">   61</a></span>    <a class="code hl_struct" href="../../d8/db0/struct_f_d3_d12_fence.html">FD3D12Fence</a>&amp; <a class="code hl_variable" href="../../df/d73/struct_f_d3_d12_resolved_fence.html#aa9cdb8e81f73baa04ccfe04e934b9b1b">Fence</a>;</div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno"><a class="line" href="../../df/d73/struct_f_d3_d12_resolved_fence.html#ab72a650312d9b50641674a4b0e61cf92">   62</a></span>    <a class="code hl_typedef" href="../../dd/de9/preprocessor_8c.html#abc0f5bc07737e498f287334775dff2b6">uint64</a> <a class="code hl_variable" href="../../df/d73/struct_f_d3_d12_resolved_fence.html#ab72a650312d9b50641674a4b0e61cf92">Value</a> = 0;</div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span> </div>
+<div class="foldopen" id="foldopen00064" data-start="{" data-end="}">
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno"><a class="line" href="../../df/d73/struct_f_d3_d12_resolved_fence.html#ae3d6a8513627de8515cf738eb04a4483">   64</a></span>    <a class="code hl_function" href="../../df/d73/struct_f_d3_d12_resolved_fence.html#ae3d6a8513627de8515cf738eb04a4483">FD3D12ResolvedFence</a>(<a class="code hl_struct" href="../../d8/db0/struct_f_d3_d12_fence.html">FD3D12Fence</a>&amp; <a class="code hl_variable" href="../../df/d73/struct_f_d3_d12_resolved_fence.html#aa9cdb8e81f73baa04ccfe04e934b9b1b">Fence</a>, <a class="code hl_typedef" href="../../dd/de9/preprocessor_8c.html#abc0f5bc07737e498f287334775dff2b6">uint64</a> <a class="code hl_variable" href="../../df/d73/struct_f_d3_d12_resolved_fence.html#ab72a650312d9b50641674a4b0e61cf92">Value</a>)</div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>        : <a class="code hl_variable" href="../../df/d73/struct_f_d3_d12_resolved_fence.html#aa9cdb8e81f73baa04ccfe04e934b9b1b">Fence</a>(<a class="code hl_variable" href="../../df/d73/struct_f_d3_d12_resolved_fence.html#aa9cdb8e81f73baa04ccfe04e934b9b1b">Fence</a>)</div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span>        , <a class="code hl_variable" href="../../df/d73/struct_f_d3_d12_resolved_fence.html#ab72a650312d9b50641674a4b0e61cf92">Value</a>(<a class="code hl_variable" href="../../df/d73/struct_f_d3_d12_resolved_fence.html#ab72a650312d9b50641674a4b0e61cf92">Value</a>)</div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>    {}</div>
+</div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>};</div>
+</div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span> </div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span><span class="comment">//</span></div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span><span class="comment">// A sync point is a logical point on a GPU queue&#39;s timeline that can be awaited by other queues, or the CPU.</span></div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span><span class="comment">// These are used throughout the RHI as a way to abstract the underlying D3D12 fences. The submission thread </span></div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span><span class="comment">// manages the underlying fences and signaled values, and reports completion to the relevant sync points via </span></div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span><span class="comment">// an FGraphEvent.</span></div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span><span class="comment">//</span></div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span><span class="comment">// Sync points are one-shot, meaning they represent a single timeline point, and are released after use, via ref-counting.</span></div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span><span class="comment">// Use FD3D12SyncPoint::Create() to make a new sync point and hold a reference to it via a FD3D12SyncPointRef object.</span></div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span><span class="comment">//</span></div>
+<div class="foldopen" id="foldopen00079" data-start="{" data-end="};">
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno"><a class="line" href="../../d7/d30/class_f_d3_d12_sync_point.html">   79</a></span><span class="keyword">class </span>FD3D12SyncPoint final : <span class="keyword">public</span> <a class="code hl_function" href="../../dc/dba/class_f_ref_counted_object.html#aacaabd14581a894b3be362a2d9c0228d">FRefCountedObject</a></div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>{</div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>    <span class="keyword">friend</span> FD3D12DynamicRHI;</div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span>    <span class="keyword">friend</span> FD3D12Queue;</div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span> </div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span>    <span class="keyword">static</span> <a class="code hl_class" href="../../d4/d04/class_t_lock_free_pointer_list_unordered.html">TLockFreePointerListUnordered&lt;void, PLATFORM_CACHE_LINE_SIZE&gt;</a> MemoryPool;</div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span> </div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span>    <span class="comment">// No copying or moving</span></div>
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span>    FD3D12SyncPoint(FD3D12SyncPoint <span class="keyword">const</span>&amp;) = <span class="keyword">delete</span>;</div>
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span>    FD3D12SyncPoint(FD3D12SyncPoint&amp;&amp;) = <span class="keyword">delete</span>;</div>
+<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span> </div>
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span>    <a class="code hl_struct" href="../../dd/d2f/struct_t_optional.html">TOptional&lt;FD3D12ResolvedFence&gt;</a> ResolvedFence;</div>
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span>    <a class="code hl_typedef" href="../../df/de9/_task_graph_fwd_8h.html#aa97a5bd9481ed210005f7ccce5fa13ae">FGraphEventRef</a> GraphEvent;</div>
+<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span> </div>
+<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span>    FD3D12SyncPoint(<a class="code hl_enumeration" href="../../d4/d8c/_d3_d12_submission_8h.html#aba37fe0da83e0434eae3e3822907203c">ED3D12SyncPointType</a> <a class="code hl_class" href="../../d8/df6/class_type.html">Type</a>, <a class="code hl_class" href="../../d5/dd5/class_f_name.html">FName</a> InDebugName)</div>
+<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span><span class="preprocessor">#if RHI_USE_SYNC_POINT_DEBUG_NAME</span></div>
+<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span>        :DebugName(InDebugName)</div>
+<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span><span class="preprocessor">#endif</span></div>
+<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span>    {</div>
+<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span>        <span class="keywordflow">if</span> (<a class="code hl_class" href="../../d8/df6/class_type.html">Type</a> == <a class="code hl_enumvalue" href="../../d4/d8c/_d3_d12_submission_8h.html#aba37fe0da83e0434eae3e3822907203ca848312663120391333919c25c4f8bc98">ED3D12SyncPointType::GPUAndCPU</a>)</div>
+<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span>        {</div>
+<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span>            GraphEvent = <a class="code hl_function" href="../../da/d8b/class_f_base_graph_task.html#a642b41dbe4e770b9b3cf12ecbde3c54d">FGraphEvent::CreateGraphEvent</a>();</div>
+<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span>        }</div>
+<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span>    }</div>
+<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span> </div>
+<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span><span class="keyword">public</span>:</div>
+<div class="foldopen" id="foldopen00105" data-start="{" data-end="}">
+<div class="line"><a id="l00105" name="l00105"></a><span class="lineno"><a class="line" href="../../d7/d30/class_f_d3_d12_sync_point.html#a0eae70ebd4b135f14a1d2dee6af712fc">  105</a></span>    <span class="keyword">static</span> <a class="code hl_typedef" href="../../d4/d8c/_d3_d12_submission_8h.html#adbb2f662e14f16511f1a596f70c6141a">FD3D12SyncPointRef</a> <a class="code hl_function" href="../../d7/d30/class_f_d3_d12_sync_point.html#a0eae70ebd4b135f14a1d2dee6af712fc">Create</a>(<a class="code hl_enumeration" href="../../d4/d8c/_d3_d12_submission_8h.html#aba37fe0da83e0434eae3e3822907203c">ED3D12SyncPointType</a> <a class="code hl_class" href="../../d8/df6/class_type.html">Type</a>, <a class="code hl_class" href="../../d5/dd5/class_f_name.html">FName</a> InDebugName)</div>
+<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span>    {</div>
+<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span>        <a class="code hl_define" href="../../d9/dc8/_low_level_mem_tracker_8h.html#acf8fb1996ff10647e287318480f78f1c">LLM_SCOPE_BYNAME</a>(<a class="code hl_define" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(<span class="stringliteral">&quot;RHIMisc/CreateSyncPoint&quot;</span>));</div>
+<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span>        <span class="keywordflow">return</span> <span class="keyword">new</span> FD3D12SyncPoint(<a class="code hl_class" href="../../d8/df6/class_type.html">Type</a>, InDebugName);</div>
+<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span>    }</div>
+</div>
+<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span> </div>
+<div class="foldopen" id="foldopen00111" data-start="{" data-end="}">
+<div class="line"><a id="l00111" name="l00111"></a><span class="lineno"><a class="line" href="../../d7/d30/class_f_d3_d12_sync_point.html#a242f70424ff43804409866966302624c">  111</a></span>    <span class="keywordtype">bool</span> <a class="code hl_function" href="../../d7/d30/class_f_d3_d12_sync_point.html#a242f70424ff43804409866966302624c">IsComplete</a>()<span class="keyword"> const</span></div>
+<div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span><span class="keyword">    </span>{</div>
+<div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span>        <a class="code hl_define" href="../../d4/d75/_assertion_macros_8h.html#adda76c7007d2e32f3aa142897f5702a2">checkf</a>(GraphEvent, <a class="code hl_define" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(<span class="stringliteral">&quot;This sync point was not created with a CPU event. Cannot check completion on the CPU.&quot;</span>));</div>
+<div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span>        <span class="keywordflow">return</span> GraphEvent-&gt;IsComplete();</div>
+<div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span>    }</div>
+</div>
+<div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span> </div>
+<div class="line"><a id="l00117" name="l00117"></a><span class="lineno">  117</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="../../d7/d30/class_f_d3_d12_sync_point.html#a503cb17aa984a2d6920b27f7054df083">Wait</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00118" name="l00118"></a><span class="lineno">  118</span> </div>
+<div class="foldopen" id="foldopen00119" data-start="{" data-end="}">
+<div class="line"><a id="l00119" name="l00119"></a><span class="lineno"><a class="line" href="../../d7/d30/class_f_d3_d12_sync_point.html#a744469c0ae8091ae5d333e8ef583feb8">  119</a></span>    <a class="code hl_typedef" href="../../df/de9/_task_graph_fwd_8h.html#af0562367290aa846634aa403b713d20b">FGraphEvent</a>* <a class="code hl_function" href="../../d7/d30/class_f_d3_d12_sync_point.html#a744469c0ae8091ae5d333e8ef583feb8">GetGraphEvent</a>()<span class="keyword"> const</span></div>
+<div class="line"><a id="l00120" name="l00120"></a><span class="lineno">  120</span><span class="keyword">    </span>{</div>
+<div class="line"><a id="l00121" name="l00121"></a><span class="lineno">  121</span>        <a class="code hl_define" href="../../d4/d75/_assertion_macros_8h.html#adda76c7007d2e32f3aa142897f5702a2">checkf</a>(GraphEvent, <a class="code hl_define" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(<span class="stringliteral">&quot;This sync point was not created with a CPU event.&quot;</span>));</div>
+<div class="line"><a id="l00122" name="l00122"></a><span class="lineno">  122</span>        <span class="keywordflow">return</span> GraphEvent;</div>
+<div class="line"><a id="l00123" name="l00123"></a><span class="lineno">  123</span>    }</div>
+</div>
+<div class="line"><a id="l00124" name="l00124"></a><span class="lineno">  124</span> </div>
+<div class="foldopen" id="foldopen00125" data-start="{" data-end="}">
+<div class="line"><a id="l00125" name="l00125"></a><span class="lineno"><a class="line" href="../../d7/d30/class_f_d3_d12_sync_point.html#a1ff0c43daba313fb0d8b954e1197dc10">  125</a></span>    <a class="code hl_enumeration" href="../../d4/d8c/_d3_d12_submission_8h.html#aba37fe0da83e0434eae3e3822907203c">ED3D12SyncPointType</a> <a class="code hl_function" href="../../d7/d30/class_f_d3_d12_sync_point.html#a1ff0c43daba313fb0d8b954e1197dc10">GetType</a>()<span class="keyword"> const</span></div>
+<div class="line"><a id="l00126" name="l00126"></a><span class="lineno">  126</span><span class="keyword">    </span>{</div>
+<div class="line"><a id="l00127" name="l00127"></a><span class="lineno">  127</span>        <span class="keywordflow">return</span> GraphEvent != <span class="keyword">nullptr</span></div>
+<div class="line"><a id="l00128" name="l00128"></a><span class="lineno">  128</span>            ? <a class="code hl_enumvalue" href="../../d4/d8c/_d3_d12_submission_8h.html#aba37fe0da83e0434eae3e3822907203ca848312663120391333919c25c4f8bc98">ED3D12SyncPointType::GPUAndCPU</a></div>
+<div class="line"><a id="l00129" name="l00129"></a><span class="lineno">  129</span>            : <a class="code hl_enumvalue" href="../../d4/d8c/_d3_d12_submission_8h.html#aba37fe0da83e0434eae3e3822907203ca9926354d7edfc0d51ec9d308f084b9bd">ED3D12SyncPointType::GPUOnly</a>;</div>
+<div class="line"><a id="l00130" name="l00130"></a><span class="lineno">  130</span>    }</div>
+</div>
+<div class="line"><a id="l00131" name="l00131"></a><span class="lineno">  131</span> </div>
+<div class="foldopen" id="foldopen00132" data-start="{" data-end="}">
+<div class="line"><a id="l00132" name="l00132"></a><span class="lineno"><a class="line" href="../../d7/d30/class_f_d3_d12_sync_point.html#a69fc846ff4767db2df5f5d2cdb8bce17">  132</a></span>    <span class="keywordtype">void</span>* <span class="keyword">operator</span> <span class="keyword">new</span>(<span class="keywordtype">size_t</span> <a class="code hl_variable" href="../../d0/de4/_sequence_history_8h.html#a41f48316f09703e0b7cd9ac6b643e9c8">Size</a>)</div>
+<div class="line"><a id="l00133" name="l00133"></a><span class="lineno">  133</span>    {</div>
+<div class="line"><a id="l00134" name="l00134"></a><span class="lineno">  134</span>        <a class="code hl_define" href="../../d4/d75/_assertion_macros_8h.html#a586e110623cde145b8a5bdefb429e144">check</a>(<a class="code hl_variable" href="../../d0/de4/_sequence_history_8h.html#a41f48316f09703e0b7cd9ac6b643e9c8">Size</a> == <span class="keyword">sizeof</span>(FD3D12SyncPoint));</div>
+<div class="line"><a id="l00135" name="l00135"></a><span class="lineno">  135</span> </div>
+<div class="line"><a id="l00136" name="l00136"></a><span class="lineno">  136</span>        <span class="keywordtype">void</span>* <a class="code hl_enumvalue" href="../../de/d46/_groom_visualization_data_8h.html#a5aac198462141e75e6d8274d4c8b6ee2a4789f23283b3a61f858b641a1bef19a3">Memory</a> = MemoryPool.Pop();</div>
+<div class="line"><a id="l00137" name="l00137"></a><span class="lineno">  137</span>        <span class="keywordflow">if</span> (!<a class="code hl_enumvalue" href="../../de/d46/_groom_visualization_data_8h.html#a5aac198462141e75e6d8274d4c8b6ee2a4789f23283b3a61f858b641a1bef19a3">Memory</a>)</div>
+<div class="line"><a id="l00138" name="l00138"></a><span class="lineno">  138</span>        {</div>
+<div class="line"><a id="l00139" name="l00139"></a><span class="lineno">  139</span>            <a class="code hl_enumvalue" href="../../de/d46/_groom_visualization_data_8h.html#a5aac198462141e75e6d8274d4c8b6ee2a4789f23283b3a61f858b641a1bef19a3">Memory</a> = FMemory::Malloc(<span class="keyword">sizeof</span>(FD3D12SyncPoint), <span class="keyword">alignof</span>(FD3D12SyncPoint));</div>
+<div class="line"><a id="l00140" name="l00140"></a><span class="lineno">  140</span>        }</div>
+<div class="line"><a id="l00141" name="l00141"></a><span class="lineno">  141</span>        <span class="keywordflow">return</span> <a class="code hl_enumvalue" href="../../de/d46/_groom_visualization_data_8h.html#a5aac198462141e75e6d8274d4c8b6ee2a4789f23283b3a61f858b641a1bef19a3">Memory</a>;</div>
+<div class="line"><a id="l00142" name="l00142"></a><span class="lineno">  142</span>    }</div>
+</div>
+<div class="line"><a id="l00143" name="l00143"></a><span class="lineno">  143</span> </div>
+<div class="foldopen" id="foldopen00144" data-start="{" data-end="}">
+<div class="line"><a id="l00144" name="l00144"></a><span class="lineno"><a class="line" href="../../d7/d30/class_f_d3_d12_sync_point.html#aae971a32d48856fceb709dad34601390">  144</a></span>    <span class="keywordtype">void</span> <span class="keyword">operator</span> <span class="keyword">delete</span>(<span class="keywordtype">void</span>* Pointer)</div>
+<div class="line"><a id="l00145" name="l00145"></a><span class="lineno">  145</span>    {</div>
+<div class="line"><a id="l00146" name="l00146"></a><span class="lineno">  146</span>        MemoryPool.Push(Pointer);</div>
+<div class="line"><a id="l00147" name="l00147"></a><span class="lineno">  147</span>    }</div>
+</div>
+<div class="line"><a id="l00148" name="l00148"></a><span class="lineno">  148</span>     </div>
+<div class="foldopen" id="foldopen00149" data-start="{" data-end="}">
+<div class="line"><a id="l00149" name="l00149"></a><span class="lineno"><a class="line" href="../../d7/d30/class_f_d3_d12_sync_point.html#a2d2b64324322c3cc9608d2eb6114513f">  149</a></span>    <span class="keyword">inline</span> <a class="code hl_class" href="../../d5/dd5/class_f_name.html">FName</a> <a class="code hl_function" href="../../d7/d30/class_f_d3_d12_sync_point.html#a2d2b64324322c3cc9608d2eb6114513f">GetDebugName</a>()<span class="keyword"> const</span></div>
+<div class="line"><a id="l00150" name="l00150"></a><span class="lineno">  150</span><span class="keyword">    </span>{</div>
+<div class="line"><a id="l00151" name="l00151"></a><span class="lineno">  151</span><span class="preprocessor">#if RHI_USE_SYNC_POINT_DEBUG_NAME</span></div>
+<div class="line"><a id="l00152" name="l00152"></a><span class="lineno">  152</span>        <span class="keywordflow">return</span> DebugName;</div>
+<div class="line"><a id="l00153" name="l00153"></a><span class="lineno">  153</span><span class="preprocessor">#else</span></div>
+<div class="line"><a id="l00154" name="l00154"></a><span class="lineno">  154</span>        <span class="keywordflow">return</span> <a class="code hl_define" href="../../d4/d8c/_d3_d12_submission_8h.html#aeb4f7c6dd48c2e993e99016ac25c59e4">UE_D3D12_STATIC_FNAME</a>(<span class="stringliteral">&quot;SyncPointBusyWait&quot;</span>);</div>
+<div class="line"><a id="l00155" name="l00155"></a><span class="lineno">  155</span><span class="preprocessor">#endif</span></div>
+<div class="line"><a id="l00156" name="l00156"></a><span class="lineno">  156</span>    }</div>
+</div>
+<div class="line"><a id="l00157" name="l00157"></a><span class="lineno">  157</span> </div>
+<div class="line"><a id="l00158" name="l00158"></a><span class="lineno">  158</span><span class="keyword">private</span>:</div>
+<div class="line"><a id="l00159" name="l00159"></a><span class="lineno">  159</span> </div>
+<div class="line"><a id="l00160" name="l00160"></a><span class="lineno">  160</span><span class="preprocessor">#if RHI_USE_SYNC_POINT_DEBUG_NAME</span></div>
+<div class="line"><a id="l00161" name="l00161"></a><span class="lineno">  161</span>    <a class="code hl_class" href="../../d5/dd5/class_f_name.html">FName</a> DebugName;</div>
+<div class="line"><a id="l00162" name="l00162"></a><span class="lineno">  162</span><span class="preprocessor">#endif</span></div>
+<div class="line"><a id="l00163" name="l00163"></a><span class="lineno">  163</span> </div>
+<div class="line"><a id="l00164" name="l00164"></a><span class="lineno">  164</span>};</div>
+</div>
+<div class="line"><a id="l00165" name="l00165"></a><span class="lineno">  165</span> </div>
+<div class="foldopen" id="foldopen00166" data-start="{" data-end="};">
+<div class="line"><a id="l00166" name="l00166"></a><span class="lineno"><a class="line" href="../../d1/d69/struct_f_d3_d12_commit_reserved_resource_desc.html">  166</a></span><span class="keyword">struct </span><a class="code hl_struct" href="../../d1/d69/struct_f_d3_d12_commit_reserved_resource_desc.html">FD3D12CommitReservedResourceDesc</a></div>
+<div class="line"><a id="l00167" name="l00167"></a><span class="lineno">  167</span>{</div>
+<div class="line"><a id="l00168" name="l00168"></a><span class="lineno"><a class="line" href="../../d1/d69/struct_f_d3_d12_commit_reserved_resource_desc.html#a640352fee5ef9516f203149dac86bee3">  168</a></span>    <a class="code hl_class" href="../../d7/d81/class_f_d3_d12_resource.html">FD3D12Resource</a>* <a class="code hl_variable" href="../../d1/d69/struct_f_d3_d12_commit_reserved_resource_desc.html#a640352fee5ef9516f203149dac86bee3">Resource</a> = <span class="keyword">nullptr</span>;</div>
+<div class="line"><a id="l00169" name="l00169"></a><span class="lineno"><a class="line" href="../../d1/d69/struct_f_d3_d12_commit_reserved_resource_desc.html#af27e0fbe759f7e1c365ca88d1825e810">  169</a></span>    <a class="code hl_typedef" href="../../dd/de9/preprocessor_8c.html#abc0f5bc07737e498f287334775dff2b6">uint64</a> <a class="code hl_variable" href="../../d1/d69/struct_f_d3_d12_commit_reserved_resource_desc.html#af27e0fbe759f7e1c365ca88d1825e810">CommitSizeInBytes</a> = 0;</div>
+<div class="line"><a id="l00170" name="l00170"></a><span class="lineno">  170</span>};</div>
+</div>
+<div class="line"><a id="l00171" name="l00171"></a><span class="lineno">  171</span> </div>
+<div class="foldopen" id="foldopen00172" data-start="{" data-end="};">
+<div class="line"><a id="l00172" name="l00172"></a><span class="lineno"><a class="line" href="../../d4/d09/struct_f_d3_d12_batched_payload_objects.html">  172</a></span><span class="keyword">struct </span><a class="code hl_struct" href="../../d4/d09/struct_f_d3_d12_batched_payload_objects.html">FD3D12BatchedPayloadObjects</a></div>
+<div class="line"><a id="l00173" name="l00173"></a><span class="lineno">  173</span>{</div>
+<div class="line"><a id="l00174" name="l00174"></a><span class="lineno"><a class="line" href="../../d4/d09/struct_f_d3_d12_batched_payload_objects.html#a9cb1d4299901be656325396e045c2c17">  174</a></span>    <a class="code hl_class" href="../../d6/db1/class_t_array.html">TArray&lt;FD3D12QueryLocation&gt;</a> <a class="code hl_variable" href="../../d4/d09/struct_f_d3_d12_batched_payload_objects.html#a9cb1d4299901be656325396e045c2c17">TimestampQueries</a>;</div>
+<div class="line"><a id="l00175" name="l00175"></a><span class="lineno"><a class="line" href="../../d4/d09/struct_f_d3_d12_batched_payload_objects.html#a2beb74331163939edd7f58ce826f0c16">  175</a></span>    <a class="code hl_class" href="../../d6/db1/class_t_array.html">TArray&lt;FD3D12QueryLocation&gt;</a> <a class="code hl_variable" href="../../d4/d09/struct_f_d3_d12_batched_payload_objects.html#a2beb74331163939edd7f58ce826f0c16">OcclusionQueries</a>;</div>
+<div class="line"><a id="l00176" name="l00176"></a><span class="lineno"><a class="line" href="../../d4/d09/struct_f_d3_d12_batched_payload_objects.html#a778ebc5ad131e2a550f559b46309ec85">  176</a></span>    <a class="code hl_class" href="../../d6/db1/class_t_array.html">TArray&lt;FD3D12QueryLocation&gt;</a> <a class="code hl_variable" href="../../d4/d09/struct_f_d3_d12_batched_payload_objects.html#a778ebc5ad131e2a550f559b46309ec85">PipelineStatsQueries</a>;</div>
+<div class="line"><a id="l00177" name="l00177"></a><span class="lineno"><a class="line" href="../../d4/d09/struct_f_d3_d12_batched_payload_objects.html#abe776b7e32139a69ea86d119061222b3">  177</a></span>    <a class="code hl_class" href="../../da/d41/class_t_map.html">TMap&lt;TRefCountPtr&lt;FD3D12QueryHeap&gt;</a>, <a class="code hl_class" href="../../d6/db1/class_t_array.html">TArray&lt;FD3D12QueryRange&gt;</a>&gt; <a class="code hl_variable" href="../../d4/d09/struct_f_d3_d12_batched_payload_objects.html#abe776b7e32139a69ea86d119061222b3">QueryRanges</a>;</div>
+<div class="line"><a id="l00178" name="l00178"></a><span class="lineno">  178</span> </div>
+<div class="foldopen" id="foldopen00179" data-start="{" data-end="}">
+<div class="line"><a id="l00179" name="l00179"></a><span class="lineno"><a class="line" href="../../d4/d09/struct_f_d3_d12_batched_payload_objects.html#a69fe87b12d908a7eeb64439af518895b">  179</a></span>    <span class="keywordtype">bool</span> <a class="code hl_function" href="../../d4/d09/struct_f_d3_d12_batched_payload_objects.html#a69fe87b12d908a7eeb64439af518895b">IsEmpty</a>()<span class="keyword"> const</span></div>
+<div class="line"><a id="l00180" name="l00180"></a><span class="lineno">  180</span><span class="keyword">    </span>{</div>
+<div class="line"><a id="l00181" name="l00181"></a><span class="lineno">  181</span>        <span class="keywordflow">return</span></div>
+<div class="line"><a id="l00182" name="l00182"></a><span class="lineno">  182</span>               <a class="code hl_variable" href="../../d4/d09/struct_f_d3_d12_batched_payload_objects.html#a9cb1d4299901be656325396e045c2c17">TimestampQueries</a>    .Num() == 0</div>
+<div class="line"><a id="l00183" name="l00183"></a><span class="lineno">  183</span>            &amp;&amp; <a class="code hl_variable" href="../../d4/d09/struct_f_d3_d12_batched_payload_objects.html#a2beb74331163939edd7f58ce826f0c16">OcclusionQueries</a>    .Num() == 0</div>
+<div class="line"><a id="l00184" name="l00184"></a><span class="lineno">  184</span>            &amp;&amp; <a class="code hl_variable" href="../../d4/d09/struct_f_d3_d12_batched_payload_objects.html#a778ebc5ad131e2a550f559b46309ec85">PipelineStatsQueries</a>.Num() == 0</div>
+<div class="line"><a id="l00185" name="l00185"></a><span class="lineno">  185</span>            &amp;&amp; <a class="code hl_variable" href="../../d4/d09/struct_f_d3_d12_batched_payload_objects.html#abe776b7e32139a69ea86d119061222b3">QueryRanges</a>         .Num() == 0</div>
+<div class="line"><a id="l00186" name="l00186"></a><span class="lineno">  186</span>        ;</div>
+<div class="line"><a id="l00187" name="l00187"></a><span class="lineno">  187</span>    }</div>
+</div>
+<div class="line"><a id="l00188" name="l00188"></a><span class="lineno">  188</span>};</div>
+</div>
+<div class="line"><a id="l00189" name="l00189"></a><span class="lineno">  189</span> </div>
+<div class="line"><a id="l00190" name="l00190"></a><span class="lineno">  190</span><span class="comment">// Hacky base class to avoid 8 bytes of padding after the vtable</span></div>
+<div class="foldopen" id="foldopen00191" data-start="{" data-end="};">
+<div class="line"><a id="l00191" name="l00191"></a><span class="lineno"><a class="line" href="../../d8/d03/struct_f_d3_d12_payload_base_fix_layout.html">  191</a></span><span class="keyword">struct </span><a class="code hl_struct" href="../../d8/d03/struct_f_d3_d12_payload_base_fix_layout.html">FD3D12PayloadBaseFixLayout</a></div>
+<div class="line"><a id="l00192" name="l00192"></a><span class="lineno">  192</span>{</div>
+<div class="line"><a id="l00193" name="l00193"></a><span class="lineno"><a class="line" href="../../d8/d03/struct_f_d3_d12_payload_base_fix_layout.html#a2a0ea0f70a047f8ddc464a577daa330b">  193</a></span>    <span class="keyword">virtual</span> <a class="code hl_function" href="../../d8/d03/struct_f_d3_d12_payload_base_fix_layout.html#a2a0ea0f70a047f8ddc464a577daa330b">~FD3D12PayloadBaseFixLayout</a>() = <span class="keywordflow">default</span>;</div>
+<div class="line"><a id="l00194" name="l00194"></a><span class="lineno">  194</span>};</div>
+</div>
+<div class="line"><a id="l00195" name="l00195"></a><span class="lineno">  195</span> </div>
+<div class="foldopen" id="foldopen00196" data-start="{" data-end="};">
+<div class="line"><a id="l00196" name="l00196"></a><span class="lineno"><a class="line" href="../../d9/d50/struct_f_d3_d12_present_args.html">  196</a></span><span class="keyword">struct </span><a class="code hl_struct" href="../../d9/d50/struct_f_d3_d12_present_args.html">FD3D12PresentArgs</a></div>
+<div class="line"><a id="l00197" name="l00197"></a><span class="lineno">  197</span>{</div>
+<div class="line"><a id="l00198" name="l00198"></a><span class="lineno">  198</span>    <span class="comment">//Sync event -&gt; Present called</span></div>
+<div class="line"><a id="l00199" name="l00199"></a><span class="lineno"><a class="line" href="../../d9/d50/struct_f_d3_d12_present_args.html#a7476440ecaf94c4013681a1028ee3832">  199</a></span>    <a class="code hl_typedef" href="../../df/de9/_task_graph_fwd_8h.html#aa97a5bd9481ed210005f7ccce5fa13ae">FGraphEventRef</a>  <a class="code hl_variable" href="../../d9/d50/struct_f_d3_d12_present_args.html#a7476440ecaf94c4013681a1028ee3832">PresentEvent</a>;</div>
+<div class="line"><a id="l00200" name="l00200"></a><span class="lineno">  200</span> </div>
+<div class="line"><a id="l00201" name="l00201"></a><span class="lineno">  201</span>    <span class="comment">// In params</span></div>
+<div class="line"><a id="l00202" name="l00202"></a><span class="lineno"><a class="line" href="../../d9/d50/struct_f_d3_d12_present_args.html#aad3d5ab1f187ebedcf29b441d7cda720">  202</a></span>    <a class="code hl_class" href="../../d3/d1d/class_f_d3_d12_viewport.html">FD3D12Viewport</a>* <a class="code hl_variable" href="../../d9/d50/struct_f_d3_d12_present_args.html#aad3d5ab1f187ebedcf29b441d7cda720">DrawingViewport</a> = <span class="keyword">nullptr</span>;</div>
+<div class="line"><a id="l00203" name="l00203"></a><span class="lineno"><a class="line" href="../../d9/d50/struct_f_d3_d12_present_args.html#a0944a51b7b057a43215d1a95643c4882">  203</a></span>    <a class="code hl_typedef" href="../../dd/de9/preprocessor_8c.html#abc0f5bc07737e498f287334775dff2b6">uint64</a> <a class="code hl_variable" href="../../d9/d50/struct_f_d3_d12_present_args.html#a0944a51b7b057a43215d1a95643c4882">FrameCounter</a> = 0;</div>
+<div class="line"><a id="l00204" name="l00204"></a><span class="lineno"><a class="line" href="../../d9/d50/struct_f_d3_d12_present_args.html#a00b947c69d53432ecb830a04ec995c29">  204</a></span>    <span class="keywordtype">bool</span> <a class="code hl_variable" href="../../d9/d50/struct_f_d3_d12_present_args.html#a00b947c69d53432ecb830a04ec995c29">bLockToVsync</a> = <span class="keyword">false</span>;</div>
+<div class="line"><a id="l00205" name="l00205"></a><span class="lineno">  205</span> </div>
+<div class="foldopen" id="foldopen00206" data-start="{" data-end="}">
+<div class="line"><a id="l00206" name="l00206"></a><span class="lineno"><a class="line" href="../../d9/d50/struct_f_d3_d12_present_args.html#af864c02c9a53aacd571a2f3d812dddea">  206</a></span>    <span class="keyword">inline</span> <span class="keywordtype">bool</span> <a class="code hl_function" href="../../d9/d50/struct_f_d3_d12_present_args.html#af864c02c9a53aacd571a2f3d812dddea">IsValid</a>()<span class="keyword"> const</span></div>
+<div class="line"><a id="l00207" name="l00207"></a><span class="lineno">  207</span><span class="keyword">    </span>{</div>
+<div class="line"><a id="l00208" name="l00208"></a><span class="lineno">  208</span>        <span class="keywordflow">return</span> <a class="code hl_variable" href="../../d9/d50/struct_f_d3_d12_present_args.html#aad3d5ab1f187ebedcf29b441d7cda720">DrawingViewport</a> != <span class="keyword">nullptr</span>;</div>
+<div class="line"><a id="l00209" name="l00209"></a><span class="lineno">  209</span>    }</div>
+</div>
+<div class="line"><a id="l00210" name="l00210"></a><span class="lineno">  210</span>};</div>
+</div>
+<div class="line"><a id="l00211" name="l00211"></a><span class="lineno">  211</span> </div>
+<div class="line"><a id="l00212" name="l00212"></a><span class="lineno">  212</span><span class="comment">// A single unit of work (specific to a single GPU node and queue type) to be processed by the submission thread.</span></div>
+<div class="foldopen" id="foldopen00213" data-start="{" data-end="};">
+<div class="line"><a id="l00213" name="l00213"></a><span class="lineno"><a class="line" href="../../d2/d08/struct_f_d3_d12_payload_base.html">  213</a></span><span class="keyword">struct </span><a class="code hl_function" href="../../d2/d08/struct_f_d3_d12_payload_base.html#a1d0cecce4143136add51e7e766d0b17c">FD3D12PayloadBase</a> : <span class="keyword">public</span> <a class="code hl_struct" href="../../d8/d03/struct_f_d3_d12_payload_base_fix_layout.html">FD3D12PayloadBaseFixLayout</a></div>
+<div class="line"><a id="l00214" name="l00214"></a><span class="lineno">  214</span>{</div>
+<div class="line"><a id="l00215" name="l00215"></a><span class="lineno">  215</span>    <span class="comment">// Used to signal FD3D12ManualFence instances on the submission thread.</span></div>
+<div class="foldopen" id="foldopen00216" data-start="{" data-end="};">
+<div class="line"><a id="l00216" name="l00216"></a><span class="lineno"><a class="line" href="../../d0/d85/struct_f_d3_d12_payload_base_1_1_f_manual_fence.html">  216</a></span>    <span class="keyword">struct </span><a class="code hl_function" href="../../d0/d85/struct_f_d3_d12_payload_base_1_1_f_manual_fence.html#af0726a5411867a14fffa40835212d497">FManualFence</a></div>
+<div class="line"><a id="l00217" name="l00217"></a><span class="lineno">  217</span>    {</div>
+<div class="line"><a id="l00218" name="l00218"></a><span class="lineno">  218</span>        <span class="comment">// The D3D fence to signal</span></div>
+<div class="line"><a id="l00219" name="l00219"></a><span class="lineno"><a class="line" href="../../d0/d85/struct_f_d3_d12_payload_base_1_1_f_manual_fence.html#aba1eb24a3a647912424e403c113e0be1">  219</a></span>        <a class="code hl_class" href="../../d7/d10/class_t_ref_count_ptr.html">TRefCountPtr&lt;ID3D12Fence&gt;</a> <a class="code hl_variable" href="../../d0/d85/struct_f_d3_d12_payload_base_1_1_f_manual_fence.html#aba1eb24a3a647912424e403c113e0be1">Fence</a>;</div>
+<div class="line"><a id="l00220" name="l00220"></a><span class="lineno">  220</span> </div>
+<div class="line"><a id="l00221" name="l00221"></a><span class="lineno">  221</span>        <span class="comment">// The value to signal the fence with.</span></div>
+<div class="line"><a id="l00222" name="l00222"></a><span class="lineno"><a class="line" href="../../d0/d85/struct_f_d3_d12_payload_base_1_1_f_manual_fence.html#a655f73f0435f51ac4574c754fd4c9ba2">  222</a></span>        <a class="code hl_typedef" href="../../dd/de9/preprocessor_8c.html#abc0f5bc07737e498f287334775dff2b6">uint64</a> <a class="code hl_variable" href="../../d0/d85/struct_f_d3_d12_payload_base_1_1_f_manual_fence.html#a655f73f0435f51ac4574c754fd4c9ba2">Value</a>;</div>
+<div class="line"><a id="l00223" name="l00223"></a><span class="lineno">  223</span> </div>
+<div class="line"><a id="l00224" name="l00224"></a><span class="lineno">  224</span>        <span class="comment">// Optional bool pointer to check whether this fence has been signalled</span></div>
+<div class="line"><a id="l00225" name="l00225"></a><span class="lineno"><a class="line" href="../../d0/d85/struct_f_d3_d12_payload_base_1_1_f_manual_fence.html#a0155c247ec85e10b31194baea4ae8e2c">  225</a></span>        <a class="code hl_class" href="../../dd/dba/class_t_shared_ptr.html">TSharedPtr&lt;std::atomic&lt;bool&gt;</a>&gt; <a class="code hl_variable" href="../../d0/d85/struct_f_d3_d12_payload_base_1_1_f_manual_fence.html#a0155c247ec85e10b31194baea4ae8e2c">bHasSignalled</a>;</div>
+<div class="line"><a id="l00226" name="l00226"></a><span class="lineno">  226</span> </div>
+<div class="line"><a id="l00227" name="l00227"></a><span class="lineno"><a class="line" href="../../d0/d85/struct_f_d3_d12_payload_base_1_1_f_manual_fence.html#af0726a5411867a14fffa40835212d497">  227</a></span>        <a class="code hl_function" href="../../d0/d85/struct_f_d3_d12_payload_base_1_1_f_manual_fence.html#af0726a5411867a14fffa40835212d497">FManualFence</a>() = <span class="keywordflow">default</span>;</div>
+<div class="foldopen" id="foldopen00228" data-start="{" data-end="}">
+<div class="line"><a id="l00228" name="l00228"></a><span class="lineno"><a class="line" href="../../d0/d85/struct_f_d3_d12_payload_base_1_1_f_manual_fence.html#a96552b1a8400cab2c27d54203bd3bc3c">  228</a></span>        <a class="code hl_function" href="../../d0/d85/struct_f_d3_d12_payload_base_1_1_f_manual_fence.html#a96552b1a8400cab2c27d54203bd3bc3c">FManualFence</a>(<a class="code hl_class" href="../../d7/d10/class_t_ref_count_ptr.html">TRefCountPtr&lt;ID3D12Fence&gt;</a>&amp;&amp; <a class="code hl_variable" href="../../d0/d85/struct_f_d3_d12_payload_base_1_1_f_manual_fence.html#aba1eb24a3a647912424e403c113e0be1">Fence</a>, <a class="code hl_typedef" href="../../dd/de9/preprocessor_8c.html#abc0f5bc07737e498f287334775dff2b6">uint64</a> <a class="code hl_variable" href="../../d0/d85/struct_f_d3_d12_payload_base_1_1_f_manual_fence.html#a655f73f0435f51ac4574c754fd4c9ba2">Value</a>, <span class="keyword">const</span> <a class="code hl_class" href="../../dd/dba/class_t_shared_ptr.html">TSharedPtr</a>&lt;std::atomic&lt;bool&gt;&gt;&amp; <a class="code hl_variable" href="../../d0/d85/struct_f_d3_d12_payload_base_1_1_f_manual_fence.html#a0155c247ec85e10b31194baea4ae8e2c">bHasSignalled</a>)</div>
+<div class="line"><a id="l00229" name="l00229"></a><span class="lineno">  229</span>            : <a class="code hl_variable" href="../../d0/d85/struct_f_d3_d12_payload_base_1_1_f_manual_fence.html#aba1eb24a3a647912424e403c113e0be1">Fence</a>(<a class="code hl_function" href="../../d2/dd1/_unreal_template_8h.html#af9d82a97e855a2ee1464cc020639d843">MoveTemp</a>(<a class="code hl_variable" href="../../d0/d85/struct_f_d3_d12_payload_base_1_1_f_manual_fence.html#aba1eb24a3a647912424e403c113e0be1">Fence</a>))</div>
+<div class="line"><a id="l00230" name="l00230"></a><span class="lineno">  230</span>            , <a class="code hl_variable" href="../../d0/d85/struct_f_d3_d12_payload_base_1_1_f_manual_fence.html#a655f73f0435f51ac4574c754fd4c9ba2">Value</a>(<a class="code hl_variable" href="../../d0/d85/struct_f_d3_d12_payload_base_1_1_f_manual_fence.html#a655f73f0435f51ac4574c754fd4c9ba2">Value</a>)</div>
+<div class="line"><a id="l00231" name="l00231"></a><span class="lineno">  231</span>            , <a class="code hl_variable" href="../../d0/d85/struct_f_d3_d12_payload_base_1_1_f_manual_fence.html#a0155c247ec85e10b31194baea4ae8e2c">bHasSignalled</a>(<a class="code hl_variable" href="../../d0/d85/struct_f_d3_d12_payload_base_1_1_f_manual_fence.html#a0155c247ec85e10b31194baea4ae8e2c">bHasSignalled</a>)</div>
+<div class="line"><a id="l00232" name="l00232"></a><span class="lineno">  232</span>        {}</div>
+</div>
+<div class="line"><a id="l00233" name="l00233"></a><span class="lineno">  233</span>    };</div>
+</div>
+<div class="line"><a id="l00234" name="l00234"></a><span class="lineno">  234</span> </div>
+<div class="line"><a id="l00235" name="l00235"></a><span class="lineno">  235</span>    <span class="comment">// Constants</span></div>
+<div class="line"><a id="l00236" name="l00236"></a><span class="lineno"><a class="line" href="../../d2/d08/struct_f_d3_d12_payload_base.html#abe3815cf4c43a878415789659bcaf0a8">  236</a></span>    <a class="code hl_class" href="../../df/d45/class_f_d3_d12_queue.html">FD3D12Queue</a>&amp; <a class="code hl_variable" href="../../d2/d08/struct_f_d3_d12_payload_base.html#abe3815cf4c43a878415789659bcaf0a8">Queue</a>;</div>
+<div class="line"><a id="l00237" name="l00237"></a><span class="lineno">  237</span> </div>
+<div class="line"><a id="l00238" name="l00238"></a><span class="lineno">  238</span>    <span class="comment">// Wait</span></div>
+<div class="line"><a id="l00239" name="l00239"></a><span class="lineno">  239</span>    struct : <span class="keyword">public</span> <a class="code hl_class" href="../../d6/db1/class_t_array.html">TArray&lt;FD3D12SyncPointRef&gt;</a></div>
+<div class="line"><a id="l00240" name="l00240"></a><span class="lineno">  240</span>    {</div>
+<div class="line"><a id="l00241" name="l00241"></a><span class="lineno">  241</span>        <span class="comment">// Used to pause / resume iteration of the sync point array on the</span></div>
+<div class="line"><a id="l00242" name="l00242"></a><span class="lineno">  242</span>        <span class="comment">// submission thread when we find a sync point that is unresolved.</span></div>
+<div class="line"><a id="l00243" name="l00243"></a><span class="lineno"><a class="line" href="../../d2/d08/struct_f_d3_d12_payload_base.html#a6b3b3310d46129ad7c843831d22d52d8">  243</a></span>        <a class="code hl_typedef" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a8dbb3cd84ca9fd010dadfc3815eefa5d">int32</a> <a class="code hl_variable" href="../../d2/d08/struct_f_d3_d12_payload_base.html#a6b3b3310d46129ad7c843831d22d52d8">Index</a> = 0;</div>
+<div class="line"><a id="l00244" name="l00244"></a><span class="lineno">  244</span> </div>
+<div class="line"><a id="l00245" name="l00245"></a><span class="lineno"><a class="line" href="../../d2/d08/struct_f_d3_d12_payload_base.html#adabd5bb77218a3372c6a4e4d5e1f3eb2">  245</a></span>    } <a class="code hl_variable" href="../../d2/d08/struct_f_d3_d12_payload_base.html#adabd5bb77218a3372c6a4e4d5e1f3eb2">SyncPointsToWait</a>;</div>
+<div class="line"><a id="l00246" name="l00246"></a><span class="lineno">  246</span> </div>
+<div class="foldopen" id="foldopen00247" data-start="{" data-end="};">
+<div class="line"><a id="l00247" name="l00247"></a><span class="lineno"><a class="line" href="../../de/d80/struct_f_d3_d12_payload_base_1_1_f_queue_fence.html">  247</a></span>    <span class="keyword">struct </span><a class="code hl_struct" href="../../de/d80/struct_f_d3_d12_payload_base_1_1_f_queue_fence.html">FQueueFence</a></div>
+<div class="line"><a id="l00248" name="l00248"></a><span class="lineno">  248</span>    {</div>
+<div class="line"><a id="l00249" name="l00249"></a><span class="lineno"><a class="line" href="../../de/d80/struct_f_d3_d12_payload_base_1_1_f_queue_fence.html#a011ebe16b86da6b6c49106c1342fcefa">  249</a></span>        <a class="code hl_struct" href="../../d8/db0/struct_f_d3_d12_fence.html">FD3D12Fence</a>&amp; <a class="code hl_variable" href="../../de/d80/struct_f_d3_d12_payload_base_1_1_f_queue_fence.html#a011ebe16b86da6b6c49106c1342fcefa">Fence</a>;</div>
+<div class="line"><a id="l00250" name="l00250"></a><span class="lineno"><a class="line" href="../../de/d80/struct_f_d3_d12_payload_base_1_1_f_queue_fence.html#af958db275c4bd8b994310d68982b4d8b">  250</a></span>        <a class="code hl_typedef" href="../../dd/de9/preprocessor_8c.html#abc0f5bc07737e498f287334775dff2b6">uint64</a> <a class="code hl_variable" href="../../de/d80/struct_f_d3_d12_payload_base_1_1_f_queue_fence.html#af958db275c4bd8b994310d68982b4d8b">Value</a>;</div>
+<div class="line"><a id="l00251" name="l00251"></a><span class="lineno">  251</span>    };</div>
+</div>
+<div class="line"><a id="l00252" name="l00252"></a><span class="lineno"><a class="line" href="../../d2/d08/struct_f_d3_d12_payload_base.html#a6224f873d2d15c7c40ef3dc361288c18">  252</a></span>    <a class="code hl_class" href="../../d6/db1/class_t_array.html">TArray&lt;FQueueFence, TInlineAllocator&lt;GD3D12MaxNumQueues&gt;</a>&gt; <a class="code hl_variable" href="../../d2/d08/struct_f_d3_d12_payload_base.html#a6224f873d2d15c7c40ef3dc361288c18">QueueFencesToWait</a>;</div>
+<div class="line"><a id="l00253" name="l00253"></a><span class="lineno">  253</span>    struct : <a class="code hl_class" href="../../d6/db1/class_t_array.html">TArray&lt;FManualFence&gt;</a></div>
+<div class="line"><a id="l00254" name="l00254"></a><span class="lineno">  254</span>    {</div>
+<div class="line"><a id="l00255" name="l00255"></a><span class="lineno">  255</span>        <a class="code hl_typedef" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a8dbb3cd84ca9fd010dadfc3815eefa5d">int32</a> <a class="code hl_variable" href="../../d2/d08/struct_f_d3_d12_payload_base.html#a6b3b3310d46129ad7c843831d22d52d8">Index</a> = 0;</div>
+<div class="line"><a id="l00256" name="l00256"></a><span class="lineno">  256</span> </div>
+<div class="line"><a id="l00257" name="l00257"></a><span class="lineno"><a class="line" href="../../d2/d08/struct_f_d3_d12_payload_base.html#aecfb016ab1562e9a6557c5f6f419a7c0">  257</a></span>    } <a class="code hl_variable" href="../../d2/d08/struct_f_d3_d12_payload_base.html#aecfb016ab1562e9a6557c5f6f419a7c0">ManualFencesToWait</a>;</div>
+<div class="line"><a id="l00258" name="l00258"></a><span class="lineno">  258</span> </div>
+<div class="line"><a id="l00259" name="l00259"></a><span class="lineno">  259</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="../../d2/d08/struct_f_d3_d12_payload_base.html#ab2dcac8c7abdafd065136d0c137987d2">AddQueueFenceWait</a>(<a class="code hl_struct" href="../../d8/db0/struct_f_d3_d12_fence.html">FD3D12Fence</a>&amp; Fence, <a class="code hl_typedef" href="../../dd/de9/preprocessor_8c.html#abc0f5bc07737e498f287334775dff2b6">uint64</a> <a class="code hl_enumvalue" href="../../d1/d75/_s_color_picker_8h.html#a84461ad6c05d7bc638a383922014d918a689202409e48743b914713f96d93947c">Value</a>);</div>
+<div class="line"><a id="l00260" name="l00260"></a><span class="lineno">  260</span> </div>
+<div class="line"><a id="l00261" name="l00261"></a><span class="lineno">  261</span>    <span class="comment">// UpdateReservedResources</span></div>
+<div class="line"><a id="l00262" name="l00262"></a><span class="lineno"><a class="line" href="../../d2/d08/struct_f_d3_d12_payload_base.html#ada47584dbd020767ec16566a66ae69ab">  262</a></span>    <a class="code hl_class" href="../../d6/db1/class_t_array.html">TArray&lt;FD3D12CommitReservedResourceDesc&gt;</a> <a class="code hl_variable" href="../../d2/d08/struct_f_d3_d12_payload_base.html#ada47584dbd020767ec16566a66ae69ab">ReservedResourcesToCommit</a>;</div>
+<div class="line"><a id="l00263" name="l00263"></a><span class="lineno">  263</span> </div>
+<div class="line"><a id="l00264" name="l00264"></a><span class="lineno">  264</span>    <span class="comment">// Flags.</span></div>
+<div class="line"><a id="l00265" name="l00265"></a><span class="lineno"><a class="line" href="../../d2/d08/struct_f_d3_d12_payload_base.html#aa8ca0da91f30a6980488d6dd40646414">  265</a></span>    <span class="keywordtype">bool</span> <a class="code hl_variable" href="../../d2/d08/struct_f_d3_d12_payload_base.html#aa8ca0da91f30a6980488d6dd40646414">bAlwaysSignal</a> = <span class="keyword">false</span>;</div>
+<div class="line"><a id="l00266" name="l00266"></a><span class="lineno"><a class="line" href="../../d2/d08/struct_f_d3_d12_payload_base.html#a753f1923f093e3e6758518a0f1b5ae8f">  266</a></span>    std::atomic&lt;bool&gt; <a class="code hl_variable" href="../../d2/d08/struct_f_d3_d12_payload_base.html#a753f1923f093e3e6758518a0f1b5ae8f">bSubmitted</a> { <span class="keyword">false</span> };</div>
+<div class="line"><a id="l00267" name="l00267"></a><span class="lineno">  267</span> </div>
+<div class="line"><a id="l00268" name="l00268"></a><span class="lineno">  268</span>    <span class="comment">// Used by RHIRunOnQueue</span></div>
+<div class="line"><a id="l00269" name="l00269"></a><span class="lineno"><a class="line" href="../../d2/d08/struct_f_d3_d12_payload_base.html#abe73e8fc98d67c768a5055d4bec75a07">  269</a></span>    <a class="code hl_class" href="../../df/de8/class_t_function.html">TFunction</a>&lt;<a class="code hl_variable" href="../../df/d63/_typed_element_query_capabilities_8inl.html#a72343342ce64c0755563ee6c5e27868d">void</a>(ID3D12CommandQueue*)&gt; <a class="code hl_variable" href="../../d2/d08/struct_f_d3_d12_payload_base.html#abe73e8fc98d67c768a5055d4bec75a07">PreExecuteCallback</a>;</div>
+<div class="line"><a id="l00270" name="l00270"></a><span class="lineno">  270</span> </div>
+<div class="line"><a id="l00271" name="l00271"></a><span class="lineno">  271</span>    <span class="comment">// Execute</span></div>
+<div class="line"><a id="l00272" name="l00272"></a><span class="lineno"><a class="line" href="../../d2/d08/struct_f_d3_d12_payload_base.html#a65f98bacdd640aa3a1e2259197031eba">  272</a></span>    <a class="code hl_class" href="../../d6/db1/class_t_array.html">TArray&lt;FD3D12CommandList*&gt;</a> <a class="code hl_variable" href="../../d2/d08/struct_f_d3_d12_payload_base.html#a65f98bacdd640aa3a1e2259197031eba">CommandListsToExecute</a>;</div>
+<div class="line"><a id="l00273" name="l00273"></a><span class="lineno">  273</span> </div>
+<div class="line"><a id="l00274" name="l00274"></a><span class="lineno">  274</span>    <span class="comment">// Signal</span></div>
+<div class="line"><a id="l00275" name="l00275"></a><span class="lineno"><a class="line" href="../../d2/d08/struct_f_d3_d12_payload_base.html#abb68133dbb4561a4a9bbc7aa2410a05f">  275</a></span>    <a class="code hl_class" href="../../d6/db1/class_t_array.html">TArray&lt;FManualFence&gt;</a> <a class="code hl_variable" href="../../d2/d08/struct_f_d3_d12_payload_base.html#abb68133dbb4561a4a9bbc7aa2410a05f">ManualFencesToSignal</a>;</div>
+<div class="line"><a id="l00276" name="l00276"></a><span class="lineno"><a class="line" href="../../d2/d08/struct_f_d3_d12_payload_base.html#a25662ce399448cfdb0ea7aa7f32a727e">  276</a></span>    <a class="code hl_class" href="../../d6/db1/class_t_array.html">TArray&lt;FD3D12SyncPointRef&gt;</a> <a class="code hl_variable" href="../../d2/d08/struct_f_d3_d12_payload_base.html#a25662ce399448cfdb0ea7aa7f32a727e">SyncPointsToSignal</a>;</div>
+<div class="line"><a id="l00277" name="l00277"></a><span class="lineno"><a class="line" href="../../d2/d08/struct_f_d3_d12_payload_base.html#aeb2404eff865db4f0074aa9e1406f61d">  277</a></span>    <a class="code hl_typedef" href="../../dd/de9/preprocessor_8c.html#abc0f5bc07737e498f287334775dff2b6">uint64</a> <a class="code hl_variable" href="../../d2/d08/struct_f_d3_d12_payload_base.html#aeb2404eff865db4f0074aa9e1406f61d">CompletionFenceValue</a> = 0;</div>
+<div class="line"><a id="l00278" name="l00278"></a><span class="lineno">  278</span> </div>
+<div class="line"><a id="l00279" name="l00279"></a><span class="lineno"><a class="line" href="../../d2/d08/struct_f_d3_d12_payload_base.html#a4722b97045e73ab068f67d786ac6101b">  279</a></span>    <a class="code hl_typedef" href="../../df/de9/_task_graph_fwd_8h.html#aa97a5bd9481ed210005f7ccce5fa13ae">FGraphEventRef</a> <a class="code hl_variable" href="../../d2/d08/struct_f_d3_d12_payload_base.html#a4722b97045e73ab068f67d786ac6101b">SubmissionEvent</a>;</div>
+<div class="line"><a id="l00280" name="l00280"></a><span class="lineno"><a class="line" href="../../d2/d08/struct_f_d3_d12_payload_base.html#a7328c4b4e5e83b71b829386661d9d306">  280</a></span>    <a class="code hl_struct" href="../../dd/d2f/struct_t_optional.html">TOptional&lt;uint64&gt;</a> <a class="code hl_variable" href="../../d2/d08/struct_f_d3_d12_payload_base.html#a7328c4b4e5e83b71b829386661d9d306">SubmissionTime</a>;</div>
+<div class="line"><a id="l00281" name="l00281"></a><span class="lineno">  281</span> </div>
+<div class="line"><a id="l00282" name="l00282"></a><span class="lineno"><a class="line" href="../../d2/d08/struct_f_d3_d12_payload_base.html#aa65ab10df90dfdea01006449410dd363">  282</a></span>    <a class="code hl_struct" href="../../dd/d2f/struct_t_optional.html">TOptional&lt;FD3D12Timing*&gt;</a> <a class="code hl_variable" href="../../d2/d08/struct_f_d3_d12_payload_base.html#aa65ab10df90dfdea01006449410dd363">Timing</a>;</div>
+<div class="line"><a id="l00283" name="l00283"></a><span class="lineno">  283</span> </div>
+<div class="line"><a id="l00284" name="l00284"></a><span class="lineno">  284</span>    <span class="comment">// Cleanup</span></div>
+<div class="line"><a id="l00285" name="l00285"></a><span class="lineno"><a class="line" href="../../d2/d08/struct_f_d3_d12_payload_base.html#a8103663584b61c96bf55427d38aed115">  285</a></span>    <a class="code hl_class" href="../../d6/db1/class_t_array.html">TArray&lt;FD3D12CommandAllocator*&gt;</a> <a class="code hl_variable" href="../../d2/d08/struct_f_d3_d12_payload_base.html#a8103663584b61c96bf55427d38aed115">AllocatorsToRelease</a>;</div>
+<div class="line"><a id="l00286" name="l00286"></a><span class="lineno">  286</span> </div>
+<div class="line"><a id="l00287" name="l00287"></a><span class="lineno"><a class="line" href="../../d2/d08/struct_f_d3_d12_payload_base.html#ac4d83ccc68ad4b9be514327e1f2aaa9a">  287</a></span>    <a class="code hl_struct" href="../../d4/d09/struct_f_d3_d12_batched_payload_objects.html">FD3D12BatchedPayloadObjects</a> <a class="code hl_variable" href="../../d2/d08/struct_f_d3_d12_payload_base.html#ac4d83ccc68ad4b9be514327e1f2aaa9a">BatchedObjects</a>;</div>
+<div class="line"><a id="l00288" name="l00288"></a><span class="lineno">  288</span> </div>
+<div class="line"><a id="l00289" name="l00289"></a><span class="lineno"><a class="line" href="../../d2/d08/struct_f_d3_d12_payload_base.html#aa8f39cbb9ba8f38541df45ec8e26c033">  289</a></span>    <a class="code hl_struct" href="../../d9/d50/struct_f_d3_d12_present_args.html">FD3D12PresentArgs</a> <a class="code hl_variable" href="../../d2/d08/struct_f_d3_d12_payload_base.html#aa8f39cbb9ba8f38541df45ec8e26c033">PresentArgs</a>;</div>
+<div class="line"><a id="l00290" name="l00290"></a><span class="lineno">  290</span> </div>
+<div class="line"><a id="l00291" name="l00291"></a><span class="lineno">  291</span><span class="preprocessor">#if WITH_RHI_BREADCRUMBS</span></div>
+<div class="line"><a id="l00292" name="l00292"></a><span class="lineno">  292</span>    FRHIBreadcrumbRange BreadcrumbRange {};</div>
+<div class="line"><a id="l00293" name="l00293"></a><span class="lineno">  293</span>    <a class="code hl_class" href="../../dd/dba/class_t_shared_ptr.html">TSharedPtr&lt;FRHIBreadcrumbAllocatorArray&gt;</a> BreadcrumbAllocators {};</div>
+<div class="line"><a id="l00294" name="l00294"></a><span class="lineno">  294</span><span class="preprocessor">#endif</span></div>
+<div class="line"><a id="l00295" name="l00295"></a><span class="lineno">  295</span> </div>
+<div class="line"><a id="l00296" name="l00296"></a><span class="lineno"><a class="line" href="../../d2/d08/struct_f_d3_d12_payload_base.html#a703f2278c7860149d40d9f9e8ac0a4df">  296</a></span>    <a class="code hl_class" href="../../df/dfd/class_u_e_1_1_r_h_i_1_1_g_p_u_profiler_1_1_f_event_stream.html">UE::RHI::GPUProfiler::FEventStream</a> <a class="code hl_variable" href="../../d2/d08/struct_f_d3_d12_payload_base.html#a703f2278c7860149d40d9f9e8ac0a4df">EventStream</a>;</div>
+<div class="line"><a id="l00297" name="l00297"></a><span class="lineno"><a class="line" href="../../d2/d08/struct_f_d3_d12_payload_base.html#a49d6f378ccf4179fb4ad56dacbc32d59">  297</a></span>    <a class="code hl_struct" href="../../dd/d2f/struct_t_optional.html">TOptional&lt;UE::RHI::GPUProfiler::FEvent::FFrameBoundary&gt;</a> <a class="code hl_variable" href="../../d2/d08/struct_f_d3_d12_payload_base.html#a49d6f378ccf4179fb4ad56dacbc32d59">EndFrameEvent</a>;</div>
+<div class="line"><a id="l00298" name="l00298"></a><span class="lineno">  298</span> </div>
+<div class="line"><a id="l00299" name="l00299"></a><span class="lineno">  299</span>    <span class="keyword">virtual</span> <a class="code hl_function" href="../../d2/d08/struct_f_d3_d12_payload_base.html#ab6366ba157b8e5c59a248b80c9a01d08">~FD3D12PayloadBase</a>();</div>
+<div class="line"><a id="l00300" name="l00300"></a><span class="lineno">  300</span> </div>
+<div class="line"><a id="l00301" name="l00301"></a><span class="lineno">  301</span>    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code hl_function" href="../../d2/d08/struct_f_d3_d12_payload_base.html#aab4d12a3aabb9f166052246a6a9d4973">PreExecute</a>();</div>
+<div class="line"><a id="l00302" name="l00302"></a><span class="lineno">  302</span> </div>
+<div class="foldopen" id="foldopen00303" data-start="{" data-end="}">
+<div class="line"><a id="l00303" name="l00303"></a><span class="lineno"><a class="line" href="../../d2/d08/struct_f_d3_d12_payload_base.html#a700a5ae9803097a5248ddac08657e4e9">  303</a></span>    <span class="keyword">virtual</span> <span class="keywordtype">bool</span> <a class="code hl_function" href="../../d2/d08/struct_f_d3_d12_payload_base.html#a700a5ae9803097a5248ddac08657e4e9">HasPreExecuteWork</a>()<span class="keyword"> const</span></div>
+<div class="line"><a id="l00304" name="l00304"></a><span class="lineno">  304</span><span class="keyword">    </span>{</div>
+<div class="line"><a id="l00305" name="l00305"></a><span class="lineno">  305</span>        <span class="keywordflow">return</span> <a class="code hl_variable" href="../../d2/d08/struct_f_d3_d12_payload_base.html#abe73e8fc98d67c768a5055d4bec75a07">PreExecuteCallback</a> != <span class="keyword">nullptr</span>;</div>
+<div class="line"><a id="l00306" name="l00306"></a><span class="lineno">  306</span>    }</div>
+</div>
+<div class="line"><a id="l00307" name="l00307"></a><span class="lineno">  307</span> </div>
+<div class="foldopen" id="foldopen00308" data-start="{" data-end="}">
+<div class="line"><a id="l00308" name="l00308"></a><span class="lineno"><a class="line" href="../../d2/d08/struct_f_d3_d12_payload_base.html#a904db2e2fd2bb35412d19c37b6889910">  308</a></span>    <span class="keyword">virtual</span> <span class="keywordtype">bool</span> <a class="code hl_function" href="../../d2/d08/struct_f_d3_d12_payload_base.html#a904db2e2fd2bb35412d19c37b6889910">RequiresQueueFenceSignal</a>()<span class="keyword"> const</span></div>
+<div class="line"><a id="l00309" name="l00309"></a><span class="lineno">  309</span><span class="keyword">    </span>{</div>
+<div class="line"><a id="l00310" name="l00310"></a><span class="lineno">  310</span>        <span class="keywordflow">return</span> <a class="code hl_variable" href="../../d2/d08/struct_f_d3_d12_payload_base.html#aa8ca0da91f30a6980488d6dd40646414">bAlwaysSignal</a> || <a class="code hl_variable" href="../../d2/d08/struct_f_d3_d12_payload_base.html#a25662ce399448cfdb0ea7aa7f32a727e">SyncPointsToSignal</a>.Num() &gt; 0 || <a class="code hl_function" href="../../d2/d08/struct_f_d3_d12_payload_base.html#a700a5ae9803097a5248ddac08657e4e9">HasPreExecuteWork</a>();</div>
+<div class="line"><a id="l00311" name="l00311"></a><span class="lineno">  311</span>    }</div>
+</div>
+<div class="line"><a id="l00312" name="l00312"></a><span class="lineno">  312</span> </div>
+<div class="foldopen" id="foldopen00313" data-start="{" data-end="}">
+<div class="line"><a id="l00313" name="l00313"></a><span class="lineno"><a class="line" href="../../d2/d08/struct_f_d3_d12_payload_base.html#a81158435a88fcfc77d9420975f4800ae">  313</a></span>    <span class="keyword">virtual</span> <span class="keywordtype">bool</span> <a class="code hl_function" href="../../d2/d08/struct_f_d3_d12_payload_base.html#a81158435a88fcfc77d9420975f4800ae">HasWaitWork</a>()<span class="keyword"> const</span></div>
+<div class="line"><a id="l00314" name="l00314"></a><span class="lineno">  314</span><span class="keyword">    </span>{</div>
+<div class="line"><a id="l00315" name="l00315"></a><span class="lineno">  315</span>        <span class="keywordflow">return</span> <a class="code hl_variable" href="../../d2/d08/struct_f_d3_d12_payload_base.html#aecfb016ab1562e9a6557c5f6f419a7c0">ManualFencesToWait</a>.Num() &gt; 0 || <a class="code hl_variable" href="../../d2/d08/struct_f_d3_d12_payload_base.html#a6224f873d2d15c7c40ef3dc361288c18">QueueFencesToWait</a>.Num() &gt; 0;</div>
+<div class="line"><a id="l00316" name="l00316"></a><span class="lineno">  316</span>    }</div>
+</div>
+<div class="line"><a id="l00317" name="l00317"></a><span class="lineno">  317</span> </div>
+<div class="foldopen" id="foldopen00318" data-start="{" data-end="}">
+<div class="line"><a id="l00318" name="l00318"></a><span class="lineno"><a class="line" href="../../d2/d08/struct_f_d3_d12_payload_base.html#a4127cf80596bcb792b08800e28aa60e2">  318</a></span>    <span class="keyword">virtual</span> <span class="keywordtype">bool</span> <a class="code hl_function" href="../../d2/d08/struct_f_d3_d12_payload_base.html#a4127cf80596bcb792b08800e28aa60e2">HasUpdateReservedResourcesWork</a>()<span class="keyword"> const</span></div>
+<div class="line"><a id="l00319" name="l00319"></a><span class="lineno">  319</span><span class="keyword">    </span>{</div>
+<div class="line"><a id="l00320" name="l00320"></a><span class="lineno">  320</span>        <span class="keywordflow">return</span> <a class="code hl_variable" href="../../d2/d08/struct_f_d3_d12_payload_base.html#ada47584dbd020767ec16566a66ae69ab">ReservedResourcesToCommit</a>.Num() &gt; 0;</div>
+<div class="line"><a id="l00321" name="l00321"></a><span class="lineno">  321</span>    }</div>
+</div>
+<div class="line"><a id="l00322" name="l00322"></a><span class="lineno">  322</span> </div>
+<div class="foldopen" id="foldopen00323" data-start="{" data-end="}">
+<div class="line"><a id="l00323" name="l00323"></a><span class="lineno"><a class="line" href="../../d2/d08/struct_f_d3_d12_payload_base.html#a94715c129088050020f48d82a1ed5dc5">  323</a></span>    <span class="keyword">virtual</span> <span class="keywordtype">bool</span> <a class="code hl_function" href="../../d2/d08/struct_f_d3_d12_payload_base.html#a94715c129088050020f48d82a1ed5dc5">HasSignalWork</a>()<span class="keyword"> const</span></div>
+<div class="line"><a id="l00324" name="l00324"></a><span class="lineno">  324</span><span class="keyword">    </span>{</div>
+<div class="line"><a id="l00325" name="l00325"></a><span class="lineno">  325</span>        <span class="keywordflow">return</span> <a class="code hl_function" href="../../d2/d08/struct_f_d3_d12_payload_base.html#a904db2e2fd2bb35412d19c37b6889910">RequiresQueueFenceSignal</a>()</div>
+<div class="line"><a id="l00326" name="l00326"></a><span class="lineno">  326</span>            || <a class="code hl_variable" href="../../d2/d08/struct_f_d3_d12_payload_base.html#abb68133dbb4561a4a9bbc7aa2410a05f">ManualFencesToSignal</a>.Num() &gt; 0</div>
+<div class="line"><a id="l00327" name="l00327"></a><span class="lineno">  327</span>            || <a class="code hl_variable" href="../../d2/d08/struct_f_d3_d12_payload_base.html#a4722b97045e73ab068f67d786ac6101b">SubmissionEvent</a> != <span class="keyword">nullptr</span></div>
+<div class="line"><a id="l00328" name="l00328"></a><span class="lineno">  328</span>            || <a class="code hl_variable" href="../../d2/d08/struct_f_d3_d12_payload_base.html#aa8f39cbb9ba8f38541df45ec8e26c033">PresentArgs</a>.IsValid()</div>
+<div class="line"><a id="l00329" name="l00329"></a><span class="lineno">  329</span>            || <a class="code hl_variable" href="../../d2/d08/struct_f_d3_d12_payload_base.html#a49d6f378ccf4179fb4ad56dacbc32d59">EndFrameEvent</a>.IsSet();</div>
+<div class="line"><a id="l00330" name="l00330"></a><span class="lineno">  330</span>    }</div>
+</div>
+<div class="line"><a id="l00331" name="l00331"></a><span class="lineno">  331</span> </div>
+<div class="line"><a id="l00332" name="l00332"></a><span class="lineno">  332</span><span class="keyword">protected</span>:</div>
+<div class="line"><a id="l00333" name="l00333"></a><span class="lineno">  333</span>    <a class="code hl_function" href="../../d2/d08/struct_f_d3_d12_payload_base.html#a1d0cecce4143136add51e7e766d0b17c">FD3D12PayloadBase</a>(<a class="code hl_class" href="../../df/d45/class_f_d3_d12_queue.html">FD3D12Queue</a>&amp; <a class="code hl_variable" href="../../d2/d08/struct_f_d3_d12_payload_base.html#abe3815cf4c43a878415789659bcaf0a8">Queue</a>);</div>
+<div class="line"><a id="l00334" name="l00334"></a><span class="lineno">  334</span>};</div>
+</div>
+<div class="line"><a id="l00335" name="l00335"></a><span class="lineno">  335</span> </div>
+<div class="line"><a id="l00336" name="l00336"></a><span class="lineno">  336</span><span class="preprocessor">#include COMPILED_PLATFORM_HEADER(D3D12Submission.h)</span></div>
+<div class="ttc" id="a_assertion_macros_8h_html_a586e110623cde145b8a5bdefb429e144"><div class="ttname"><a href="../../d4/d75/_assertion_macros_8h.html#a586e110623cde145b8a5bdefb429e144">check</a></div><div class="ttdeci">#define check(expr)</div><div class="ttdef"><b>定义</b> AssertionMacros.h:319</div></div>
+<div class="ttc" id="a_assertion_macros_8h_html_adda76c7007d2e32f3aa142897f5702a2"><div class="ttname"><a href="../../d4/d75/_assertion_macros_8h.html#adda76c7007d2e32f3aa142897f5702a2">checkf</a></div><div class="ttdeci">#define checkf(expr, format,...)</div><div class="ttdef"><b>定义</b> AssertionMacros.h:320</div></div>
+<div class="ttc" id="a_core_2_public_2_h_a_l_2_platform_8h_html_a2978f60d40d64f3605b5a99f66f292a9"><div class="ttname"><a href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a></div><div class="ttdeci">#define TEXT(x)</div><div class="ttdef"><b>定义</b> Platform.h:1332</div></div>
+<div class="ttc" id="a_core_2_public_2_h_a_l_2_platform_8h_html_a8dbb3cd84ca9fd010dadfc3815eefa5d"><div class="ttname"><a href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a8dbb3cd84ca9fd010dadfc3815eefa5d">int32</a></div><div class="ttdeci">FPlatformTypes::int32 int32</div><div class="ttdoc">A 32-bit signed integer.</div><div class="ttdef"><b>定义</b> Platform.h:1190</div></div>
+<div class="ttc" id="a_core_2_public_2_templates_2_function_8h_html"><div class="ttname"><a href="../../da/da2/_core_2_public_2_templates_2_function_8h.html">Function.h</a></div></div>
+<div class="ttc" id="a_d3_d12_bindless_descriptors_8h_html"><div class="ttname"><a href="../../d7/d2a/_d3_d12_bindless_descriptors_8h.html">D3D12BindlessDescriptors.h</a></div></div>
+<div class="ttc" id="a_d3_d12_descriptor_cache_8h_html_adbb2f662e14f16511f1a596f70c6141a"><div class="ttname"><a href="../../d1/d3d/_d3_d12_descriptor_cache_8h.html#adbb2f662e14f16511f1a596f70c6141a">FD3D12SyncPointRef</a></div><div class="ttdeci">TRefCountPtr&lt; FD3D12SyncPoint &gt; FD3D12SyncPointRef</div><div class="ttdef"><b>定义</b> D3D12DescriptorCache.h:32</div></div>
+<div class="ttc" id="a_d3_d12_query_8h_html"><div class="ttname"><a href="../../d4/df2/_d3_d12_query_8h.html">D3D12Query.h</a></div></div>
+<div class="ttc" id="a_d3_d12_queue_8h_html"><div class="ttname"><a href="../../d6/dd6/_d3_d12_queue_8h.html">D3D12Queue.h</a></div></div>
+<div class="ttc" id="a_d3_d12_queue_8h_html_ac3690361fe491f309cb9dbba3be17899"><div class="ttname"><a href="../../d6/dd6/_d3_d12_queue_8h.html#ac3690361fe491f309cb9dbba3be17899">ED3D12QueueType</a></div><div class="ttdeci">ED3D12QueueType</div><div class="ttdef"><b>定义</b> D3D12Queue.h:11</div></div>
+<div class="ttc" id="a_d3_d12_r_h_i_common_8h_html"><div class="ttname"><a href="../../d7/d2e/_d3_d12_r_h_i_common_8h.html">D3D12RHICommon.h</a></div></div>
+<div class="ttc" id="a_d3_d12_submission_8h_html_aba37fe0da83e0434eae3e3822907203c"><div class="ttname"><a href="../../d4/d8c/_d3_d12_submission_8h.html#aba37fe0da83e0434eae3e3822907203c">ED3D12SyncPointType</a></div><div class="ttdeci">ED3D12SyncPointType</div><div class="ttdef"><b>定义</b> D3D12Submission.h:34</div></div>
+<div class="ttc" id="a_d3_d12_submission_8h_html_aba37fe0da83e0434eae3e3822907203ca848312663120391333919c25c4f8bc98"><div class="ttname"><a href="../../d4/d8c/_d3_d12_submission_8h.html#aba37fe0da83e0434eae3e3822907203ca848312663120391333919c25c4f8bc98">ED3D12SyncPointType::GPUAndCPU</a></div><div class="ttdeci">@ GPUAndCPU</div><div class="ttdef"><b>定义</b> D3D12Submission.h:41</div></div>
+<div class="ttc" id="a_d3_d12_submission_8h_html_aba37fe0da83e0434eae3e3822907203ca9926354d7edfc0d51ec9d308f084b9bd"><div class="ttname"><a href="../../d4/d8c/_d3_d12_submission_8h.html#aba37fe0da83e0434eae3e3822907203ca9926354d7edfc0d51ec9d308f084b9bd">ED3D12SyncPointType::GPUOnly</a></div><div class="ttdeci">@ GPUOnly</div><div class="ttdef"><b>定义</b> D3D12Submission.h:37</div></div>
+<div class="ttc" id="a_d3_d12_submission_8h_html_adbb2f662e14f16511f1a596f70c6141a"><div class="ttname"><a href="../../d4/d8c/_d3_d12_submission_8h.html#adbb2f662e14f16511f1a596f70c6141a">FD3D12SyncPointRef</a></div><div class="ttdeci">TRefCountPtr&lt; FD3D12SyncPoint &gt; FD3D12SyncPointRef</div><div class="ttdef"><b>定义</b> D3D12Submission.h:28</div></div>
+<div class="ttc" id="a_d3_d12_submission_8h_html_aeb4f7c6dd48c2e993e99016ac25c59e4"><div class="ttname"><a href="../../d4/d8c/_d3_d12_submission_8h.html#aeb4f7c6dd48c2e993e99016ac25c59e4">UE_D3D12_STATIC_FNAME</a></div><div class="ttdeci">#define UE_D3D12_STATIC_FNAME(String)</div><div class="ttdef"><b>定义</b> D3D12Submission.h:31</div></div>
+<div class="ttc" id="a_g_p_u_profiler_8h_html"><div class="ttname"><a href="../../df/ddd/_g_p_u_profiler_8h.html">GPUProfiler.h</a></div></div>
+<div class="ttc" id="a_groom_visualization_data_8h_html_a5aac198462141e75e6d8274d4c8b6ee2a4789f23283b3a61f858b641a1bef19a3"><div class="ttname"><a href="../../de/d46/_groom_visualization_data_8h.html#a5aac198462141e75e6d8274d4c8b6ee2a4789f23283b3a61f858b641a1bef19a3">EGroomViewMode::Memory</a></div><div class="ttdeci">@ Memory</div><div class="ttdef"><b>定义</b> GroomVisualizationData.h:48</div></div>
+<div class="ttc" id="a_low_level_mem_tracker_8h_html_acf8fb1996ff10647e287318480f78f1c"><div class="ttname"><a href="../../d9/dc8/_low_level_mem_tracker_8h.html#acf8fb1996ff10647e287318480f78f1c">LLM_SCOPE_BYNAME</a></div><div class="ttdeci">#define LLM_SCOPE_BYNAME(...)</div><div class="ttdef"><b>定义</b> LowLevelMemTracker.h:948</div></div>
+<div class="ttc" id="a_r_h_i_breadcrumbs_8h_html"><div class="ttname"><a href="../../da/db9/_r_h_i_breadcrumbs_8h.html">RHIBreadcrumbs.h</a></div></div>
+<div class="ttc" id="a_ref_counting_8h_html"><div class="ttname"><a href="../../d3/d13/_ref_counting_8h.html">RefCounting.h</a></div></div>
+<div class="ttc" id="a_s_color_picker_8h_html_a84461ad6c05d7bc638a383922014d918a689202409e48743b914713f96d93947c"><div class="ttname"><a href="../../d1/d75/_s_color_picker_8h.html#a84461ad6c05d7bc638a383922014d918a689202409e48743b914713f96d93947c">EColorPickerChannels::Value</a></div><div class="ttdeci">@ Value</div><div class="ttdef"><b>定义</b> SColorPicker.h:39</div></div>
+<div class="ttc" id="a_sequence_history_8h_html_a41f48316f09703e0b7cd9ac6b643e9c8"><div class="ttname"><a href="../../d0/de4/_sequence_history_8h.html#a41f48316f09703e0b7cd9ac6b643e9c8">Size</a></div><div class="ttdeci">constexpr SIZE_T TSequenceHistory&lt; HistorySize &gt;::Size</div><div class="ttdef"><b>定义</b> SequenceHistory.h:69</div></div>
+<div class="ttc" id="a_task_graph_fwd_8h_html_aa97a5bd9481ed210005f7ccce5fa13ae"><div class="ttname"><a href="../../df/de9/_task_graph_fwd_8h.html#aa97a5bd9481ed210005f7ccce5fa13ae">FGraphEventRef</a></div><div class="ttdeci">TRefCountPtr&lt; FBaseGraphTask &gt; FGraphEventRef</div><div class="ttdef"><b>定义</b> TaskGraphFwd.h:17</div></div>
+<div class="ttc" id="a_task_graph_fwd_8h_html_af0562367290aa846634aa403b713d20b"><div class="ttname"><a href="../../df/de9/_task_graph_fwd_8h.html#af0562367290aa846634aa403b713d20b">FGraphEvent</a></div><div class="ttdeci">FBaseGraphTask FGraphEvent</div><div class="ttdef"><b>定义</b> TaskGraphFwd.h:14</div></div>
+<div class="ttc" id="a_task_graph_interfaces_8h_html"><div class="ttname"><a href="../../dd/d24/_task_graph_interfaces_8h.html">TaskGraphInterfaces.h</a></div></div>
+<div class="ttc" id="a_typed_element_query_capabilities_8inl_html_a72343342ce64c0755563ee6c5e27868d"><div class="ttname"><a href="../../df/d63/_typed_element_query_capabilities_8inl.html#a72343342ce64c0755563ee6c5e27868d">void</a></div><div class="ttdeci">Table Row void</div><div class="ttdef"><b>定义</b> TypedElementQueryCapabilities.inl:24</div></div>
+<div class="ttc" id="a_unreal_template_8h_html_af9d82a97e855a2ee1464cc020639d843"><div class="ttname"><a href="../../d2/dd1/_unreal_template_8h.html#af9d82a97e855a2ee1464cc020639d843">MoveTemp</a></div><div class="ttdeci">UE_INTRINSIC_CAST UE_REWRITE constexpr std::remove_reference_t&lt; T &gt; &amp;&amp; MoveTemp(T &amp;&amp;Obj) noexcept</div><div class="ttdef"><b>定义</b> UnrealTemplate.h:530</div></div>
+<div class="ttc" id="aclass_f_base_graph_task_html_a642b41dbe4e770b9b3cf12ecbde3c54d"><div class="ttname"><a href="../../da/d8b/class_f_base_graph_task.html#a642b41dbe4e770b9b3cf12ecbde3c54d">FBaseGraphTask::CreateGraphEvent</a></div><div class="ttdeci">static FGraphEventRef CreateGraphEvent()</div><div class="ttdef"><b>定义</b> TaskGraphInterfaces.h:750</div></div>
+<div class="ttc" id="aclass_f_d3_d12_buffer_html"><div class="ttname"><a href="../../d5/d14/class_f_d3_d12_buffer.html">FD3D12Buffer</a></div><div class="ttdef"><b>定义</b> D3D12Resources.h:990</div></div>
+<div class="ttc" id="aclass_f_d3_d12_command_allocator_html"><div class="ttname"><a href="../../d7/dc0/class_f_d3_d12_command_allocator.html">FD3D12CommandAllocator</a></div><div class="ttdef"><b>定义</b> D3D12CommandList.h:36</div></div>
+<div class="ttc" id="aclass_f_d3_d12_command_list_html"><div class="ttname"><a href="../../d5/d3e/class_f_d3_d12_command_list.html">FD3D12CommandList</a></div><div class="ttdef"><b>定义</b> D3D12CommandList.h:63</div></div>
+<div class="ttc" id="aclass_f_d3_d12_dynamic_r_h_i_html"><div class="ttname"><a href="../../d3/d95/class_f_d3_d12_dynamic_r_h_i.html">FD3D12DynamicRHI</a></div><div class="ttdef"><b>定义</b> D3D12RHIPrivate.h:159</div></div>
+<div class="ttc" id="aclass_f_d3_d12_query_heap_html"><div class="ttname"><a href="../../d7/dea/class_f_d3_d12_query_heap.html">FD3D12QueryHeap</a></div><div class="ttdef"><b>定义</b> D3D12Query.h:42</div></div>
+<div class="ttc" id="aclass_f_d3_d12_queue_html"><div class="ttname"><a href="../../df/d45/class_f_d3_d12_queue.html">FD3D12Queue</a></div><div class="ttdef"><b>定义</b> D3D12Device.h:86</div></div>
+<div class="ttc" id="aclass_f_d3_d12_resource_html"><div class="ttname"><a href="../../d7/d81/class_f_d3_d12_resource.html">FD3D12Resource</a></div><div class="ttdef"><b>定义</b> D3D12Resources.h:180</div></div>
+<div class="ttc" id="aclass_f_d3_d12_sync_point_html"><div class="ttname"><a href="../../d7/d30/class_f_d3_d12_sync_point.html">FD3D12SyncPoint</a></div><div class="ttdef"><b>定义</b> D3D12Submission.h:80</div></div>
+<div class="ttc" id="aclass_f_d3_d12_sync_point_html_a0eae70ebd4b135f14a1d2dee6af712fc"><div class="ttname"><a href="../../d7/d30/class_f_d3_d12_sync_point.html#a0eae70ebd4b135f14a1d2dee6af712fc">FD3D12SyncPoint::Create</a></div><div class="ttdeci">static FD3D12SyncPointRef Create(ED3D12SyncPointType Type, FName InDebugName)</div><div class="ttdef"><b>定义</b> D3D12Submission.h:105</div></div>
+<div class="ttc" id="aclass_f_d3_d12_sync_point_html_a1ff0c43daba313fb0d8b954e1197dc10"><div class="ttname"><a href="../../d7/d30/class_f_d3_d12_sync_point.html#a1ff0c43daba313fb0d8b954e1197dc10">FD3D12SyncPoint::GetType</a></div><div class="ttdeci">ED3D12SyncPointType GetType() const</div><div class="ttdef"><b>定义</b> D3D12Submission.h:125</div></div>
+<div class="ttc" id="aclass_f_d3_d12_sync_point_html_a242f70424ff43804409866966302624c"><div class="ttname"><a href="../../d7/d30/class_f_d3_d12_sync_point.html#a242f70424ff43804409866966302624c">FD3D12SyncPoint::IsComplete</a></div><div class="ttdeci">bool IsComplete() const</div><div class="ttdef"><b>定义</b> D3D12Submission.h:111</div></div>
+<div class="ttc" id="aclass_f_d3_d12_sync_point_html_a2d2b64324322c3cc9608d2eb6114513f"><div class="ttname"><a href="../../d7/d30/class_f_d3_d12_sync_point.html#a2d2b64324322c3cc9608d2eb6114513f">FD3D12SyncPoint::GetDebugName</a></div><div class="ttdeci">FName GetDebugName() const</div><div class="ttdef"><b>定义</b> D3D12Submission.h:149</div></div>
+<div class="ttc" id="aclass_f_d3_d12_sync_point_html_a503cb17aa984a2d6920b27f7054df083"><div class="ttname"><a href="../../d7/d30/class_f_d3_d12_sync_point.html#a503cb17aa984a2d6920b27f7054df083">FD3D12SyncPoint::Wait</a></div><div class="ttdeci">void Wait() const</div><div class="ttdef"><b>定义</b> D3D12Submission.cpp:938</div></div>
+<div class="ttc" id="aclass_f_d3_d12_sync_point_html_a744469c0ae8091ae5d333e8ef583feb8"><div class="ttname"><a href="../../d7/d30/class_f_d3_d12_sync_point.html#a744469c0ae8091ae5d333e8ef583feb8">FD3D12SyncPoint::GetGraphEvent</a></div><div class="ttdeci">FGraphEvent * GetGraphEvent() const</div><div class="ttdef"><b>定义</b> D3D12Submission.h:119</div></div>
+<div class="ttc" id="aclass_f_d3_d12_timing_html"><div class="ttname"><a href="../../da/d46/class_f_d3_d12_timing.html">FD3D12Timing</a></div><div class="ttdef"><b>定义</b> D3D12Device.h:69</div></div>
+<div class="ttc" id="aclass_f_d3_d12_viewport_html"><div class="ttname"><a href="../../d3/d1d/class_f_d3_d12_viewport.html">FD3D12Viewport</a></div><div class="ttdef"><b>定义</b> D3D12Viewport.h:25</div></div>
+<div class="ttc" id="aclass_f_name_html"><div class="ttname"><a href="../../d5/dd5/class_f_name.html">FName</a></div><div class="ttdef"><b>定义</b> NameTypes.h:632</div></div>
+<div class="ttc" id="aclass_f_ref_counted_object_html_aacaabd14581a894b3be362a2d9c0228d"><div class="ttname"><a href="../../dc/dba/class_f_ref_counted_object.html#aacaabd14581a894b3be362a2d9c0228d">FRefCountedObject::FRefCountedObject</a></div><div class="ttdeci">FRefCountedObject()=default</div></div>
+<div class="ttc" id="aclass_t_array_html"><div class="ttname"><a href="../../d6/db1/class_t_array.html">TArray</a></div><div class="ttdef"><b>定义</b> Array.h:768</div></div>
+<div class="ttc" id="aclass_t_function_html"><div class="ttname"><a href="../../df/de8/class_t_function.html">TFunction</a></div><div class="ttdef"><b>定义</b> ZenStoreWriter.h:50</div></div>
+<div class="ttc" id="aclass_t_lock_free_pointer_list_unordered_html"><div class="ttname"><a href="../../d4/d04/class_t_lock_free_pointer_list_unordered.html">TLockFreePointerListUnordered</a></div><div class="ttdef"><b>定义</b> LockFreeList.h:906</div></div>
+<div class="ttc" id="aclass_t_map_html"><div class="ttname"><a href="../../da/d41/class_t_map.html">TMap</a></div><div class="ttdef"><b>定义</b> IAndroidDeviceDetection.h:12</div></div>
+<div class="ttc" id="aclass_t_ref_count_ptr_html"><div class="ttname"><a href="../../d7/d10/class_t_ref_count_ptr.html">TRefCountPtr</a></div><div class="ttdef"><b>定义</b> RefCounting.h:290</div></div>
+<div class="ttc" id="aclass_t_shared_ptr_html"><div class="ttname"><a href="../../dd/dba/class_t_shared_ptr.html">TSharedPtr</a></div><div class="ttdef"><b>定义</b> SharedPointer.h:697</div></div>
+<div class="ttc" id="aclass_type_html"><div class="ttname"><a href="../../d8/df6/class_type.html">Type</a></div></div>
+<div class="ttc" id="aclass_u_e_1_1_r_h_i_1_1_g_p_u_profiler_1_1_f_event_stream_html"><div class="ttname"><a href="../../df/dfd/class_u_e_1_1_r_h_i_1_1_g_p_u_profiler_1_1_f_event_stream.html">UE::RHI::GPUProfiler::FEventStream</a></div><div class="ttdef"><b>定义</b> GPUProfiler.h:303</div></div>
+<div class="ttc" id="apreprocessor_8c_html_abc0f5bc07737e498f287334775dff2b6"><div class="ttname"><a href="../../dd/de9/preprocessor_8c.html#abc0f5bc07737e498f287334775dff2b6">uint64</a></div><div class="ttdeci">uint64_t uint64</div><div class="ttdef"><b>定义</b> preprocessor.c:75</div></div>
+<div class="ttc" id="astruct_f_d3_d12_batched_payload_objects_html"><div class="ttname"><a href="../../d4/d09/struct_f_d3_d12_batched_payload_objects.html">FD3D12BatchedPayloadObjects</a></div><div class="ttdef"><b>定义</b> D3D12Submission.h:173</div></div>
+<div class="ttc" id="astruct_f_d3_d12_batched_payload_objects_html_a2beb74331163939edd7f58ce826f0c16"><div class="ttname"><a href="../../d4/d09/struct_f_d3_d12_batched_payload_objects.html#a2beb74331163939edd7f58ce826f0c16">FD3D12BatchedPayloadObjects::OcclusionQueries</a></div><div class="ttdeci">TArray&lt; FD3D12QueryLocation &gt; OcclusionQueries</div><div class="ttdef"><b>定义</b> D3D12Submission.h:175</div></div>
+<div class="ttc" id="astruct_f_d3_d12_batched_payload_objects_html_a69fe87b12d908a7eeb64439af518895b"><div class="ttname"><a href="../../d4/d09/struct_f_d3_d12_batched_payload_objects.html#a69fe87b12d908a7eeb64439af518895b">FD3D12BatchedPayloadObjects::IsEmpty</a></div><div class="ttdeci">bool IsEmpty() const</div><div class="ttdef"><b>定义</b> D3D12Submission.h:179</div></div>
+<div class="ttc" id="astruct_f_d3_d12_batched_payload_objects_html_a778ebc5ad131e2a550f559b46309ec85"><div class="ttname"><a href="../../d4/d09/struct_f_d3_d12_batched_payload_objects.html#a778ebc5ad131e2a550f559b46309ec85">FD3D12BatchedPayloadObjects::PipelineStatsQueries</a></div><div class="ttdeci">TArray&lt; FD3D12QueryLocation &gt; PipelineStatsQueries</div><div class="ttdef"><b>定义</b> D3D12Submission.h:176</div></div>
+<div class="ttc" id="astruct_f_d3_d12_batched_payload_objects_html_a9cb1d4299901be656325396e045c2c17"><div class="ttname"><a href="../../d4/d09/struct_f_d3_d12_batched_payload_objects.html#a9cb1d4299901be656325396e045c2c17">FD3D12BatchedPayloadObjects::TimestampQueries</a></div><div class="ttdeci">TArray&lt; FD3D12QueryLocation &gt; TimestampQueries</div><div class="ttdef"><b>定义</b> D3D12Submission.h:174</div></div>
+<div class="ttc" id="astruct_f_d3_d12_batched_payload_objects_html_abe776b7e32139a69ea86d119061222b3"><div class="ttname"><a href="../../d4/d09/struct_f_d3_d12_batched_payload_objects.html#abe776b7e32139a69ea86d119061222b3">FD3D12BatchedPayloadObjects::QueryRanges</a></div><div class="ttdeci">TMap&lt; TRefCountPtr&lt; FD3D12QueryHeap &gt;, TArray&lt; FD3D12QueryRange &gt; &gt; QueryRanges</div><div class="ttdef"><b>定义</b> D3D12Submission.h:177</div></div>
+<div class="ttc" id="astruct_f_d3_d12_commit_reserved_resource_desc_html"><div class="ttname"><a href="../../d1/d69/struct_f_d3_d12_commit_reserved_resource_desc.html">FD3D12CommitReservedResourceDesc</a></div><div class="ttdef"><b>定义</b> D3D12Submission.h:167</div></div>
+<div class="ttc" id="astruct_f_d3_d12_commit_reserved_resource_desc_html_a640352fee5ef9516f203149dac86bee3"><div class="ttname"><a href="../../d1/d69/struct_f_d3_d12_commit_reserved_resource_desc.html#a640352fee5ef9516f203149dac86bee3">FD3D12CommitReservedResourceDesc::Resource</a></div><div class="ttdeci">FD3D12Resource * Resource</div><div class="ttdef"><b>定义</b> D3D12Submission.h:168</div></div>
+<div class="ttc" id="astruct_f_d3_d12_commit_reserved_resource_desc_html_af27e0fbe759f7e1c365ca88d1825e810"><div class="ttname"><a href="../../d1/d69/struct_f_d3_d12_commit_reserved_resource_desc.html#af27e0fbe759f7e1c365ca88d1825e810">FD3D12CommitReservedResourceDesc::CommitSizeInBytes</a></div><div class="ttdeci">uint64 CommitSizeInBytes</div><div class="ttdef"><b>定义</b> D3D12Submission.h:169</div></div>
+<div class="ttc" id="astruct_f_d3_d12_fence_html"><div class="ttname"><a href="../../d8/db0/struct_f_d3_d12_fence.html">FD3D12Fence</a></div><div class="ttdef"><b>定义</b> D3D12Submission.h:46</div></div>
+<div class="ttc" id="astruct_f_d3_d12_fence_html_a2a48dbcbd392d835f79a221eea62d2d6"><div class="ttname"><a href="../../d8/db0/struct_f_d3_d12_fence.html#a2a48dbcbd392d835f79a221eea62d2d6">FD3D12Fence::D3DFence</a></div><div class="ttdeci">TRefCountPtr&lt; ID3D12Fence &gt; D3DFence</div><div class="ttdef"><b>定义</b> D3D12Submission.h:48</div></div>
+<div class="ttc" id="astruct_f_d3_d12_fence_html_a2cdb3b40ecca6fe26c7d2ff72e36987a"><div class="ttname"><a href="../../d8/db0/struct_f_d3_d12_fence.html#a2cdb3b40ecca6fe26c7d2ff72e36987a">FD3D12Fence::bInterruptAwaited</a></div><div class="ttdeci">bool bInterruptAwaited</div><div class="ttdef"><b>定义</b> D3D12Submission.h:51</div></div>
+<div class="ttc" id="astruct_f_d3_d12_fence_html_a39a5810da24b8b2a44d46c587deba63b"><div class="ttname"><a href="../../d8/db0/struct_f_d3_d12_fence.html#a39a5810da24b8b2a44d46c587deba63b">FD3D12Fence::FD3D12Fence</a></div><div class="ttdeci">FD3D12Fence(FD3D12Queue *OwnerQueue)</div><div class="ttdef"><b>定义</b> D3D12Submission.h:53</div></div>
+<div class="ttc" id="astruct_f_d3_d12_fence_html_a69df8c29fd17a1d4e52b4fc679f4ac92"><div class="ttname"><a href="../../d8/db0/struct_f_d3_d12_fence.html#a69df8c29fd17a1d4e52b4fc679f4ac92">FD3D12Fence::NextCompletionValue</a></div><div class="ttdeci">uint64 NextCompletionValue</div><div class="ttdef"><b>定义</b> D3D12Submission.h:49</div></div>
+<div class="ttc" id="astruct_f_d3_d12_fence_html_ac5c66b491f163e2dd05ce9987deb890e"><div class="ttname"><a href="../../d8/db0/struct_f_d3_d12_fence.html#ac5c66b491f163e2dd05ce9987deb890e">FD3D12Fence::OwnerQueue</a></div><div class="ttdeci">FD3D12Queue *const OwnerQueue</div><div class="ttdef"><b>定义</b> D3D12Submission.h:47</div></div>
+<div class="ttc" id="astruct_f_d3_d12_fence_html_af1dee7b7b35ba5922e97bebda34e23b1"><div class="ttname"><a href="../../d8/db0/struct_f_d3_d12_fence.html#af1dee7b7b35ba5922e97bebda34e23b1">FD3D12Fence::LastSignaledValue</a></div><div class="ttdeci">std::atomic&lt; uint64 &gt; LastSignaledValue</div><div class="ttdef"><b>定义</b> D3D12Submission.h:50</div></div>
+<div class="ttc" id="astruct_f_d3_d12_payload_base_1_1_f_manual_fence_html_a0155c247ec85e10b31194baea4ae8e2c"><div class="ttname"><a href="../../d0/d85/struct_f_d3_d12_payload_base_1_1_f_manual_fence.html#a0155c247ec85e10b31194baea4ae8e2c">FD3D12PayloadBase::FManualFence::bHasSignalled</a></div><div class="ttdeci">TSharedPtr&lt; std::atomic&lt; bool &gt; &gt; bHasSignalled</div><div class="ttdef"><b>定义</b> D3D12Submission.h:225</div></div>
+<div class="ttc" id="astruct_f_d3_d12_payload_base_1_1_f_manual_fence_html_a655f73f0435f51ac4574c754fd4c9ba2"><div class="ttname"><a href="../../d0/d85/struct_f_d3_d12_payload_base_1_1_f_manual_fence.html#a655f73f0435f51ac4574c754fd4c9ba2">FD3D12PayloadBase::FManualFence::Value</a></div><div class="ttdeci">uint64 Value</div><div class="ttdef"><b>定义</b> D3D12Submission.h:222</div></div>
+<div class="ttc" id="astruct_f_d3_d12_payload_base_1_1_f_manual_fence_html_a96552b1a8400cab2c27d54203bd3bc3c"><div class="ttname"><a href="../../d0/d85/struct_f_d3_d12_payload_base_1_1_f_manual_fence.html#a96552b1a8400cab2c27d54203bd3bc3c">FD3D12PayloadBase::FManualFence::FManualFence</a></div><div class="ttdeci">FManualFence(TRefCountPtr&lt; ID3D12Fence &gt; &amp;&amp;Fence, uint64 Value, const TSharedPtr&lt; std::atomic&lt; bool &gt; &gt; &amp;bHasSignalled)</div><div class="ttdef"><b>定义</b> D3D12Submission.h:228</div></div>
+<div class="ttc" id="astruct_f_d3_d12_payload_base_1_1_f_manual_fence_html_aba1eb24a3a647912424e403c113e0be1"><div class="ttname"><a href="../../d0/d85/struct_f_d3_d12_payload_base_1_1_f_manual_fence.html#aba1eb24a3a647912424e403c113e0be1">FD3D12PayloadBase::FManualFence::Fence</a></div><div class="ttdeci">TRefCountPtr&lt; ID3D12Fence &gt; Fence</div><div class="ttdef"><b>定义</b> D3D12Submission.h:219</div></div>
+<div class="ttc" id="astruct_f_d3_d12_payload_base_1_1_f_manual_fence_html_af0726a5411867a14fffa40835212d497"><div class="ttname"><a href="../../d0/d85/struct_f_d3_d12_payload_base_1_1_f_manual_fence.html#af0726a5411867a14fffa40835212d497">FD3D12PayloadBase::FManualFence::FManualFence</a></div><div class="ttdeci">FManualFence()=default</div></div>
+<div class="ttc" id="astruct_f_d3_d12_payload_base_1_1_f_queue_fence_html"><div class="ttname"><a href="../../de/d80/struct_f_d3_d12_payload_base_1_1_f_queue_fence.html">FD3D12PayloadBase::FQueueFence</a></div><div class="ttdef"><b>定义</b> D3D12Submission.h:248</div></div>
+<div class="ttc" id="astruct_f_d3_d12_payload_base_1_1_f_queue_fence_html_a011ebe16b86da6b6c49106c1342fcefa"><div class="ttname"><a href="../../de/d80/struct_f_d3_d12_payload_base_1_1_f_queue_fence.html#a011ebe16b86da6b6c49106c1342fcefa">FD3D12PayloadBase::FQueueFence::Fence</a></div><div class="ttdeci">FD3D12Fence &amp; Fence</div><div class="ttdef"><b>定义</b> D3D12Submission.h:249</div></div>
+<div class="ttc" id="astruct_f_d3_d12_payload_base_1_1_f_queue_fence_html_af958db275c4bd8b994310d68982b4d8b"><div class="ttname"><a href="../../de/d80/struct_f_d3_d12_payload_base_1_1_f_queue_fence.html#af958db275c4bd8b994310d68982b4d8b">FD3D12PayloadBase::FQueueFence::Value</a></div><div class="ttdeci">uint64 Value</div><div class="ttdef"><b>定义</b> D3D12Submission.h:250</div></div>
+<div class="ttc" id="astruct_f_d3_d12_payload_base_fix_layout_html"><div class="ttname"><a href="../../d8/d03/struct_f_d3_d12_payload_base_fix_layout.html">FD3D12PayloadBaseFixLayout</a></div><div class="ttdef"><b>定义</b> D3D12Submission.h:192</div></div>
+<div class="ttc" id="astruct_f_d3_d12_payload_base_fix_layout_html_a2a0ea0f70a047f8ddc464a577daa330b"><div class="ttname"><a href="../../d8/d03/struct_f_d3_d12_payload_base_fix_layout.html#a2a0ea0f70a047f8ddc464a577daa330b">FD3D12PayloadBaseFixLayout::~FD3D12PayloadBaseFixLayout</a></div><div class="ttdeci">virtual ~FD3D12PayloadBaseFixLayout()=default</div></div>
+<div class="ttc" id="astruct_f_d3_d12_payload_base_html_a1d0cecce4143136add51e7e766d0b17c"><div class="ttname"><a href="../../d2/d08/struct_f_d3_d12_payload_base.html#a1d0cecce4143136add51e7e766d0b17c">FD3D12PayloadBase::FD3D12PayloadBase</a></div><div class="ttdeci">FD3D12PayloadBase(FD3D12Queue &amp;Queue)</div><div class="ttdef"><b>定义</b> D3D12Submission.cpp:1288</div></div>
+<div class="ttc" id="astruct_f_d3_d12_payload_base_html_a25662ce399448cfdb0ea7aa7f32a727e"><div class="ttname"><a href="../../d2/d08/struct_f_d3_d12_payload_base.html#a25662ce399448cfdb0ea7aa7f32a727e">FD3D12PayloadBase::SyncPointsToSignal</a></div><div class="ttdeci">TArray&lt; FD3D12SyncPointRef &gt; SyncPointsToSignal</div><div class="ttdef"><b>定义</b> D3D12Submission.h:276</div></div>
+<div class="ttc" id="astruct_f_d3_d12_payload_base_html_a4127cf80596bcb792b08800e28aa60e2"><div class="ttname"><a href="../../d2/d08/struct_f_d3_d12_payload_base.html#a4127cf80596bcb792b08800e28aa60e2">FD3D12PayloadBase::HasUpdateReservedResourcesWork</a></div><div class="ttdeci">virtual bool HasUpdateReservedResourcesWork() const</div><div class="ttdef"><b>定义</b> D3D12Submission.h:318</div></div>
+<div class="ttc" id="astruct_f_d3_d12_payload_base_html_a4722b97045e73ab068f67d786ac6101b"><div class="ttname"><a href="../../d2/d08/struct_f_d3_d12_payload_base.html#a4722b97045e73ab068f67d786ac6101b">FD3D12PayloadBase::SubmissionEvent</a></div><div class="ttdeci">FGraphEventRef SubmissionEvent</div><div class="ttdef"><b>定义</b> D3D12Submission.h:279</div></div>
+<div class="ttc" id="astruct_f_d3_d12_payload_base_html_a49d6f378ccf4179fb4ad56dacbc32d59"><div class="ttname"><a href="../../d2/d08/struct_f_d3_d12_payload_base.html#a49d6f378ccf4179fb4ad56dacbc32d59">FD3D12PayloadBase::EndFrameEvent</a></div><div class="ttdeci">TOptional&lt; UE::RHI::GPUProfiler::FEvent::FFrameBoundary &gt; EndFrameEvent</div><div class="ttdef"><b>定义</b> D3D12Submission.h:297</div></div>
+<div class="ttc" id="astruct_f_d3_d12_payload_base_html_a6224f873d2d15c7c40ef3dc361288c18"><div class="ttname"><a href="../../d2/d08/struct_f_d3_d12_payload_base.html#a6224f873d2d15c7c40ef3dc361288c18">FD3D12PayloadBase::QueueFencesToWait</a></div><div class="ttdeci">TArray&lt; FQueueFence, TInlineAllocator&lt; GD3D12MaxNumQueues &gt; &gt; QueueFencesToWait</div><div class="ttdef"><b>定义</b> D3D12Submission.h:252</div></div>
+<div class="ttc" id="astruct_f_d3_d12_payload_base_html_a65f98bacdd640aa3a1e2259197031eba"><div class="ttname"><a href="../../d2/d08/struct_f_d3_d12_payload_base.html#a65f98bacdd640aa3a1e2259197031eba">FD3D12PayloadBase::CommandListsToExecute</a></div><div class="ttdeci">TArray&lt; FD3D12CommandList * &gt; CommandListsToExecute</div><div class="ttdef"><b>定义</b> D3D12Submission.h:272</div></div>
+<div class="ttc" id="astruct_f_d3_d12_payload_base_html_a6b3b3310d46129ad7c843831d22d52d8"><div class="ttname"><a href="../../d2/d08/struct_f_d3_d12_payload_base.html#a6b3b3310d46129ad7c843831d22d52d8">FD3D12PayloadBase::Index</a></div><div class="ttdeci">int32 Index</div><div class="ttdef"><b>定义</b> D3D12Submission.h:243</div></div>
+<div class="ttc" id="astruct_f_d3_d12_payload_base_html_a700a5ae9803097a5248ddac08657e4e9"><div class="ttname"><a href="../../d2/d08/struct_f_d3_d12_payload_base.html#a700a5ae9803097a5248ddac08657e4e9">FD3D12PayloadBase::HasPreExecuteWork</a></div><div class="ttdeci">virtual bool HasPreExecuteWork() const</div><div class="ttdef"><b>定义</b> D3D12Submission.h:303</div></div>
+<div class="ttc" id="astruct_f_d3_d12_payload_base_html_a703f2278c7860149d40d9f9e8ac0a4df"><div class="ttname"><a href="../../d2/d08/struct_f_d3_d12_payload_base.html#a703f2278c7860149d40d9f9e8ac0a4df">FD3D12PayloadBase::EventStream</a></div><div class="ttdeci">UE::RHI::GPUProfiler::FEventStream EventStream</div><div class="ttdef"><b>定义</b> D3D12Submission.h:296</div></div>
+<div class="ttc" id="astruct_f_d3_d12_payload_base_html_a7328c4b4e5e83b71b829386661d9d306"><div class="ttname"><a href="../../d2/d08/struct_f_d3_d12_payload_base.html#a7328c4b4e5e83b71b829386661d9d306">FD3D12PayloadBase::SubmissionTime</a></div><div class="ttdeci">TOptional&lt; uint64 &gt; SubmissionTime</div><div class="ttdef"><b>定义</b> D3D12Submission.h:280</div></div>
+<div class="ttc" id="astruct_f_d3_d12_payload_base_html_a753f1923f093e3e6758518a0f1b5ae8f"><div class="ttname"><a href="../../d2/d08/struct_f_d3_d12_payload_base.html#a753f1923f093e3e6758518a0f1b5ae8f">FD3D12PayloadBase::bSubmitted</a></div><div class="ttdeci">std::atomic&lt; bool &gt; bSubmitted</div><div class="ttdef"><b>定义</b> D3D12Submission.h:266</div></div>
+<div class="ttc" id="astruct_f_d3_d12_payload_base_html_a8103663584b61c96bf55427d38aed115"><div class="ttname"><a href="../../d2/d08/struct_f_d3_d12_payload_base.html#a8103663584b61c96bf55427d38aed115">FD3D12PayloadBase::AllocatorsToRelease</a></div><div class="ttdeci">TArray&lt; FD3D12CommandAllocator * &gt; AllocatorsToRelease</div><div class="ttdef"><b>定义</b> D3D12Submission.h:285</div></div>
+<div class="ttc" id="astruct_f_d3_d12_payload_base_html_a81158435a88fcfc77d9420975f4800ae"><div class="ttname"><a href="../../d2/d08/struct_f_d3_d12_payload_base.html#a81158435a88fcfc77d9420975f4800ae">FD3D12PayloadBase::HasWaitWork</a></div><div class="ttdeci">virtual bool HasWaitWork() const</div><div class="ttdef"><b>定义</b> D3D12Submission.h:313</div></div>
+<div class="ttc" id="astruct_f_d3_d12_payload_base_html_a904db2e2fd2bb35412d19c37b6889910"><div class="ttname"><a href="../../d2/d08/struct_f_d3_d12_payload_base.html#a904db2e2fd2bb35412d19c37b6889910">FD3D12PayloadBase::RequiresQueueFenceSignal</a></div><div class="ttdeci">virtual bool RequiresQueueFenceSignal() const</div><div class="ttdef"><b>定义</b> D3D12Submission.h:308</div></div>
+<div class="ttc" id="astruct_f_d3_d12_payload_base_html_a94715c129088050020f48d82a1ed5dc5"><div class="ttname"><a href="../../d2/d08/struct_f_d3_d12_payload_base.html#a94715c129088050020f48d82a1ed5dc5">FD3D12PayloadBase::HasSignalWork</a></div><div class="ttdeci">virtual bool HasSignalWork() const</div><div class="ttdef"><b>定义</b> D3D12Submission.h:323</div></div>
+<div class="ttc" id="astruct_f_d3_d12_payload_base_html_aa65ab10df90dfdea01006449410dd363"><div class="ttname"><a href="../../d2/d08/struct_f_d3_d12_payload_base.html#aa65ab10df90dfdea01006449410dd363">FD3D12PayloadBase::Timing</a></div><div class="ttdeci">TOptional&lt; FD3D12Timing * &gt; Timing</div><div class="ttdef"><b>定义</b> D3D12Submission.h:282</div></div>
+<div class="ttc" id="astruct_f_d3_d12_payload_base_html_aa8ca0da91f30a6980488d6dd40646414"><div class="ttname"><a href="../../d2/d08/struct_f_d3_d12_payload_base.html#aa8ca0da91f30a6980488d6dd40646414">FD3D12PayloadBase::bAlwaysSignal</a></div><div class="ttdeci">bool bAlwaysSignal</div><div class="ttdef"><b>定义</b> D3D12Submission.h:265</div></div>
+<div class="ttc" id="astruct_f_d3_d12_payload_base_html_aa8f39cbb9ba8f38541df45ec8e26c033"><div class="ttname"><a href="../../d2/d08/struct_f_d3_d12_payload_base.html#aa8f39cbb9ba8f38541df45ec8e26c033">FD3D12PayloadBase::PresentArgs</a></div><div class="ttdeci">FD3D12PresentArgs PresentArgs</div><div class="ttdef"><b>定义</b> D3D12Submission.h:289</div></div>
+<div class="ttc" id="astruct_f_d3_d12_payload_base_html_aab4d12a3aabb9f166052246a6a9d4973"><div class="ttname"><a href="../../d2/d08/struct_f_d3_d12_payload_base.html#aab4d12a3aabb9f166052246a6a9d4973">FD3D12PayloadBase::PreExecute</a></div><div class="ttdeci">virtual void PreExecute()</div><div class="ttdef"><b>定义</b> D3D12Submission.cpp:1302</div></div>
+<div class="ttc" id="astruct_f_d3_d12_payload_base_html_ab2dcac8c7abdafd065136d0c137987d2"><div class="ttname"><a href="../../d2/d08/struct_f_d3_d12_payload_base.html#ab2dcac8c7abdafd065136d0c137987d2">FD3D12PayloadBase::AddQueueFenceWait</a></div><div class="ttdeci">void AddQueueFenceWait(FD3D12Fence &amp;Fence, uint64 Value)</div><div class="ttdef"><b>定义</b> D3D12Submission.cpp:920</div></div>
+<div class="ttc" id="astruct_f_d3_d12_payload_base_html_ab6366ba157b8e5c59a248b80c9a01d08"><div class="ttname"><a href="../../d2/d08/struct_f_d3_d12_payload_base.html#ab6366ba157b8e5c59a248b80c9a01d08">FD3D12PayloadBase::~FD3D12PayloadBase</a></div><div class="ttdeci">virtual ~FD3D12PayloadBase()</div><div class="ttdef"><b>定义</b> D3D12Submission.cpp:1294</div></div>
+<div class="ttc" id="astruct_f_d3_d12_payload_base_html_abb68133dbb4561a4a9bbc7aa2410a05f"><div class="ttname"><a href="../../d2/d08/struct_f_d3_d12_payload_base.html#abb68133dbb4561a4a9bbc7aa2410a05f">FD3D12PayloadBase::ManualFencesToSignal</a></div><div class="ttdeci">TArray&lt; FManualFence &gt; ManualFencesToSignal</div><div class="ttdef"><b>定义</b> D3D12Submission.h:275</div></div>
+<div class="ttc" id="astruct_f_d3_d12_payload_base_html_abe3815cf4c43a878415789659bcaf0a8"><div class="ttname"><a href="../../d2/d08/struct_f_d3_d12_payload_base.html#abe3815cf4c43a878415789659bcaf0a8">FD3D12PayloadBase::Queue</a></div><div class="ttdeci">FD3D12Queue &amp; Queue</div><div class="ttdef"><b>定义</b> D3D12Submission.h:236</div></div>
+<div class="ttc" id="astruct_f_d3_d12_payload_base_html_abe73e8fc98d67c768a5055d4bec75a07"><div class="ttname"><a href="../../d2/d08/struct_f_d3_d12_payload_base.html#abe73e8fc98d67c768a5055d4bec75a07">FD3D12PayloadBase::PreExecuteCallback</a></div><div class="ttdeci">TFunction&lt; void(ID3D12CommandQueue *)&gt; PreExecuteCallback</div><div class="ttdef"><b>定义</b> D3D12Submission.h:269</div></div>
+<div class="ttc" id="astruct_f_d3_d12_payload_base_html_ac4d83ccc68ad4b9be514327e1f2aaa9a"><div class="ttname"><a href="../../d2/d08/struct_f_d3_d12_payload_base.html#ac4d83ccc68ad4b9be514327e1f2aaa9a">FD3D12PayloadBase::BatchedObjects</a></div><div class="ttdeci">FD3D12BatchedPayloadObjects BatchedObjects</div><div class="ttdef"><b>定义</b> D3D12Submission.h:287</div></div>
+<div class="ttc" id="astruct_f_d3_d12_payload_base_html_ada47584dbd020767ec16566a66ae69ab"><div class="ttname"><a href="../../d2/d08/struct_f_d3_d12_payload_base.html#ada47584dbd020767ec16566a66ae69ab">FD3D12PayloadBase::ReservedResourcesToCommit</a></div><div class="ttdeci">TArray&lt; FD3D12CommitReservedResourceDesc &gt; ReservedResourcesToCommit</div><div class="ttdef"><b>定义</b> D3D12Submission.h:262</div></div>
+<div class="ttc" id="astruct_f_d3_d12_payload_base_html_adabd5bb77218a3372c6a4e4d5e1f3eb2"><div class="ttname"><a href="../../d2/d08/struct_f_d3_d12_payload_base.html#adabd5bb77218a3372c6a4e4d5e1f3eb2">FD3D12PayloadBase::SyncPointsToWait</a></div><div class="ttdeci">SyncPointsToWait</div></div>
+<div class="ttc" id="astruct_f_d3_d12_payload_base_html_aeb2404eff865db4f0074aa9e1406f61d"><div class="ttname"><a href="../../d2/d08/struct_f_d3_d12_payload_base.html#aeb2404eff865db4f0074aa9e1406f61d">FD3D12PayloadBase::CompletionFenceValue</a></div><div class="ttdeci">uint64 CompletionFenceValue</div><div class="ttdef"><b>定义</b> D3D12Submission.h:277</div></div>
+<div class="ttc" id="astruct_f_d3_d12_payload_base_html_aecfb016ab1562e9a6557c5f6f419a7c0"><div class="ttname"><a href="../../d2/d08/struct_f_d3_d12_payload_base.html#aecfb016ab1562e9a6557c5f6f419a7c0">FD3D12PayloadBase::ManualFencesToWait</a></div><div class="ttdeci">ManualFencesToWait</div></div>
+<div class="ttc" id="astruct_f_d3_d12_present_args_html"><div class="ttname"><a href="../../d9/d50/struct_f_d3_d12_present_args.html">FD3D12PresentArgs</a></div><div class="ttdef"><b>定义</b> D3D12Submission.h:197</div></div>
+<div class="ttc" id="astruct_f_d3_d12_present_args_html_a00b947c69d53432ecb830a04ec995c29"><div class="ttname"><a href="../../d9/d50/struct_f_d3_d12_present_args.html#a00b947c69d53432ecb830a04ec995c29">FD3D12PresentArgs::bLockToVsync</a></div><div class="ttdeci">bool bLockToVsync</div><div class="ttdef"><b>定义</b> D3D12Submission.h:204</div></div>
+<div class="ttc" id="astruct_f_d3_d12_present_args_html_a0944a51b7b057a43215d1a95643c4882"><div class="ttname"><a href="../../d9/d50/struct_f_d3_d12_present_args.html#a0944a51b7b057a43215d1a95643c4882">FD3D12PresentArgs::FrameCounter</a></div><div class="ttdeci">uint64 FrameCounter</div><div class="ttdef"><b>定义</b> D3D12Submission.h:203</div></div>
+<div class="ttc" id="astruct_f_d3_d12_present_args_html_a7476440ecaf94c4013681a1028ee3832"><div class="ttname"><a href="../../d9/d50/struct_f_d3_d12_present_args.html#a7476440ecaf94c4013681a1028ee3832">FD3D12PresentArgs::PresentEvent</a></div><div class="ttdeci">FGraphEventRef PresentEvent</div><div class="ttdef"><b>定义</b> D3D12Submission.h:199</div></div>
+<div class="ttc" id="astruct_f_d3_d12_present_args_html_aad3d5ab1f187ebedcf29b441d7cda720"><div class="ttname"><a href="../../d9/d50/struct_f_d3_d12_present_args.html#aad3d5ab1f187ebedcf29b441d7cda720">FD3D12PresentArgs::DrawingViewport</a></div><div class="ttdeci">FD3D12Viewport * DrawingViewport</div><div class="ttdef"><b>定义</b> D3D12Submission.h:202</div></div>
+<div class="ttc" id="astruct_f_d3_d12_present_args_html_af864c02c9a53aacd571a2f3d812dddea"><div class="ttname"><a href="../../d9/d50/struct_f_d3_d12_present_args.html#af864c02c9a53aacd571a2f3d812dddea">FD3D12PresentArgs::IsValid</a></div><div class="ttdeci">bool IsValid() const</div><div class="ttdef"><b>定义</b> D3D12Submission.h:206</div></div>
+<div class="ttc" id="astruct_f_d3_d12_resolved_fence_html_aa9cdb8e81f73baa04ccfe04e934b9b1b"><div class="ttname"><a href="../../df/d73/struct_f_d3_d12_resolved_fence.html#aa9cdb8e81f73baa04ccfe04e934b9b1b">FD3D12ResolvedFence::Fence</a></div><div class="ttdeci">FD3D12Fence &amp; Fence</div><div class="ttdef"><b>定义</b> D3D12Submission.h:61</div></div>
+<div class="ttc" id="astruct_f_d3_d12_resolved_fence_html_ab72a650312d9b50641674a4b0e61cf92"><div class="ttname"><a href="../../df/d73/struct_f_d3_d12_resolved_fence.html#ab72a650312d9b50641674a4b0e61cf92">FD3D12ResolvedFence::Value</a></div><div class="ttdeci">uint64 Value</div><div class="ttdef"><b>定义</b> D3D12Submission.h:62</div></div>
+<div class="ttc" id="astruct_f_d3_d12_resolved_fence_html_ae3d6a8513627de8515cf738eb04a4483"><div class="ttname"><a href="../../df/d73/struct_f_d3_d12_resolved_fence.html#ae3d6a8513627de8515cf738eb04a4483">FD3D12ResolvedFence::FD3D12ResolvedFence</a></div><div class="ttdeci">FD3D12ResolvedFence(FD3D12Fence &amp;Fence, uint64 Value)</div><div class="ttdef"><b>定义</b> D3D12Submission.h:64</div></div>
+<div class="ttc" id="astruct_t_optional_html"><div class="ttname"><a href="../../dd/d2f/struct_t_optional.html">TOptional</a></div><div class="ttdef"><b>定义</b> Optional.h:48</div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+</div><!-- container -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a href="../../dir_0b6ee6e7e9547e675db4add2e5de97da.html">Engine</a></li><li class="navelem"><a href="../../dir_9579d1ecb2c7bf48cbe1049c41745cb4.html">Source</a></li><li class="navelem"><a href="../../dir_9f04efef762572853abdf73f62bebfcc.html">Runtime</a></li><li class="navelem"><a href="../../dir_87a712f36ffb4617ff578475087e8542.html">D3D12RHI</a></li><li class="navelem"><a href="../../dir_a24e4d81bb7a3c0be61d503043ba731f.html">Private</a></li><li class="navelem"><a href="../../d4/d8c/_d3_d12_submission_8h.html">D3D12Submission.h</a></li>
+    <li class="footer">制作者 <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.15.0 </li>
+  </ul>
+</div>
+</body>
+</html>

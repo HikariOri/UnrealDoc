@@ -1,0 +1,26 @@
+var struct_f_mesh_reduction_settings =
+[
+    [ "FMeshReductionSettings", "d0/da1/struct_f_mesh_reduction_settings.html#a5865d6607a709102529909d9e1fed418", null ],
+    [ "operator!=", "d0/da1/struct_f_mesh_reduction_settings.html#a5b18265ad0b41314b11e2da396be6b40", null ],
+    [ "operator==", "d0/da1/struct_f_mesh_reduction_settings.html#a8e2d8e18a7db8ea50949ce9685b92a39", null ],
+    [ "BaseLODModel", "d0/da1/struct_f_mesh_reduction_settings.html#a4a5dd56b29913d5130517de6fe1cfb4d", null ],
+    [ "bCullOccluded", "d0/da1/struct_f_mesh_reduction_settings.html#aea8245bd7c6479fbdaf11d8c812137bd", null ],
+    [ "bGenerateUniqueLightmapUVs", "d0/da1/struct_f_mesh_reduction_settings.html#a6a65bdf03aabd7438c67fc3ba521971b", null ],
+    [ "bKeepSymmetry", "d0/da1/struct_f_mesh_reduction_settings.html#a1039b959040c342438d9b64f22014ebe", null ],
+    [ "bRecalculateNormals", "d0/da1/struct_f_mesh_reduction_settings.html#add15fef6440aa4795bec61dd42d3dba1", null ],
+    [ "bVisibilityAided", "d0/da1/struct_f_mesh_reduction_settings.html#aaaabc6b818455ea17dd873bfaab02cf7", null ],
+    [ "HardAngleThreshold", "d0/da1/struct_f_mesh_reduction_settings.html#a26b23facf04f76c2135beff7a3d784dd", null ],
+    [ "MaxDeviation", "d0/da1/struct_f_mesh_reduction_settings.html#ab27100b416d76020b47865f8e8b9d35b", null ],
+    [ "MaxNumOfTriangles", "d0/da1/struct_f_mesh_reduction_settings.html#a752c681e98554d929319149ef1d3b8a3", null ],
+    [ "MaxNumOfVerts", "d0/da1/struct_f_mesh_reduction_settings.html#aede58287d45d6495c40f68867c856fee", null ],
+    [ "PercentTriangles", "d0/da1/struct_f_mesh_reduction_settings.html#a6168e76cd94313a5dd29fb07c45d0aa0", null ],
+    [ "PercentVertices", "d0/da1/struct_f_mesh_reduction_settings.html#ad067d5e180d806cdbed9b3f9a0a1bb9d", null ],
+    [ "PixelError", "d0/da1/struct_f_mesh_reduction_settings.html#a623a7f3e2e1871fdb98881e5a5e41e97", null ],
+    [ "ShadingImportance", "d0/da1/struct_f_mesh_reduction_settings.html#a4357a709c7e33a56bf25493d5c395c2b", null ],
+    [ "SilhouetteImportance", "d0/da1/struct_f_mesh_reduction_settings.html#ad69f5007e5ecaa550c16a4a3cb6a4f64", null ],
+    [ "TerminationCriterion", "d0/da1/struct_f_mesh_reduction_settings.html#aee89ab3a5ed722884dfa0082f04e78d2", null ],
+    [ "TextureImportance", "d0/da1/struct_f_mesh_reduction_settings.html#ab96687866b7eee16db94715640da760f", null ],
+    [ "VertexColorImportance", "d0/da1/struct_f_mesh_reduction_settings.html#af6ba898b50f325436a08863c44ef0427", null ],
+    [ "VisibilityAggressiveness", "d0/da1/struct_f_mesh_reduction_settings.html#a5469938f94c5f458e724469c3835160d", null ],
+    [ "WeldingThreshold", "d0/da1/struct_f_mesh_reduction_settings.html#acdab79ec00472a081286f2f90f3578eb", null ]
+];

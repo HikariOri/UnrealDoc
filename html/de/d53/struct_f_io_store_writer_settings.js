@@ -1,0 +1,27 @@
+var struct_f_io_store_writer_settings =
+[
+    [ "bCompressionEnableDDC", "de/d53/struct_f_io_store_writer_settings.html#a75269a66c2a846d720659632fee59711", null ],
+    [ "bContainerMetaEnabled", "de/d53/struct_f_io_store_writer_settings.html#af0a19fbeffa1dc9541a952e2c4c81740", null ],
+    [ "bDeduplicateChunks", "de/d53/struct_f_io_store_writer_settings.html#ada8aac863f26a614ac7891cc6c91d80f", null ],
+    [ "bEnableFileRegions", "de/d53/struct_f_io_store_writer_settings.html#a6e74bc95294f59771a8b2283e995c288", null ],
+    [ "bPerContainerMeta", "de/d53/struct_f_io_store_writer_settings.html#adaa5aa6e6d9c4c303a4c7040e21752dd", null ],
+    [ "bUsePatchInPlaceLayout", "de/d53/struct_f_io_store_writer_settings.html#acd52c3f865aca3cadb48c8dbb2e6ad74", null ],
+    [ "bValidateChunkHashes", "de/d53/struct_f_io_store_writer_settings.html#a13eadb14d453dc868a49b25a39ea7b29", null ],
+    [ "CompressionBlockAlignment", "de/d53/struct_f_io_store_writer_settings.html#a44cbbe1347dce99edad06b1705f38573", null ],
+    [ "CompressionBlockSize", "de/d53/struct_f_io_store_writer_settings.html#a55e8cd2f3821d8e21d4403f3ac416ad3", null ],
+    [ "CompressionMethod", "de/d53/struct_f_io_store_writer_settings.html#a427f10113949e3ce960f811f93910298", null ],
+    [ "CompressionMinBytesSaved", "de/d53/struct_f_io_store_writer_settings.html#a6b7729112180b90218fcaa0342050290", null ],
+    [ "CompressionMinPercentSaved", "de/d53/struct_f_io_store_writer_settings.html#a991ea5a1b1430c3cbca7b49e3c6da483", null ],
+    [ "CompressionMinSizeToConsiderDDC", "de/d53/struct_f_io_store_writer_settings.html#a8eafb6f4afed06731fb5a3c8e0b21bfc", null ],
+    [ "MaxPartitionSize", "de/d53/struct_f_io_store_writer_settings.html#a3bd5032acb7c77d3992081a801db5532", null ],
+    [ "MaxPartitionSizeOverride", "de/d53/struct_f_io_store_writer_settings.html#a20a3b4718f23f1f2e32134770769c51f", null ],
+    [ "MemoryMappingAlignment", "de/d53/struct_f_io_store_writer_settings.html#a779ceb8f6cb9a6a35cad407ba70f031b", null ],
+    [ "PatchInPlaceMaxChainLength", "de/d53/struct_f_io_store_writer_settings.html#a8f5a680a7bec1daef0f822a928632240", null ],
+    [ "PatchInPlaceMaxChainSize", "de/d53/struct_f_io_store_writer_settings.html#a158f9cbb9e8a9c9fb6bbed8b5ccab083", null ],
+    [ "PatchInPlaceMaximumPerContainerGrowth", "de/d53/struct_f_io_store_writer_settings.html#adedce17c53a16b9bb1b4e829f5d1ef83", null ],
+    [ "PatchInPlaceMaximumTotalGrowth", "de/d53/struct_f_io_store_writer_settings.html#a9d3f34f75bd63f7fda376121e729b045", null ],
+    [ "PatchInPlaceParetoFrontCoarseSamples", "de/d53/struct_f_io_store_writer_settings.html#ac7b2f2d31af84597e18bc1f6343ec6a0", null ],
+    [ "PatchInPlaceParetoFrontFineSamples", "de/d53/struct_f_io_store_writer_settings.html#a5c513dd0122aa99ad10d8487ed0221ab", null ],
+    [ "PatchInPlaceParetoFrontHeuristic", "de/d53/struct_f_io_store_writer_settings.html#a36297ecc4eb67e65317ef72c0cdd17b2", null ],
+    [ "PatchInPlaceReadGranularity", "de/d53/struct_f_io_store_writer_settings.html#a2f407c7dc2639238b209ed90ab3bdbc8", null ]
+];

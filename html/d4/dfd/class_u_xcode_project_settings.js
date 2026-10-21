@@ -1,0 +1,28 @@
+var class_u_xcode_project_settings =
+[
+    [ "OverrideConfigSection", "d4/dfd/class_u_xcode_project_settings.html#a43215a704ce0bd51f539644b7167a6c3", null ],
+    [ "AdditionalPrivacyInfoIOS", "d4/dfd/class_u_xcode_project_settings.html#a1b49e062392606b33683bccdf727d422", null ],
+    [ "AdditionalPrivacyInfoMac", "d4/dfd/class_u_xcode_project_settings.html#ac7a8399862e3b07351e10cd11596b40b", null ],
+    [ "AppCategory", "d4/dfd/class_u_xcode_project_settings.html#ab0c0b00a9e18ce21d91927a84a2616e0", null ],
+    [ "ApplicationDisplayName", "d4/dfd/class_u_xcode_project_settings.html#aa853ca547d6aa6d7bb621b804b0b43ab", null ],
+    [ "AppStoreConnectIssuerID", "d4/dfd/class_u_xcode_project_settings.html#a3a84b90088eec5d95c1756d4448ee10d", null ],
+    [ "AppStoreConnectKeyID", "d4/dfd/class_u_xcode_project_settings.html#aa520806dcbd2e50bf4a929d386d95df2", null ],
+    [ "AppStoreConnectKeyPath", "d4/dfd/class_u_xcode_project_settings.html#ac7b404959354758fabef30f1a3a80e98", null ],
+    [ "bMacSignToRunLocally", "d4/dfd/class_u_xcode_project_settings.html#aeff6a53abce3b1450fbd00f4bbfd9e09", null ],
+    [ "BundleIdentifier", "d4/dfd/class_u_xcode_project_settings.html#a0672ad7a5dd5b58222a98133ec88c7b1", null ],
+    [ "bUseAppStoreConnect", "d4/dfd/class_u_xcode_project_settings.html#ae10079aaa217e8a0c792654a93ac049e", null ],
+    [ "bUseAutomaticCodeSigning", "d4/dfd/class_u_xcode_project_settings.html#add551664faee95e4574ee2afc889c362", null ],
+    [ "bUseModernXcode", "d4/dfd/class_u_xcode_project_settings.html#a90406f49fe8e3182c0f6fd2a402e4ac1", null ],
+    [ "CodeSigningPrefix", "d4/dfd/class_u_xcode_project_settings.html#a54fa5d2c7031c9a6fb94bbb477999595", null ],
+    [ "CodeSigningTeam", "d4/dfd/class_u_xcode_project_settings.html#a372f7f6e178829477a3edf14f9b991fd", null ],
+    [ "IOSProvisioningProfile", "d4/dfd/class_u_xcode_project_settings.html#a77ee9e6bdc9e27578b66d84a40608449", null ],
+    [ "IOSSigningIdentity", "d4/dfd/class_u_xcode_project_settings.html#a82006dede73677753b20190628b33fed", null ],
+    [ "MacSigningIdentity", "d4/dfd/class_u_xcode_project_settings.html#a4a06dd072c31c838d732a441e67c2331", null ],
+    [ "PremadeIOSEntitlements", "d4/dfd/class_u_xcode_project_settings.html#a742747d4638e3a7954595e25f8acada5", null ],
+    [ "PremadeMacEntitlements", "d4/dfd/class_u_xcode_project_settings.html#a9a431b5f5bf8a17d11f42ba8f2c6b80b", null ],
+    [ "ShippingSpecificIOSEntitlements", "d4/dfd/class_u_xcode_project_settings.html#a04e84f801a8e54e420a5d13fecf67a1b", null ],
+    [ "ShippingSpecificMacEntitlements", "d4/dfd/class_u_xcode_project_settings.html#a9e52c8626f35904bbd285b7e1d45f382", null ],
+    [ "TemplateIOSPlist", "d4/dfd/class_u_xcode_project_settings.html#abc2c31dde3e9a6e468792e7687ad57af", null ],
+    [ "TemplateMacPlist", "d4/dfd/class_u_xcode_project_settings.html#ae66920db8763fba2a54bdeea2ec9eb58", null ],
+    [ "TVOSProvisioningProfile", "d4/dfd/class_u_xcode_project_settings.html#ab17edb107f8e5af720bf6db38a108456", null ]
+];

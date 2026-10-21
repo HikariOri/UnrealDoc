@@ -1,0 +1,406 @@
+<!-- HTML header for doxygen 1.15.0-->
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh">
+<head>
+  <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=11" />
+  <meta name="generator" content="Doxygen 1.15.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>UE 5.8.4: Engine/Source/Runtime/AudioMixer/Private/AudioMixerSourceOutputBuffer.h 源文件</title>
+  <link rel="icon" href="../../EdIconDefault.bmp" type="image/x-icon" />
+  <link href="../../tabs.css" rel="stylesheet" type="text/css" />
+  <script type="text/javascript" src="../../jquery.js"></script>
+  <script type="text/javascript" src="../../dynsections.js"></script>
+  <link href="../../navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../navtreedata.js"></script>
+<script type="text/javascript" src="../../navtree.js"></script>
+<script type="text/javascript" src="../../cookie.js"></script>
+  <link href="../../search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../search/searchdata.js"></script>
+<script type="text/javascript" src="../../search/search.js"></script>
+  <link href="../../doxygen.css" rel="stylesheet" type="text/css" />
+  <link href="../../doxygen-awesome.css" rel="stylesheet" type="text/css"/>
+<link href="../../doxygen-awesome-sidebar-only.css" rel="stylesheet" type="text/css"/>
+<link href="../../doxygen-awesome-sidebar-only-darkmode-toggle.css" rel="stylesheet" type="text/css"/>
+  <!-- ... other metadata & script includes ... -->
+  <script type="text/javascript" src="../../doxygen-awesome-darkmode-toggle.js"></script>
+  <script type="text/javascript">
+    DoxygenAwesomeDarkModeToggle.title = "Zwischen hellem/dunklem Modus wechseln"
+    DoxygenAwesomeDarkModeToggle.lightModeIcon = '🌞'
+    // icon from https://fonts.google.com/icons
+    DoxygenAwesomeDarkModeToggle.darkModeIcon = `<svg xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 24 24" height="24px" viewBox="0 0 24 24" width="24px" fill="#009793"><g><rect fill="none" height="24" width="24"/></g><g><g><path d="M8.1,14.15C9.77,14.63,11,16.17,11,18c0,0.68-0.19,1.31-0.48,1.87c0.48,0.09,0.97,0.14,1.48,0.14 c1.48,0,2.9-0.41,4.13-1.15c-2.62-0.92-5.23-2.82-6.8-5.86C7.74,9.94,7.78,7.09,8.29,4.9c-2.57,1.33-4.3,4.01-4.3,7.1c0,0,0,0,0,0 c0.01,0,0.01,0,0.02,0C5.66,12,7.18,12.83,8.1,14.15z" opacity=".3"/><path d="M19.78,17.51c-2.47,0-6.57-1.33-8.68-5.43C8.77,7.57,10.6,3.6,11.63,2.01C6.27,2.2,1.98,6.59,1.98,12 c0,0.14,0.02,0.28,0.02,0.42C2.61,12.16,3.28,12,3.98,12c0,0,0,0,0,0c0-3.09,1.73-5.77,4.3-7.1C7.78,7.09,7.74,9.94,9.32,13 c1.57,3.04,4.18,4.95,6.8,5.86c-1.23,0.74-2.65,1.15-4.13,1.15c-0.5,0-1-0.05-1.48-0.14c-0.37,0.7-0.94,1.27-1.64,1.64 c0.98,0.32,2.03,0.5,3.11,0.5c3.5,0,6.58-1.8,8.37-4.52C20.18,17.5,19.98,17.51,19.78,17.51z"/><path d="M7,16l-0.18,0C6.4,14.84,5.3,14,4,14c-1.66,0-3,1.34-3,3s1.34,3,3,3c0.62,0,2.49,0,3,0c1.1,0,2-0.9,2-2 C9,16.9,8.1,16,7,16z"/></g></g></svg>`
+    DoxygenAwesomeDarkModeToggle.init()
+  </script>
+  <script type="text/javascript" src="../../doxygen-awesome-fragment-copy-button.js"></script>
+  <script type="text/javascript">
+    DoxygenAwesomeFragmentCopyButton.title = "In die Zwischenablage kopieren"
+    // DoxygenAwesomeFragmentCopyButton.copyIcon = `<svg ...>`
+    // DoxygenAwesomeFragmentCopyButton.successIcon = `<svg ...>`
+    DoxygenAwesomeFragmentCopyButton.init()
+  </script>
+  <script type="text/javascript" src="../../doxygen-awesome-paragraph-link.js"></script>
+  <script type="text/javascript">
+    DoxygenAwesomeParagraphLink.title = "Abschnitt verknüpfen"
+    DoxygenAwesomeParagraphLink.icon = "¶"
+    DoxygenAwesomeParagraphLink.init()
+  </script>
+  <script type="text/javascript" src="../../doxygen-awesome-interactive-toc.js"></script>
+  <script type="text/javascript">
+    DoxygenAwesomeInteractiveToc.topOffset = 45
+    DoxygenAwesomeInteractiveToc.hideMobileMenu = false
+    DoxygenAwesomeInteractiveToc.init()
+  </script>
+</head>
+<body>
+    <div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+      <div id="titlearea">
+        <table cellspacing="0" cellpadding="0">
+          <tbody>
+            <tr id="projectrow">
+              <td id="projectlogo"><img alt="Logo" src="../../EdIconDefault.bmp"  /></td>
+              <td id="projectalign">
+                <div id="projectname">UE 5.8.4
+                </div>
+                <div id="projectbrief">Unreal Engine</div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <!-- end header part -->
+<!-- 制作者 Doxygen 1.15.0 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "../../search/",'.html');
+</script>
+<script type="text/javascript">
+$(function() { codefold.init(); });
+</script>
+<script type="text/javascript" src="../../menudata.js"></script>
+<script type="text/javascript" src="../../menu.js"></script>
+<script type="text/javascript">
+$(function() {
+  initMenu('../../',true,false,'search.php','搜索',true);
+  $(function() { init_search(); });
+});
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(function(){initNavTree('dc/dbd/_audio_mixer_source_output_buffer_8h_source.html','../../',''); });
+</script>
+<div id="container">
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">载入中...</div>
+<div class="SRStatus" id="Searching">搜索中...</div>
+<div class="SRStatus" id="NoMatches">未找到</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">AudioMixerSourceOutputBuffer.h</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="../../dc/dbd/_audio_mixer_source_output_buffer_8h.html">浏览该文件的文档.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="comment">// Copyright Epic Games, Inc. All Rights Reserved.</span></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span> </div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="preprocessor">#pragma once</span></div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span> </div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span> </div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="preprocessor">#include &quot;<a class="code" href="../../dc/d5e/_core_minimal_8h.html">CoreMinimal.h</a>&quot;</span></div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="preprocessor">#include &quot;<a class="code" href="../../d2/db4/_i_soundfield_format_8h.html">ISoundfieldFormat.h</a>&quot;</span></div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="preprocessor">#include &quot;<a class="code" href="../../db/d68/_i_audio_extension_plugin_8h.html">IAudioExtensionPlugin.h</a>&quot;</span></div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="preprocessor">#include &quot;<a class="code" href="../../da/d8b/_audio_mixer_device_8h.html">AudioMixerDevice.h</a>&quot;</span></div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="preprocessor">#include &quot;<a class="code" href="../../d4/d31/_audio_mixer_submix_8h.html">AudioMixerSubmix.h</a>&quot;</span></div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span> </div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="keyword">namespace </span><a class="code hl_namespace" href="../../dc/d26/namespace_audio.html">Audio</a></div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span>{</div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span>    <span class="keyword">class </span><a class="code hl_class" href="../../d2/de0/class_audio_1_1_f_interpolated_l_p_f.html">FInterpolatedLPF</a>;</div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span>    <span class="keyword">class </span><a class="code hl_class" href="../../de/dfc/class_audio_1_1_f_interpolated_h_p_f.html">FInterpolatedHPF</a>;</div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span>    <span class="keyword">struct </span><a class="code hl_struct" href="../../dc/de5/struct_audio_1_1_f_send_filter_settings.html">FSendFilterSettings</a>;</div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span> </div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>    <span class="keyword">class </span><a class="code hl_class" href="../../df/dea/class_audio_1_1_f_mixer_submix.html">FMixerSubmix</a>;</div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span> </div>
+<div class="foldopen" id="foldopen00020" data-start="{" data-end="};">
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno"><a class="line" href="../../db/d4b/struct_audio_1_1_f_mixer_source_submix_output_buffer_settings.html">   20</a></span>    <span class="keyword">struct </span><a class="code hl_struct" href="../../db/d4b/struct_audio_1_1_f_mixer_source_submix_output_buffer_settings.html">FMixerSourceSubmixOutputBufferSettings</a></div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>    {</div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno"><a class="line" href="../../db/d4b/struct_audio_1_1_f_mixer_source_submix_output_buffer_settings.html#a8f84473ad9a161cef609e9114b4b35a6">   22</a></span>        <a class="code hl_typedef" href="../../dd/de9/preprocessor_8c.html#a1134b580f8da4de94ca6b1de4d37975e">uint32</a> <a class="code hl_variable" href="../../db/d4b/struct_audio_1_1_f_mixer_source_submix_output_buffer_settings.html#a8f84473ad9a161cef609e9114b4b35a6">NumSourceChannels</a>;</div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno"><a class="line" href="../../db/d4b/struct_audio_1_1_f_mixer_source_submix_output_buffer_settings.html#a3214e5f6f4b697f7d9fb0f57e78784cd">   23</a></span>        <a class="code hl_typedef" href="../../dd/de9/preprocessor_8c.html#a1134b580f8da4de94ca6b1de4d37975e">uint32</a> <a class="code hl_variable" href="../../db/d4b/struct_audio_1_1_f_mixer_source_submix_output_buffer_settings.html#a3214e5f6f4b697f7d9fb0f57e78784cd">NumOutputChannels</a>;</div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno"><a class="line" href="../../db/d4b/struct_audio_1_1_f_mixer_source_submix_output_buffer_settings.html#a65a8d76fb1c2b7fb0f48bf03e1e36e42">   24</a></span>        <a class="code hl_class" href="../../d6/db1/class_t_array.html">TArray&lt;FMixerSubmixPtr&gt;</a> <a class="code hl_variable" href="../../db/d4b/struct_audio_1_1_f_mixer_source_submix_output_buffer_settings.html#a65a8d76fb1c2b7fb0f48bf03e1e36e42">SoundfieldSubmixSends</a>;</div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno"><a class="line" href="../../db/d4b/struct_audio_1_1_f_mixer_source_submix_output_buffer_settings.html#a8882fd8695926fee1fcff973943adb76">   25</a></span>        <span class="keywordtype">bool</span> <a class="code hl_variable" href="../../db/d4b/struct_audio_1_1_f_mixer_source_submix_output_buffer_settings.html#a8882fd8695926fee1fcff973943adb76">bIs3D</a>;</div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno"><a class="line" href="../../db/d4b/struct_audio_1_1_f_mixer_source_submix_output_buffer_settings.html#a12879898091b4ba221967496259cdb39">   26</a></span>        <span class="keywordtype">bool</span> <a class="code hl_variable" href="../../db/d4b/struct_audio_1_1_f_mixer_source_submix_output_buffer_settings.html#a12879898091b4ba221967496259cdb39">bIsVorbis</a>;</div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno"><a class="line" href="../../db/d4b/struct_audio_1_1_f_mixer_source_submix_output_buffer_settings.html#a72f577af79ed203fe936f09fcbd2e7e9">   27</a></span>        <span class="keywordtype">bool</span> <a class="code hl_variable" href="../../db/d4b/struct_audio_1_1_f_mixer_source_submix_output_buffer_settings.html#a72f577af79ed203fe936f09fcbd2e7e9">bIsSoundfield</a>;</div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>    };</div>
+</div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span></div>
+<div class="foldopen" id="foldopen00033" data-start="{" data-end="};">
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno"><a class="line" href="../../df/d24/class_audio_1_1_f_mixer_source_submix_output_buffer.html">   33</a></span>    <span class="keyword">class </span><a class="code hl_function" href="../../df/d24/class_audio_1_1_f_mixer_source_submix_output_buffer.html#a1135821afb8cca13edbbe50781694de6">FMixerSourceSubmixOutputBuffer</a></div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>    {</div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>    <span class="keyword">public</span>:</div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>        <a class="code hl_function" href="../../df/d24/class_audio_1_1_f_mixer_source_submix_output_buffer.html#a1135821afb8cca13edbbe50781694de6">FMixerSourceSubmixOutputBuffer</a>(<a class="code hl_class" href="../../d6/d31/class_audio_1_1_f_mixer_device.html">FMixerDevice</a>* InMixerDevice, <a class="code hl_typedef" href="../../dd/de9/preprocessor_8c.html#a1134b580f8da4de94ca6b1de4d37975e">uint32</a> InNumSourceChannels, <a class="code hl_typedef" href="../../dd/de9/preprocessor_8c.html#a1134b580f8da4de94ca6b1de4d37975e">uint32</a> InNumOutputChannels, <a class="code hl_typedef" href="../../dd/de9/preprocessor_8c.html#a1134b580f8da4de94ca6b1de4d37975e">uint32</a> InNumFrames);</div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span> </div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>        <a class="code hl_function" href="../../df/d24/class_audio_1_1_f_mixer_source_submix_output_buffer.html#aaf1884b64abe1a5b92a451d9b1fe0218">~FMixerSourceSubmixOutputBuffer</a>();</div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span> </div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>        <span class="comment">// Resets the source submix output to prepare for new source data</span></div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>        <span class="keywordtype">void</span> <a class="code hl_function" href="../../d0/db7/_mem_pro_8cpp.html#aaa7f2acd75bb8eec434a9d35b5693292">Reset</a>(<span class="keyword">const</span> <a class="code hl_struct" href="../../db/d4b/struct_audio_1_1_f_mixer_source_submix_output_buffer_settings.html">FMixerSourceSubmixOutputBufferSettings</a>&amp; InResetSettings);</div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span> </div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>        <span class="comment">// Sets the number of output channels</span></div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>        <span class="keywordtype">void</span> <a class="code hl_function" href="../../df/d24/class_audio_1_1_f_mixer_source_submix_output_buffer.html#a492a9ed421ca038291f43a4beb11c0a8">SetNumOutputChannels</a>(<a class="code hl_typedef" href="../../dd/de9/preprocessor_8c.html#a1134b580f8da4de94ca6b1de4d37975e">uint32</a> InNumOutputChannels);</div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span> </div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>        <span class="comment">// Returns the number of source channels of this source</span></div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno"><a class="line" href="../../df/d24/class_audio_1_1_f_mixer_source_submix_output_buffer.html#adfc14c8e81ae815b82bad74db1c0c717">   47</a></span>        <a class="code hl_typedef" href="../../dd/de9/preprocessor_8c.html#a1134b580f8da4de94ca6b1de4d37975e">uint32</a> <a class="code hl_function" href="../../df/d24/class_audio_1_1_f_mixer_source_submix_output_buffer.html#adfc14c8e81ae815b82bad74db1c0c717">GetNumSourceChannels</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> NumSourceChannels; }</div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span> </div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>        <span class="comment">// Sets the channel map</span></div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>        <span class="keywordtype">bool</span> <a class="code hl_function" href="../../df/d24/class_audio_1_1_f_mixer_source_submix_output_buffer.html#ae9f377ecbba64c53879bcbaed094dd8d">SetChannelMap</a>(<span class="keyword">const</span> <a class="code hl_typedef" href="../../dc/d26/namespace_audio.html#a8db114b756e54621ed6ffdebd70d9275">FAlignedFloatBuffer</a>&amp; InChannelMap, <span class="keywordtype">bool</span> bInIsCenterChannelOnly);</div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span> </div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>        <span class="comment">// Sets the pre and post attenuation source buffers. This is the source buffer data derived from source manager source processing.</span></div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>        <span class="keywordtype">void</span> <a class="code hl_function" href="../../df/d24/class_audio_1_1_f_mixer_source_submix_output_buffer.html#a1a1915b8fd69c0f0955c7da42ecde174">SetPreAttenuationSourceBuffer</a>(<a class="code hl_typedef" href="../../dc/d26/namespace_audio.html#a8db114b756e54621ed6ffdebd70d9275">FAlignedFloatBuffer</a>* InPreAttenuationBuffer);</div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>        <span class="keywordtype">void</span> <a class="code hl_function" href="../../df/d24/class_audio_1_1_f_mixer_source_submix_output_buffer.html#a4ecd207571bef19826d18a25d6584943">SetPostAttenuationSourceBuffer</a>(<a class="code hl_typedef" href="../../dc/d26/namespace_audio.html#a8db114b756e54621ed6ffdebd70d9275">FAlignedFloatBuffer</a>* InPostAttenuationBuffer);</div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>        <span class="keywordtype">void</span> <a class="code hl_function" href="../../df/d24/class_audio_1_1_f_mixer_source_submix_output_buffer.html#ac1aad78f5d7c374a10be8994875e87b7">CopyReverbPluginOutputData</a>(<a class="code hl_typedef" href="../../dc/d26/namespace_audio.html#a8db114b756e54621ed6ffdebd70d9275">FAlignedFloatBuffer</a>&amp; InAudioBuffer);</div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>        <span class="keyword">const</span> <span class="keywordtype">float</span>* <a class="code hl_function" href="../../df/d24/class_audio_1_1_f_mixer_source_submix_output_buffer.html#aa75271dc20e1d287e0e98e7f69821286">GetReverbPluginOutputData</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span> </div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>        <span class="comment">// Retrieves the current sound field packet for the given key</span></div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>        <span class="keyword">const</span> <a class="code hl_class" href="../../d0/dd7/class_i_soundfield_audio_packet.html">ISoundfieldAudioPacket</a>* <a class="code hl_function" href="../../df/d24/class_audio_1_1_f_mixer_source_submix_output_buffer.html#ad1507d719ed205ac998f40120234c7a2">GetSoundfieldPacket</a>(<span class="keyword">const</span> <a class="code hl_struct" href="../../d1/d51/struct_f_soundfield_encoding_key.html">FSoundfieldEncodingKey</a>&amp; InKey) <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>        <a class="code hl_class" href="../../d0/dd7/class_i_soundfield_audio_packet.html">ISoundfieldAudioPacket</a>* <a class="code hl_function" href="../../df/d24/class_audio_1_1_f_mixer_source_submix_output_buffer.html#af4decc5aefcca98e43c93c7435026ac4">GetSoundFieldPacket</a>(<span class="keyword">const</span> <a class="code hl_struct" href="../../d1/d51/struct_f_soundfield_encoding_key.html">FSoundfieldEncodingKey</a>&amp; InKey);</div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span> </div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>        <span class="comment">// Computes the output buffer given the spat params. This buffer can then be mixed to submixes</span></div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>        <span class="keywordtype">void</span> <a class="code hl_function" href="../../df/d24/class_audio_1_1_f_mixer_source_submix_output_buffer.html#a36653a78151309cf50f85cb2e1cb1f82">ComputeOutput</a>(<span class="keyword">const</span> <a class="code hl_struct" href="../../d2/d6d/struct_f_spatialization_params.html">FSpatializationParams</a>&amp; InSpatParams);</div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span> </div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>        <span class="comment">// Called by submixes to mix this output buffer to their buffer</span></div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span>        <span class="keywordtype">void</span> <a class="code hl_function" href="../../df/d24/class_audio_1_1_f_mixer_source_submix_output_buffer.html#a62fe8f046ed9de6e72b2ebee30d25e8e">MixOutput</a>(<span class="keywordtype">float</span> SendLevel, <a class="code hl_enumeration" href="../../dc/d26/namespace_audio.html#a17ae935180c4de25d83d99db626cdf51">EMixerSourceSubmixSendStage</a> InSubmixSendStage, <a class="code hl_typedef" href="../../dc/d26/namespace_audio.html#a8db114b756e54621ed6ffdebd70d9275">FAlignedFloatBuffer</a>&amp; OutMixedBuffer) <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>        <span class="keywordtype">void</span> <a class="code hl_function" href="../../df/d24/class_audio_1_1_f_mixer_source_submix_output_buffer.html#a62fe8f046ed9de6e72b2ebee30d25e8e">MixOutput</a>(<span class="keywordtype">float</span> InSendLevel, <a class="code hl_enumeration" href="../../dc/d26/namespace_audio.html#a17ae935180c4de25d83d99db626cdf51">EMixerSourceSubmixSendStage</a> InSubmixSendStage, <span class="keyword">const</span> <a class="code hl_struct" href="../../dc/de5/struct_audio_1_1_f_send_filter_settings.html">FSendFilterSettings</a>&amp; InFilter, <a class="code hl_class" href="../../d2/de0/class_audio_1_1_f_interpolated_l_p_f.html">FInterpolatedLPF</a>&amp; InLpf, <a class="code hl_class" href="../../de/dfc/class_audio_1_1_f_interpolated_h_p_f.html">FInterpolatedHPF</a>&amp; InHpf, <a class="code hl_typedef" href="../../dc/d26/namespace_audio.html#a8db114b756e54621ed6ffdebd70d9275">FAlignedFloatBuffer</a>&amp; ScratchBuffer, <a class="code hl_typedef" href="../../dc/d26/namespace_audio.html#a8db114b756e54621ed6ffdebd70d9275">FAlignedFloatBuffer</a>&amp; OutMixedBuffer);</div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span> </div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>        <span class="comment">// Return the listener rotation</span></div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>        <span class="comment">// TODO: consolidate the code that is using this to be private to this class.</span></div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>        <a class="code hl_typedef" href="../../d0/df6/_math_fwd_8h.html#a440e2e6b0f4eca3d0168353ed0cd6fad">FQuat</a> <a class="code hl_function" href="../../df/d24/class_audio_1_1_f_mixer_source_submix_output_buffer.html#a7783ed3838a9ed57f263322b7d5a578d">GetListenerRotation</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span> </div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>    <span class="keyword">private</span>: <span class="comment">// private classes</span></div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span> </div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>        <span class="comment">// Private struct used for channel mapping</span></div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>        <span class="keyword">struct </span>FSourceChannelMap</div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span>        {</div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>            <span class="keyword">alignas</span>(16) <span class="keywordtype">float</span> ChannelStartGains[<a class="code hl_define" href="../../d9/ddd/_audio_mixer_8h.html#a305ea282d1428ed187a143cb10b3fe06">AUDIO_MIXER_MAX_OUTPUT_CHANNELS</a> * <a class="code hl_define" href="../../d9/ddd/_audio_mixer_8h.html#a305ea282d1428ed187a143cb10b3fe06">AUDIO_MIXER_MAX_OUTPUT_CHANNELS</a>];</div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>            <span class="keyword">alignas</span>(16) <span class="keywordtype">float</span> ChannelDestinationGains[<a class="code hl_define" href="../../d9/ddd/_audio_mixer_8h.html#a305ea282d1428ed187a143cb10b3fe06">AUDIO_MIXER_MAX_OUTPUT_CHANNELS</a> * <a class="code hl_define" href="../../d9/ddd/_audio_mixer_8h.html#a305ea282d1428ed187a143cb10b3fe06">AUDIO_MIXER_MAX_OUTPUT_CHANNELS</a>];</div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span> </div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>            <span class="comment">// This is the number of bytes the gain array is using:</span></div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span>            <span class="comment">// (Number of input channels * number of output channels) * sizeof float.</span></div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span>            <a class="code hl_typedef" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a8dbb3cd84ca9fd010dadfc3815eefa5d">int32</a> CopySize = 0;</div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span>            <span class="keywordtype">bool</span> bIsInit = <span class="keyword">false</span>;</div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span> </div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span>            FSourceChannelMap(<a class="code hl_typedef" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a8dbb3cd84ca9fd010dadfc3815eefa5d">int32</a> InNumInChannels, <a class="code hl_typedef" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a8dbb3cd84ca9fd010dadfc3815eefa5d">int32</a> InNumOutChannels)</div>
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span>                : CopySize(InNumInChannels* InNumOutChannels * sizeof(<a class="code hl_variable" href="../../df/d2a/_s_anim_notify_shared_8h.html#ac7c94e837fed3f8e4bb3dd94d7bd2ecf">float</a>))</div>
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span>            {</div>
+<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span>                <a class="code hl_define" href="../../d4/d75/_assertion_macros_8h.html#a12ff33b2f8cbad5116bd85ca93de5cb2">checkSlow</a>(InNumInChannels &lt;= <a class="code hl_define" href="../../d9/ddd/_audio_mixer_8h.html#a305ea282d1428ed187a143cb10b3fe06">AUDIO_MIXER_MAX_OUTPUT_CHANNELS</a>);</div>
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span>                <a class="code hl_define" href="../../d4/d75/_assertion_macros_8h.html#a12ff33b2f8cbad5116bd85ca93de5cb2">checkSlow</a>(InNumOutChannels &lt;= <a class="code hl_define" href="../../d9/ddd/_audio_mixer_8h.html#a305ea282d1428ed187a143cb10b3fe06">AUDIO_MIXER_MAX_OUTPUT_CHANNELS</a>);</div>
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span>                <a class="code hl_function" href="../../df/da4/struct_f_memory.html#a6026c449fe4aa56cbf0b5ce6e80a47b1">FMemory::Memzero</a>(ChannelStartGains, CopySize);</div>
+<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span>            }</div>
+<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span> </div>
+<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span>            <a class="code hl_define" href="../../d0/d76/_android_platform_8h.html#a724fb9f82013c782db5c3c12ea36aac8">FORCEINLINE</a> <span class="keywordtype">void</span> <a class="code hl_function" href="../../d0/db7/_mem_pro_8cpp.html#aaa7f2acd75bb8eec434a9d35b5693292">Reset</a>(<a class="code hl_typedef" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a8dbb3cd84ca9fd010dadfc3815eefa5d">int32</a> InNumInChannels, <a class="code hl_typedef" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a8dbb3cd84ca9fd010dadfc3815eefa5d">int32</a> InNumOutChannels)</div>
+<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span>            {</div>
+<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span>                <a class="code hl_define" href="../../d4/d75/_assertion_macros_8h.html#a12ff33b2f8cbad5116bd85ca93de5cb2">checkSlow</a>(InNumInChannels &lt;= <a class="code hl_define" href="../../d9/ddd/_audio_mixer_8h.html#a305ea282d1428ed187a143cb10b3fe06">AUDIO_MIXER_MAX_OUTPUT_CHANNELS</a>);</div>
+<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span>                <a class="code hl_define" href="../../d4/d75/_assertion_macros_8h.html#a12ff33b2f8cbad5116bd85ca93de5cb2">checkSlow</a>(InNumOutChannels &lt;= <a class="code hl_define" href="../../d9/ddd/_audio_mixer_8h.html#a305ea282d1428ed187a143cb10b3fe06">AUDIO_MIXER_MAX_OUTPUT_CHANNELS</a>);</div>
+<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span> </div>
+<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span>                CopySize = InNumInChannels * InNumOutChannels * <span class="keyword">sizeof</span>(<a class="code hl_variable" href="../../df/d2a/_s_anim_notify_shared_8h.html#ac7c94e837fed3f8e4bb3dd94d7bd2ecf">float</a>);</div>
+<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span>                <a class="code hl_function" href="../../df/da4/struct_f_memory.html#a6026c449fe4aa56cbf0b5ce6e80a47b1">FMemory::Memzero</a>(ChannelStartGains, CopySize);</div>
+<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span>                <a class="code hl_function" href="../../df/da4/struct_f_memory.html#a6026c449fe4aa56cbf0b5ce6e80a47b1">FMemory::Memzero</a>(ChannelDestinationGains, CopySize);</div>
+<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span>                bIsInit = <span class="keyword">false</span>;</div>
+<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span>            }</div>
+<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span> </div>
+<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span>            <a class="code hl_define" href="../../d0/d76/_android_platform_8h.html#a724fb9f82013c782db5c3c12ea36aac8">FORCEINLINE</a> <span class="keywordtype">void</span> CopyDestinationToStart()</div>
+<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span>            {</div>
+<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span>                <a class="code hl_function" href="../../df/da4/struct_f_memory.html#a9c502a07c1d4ab75a9b4911906d09886">FMemory::Memcpy</a>(ChannelStartGains, ChannelDestinationGains, CopySize);</div>
+<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span>            }</div>
+<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span> </div>
+<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span>            <a class="code hl_define" href="../../d0/d76/_android_platform_8h.html#a724fb9f82013c782db5c3c12ea36aac8">FORCEINLINE</a> <span class="keywordtype">void</span> SetChannelMap(<span class="keyword">const</span> <span class="keywordtype">float</span>* <a class="code hl_define" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#aae3356b63849abbe8789dd41648ee90a">RESTRICT</a> InChannelGains)</div>
+<div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span>            {</div>
+<div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span>                <a class="code hl_function" href="../../df/da4/struct_f_memory.html#a9c502a07c1d4ab75a9b4911906d09886">FMemory::Memcpy</a>(ChannelDestinationGains, InChannelGains, CopySize);</div>
+<div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span>                <span class="keywordflow">if</span> (!bIsInit)</div>
+<div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span>                {</div>
+<div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span>                    <a class="code hl_function" href="../../df/da4/struct_f_memory.html#a9c502a07c1d4ab75a9b4911906d09886">FMemory::Memcpy</a>(ChannelStartGains, InChannelGains, CopySize);</div>
+<div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span>                    bIsInit = <span class="keyword">true</span>;</div>
+<div class="line"><a id="l00117" name="l00117"></a><span class="lineno">  117</span>                }</div>
+<div class="line"><a id="l00118" name="l00118"></a><span class="lineno">  118</span>            }</div>
+<div class="line"><a id="l00119" name="l00119"></a><span class="lineno">  119</span> </div>
+<div class="line"><a id="l00120" name="l00120"></a><span class="lineno">  120</span>        <span class="keyword">private</span>:</div>
+<div class="line"><a id="l00121" name="l00121"></a><span class="lineno">  121</span>            FSourceChannelMap()</div>
+<div class="line"><a id="l00122" name="l00122"></a><span class="lineno">  122</span>                : CopySize(0)</div>
+<div class="line"><a id="l00123" name="l00123"></a><span class="lineno">  123</span>                , bIsInit(<a class="code hl_enumvalue" href="../../d3/df7/radaudio__common_8h.html#ade27a78a51a66a5cfb6f09cf36bcfde9ae9de385ef6fe9bf3360d1038396b884c">false</a>)</div>
+<div class="line"><a id="l00124" name="l00124"></a><span class="lineno">  124</span>            {</div>
+<div class="line"><a id="l00125" name="l00125"></a><span class="lineno">  125</span>            }</div>
+<div class="line"><a id="l00126" name="l00126"></a><span class="lineno">  126</span>        };</div>
+<div class="line"><a id="l00127" name="l00127"></a><span class="lineno">  127</span> </div>
+<div class="line"><a id="l00128" name="l00128"></a><span class="lineno">  128</span>        <span class="keyword">struct </span>FSoundfieldData</div>
+<div class="line"><a id="l00129" name="l00129"></a><span class="lineno">  129</span>        {</div>
+<div class="line"><a id="l00130" name="l00130"></a><span class="lineno">  130</span>            <span class="comment">// If the sound source is not a soundfield source and we&#39;re sending to a soundfield submix, it gets encoded</span></div>
+<div class="line"><a id="l00131" name="l00131"></a><span class="lineno">  131</span>            TUniquePtr&lt;ISoundfieldEncoderStream&gt; SoundfieldEncoder;</div>
+<div class="line"><a id="l00132" name="l00132"></a><span class="lineno">  132</span> </div>
+<div class="line"><a id="l00133" name="l00133"></a><span class="lineno">  133</span>            <span class="comment">// If the sound source is soundfield, and we&#39;re sending to a soundfield submix, it gets transcoded</span></div>
+<div class="line"><a id="l00134" name="l00134"></a><span class="lineno">  134</span>            TUniquePtr&lt;ISoundfieldTranscodeStream&gt; SoundfieldTranscoder;</div>
+<div class="line"><a id="l00135" name="l00135"></a><span class="lineno">  135</span> </div>
+<div class="line"><a id="l00136" name="l00136"></a><span class="lineno">  136</span>            <span class="comment">// The optional soundfield encoder settings</span></div>
+<div class="line"><a id="l00137" name="l00137"></a><span class="lineno">  137</span>            TUniquePtr&lt;ISoundfieldEncodingSettingsProxy&gt; EncoderSettings;</div>
+<div class="line"><a id="l00138" name="l00138"></a><span class="lineno">  138</span> </div>
+<div class="line"><a id="l00139" name="l00139"></a><span class="lineno">  139</span>            <span class="comment">// The encoded soundfield packet</span></div>
+<div class="line"><a id="l00140" name="l00140"></a><span class="lineno">  140</span>            TUniquePtr&lt;ISoundfieldAudioPacket&gt; EncodedPacket;</div>
+<div class="line"><a id="l00141" name="l00141"></a><span class="lineno">  141</span> </div>
+<div class="line"><a id="l00142" name="l00142"></a><span class="lineno">  142</span>            <span class="comment">// If this is a unreal ambisonics soundfield buffer, we hand it the submixed buffer directly.</span></div>
+<div class="line"><a id="l00143" name="l00143"></a><span class="lineno">  143</span>            <span class="keywordtype">bool</span> bIsUnrealAmbisonicsSubmix;</div>
+<div class="line"><a id="l00144" name="l00144"></a><span class="lineno">  144</span>        };</div>
+<div class="line"><a id="l00145" name="l00145"></a><span class="lineno">  145</span> </div>
+<div class="line"><a id="l00146" name="l00146"></a><span class="lineno">  146</span>    <span class="keyword">private</span>: <span class="comment">// private methods</span></div>
+<div class="line"><a id="l00147" name="l00147"></a><span class="lineno">  147</span> </div>
+<div class="line"><a id="l00148" name="l00148"></a><span class="lineno">  148</span>        <span class="keywordtype">void</span> ComputeOutput3D(<a class="code hl_typedef" href="../../dc/d26/namespace_audio.html#a8db114b756e54621ed6ffdebd70d9275">FAlignedFloatBuffer</a>&amp; InSource, <a class="code hl_typedef" href="../../dc/d26/namespace_audio.html#a8db114b756e54621ed6ffdebd70d9275">FAlignedFloatBuffer</a>&amp; InOutput);</div>
+<div class="line"><a id="l00149" name="l00149"></a><span class="lineno">  149</span>        <span class="keywordtype">void</span> ComputeOutput3D();</div>
+<div class="line"><a id="l00150" name="l00150"></a><span class="lineno">  150</span>        <span class="keywordtype">void</span> ComputeOutput2D(<a class="code hl_typedef" href="../../dc/d26/namespace_audio.html#a8db114b756e54621ed6ffdebd70d9275">FAlignedFloatBuffer</a>&amp; InSource, <a class="code hl_typedef" href="../../dc/d26/namespace_audio.html#a8db114b756e54621ed6ffdebd70d9275">FAlignedFloatBuffer</a>&amp; InOutput);</div>
+<div class="line"><a id="l00151" name="l00151"></a><span class="lineno">  151</span>        <span class="keywordtype">void</span> ComputeOutput2D();</div>
+<div class="line"><a id="l00152" name="l00152"></a><span class="lineno">  152</span> </div>
+<div class="line"><a id="l00153" name="l00153"></a><span class="lineno">  153</span>        <span class="keywordtype">void</span> EncodeSoundfield(FSoundfieldData&amp; InSoundfieldData, <a class="code hl_typedef" href="../../dc/d26/namespace_audio.html#a8db114b756e54621ed6ffdebd70d9275">Audio::FAlignedFloatBuffer</a>&amp; InSourceBuffer);</div>
+<div class="line"><a id="l00154" name="l00154"></a><span class="lineno">  154</span>        <span class="keywordtype">void</span> EncodeToSoundfieldFormats(<span class="keyword">const</span> FSpatializationParams&amp; InSpatParams);</div>
+<div class="line"><a id="l00155" name="l00155"></a><span class="lineno">  155</span> </div>
+<div class="line"><a id="l00156" name="l00156"></a><span class="lineno">  156</span>    <span class="keyword">private</span>: <span class="comment">// private data</span></div>
+<div class="line"><a id="l00157" name="l00157"></a><span class="lineno">  157</span> </div>
+<div class="line"><a id="l00158" name="l00158"></a><span class="lineno">  158</span>        <span class="comment">// Buffer for reverb plugins to write into</span></div>
+<div class="line"><a id="l00159" name="l00159"></a><span class="lineno">  159</span>        <a class="code hl_typedef" href="../../dc/d26/namespace_audio.html#a8db114b756e54621ed6ffdebd70d9275">FAlignedFloatBuffer</a> ReverbPluginOutputBuffer;</div>
+<div class="line"><a id="l00160" name="l00160"></a><span class="lineno">  160</span> </div>
+<div class="line"><a id="l00161" name="l00161"></a><span class="lineno">  161</span>        <span class="comment">// The source buffer created before distance attenuation is applied</span></div>
+<div class="line"><a id="l00162" name="l00162"></a><span class="lineno">  162</span>        <a class="code hl_typedef" href="../../dc/d26/namespace_audio.html#a8db114b756e54621ed6ffdebd70d9275">FAlignedFloatBuffer</a>* PreAttenuationSourceBuffer;</div>
+<div class="line"><a id="l00163" name="l00163"></a><span class="lineno">  163</span> </div>
+<div class="line"><a id="l00164" name="l00164"></a><span class="lineno">  164</span>        <span class="comment">// The source buffer created after distance attenuation is applied</span></div>
+<div class="line"><a id="l00165" name="l00165"></a><span class="lineno">  165</span>        <a class="code hl_typedef" href="../../dc/d26/namespace_audio.html#a8db114b756e54621ed6ffdebd70d9275">FAlignedFloatBuffer</a>* PostAttenuationSourceBuffer;</div>
+<div class="line"><a id="l00166" name="l00166"></a><span class="lineno">  166</span> </div>
+<div class="line"><a id="l00167" name="l00167"></a><span class="lineno">  167</span>        <span class="comment">// Data used to map the source channel data to the output channel configuration</span></div>
+<div class="line"><a id="l00168" name="l00168"></a><span class="lineno">  168</span>        FSourceChannelMap SourceChannelMap;</div>
+<div class="line"><a id="l00169" name="l00169"></a><span class="lineno">  169</span> </div>
+<div class="line"><a id="l00170" name="l00170"></a><span class="lineno">  170</span>        <span class="comment">// The result of the source output with source data derived pre distance attenuation</span></div>
+<div class="line"><a id="l00171" name="l00171"></a><span class="lineno">  171</span>        <a class="code hl_typedef" href="../../dc/d26/namespace_audio.html#a8db114b756e54621ed6ffdebd70d9275">FAlignedFloatBuffer</a> PreAttenuationOutputBuffer;</div>
+<div class="line"><a id="l00172" name="l00172"></a><span class="lineno">  172</span> </div>
+<div class="line"><a id="l00173" name="l00173"></a><span class="lineno">  173</span>        <span class="comment">// The result of the source output with source data derived post distance attenuation</span></div>
+<div class="line"><a id="l00174" name="l00174"></a><span class="lineno">  174</span>        <a class="code hl_typedef" href="../../dc/d26/namespace_audio.html#a8db114b756e54621ed6ffdebd70d9275">FAlignedFloatBuffer</a> PostAttenuationOutputBuffer;</div>
+<div class="line"><a id="l00175" name="l00175"></a><span class="lineno">  175</span> </div>
+<div class="line"><a id="l00176" name="l00176"></a><span class="lineno">  176</span>        <span class="comment">// The number of source channels (sound input)</span></div>
+<div class="line"><a id="l00177" name="l00177"></a><span class="lineno">  177</span>        <a class="code hl_typedef" href="../../dd/de9/preprocessor_8c.html#a1134b580f8da4de94ca6b1de4d37975e">uint32</a> NumSourceChannels;</div>
+<div class="line"><a id="l00178" name="l00178"></a><span class="lineno">  178</span> </div>
+<div class="line"><a id="l00179" name="l00179"></a><span class="lineno">  179</span>        <span class="comment">// The number of interleaved frames in the source</span></div>
+<div class="line"><a id="l00180" name="l00180"></a><span class="lineno">  180</span>        <span class="keyword">const</span> <a class="code hl_typedef" href="../../dd/de9/preprocessor_8c.html#a1134b580f8da4de94ca6b1de4d37975e">uint32</a> NumFrames;</div>
+<div class="line"><a id="l00181" name="l00181"></a><span class="lineno">  181</span> </div>
+<div class="line"><a id="l00182" name="l00182"></a><span class="lineno">  182</span>        <span class="comment">// The number of device output channels</span></div>
+<div class="line"><a id="l00183" name="l00183"></a><span class="lineno">  183</span>        <a class="code hl_typedef" href="../../dd/de9/preprocessor_8c.html#a1134b580f8da4de94ca6b1de4d37975e">uint32</a> NumOutputChannels;</div>
+<div class="line"><a id="l00184" name="l00184"></a><span class="lineno">  184</span> </div>
+<div class="line"><a id="l00185" name="l00185"></a><span class="lineno">  185</span>        <span class="comment">// The owning mixer device</span></div>
+<div class="line"><a id="l00186" name="l00186"></a><span class="lineno">  186</span>        FMixerDevice* MixerDevice;</div>
+<div class="line"><a id="l00187" name="l00187"></a><span class="lineno">  187</span> </div>
+<div class="line"><a id="l00188" name="l00188"></a><span class="lineno">  188</span>        <span class="comment">// Whether this is the initial downmix</span></div>
+<div class="line"><a id="l00189" name="l00189"></a><span class="lineno">  189</span>        <span class="keywordtype">bool</span> bIsInitialDownmix;</div>
+<div class="line"><a id="l00190" name="l00190"></a><span class="lineno">  190</span> </div>
+<div class="line"><a id="l00191" name="l00191"></a><span class="lineno">  191</span>        <span class="comment">// If this is a 3D sound source</span></div>
+<div class="line"><a id="l00192" name="l00192"></a><span class="lineno">  192</span>        <span class="keywordtype">bool</span> bIs3D;</div>
+<div class="line"><a id="l00193" name="l00193"></a><span class="lineno">  193</span> </div>
+<div class="line"><a id="l00194" name="l00194"></a><span class="lineno">  194</span>        <span class="comment">// Whether this source is vorbis encoded (used for 2D speakermapping)</span></div>
+<div class="line"><a id="l00195" name="l00195"></a><span class="lineno">  195</span>        <span class="keywordtype">bool</span> bIsVorbis;</div>
+<div class="line"><a id="l00196" name="l00196"></a><span class="lineno">  196</span> </div>
+<div class="line"><a id="l00197" name="l00197"></a><span class="lineno">  197</span>        <span class="comment">// Cached parameters for encoding to a soundfield format</span></div>
+<div class="line"><a id="l00198" name="l00198"></a><span class="lineno">  198</span>        FSoundfieldSpeakerPositionalData SoundfieldPositionalData;</div>
+<div class="line"><a id="l00199" name="l00199"></a><span class="lineno">  199</span> </div>
+<div class="line"><a id="l00200" name="l00200"></a><span class="lineno">  200</span>        <span class="comment">// The current sound source rotation</span></div>
+<div class="line"><a id="l00201" name="l00201"></a><span class="lineno">  201</span>        <a class="code hl_typedef" href="../../d0/df6/_math_fwd_8h.html#a440e2e6b0f4eca3d0168353ed0cd6fad">FQuat</a> SoundSourceRotation;</div>
+<div class="line"><a id="l00202" name="l00202"></a><span class="lineno">  202</span> </div>
+<div class="line"><a id="l00203" name="l00203"></a><span class="lineno">  203</span>        <span class="comment">// Map of sound field encoding to encoding data</span></div>
+<div class="line"><a id="l00204" name="l00204"></a><span class="lineno">  204</span>        TMap&lt;FSoundfieldEncodingKey, FSoundfieldData&gt; EncodedSoundfieldDownmixes;</div>
+<div class="line"><a id="l00205" name="l00205"></a><span class="lineno">  205</span> </div>
+<div class="line"><a id="l00206" name="l00206"></a><span class="lineno">  206</span>        <span class="comment">// Channel positions of the sound field</span></div>
+<div class="line"><a id="l00207" name="l00207"></a><span class="lineno">  207</span>        TArray&lt;Audio::FChannelPositionInfo&gt; InputChannelPositions;</div>
+<div class="line"><a id="l00208" name="l00208"></a><span class="lineno">  208</span> </div>
+<div class="line"><a id="l00209" name="l00209"></a><span class="lineno">  209</span>        <span class="comment">// If this source is an ambisonics source, we use this to down mix the source to output channel mix.</span></div>
+<div class="line"><a id="l00210" name="l00210"></a><span class="lineno">  210</span>        TUniquePtr&lt;ISoundfieldDecoderStream&gt; SoundfieldDecoder;</div>
+<div class="line"><a id="l00211" name="l00211"></a><span class="lineno">  211</span> </div>
+<div class="line"><a id="l00212" name="l00212"></a><span class="lineno">  212</span>    };</div>
+</div>
+<div class="line"><a id="l00213" name="l00213"></a><span class="lineno">  213</span> </div>
+<div class="line"><a id="l00214" name="l00214"></a><span class="lineno">  214</span> </div>
+<div class="line"><a id="l00215" name="l00215"></a><span class="lineno">  215</span>}</div>
+<div class="ttc" id="a_android_platform_8h_html_a724fb9f82013c782db5c3c12ea36aac8"><div class="ttname"><a href="../../d0/d76/_android_platform_8h.html#a724fb9f82013c782db5c3c12ea36aac8">FORCEINLINE</a></div><div class="ttdeci">#define FORCEINLINE</div><div class="ttdef"><b>定义</b> AndroidPlatform.h:144</div></div>
+<div class="ttc" id="a_assertion_macros_8h_html_a12ff33b2f8cbad5116bd85ca93de5cb2"><div class="ttname"><a href="../../d4/d75/_assertion_macros_8h.html#a12ff33b2f8cbad5116bd85ca93de5cb2">checkSlow</a></div><div class="ttdeci">#define checkSlow(expr)</div><div class="ttdef"><b>定义</b> AssertionMacros.h:337</div></div>
+<div class="ttc" id="a_audio_mixer_8h_html_a305ea282d1428ed187a143cb10b3fe06"><div class="ttname"><a href="../../d9/ddd/_audio_mixer_8h.html#a305ea282d1428ed187a143cb10b3fe06">AUDIO_MIXER_MAX_OUTPUT_CHANNELS</a></div><div class="ttdeci">#define AUDIO_MIXER_MAX_OUTPUT_CHANNELS</div><div class="ttdef"><b>定义</b> AudioMixer.h:70</div></div>
+<div class="ttc" id="a_audio_mixer_device_8h_html"><div class="ttname"><a href="../../da/d8b/_audio_mixer_device_8h.html">AudioMixerDevice.h</a></div></div>
+<div class="ttc" id="a_audio_mixer_submix_8h_html"><div class="ttname"><a href="../../d4/d31/_audio_mixer_submix_8h.html">AudioMixerSubmix.h</a></div></div>
+<div class="ttc" id="a_core_2_public_2_h_a_l_2_platform_8h_html_a8dbb3cd84ca9fd010dadfc3815eefa5d"><div class="ttname"><a href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a8dbb3cd84ca9fd010dadfc3815eefa5d">int32</a></div><div class="ttdeci">FPlatformTypes::int32 int32</div><div class="ttdoc">A 32-bit signed integer.</div><div class="ttdef"><b>定义</b> Platform.h:1190</div></div>
+<div class="ttc" id="a_core_2_public_2_h_a_l_2_platform_8h_html_aae3356b63849abbe8789dd41648ee90a"><div class="ttname"><a href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#aae3356b63849abbe8789dd41648ee90a">RESTRICT</a></div><div class="ttdeci">#define RESTRICT</div><div class="ttdef"><b>定义</b> Platform.h:758</div></div>
+<div class="ttc" id="a_core_minimal_8h_html"><div class="ttname"><a href="../../dc/d5e/_core_minimal_8h.html">CoreMinimal.h</a></div></div>
+<div class="ttc" id="a_i_audio_extension_plugin_8h_html"><div class="ttname"><a href="../../db/d68/_i_audio_extension_plugin_8h.html">IAudioExtensionPlugin.h</a></div></div>
+<div class="ttc" id="a_i_soundfield_format_8h_html"><div class="ttname"><a href="../../d2/db4/_i_soundfield_format_8h.html">ISoundfieldFormat.h</a></div></div>
+<div class="ttc" id="a_math_fwd_8h_html_a440e2e6b0f4eca3d0168353ed0cd6fad"><div class="ttname"><a href="../../d0/df6/_math_fwd_8h.html#a440e2e6b0f4eca3d0168353ed0cd6fad">FQuat</a></div><div class="ttdeci">UE::Math::TQuat&lt; double &gt; FQuat</div><div class="ttdef"><b>定义</b> MathFwd.h:50</div></div>
+<div class="ttc" id="a_mem_pro_8cpp_html_aaa7f2acd75bb8eec434a9d35b5693292"><div class="ttname"><a href="../../d0/db7/_mem_pro_8cpp.html#aaa7f2acd75bb8eec434a9d35b5693292">Reset</a></div><div class="ttdeci">void Reset()</div><div class="ttdef"><b>定义</b> MemPro.cpp:24</div></div>
+<div class="ttc" id="a_s_anim_notify_shared_8h_html_ac7c94e837fed3f8e4bb3dd94d7bd2ecf"><div class="ttname"><a href="../../df/d2a/_s_anim_notify_shared_8h.html#ac7c94e837fed3f8e4bb3dd94d7bd2ecf">float</a></div><div class="ttdeci">const TArray&lt; TSharedPtr&lt; SAnimNotifyNode &gt; &gt; const class FDragDropEvent float</div><div class="ttdef"><b>定义</b> SAnimNotifyShared.h:27</div></div>
+<div class="ttc" id="aclass_audio_1_1_f_interpolated_h_p_f_html"><div class="ttname"><a href="../../de/dfc/class_audio_1_1_f_interpolated_h_p_f.html">Audio::FInterpolatedHPF</a></div><div class="ttdef"><b>定义</b> InterpolatedOnePole.h:81</div></div>
+<div class="ttc" id="aclass_audio_1_1_f_interpolated_l_p_f_html"><div class="ttname"><a href="../../d2/de0/class_audio_1_1_f_interpolated_l_p_f.html">Audio::FInterpolatedLPF</a></div><div class="ttdef"><b>定义</b> InterpolatedOnePole.h:11</div></div>
+<div class="ttc" id="aclass_audio_1_1_f_mixer_device_html"><div class="ttname"><a href="../../d6/d31/class_audio_1_1_f_mixer_device.html">Audio::FMixerDevice</a></div><div class="ttdef"><b>定义</b> AudioMixerDevice.h:126</div></div>
+<div class="ttc" id="aclass_audio_1_1_f_mixer_source_submix_output_buffer_html_a1135821afb8cca13edbbe50781694de6"><div class="ttname"><a href="../../df/d24/class_audio_1_1_f_mixer_source_submix_output_buffer.html#a1135821afb8cca13edbbe50781694de6">Audio::FMixerSourceSubmixOutputBuffer::FMixerSourceSubmixOutputBuffer</a></div><div class="ttdeci">FMixerSourceSubmixOutputBuffer(FMixerDevice *InMixerDevice, uint32 InNumSourceChannels, uint32 InNumOutputChannels, uint32 InNumFrames)</div><div class="ttdef"><b>定义</b> AudioMixerSourceOutputBuffer.cpp:28</div></div>
+<div class="ttc" id="aclass_audio_1_1_f_mixer_source_submix_output_buffer_html_a1a1915b8fd69c0f0955c7da42ecde174"><div class="ttname"><a href="../../df/d24/class_audio_1_1_f_mixer_source_submix_output_buffer.html#a1a1915b8fd69c0f0955c7da42ecde174">Audio::FMixerSourceSubmixOutputBuffer::SetPreAttenuationSourceBuffer</a></div><div class="ttdeci">void SetPreAttenuationSourceBuffer(FAlignedFloatBuffer *InPreAttenuationBuffer)</div><div class="ttdef"><b>定义</b> AudioMixerSourceOutputBuffer.cpp:174</div></div>
+<div class="ttc" id="aclass_audio_1_1_f_mixer_source_submix_output_buffer_html_a36653a78151309cf50f85cb2e1cb1f82"><div class="ttname"><a href="../../df/d24/class_audio_1_1_f_mixer_source_submix_output_buffer.html#a36653a78151309cf50f85cb2e1cb1f82">Audio::FMixerSourceSubmixOutputBuffer::ComputeOutput</a></div><div class="ttdeci">void ComputeOutput(const FSpatializationParams &amp;InSpatParams)</div><div class="ttdef"><b>定义</b> AudioMixerSourceOutputBuffer.cpp:184</div></div>
+<div class="ttc" id="aclass_audio_1_1_f_mixer_source_submix_output_buffer_html_a492a9ed421ca038291f43a4beb11c0a8"><div class="ttname"><a href="../../df/d24/class_audio_1_1_f_mixer_source_submix_output_buffer.html#a492a9ed421ca038291f43a4beb11c0a8">Audio::FMixerSourceSubmixOutputBuffer::SetNumOutputChannels</a></div><div class="ttdeci">void SetNumOutputChannels(uint32 InNumOutputChannels)</div><div class="ttdef"><b>定义</b> AudioMixerSourceOutputBuffer.cpp:129</div></div>
+<div class="ttc" id="aclass_audio_1_1_f_mixer_source_submix_output_buffer_html_a4ecd207571bef19826d18a25d6584943"><div class="ttname"><a href="../../df/d24/class_audio_1_1_f_mixer_source_submix_output_buffer.html#a4ecd207571bef19826d18a25d6584943">Audio::FMixerSourceSubmixOutputBuffer::SetPostAttenuationSourceBuffer</a></div><div class="ttdeci">void SetPostAttenuationSourceBuffer(FAlignedFloatBuffer *InPostAttenuationBuffer)</div><div class="ttdef"><b>定义</b> AudioMixerSourceOutputBuffer.cpp:179</div></div>
+<div class="ttc" id="aclass_audio_1_1_f_mixer_source_submix_output_buffer_html_a62fe8f046ed9de6e72b2ebee30d25e8e"><div class="ttname"><a href="../../df/d24/class_audio_1_1_f_mixer_source_submix_output_buffer.html#a62fe8f046ed9de6e72b2ebee30d25e8e">Audio::FMixerSourceSubmixOutputBuffer::MixOutput</a></div><div class="ttdeci">void MixOutput(float SendLevel, EMixerSourceSubmixSendStage InSubmixSendStage, FAlignedFloatBuffer &amp;OutMixedBuffer) const</div><div class="ttdef"><b>定义</b> AudioMixerSourceOutputBuffer.cpp:493</div></div>
+<div class="ttc" id="aclass_audio_1_1_f_mixer_source_submix_output_buffer_html_a7783ed3838a9ed57f263322b7d5a578d"><div class="ttname"><a href="../../df/d24/class_audio_1_1_f_mixer_source_submix_output_buffer.html#a7783ed3838a9ed57f263322b7d5a578d">Audio::FMixerSourceSubmixOutputBuffer::GetListenerRotation</a></div><div class="ttdeci">FQuat GetListenerRotation() const</div><div class="ttdef"><b>定义</b> AudioMixerSourceOutputBuffer.cpp:512</div></div>
+<div class="ttc" id="aclass_audio_1_1_f_mixer_source_submix_output_buffer_html_aa75271dc20e1d287e0e98e7f69821286"><div class="ttname"><a href="../../df/d24/class_audio_1_1_f_mixer_source_submix_output_buffer.html#aa75271dc20e1d287e0e98e7f69821286">Audio::FMixerSourceSubmixOutputBuffer::GetReverbPluginOutputData</a></div><div class="ttdeci">const float * GetReverbPluginOutputData() const</div><div class="ttdef"><b>定义</b> AudioMixerSourceOutputBuffer.cpp:523</div></div>
+<div class="ttc" id="aclass_audio_1_1_f_mixer_source_submix_output_buffer_html_aaf1884b64abe1a5b92a451d9b1fe0218"><div class="ttname"><a href="../../df/d24/class_audio_1_1_f_mixer_source_submix_output_buffer.html#aaf1884b64abe1a5b92a451d9b1fe0218">Audio::FMixerSourceSubmixOutputBuffer::~FMixerSourceSubmixOutputBuffer</a></div><div class="ttdeci">~FMixerSourceSubmixOutputBuffer()</div><div class="ttdef"><b>定义</b> AudioMixerSourceOutputBuffer.cpp:47</div></div>
+<div class="ttc" id="aclass_audio_1_1_f_mixer_source_submix_output_buffer_html_ac1aad78f5d7c374a10be8994875e87b7"><div class="ttname"><a href="../../df/d24/class_audio_1_1_f_mixer_source_submix_output_buffer.html#ac1aad78f5d7c374a10be8994875e87b7">Audio::FMixerSourceSubmixOutputBuffer::CopyReverbPluginOutputData</a></div><div class="ttdeci">void CopyReverbPluginOutputData(FAlignedFloatBuffer &amp;InAudioBuffer)</div><div class="ttdef"><b>定义</b> AudioMixerSourceOutputBuffer.cpp:517</div></div>
+<div class="ttc" id="aclass_audio_1_1_f_mixer_source_submix_output_buffer_html_ad1507d719ed205ac998f40120234c7a2"><div class="ttname"><a href="../../df/d24/class_audio_1_1_f_mixer_source_submix_output_buffer.html#ad1507d719ed205ac998f40120234c7a2">Audio::FMixerSourceSubmixOutputBuffer::GetSoundfieldPacket</a></div><div class="ttdeci">const ISoundfieldAudioPacket * GetSoundfieldPacket(const FSoundfieldEncodingKey &amp;InKey) const</div><div class="ttdef"><b>定义</b> AudioMixerSourceOutputBuffer.cpp:528</div></div>
+<div class="ttc" id="aclass_audio_1_1_f_mixer_source_submix_output_buffer_html_adfc14c8e81ae815b82bad74db1c0c717"><div class="ttname"><a href="../../df/d24/class_audio_1_1_f_mixer_source_submix_output_buffer.html#adfc14c8e81ae815b82bad74db1c0c717">Audio::FMixerSourceSubmixOutputBuffer::GetNumSourceChannels</a></div><div class="ttdeci">uint32 GetNumSourceChannels() const</div><div class="ttdef"><b>定义</b> AudioMixerSourceOutputBuffer.h:47</div></div>
+<div class="ttc" id="aclass_audio_1_1_f_mixer_source_submix_output_buffer_html_ae9f377ecbba64c53879bcbaed094dd8d"><div class="ttname"><a href="../../df/d24/class_audio_1_1_f_mixer_source_submix_output_buffer.html#ae9f377ecbba64c53879bcbaed094dd8d">Audio::FMixerSourceSubmixOutputBuffer::SetChannelMap</a></div><div class="ttdeci">bool SetChannelMap(const FAlignedFloatBuffer &amp;InChannelMap, bool bInIsCenterChannelOnly)</div><div class="ttdef"><b>定义</b> AudioMixerSourceOutputBuffer.cpp:142</div></div>
+<div class="ttc" id="aclass_audio_1_1_f_mixer_source_submix_output_buffer_html_af4decc5aefcca98e43c93c7435026ac4"><div class="ttname"><a href="../../df/d24/class_audio_1_1_f_mixer_source_submix_output_buffer.html#af4decc5aefcca98e43c93c7435026ac4">Audio::FMixerSourceSubmixOutputBuffer::GetSoundFieldPacket</a></div><div class="ttdeci">ISoundfieldAudioPacket * GetSoundFieldPacket(const FSoundfieldEncodingKey &amp;InKey)</div><div class="ttdef"><b>定义</b> AudioMixerSourceOutputBuffer.cpp:539</div></div>
+<div class="ttc" id="aclass_audio_1_1_f_mixer_submix_html"><div class="ttname"><a href="../../df/dea/class_audio_1_1_f_mixer_submix.html">Audio::FMixerSubmix</a></div><div class="ttdef"><b>定义</b> AudioMixerSubmix.h:113</div></div>
+<div class="ttc" id="aclass_i_soundfield_audio_packet_html"><div class="ttname"><a href="../../d0/dd7/class_i_soundfield_audio_packet.html">ISoundfieldAudioPacket</a></div><div class="ttdef"><b>定义</b> ISoundfieldFormat.h:137</div></div>
+<div class="ttc" id="aclass_t_array_html"><div class="ttname"><a href="../../d6/db1/class_t_array.html">TArray</a></div><div class="ttdef"><b>定义</b> Array.h:768</div></div>
+<div class="ttc" id="anamespace_audio_html"><div class="ttname"><a href="../../dc/d26/namespace_audio.html">Audio</a></div><div class="ttdoc">NO_LOGGING</div><div class="ttdef"><b>定义</b> TargetPlatformBase.h:32</div></div>
+<div class="ttc" id="anamespace_audio_html_a17ae935180c4de25d83d99db626cdf51"><div class="ttname"><a href="../../dc/d26/namespace_audio.html#a17ae935180c4de25d83d99db626cdf51">Audio::EMixerSourceSubmixSendStage</a></div><div class="ttdeci">EMixerSourceSubmixSendStage</div><div class="ttdef"><b>定义</b> AudioMixerSubmix.h:66</div></div>
+<div class="ttc" id="anamespace_audio_html_a8db114b756e54621ed6ffdebd70d9275"><div class="ttname"><a href="../../dc/d26/namespace_audio.html#a8db114b756e54621ed6ffdebd70d9275">Audio::FAlignedFloatBuffer</a></div><div class="ttdeci">TArray&lt; float, FAudioBufferAlignedAllocator &gt; FAlignedFloatBuffer</div><div class="ttdef"><b>定义</b> AlignedBuffer.h:22</div></div>
+<div class="ttc" id="apreprocessor_8c_html_a1134b580f8da4de94ca6b1de4d37975e"><div class="ttname"><a href="../../dd/de9/preprocessor_8c.html#a1134b580f8da4de94ca6b1de4d37975e">uint32</a></div><div class="ttdeci">unsigned int uint32</div><div class="ttdef"><b>定义</b> preprocessor.c:67</div></div>
+<div class="ttc" id="aradaudio__common_8h_html_ade27a78a51a66a5cfb6f09cf36bcfde9ae9de385ef6fe9bf3360d1038396b884c"><div class="ttname"><a href="../../d3/df7/radaudio__common_8h.html#ade27a78a51a66a5cfb6f09cf36bcfde9ae9de385ef6fe9bf3360d1038396b884c">false</a></div><div class="ttdeci">@ false</div><div class="ttdef"><b>定义</b> radaudio_common.h:23</div></div>
+<div class="ttc" id="astruct_audio_1_1_f_mixer_source_submix_output_buffer_settings_html"><div class="ttname"><a href="../../db/d4b/struct_audio_1_1_f_mixer_source_submix_output_buffer_settings.html">Audio::FMixerSourceSubmixOutputBufferSettings</a></div><div class="ttdef"><b>定义</b> AudioMixerSourceOutputBuffer.h:21</div></div>
+<div class="ttc" id="astruct_audio_1_1_f_mixer_source_submix_output_buffer_settings_html_a12879898091b4ba221967496259cdb39"><div class="ttname"><a href="../../db/d4b/struct_audio_1_1_f_mixer_source_submix_output_buffer_settings.html#a12879898091b4ba221967496259cdb39">Audio::FMixerSourceSubmixOutputBufferSettings::bIsVorbis</a></div><div class="ttdeci">bool bIsVorbis</div><div class="ttdef"><b>定义</b> AudioMixerSourceOutputBuffer.h:26</div></div>
+<div class="ttc" id="astruct_audio_1_1_f_mixer_source_submix_output_buffer_settings_html_a3214e5f6f4b697f7d9fb0f57e78784cd"><div class="ttname"><a href="../../db/d4b/struct_audio_1_1_f_mixer_source_submix_output_buffer_settings.html#a3214e5f6f4b697f7d9fb0f57e78784cd">Audio::FMixerSourceSubmixOutputBufferSettings::NumOutputChannels</a></div><div class="ttdeci">uint32 NumOutputChannels</div><div class="ttdef"><b>定义</b> AudioMixerSourceOutputBuffer.h:23</div></div>
+<div class="ttc" id="astruct_audio_1_1_f_mixer_source_submix_output_buffer_settings_html_a65a8d76fb1c2b7fb0f48bf03e1e36e42"><div class="ttname"><a href="../../db/d4b/struct_audio_1_1_f_mixer_source_submix_output_buffer_settings.html#a65a8d76fb1c2b7fb0f48bf03e1e36e42">Audio::FMixerSourceSubmixOutputBufferSettings::SoundfieldSubmixSends</a></div><div class="ttdeci">TArray&lt; FMixerSubmixPtr &gt; SoundfieldSubmixSends</div><div class="ttdef"><b>定义</b> AudioMixerSourceOutputBuffer.h:24</div></div>
+<div class="ttc" id="astruct_audio_1_1_f_mixer_source_submix_output_buffer_settings_html_a72f577af79ed203fe936f09fcbd2e7e9"><div class="ttname"><a href="../../db/d4b/struct_audio_1_1_f_mixer_source_submix_output_buffer_settings.html#a72f577af79ed203fe936f09fcbd2e7e9">Audio::FMixerSourceSubmixOutputBufferSettings::bIsSoundfield</a></div><div class="ttdeci">bool bIsSoundfield</div><div class="ttdef"><b>定义</b> AudioMixerSourceOutputBuffer.h:27</div></div>
+<div class="ttc" id="astruct_audio_1_1_f_mixer_source_submix_output_buffer_settings_html_a8882fd8695926fee1fcff973943adb76"><div class="ttname"><a href="../../db/d4b/struct_audio_1_1_f_mixer_source_submix_output_buffer_settings.html#a8882fd8695926fee1fcff973943adb76">Audio::FMixerSourceSubmixOutputBufferSettings::bIs3D</a></div><div class="ttdeci">bool bIs3D</div><div class="ttdef"><b>定义</b> AudioMixerSourceOutputBuffer.h:25</div></div>
+<div class="ttc" id="astruct_audio_1_1_f_mixer_source_submix_output_buffer_settings_html_a8f84473ad9a161cef609e9114b4b35a6"><div class="ttname"><a href="../../db/d4b/struct_audio_1_1_f_mixer_source_submix_output_buffer_settings.html#a8f84473ad9a161cef609e9114b4b35a6">Audio::FMixerSourceSubmixOutputBufferSettings::NumSourceChannels</a></div><div class="ttdeci">uint32 NumSourceChannels</div><div class="ttdef"><b>定义</b> AudioMixerSourceOutputBuffer.h:22</div></div>
+<div class="ttc" id="astruct_audio_1_1_f_send_filter_settings_html"><div class="ttname"><a href="../../dc/de5/struct_audio_1_1_f_send_filter_settings.html">Audio::FSendFilterSettings</a></div><div class="ttdef"><b>定义</b> AudioMixerBus.h:24</div></div>
+<div class="ttc" id="astruct_f_memory_html_a6026c449fe4aa56cbf0b5ce6e80a47b1"><div class="ttname"><a href="../../df/da4/struct_f_memory.html#a6026c449fe4aa56cbf0b5ce6e80a47b1">FMemory::Memzero</a></div><div class="ttdeci">static UE_FORCEINLINE_HINT void * Memzero(void *Dest, SIZE_T Count)</div><div class="ttdef"><b>定义</b> UnrealMemory.h:130</div></div>
+<div class="ttc" id="astruct_f_memory_html_a9c502a07c1d4ab75a9b4911906d09886"><div class="ttname"><a href="../../df/da4/struct_f_memory.html#a9c502a07c1d4ab75a9b4911906d09886">FMemory::Memcpy</a></div><div class="ttdeci">static UE_FORCEINLINE_HINT void * Memcpy(void *Dest, const void *Src, SIZE_T Count)</div><div class="ttdef"><b>定义</b> UnrealMemory.h:159</div></div>
+<div class="ttc" id="astruct_f_soundfield_encoding_key_html"><div class="ttname"><a href="../../d1/d51/struct_f_soundfield_encoding_key.html">FSoundfieldEncodingKey</a></div><div class="ttdef"><b>定义</b> ISoundfieldFormat.h:427</div></div>
+<div class="ttc" id="astruct_f_spatialization_params_html"><div class="ttname"><a href="../../d2/d6d/struct_f_spatialization_params.html">FSpatializationParams</a></div><div class="ttdef"><b>定义</b> IAudioExtensionPlugin.h:69</div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+</div><!-- container -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a href="../../dir_0b6ee6e7e9547e675db4add2e5de97da.html">Engine</a></li><li class="navelem"><a href="../../dir_9579d1ecb2c7bf48cbe1049c41745cb4.html">Source</a></li><li class="navelem"><a href="../../dir_9f04efef762572853abdf73f62bebfcc.html">Runtime</a></li><li class="navelem"><a href="../../dir_cf68a9eeae4f9a75ca7a7af4a53214f2.html">AudioMixer</a></li><li class="navelem"><a href="../../dir_e8c58d506688672e3ee4f978301219d1.html">Private</a></li><li class="navelem"><a href="../../dc/dbd/_audio_mixer_source_output_buffer_8h.html">AudioMixerSourceOutputBuffer.h</a></li>
+    <li class="footer">制作者 <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.15.0 </li>
+  </ul>
+</div>
+</body>
+</html>

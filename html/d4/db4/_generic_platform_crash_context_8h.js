@@ -1,0 +1,86 @@
+var _generic_platform_crash_context_8h =
+[
+    [ "FCrashStackFrame", "d4/d02/struct_f_crash_stack_frame.html", "d4/d02/struct_f_crash_stack_frame" ],
+    [ "FThreadStackFrames", "de/d59/struct_f_thread_stack_frames.html", "de/d59/struct_f_thread_stack_frames" ],
+    [ "FSessionContext", "da/d40/struct_f_session_context.html", "da/d40/struct_f_session_context" ],
+    [ "FUserSettingsContext", "d5/d9b/struct_f_user_settings_context.html", "d5/d9b/struct_f_user_settings_context" ],
+    [ "FGPUBreadcrumbsSharedContext", "d7/dec/struct_f_g_p_u_breadcrumbs_shared_context.html", "d7/dec/struct_f_g_p_u_breadcrumbs_shared_context" ],
+    [ "FGPUBreadcrumbsSharedContext::FQueueData", "d3/d6c/struct_f_g_p_u_breadcrumbs_shared_context_1_1_f_queue_data.html", "d3/d6c/struct_f_g_p_u_breadcrumbs_shared_context_1_1_f_queue_data" ],
+    [ "FSharedCrashContext", "d4/d0a/struct_f_shared_crash_context.html", "d4/d0a/struct_f_shared_crash_context" ],
+    [ "FCrashContextExtendedWriter", "d1/de4/struct_f_crash_context_extended_writer.html", "d1/de4/struct_f_crash_context_extended_writer" ],
+    [ "FAdditionalCrashContextParams", "d5/d7b/struct_f_additional_crash_context_params.html", "d5/d7b/struct_f_additional_crash_context_params" ],
+    [ "FThreadCallStack", "d6/de0/struct_f_thread_call_stack.html", "d6/de0/struct_f_thread_call_stack" ],
+    [ "FGPUBreadcrumbCrashData", "d8/d8d/struct_f_g_p_u_breadcrumb_crash_data.html", "d8/d8d/struct_f_g_p_u_breadcrumb_crash_data" ],
+    [ "FGPUBreadcrumbCrashData::FQueueData", "d3/d0e/struct_f_g_p_u_breadcrumb_crash_data_1_1_f_queue_data.html", "d3/d0e/struct_f_g_p_u_breadcrumb_crash_data_1_1_f_queue_data" ],
+    [ "FGPUBreadcrumbCrashData::FSerializer", "df/d28/class_f_g_p_u_breadcrumb_crash_data_1_1_f_serializer.html", "df/d28/class_f_g_p_u_breadcrumb_crash_data_1_1_f_serializer" ],
+    [ "FGenericCrashContext", "dd/da1/struct_f_generic_crash_context.html", "dd/da1/struct_f_generic_crash_context" ],
+    [ "FGenericMemoryWarningContext", "de/def/struct_f_generic_memory_warning_context.html", null ],
+    [ "FAdditionalCrashContextStack", "dc/dee/struct_f_additional_crash_context_stack.html", null ],
+    [ "FScopedAdditionalCrashContextProvider", "dd/dae/struct_f_scoped_additional_crash_context_provider.html", "dd/dae/struct_f_scoped_additional_crash_context_provider" ],
+    [ "CR_MAX_COMMANDLINE_CHARS", "d4/db4/_generic_platform_crash_context_8h.html#ab63e5f3e2acc2e1930d9ad967c3a40a1", null ],
+    [ "CR_MAX_DIRECTORY_CHARS", "d4/db4/_generic_platform_crash_context_8h.html#a8344e387cc52498bf2a076ec735cf01b", null ],
+    [ "CR_MAX_DYNAMIC_BUFFER_CHARS", "d4/db4/_generic_platform_crash_context_8h.html#a3a3a7ac5cb843c6563c7f3ac0a697839", null ],
+    [ "CR_MAX_ERROR_MESSAGE_CHARS", "d4/db4/_generic_platform_crash_context_8h.html#a252f563be42689928783560195487ca5", null ],
+    [ "CR_MAX_GENERIC_FIELD_CHARS", "d4/db4/_generic_platform_crash_context_8h.html#a0410f9e4a751b3b973ca77291aa3606c", null ],
+    [ "CR_MAX_GPU_BREADCRUMBS_QUEUES", "d4/db4/_generic_platform_crash_context_8h.html#a07af03d3ac09a67eee21cd1ddbb87223", null ],
+    [ "CR_MAX_GPU_BREADCRUMBS_STRING_CHARS", "d4/db4/_generic_platform_crash_context_8h.html#a1fcb97c04ba7dd22507d8d8bdea3231c", null ],
+    [ "CR_MAX_RICHTEXT_FIELD_CHARS", "d4/db4/_generic_platform_crash_context_8h.html#a90fdd47830f2278b2e32045a7a291396", null ],
+    [ "CR_MAX_STACK_FRAMES", "d4/db4/_generic_platform_crash_context_8h.html#aa948b9e7e1f03a93eaea3c158f67d99e", null ],
+    [ "CR_MAX_SYMBOL_CHARS", "d4/db4/_generic_platform_crash_context_8h.html#a5c44214c12da9014a303f873df06d300", null ],
+    [ "CR_MAX_THREAD_NAME_CHARS", "d4/db4/_generic_platform_crash_context_8h.html#aa6ec175debf9a62b61e097ad4024eb32", null ],
+    [ "CR_MAX_THREADS", "d4/db4/_generic_platform_crash_context_8h.html#ae6cb11ff7ade1c18a2b398bab0c76ed8", null ],
+    [ "UE_ADD_CRASH_CONTEXT_SCOPE", "d4/db4/_generic_platform_crash_context_8h.html#a5156cb587edee0323eb84aa23106125b", null ],
+    [ "WITH_ADDITIONAL_CRASH_CONTEXTS", "d4/db4/_generic_platform_crash_context_8h.html#af492826e4e69bbb8463326393983d66d", null ],
+    [ "ECrashContextType", "d4/db4/_generic_platform_crash_context_8h.html#a69161531111b37cea6c335e145da415a", [
+      [ "Crash", "d4/db4/_generic_platform_crash_context_8h.html#a69161531111b37cea6c335e145da415aa275c74140224026380b29b2412d25121", null ],
+      [ "Assert", "d4/db4/_generic_platform_crash_context_8h.html#a69161531111b37cea6c335e145da415aad530f9d1b94f864f2238775b0e19e48c", null ],
+      [ "Ensure", "d4/db4/_generic_platform_crash_context_8h.html#a69161531111b37cea6c335e145da415aad7ed161ae096c904818fdee16fa84d56", null ],
+      [ "Stall", "d4/db4/_generic_platform_crash_context_8h.html#a69161531111b37cea6c335e145da415aaa0f50ad4a913f4008911c70870d4028b", null ],
+      [ "GPUCrash", "d4/db4/_generic_platform_crash_context_8h.html#a69161531111b37cea6c335e145da415aaa002ce4e384e960136edf4359e92648b", null ],
+      [ "Hang", "d4/db4/_generic_platform_crash_context_8h.html#a69161531111b37cea6c335e145da415aaab2455e33b8ddb6a9d2d41107a2ed4f6", null ],
+      [ "OutOfMemory", "d4/db4/_generic_platform_crash_context_8h.html#a69161531111b37cea6c335e145da415aab498327feeb51430af73e07deac268fd", null ],
+      [ "AbnormalShutdown", "d4/db4/_generic_platform_crash_context_8h.html#a69161531111b37cea6c335e145da415aa8a397b13c76c80779fa702aea0356fa7", null ],
+      [ "VerseRuntimeError", "d4/db4/_generic_platform_crash_context_8h.html#a69161531111b37cea6c335e145da415aaef3c72a600ef037501559d6b0f846288", null ],
+      [ "Max", "d4/db4/_generic_platform_crash_context_8h.html#a69161531111b37cea6c335e145da415aa6a061313d22e51e0f25b7cd4dc065233", null ]
+    ] ],
+    [ "ECrashDescVersions", "d4/db4/_generic_platform_crash_context_8h.html#a960aa8371b6194ba8d4a0a081465d9f5", [
+      [ "VER_1_NewCrashFormat", "d4/db4/_generic_platform_crash_context_8h.html#a960aa8371b6194ba8d4a0a081465d9f5af8eef5467fd487e9c43474ecbd6fdb08", null ],
+      [ "VER_2_AddedNewProperties", "d4/db4/_generic_platform_crash_context_8h.html#a960aa8371b6194ba8d4a0a081465d9f5a7cd329b613de0d5a2b387d849c047723", null ],
+      [ "VER_3_CrashContext", "d4/db4/_generic_platform_crash_context_8h.html#a960aa8371b6194ba8d4a0a081465d9f5a73c458a135efe4aa208aba947ac9ce4e", null ]
+    ] ],
+    [ "ECrashDumpMode", "d4/db4/_generic_platform_crash_context_8h.html#a0773364a86a751cc50c083c240fcae83", [
+      [ "Default", "d4/db4/_generic_platform_crash_context_8h.html#a0773364a86a751cc50c083c240fcae83a7a1920d61156abc05a60135aefe8bc67", null ],
+      [ "FullDump", "d4/db4/_generic_platform_crash_context_8h.html#a0773364a86a751cc50c083c240fcae83aae130f8f1fb96fe3686a647e5f6277f4", null ],
+      [ "FullDumpAlways", "d4/db4/_generic_platform_crash_context_8h.html#a0773364a86a751cc50c083c240fcae83a6ebeedb82bfaed46e51ed9bb70fa8fb5", null ]
+    ] ],
+    [ "ECrashExitCodes", "d4/db4/_generic_platform_crash_context_8h.html#a64957ec0241defe50da80d011496c97f", [
+      [ "MonitoredApplicationStillRunning", "d4/db4/_generic_platform_crash_context_8h.html#a64957ec0241defe50da80d011496c97fae4953ad4b642ba7b2ab03cda06dbf6d5", null ],
+      [ "MonitoredApplicationExitCodeNotAvailable", "d4/db4/_generic_platform_crash_context_8h.html#a64957ec0241defe50da80d011496c97face5d9da5e157a3be4d07362b4c145127", null ],
+      [ "CrashReporterCrashed", "d4/db4/_generic_platform_crash_context_8h.html#a64957ec0241defe50da80d011496c97fa2fb95c594e92a1528fdc1b9d8963d51c", null ],
+      [ "CrashHandlerCrashed", "d4/db4/_generic_platform_crash_context_8h.html#a64957ec0241defe50da80d011496c97faaba16664e5de61ef772c79bcc5397a82", null ],
+      [ "OutOfProcessReporterExitedUnexpectedly", "d4/db4/_generic_platform_crash_context_8h.html#a64957ec0241defe50da80d011496c97fa04e8b2feb0bc097c38a0273d42a21360", null ],
+      [ "CrashDuringStaticInit", "d4/db4/_generic_platform_crash_context_8h.html#a64957ec0241defe50da80d011496c97fad0dfba82ee44b0ece79202d02a569aa2", null ],
+      [ "OutOfProcessReporterCheckFailed", "d4/db4/_generic_platform_crash_context_8h.html#a64957ec0241defe50da80d011496c97fafd6af5f06b68a4e19b2f464f9de1c7f1", null ],
+      [ "UnhandledEnsure", "d4/db4/_generic_platform_crash_context_8h.html#a64957ec0241defe50da80d011496c97fa19ebda513b56b628d4794d68639247b5", null ]
+    ] ],
+    [ "ECrashTrigger", "d4/db4/_generic_platform_crash_context_8h.html#a00bfaae46bf860028280890775df1e40", [
+      [ "Deliberate", "d4/db4/_generic_platform_crash_context_8h.html#a00bfaae46bf860028280890775df1e40aafd86e249cc1c14a61fd6c59696c5637", null ],
+      [ "Normal", "d4/db4/_generic_platform_crash_context_8h.html#a00bfaae46bf860028280890775df1e40a960b44c579bc2f6818d2daaf9e4c16f0", null ],
+      [ "Debug", "d4/db4/_generic_platform_crash_context_8h.html#a00bfaae46bf860028280890775df1e40aa603905470e2a5b8c13e96b579ef0dba", null ]
+    ] ],
+    [ "EUnattendedStatus", "d4/db4/_generic_platform_crash_context_8h.html#a9f2840efec837c9da431a077c50f3a14", [
+      [ "Unknown", "d4/db4/_generic_platform_crash_context_8h.html#a9f2840efec837c9da431a077c50f3a14a88183b946cc5f0e8c96b2e66e1c74a7e", null ],
+      [ "Attended", "d4/db4/_generic_platform_crash_context_8h.html#a9f2840efec837c9da431a077c50f3a14a41e705090f9e4247fe37dcd18ac57ae9", null ],
+      [ "Unattended", "d4/db4/_generic_platform_crash_context_8h.html#a9f2840efec837c9da431a077c50f3a14a3436c9e1e7a490e19537cf2bc07b01a1", null ]
+    ] ],
+    [ "AttendedStatusToString", "d4/db4/_generic_platform_crash_context_8h.html#ae78f9ea2ae0635eef521fdccc740e8ad", null ],
+    [ "DECLARE_MULTICAST_DELEGATE", "d4/db4/_generic_platform_crash_context_8h.html#a5f2f5529456c7db91a108ea667b56db8", null ],
+    [ "DECLARE_MULTICAST_DELEGATE", "d4/db4/_generic_platform_crash_context_8h.html#a3085c90074b04185738192f11ff2f506", null ],
+    [ "DECLARE_MULTICAST_DELEGATE_OneParam", "d4/db4/_generic_platform_crash_context_8h.html#a50716f6638b2ad3b40d3c183ef3461c8", null ],
+    [ "DECLARE_MULTICAST_DELEGATE_TwoParams", "d4/db4/_generic_platform_crash_context_8h.html#a3c307ef69a1a2ee3409f374587e17cfd", null ],
+    [ "DECLARE_MULTICAST_DELEGATE_TwoParams", "d4/db4/_generic_platform_crash_context_8h.html#ad89169c5276b8a8f2834ad6a36b91f2f", null ],
+    [ "DECLARE_MULTICAST_DELEGATE_TwoParams", "d4/db4/_generic_platform_crash_context_8h.html#a4bebb3bf1161cf6f64876ec42de7ab34", null ],
+    [ "RecoveryService::GetRecoveryServerName", "d4/ddb/namespace_recovery_service.html#ab45817e66debddd60f9fde95495f5b6c", null ],
+    [ "RecoveryService::MakeSessionName", "d4/ddb/namespace_recovery_service.html#a76df830565c01fd2beef611d870308dd", null ],
+    [ "RecoveryService::TokenizeSessionName", "d4/ddb/namespace_recovery_service.html#a790d9fd3a4c2761cf31994a439b56f1e", null ]
+];

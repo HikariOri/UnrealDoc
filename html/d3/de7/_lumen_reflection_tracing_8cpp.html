@@ -1,0 +1,1536 @@
+<!-- HTML header for doxygen 1.15.0-->
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh">
+<head>
+  <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=11" />
+  <meta name="generator" content="Doxygen 1.15.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>UE 5.8.4: Engine/Source/Runtime/Renderer/Private/Lumen/LumenReflectionTracing.cpp 文件参考</title>
+  <link rel="icon" href="../../EdIconDefault.bmp" type="image/x-icon" />
+  <link href="../../tabs.css" rel="stylesheet" type="text/css" />
+  <script type="text/javascript" src="../../jquery.js"></script>
+  <script type="text/javascript" src="../../dynsections.js"></script>
+  <link href="../../navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../navtreedata.js"></script>
+<script type="text/javascript" src="../../navtree.js"></script>
+<script type="text/javascript" src="../../cookie.js"></script>
+  <link href="../../search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../search/searchdata.js"></script>
+<script type="text/javascript" src="../../search/search.js"></script>
+  <script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  extensions: ["tex2jax.js"],
+  jax: ["input/TeX","output/HTML-CSS"],
+});
+</script>
+<script type="text/javascript" async="async" src="https://cdn.jsdelivr.net/npm/mathjax@2/MathJax.js"></script>
+  <link href="../../doxygen.css" rel="stylesheet" type="text/css" />
+  <link href="../../doxygen-awesome.css" rel="stylesheet" type="text/css"/>
+<link href="../../doxygen-awesome-sidebar-only.css" rel="stylesheet" type="text/css"/>
+<link href="../../doxygen-awesome-sidebar-only-darkmode-toggle.css" rel="stylesheet" type="text/css"/>
+  <!-- ... other metadata & script includes ... -->
+  <script type="text/javascript" src="../../doxygen-awesome-darkmode-toggle.js"></script>
+  <script type="text/javascript">
+    DoxygenAwesomeDarkModeToggle.title = "Zwischen hellem/dunklem Modus wechseln"
+    DoxygenAwesomeDarkModeToggle.lightModeIcon = '🌞'
+    // icon from https://fonts.google.com/icons
+    DoxygenAwesomeDarkModeToggle.darkModeIcon = `<svg xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 24 24" height="24px" viewBox="0 0 24 24" width="24px" fill="#009793"><g><rect fill="none" height="24" width="24"/></g><g><g><path d="M8.1,14.15C9.77,14.63,11,16.17,11,18c0,0.68-0.19,1.31-0.48,1.87c0.48,0.09,0.97,0.14,1.48,0.14 c1.48,0,2.9-0.41,4.13-1.15c-2.62-0.92-5.23-2.82-6.8-5.86C7.74,9.94,7.78,7.09,8.29,4.9c-2.57,1.33-4.3,4.01-4.3,7.1c0,0,0,0,0,0 c0.01,0,0.01,0,0.02,0C5.66,12,7.18,12.83,8.1,14.15z" opacity=".3"/><path d="M19.78,17.51c-2.47,0-6.57-1.33-8.68-5.43C8.77,7.57,10.6,3.6,11.63,2.01C6.27,2.2,1.98,6.59,1.98,12 c0,0.14,0.02,0.28,0.02,0.42C2.61,12.16,3.28,12,3.98,12c0,0,0,0,0,0c0-3.09,1.73-5.77,4.3-7.1C7.78,7.09,7.74,9.94,9.32,13 c1.57,3.04,4.18,4.95,6.8,5.86c-1.23,0.74-2.65,1.15-4.13,1.15c-0.5,0-1-0.05-1.48-0.14c-0.37,0.7-0.94,1.27-1.64,1.64 c0.98,0.32,2.03,0.5,3.11,0.5c3.5,0,6.58-1.8,8.37-4.52C20.18,17.5,19.98,17.51,19.78,17.51z"/><path d="M7,16l-0.18,0C6.4,14.84,5.3,14,4,14c-1.66,0-3,1.34-3,3s1.34,3,3,3c0.62,0,2.49,0,3,0c1.1,0,2-0.9,2-2 C9,16.9,8.1,16,7,16z"/></g></g></svg>`
+    DoxygenAwesomeDarkModeToggle.init()
+  </script>
+  <script type="text/javascript" src="../../doxygen-awesome-fragment-copy-button.js"></script>
+  <script type="text/javascript">
+    DoxygenAwesomeFragmentCopyButton.title = "In die Zwischenablage kopieren"
+    // DoxygenAwesomeFragmentCopyButton.copyIcon = `<svg ...>`
+    // DoxygenAwesomeFragmentCopyButton.successIcon = `<svg ...>`
+    DoxygenAwesomeFragmentCopyButton.init()
+  </script>
+  <script type="text/javascript" src="../../doxygen-awesome-paragraph-link.js"></script>
+  <script type="text/javascript">
+    DoxygenAwesomeParagraphLink.title = "Abschnitt verknüpfen"
+    DoxygenAwesomeParagraphLink.icon = "¶"
+    DoxygenAwesomeParagraphLink.init()
+  </script>
+  <script type="text/javascript" src="../../doxygen-awesome-interactive-toc.js"></script>
+  <script type="text/javascript">
+    DoxygenAwesomeInteractiveToc.topOffset = 45
+    DoxygenAwesomeInteractiveToc.hideMobileMenu = false
+    DoxygenAwesomeInteractiveToc.init()
+  </script>
+</head>
+<body>
+    <div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+      <div id="titlearea">
+        <table cellspacing="0" cellpadding="0">
+          <tbody>
+            <tr id="projectrow">
+              <td id="projectlogo"><img alt="Logo" src="../../EdIconDefault.bmp"  /></td>
+              <td id="projectalign">
+                <div id="projectname">UE 5.8.4
+                </div>
+                <div id="projectbrief">Unreal Engine</div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <!-- end header part -->
+<!-- 制作者 Doxygen 1.15.0 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "../../search/",'.html');
+</script>
+<script type="text/javascript">
+$(function() { codefold.init(); });
+</script>
+<script type="text/javascript" src="../../menudata.js"></script>
+<script type="text/javascript" src="../../menu.js"></script>
+<script type="text/javascript">
+$(function() {
+  initMenu('../../',true,false,'search.php','搜索',true);
+  $(function() { init_search(); });
+});
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(function(){initNavTree('d3/de7/_lumen_reflection_tracing_8cpp.html','../../',''); });
+</script>
+<div id="container">
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">载入中...</div>
+<div class="SRStatus" id="Searching">搜索中...</div>
+<div class="SRStatus" id="NoMatches">未找到</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">LumenReflectionTracing.cpp 文件参考</div></div>
+</div><!--header-->
+<div class="contents">
+<div class="textblock"><code>#include &quot;<a class="el" href="../../d5/dbc/_scene_private_8h_source.html">ScenePrivate.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d5/d3b/_scene_utils_8h_source.html">SceneUtils.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../df/db5/_pipeline_state_cache_8h_source.html">PipelineStateCache.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../de/d64/_shader_parameter_struct_8h_source.html">ShaderParameterStruct.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d2/d93/_pixel_shader_utils_8h_source.html">PixelShaderUtils.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d8/d57/_reflection_environment_8h_source.html">ReflectionEnvironment.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../da/d72/_distance_field_ambient_occlusion_8h_source.html">DistanceFieldAmbientOcclusion.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d3/da7/_lumen_reflections_8h_source.html">LumenReflections.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../de/daf/_ray_traced_translucency_8h_source.html">RayTracedTranslucency.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../de/d9e/_hair_strands_data_8h_source.html">HairStrands/HairStrandsData.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../dc/d29/_lumen_hardware_ray_tracing_common_8h_source.html">LumenHardwareRayTracingCommon.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../da/d07/_lumen_tracing_utils_8h_source.html">LumenTracingUtils.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d8/dc2/_shader_print_parameters_8h_source.html">ShaderPrintParameters.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../dc/dc6/_scene_view_state_8h_source.html">SceneViewState.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../db/ded/_raytracing_options_8h_source.html">RayTracing/RaytracingOptions.h</a>&quot;</code><br />
+</div><div class="textblock"><div class="dynheader">
+LumenReflectionTracing.cpp 的引用(Include)关系图:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d4/dd0/_lumen_reflection_tracing_8cpp__incl.svg" width="5615" height="534"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+</div><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-nested-classes" class="groupheader"><a id="nested-classes" name="nested-classes"></a>
+类</h2></td></tr>
+<tr class="memitem:FReflectionClearTracesCS" id="r_FReflectionClearTracesCS"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d07/class_f_reflection_clear_traces_c_s.html">FReflectionClearTracesCS</a></td></tr>
+<tr class="memitem:FReflectionTraceScreenTexturesCS" id="r_FReflectionTraceScreenTexturesCS"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/d64/class_f_reflection_trace_screen_textures_c_s.html">FReflectionTraceScreenTexturesCS</a></td></tr>
+<tr class="memitem:FSetupCompactionIndirectArgsCS" id="r_FSetupCompactionIndirectArgsCS"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/d70/class_f_setup_compaction_indirect_args_c_s.html">FSetupCompactionIndirectArgsCS</a></td></tr>
+<tr class="memitem:FReflectionCompactTracesCS" id="r_FReflectionCompactTracesCS"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d09/class_f_reflection_compact_traces_c_s.html">FReflectionCompactTracesCS</a></td></tr>
+<tr class="memitem:FReflectionSortTracesByMaterialCS" id="r_FReflectionSortTracesByMaterialCS"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d8/dd8/class_f_reflection_sort_traces_by_material_c_s.html">FReflectionSortTracesByMaterialCS</a></td></tr>
+<tr class="memitem:FSetupReflectionCompactedTracesIndirectArgsCS" id="r_FSetupReflectionCompactedTracesIndirectArgsCS"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/dbf/class_f_setup_reflection_compacted_traces_indirect_args_c_s.html">FSetupReflectionCompactedTracesIndirectArgsCS</a></td></tr>
+<tr class="memitem:FReflectionTraceMeshSDFsCS" id="r_FReflectionTraceMeshSDFsCS"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/d1b/class_f_reflection_trace_mesh_s_d_fs_c_s.html">FReflectionTraceMeshSDFsCS</a></td></tr>
+<tr class="memitem:FReflectionTraceVoxelsCS" id="r_FReflectionTraceVoxelsCS"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/d29/class_f_reflection_trace_voxels_c_s.html">FReflectionTraceVoxelsCS</a></td></tr>
+<tr class="memitem:FVisualizeReflectionTracesCS" id="r_FVisualizeReflectionTracesCS"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/d7a/class_f_visualize_reflection_traces_c_s.html">FVisualizeReflectionTracesCS</a></td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-enum-members" class="groupheader"><a id="enum-members" name="enum-members"></a>
+枚举</h2></td></tr>
+<tr class="memitem:a0f0798cd0160c2b3b82d9ac200289068" id="r_a0f0798cd0160c2b3b82d9ac200289068"><td class="memItemLeft" align="right" valign="top">enum class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a0f0798cd0160c2b3b82d9ac200289068">ECompactedReflectionTracingIndirectArgs</a> { <a class="el" href="#a0f0798cd0160c2b3b82d9ac200289068aaa8aaa8e04acde3d9e2fdc415ef398a9">NumTracesDiv64</a> = 0 * sizeof(FRHIDispatchIndirectParameters)
+, <a class="el" href="#a0f0798cd0160c2b3b82d9ac200289068a04a68b85776916304bb68461ba0250bb">NumTracesDiv32</a> = 1 * sizeof(FRHIDispatchIndirectParameters)
+, <a class="el" href="#a0f0798cd0160c2b3b82d9ac200289068aec9135acce891a27cf201cab7065e40d">NumTracesDiv256</a> = 2 * sizeof(FRHIDispatchIndirectParameters)
+, <a class="el" href="#a0f0798cd0160c2b3b82d9ac200289068a26a4b44a837bf97b972628509912b4a5">MAX</a> = 3
+ }</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-func-members" class="groupheader"><a id="func-members" name="func-members"></a>
+函数</h2></td></tr>
+<tr class="memitem:aaaff1e97e7ae0ce696364186dfa7ef44" id="r_aaaff1e97e7ae0ce696364186dfa7ef44"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d2/d79/class_f_auto_console_variable_ref.html">FAutoConsoleVariableRef</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aaaff1e97e7ae0ce696364186dfa7ef44">CVarLumenReflectionScreenTraces</a> (<a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;r.Lumen.Reflections.ScreenTraces&quot;), <a class="el" href="#a934ab088f1493adb8ea43a256c7d3742">GLumenReflectionScreenTraces</a>, <a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;Whether to <a class="el" href="../../d7/df8/namespacetrace.html">trace</a> against the screen <a class="el" href="../../d3/db8/binka__ue__decode__test_8cpp.html#ac1ee511585a5c7a2d58c146185895b72">for</a> reflections before falling back to other methods.&quot;), <a class="el" href="../../d4/dd9/_i_console_manager_8h.html#a7f594f23c2b2c5687f1a502ebb3ba105a5fb4e7a0526f4a0c350d71e18956527c">ECVF_Scalability</a>|<a class="el" href="../../d4/dd9/_i_console_manager_8h.html#a7f594f23c2b2c5687f1a502ebb3ba105a774ea60f41417af093a7ca56c4204a70">ECVF_RenderThreadSafe</a>)</td></tr>
+<tr class="memitem:a7e48f66d492cc509c5a2adc634d81e1e" id="r_a7e48f66d492cc509c5a2adc634d81e1e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d2/d79/class_f_auto_console_variable_ref.html">FAutoConsoleVariableRef</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7e48f66d492cc509c5a2adc634d81e1e">CVarLumenReflectionHierarchicalScreenTracesMaxIterations</a> (<a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;r.Lumen.Reflections.HierarchicalScreenTraces.MaxIterations&quot;), <a class="el" href="#ae6c001b6c89a3dd1033d21460cfd7fda">GLumenReflectionHierarchicalScreenTracesMaxIterations</a>, <a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;Max iterations <a class="el" href="../../d3/db8/binka__ue__decode__test_8cpp.html#ac1ee511585a5c7a2d58c146185895b72">for</a> HZB tracing.&quot;), <a class="el" href="../../d4/dd9/_i_console_manager_8h.html#a7f594f23c2b2c5687f1a502ebb3ba105a5fb4e7a0526f4a0c350d71e18956527c">ECVF_Scalability</a>|<a class="el" href="../../d4/dd9/_i_console_manager_8h.html#a7f594f23c2b2c5687f1a502ebb3ba105a774ea60f41417af093a7ca56c4204a70">ECVF_RenderThreadSafe</a>)</td></tr>
+<tr class="memitem:aff25e01d3db99123a4eb2604769063f6" id="r_aff25e01d3db99123a4eb2604769063f6"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d2/d79/class_f_auto_console_variable_ref.html">FAutoConsoleVariableRef</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aff25e01d3db99123a4eb2604769063f6">CVarLumenReflectionHierarchicalScreenTracesMinimumOccupancy</a> (<a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;r.Lumen.Reflections.HierarchicalScreenTraces.MinimumOccupancy&quot;), <a class="el" href="#a0be2891ba1d29222ac48f64f0e30af24">GLumenReflectionScreenTracesMinimumOccupancy</a>, <a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;Minimum number of threads still tracing before aborting the trace.  Can be used <a class="el" href="../../d3/db8/binka__ue__decode__test_8cpp.html#ac1ee511585a5c7a2d58c146185895b72">for</a> scalability to abandon traces that have a disproportionate cost.&quot;), <a class="el" href="../../d4/dd9/_i_console_manager_8h.html#a7f594f23c2b2c5687f1a502ebb3ba105a5fb4e7a0526f4a0c350d71e18956527c">ECVF_Scalability</a>|<a class="el" href="../../d4/dd9/_i_console_manager_8h.html#a7f594f23c2b2c5687f1a502ebb3ba105a774ea60f41417af093a7ca56c4204a70">ECVF_RenderThreadSafe</a>)</td></tr>
+<tr class="memitem:a30c142bdeafa0ffa9c5704058d6c0b35" id="r_a30c142bdeafa0ffa9c5704058d6c0b35"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d2/d79/class_f_auto_console_variable_ref.html">FAutoConsoleVariableRef</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a30c142bdeafa0ffa9c5704058d6c0b35">GVarLumenReflectionHierarchicalScreenTraceRelativeDepthThreshold</a> (<a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;r.Lumen.Reflections.HierarchicalScreenTraces.RelativeDepthThickness&quot;), <a class="el" href="#ae34f726d6436dba42ed2e465550bc6e1">GLumenReflectionHierarchicalScreenTraceRelativeDepthThreshold</a>, <a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;Determines depth thickness of objects hit by HZB tracing, as a relative depth threshold.&quot;), <a class="el" href="../../d4/dd9/_i_console_manager_8h.html#a7f594f23c2b2c5687f1a502ebb3ba105a5fb4e7a0526f4a0c350d71e18956527c">ECVF_Scalability</a>|<a class="el" href="../../d4/dd9/_i_console_manager_8h.html#a7f594f23c2b2c5687f1a502ebb3ba105a774ea60f41417af093a7ca56c4204a70">ECVF_RenderThreadSafe</a>)</td></tr>
+<tr class="memitem:a612e540ea881775d9d586f813cdc6202" id="r_a612e540ea881775d9d586f813cdc6202"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d2/d79/class_f_auto_console_variable_ref.html">FAutoConsoleVariableRef</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a612e540ea881775d9d586f813cdc6202">GVarLumenReflectionHierarchicalScreenTraceHistoryDepthTestRelativeThickness</a> (<a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;r.Lumen.Reflections.HierarchicalScreenTraces.HistoryDepthTestRelativeThickness&quot;), <a class="el" href="#a7976d20cf22df9fbaee5112f012dd024">GLumenReflectionHierarchicalScreenTraceHistoryDepthTestRelativeThickness</a>, <a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;Distance between HZB <a class="el" href="../../d7/df8/namespacetrace.html">trace</a> hit and previous frame scene depth from which to allow hits, as a relative depth threshold.&quot;), <a class="el" href="../../d4/dd9/_i_console_manager_8h.html#a7f594f23c2b2c5687f1a502ebb3ba105a5fb4e7a0526f4a0c350d71e18956527c">ECVF_Scalability</a>|<a class="el" href="../../d4/dd9/_i_console_manager_8h.html#a7f594f23c2b2c5687f1a502ebb3ba105a774ea60f41417af093a7ca56c4204a70">ECVF_RenderThreadSafe</a>)</td></tr>
+<tr class="memitem:a642de7a7e5c7ecb3e403857278248e18" id="r_a642de7a7e5c7ecb3e403857278248e18"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d2/d79/class_f_auto_console_variable_ref.html">FAutoConsoleVariableRef</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a642de7a7e5c7ecb3e403857278248e18">GVarLumenReflectionHairStrands_VoxelTrace</a> (<a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;r.Lumen.Reflections.HairStrands.VoxelTrace&quot;), <a class="el" href="#a310d171d7c5b6419b65a9c5b2ace0fe4">GLumenReflectionHairStrands_VoxelTrace</a>, <a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;Whether to <a class="el" href="../../d7/df8/namespacetrace.html">trace</a> against hair voxel structure <a class="el" href="../../d3/db8/binka__ue__decode__test_8cpp.html#ac1ee511585a5c7a2d58c146185895b72">for</a> hair casting shadow onto opaques.&quot;), <a class="el" href="../../d4/dd9/_i_console_manager_8h.html#a7f594f23c2b2c5687f1a502ebb3ba105a5fb4e7a0526f4a0c350d71e18956527c">ECVF_Scalability</a>|<a class="el" href="../../d4/dd9/_i_console_manager_8h.html#a7f594f23c2b2c5687f1a502ebb3ba105a774ea60f41417af093a7ca56c4204a70">ECVF_RenderThreadSafe</a>)</td></tr>
+<tr class="memitem:a0593f0a5abdfe189a735f536b7c47071" id="r_a0593f0a5abdfe189a735f536b7c47071"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d2/d79/class_f_auto_console_variable_ref.html">FAutoConsoleVariableRef</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a0593f0a5abdfe189a735f536b7c47071">GVarLumenReflectionHairStrands_ScreenTrace</a> (<a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;r.Lumen.Reflections.HairStrands.ScreenTrace&quot;), <a class="el" href="#af4a5a7fc05f9843e38a6bbfca6a96f5f">GLumenReflectionHairStrands_ScreenTrace</a>, <a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;Whether to <a class="el" href="../../d7/df8/namespacetrace.html">trace</a> against hair depth <a class="el" href="../../d3/db8/binka__ue__decode__test_8cpp.html#ac1ee511585a5c7a2d58c146185895b72">for</a> hair casting shadow onto opaques.&quot;), <a class="el" href="../../d4/dd9/_i_console_manager_8h.html#a7f594f23c2b2c5687f1a502ebb3ba105a5fb4e7a0526f4a0c350d71e18956527c">ECVF_Scalability</a>|<a class="el" href="../../d4/dd9/_i_console_manager_8h.html#a7f594f23c2b2c5687f1a502ebb3ba105a774ea60f41417af093a7ca56c4204a70">ECVF_RenderThreadSafe</a>)</td></tr>
+<tr class="memitem:af0c3e0cf82a1107bebe07e8940586033" id="r_af0c3e0cf82a1107bebe07e8940586033"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d2/d79/class_f_auto_console_variable_ref.html">FAutoConsoleVariableRef</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af0c3e0cf82a1107bebe07e8940586033">GVarLumenReflectionTraceCompactionGroupSizeInTiles</a> (<a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;r.Lumen.Reflections.TraceCompaction.GroupSizeInTraceTiles&quot;), <a class="el" href="#a13fbf7a14dc2a4c3ecc00567dc6a81ce">GLumenReflectionTraceCompactionGroupSizeInTiles</a>, <a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;Size of the <a class="el" href="../../d7/df8/namespacetrace.html">trace</a> compaction threadgroup.  Larger group = better coherency in the compacted traces.  Currently only supported by WaveOps path.&quot;), <a class="el" href="../../d4/dd9/_i_console_manager_8h.html#a7f594f23c2b2c5687f1a502ebb3ba105a5fb4e7a0526f4a0c350d71e18956527c">ECVF_Scalability</a>|<a class="el" href="../../d4/dd9/_i_console_manager_8h.html#a7f594f23c2b2c5687f1a502ebb3ba105a774ea60f41417af093a7ca56c4204a70">ECVF_RenderThreadSafe</a>)</td></tr>
+<tr class="memitem:a8fa6711a0bc3ea16def6477aa29003fb" id="r_a8fa6711a0bc3ea16def6477aa29003fb"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d2/d79/class_f_auto_console_variable_ref.html">FAutoConsoleVariableRef</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8fa6711a0bc3ea16def6477aa29003fb">CVarLumenReflectionTraceCompactionWaveOps</a> (<a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;r.Lumen.Reflections.TraceCompaction.WaveOps&quot;), <a class="el" href="#aa45a7b8b9d221394da4d462051dea4db">GLumenReflectionTraceCompactionWaveOps</a>, <a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;Whether to use Wave Ops path <a class="el" href="../../d3/db8/binka__ue__decode__test_8cpp.html#ac1ee511585a5c7a2d58c146185895b72">for</a> <a class="el" href="../../d7/df8/namespacetrace.html">trace</a> compaction.&quot;), <a class="el" href="../../d4/dd9/_i_console_manager_8h.html#a7f594f23c2b2c5687f1a502ebb3ba105a5fb4e7a0526f4a0c350d71e18956527c">ECVF_Scalability</a>|<a class="el" href="../../d4/dd9/_i_console_manager_8h.html#a7f594f23c2b2c5687f1a502ebb3ba105a774ea60f41417af093a7ca56c4204a70">ECVF_RenderThreadSafe</a>)</td></tr>
+<tr class="memitem:a205fd668d340f4e7ac8f4626a0d04515" id="r_a205fd668d340f4e7ac8f4626a0d04515"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d2/d79/class_f_auto_console_variable_ref.html">FAutoConsoleVariableRef</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a205fd668d340f4e7ac8f4626a0d04515">CVarLumenReflectionsSampleSceneColorAtHit</a> (<a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;r.Lumen.Reflections.SampleSceneColorAtHit&quot;), <a class="el" href="#a2a236d338f6428cf9ec788c313cfab13">GLumenReflectionsSampleSceneColorAtHit</a>, <a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;Whether to sample SceneColor on reflection ray hits (both SWRT and HWRT). Useful <a class="el" href="../../d3/db8/binka__ue__decode__test_8cpp.html#ac1ee511585a5c7a2d58c146185895b72">for</a> hiding areas where Screen Traces gave up when they went behind a foreground object. 0 - Disable. 1 - Enable only when screen space traces are enabled. 2 - Always enable.&quot;), <a class="el" href="../../d4/dd9/_i_console_manager_8h.html#a7f594f23c2b2c5687f1a502ebb3ba105a5fb4e7a0526f4a0c350d71e18956527c">ECVF_Scalability</a>|<a class="el" href="../../d4/dd9/_i_console_manager_8h.html#a7f594f23c2b2c5687f1a502ebb3ba105a774ea60f41417af093a7ca56c4204a70">ECVF_RenderThreadSafe</a>)</td></tr>
+<tr class="memitem:ac7da980ea16d8df55fdcc834f0928210" id="r_ac7da980ea16d8df55fdcc834f0928210"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d2/d79/class_f_auto_console_variable_ref.html">FAutoConsoleVariableRef</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac7da980ea16d8df55fdcc834f0928210">CVarLumenReflectionsDistantScreenTraces</a> (<a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;r.Lumen.Reflections.DistantScreenTraces&quot;), <a class="el" href="#a95706d10996fb4a7a5ff922afdd58499">GLumenReflectionsDistantScreenTraces</a>, <a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;2 - Enable&quot;), <a class="el" href="../../d4/dd9/_i_console_manager_8h.html#a7f594f23c2b2c5687f1a502ebb3ba105a5fb4e7a0526f4a0c350d71e18956527c">ECVF_Scalability</a>|<a class="el" href="../../d4/dd9/_i_console_manager_8h.html#a7f594f23c2b2c5687f1a502ebb3ba105a774ea60f41417af093a7ca56c4204a70">ECVF_RenderThreadSafe</a>)</td></tr>
+<tr class="memitem:a07ad1d0677908b86896eae0861c5e6a9" id="r_a07ad1d0677908b86896eae0861c5e6a9"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d2/d79/class_f_auto_console_variable_ref.html">FAutoConsoleVariableRef</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a07ad1d0677908b86896eae0861c5e6a9">GVarLumenReflectionDistantScreenTraceDepthThreshold</a> (<a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;r.Lumen.Reflections.DistantScreenTraces.DepthThreshold&quot;), <a class="el" href="#a2dea16d8f6d86514f5880404543ff634">GLumenReflectionDistantScreenTraceSlopeCompareTolerance</a>, <a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;Depth threshold <a class="el" href="../../d3/db8/binka__ue__decode__test_8cpp.html#ac1ee511585a5c7a2d58c146185895b72">for</a> the linear screen traces done where other traces have missed.&quot;), <a class="el" href="../../d4/dd9/_i_console_manager_8h.html#a7f594f23c2b2c5687f1a502ebb3ba105a5fb4e7a0526f4a0c350d71e18956527c">ECVF_Scalability</a>|<a class="el" href="../../d4/dd9/_i_console_manager_8h.html#a7f594f23c2b2c5687f1a502ebb3ba105a774ea60f41417af093a7ca56c4204a70">ECVF_RenderThreadSafe</a>)</td></tr>
+<tr class="memitem:aaa6667562a2063da7250ff7d6ad0398d" id="r_aaa6667562a2063da7250ff7d6ad0398d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d2/d79/class_f_auto_console_variable_ref.html">FAutoConsoleVariableRef</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aaa6667562a2063da7250ff7d6ad0398d">GVarLumenReflectionDistantScreenTraceMaxTraceDistance</a> (<a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;r.Lumen.Reflections.DistantScreenTraces.MaxTraceDistance&quot;), <a class="el" href="#aa64466da8dbeb82a61cfe3932816f338">GLumenReflectionDistantScreenTraceMaxTraceDistance</a>, <a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;Trace distance of distant screen traces.&quot;), <a class="el" href="../../d4/dd9/_i_console_manager_8h.html#a7f594f23c2b2c5687f1a502ebb3ba105a5fb4e7a0526f4a0c350d71e18956527c">ECVF_Scalability</a>|<a class="el" href="../../d4/dd9/_i_console_manager_8h.html#a7f594f23c2b2c5687f1a502ebb3ba105a774ea60f41417af093a7ca56c4204a70">ECVF_RenderThreadSafe</a>)</td></tr>
+<tr class="memitem:aaee73cac2aae94334c72e282a0c718dc" id="r_aaee73cac2aae94334c72e282a0c718dc"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d5/d78/class_t_auto_console_variable.html">TAutoConsoleVariable</a>&lt; <a class="el" href="../../df/d2a/_s_anim_notify_shared_8h.html#ac7c94e837fed3f8e4bb3dd94d7bd2ecf">float</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aaee73cac2aae94334c72e282a0c718dc">CVarLumenReflectionDistantScreenTraceStepOffsetBias</a> (<a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;r.Lumen.Reflections.DistantScreenTraces.StepOffsetBias&quot;), 0.f, <a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;A bias added to the ray step offset to <a class="el" href="../../d5/d36/_render_core_8cpp.html#abd44b870a9e2c978685303076170ed01">shift</a> the center of jittering.&quot;), <a class="el" href="../../d4/dd9/_i_console_manager_8h.html#a7f594f23c2b2c5687f1a502ebb3ba105a5fb4e7a0526f4a0c350d71e18956527c">ECVF_Scalability</a>|<a class="el" href="../../d4/dd9/_i_console_manager_8h.html#a7f594f23c2b2c5687f1a502ebb3ba105a774ea60f41417af093a7ca56c4204a70">ECVF_RenderThreadSafe</a>)</td></tr>
+<tr class="memitem:a7950ccdfcfb607fc54860278a5ad2dfe" id="r_a7950ccdfcfb607fc54860278a5ad2dfe"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7950ccdfcfb607fc54860278a5ad2dfe">IMPLEMENT_GLOBAL_SHADER</a> (<a class="el" href="../../df/d07/class_f_reflection_clear_traces_c_s.html">FReflectionClearTracesCS</a>, &quot;/Engine/<a class="el" href="../../d9/db1/namespace_private.html">Private</a>/<a class="el" href="../../de/de9/namespace_lumen.html">Lumen</a>/LumenReflectionTracing.usf&quot;, &quot;ReflectionClearTracesCS&quot;, <a class="el" href="../../da/dca/_r_h_i_definitions_8h.html#a0a3cc83cb6ebc79b66b43fae3ffee64ea2a84a18d7ac3d1fac11e3153f0abf73b">SF_Compute</a>)</td></tr>
+<tr class="memitem:a468fa00fef20881933aac9c1175c4639" id="r_a468fa00fef20881933aac9c1175c4639"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a468fa00fef20881933aac9c1175c4639">IMPLEMENT_GLOBAL_SHADER</a> (<a class="el" href="../../dc/d64/class_f_reflection_trace_screen_textures_c_s.html">FReflectionTraceScreenTexturesCS</a>, &quot;/Engine/<a class="el" href="../../d9/db1/namespace_private.html">Private</a>/<a class="el" href="../../de/de9/namespace_lumen.html">Lumen</a>/LumenReflectionTracing.usf&quot;, &quot;ReflectionTraceScreenTexturesCS&quot;, <a class="el" href="../../da/dca/_r_h_i_definitions_8h.html#a0a3cc83cb6ebc79b66b43fae3ffee64ea2a84a18d7ac3d1fac11e3153f0abf73b">SF_Compute</a>)</td></tr>
+<tr class="memitem:af5bedf67345fc98d60ab19b5f1acf915" id="r_af5bedf67345fc98d60ab19b5f1acf915"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af5bedf67345fc98d60ab19b5f1acf915">IMPLEMENT_GLOBAL_SHADER</a> (<a class="el" href="../../d5/d70/class_f_setup_compaction_indirect_args_c_s.html">FSetupCompactionIndirectArgsCS</a>, &quot;/Engine/<a class="el" href="../../d9/db1/namespace_private.html">Private</a>/<a class="el" href="../../de/de9/namespace_lumen.html">Lumen</a>/LumenReflectionTracing.usf&quot;, &quot;SetupCompactionIndirectArgsCS&quot;, <a class="el" href="../../da/dca/_r_h_i_definitions_8h.html#a0a3cc83cb6ebc79b66b43fae3ffee64ea2a84a18d7ac3d1fac11e3153f0abf73b">SF_Compute</a>)</td></tr>
+<tr class="memitem:a833fed448aa355a9dedb2ed7952fa358" id="r_a833fed448aa355a9dedb2ed7952fa358"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a833fed448aa355a9dedb2ed7952fa358">IMPLEMENT_GLOBAL_SHADER</a> (<a class="el" href="../../df/d09/class_f_reflection_compact_traces_c_s.html">FReflectionCompactTracesCS</a>, &quot;/Engine/<a class="el" href="../../d9/db1/namespace_private.html">Private</a>/<a class="el" href="../../de/de9/namespace_lumen.html">Lumen</a>/LumenReflectionTracing.usf&quot;, &quot;ReflectionCompactTracesCS&quot;, <a class="el" href="../../da/dca/_r_h_i_definitions_8h.html#a0a3cc83cb6ebc79b66b43fae3ffee64ea2a84a18d7ac3d1fac11e3153f0abf73b">SF_Compute</a>)</td></tr>
+<tr class="memitem:a915834b473140382300d8ed0053b90ad" id="r_a915834b473140382300d8ed0053b90ad"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a915834b473140382300d8ed0053b90ad">IMPLEMENT_GLOBAL_SHADER</a> (<a class="el" href="../../d8/dd8/class_f_reflection_sort_traces_by_material_c_s.html">FReflectionSortTracesByMaterialCS</a>, &quot;/Engine/<a class="el" href="../../d9/db1/namespace_private.html">Private</a>/<a class="el" href="../../de/de9/namespace_lumen.html">Lumen</a>/LumenReflectionTracing.usf&quot;, &quot;ReflectionSortTracesByMaterialCS&quot;, <a class="el" href="../../da/dca/_r_h_i_definitions_8h.html#a0a3cc83cb6ebc79b66b43fae3ffee64ea2a84a18d7ac3d1fac11e3153f0abf73b">SF_Compute</a>)</td></tr>
+<tr class="memitem:a8fef4b828ad6391c289de86f41c4c1ed" id="r_a8fef4b828ad6391c289de86f41c4c1ed"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8fef4b828ad6391c289de86f41c4c1ed">IMPLEMENT_GLOBAL_SHADER</a> (<a class="el" href="../../db/dbf/class_f_setup_reflection_compacted_traces_indirect_args_c_s.html">FSetupReflectionCompactedTracesIndirectArgsCS</a>, &quot;/Engine/<a class="el" href="../../d9/db1/namespace_private.html">Private</a>/<a class="el" href="../../de/de9/namespace_lumen.html">Lumen</a>/LumenReflectionTracing.usf&quot;, &quot;SetupCompactedTracesIndirectArgsCS&quot;, <a class="el" href="../../da/dca/_r_h_i_definitions_8h.html#a0a3cc83cb6ebc79b66b43fae3ffee64ea2a84a18d7ac3d1fac11e3153f0abf73b">SF_Compute</a>)</td></tr>
+<tr class="memitem:a60c2d708e586be2f585904df76f33bef" id="r_a60c2d708e586be2f585904df76f33bef"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a60c2d708e586be2f585904df76f33bef">IMPLEMENT_GLOBAL_SHADER</a> (<a class="el" href="../../dd/d1b/class_f_reflection_trace_mesh_s_d_fs_c_s.html">FReflectionTraceMeshSDFsCS</a>, &quot;/Engine/<a class="el" href="../../d9/db1/namespace_private.html">Private</a>/<a class="el" href="../../de/de9/namespace_lumen.html">Lumen</a>/LumenReflectionTracing.usf&quot;, &quot;ReflectionTraceMeshSDFsCS&quot;, <a class="el" href="../../da/dca/_r_h_i_definitions_8h.html#a0a3cc83cb6ebc79b66b43fae3ffee64ea2a84a18d7ac3d1fac11e3153f0abf73b">SF_Compute</a>)</td></tr>
+<tr class="memitem:acb10e49c0c00f1f90b63ab7719e9cffd" id="r_acb10e49c0c00f1f90b63ab7719e9cffd"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#acb10e49c0c00f1f90b63ab7719e9cffd">IMPLEMENT_GLOBAL_SHADER</a> (<a class="el" href="../../da/d29/class_f_reflection_trace_voxels_c_s.html">FReflectionTraceVoxelsCS</a>, &quot;/Engine/<a class="el" href="../../d9/db1/namespace_private.html">Private</a>/<a class="el" href="../../de/de9/namespace_lumen.html">Lumen</a>/LumenReflectionTracing.usf&quot;, &quot;ReflectionTraceVoxelsCS&quot;, <a class="el" href="../../da/dca/_r_h_i_definitions_8h.html#a0a3cc83cb6ebc79b66b43fae3ffee64ea2a84a18d7ac3d1fac11e3153f0abf73b">SF_Compute</a>)</td></tr>
+<tr class="memitem:a41d2ec04793f45616fce905430b3a323" id="r_a41d2ec04793f45616fce905430b3a323"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a41d2ec04793f45616fce905430b3a323">IMPLEMENT_GLOBAL_SHADER</a> (<a class="el" href="../../dc/d7a/class_f_visualize_reflection_traces_c_s.html">FVisualizeReflectionTracesCS</a>, &quot;/Engine/<a class="el" href="../../d9/db1/namespace_private.html">Private</a>/<a class="el" href="../../de/de9/namespace_lumen.html">Lumen</a>/LumenReflectionTracing.usf&quot;, &quot;VisualizeReflectionTracesCS&quot;, <a class="el" href="../../da/dca/_r_h_i_definitions_8h.html#a0a3cc83cb6ebc79b66b43fae3ffee64ea2a84a18d7ac3d1fac11e3153f0abf73b">SF_Compute</a>)</td></tr>
+<tr class="memitem:a457ce1ddbeab8565fc4ce9053646a45c" id="r_a457ce1ddbeab8565fc4ce9053646a45c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../df/d63/_typed_element_query_capabilities_8inl.html#a72343342ce64c0755563ee6c5e27868d">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a457ce1ddbeab8565fc4ce9053646a45c">SetupIndirectTracingParametersForReflections</a> (const <a class="el" href="../../dd/d2b/class_f_view_info.html">FViewInfo</a> &amp;View, FLumenIndirectTracingParameters &amp;OutParameters)</td></tr>
+<tr class="memitem:a3e0a8c8a47650cd54d878a0f720cd0af" id="r_a3e0a8c8a47650cd54d878a0f720cd0af"><td class="memItemLeft" align="right" valign="top">FLumenHZBScreenTraceParameters&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a3e0a8c8a47650cd54d878a0f720cd0af">SetupHZBScreenTraceParameters</a> (<a class="el" href="../../d3/d85/class_f_r_d_g_builder.html">FRDGBuilder</a> &amp;GraphBuilder, const <a class="el" href="../../dd/d2b/class_f_view_info.html">FViewInfo</a> &amp;View, const <a class="el" href="../../d1/d9e/struct_f_scene_textures.html">FSceneTextures</a> &amp;SceneTextures, <a class="el" href="../../db/d2f/_h_z_b_8h.html#a9b1409e332a8c9a74d9ec382b9e8e8eb">EHZBType</a> HZBType)</td></tr>
+<tr class="memitem:ad1e6f9c03e714268b884e8d8694ca5a9" id="r_ad1e6f9c03e714268b884e8d8694ca5a9"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../df/d63/_typed_element_query_capabilities_8inl.html#a72343342ce64c0755563ee6c5e27868d">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad1e6f9c03e714268b884e8d8694ca5a9">TraceReflections</a> (<a class="el" href="../../d3/d85/class_f_r_d_g_builder.html">FRDGBuilder</a> &amp;GraphBuilder, const <a class="el" href="../../d4/dfa/class_f_scene.html">FScene</a> *Scene, const <a class="el" href="../../dd/d2b/class_f_view_info.html">FViewInfo</a> &amp;View, const <a class="el" href="../../dc/da7/struct_f_lumen_scene_frame_temporaries.html">FLumenSceneFrameTemporaries</a> &amp;FrameTemporaries, <a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a> bTraceMeshObjects, const <a class="el" href="../../d1/d9e/struct_f_scene_textures.html">FSceneTextures</a> &amp;SceneTextures, const FLumenReflectionTracingParameters &amp;ReflectionTracingParameters, const FLumenReflectionTileParameters &amp;ReflectionTileParameters, const FLumenMeshSDFGridParameters &amp;InMeshSDFGridParameters, <a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a> bUseRadianceCache, <a class="el" href="../../d7/d9b/_deferred_shading_renderer_types_8h.html#ae50b25db8b8777aa3ce45ae4b6d214f4">EDiffuseIndirectMethod</a> DiffuseIndirectMethod, const LumenRadianceCache::FRadianceCacheInterpolationParameters &amp;RadianceCacheParameters, const <a class="el" href="../../d0/df6/_math_fwd_8h.html#a4234ef5b281f4d46856f13f86b9afa93">FBoxSphereBounds</a> &amp;FirstPersonWorldSpaceRepresentationViewBounds, <a class="el" href="../../d6/de8/_render_graph_definitions_8h.html#a3b73b7355dd6964375c48c23d5fb76da">ERDGPassFlags</a> ComputePassFlags)</td></tr>
+<tr class="memitem:a58ad1e61d9d8d533b08aa0004b791c88" id="r_a58ad1e61d9d8d533b08aa0004b791c88"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../df/d63/_typed_element_query_capabilities_8inl.html#a72343342ce64c0755563ee6c5e27868d">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a58ad1e61d9d8d533b08aa0004b791c88">TraceTranslucency</a> (<a class="el" href="../../d3/d85/class_f_r_d_g_builder.html">FRDGBuilder</a> &amp;GraphBuilder, const <a class="el" href="../../d4/dfa/class_f_scene.html">FScene</a> *Scene, const <a class="el" href="../../dd/d2b/class_f_view_info.html">FViewInfo</a> &amp;View, const <a class="el" href="../../dc/da7/struct_f_lumen_scene_frame_temporaries.html">FLumenSceneFrameTemporaries</a> &amp;FrameTemporaries, const <a class="el" href="../../d1/d9e/struct_f_scene_textures.html">FSceneTextures</a> &amp;SceneTextures, const FLumenReflectionTracingParameters &amp;ReflectionTracingParameters, const FLumenReflectionTileParameters &amp;ReflectionTileParameters, <a class="el" href="../../d7/d9b/_deferred_shading_renderer_types_8h.html#ae50b25db8b8777aa3ce45ae4b6d214f4">EDiffuseIndirectMethod</a> DiffuseIndirectMethod, <a class="el" href="../../d6/de8/_render_graph_definitions_8h.html#a3b73b7355dd6964375c48c23d5fb76da">ERDGPassFlags</a> ComputePassFlags, <a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a> bUseRayTracedRefraction)</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-var-members" class="groupheader"><a id="var-members" name="var-members"></a>
+变量</h2></td></tr>
+<tr class="memitem:a934ab088f1493adb8ea43a256c7d3742" id="r_a934ab088f1493adb8ea43a256c7d3742"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a8dbb3cd84ca9fd010dadfc3815eefa5d">int32</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a934ab088f1493adb8ea43a256c7d3742">GLumenReflectionScreenTraces</a> = 1</td></tr>
+<tr class="memitem:af9a30992625f848ea041631de1231b10" id="r_af9a30992625f848ea041631de1231b10"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a8dbb3cd84ca9fd010dadfc3815eefa5d">int32</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af9a30992625f848ea041631de1231b10">GLumenScreenTracingSource</a> = 0</td></tr>
+<tr class="memitem:abc25e02652574e5fbb19d993e0714d29" id="r_abc25e02652574e5fbb19d993e0714d29"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d2/d79/class_f_auto_console_variable_ref.html">FAutoConsoleVariableRef</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#abc25e02652574e5fbb19d993e0714d29">CVarLumenScreenTracingSource</a> (<a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;r.Lumen.ScreenTracingSource&quot;), <a class="el" href="#af9a30992625f848ea041631de1231b10">GLumenScreenTracingSource</a>, <a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;1: Anti-aliased Scene Color (translucency intersected with the opaque depths, less noise from small emissive elements)&quot;), ECVF_RenderThreadSafe)</td></tr>
+<tr class="memitem:ae6c001b6c89a3dd1033d21460cfd7fda" id="r_ae6c001b6c89a3dd1033d21460cfd7fda"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a8dbb3cd84ca9fd010dadfc3815eefa5d">int32</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae6c001b6c89a3dd1033d21460cfd7fda">GLumenReflectionHierarchicalScreenTracesMaxIterations</a> = 50</td></tr>
+<tr class="memitem:a0be2891ba1d29222ac48f64f0e30af24" id="r_a0be2891ba1d29222ac48f64f0e30af24"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a8dbb3cd84ca9fd010dadfc3815eefa5d">int32</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a0be2891ba1d29222ac48f64f0e30af24">GLumenReflectionScreenTracesMinimumOccupancy</a> = 0</td></tr>
+<tr class="memitem:ae34f726d6436dba42ed2e465550bc6e1" id="r_ae34f726d6436dba42ed2e465550bc6e1"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../df/d2a/_s_anim_notify_shared_8h.html#ac7c94e837fed3f8e4bb3dd94d7bd2ecf">float</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae34f726d6436dba42ed2e465550bc6e1">GLumenReflectionHierarchicalScreenTraceRelativeDepthThreshold</a> = .005f</td></tr>
+<tr class="memitem:a7976d20cf22df9fbaee5112f012dd024" id="r_a7976d20cf22df9fbaee5112f012dd024"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../df/d2a/_s_anim_notify_shared_8h.html#ac7c94e837fed3f8e4bb3dd94d7bd2ecf">float</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7976d20cf22df9fbaee5112f012dd024">GLumenReflectionHierarchicalScreenTraceHistoryDepthTestRelativeThickness</a> = .005f</td></tr>
+<tr class="memitem:a310d171d7c5b6419b65a9c5b2ace0fe4" id="r_a310d171d7c5b6419b65a9c5b2ace0fe4"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a8dbb3cd84ca9fd010dadfc3815eefa5d">int32</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a310d171d7c5b6419b65a9c5b2ace0fe4">GLumenReflectionHairStrands_VoxelTrace</a> = 1</td></tr>
+<tr class="memitem:af4a5a7fc05f9843e38a6bbfca6a96f5f" id="r_af4a5a7fc05f9843e38a6bbfca6a96f5f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a8dbb3cd84ca9fd010dadfc3815eefa5d">int32</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af4a5a7fc05f9843e38a6bbfca6a96f5f">GLumenReflectionHairStrands_ScreenTrace</a> = 1</td></tr>
+<tr class="memitem:a13fbf7a14dc2a4c3ecc00567dc6a81ce" id="r_a13fbf7a14dc2a4c3ecc00567dc6a81ce"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a8dbb3cd84ca9fd010dadfc3815eefa5d">int32</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a13fbf7a14dc2a4c3ecc00567dc6a81ce">GLumenReflectionTraceCompactionGroupSizeInTiles</a> = 16</td></tr>
+<tr class="memitem:aa45a7b8b9d221394da4d462051dea4db" id="r_aa45a7b8b9d221394da4d462051dea4db"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a8dbb3cd84ca9fd010dadfc3815eefa5d">int32</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa45a7b8b9d221394da4d462051dea4db">GLumenReflectionTraceCompactionWaveOps</a> = 1</td></tr>
+<tr class="memitem:a2a236d338f6428cf9ec788c313cfab13" id="r_a2a236d338f6428cf9ec788c313cfab13"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a8dbb3cd84ca9fd010dadfc3815eefa5d">int32</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2a236d338f6428cf9ec788c313cfab13">GLumenReflectionsSampleSceneColorAtHit</a> = 1</td></tr>
+<tr class="memitem:a841466836b5c59fd0e7b0bc396f55d3e" id="r_a841466836b5c59fd0e7b0bc396f55d3e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d5/d78/class_t_auto_console_variable.html">TAutoConsoleVariable</a>&lt; <a class="el" href="../../df/d2a/_s_anim_notify_shared_8h.html#ac7c94e837fed3f8e4bb3dd94d7bd2ecf">float</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a841466836b5c59fd0e7b0bc396f55d3e">GVarLumenReflectionSampleSceneColorRelativeDepthThreshold</a> (<a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;r.Lumen.Reflections.SampleSceneColorRelativeDepthThickness&quot;), 0.01f, <a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;Depth threshold that controls how close ray hits have to be to the depth buffer, before sampling SceneColor is allowed.&quot;), <a class="el" href="../../d4/dd9/_i_console_manager_8h.html#a7f594f23c2b2c5687f1a502ebb3ba105a5fb4e7a0526f4a0c350d71e18956527c">ECVF_Scalability</a>|<a class="el" href="../../d4/dd9/_i_console_manager_8h.html#a7f594f23c2b2c5687f1a502ebb3ba105a774ea60f41417af093a7ca56c4204a70">ECVF_RenderThreadSafe</a>)</td></tr>
+<tr class="memitem:a5bf0bfaac75dceea98539af14eb505e3" id="r_a5bf0bfaac75dceea98539af14eb505e3"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d5/d78/class_t_auto_console_variable.html">TAutoConsoleVariable</a>&lt; <a class="el" href="../../df/d2a/_s_anim_notify_shared_8h.html#ac7c94e837fed3f8e4bb3dd94d7bd2ecf">float</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5bf0bfaac75dceea98539af14eb505e3">CVarLumenReflectionsSampleSceneColorNormalTreshold</a> (<a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;r.Lumen.Reflections.SampleSceneColorNormalTreshold&quot;), 85.0f, <a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;Normal threshold in degrees that controls how close ray hit normal and screen normal have to be, before sampling SceneColor is allowed. 0 - only exactly matching normals allowed. 180 - all normals allowed.&quot;), <a class="el" href="../../d4/dd9/_i_console_manager_8h.html#a7f594f23c2b2c5687f1a502ebb3ba105a5fb4e7a0526f4a0c350d71e18956527c">ECVF_Scalability</a>|<a class="el" href="../../d4/dd9/_i_console_manager_8h.html#a7f594f23c2b2c5687f1a502ebb3ba105a774ea60f41417af093a7ca56c4204a70">ECVF_RenderThreadSafe</a>)</td></tr>
+<tr class="memitem:a52273dbe4d883427048ba098324d42ae" id="r_a52273dbe4d883427048ba098324d42ae"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d5/d78/class_t_auto_console_variable.html">TAutoConsoleVariable</a>&lt; <a class="el" href="../../df/d2a/_s_anim_notify_shared_8h.html#ac7c94e837fed3f8e4bb3dd94d7bd2ecf">float</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a52273dbe4d883427048ba098324d42ae">GVarLumenReflectionsFarFieldSampleSceneColorRelativeDepthThreshold</a> (<a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;r.Lumen.Reflections.FarField.SampleSceneColorRelativeDepthThickness&quot;), 0.1f, <a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;Depth threshold <a class="el" href="../../d3/db8/binka__ue__decode__test_8cpp.html#ac1ee511585a5c7a2d58c146185895b72">for</a> far field traces that controls how close ray hits have to be to the depth buffer, before sampling SceneColor is allowed.&quot;), <a class="el" href="../../d4/dd9/_i_console_manager_8h.html#a7f594f23c2b2c5687f1a502ebb3ba105a5fb4e7a0526f4a0c350d71e18956527c">ECVF_Scalability</a>|<a class="el" href="../../d4/dd9/_i_console_manager_8h.html#a7f594f23c2b2c5687f1a502ebb3ba105a774ea60f41417af093a7ca56c4204a70">ECVF_RenderThreadSafe</a>)</td></tr>
+<tr class="memitem:ab0f99763c41a132f2055177920b18ed0" id="r_ab0f99763c41a132f2055177920b18ed0"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d5/d78/class_t_auto_console_variable.html">TAutoConsoleVariable</a>&lt; <a class="el" href="../../df/d2a/_s_anim_notify_shared_8h.html#ac7c94e837fed3f8e4bb3dd94d7bd2ecf">float</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab0f99763c41a132f2055177920b18ed0">CVarLumenReflectionsFarFieldSampleSceneColorNormalTreshold</a> (<a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;r.Lumen.Reflections.FarField.SampleSceneColorNormalTreshold&quot;), 85.0f, <a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;Normal threshold in degrees <a class="el" href="../../d3/db8/binka__ue__decode__test_8cpp.html#ac1ee511585a5c7a2d58c146185895b72">for</a> far field traces that controls how close ray hit normal and screen normal have to be, before sampling SceneColor is allowed. 0 - only exactly matching normals allowed. 180 - all normals allowed.&quot;), <a class="el" href="../../d4/dd9/_i_console_manager_8h.html#a7f594f23c2b2c5687f1a502ebb3ba105a5fb4e7a0526f4a0c350d71e18956527c">ECVF_Scalability</a>|<a class="el" href="../../d4/dd9/_i_console_manager_8h.html#a7f594f23c2b2c5687f1a502ebb3ba105a774ea60f41417af093a7ca56c4204a70">ECVF_RenderThreadSafe</a>)</td></tr>
+<tr class="memitem:a95706d10996fb4a7a5ff922afdd58499" id="r_a95706d10996fb4a7a5ff922afdd58499"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a8dbb3cd84ca9fd010dadfc3815eefa5d">int32</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a95706d10996fb4a7a5ff922afdd58499">GLumenReflectionsDistantScreenTraces</a> = 1</td></tr>
+<tr class="memitem:a2dea16d8f6d86514f5880404543ff634" id="r_a2dea16d8f6d86514f5880404543ff634"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../df/d2a/_s_anim_notify_shared_8h.html#ac7c94e837fed3f8e4bb3dd94d7bd2ecf">float</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2dea16d8f6d86514f5880404543ff634">GLumenReflectionDistantScreenTraceSlopeCompareTolerance</a> = 2.0f</td></tr>
+<tr class="memitem:aa64466da8dbeb82a61cfe3932816f338" id="r_aa64466da8dbeb82a61cfe3932816f338"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../df/d2a/_s_anim_notify_shared_8h.html#ac7c94e837fed3f8e4bb3dd94d7bd2ecf">float</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa64466da8dbeb82a61cfe3932816f338">GLumenReflectionDistantScreenTraceMaxTraceDistance</a> = 200000.0f</td></tr>
+</table>
+<a name="doc-enum-members" id="doc-enum-members"></a><h2 id="header-doc-enum-members" class="groupheader">枚举类型说明</h2>
+<a id="a0f0798cd0160c2b3b82d9ac200289068" name="a0f0798cd0160c2b3b82d9ac200289068"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0f0798cd0160c2b3b82d9ac200289068">&#9670;&#160;</a></span>ECompactedReflectionTracingIndirectArgs</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum class <a class="el" href="#a0f0798cd0160c2b3b82d9ac200289068">ECompactedReflectionTracingIndirectArgs</a></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel strong">strong</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<table class="fieldtable">
+<tr><th colspan="2">枚举值</th></tr><tr><td class="fieldname"><a id="a0f0798cd0160c2b3b82d9ac200289068aaa8aaa8e04acde3d9e2fdc415ef398a9" name="a0f0798cd0160c2b3b82d9ac200289068aaa8aaa8e04acde3d9e2fdc415ef398a9"></a>NumTracesDiv64&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a0f0798cd0160c2b3b82d9ac200289068a04a68b85776916304bb68461ba0250bb" name="a0f0798cd0160c2b3b82d9ac200289068a04a68b85776916304bb68461ba0250bb"></a>NumTracesDiv32&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a0f0798cd0160c2b3b82d9ac200289068aec9135acce891a27cf201cab7065e40d" name="a0f0798cd0160c2b3b82d9ac200289068aec9135acce891a27cf201cab7065e40d"></a>NumTracesDiv256&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a0f0798cd0160c2b3b82d9ac200289068a26a4b44a837bf97b972628509912b4a5" name="a0f0798cd0160c2b3b82d9ac200289068a26a4b44a837bf97b972628509912b4a5"></a>MAX&#160;</td><td class="fielddoc"></td></tr>
+</table>
+
+</div>
+</div>
+<a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">函数说明</h2>
+<a id="aaee73cac2aae94334c72e282a0c718dc" name="aaee73cac2aae94334c72e282a0c718dc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aaee73cac2aae94334c72e282a0c718dc">&#9670;&#160;</a></span>CVarLumenReflectionDistantScreenTraceStepOffsetBias()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d5/d78/class_t_auto_console_variable.html">TAutoConsoleVariable</a>&lt; <a class="el" href="../../df/d2a/_s_anim_notify_shared_8h.html#ac7c94e837fed3f8e4bb3dd94d7bd2ecf">float</a> &gt; CVarLumenReflectionDistantScreenTraceStepOffsetBias </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;r.Lumen.Reflections.DistantScreenTraces.StepOffsetBias&quot;)</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">0.</td>          <td class="paramname"><span class="paramname"><em>f</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;A bias added to the ray step offset to <a class="el" href="../../d5/d36/_render_core_8cpp.html#abd44b870a9e2c978685303076170ed01">shift</a> the center of jittering.&quot;)</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d4/dd9/_i_console_manager_8h.html#a7f594f23c2b2c5687f1a502ebb3ba105a5fb4e7a0526f4a0c350d71e18956527c">ECVF_Scalability</a>|</td>          <td class="paramname"><span class="paramname"><em>ECVF_RenderThreadSafe</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a7e48f66d492cc509c5a2adc634d81e1e" name="a7e48f66d492cc509c5a2adc634d81e1e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7e48f66d492cc509c5a2adc634d81e1e">&#9670;&#160;</a></span>CVarLumenReflectionHierarchicalScreenTracesMaxIterations()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d2/d79/class_f_auto_console_variable_ref.html">FAutoConsoleVariableRef</a> CVarLumenReflectionHierarchicalScreenTracesMaxIterations </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;r.Lumen.Reflections.HierarchicalScreenTraces.MaxIterations&quot;)</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="#ae6c001b6c89a3dd1033d21460cfd7fda">GLumenReflectionHierarchicalScreenTracesMaxIterations</a></td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;Max iterations <a class="el" href="../../d3/db8/binka__ue__decode__test_8cpp.html#ac1ee511585a5c7a2d58c146185895b72">for</a> HZB tracing.&quot;)</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d4/dd9/_i_console_manager_8h.html#a7f594f23c2b2c5687f1a502ebb3ba105a5fb4e7a0526f4a0c350d71e18956527c">ECVF_Scalability</a>|</td>          <td class="paramname"><span class="paramname"><em>ECVF_RenderThreadSafe</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aff25e01d3db99123a4eb2604769063f6" name="aff25e01d3db99123a4eb2604769063f6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aff25e01d3db99123a4eb2604769063f6">&#9670;&#160;</a></span>CVarLumenReflectionHierarchicalScreenTracesMinimumOccupancy()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d2/d79/class_f_auto_console_variable_ref.html">FAutoConsoleVariableRef</a> CVarLumenReflectionHierarchicalScreenTracesMinimumOccupancy </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;r.Lumen.Reflections.HierarchicalScreenTraces.MinimumOccupancy&quot;)</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="#a0be2891ba1d29222ac48f64f0e30af24">GLumenReflectionScreenTracesMinimumOccupancy</a></td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;Minimum number of threads still tracing before aborting the trace.  Can be used <a class="el" href="../../d3/db8/binka__ue__decode__test_8cpp.html#ac1ee511585a5c7a2d58c146185895b72">for</a> scalability to abandon traces that have a disproportionate cost.&quot;)</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d4/dd9/_i_console_manager_8h.html#a7f594f23c2b2c5687f1a502ebb3ba105a5fb4e7a0526f4a0c350d71e18956527c">ECVF_Scalability</a>|</td>          <td class="paramname"><span class="paramname"><em>ECVF_RenderThreadSafe</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aaaff1e97e7ae0ce696364186dfa7ef44" name="aaaff1e97e7ae0ce696364186dfa7ef44"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aaaff1e97e7ae0ce696364186dfa7ef44">&#9670;&#160;</a></span>CVarLumenReflectionScreenTraces()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d2/d79/class_f_auto_console_variable_ref.html">FAutoConsoleVariableRef</a> CVarLumenReflectionScreenTraces </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;r.Lumen.Reflections.ScreenTraces&quot;)</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="#a934ab088f1493adb8ea43a256c7d3742">GLumenReflectionScreenTraces</a></td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;Whether to <a class="el" href="../../d7/df8/namespacetrace.html">trace</a> against the screen <a class="el" href="../../d3/db8/binka__ue__decode__test_8cpp.html#ac1ee511585a5c7a2d58c146185895b72">for</a> reflections before falling back to other methods.&quot;)</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d4/dd9/_i_console_manager_8h.html#a7f594f23c2b2c5687f1a502ebb3ba105a5fb4e7a0526f4a0c350d71e18956527c">ECVF_Scalability</a>|</td>          <td class="paramname"><span class="paramname"><em>ECVF_RenderThreadSafe</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ac7da980ea16d8df55fdcc834f0928210" name="ac7da980ea16d8df55fdcc834f0928210"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac7da980ea16d8df55fdcc834f0928210">&#9670;&#160;</a></span>CVarLumenReflectionsDistantScreenTraces()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d2/d79/class_f_auto_console_variable_ref.html">FAutoConsoleVariableRef</a> CVarLumenReflectionsDistantScreenTraces </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;r.Lumen.Reflections.DistantScreenTraces&quot;)</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="#a95706d10996fb4a7a5ff922afdd58499">GLumenReflectionsDistantScreenTraces</a></td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;2 - Enable&quot;)</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d4/dd9/_i_console_manager_8h.html#a7f594f23c2b2c5687f1a502ebb3ba105a5fb4e7a0526f4a0c350d71e18956527c">ECVF_Scalability</a>|</td>          <td class="paramname"><span class="paramname"><em>ECVF_RenderThreadSafe</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a205fd668d340f4e7ac8f4626a0d04515" name="a205fd668d340f4e7ac8f4626a0d04515"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a205fd668d340f4e7ac8f4626a0d04515">&#9670;&#160;</a></span>CVarLumenReflectionsSampleSceneColorAtHit()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d2/d79/class_f_auto_console_variable_ref.html">FAutoConsoleVariableRef</a> CVarLumenReflectionsSampleSceneColorAtHit </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;r.Lumen.Reflections.SampleSceneColorAtHit&quot;)</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="#a2a236d338f6428cf9ec788c313cfab13">GLumenReflectionsSampleSceneColorAtHit</a></td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;Whether to sample SceneColor on reflection ray hits (both SWRT and HWRT). Useful <a class="el" href="../../d3/db8/binka__ue__decode__test_8cpp.html#ac1ee511585a5c7a2d58c146185895b72">for</a> hiding areas where Screen Traces gave up when they went behind a foreground object. 0 - Disable. 1 - Enable only when screen space traces are enabled. 2 - Always enable.&quot;)</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d4/dd9/_i_console_manager_8h.html#a7f594f23c2b2c5687f1a502ebb3ba105a5fb4e7a0526f4a0c350d71e18956527c">ECVF_Scalability</a>|</td>          <td class="paramname"><span class="paramname"><em>ECVF_RenderThreadSafe</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a8fa6711a0bc3ea16def6477aa29003fb" name="a8fa6711a0bc3ea16def6477aa29003fb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8fa6711a0bc3ea16def6477aa29003fb">&#9670;&#160;</a></span>CVarLumenReflectionTraceCompactionWaveOps()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d2/d79/class_f_auto_console_variable_ref.html">FAutoConsoleVariableRef</a> CVarLumenReflectionTraceCompactionWaveOps </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;r.Lumen.Reflections.TraceCompaction.WaveOps&quot;)</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="#aa45a7b8b9d221394da4d462051dea4db">GLumenReflectionTraceCompactionWaveOps</a></td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;Whether to use Wave Ops path <a class="el" href="../../d3/db8/binka__ue__decode__test_8cpp.html#ac1ee511585a5c7a2d58c146185895b72">for</a> <a class="el" href="../../d7/df8/namespacetrace.html">trace</a> compaction.&quot;)</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d4/dd9/_i_console_manager_8h.html#a7f594f23c2b2c5687f1a502ebb3ba105a5fb4e7a0526f4a0c350d71e18956527c">ECVF_Scalability</a>|</td>          <td class="paramname"><span class="paramname"><em>ECVF_RenderThreadSafe</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a07ad1d0677908b86896eae0861c5e6a9" name="a07ad1d0677908b86896eae0861c5e6a9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a07ad1d0677908b86896eae0861c5e6a9">&#9670;&#160;</a></span>GVarLumenReflectionDistantScreenTraceDepthThreshold()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d2/d79/class_f_auto_console_variable_ref.html">FAutoConsoleVariableRef</a> GVarLumenReflectionDistantScreenTraceDepthThreshold </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;r.Lumen.Reflections.DistantScreenTraces.DepthThreshold&quot;)</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="#a2dea16d8f6d86514f5880404543ff634">GLumenReflectionDistantScreenTraceSlopeCompareTolerance</a></td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;Depth threshold <a class="el" href="../../d3/db8/binka__ue__decode__test_8cpp.html#ac1ee511585a5c7a2d58c146185895b72">for</a> the linear screen traces done where other traces have missed.&quot;)</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d4/dd9/_i_console_manager_8h.html#a7f594f23c2b2c5687f1a502ebb3ba105a5fb4e7a0526f4a0c350d71e18956527c">ECVF_Scalability</a>|</td>          <td class="paramname"><span class="paramname"><em>ECVF_RenderThreadSafe</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aaa6667562a2063da7250ff7d6ad0398d" name="aaa6667562a2063da7250ff7d6ad0398d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aaa6667562a2063da7250ff7d6ad0398d">&#9670;&#160;</a></span>GVarLumenReflectionDistantScreenTraceMaxTraceDistance()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d2/d79/class_f_auto_console_variable_ref.html">FAutoConsoleVariableRef</a> GVarLumenReflectionDistantScreenTraceMaxTraceDistance </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;r.Lumen.Reflections.DistantScreenTraces.MaxTraceDistance&quot;)</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="#aa64466da8dbeb82a61cfe3932816f338">GLumenReflectionDistantScreenTraceMaxTraceDistance</a></td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;Trace distance of distant screen traces.&quot;)</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d4/dd9/_i_console_manager_8h.html#a7f594f23c2b2c5687f1a502ebb3ba105a5fb4e7a0526f4a0c350d71e18956527c">ECVF_Scalability</a>|</td>          <td class="paramname"><span class="paramname"><em>ECVF_RenderThreadSafe</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a0593f0a5abdfe189a735f536b7c47071" name="a0593f0a5abdfe189a735f536b7c47071"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0593f0a5abdfe189a735f536b7c47071">&#9670;&#160;</a></span>GVarLumenReflectionHairStrands_ScreenTrace()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d2/d79/class_f_auto_console_variable_ref.html">FAutoConsoleVariableRef</a> GVarLumenReflectionHairStrands_ScreenTrace </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;r.Lumen.Reflections.HairStrands.ScreenTrace&quot;)</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="#af4a5a7fc05f9843e38a6bbfca6a96f5f">GLumenReflectionHairStrands_ScreenTrace</a></td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;Whether to <a class="el" href="../../d7/df8/namespacetrace.html">trace</a> against hair depth <a class="el" href="../../d3/db8/binka__ue__decode__test_8cpp.html#ac1ee511585a5c7a2d58c146185895b72">for</a> hair casting shadow onto opaques.&quot;)</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d4/dd9/_i_console_manager_8h.html#a7f594f23c2b2c5687f1a502ebb3ba105a5fb4e7a0526f4a0c350d71e18956527c">ECVF_Scalability</a>|</td>          <td class="paramname"><span class="paramname"><em>ECVF_RenderThreadSafe</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a642de7a7e5c7ecb3e403857278248e18" name="a642de7a7e5c7ecb3e403857278248e18"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a642de7a7e5c7ecb3e403857278248e18">&#9670;&#160;</a></span>GVarLumenReflectionHairStrands_VoxelTrace()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d2/d79/class_f_auto_console_variable_ref.html">FAutoConsoleVariableRef</a> GVarLumenReflectionHairStrands_VoxelTrace </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;r.Lumen.Reflections.HairStrands.VoxelTrace&quot;)</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="#a310d171d7c5b6419b65a9c5b2ace0fe4">GLumenReflectionHairStrands_VoxelTrace</a></td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;Whether to <a class="el" href="../../d7/df8/namespacetrace.html">trace</a> against hair voxel structure <a class="el" href="../../d3/db8/binka__ue__decode__test_8cpp.html#ac1ee511585a5c7a2d58c146185895b72">for</a> hair casting shadow onto opaques.&quot;)</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d4/dd9/_i_console_manager_8h.html#a7f594f23c2b2c5687f1a502ebb3ba105a5fb4e7a0526f4a0c350d71e18956527c">ECVF_Scalability</a>|</td>          <td class="paramname"><span class="paramname"><em>ECVF_RenderThreadSafe</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a612e540ea881775d9d586f813cdc6202" name="a612e540ea881775d9d586f813cdc6202"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a612e540ea881775d9d586f813cdc6202">&#9670;&#160;</a></span>GVarLumenReflectionHierarchicalScreenTraceHistoryDepthTestRelativeThickness()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d2/d79/class_f_auto_console_variable_ref.html">FAutoConsoleVariableRef</a> GVarLumenReflectionHierarchicalScreenTraceHistoryDepthTestRelativeThickness </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;r.Lumen.Reflections.HierarchicalScreenTraces.HistoryDepthTestRelativeThickness&quot;)</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="#a7976d20cf22df9fbaee5112f012dd024">GLumenReflectionHierarchicalScreenTraceHistoryDepthTestRelativeThickness</a></td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;Distance between HZB <a class="el" href="../../d7/df8/namespacetrace.html">trace</a> hit and previous frame scene depth from which to allow hits, as a relative depth threshold.&quot;)</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d4/dd9/_i_console_manager_8h.html#a7f594f23c2b2c5687f1a502ebb3ba105a5fb4e7a0526f4a0c350d71e18956527c">ECVF_Scalability</a>|</td>          <td class="paramname"><span class="paramname"><em>ECVF_RenderThreadSafe</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a30c142bdeafa0ffa9c5704058d6c0b35" name="a30c142bdeafa0ffa9c5704058d6c0b35"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a30c142bdeafa0ffa9c5704058d6c0b35">&#9670;&#160;</a></span>GVarLumenReflectionHierarchicalScreenTraceRelativeDepthThreshold()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d2/d79/class_f_auto_console_variable_ref.html">FAutoConsoleVariableRef</a> GVarLumenReflectionHierarchicalScreenTraceRelativeDepthThreshold </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;r.Lumen.Reflections.HierarchicalScreenTraces.RelativeDepthThickness&quot;)</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="#ae34f726d6436dba42ed2e465550bc6e1">GLumenReflectionHierarchicalScreenTraceRelativeDepthThreshold</a></td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;Determines depth thickness of objects hit by HZB tracing, as a relative depth threshold.&quot;)</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d4/dd9/_i_console_manager_8h.html#a7f594f23c2b2c5687f1a502ebb3ba105a5fb4e7a0526f4a0c350d71e18956527c">ECVF_Scalability</a>|</td>          <td class="paramname"><span class="paramname"><em>ECVF_RenderThreadSafe</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="af0c3e0cf82a1107bebe07e8940586033" name="af0c3e0cf82a1107bebe07e8940586033"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af0c3e0cf82a1107bebe07e8940586033">&#9670;&#160;</a></span>GVarLumenReflectionTraceCompactionGroupSizeInTiles()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d2/d79/class_f_auto_console_variable_ref.html">FAutoConsoleVariableRef</a> GVarLumenReflectionTraceCompactionGroupSizeInTiles </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;r.Lumen.Reflections.TraceCompaction.GroupSizeInTraceTiles&quot;)</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="#a13fbf7a14dc2a4c3ecc00567dc6a81ce">GLumenReflectionTraceCompactionGroupSizeInTiles</a></td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;Size of the <a class="el" href="../../d7/df8/namespacetrace.html">trace</a> compaction threadgroup.  Larger group = better coherency in the compacted traces.  Currently only supported by WaveOps path.&quot;)</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d4/dd9/_i_console_manager_8h.html#a7f594f23c2b2c5687f1a502ebb3ba105a5fb4e7a0526f4a0c350d71e18956527c">ECVF_Scalability</a>|</td>          <td class="paramname"><span class="paramname"><em>ECVF_RenderThreadSafe</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a7950ccdfcfb607fc54860278a5ad2dfe" name="a7950ccdfcfb607fc54860278a5ad2dfe"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7950ccdfcfb607fc54860278a5ad2dfe">&#9670;&#160;</a></span>IMPLEMENT_GLOBAL_SHADER() <span class="overload">[1/9]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">IMPLEMENT_GLOBAL_SHADER </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../df/d07/class_f_reflection_clear_traces_c_s.html">FReflectionClearTracesCS</a></td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&quot;/Engine/<a class="el" href="../../d9/db1/namespace_private.html">Private</a>/<a class="el" href="../../de/de9/namespace_lumen.html">Lumen</a>/LumenReflectionTracing.usf&quot;</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&quot;ReflectionClearTracesCS&quot;</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../da/dca/_r_h_i_definitions_8h.html#a0a3cc83cb6ebc79b66b43fae3ffee64ea2a84a18d7ac3d1fac11e3153f0abf73b">SF_Compute</a></td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a833fed448aa355a9dedb2ed7952fa358" name="a833fed448aa355a9dedb2ed7952fa358"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a833fed448aa355a9dedb2ed7952fa358">&#9670;&#160;</a></span>IMPLEMENT_GLOBAL_SHADER() <span class="overload">[2/9]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">IMPLEMENT_GLOBAL_SHADER </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../df/d09/class_f_reflection_compact_traces_c_s.html">FReflectionCompactTracesCS</a></td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&quot;/Engine/<a class="el" href="../../d9/db1/namespace_private.html">Private</a>/<a class="el" href="../../de/de9/namespace_lumen.html">Lumen</a>/LumenReflectionTracing.usf&quot;</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&quot;ReflectionCompactTracesCS&quot;</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../da/dca/_r_h_i_definitions_8h.html#a0a3cc83cb6ebc79b66b43fae3ffee64ea2a84a18d7ac3d1fac11e3153f0abf73b">SF_Compute</a></td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a915834b473140382300d8ed0053b90ad" name="a915834b473140382300d8ed0053b90ad"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a915834b473140382300d8ed0053b90ad">&#9670;&#160;</a></span>IMPLEMENT_GLOBAL_SHADER() <span class="overload">[3/9]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">IMPLEMENT_GLOBAL_SHADER </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d8/dd8/class_f_reflection_sort_traces_by_material_c_s.html">FReflectionSortTracesByMaterialCS</a></td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&quot;/Engine/<a class="el" href="../../d9/db1/namespace_private.html">Private</a>/<a class="el" href="../../de/de9/namespace_lumen.html">Lumen</a>/LumenReflectionTracing.usf&quot;</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&quot;ReflectionSortTracesByMaterialCS&quot;</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../da/dca/_r_h_i_definitions_8h.html#a0a3cc83cb6ebc79b66b43fae3ffee64ea2a84a18d7ac3d1fac11e3153f0abf73b">SF_Compute</a></td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a60c2d708e586be2f585904df76f33bef" name="a60c2d708e586be2f585904df76f33bef"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a60c2d708e586be2f585904df76f33bef">&#9670;&#160;</a></span>IMPLEMENT_GLOBAL_SHADER() <span class="overload">[4/9]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">IMPLEMENT_GLOBAL_SHADER </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../dd/d1b/class_f_reflection_trace_mesh_s_d_fs_c_s.html">FReflectionTraceMeshSDFsCS</a></td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&quot;/Engine/<a class="el" href="../../d9/db1/namespace_private.html">Private</a>/<a class="el" href="../../de/de9/namespace_lumen.html">Lumen</a>/LumenReflectionTracing.usf&quot;</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&quot;ReflectionTraceMeshSDFsCS&quot;</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../da/dca/_r_h_i_definitions_8h.html#a0a3cc83cb6ebc79b66b43fae3ffee64ea2a84a18d7ac3d1fac11e3153f0abf73b">SF_Compute</a></td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a468fa00fef20881933aac9c1175c4639" name="a468fa00fef20881933aac9c1175c4639"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a468fa00fef20881933aac9c1175c4639">&#9670;&#160;</a></span>IMPLEMENT_GLOBAL_SHADER() <span class="overload">[5/9]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">IMPLEMENT_GLOBAL_SHADER </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../dc/d64/class_f_reflection_trace_screen_textures_c_s.html">FReflectionTraceScreenTexturesCS</a></td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&quot;/Engine/<a class="el" href="../../d9/db1/namespace_private.html">Private</a>/<a class="el" href="../../de/de9/namespace_lumen.html">Lumen</a>/LumenReflectionTracing.usf&quot;</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&quot;ReflectionTraceScreenTexturesCS&quot;</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../da/dca/_r_h_i_definitions_8h.html#a0a3cc83cb6ebc79b66b43fae3ffee64ea2a84a18d7ac3d1fac11e3153f0abf73b">SF_Compute</a></td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="acb10e49c0c00f1f90b63ab7719e9cffd" name="acb10e49c0c00f1f90b63ab7719e9cffd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acb10e49c0c00f1f90b63ab7719e9cffd">&#9670;&#160;</a></span>IMPLEMENT_GLOBAL_SHADER() <span class="overload">[6/9]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">IMPLEMENT_GLOBAL_SHADER </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../da/d29/class_f_reflection_trace_voxels_c_s.html">FReflectionTraceVoxelsCS</a></td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&quot;/Engine/<a class="el" href="../../d9/db1/namespace_private.html">Private</a>/<a class="el" href="../../de/de9/namespace_lumen.html">Lumen</a>/LumenReflectionTracing.usf&quot;</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&quot;ReflectionTraceVoxelsCS&quot;</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../da/dca/_r_h_i_definitions_8h.html#a0a3cc83cb6ebc79b66b43fae3ffee64ea2a84a18d7ac3d1fac11e3153f0abf73b">SF_Compute</a></td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="af5bedf67345fc98d60ab19b5f1acf915" name="af5bedf67345fc98d60ab19b5f1acf915"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af5bedf67345fc98d60ab19b5f1acf915">&#9670;&#160;</a></span>IMPLEMENT_GLOBAL_SHADER() <span class="overload">[7/9]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">IMPLEMENT_GLOBAL_SHADER </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d5/d70/class_f_setup_compaction_indirect_args_c_s.html">FSetupCompactionIndirectArgsCS</a></td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&quot;/Engine/<a class="el" href="../../d9/db1/namespace_private.html">Private</a>/<a class="el" href="../../de/de9/namespace_lumen.html">Lumen</a>/LumenReflectionTracing.usf&quot;</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&quot;SetupCompactionIndirectArgsCS&quot;</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../da/dca/_r_h_i_definitions_8h.html#a0a3cc83cb6ebc79b66b43fae3ffee64ea2a84a18d7ac3d1fac11e3153f0abf73b">SF_Compute</a></td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a8fef4b828ad6391c289de86f41c4c1ed" name="a8fef4b828ad6391c289de86f41c4c1ed"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8fef4b828ad6391c289de86f41c4c1ed">&#9670;&#160;</a></span>IMPLEMENT_GLOBAL_SHADER() <span class="overload">[8/9]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">IMPLEMENT_GLOBAL_SHADER </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../db/dbf/class_f_setup_reflection_compacted_traces_indirect_args_c_s.html">FSetupReflectionCompactedTracesIndirectArgsCS</a></td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&quot;/Engine/<a class="el" href="../../d9/db1/namespace_private.html">Private</a>/<a class="el" href="../../de/de9/namespace_lumen.html">Lumen</a>/LumenReflectionTracing.usf&quot;</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&quot;SetupCompactedTracesIndirectArgsCS&quot;</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../da/dca/_r_h_i_definitions_8h.html#a0a3cc83cb6ebc79b66b43fae3ffee64ea2a84a18d7ac3d1fac11e3153f0abf73b">SF_Compute</a></td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a41d2ec04793f45616fce905430b3a323" name="a41d2ec04793f45616fce905430b3a323"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a41d2ec04793f45616fce905430b3a323">&#9670;&#160;</a></span>IMPLEMENT_GLOBAL_SHADER() <span class="overload">[9/9]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">IMPLEMENT_GLOBAL_SHADER </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../dc/d7a/class_f_visualize_reflection_traces_c_s.html">FVisualizeReflectionTracesCS</a></td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&quot;/Engine/<a class="el" href="../../d9/db1/namespace_private.html">Private</a>/<a class="el" href="../../de/de9/namespace_lumen.html">Lumen</a>/LumenReflectionTracing.usf&quot;</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&quot;VisualizeReflectionTracesCS&quot;</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../da/dca/_r_h_i_definitions_8h.html#a0a3cc83cb6ebc79b66b43fae3ffee64ea2a84a18d7ac3d1fac11e3153f0abf73b">SF_Compute</a></td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a3e0a8c8a47650cd54d878a0f720cd0af" name="a3e0a8c8a47650cd54d878a0f720cd0af"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3e0a8c8a47650cd54d878a0f720cd0af">&#9670;&#160;</a></span>SetupHZBScreenTraceParameters()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">FLumenHZBScreenTraceParameters SetupHZBScreenTraceParameters </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d3/d85/class_f_r_d_g_builder.html">FRDGBuilder</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>GraphBuilder</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="../../dd/d2b/class_f_view_info.html">FViewInfo</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>View</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="../../d1/d9e/struct_f_scene_textures.html">FSceneTextures</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>SceneTextures</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../db/d2f/_h_z_b_8h.html#a9b1409e332a8c9a74d9ec382b9e8e8eb">EHZBType</a></td>          <td class="paramname"><span class="paramname"><em>HZBType</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a457ce1ddbeab8565fc4ce9053646a45c" name="a457ce1ddbeab8565fc4ce9053646a45c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a457ce1ddbeab8565fc4ce9053646a45c">&#9670;&#160;</a></span>SetupIndirectTracingParametersForReflections()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../df/d63/_typed_element_query_capabilities_8inl.html#a72343342ce64c0755563ee6c5e27868d">void</a> SetupIndirectTracingParametersForReflections </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="../../dd/d2b/class_f_view_info.html">FViewInfo</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>View</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">FLumenIndirectTracingParameters &amp;</td>          <td class="paramname"><span class="paramname"><em>OutParameters</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ad1e6f9c03e714268b884e8d8694ca5a9" name="ad1e6f9c03e714268b884e8d8694ca5a9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad1e6f9c03e714268b884e8d8694ca5a9">&#9670;&#160;</a></span>TraceReflections()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../df/d63/_typed_element_query_capabilities_8inl.html#a72343342ce64c0755563ee6c5e27868d">void</a> TraceReflections </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d3/d85/class_f_r_d_g_builder.html">FRDGBuilder</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>GraphBuilder</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="../../d4/dfa/class_f_scene.html">FScene</a> *</td>          <td class="paramname"><span class="paramname"><em>Scene</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="../../dd/d2b/class_f_view_info.html">FViewInfo</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>View</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="../../dc/da7/struct_f_lumen_scene_frame_temporaries.html">FLumenSceneFrameTemporaries</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>FrameTemporaries</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a></td>          <td class="paramname"><span class="paramname"><em>bTraceMeshObjects</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="../../d1/d9e/struct_f_scene_textures.html">FSceneTextures</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>SceneTextures</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const FLumenReflectionTracingParameters &amp;</td>          <td class="paramname"><span class="paramname"><em>ReflectionTracingParameters</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const FLumenReflectionTileParameters &amp;</td>          <td class="paramname"><span class="paramname"><em>ReflectionTileParameters</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const FLumenMeshSDFGridParameters &amp;</td>          <td class="paramname"><span class="paramname"><em>InMeshSDFGridParameters</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a></td>          <td class="paramname"><span class="paramname"><em>bUseRadianceCache</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d7/d9b/_deferred_shading_renderer_types_8h.html#ae50b25db8b8777aa3ce45ae4b6d214f4">EDiffuseIndirectMethod</a></td>          <td class="paramname"><span class="paramname"><em>DiffuseIndirectMethod</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const LumenRadianceCache::FRadianceCacheInterpolationParameters &amp;</td>          <td class="paramname"><span class="paramname"><em>RadianceCacheParameters</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="../../d0/df6/_math_fwd_8h.html#a4234ef5b281f4d46856f13f86b9afa93">FBoxSphereBounds</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>FirstPersonWorldSpaceRepresentationViewBounds</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d6/de8/_render_graph_definitions_8h.html#a3b73b7355dd6964375c48c23d5fb76da">ERDGPassFlags</a></td>          <td class="paramname"><span class="paramname"><em>ComputePassFlags</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a58ad1e61d9d8d533b08aa0004b791c88" name="a58ad1e61d9d8d533b08aa0004b791c88"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a58ad1e61d9d8d533b08aa0004b791c88">&#9670;&#160;</a></span>TraceTranslucency()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../df/d63/_typed_element_query_capabilities_8inl.html#a72343342ce64c0755563ee6c5e27868d">void</a> TraceTranslucency </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d3/d85/class_f_r_d_g_builder.html">FRDGBuilder</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>GraphBuilder</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="../../d4/dfa/class_f_scene.html">FScene</a> *</td>          <td class="paramname"><span class="paramname"><em>Scene</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="../../dd/d2b/class_f_view_info.html">FViewInfo</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>View</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="../../dc/da7/struct_f_lumen_scene_frame_temporaries.html">FLumenSceneFrameTemporaries</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>FrameTemporaries</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="../../d1/d9e/struct_f_scene_textures.html">FSceneTextures</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>SceneTextures</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const FLumenReflectionTracingParameters &amp;</td>          <td class="paramname"><span class="paramname"><em>ReflectionTracingParameters</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const FLumenReflectionTileParameters &amp;</td>          <td class="paramname"><span class="paramname"><em>ReflectionTileParameters</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d7/d9b/_deferred_shading_renderer_types_8h.html#ae50b25db8b8777aa3ce45ae4b6d214f4">EDiffuseIndirectMethod</a></td>          <td class="paramname"><span class="paramname"><em>DiffuseIndirectMethod</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d6/de8/_render_graph_definitions_8h.html#a3b73b7355dd6964375c48c23d5fb76da">ERDGPassFlags</a></td>          <td class="paramname"><span class="paramname"><em>ComputePassFlags</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a></td>          <td class="paramname"><span class="paramname"><em>bUseRayTracedRefraction</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a name="doc-var-members" id="doc-var-members"></a><h2 id="header-doc-var-members" class="groupheader">变量说明</h2>
+<a id="ab0f99763c41a132f2055177920b18ed0" name="ab0f99763c41a132f2055177920b18ed0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab0f99763c41a132f2055177920b18ed0">&#9670;&#160;</a></span>CVarLumenReflectionsFarFieldSampleSceneColorNormalTreshold</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d5/d78/class_t_auto_console_variable.html">TAutoConsoleVariable</a>&lt; <a class="el" href="../../df/d2a/_s_anim_notify_shared_8h.html#ac7c94e837fed3f8e4bb3dd94d7bd2ecf">float</a> &gt; CVarLumenReflectionsFarFieldSampleSceneColorNormalTreshold(<a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;r.Lumen.Reflections.FarField.SampleSceneColorNormalTreshold&quot;), 85.0f, <a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;Normal threshold in degrees <a class="el" href="../../d3/db8/binka__ue__decode__test_8cpp.html#ac1ee511585a5c7a2d58c146185895b72">for</a> far field traces that controls how close ray hit normal and screen normal have to be, before sampling SceneColor is allowed. 0 - only exactly matching normals allowed. 180 - all normals allowed.&quot;), <a class="el" href="../../d4/dd9/_i_console_manager_8h.html#a7f594f23c2b2c5687f1a502ebb3ba105a5fb4e7a0526f4a0c350d71e18956527c">ECVF_Scalability</a>|<a class="el" href="../../d4/dd9/_i_console_manager_8h.html#a7f594f23c2b2c5687f1a502ebb3ba105a774ea60f41417af093a7ca56c4204a70">ECVF_RenderThreadSafe</a>) </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;r.Lumen.Reflections.FarField.SampleSceneColorNormalTreshold&quot;)</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">85.</td>          <td class="paramname"><span class="paramname"><em>0f</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;Normal threshold in degrees <a class="el" href="../../d3/db8/binka__ue__decode__test_8cpp.html#ac1ee511585a5c7a2d58c146185895b72">for</a> far field traces that controls how close ray hit normal and screen normal have to be, before sampling SceneColor is allowed. 0 - only exactly matching normals allowed. 180 - all normals allowed.&quot;)</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d4/dd9/_i_console_manager_8h.html#a7f594f23c2b2c5687f1a502ebb3ba105a5fb4e7a0526f4a0c350d71e18956527c">ECVF_Scalability</a>|</td>          <td class="paramname"><span class="paramname"><em>ECVF_RenderThreadSafe</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a5bf0bfaac75dceea98539af14eb505e3" name="a5bf0bfaac75dceea98539af14eb505e3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5bf0bfaac75dceea98539af14eb505e3">&#9670;&#160;</a></span>CVarLumenReflectionsSampleSceneColorNormalTreshold</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d5/d78/class_t_auto_console_variable.html">TAutoConsoleVariable</a>&lt; <a class="el" href="../../df/d2a/_s_anim_notify_shared_8h.html#ac7c94e837fed3f8e4bb3dd94d7bd2ecf">float</a> &gt; CVarLumenReflectionsSampleSceneColorNormalTreshold(<a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;r.Lumen.Reflections.SampleSceneColorNormalTreshold&quot;), 85.0f, <a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;Normal threshold in degrees that controls how close ray hit normal and screen normal have to be, before sampling SceneColor is allowed. 0 - only exactly matching normals allowed. 180 - all normals allowed.&quot;), <a class="el" href="../../d4/dd9/_i_console_manager_8h.html#a7f594f23c2b2c5687f1a502ebb3ba105a5fb4e7a0526f4a0c350d71e18956527c">ECVF_Scalability</a>|<a class="el" href="../../d4/dd9/_i_console_manager_8h.html#a7f594f23c2b2c5687f1a502ebb3ba105a774ea60f41417af093a7ca56c4204a70">ECVF_RenderThreadSafe</a>) </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;r.Lumen.Reflections.SampleSceneColorNormalTreshold&quot;)</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">85.</td>          <td class="paramname"><span class="paramname"><em>0f</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;Normal threshold in degrees that controls how close ray hit normal and screen normal have to be, before sampling SceneColor is allowed. 0 - only exactly matching normals allowed. 180 - all normals allowed.&quot;)</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d4/dd9/_i_console_manager_8h.html#a7f594f23c2b2c5687f1a502ebb3ba105a5fb4e7a0526f4a0c350d71e18956527c">ECVF_Scalability</a>|</td>          <td class="paramname"><span class="paramname"><em>ECVF_RenderThreadSafe</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="abc25e02652574e5fbb19d993e0714d29" name="abc25e02652574e5fbb19d993e0714d29"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abc25e02652574e5fbb19d993e0714d29">&#9670;&#160;</a></span>CVarLumenScreenTracingSource</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d2/d79/class_f_auto_console_variable_ref.html">FAutoConsoleVariableRef</a> CVarLumenScreenTracingSource(<a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;r.Lumen.ScreenTracingSource&quot;), <a class="el" href="#af9a30992625f848ea041631de1231b10">GLumenScreenTracingSource</a>, <a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;1: Anti-aliased Scene Color (translucency intersected with the opaque depths, less noise from small emissive elements)&quot;), ECVF_RenderThreadSafe) </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;r.Lumen.ScreenTracingSource&quot;)</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="#af9a30992625f848ea041631de1231b10">GLumenScreenTracingSource</a></td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;1: Anti-aliased Scene Color (translucency intersected with the opaque depths, less noise from small emissive elements)&quot;)</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d4/dd9/_i_console_manager_8h.html#a7f594f23c2b2c5687f1a502ebb3ba105a774ea60f41417af093a7ca56c4204a70">ECVF_RenderThreadSafe</a></td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aa64466da8dbeb82a61cfe3932816f338" name="aa64466da8dbeb82a61cfe3932816f338"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa64466da8dbeb82a61cfe3932816f338">&#9670;&#160;</a></span>GLumenReflectionDistantScreenTraceMaxTraceDistance</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../df/d2a/_s_anim_notify_shared_8h.html#ac7c94e837fed3f8e4bb3dd94d7bd2ecf">float</a> GLumenReflectionDistantScreenTraceMaxTraceDistance = 200000.0f</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a2dea16d8f6d86514f5880404543ff634" name="a2dea16d8f6d86514f5880404543ff634"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2dea16d8f6d86514f5880404543ff634">&#9670;&#160;</a></span>GLumenReflectionDistantScreenTraceSlopeCompareTolerance</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../df/d2a/_s_anim_notify_shared_8h.html#ac7c94e837fed3f8e4bb3dd94d7bd2ecf">float</a> GLumenReflectionDistantScreenTraceSlopeCompareTolerance = 2.0f</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="af4a5a7fc05f9843e38a6bbfca6a96f5f" name="af4a5a7fc05f9843e38a6bbfca6a96f5f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af4a5a7fc05f9843e38a6bbfca6a96f5f">&#9670;&#160;</a></span>GLumenReflectionHairStrands_ScreenTrace</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a8dbb3cd84ca9fd010dadfc3815eefa5d">int32</a> GLumenReflectionHairStrands_ScreenTrace = 1</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a310d171d7c5b6419b65a9c5b2ace0fe4" name="a310d171d7c5b6419b65a9c5b2ace0fe4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a310d171d7c5b6419b65a9c5b2ace0fe4">&#9670;&#160;</a></span>GLumenReflectionHairStrands_VoxelTrace</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a8dbb3cd84ca9fd010dadfc3815eefa5d">int32</a> GLumenReflectionHairStrands_VoxelTrace = 1</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a7976d20cf22df9fbaee5112f012dd024" name="a7976d20cf22df9fbaee5112f012dd024"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7976d20cf22df9fbaee5112f012dd024">&#9670;&#160;</a></span>GLumenReflectionHierarchicalScreenTraceHistoryDepthTestRelativeThickness</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../df/d2a/_s_anim_notify_shared_8h.html#ac7c94e837fed3f8e4bb3dd94d7bd2ecf">float</a> GLumenReflectionHierarchicalScreenTraceHistoryDepthTestRelativeThickness = .005f</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ae34f726d6436dba42ed2e465550bc6e1" name="ae34f726d6436dba42ed2e465550bc6e1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae34f726d6436dba42ed2e465550bc6e1">&#9670;&#160;</a></span>GLumenReflectionHierarchicalScreenTraceRelativeDepthThreshold</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../df/d2a/_s_anim_notify_shared_8h.html#ac7c94e837fed3f8e4bb3dd94d7bd2ecf">float</a> GLumenReflectionHierarchicalScreenTraceRelativeDepthThreshold = .005f</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ae6c001b6c89a3dd1033d21460cfd7fda" name="ae6c001b6c89a3dd1033d21460cfd7fda"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae6c001b6c89a3dd1033d21460cfd7fda">&#9670;&#160;</a></span>GLumenReflectionHierarchicalScreenTracesMaxIterations</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a8dbb3cd84ca9fd010dadfc3815eefa5d">int32</a> GLumenReflectionHierarchicalScreenTracesMaxIterations = 50</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a934ab088f1493adb8ea43a256c7d3742" name="a934ab088f1493adb8ea43a256c7d3742"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a934ab088f1493adb8ea43a256c7d3742">&#9670;&#160;</a></span>GLumenReflectionScreenTraces</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a8dbb3cd84ca9fd010dadfc3815eefa5d">int32</a> GLumenReflectionScreenTraces = 1</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a0be2891ba1d29222ac48f64f0e30af24" name="a0be2891ba1d29222ac48f64f0e30af24"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0be2891ba1d29222ac48f64f0e30af24">&#9670;&#160;</a></span>GLumenReflectionScreenTracesMinimumOccupancy</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a8dbb3cd84ca9fd010dadfc3815eefa5d">int32</a> GLumenReflectionScreenTracesMinimumOccupancy = 0</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a95706d10996fb4a7a5ff922afdd58499" name="a95706d10996fb4a7a5ff922afdd58499"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a95706d10996fb4a7a5ff922afdd58499">&#9670;&#160;</a></span>GLumenReflectionsDistantScreenTraces</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a8dbb3cd84ca9fd010dadfc3815eefa5d">int32</a> GLumenReflectionsDistantScreenTraces = 1</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a2a236d338f6428cf9ec788c313cfab13" name="a2a236d338f6428cf9ec788c313cfab13"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2a236d338f6428cf9ec788c313cfab13">&#9670;&#160;</a></span>GLumenReflectionsSampleSceneColorAtHit</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a8dbb3cd84ca9fd010dadfc3815eefa5d">int32</a> GLumenReflectionsSampleSceneColorAtHit = 1</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a13fbf7a14dc2a4c3ecc00567dc6a81ce" name="a13fbf7a14dc2a4c3ecc00567dc6a81ce"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a13fbf7a14dc2a4c3ecc00567dc6a81ce">&#9670;&#160;</a></span>GLumenReflectionTraceCompactionGroupSizeInTiles</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a8dbb3cd84ca9fd010dadfc3815eefa5d">int32</a> GLumenReflectionTraceCompactionGroupSizeInTiles = 16</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aa45a7b8b9d221394da4d462051dea4db" name="aa45a7b8b9d221394da4d462051dea4db"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa45a7b8b9d221394da4d462051dea4db">&#9670;&#160;</a></span>GLumenReflectionTraceCompactionWaveOps</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a8dbb3cd84ca9fd010dadfc3815eefa5d">int32</a> GLumenReflectionTraceCompactionWaveOps = 1</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="af9a30992625f848ea041631de1231b10" name="af9a30992625f848ea041631de1231b10"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af9a30992625f848ea041631de1231b10">&#9670;&#160;</a></span>GLumenScreenTracingSource</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a8dbb3cd84ca9fd010dadfc3815eefa5d">int32</a> GLumenScreenTracingSource = 0</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a841466836b5c59fd0e7b0bc396f55d3e" name="a841466836b5c59fd0e7b0bc396f55d3e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a841466836b5c59fd0e7b0bc396f55d3e">&#9670;&#160;</a></span>GVarLumenReflectionSampleSceneColorRelativeDepthThreshold</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d5/d78/class_t_auto_console_variable.html">TAutoConsoleVariable</a>&lt; <a class="el" href="../../df/d2a/_s_anim_notify_shared_8h.html#ac7c94e837fed3f8e4bb3dd94d7bd2ecf">float</a> &gt; GVarLumenReflectionSampleSceneColorRelativeDepthThreshold(<a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;r.Lumen.Reflections.SampleSceneColorRelativeDepthThickness&quot;), 0.01f, <a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;Depth threshold that controls how close ray hits have to be to the depth buffer, before sampling SceneColor is allowed.&quot;), <a class="el" href="../../d4/dd9/_i_console_manager_8h.html#a7f594f23c2b2c5687f1a502ebb3ba105a5fb4e7a0526f4a0c350d71e18956527c">ECVF_Scalability</a>|<a class="el" href="../../d4/dd9/_i_console_manager_8h.html#a7f594f23c2b2c5687f1a502ebb3ba105a774ea60f41417af093a7ca56c4204a70">ECVF_RenderThreadSafe</a>) </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;r.Lumen.Reflections.SampleSceneColorRelativeDepthThickness&quot;)</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">0.</td>          <td class="paramname"><span class="paramname"><em>01f</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;Depth threshold that controls how close ray hits have to be to the depth buffer, before sampling SceneColor is allowed.&quot;)</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d4/dd9/_i_console_manager_8h.html#a7f594f23c2b2c5687f1a502ebb3ba105a5fb4e7a0526f4a0c350d71e18956527c">ECVF_Scalability</a>|</td>          <td class="paramname"><span class="paramname"><em>ECVF_RenderThreadSafe</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a52273dbe4d883427048ba098324d42ae" name="a52273dbe4d883427048ba098324d42ae"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a52273dbe4d883427048ba098324d42ae">&#9670;&#160;</a></span>GVarLumenReflectionsFarFieldSampleSceneColorRelativeDepthThreshold</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d5/d78/class_t_auto_console_variable.html">TAutoConsoleVariable</a>&lt; <a class="el" href="../../df/d2a/_s_anim_notify_shared_8h.html#ac7c94e837fed3f8e4bb3dd94d7bd2ecf">float</a> &gt; GVarLumenReflectionsFarFieldSampleSceneColorRelativeDepthThreshold(<a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;r.Lumen.Reflections.FarField.SampleSceneColorRelativeDepthThickness&quot;), 0.1f, <a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;Depth threshold <a class="el" href="../../d3/db8/binka__ue__decode__test_8cpp.html#ac1ee511585a5c7a2d58c146185895b72">for</a> far field traces that controls how close ray hits have to be to the depth buffer, before sampling SceneColor is allowed.&quot;), <a class="el" href="../../d4/dd9/_i_console_manager_8h.html#a7f594f23c2b2c5687f1a502ebb3ba105a5fb4e7a0526f4a0c350d71e18956527c">ECVF_Scalability</a>|<a class="el" href="../../d4/dd9/_i_console_manager_8h.html#a7f594f23c2b2c5687f1a502ebb3ba105a774ea60f41417af093a7ca56c4204a70">ECVF_RenderThreadSafe</a>) </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;r.Lumen.Reflections.FarField.SampleSceneColorRelativeDepthThickness&quot;)</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">0.</td>          <td class="paramname"><span class="paramname"><em>1f</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;Depth threshold <a class="el" href="../../d3/db8/binka__ue__decode__test_8cpp.html#ac1ee511585a5c7a2d58c146185895b72">for</a> far field traces that controls how close ray hits have to be to the depth buffer, before sampling SceneColor is allowed.&quot;)</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d4/dd9/_i_console_manager_8h.html#a7f594f23c2b2c5687f1a502ebb3ba105a5fb4e7a0526f4a0c350d71e18956527c">ECVF_Scalability</a>|</td>          <td class="paramname"><span class="paramname"><em>ECVF_RenderThreadSafe</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<div id="page-nav" class="page-nav-panel">
+<div id="page-nav-resize-handle"></div>
+<div id="page-nav-tree">
+<div id="page-nav-contents">
+</div><!-- page-nav-contents -->
+</div><!-- page-nav-tree -->
+</div><!-- page-nav -->
+</div><!-- container -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a href="../../dir_0b6ee6e7e9547e675db4add2e5de97da.html">Engine</a></li><li class="navelem"><a href="../../dir_9579d1ecb2c7bf48cbe1049c41745cb4.html">Source</a></li><li class="navelem"><a href="../../dir_9f04efef762572853abdf73f62bebfcc.html">Runtime</a></li><li class="navelem"><a href="../../dir_5ed6327f04b0f38d3f6fe5caa38b0445.html">Renderer</a></li><li class="navelem"><a href="../../dir_e317dc6f09036e33460f39c550131623.html">Private</a></li><li class="navelem"><a href="../../dir_161a7642c6d0198965c23f504e27c348.html">Lumen</a></li><li class="navelem"><a href="../../d3/de7/_lumen_reflection_tracing_8cpp.html">LumenReflectionTracing.cpp</a></li>
+    <li class="footer">制作者 <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.15.0 </li>
+  </ul>
+</div>
+</body>
+</html>

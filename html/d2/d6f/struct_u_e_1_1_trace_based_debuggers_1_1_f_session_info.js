@@ -1,0 +1,27 @@
+var struct_u_e_1_1_trace_based_debuggers_1_1_f_session_info =
+[
+    [ "FSessionInfo", "d2/d6f/struct_u_e_1_1_trace_based_debuggers_1_1_f_session_info.html#a9423f64266155e54bf3950a3d8c0aff1", null ],
+    [ "~FSessionInfo", "d2/d6f/struct_u_e_1_1_trace_based_debuggers_1_1_f_session_info.html#abf539978b8af8d317f94bc8f6d20e7fe", null ],
+    [ "FSessionInfo", "d2/d6f/struct_u_e_1_1_trace_based_debuggers_1_1_f_session_info.html#a680ae75352bf572e4f54e10197a5d37c", null ],
+    [ "GetBufferedBytesNum", "d2/d6f/struct_u_e_1_1_trace_based_debuggers_1_1_f_session_info.html#a8aa55568b50cdabe7adf1e20d388dbbf", null ],
+    [ "GetDebuggerData", "d2/d6f/struct_u_e_1_1_trace_based_debuggers_1_1_f_session_info.html#aeb320dc1b382ea039d32896df3b23d88", null ],
+    [ "GetReceivedBytesPerSecond", "d2/d6f/struct_u_e_1_1_trace_based_debuggers_1_1_f_session_info.html#abdf2bcb58e888ce48f6f8b0411d40322", null ],
+    [ "GetSessionTypeAttributes", "d2/d6f/struct_u_e_1_1_trace_based_debuggers_1_1_f_session_info.html#aa7a68ca9e065bb51683475c367711725", null ],
+    [ "GetTraceConnectionDetails", "d2/d6f/struct_u_e_1_1_trace_based_debuggers_1_1_f_session_info.html#a5e65d1157225aa036f93e0fc23940878", null ],
+    [ "IsAnyDebuggerRecording", "d2/d6f/struct_u_e_1_1_trace_based_debuggers_1_1_f_session_info.html#af17e62d58690875d038bb5576c145af7", null ],
+    [ "IsRecording", "d2/d6f/struct_u_e_1_1_trace_based_debuggers_1_1_f_session_info.html#a9f3efdcce7502b5fc39bcfc329039c6e", null ],
+    [ "SetDebuggerData", "d2/d6f/struct_u_e_1_1_trace_based_debuggers_1_1_f_session_info.html#a31c47638d9ade0f367d7f6cd39000e18", null ],
+    [ "SetReceivedBytesPerSecond", "d2/d6f/struct_u_e_1_1_trace_based_debuggers_1_1_f_session_info.html#ae35b7b706d6a8df08716c45c7b32d896", null ],
+    [ "FRemoteSessionsManager", "d2/d6f/struct_u_e_1_1_trace_based_debuggers_1_1_f_session_info.html#a1fede39f8ed8590672d39b99ac07a467", null ],
+    [ "Address", "d2/d6f/struct_u_e_1_1_trace_based_debuggers_1_1_f_session_info.html#a428c818ca267ab169418170be70b8268", null ],
+    [ "BuildTargetType", "d2/d6f/struct_u_e_1_1_trace_based_debuggers_1_1_f_session_info.html#ad9d8da197f3f4dc1fc5a0f7cfaea89ec", null ],
+    [ "DebuggerSpecificSessionData", "d2/d6f/struct_u_e_1_1_trace_based_debuggers_1_1_f_session_info.html#a14365e7733a842ace1a9d92817f8d14c", null ],
+    [ "InstanceId", "d2/d6f/struct_u_e_1_1_trace_based_debuggers_1_1_f_session_info.html#a5acf4ad83985b4c416de48c48b73eb85", null ],
+    [ "LastKnownConnectionDetails", "d2/d6f/struct_u_e_1_1_trace_based_debuggers_1_1_f_session_info.html#a6f38a8bfe149aa2f0a50ad31ef0ac8c5", null ],
+    [ "LastKnownRecordingState", "d2/d6f/struct_u_e_1_1_trace_based_debuggers_1_1_f_session_info.html#a0e774b86ada33a315c66052779f780b9", null ],
+    [ "LastPingTime", "d2/d6f/struct_u_e_1_1_trace_based_debuggers_1_1_f_session_info.html#a55eedbf5f519878de83af80ce9bc3ba4", null ],
+    [ "ReadyState", "d2/d6f/struct_u_e_1_1_trace_based_debuggers_1_1_f_session_info.html#a090998477496ab7ea5804f2fa9fdc9ab", null ],
+    [ "ReceivedBytesPerSecond", "d2/d6f/struct_u_e_1_1_trace_based_debuggers_1_1_f_session_info.html#a36364a8d22751813788b21e895aba945", null ],
+    [ "SessionName", "d2/d6f/struct_u_e_1_1_trace_based_debuggers_1_1_f_session_info.html#ad149ed2a1e80960b9f6b7b35eb3ab519", null ],
+    [ "SessionTypeAttributes", "d2/d6f/struct_u_e_1_1_trace_based_debuggers_1_1_f_session_info.html#a4a5a552feb1b10d4d624c8a43a6c3438", null ]
+];

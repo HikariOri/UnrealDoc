@@ -1,0 +1,221 @@
+<!-- HTML header for doxygen 1.15.0-->
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh">
+<head>
+  <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=11" />
+  <meta name="generator" content="Doxygen 1.15.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>UE 5.8.4: Engine/Source/Runtime/Renderer/Private/PostProcess/PostProcessDOF.h 源文件</title>
+  <link rel="icon" href="../../EdIconDefault.bmp" type="image/x-icon" />
+  <link href="../../tabs.css" rel="stylesheet" type="text/css" />
+  <script type="text/javascript" src="../../jquery.js"></script>
+  <script type="text/javascript" src="../../dynsections.js"></script>
+  <link href="../../navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../navtreedata.js"></script>
+<script type="text/javascript" src="../../navtree.js"></script>
+<script type="text/javascript" src="../../cookie.js"></script>
+  <link href="../../search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../search/searchdata.js"></script>
+<script type="text/javascript" src="../../search/search.js"></script>
+  <link href="../../doxygen.css" rel="stylesheet" type="text/css" />
+  <link href="../../doxygen-awesome.css" rel="stylesheet" type="text/css"/>
+<link href="../../doxygen-awesome-sidebar-only.css" rel="stylesheet" type="text/css"/>
+<link href="../../doxygen-awesome-sidebar-only-darkmode-toggle.css" rel="stylesheet" type="text/css"/>
+  <!-- ... other metadata & script includes ... -->
+  <script type="text/javascript" src="../../doxygen-awesome-darkmode-toggle.js"></script>
+  <script type="text/javascript">
+    DoxygenAwesomeDarkModeToggle.title = "Zwischen hellem/dunklem Modus wechseln"
+    DoxygenAwesomeDarkModeToggle.lightModeIcon = '🌞'
+    // icon from https://fonts.google.com/icons
+    DoxygenAwesomeDarkModeToggle.darkModeIcon = `<svg xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 24 24" height="24px" viewBox="0 0 24 24" width="24px" fill="#009793"><g><rect fill="none" height="24" width="24"/></g><g><g><path d="M8.1,14.15C9.77,14.63,11,16.17,11,18c0,0.68-0.19,1.31-0.48,1.87c0.48,0.09,0.97,0.14,1.48,0.14 c1.48,0,2.9-0.41,4.13-1.15c-2.62-0.92-5.23-2.82-6.8-5.86C7.74,9.94,7.78,7.09,8.29,4.9c-2.57,1.33-4.3,4.01-4.3,7.1c0,0,0,0,0,0 c0.01,0,0.01,0,0.02,0C5.66,12,7.18,12.83,8.1,14.15z" opacity=".3"/><path d="M19.78,17.51c-2.47,0-6.57-1.33-8.68-5.43C8.77,7.57,10.6,3.6,11.63,2.01C6.27,2.2,1.98,6.59,1.98,12 c0,0.14,0.02,0.28,0.02,0.42C2.61,12.16,3.28,12,3.98,12c0,0,0,0,0,0c0-3.09,1.73-5.77,4.3-7.1C7.78,7.09,7.74,9.94,9.32,13 c1.57,3.04,4.18,4.95,6.8,5.86c-1.23,0.74-2.65,1.15-4.13,1.15c-0.5,0-1-0.05-1.48-0.14c-0.37,0.7-0.94,1.27-1.64,1.64 c0.98,0.32,2.03,0.5,3.11,0.5c3.5,0,6.58-1.8,8.37-4.52C20.18,17.5,19.98,17.51,19.78,17.51z"/><path d="M7,16l-0.18,0C6.4,14.84,5.3,14,4,14c-1.66,0-3,1.34-3,3s1.34,3,3,3c0.62,0,2.49,0,3,0c1.1,0,2-0.9,2-2 C9,16.9,8.1,16,7,16z"/></g></g></svg>`
+    DoxygenAwesomeDarkModeToggle.init()
+  </script>
+  <script type="text/javascript" src="../../doxygen-awesome-fragment-copy-button.js"></script>
+  <script type="text/javascript">
+    DoxygenAwesomeFragmentCopyButton.title = "In die Zwischenablage kopieren"
+    // DoxygenAwesomeFragmentCopyButton.copyIcon = `<svg ...>`
+    // DoxygenAwesomeFragmentCopyButton.successIcon = `<svg ...>`
+    DoxygenAwesomeFragmentCopyButton.init()
+  </script>
+  <script type="text/javascript" src="../../doxygen-awesome-paragraph-link.js"></script>
+  <script type="text/javascript">
+    DoxygenAwesomeParagraphLink.title = "Abschnitt verknüpfen"
+    DoxygenAwesomeParagraphLink.icon = "¶"
+    DoxygenAwesomeParagraphLink.init()
+  </script>
+  <script type="text/javascript" src="../../doxygen-awesome-interactive-toc.js"></script>
+  <script type="text/javascript">
+    DoxygenAwesomeInteractiveToc.topOffset = 45
+    DoxygenAwesomeInteractiveToc.hideMobileMenu = false
+    DoxygenAwesomeInteractiveToc.init()
+  </script>
+</head>
+<body>
+    <div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+      <div id="titlearea">
+        <table cellspacing="0" cellpadding="0">
+          <tbody>
+            <tr id="projectrow">
+              <td id="projectlogo"><img alt="Logo" src="../../EdIconDefault.bmp"  /></td>
+              <td id="projectalign">
+                <div id="projectname">UE 5.8.4
+                </div>
+                <div id="projectbrief">Unreal Engine</div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <!-- end header part -->
+<!-- 制作者 Doxygen 1.15.0 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "../../search/",'.html');
+</script>
+<script type="text/javascript">
+$(function() { codefold.init(); });
+</script>
+<script type="text/javascript" src="../../menudata.js"></script>
+<script type="text/javascript" src="../../menu.js"></script>
+<script type="text/javascript">
+$(function() {
+  initMenu('../../',true,false,'search.php','搜索',true);
+  $(function() { init_search(); });
+});
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(function(){initNavTree('d5/d43/_post_process_d_o_f_8h_source.html','../../',''); });
+</script>
+<div id="container">
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">载入中...</div>
+<div class="SRStatus" id="Searching">搜索中...</div>
+<div class="SRStatus" id="NoMatches">未找到</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">PostProcessDOF.h</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="../../d5/d43/_post_process_d_o_f_8h.html">浏览该文件的文档.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="comment">// Copyright Epic Games, Inc. All Rights Reserved.</span></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span> </div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="comment">/*=============================================================================</span></div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="comment">    PostProcessDOF.h: Post process Depth of Field implementation.</span></div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="comment">=============================================================================*/</span></div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span> </div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="preprocessor">#pragma once</span></div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span> </div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="preprocessor">#include &quot;<a class="code" href="../../dc/d5e/_core_minimal_8h.html">CoreMinimal.h</a>&quot;</span></div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="preprocessor">#include &quot;<a class="code" href="../../dd/da6/_renderer_interface_8h.html">RendererInterface.h</a>&quot;</span></div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="preprocessor">#include &quot;<a class="code" href="../../d7/d17/_screen_pass_8h.html">ScreenPass.h</a>&quot;</span></div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="preprocessor">#include &quot;<a class="code" href="../../d0/df6/_math_fwd_8h.html">Math/MathFwd.h</a>&quot;</span></div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span> </div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="keyword">struct </span><a class="code hl_struct" href="../../d1/d3d/struct_f_post_process_settings.html">FPostProcessSettings</a>;</div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span> </div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span><a class="code hl_typedef" href="../../d0/df6/_math_fwd_8h.html#ae0aaacce11785349d3bd1206def2a6b8">FVector4f</a> <a class="code hl_function" href="../../d5/d43/_post_process_d_o_f_8h.html#aa67cf60c10d1c1b1344cdc4dffec1479">GetDepthOfFieldParameters</a>(<span class="keyword">const</span> <a class="code hl_struct" href="../../d1/d3d/struct_f_post_process_settings.html">FPostProcessSettings</a>&amp; PostProcessSettings);</div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span> </div>
+<div class="foldopen" id="foldopen00018" data-start="{" data-end="};">
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno"><a class="line" href="../../d3/df6/struct_f_mobile_dof_setup_inputs.html">   18</a></span><span class="keyword">struct </span><a class="code hl_struct" href="../../d3/df6/struct_f_mobile_dof_setup_inputs.html">FMobileDofSetupInputs</a></div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>{</div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno"><a class="line" href="../../d3/df6/struct_f_mobile_dof_setup_inputs.html#a5a739f1c8c96fc54c6f5f31c821aa8e0">   20</a></span>    <a class="code hl_struct" href="../../d3/df7/struct_f_screen_pass_texture.html">FScreenPassTexture</a> <a class="code hl_variable" href="../../d3/df6/struct_f_mobile_dof_setup_inputs.html#a5a739f1c8c96fc54c6f5f31c821aa8e0">SceneColor</a>;</div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno"><a class="line" href="../../d3/df6/struct_f_mobile_dof_setup_inputs.html#ab80b2162f8aa2579384516a1bf7029a8">   21</a></span>    <a class="code hl_struct" href="../../d3/df7/struct_f_screen_pass_texture.html">FScreenPassTexture</a> <a class="code hl_variable" href="../../d3/df6/struct_f_mobile_dof_setup_inputs.html#ab80b2162f8aa2579384516a1bf7029a8">SunShaftAndDof</a>;</div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span> </div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno"><a class="line" href="../../d3/df6/struct_f_mobile_dof_setup_inputs.html#a41f2c1fad4f688a658b5c940b8793a5d">   23</a></span>    <span class="keywordtype">bool</span> <a class="code hl_variable" href="../../d3/df6/struct_f_mobile_dof_setup_inputs.html#a41f2c1fad4f688a658b5c940b8793a5d">bFarBlur</a> = <span class="keyword">false</span>;</div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno"><a class="line" href="../../d3/df6/struct_f_mobile_dof_setup_inputs.html#a86fe6ef0cf38c669c8513a032e67e3f5">   24</a></span>    <span class="keywordtype">bool</span> <a class="code hl_variable" href="../../d3/df6/struct_f_mobile_dof_setup_inputs.html#a86fe6ef0cf38c669c8513a032e67e3f5">bNearBlur</a> = <span class="keyword">false</span>;</div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>};</div>
+</div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span> </div>
+<div class="foldopen" id="foldopen00027" data-start="{" data-end="};">
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno"><a class="line" href="../../d2/d19/struct_f_mobile_dof_setup_outputs.html">   27</a></span><span class="keyword">struct </span><a class="code hl_struct" href="../../d2/d19/struct_f_mobile_dof_setup_outputs.html">FMobileDofSetupOutputs</a></div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>{</div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno"><a class="line" href="../../d2/d19/struct_f_mobile_dof_setup_outputs.html#a08e61ca9a0ccd2d254254751e7ba9563">   29</a></span>    <a class="code hl_struct" href="../../d3/df7/struct_f_screen_pass_texture.html">FScreenPassTexture</a> <a class="code hl_variable" href="../../d2/d19/struct_f_mobile_dof_setup_outputs.html#a08e61ca9a0ccd2d254254751e7ba9563">DofSetupFar</a>;</div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno"><a class="line" href="../../d2/d19/struct_f_mobile_dof_setup_outputs.html#a797d624862b13baf09a209df85ca28a8">   30</a></span>    <a class="code hl_struct" href="../../d3/df7/struct_f_screen_pass_texture.html">FScreenPassTexture</a> <a class="code hl_variable" href="../../d2/d19/struct_f_mobile_dof_setup_outputs.html#a797d624862b13baf09a209df85ca28a8">DofSetupNear</a>;</div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>};</div>
+</div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span> </div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span><span class="comment">// down sample and setup DOF input</span></div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span><a class="code hl_struct" href="../../d2/d19/struct_f_mobile_dof_setup_outputs.html">FMobileDofSetupOutputs</a> <a class="code hl_function" href="../../d5/d43/_post_process_d_o_f_8h.html#a6bc044c2f1b46f237bd57e6bee7b1f0b">AddMobileDofSetupPass</a>(<a class="code hl_class" href="../../d3/d85/class_f_r_d_g_builder.html">FRDGBuilder</a>&amp; GraphBuilder, <span class="keyword">const</span> <a class="code hl_class" href="../../dd/d2b/class_f_view_info.html">FViewInfo</a>&amp; <a class="code hl_enumvalue" href="../../d4/ded/_asset_type_activation_opened_method_8h.html#adf66f18a6bd35d59ab943dc1556b124fa4351cfebe4b61d8aa5efa1d020710005">View</a>, <span class="keyword">const</span> <a class="code hl_struct" href="../../d3/df6/struct_f_mobile_dof_setup_inputs.html">FMobileDofSetupInputs</a>&amp; Inputs);</div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span> </div>
+<div class="foldopen" id="foldopen00036" data-start="{" data-end="};">
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno"><a class="line" href="../../dd/d86/struct_f_mobile_dof_recombine_inputs.html">   36</a></span><span class="keyword">struct </span><a class="code hl_struct" href="../../dd/d86/struct_f_mobile_dof_recombine_inputs.html">FMobileDofRecombineInputs</a></div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>{</div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno"><a class="line" href="../../dd/d86/struct_f_mobile_dof_recombine_inputs.html#afb15d02783f03d145dedd87dc3989810">   38</a></span>    <a class="code hl_struct" href="../../d3/df7/struct_f_screen_pass_texture.html">FScreenPassTexture</a> <a class="code hl_variable" href="../../dd/d86/struct_f_mobile_dof_recombine_inputs.html#afb15d02783f03d145dedd87dc3989810">SceneColor</a>;</div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno"><a class="line" href="../../dd/d86/struct_f_mobile_dof_recombine_inputs.html#a1299d186751fd9d2b0a9bffc80386b9e">   39</a></span>    <a class="code hl_struct" href="../../d3/df7/struct_f_screen_pass_texture.html">FScreenPassTexture</a> <a class="code hl_variable" href="../../dd/d86/struct_f_mobile_dof_recombine_inputs.html#a1299d186751fd9d2b0a9bffc80386b9e">DofFarBlur</a>;</div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno"><a class="line" href="../../dd/d86/struct_f_mobile_dof_recombine_inputs.html#a491ad0a7acb6410a122138a2cbc50928">   40</a></span>    <a class="code hl_struct" href="../../d3/df7/struct_f_screen_pass_texture.html">FScreenPassTexture</a> <a class="code hl_variable" href="../../dd/d86/struct_f_mobile_dof_recombine_inputs.html#a491ad0a7acb6410a122138a2cbc50928">DofNearBlur</a>;</div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno"><a class="line" href="../../dd/d86/struct_f_mobile_dof_recombine_inputs.html#a171373c62a2cd502cfb9c2a0afb01b0a">   41</a></span>    <a class="code hl_struct" href="../../d3/df7/struct_f_screen_pass_texture.html">FScreenPassTexture</a> <a class="code hl_variable" href="../../dd/d86/struct_f_mobile_dof_recombine_inputs.html#a171373c62a2cd502cfb9c2a0afb01b0a">SunShaftAndDof</a>;</div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span> </div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno"><a class="line" href="../../dd/d86/struct_f_mobile_dof_recombine_inputs.html#a5a21882abf66cf4177b6b88abc6df3ce">   43</a></span>    <span class="keywordtype">bool</span> <a class="code hl_variable" href="../../dd/d86/struct_f_mobile_dof_recombine_inputs.html#a5a21882abf66cf4177b6b88abc6df3ce">bFarBlur</a> = <span class="keyword">false</span>;</div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno"><a class="line" href="../../dd/d86/struct_f_mobile_dof_recombine_inputs.html#a35f9562d116cf678bcac78d5cddf0baf">   44</a></span>    <span class="keywordtype">bool</span> <a class="code hl_variable" href="../../dd/d86/struct_f_mobile_dof_recombine_inputs.html#a35f9562d116cf678bcac78d5cddf0baf">bNearBlur</a> = <span class="keyword">false</span>;</div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>};</div>
+</div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span> </div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span><a class="code hl_struct" href="../../d3/df7/struct_f_screen_pass_texture.html">FScreenPassTexture</a> <a class="code hl_function" href="../../d5/d43/_post_process_d_o_f_8h.html#aaa202f912d34132ab762a6529a1efed4">AddMobileDofRecombinePass</a>(<a class="code hl_class" href="../../d3/d85/class_f_r_d_g_builder.html">FRDGBuilder</a>&amp; GraphBuilder, <span class="keyword">const</span> <a class="code hl_class" href="../../dd/d2b/class_f_view_info.html">FViewInfo</a>&amp; <a class="code hl_enumvalue" href="../../d4/ded/_asset_type_activation_opened_method_8h.html#adf66f18a6bd35d59ab943dc1556b124fa4351cfebe4b61d8aa5efa1d020710005">View</a>, <span class="keyword">const</span> <a class="code hl_struct" href="../../dd/d86/struct_f_mobile_dof_recombine_inputs.html">FMobileDofRecombineInputs</a>&amp; Inputs);</div>
+<div class="ttc" id="a_asset_type_activation_opened_method_8h_html_adf66f18a6bd35d59ab943dc1556b124fa4351cfebe4b61d8aa5efa1d020710005"><div class="ttname"><a href="../../d4/ded/_asset_type_activation_opened_method_8h.html#adf66f18a6bd35d59ab943dc1556b124fa4351cfebe4b61d8aa5efa1d020710005">EAssetTypeActivationOpenedMethod::View</a></div><div class="ttdeci">@ View</div><div class="ttdef"><b>定义</b> AssetTypeActivationOpenedMethod.h:19</div></div>
+<div class="ttc" id="a_core_minimal_8h_html"><div class="ttname"><a href="../../dc/d5e/_core_minimal_8h.html">CoreMinimal.h</a></div></div>
+<div class="ttc" id="a_math_fwd_8h_html"><div class="ttname"><a href="../../d0/df6/_math_fwd_8h.html">MathFwd.h</a></div></div>
+<div class="ttc" id="a_math_fwd_8h_html_ae0aaacce11785349d3bd1206def2a6b8"><div class="ttname"><a href="../../d0/df6/_math_fwd_8h.html#ae0aaacce11785349d3bd1206def2a6b8">FVector4f</a></div><div class="ttdeci">UE::Math::TVector4&lt; float &gt; FVector4f</div><div class="ttdef"><b>定义</b> MathFwd.h:75</div></div>
+<div class="ttc" id="a_post_process_d_o_f_8h_html_a6bc044c2f1b46f237bd57e6bee7b1f0b"><div class="ttname"><a href="../../d5/d43/_post_process_d_o_f_8h.html#a6bc044c2f1b46f237bd57e6bee7b1f0b">AddMobileDofSetupPass</a></div><div class="ttdeci">FMobileDofSetupOutputs AddMobileDofSetupPass(FRDGBuilder &amp;GraphBuilder, const FViewInfo &amp;View, const FMobileDofSetupInputs &amp;Inputs)</div><div class="ttdef"><b>定义</b> PostProcessDOF.cpp:84</div></div>
+<div class="ttc" id="a_post_process_d_o_f_8h_html_aa67cf60c10d1c1b1344cdc4dffec1479"><div class="ttname"><a href="../../d5/d43/_post_process_d_o_f_8h.html#aa67cf60c10d1c1b1344cdc4dffec1479">GetDepthOfFieldParameters</a></div><div class="ttdeci">FVector4f GetDepthOfFieldParameters(const FPostProcessSettings &amp;PostProcessSettings)</div><div class="ttdef"><b>定义</b> PostProcessDOF.cpp:20</div></div>
+<div class="ttc" id="a_post_process_d_o_f_8h_html_aaa202f912d34132ab762a6529a1efed4"><div class="ttname"><a href="../../d5/d43/_post_process_d_o_f_8h.html#aaa202f912d34132ab762a6529a1efed4">AddMobileDofRecombinePass</a></div><div class="ttdeci">FScreenPassTexture AddMobileDofRecombinePass(FRDGBuilder &amp;GraphBuilder, const FViewInfo &amp;View, const FMobileDofRecombineInputs &amp;Inputs)</div><div class="ttdef"><b>定义</b> PostProcessDOF.cpp:191</div></div>
+<div class="ttc" id="a_renderer_interface_8h_html"><div class="ttname"><a href="../../dd/da6/_renderer_interface_8h.html">RendererInterface.h</a></div></div>
+<div class="ttc" id="a_screen_pass_8h_html"><div class="ttname"><a href="../../d7/d17/_screen_pass_8h.html">ScreenPass.h</a></div></div>
+<div class="ttc" id="aclass_f_r_d_g_builder_html"><div class="ttname"><a href="../../d3/d85/class_f_r_d_g_builder.html">FRDGBuilder</a></div><div class="ttdef"><b>定义</b> RenderGraphBuilder.h:52</div></div>
+<div class="ttc" id="aclass_f_view_info_html"><div class="ttname"><a href="../../dd/d2b/class_f_view_info.html">FViewInfo</a></div><div class="ttdef"><b>定义</b> SceneRendering.h:1255</div></div>
+<div class="ttc" id="astruct_f_mobile_dof_recombine_inputs_html"><div class="ttname"><a href="../../dd/d86/struct_f_mobile_dof_recombine_inputs.html">FMobileDofRecombineInputs</a></div><div class="ttdef"><b>定义</b> PostProcessDOF.h:37</div></div>
+<div class="ttc" id="astruct_f_mobile_dof_recombine_inputs_html_a1299d186751fd9d2b0a9bffc80386b9e"><div class="ttname"><a href="../../dd/d86/struct_f_mobile_dof_recombine_inputs.html#a1299d186751fd9d2b0a9bffc80386b9e">FMobileDofRecombineInputs::DofFarBlur</a></div><div class="ttdeci">FScreenPassTexture DofFarBlur</div><div class="ttdef"><b>定义</b> PostProcessDOF.h:39</div></div>
+<div class="ttc" id="astruct_f_mobile_dof_recombine_inputs_html_a171373c62a2cd502cfb9c2a0afb01b0a"><div class="ttname"><a href="../../dd/d86/struct_f_mobile_dof_recombine_inputs.html#a171373c62a2cd502cfb9c2a0afb01b0a">FMobileDofRecombineInputs::SunShaftAndDof</a></div><div class="ttdeci">FScreenPassTexture SunShaftAndDof</div><div class="ttdef"><b>定义</b> PostProcessDOF.h:41</div></div>
+<div class="ttc" id="astruct_f_mobile_dof_recombine_inputs_html_a35f9562d116cf678bcac78d5cddf0baf"><div class="ttname"><a href="../../dd/d86/struct_f_mobile_dof_recombine_inputs.html#a35f9562d116cf678bcac78d5cddf0baf">FMobileDofRecombineInputs::bNearBlur</a></div><div class="ttdeci">bool bNearBlur</div><div class="ttdef"><b>定义</b> PostProcessDOF.h:44</div></div>
+<div class="ttc" id="astruct_f_mobile_dof_recombine_inputs_html_a491ad0a7acb6410a122138a2cbc50928"><div class="ttname"><a href="../../dd/d86/struct_f_mobile_dof_recombine_inputs.html#a491ad0a7acb6410a122138a2cbc50928">FMobileDofRecombineInputs::DofNearBlur</a></div><div class="ttdeci">FScreenPassTexture DofNearBlur</div><div class="ttdef"><b>定义</b> PostProcessDOF.h:40</div></div>
+<div class="ttc" id="astruct_f_mobile_dof_recombine_inputs_html_a5a21882abf66cf4177b6b88abc6df3ce"><div class="ttname"><a href="../../dd/d86/struct_f_mobile_dof_recombine_inputs.html#a5a21882abf66cf4177b6b88abc6df3ce">FMobileDofRecombineInputs::bFarBlur</a></div><div class="ttdeci">bool bFarBlur</div><div class="ttdef"><b>定义</b> PostProcessDOF.h:43</div></div>
+<div class="ttc" id="astruct_f_mobile_dof_recombine_inputs_html_afb15d02783f03d145dedd87dc3989810"><div class="ttname"><a href="../../dd/d86/struct_f_mobile_dof_recombine_inputs.html#afb15d02783f03d145dedd87dc3989810">FMobileDofRecombineInputs::SceneColor</a></div><div class="ttdeci">FScreenPassTexture SceneColor</div><div class="ttdef"><b>定义</b> PostProcessDOF.h:38</div></div>
+<div class="ttc" id="astruct_f_mobile_dof_setup_inputs_html"><div class="ttname"><a href="../../d3/df6/struct_f_mobile_dof_setup_inputs.html">FMobileDofSetupInputs</a></div><div class="ttdef"><b>定义</b> PostProcessDOF.h:19</div></div>
+<div class="ttc" id="astruct_f_mobile_dof_setup_inputs_html_a41f2c1fad4f688a658b5c940b8793a5d"><div class="ttname"><a href="../../d3/df6/struct_f_mobile_dof_setup_inputs.html#a41f2c1fad4f688a658b5c940b8793a5d">FMobileDofSetupInputs::bFarBlur</a></div><div class="ttdeci">bool bFarBlur</div><div class="ttdef"><b>定义</b> PostProcessDOF.h:23</div></div>
+<div class="ttc" id="astruct_f_mobile_dof_setup_inputs_html_a5a739f1c8c96fc54c6f5f31c821aa8e0"><div class="ttname"><a href="../../d3/df6/struct_f_mobile_dof_setup_inputs.html#a5a739f1c8c96fc54c6f5f31c821aa8e0">FMobileDofSetupInputs::SceneColor</a></div><div class="ttdeci">FScreenPassTexture SceneColor</div><div class="ttdef"><b>定义</b> PostProcessDOF.h:20</div></div>
+<div class="ttc" id="astruct_f_mobile_dof_setup_inputs_html_a86fe6ef0cf38c669c8513a032e67e3f5"><div class="ttname"><a href="../../d3/df6/struct_f_mobile_dof_setup_inputs.html#a86fe6ef0cf38c669c8513a032e67e3f5">FMobileDofSetupInputs::bNearBlur</a></div><div class="ttdeci">bool bNearBlur</div><div class="ttdef"><b>定义</b> PostProcessDOF.h:24</div></div>
+<div class="ttc" id="astruct_f_mobile_dof_setup_inputs_html_ab80b2162f8aa2579384516a1bf7029a8"><div class="ttname"><a href="../../d3/df6/struct_f_mobile_dof_setup_inputs.html#ab80b2162f8aa2579384516a1bf7029a8">FMobileDofSetupInputs::SunShaftAndDof</a></div><div class="ttdeci">FScreenPassTexture SunShaftAndDof</div><div class="ttdef"><b>定义</b> PostProcessDOF.h:21</div></div>
+<div class="ttc" id="astruct_f_mobile_dof_setup_outputs_html"><div class="ttname"><a href="../../d2/d19/struct_f_mobile_dof_setup_outputs.html">FMobileDofSetupOutputs</a></div><div class="ttdef"><b>定义</b> PostProcessDOF.h:28</div></div>
+<div class="ttc" id="astruct_f_mobile_dof_setup_outputs_html_a08e61ca9a0ccd2d254254751e7ba9563"><div class="ttname"><a href="../../d2/d19/struct_f_mobile_dof_setup_outputs.html#a08e61ca9a0ccd2d254254751e7ba9563">FMobileDofSetupOutputs::DofSetupFar</a></div><div class="ttdeci">FScreenPassTexture DofSetupFar</div><div class="ttdef"><b>定义</b> PostProcessDOF.h:29</div></div>
+<div class="ttc" id="astruct_f_mobile_dof_setup_outputs_html_a797d624862b13baf09a209df85ca28a8"><div class="ttname"><a href="../../d2/d19/struct_f_mobile_dof_setup_outputs.html#a797d624862b13baf09a209df85ca28a8">FMobileDofSetupOutputs::DofSetupNear</a></div><div class="ttdeci">FScreenPassTexture DofSetupNear</div><div class="ttdef"><b>定义</b> PostProcessDOF.h:30</div></div>
+<div class="ttc" id="astruct_f_post_process_settings_html"><div class="ttname"><a href="../../d1/d3d/struct_f_post_process_settings.html">FPostProcessSettings</a></div><div class="ttdef"><b>定义</b> Scene.h:712</div></div>
+<div class="ttc" id="astruct_f_screen_pass_texture_html"><div class="ttname"><a href="../../d3/df7/struct_f_screen_pass_texture.html">FScreenPassTexture</a></div><div class="ttdef"><b>定义</b> ScreenPass.h:46</div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+</div><!-- container -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a href="../../dir_0b6ee6e7e9547e675db4add2e5de97da.html">Engine</a></li><li class="navelem"><a href="../../dir_9579d1ecb2c7bf48cbe1049c41745cb4.html">Source</a></li><li class="navelem"><a href="../../dir_9f04efef762572853abdf73f62bebfcc.html">Runtime</a></li><li class="navelem"><a href="../../dir_5ed6327f04b0f38d3f6fe5caa38b0445.html">Renderer</a></li><li class="navelem"><a href="../../dir_e317dc6f09036e33460f39c550131623.html">Private</a></li><li class="navelem"><a href="../../dir_f2aa76ded130b077846bc18bb76bacc2.html">PostProcess</a></li><li class="navelem"><a href="../../d5/d43/_post_process_d_o_f_8h.html">PostProcessDOF.h</a></li>
+    <li class="footer">制作者 <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.15.0 </li>
+  </ul>
+</div>
+</body>
+</html>

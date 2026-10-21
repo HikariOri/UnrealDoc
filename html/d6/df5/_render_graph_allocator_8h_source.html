@@ -1,0 +1,519 @@
+<!-- HTML header for doxygen 1.15.0-->
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh">
+<head>
+  <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=11" />
+  <meta name="generator" content="Doxygen 1.15.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>UE 5.8.4: Engine/Source/Runtime/RenderCore/Public/RenderGraphAllocator.h 源文件</title>
+  <link rel="icon" href="../../EdIconDefault.bmp" type="image/x-icon" />
+  <link href="../../tabs.css" rel="stylesheet" type="text/css" />
+  <script type="text/javascript" src="../../jquery.js"></script>
+  <script type="text/javascript" src="../../dynsections.js"></script>
+  <link href="../../navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../navtreedata.js"></script>
+<script type="text/javascript" src="../../navtree.js"></script>
+<script type="text/javascript" src="../../cookie.js"></script>
+  <link href="../../search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../search/searchdata.js"></script>
+<script type="text/javascript" src="../../search/search.js"></script>
+  <link href="../../doxygen.css" rel="stylesheet" type="text/css" />
+  <link href="../../doxygen-awesome.css" rel="stylesheet" type="text/css"/>
+<link href="../../doxygen-awesome-sidebar-only.css" rel="stylesheet" type="text/css"/>
+<link href="../../doxygen-awesome-sidebar-only-darkmode-toggle.css" rel="stylesheet" type="text/css"/>
+  <!-- ... other metadata & script includes ... -->
+  <script type="text/javascript" src="../../doxygen-awesome-darkmode-toggle.js"></script>
+  <script type="text/javascript">
+    DoxygenAwesomeDarkModeToggle.title = "Zwischen hellem/dunklem Modus wechseln"
+    DoxygenAwesomeDarkModeToggle.lightModeIcon = '🌞'
+    // icon from https://fonts.google.com/icons
+    DoxygenAwesomeDarkModeToggle.darkModeIcon = `<svg xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 24 24" height="24px" viewBox="0 0 24 24" width="24px" fill="#009793"><g><rect fill="none" height="24" width="24"/></g><g><g><path d="M8.1,14.15C9.77,14.63,11,16.17,11,18c0,0.68-0.19,1.31-0.48,1.87c0.48,0.09,0.97,0.14,1.48,0.14 c1.48,0,2.9-0.41,4.13-1.15c-2.62-0.92-5.23-2.82-6.8-5.86C7.74,9.94,7.78,7.09,8.29,4.9c-2.57,1.33-4.3,4.01-4.3,7.1c0,0,0,0,0,0 c0.01,0,0.01,0,0.02,0C5.66,12,7.18,12.83,8.1,14.15z" opacity=".3"/><path d="M19.78,17.51c-2.47,0-6.57-1.33-8.68-5.43C8.77,7.57,10.6,3.6,11.63,2.01C6.27,2.2,1.98,6.59,1.98,12 c0,0.14,0.02,0.28,0.02,0.42C2.61,12.16,3.28,12,3.98,12c0,0,0,0,0,0c0-3.09,1.73-5.77,4.3-7.1C7.78,7.09,7.74,9.94,9.32,13 c1.57,3.04,4.18,4.95,6.8,5.86c-1.23,0.74-2.65,1.15-4.13,1.15c-0.5,0-1-0.05-1.48-0.14c-0.37,0.7-0.94,1.27-1.64,1.64 c0.98,0.32,2.03,0.5,3.11,0.5c3.5,0,6.58-1.8,8.37-4.52C20.18,17.5,19.98,17.51,19.78,17.51z"/><path d="M7,16l-0.18,0C6.4,14.84,5.3,14,4,14c-1.66,0-3,1.34-3,3s1.34,3,3,3c0.62,0,2.49,0,3,0c1.1,0,2-0.9,2-2 C9,16.9,8.1,16,7,16z"/></g></g></svg>`
+    DoxygenAwesomeDarkModeToggle.init()
+  </script>
+  <script type="text/javascript" src="../../doxygen-awesome-fragment-copy-button.js"></script>
+  <script type="text/javascript">
+    DoxygenAwesomeFragmentCopyButton.title = "In die Zwischenablage kopieren"
+    // DoxygenAwesomeFragmentCopyButton.copyIcon = `<svg ...>`
+    // DoxygenAwesomeFragmentCopyButton.successIcon = `<svg ...>`
+    DoxygenAwesomeFragmentCopyButton.init()
+  </script>
+  <script type="text/javascript" src="../../doxygen-awesome-paragraph-link.js"></script>
+  <script type="text/javascript">
+    DoxygenAwesomeParagraphLink.title = "Abschnitt verknüpfen"
+    DoxygenAwesomeParagraphLink.icon = "¶"
+    DoxygenAwesomeParagraphLink.init()
+  </script>
+  <script type="text/javascript" src="../../doxygen-awesome-interactive-toc.js"></script>
+  <script type="text/javascript">
+    DoxygenAwesomeInteractiveToc.topOffset = 45
+    DoxygenAwesomeInteractiveToc.hideMobileMenu = false
+    DoxygenAwesomeInteractiveToc.init()
+  </script>
+</head>
+<body>
+    <div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+      <div id="titlearea">
+        <table cellspacing="0" cellpadding="0">
+          <tbody>
+            <tr id="projectrow">
+              <td id="projectlogo"><img alt="Logo" src="../../EdIconDefault.bmp"  /></td>
+              <td id="projectalign">
+                <div id="projectname">UE 5.8.4
+                </div>
+                <div id="projectbrief">Unreal Engine</div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <!-- end header part -->
+<!-- 制作者 Doxygen 1.15.0 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "../../search/",'.html');
+</script>
+<script type="text/javascript">
+$(function() { codefold.init(); });
+</script>
+<script type="text/javascript" src="../../menudata.js"></script>
+<script type="text/javascript" src="../../menu.js"></script>
+<script type="text/javascript">
+$(function() {
+  initMenu('../../',true,false,'search.php','搜索',true);
+  $(function() { init_search(); });
+});
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(function(){initNavTree('d6/df5/_render_graph_allocator_8h_source.html','../../',''); });
+</script>
+<div id="container">
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">载入中...</div>
+<div class="SRStatus" id="Searching">搜索中...</div>
+<div class="SRStatus" id="NoMatches">未找到</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">RenderGraphAllocator.h</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="../../d6/df5/_render_graph_allocator_8h.html">浏览该文件的文档.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="comment">// Copyright Epic Games, Inc. All Rights Reserved.</span></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span> </div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="preprocessor">#pragma once</span></div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span> </div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="preprocessor">#include &quot;Containers/Array.h&quot;</span></div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="preprocessor">#include &quot;<a class="code" href="../../df/d65/_static_array_8h.html">Containers/StaticArray.h</a>&quot;</span></div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="preprocessor">#include &quot;<a class="code" href="../../dc/d3d/_container_allocation_policies_8h.html">Containers/ContainerAllocationPolicies.h</a>&quot;</span></div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="preprocessor">#include &quot;<a class="code" href="../../db/d21/_core_globals_8h.html">CoreGlobals.h</a>&quot;</span></div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="preprocessor">#include &quot;<a class="code" href="../../dc/d5e/_core_minimal_8h.html">CoreMinimal.h</a>&quot;</span></div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="preprocessor">#include &quot;<a class="code" href="../../d4/d4f/_memory_base_8h.html">HAL/MemoryBase.h</a>&quot;</span></div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="preprocessor">#include &quot;<a class="code" href="../../df/da0/_unreal_memory_8h.html">HAL/UnrealMemory.h</a>&quot;</span></div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="preprocessor">#include &quot;<a class="code" href="../../db/d28/_unreal_math_s_s_e_8h.html">Math/UnrealMathSSE.h</a>&quot;</span></div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="preprocessor">#include &quot;<a class="code" href="../../d4/d75/_assertion_macros_8h.html">Misc/AssertionMacros.h</a>&quot;</span></div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="preprocessor">#include &quot;<a class="code" href="../../d2/d5d/_mem_stack_8h.html">Misc/MemStack.h</a>&quot;</span></div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span><span class="preprocessor">#include &quot;<a class="code" href="../../da/da2/_core_2_public_2_templates_2_function_8h.html">Templates/Function.h</a>&quot;</span></div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span><span class="preprocessor">#include &quot;<a class="code" href="../../d2/dd1/_unreal_template_8h.html">Templates/UnrealTemplate.h</a>&quot;</span></div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span> </div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno"><a class="line" href="../../d6/df5/_render_graph_allocator_8h.html#a30da89e455a02318101ca48d953af781">   18</a></span><span class="preprocessor">#define RDG_USE_MALLOC USING_ADDRESS_SANITISER</span></div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno"><a class="line" href="../../d6/df5/_render_graph_allocator_8h.html#a1a3e7aac5fbdd3b93ad885e89b90a70d">   19</a></span><span class="preprocessor">#define RDG_ALLOCATOR_DEBUG USING_ADDRESS_SANITISER || UE_BUILD_DEBUG</span></div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span> </div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span><span class="keyword">class </span><a class="code hl_class" href="../../d4/d7e/class_f_r_d_g_allocator.html">FRDGAllocator</a>;</div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span> </div>
+<div class="foldopen" id="foldopen00023" data-start="{" data-end="};">
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno"><a class="line" href="../../d4/d7e/class_f_r_d_g_allocator.html">   23</a></span><span class="keyword">class </span><a class="code hl_function" href="../../d4/d7e/class_f_r_d_g_allocator.html#a0dc5324fa3e73f718e97e1a55cd18781">FRDGAllocator</a></div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>{</div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span><span class="keyword">public</span>:</div>
+<div class="foldopen" id="foldopen00026" data-start="{" data-end="};">
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno"><a class="line" href="../../d7/d1b/class_f_r_d_g_allocator_1_1_f_object.html">   26</a></span>    <span class="keyword">class </span><a class="code hl_class" href="../../d7/d1b/class_f_r_d_g_allocator_1_1_f_object.html">FObject</a></div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>    {</div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>    <span class="keyword">public</span>:</div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno"><a class="line" href="../../d7/d1b/class_f_r_d_g_allocator_1_1_f_object.html#af072ed762404c35d2aa3ec6e4c831371">   29</a></span>        <span class="keyword">virtual</span> <a class="code hl_function" href="../../d7/d1b/class_f_r_d_g_allocator_1_1_f_object.html#af072ed762404c35d2aa3ec6e4c831371">~FObject</a>() = <span class="keywordflow">default</span>;</div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>    };</div>
+</div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span> </div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>    <span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt;</div>
+<div class="foldopen" id="foldopen00033" data-start="{" data-end="};">
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno"><a class="line" href="../../d5/dfc/class_f_r_d_g_allocator_1_1_t_object.html">   33</a></span>    <span class="keyword">class </span>TObject final : <a class="code hl_class" href="../../d7/d1b/class_f_r_d_g_allocator_1_1_f_object.html">FObject</a></div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>    {</div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno"><a class="line" href="../../d5/dfc/class_f_r_d_g_allocator_1_1_t_object.html#ac479543be53643141296dd566778c473">   35</a></span>        <span class="keyword">friend</span> <span class="keyword">class </span><a class="code hl_friend" href="../../d5/dfc/class_f_r_d_g_allocator_1_1_t_object.html#ac479543be53643141296dd566778c473">FRDGAllocator</a>;</div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>    <span class="keyword">private</span>:</div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>        <span class="keyword">template</span> &lt;<span class="keyword">typename</span>... TArgs&gt;</div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>        <span class="keyword">inline</span> TObject(TArgs&amp;&amp;... Args)</div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>            : Alloc(<a class="code hl_function" href="../../d2/dd1/_unreal_template_8h.html#a6d7db053133615a836abeb3ab80d3304">Forward</a>&lt;TArgs&amp;&amp;&gt;(Args)...)</div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>        {}</div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span> </div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>        T <a class="code hl_function" href="../../d4/d7e/class_f_r_d_g_allocator.html#a7f5b2d4abb367e1595ad458166a3fbfb">Alloc</a>;</div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>    };</div>
+</div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span> </div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>    RENDERCORE_API <span class="keyword">static</span> <a class="code hl_class" href="../../d4/d7e/class_f_r_d_g_allocator.html">FRDGAllocator</a>&amp; <a class="code hl_function" href="../../d4/d7e/class_f_r_d_g_allocator.html#a6ae9fc7b59c88e8d692eb34ac9c2cf78">GetTLS</a>();</div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span> </div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>    <a class="code hl_function" href="../../d4/d7e/class_f_r_d_g_allocator.html#a0dc5324fa3e73f718e97e1a55cd18781">FRDGAllocator</a>();</div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>    <a class="code hl_function" href="../../d4/d7e/class_f_r_d_g_allocator.html#a0dc5324fa3e73f718e97e1a55cd18781">FRDGAllocator</a>(<a class="code hl_class" href="../../d4/d7e/class_f_r_d_g_allocator.html">FRDGAllocator</a>&amp;&amp;);</div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>    <a class="code hl_class" href="../../d4/d7e/class_f_r_d_g_allocator.html">FRDGAllocator</a>&amp; <a class="code hl_function" href="../../d4/d7e/class_f_r_d_g_allocator.html#ac9cff5fdae4f44b655dca1a1f09b5464">operator=</a>(<a class="code hl_class" href="../../d4/d7e/class_f_r_d_g_allocator.html">FRDGAllocator</a>&amp;&amp;);</div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>    <a class="code hl_function" href="../../d4/d7e/class_f_r_d_g_allocator.html#ae18b26fbc1d57902ea811c102ed62ab0">~FRDGAllocator</a>();</div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span></div>
+<div class="foldopen" id="foldopen00053" data-start="{" data-end="}">
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno"><a class="line" href="../../d4/d7e/class_f_r_d_g_allocator.html#a7f5b2d4abb367e1595ad458166a3fbfb">   53</a></span>    <span class="keyword">inline</span> <span class="keywordtype">void</span>* <a class="code hl_function" href="../../d4/d7e/class_f_r_d_g_allocator.html#a7f5b2d4abb367e1595ad458166a3fbfb">Alloc</a>(<a class="code hl_typedef" href="../../dd/de9/preprocessor_8c.html#abc0f5bc07737e498f287334775dff2b6">uint64</a> SizeInBytes, <a class="code hl_typedef" href="../../dd/de9/preprocessor_8c.html#a1134b580f8da4de94ca6b1de4d37975e">uint32</a> AlignInBytes)</div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>    {</div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>        <span class="keywordtype">void</span>* <a class="code hl_enumvalue" href="../../de/d46/_groom_visualization_data_8h.html#a5aac198462141e75e6d8274d4c8b6ee2a4789f23283b3a61f858b641a1bef19a3">Memory</a>;</div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span> </div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span><span class="preprocessor">#if RDG_ALLOCATOR_DEBUG</span></div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>        AcquireAccess();</div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span><span class="preprocessor">#endif</span></div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span> </div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span><span class="preprocessor">#if RDG_USE_MALLOC</span></div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>        <a class="code hl_enumvalue" href="../../de/d46/_groom_visualization_data_8h.html#a5aac198462141e75e6d8274d4c8b6ee2a4789f23283b3a61f858b641a1bef19a3">Memory</a> = FMemory::Malloc(SizeInBytes, AlignInBytes);</div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>        Mallocs.Emplace(<a class="code hl_enumvalue" href="../../de/d46/_groom_visualization_data_8h.html#a5aac198462141e75e6d8274d4c8b6ee2a4789f23283b3a61f858b641a1bef19a3">Memory</a>);</div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>        NumMallocBytes += SizeInBytes;</div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span><span class="preprocessor">#else</span></div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span>        <a class="code hl_enumvalue" href="../../de/d46/_groom_visualization_data_8h.html#a5aac198462141e75e6d8274d4c8b6ee2a4789f23283b3a61f858b641a1bef19a3">Memory</a> = MemStack.Alloc(SizeInBytes, AlignInBytes);</div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span><span class="preprocessor">#endif</span></div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span> </div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span><span class="preprocessor">#if RDG_ALLOCATOR_DEBUG</span></div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>        ReleaseAccess();</div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span><span class="preprocessor">#endif</span></div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span> </div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>        <span class="keywordflow">return</span> <a class="code hl_enumvalue" href="../../de/d46/_groom_visualization_data_8h.html#a5aac198462141e75e6d8274d4c8b6ee2a4789f23283b3a61f858b641a1bef19a3">Memory</a>;</div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>    }</div>
+</div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span></div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span>    <span class="keyword">template</span> &lt;<span class="keyword">typename</span> PODType&gt;</div>
+<div class="foldopen" id="foldopen00078" data-start="{" data-end="}">
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno"><a class="line" href="../../d4/d7e/class_f_r_d_g_allocator.html#aa380174845913a0d0f0c513944265cbb">   78</a></span>    <span class="keyword">inline</span> PODType* <a class="code hl_function" href="../../d4/d7e/class_f_r_d_g_allocator.html#aa380174845913a0d0f0c513944265cbb">AllocUninitialized</a>(<a class="code hl_typedef" href="../../dd/de9/preprocessor_8c.html#abc0f5bc07737e498f287334775dff2b6">uint64</a> <a class="code hl_enumvalue" href="../../dc/dd1/_android_target_platform_settings_8h.html#ada4140d28211436b6e8e6940ad73b33fae93f994f01c537c4e2f7d8528c3eb5e9">Count</a> = 1)</div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>    {</div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>        <span class="keywordflow">return</span> <span class="keyword">reinterpret_cast&lt;</span>PODType*<span class="keyword">&gt;</span>(<a class="code hl_function" href="../../d4/d7e/class_f_r_d_g_allocator.html#a7f5b2d4abb367e1595ad458166a3fbfb">Alloc</a>(<span class="keyword">sizeof</span>(PODType) * <a class="code hl_enumvalue" href="../../dc/dd1/_android_target_platform_settings_8h.html#ada4140d28211436b6e8e6940ad73b33fae93f994f01c537c4e2f7d8528c3eb5e9">Count</a>, <span class="keyword">alignof</span>(PODType)));</div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>    }</div>
+</div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span></div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span>    <span class="keyword">template</span> &lt;<span class="keyword">typename</span> T, <span class="keyword">typename</span>... TArgs&gt;</div>
+<div class="foldopen" id="foldopen00085" data-start="{" data-end="}">
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno"><a class="line" href="../../d4/d7e/class_f_r_d_g_allocator.html#aa5cdb92a6529516c2bc2a994a3370a22">   85</a></span>    <span class="keyword">inline</span> T* <a class="code hl_function" href="../../d4/d7e/class_f_r_d_g_allocator.html#aa5cdb92a6529516c2bc2a994a3370a22">Alloc</a>(TArgs&amp;&amp;... Args)</div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span>    {</div>
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span><span class="preprocessor">#if RDG_ALLOCATOR_DEBUG</span></div>
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span>        AcquireAccess();</div>
+<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span><span class="preprocessor">#endif</span></div>
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span> </div>
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span><span class="preprocessor">#if RDG_USE_MALLOC</span></div>
+<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span>        <a class="code hl_class" href="../../d5/dfc/class_f_r_d_g_allocator_1_1_t_object.html">TObject&lt;T&gt;</a>* <a class="code hl_variable" href="../../d3/d19/_navigation_system_types_8h.html#afd9654171435c563939671aa701df70d">Object</a> = <span class="keyword">new</span> <a class="code hl_class" href="../../d5/dfc/class_f_r_d_g_allocator_1_1_t_object.html">TObject&lt;T&gt;</a>(<a class="code hl_function" href="../../d2/dd1/_unreal_template_8h.html#a6d7db053133615a836abeb3ab80d3304">Forward&lt;TArgs&amp;&amp;&gt;</a>(Args)...);</div>
+<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span>        NumMallocBytes += <span class="keyword">sizeof</span>(<a class="code hl_variable" href="../../d3/d19/_navigation_system_types_8h.html#afd9654171435c563939671aa701df70d">Object</a>);</div>
+<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span><span class="preprocessor">#else</span></div>
+<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span>        <a class="code hl_class" href="../../d5/dfc/class_f_r_d_g_allocator_1_1_t_object.html">TObject&lt;T&gt;</a>* <a class="code hl_variable" href="../../d3/d19/_navigation_system_types_8h.html#afd9654171435c563939671aa701df70d">Object</a> = <span class="keyword">new</span>(MemStack) <a class="code hl_class" href="../../d5/dfc/class_f_r_d_g_allocator_1_1_t_object.html">TObject&lt;T&gt;</a>(<a class="code hl_function" href="../../d2/dd1/_unreal_template_8h.html#a6d7db053133615a836abeb3ab80d3304">Forward&lt;TArgs&amp;&amp;&gt;</a>(Args)...);</div>
+<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span><span class="preprocessor">#endif</span></div>
+<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span>        <a class="code hl_define" href="../../d4/d75/_assertion_macros_8h.html#a586e110623cde145b8a5bdefb429e144">check</a>(<a class="code hl_variable" href="../../d3/d19/_navigation_system_types_8h.html#afd9654171435c563939671aa701df70d">Object</a>);</div>
+<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span>        Objects.Add(<a class="code hl_variable" href="../../d3/d19/_navigation_system_types_8h.html#afd9654171435c563939671aa701df70d">Object</a>);</div>
+<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span> </div>
+<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span><span class="preprocessor">#if RDG_ALLOCATOR_DEBUG</span></div>
+<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span>        ReleaseAccess();</div>
+<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span><span class="preprocessor">#endif</span></div>
+<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span>        <span class="keywordflow">return</span> &amp;<a class="code hl_variable" href="../../d3/d19/_navigation_system_types_8h.html#afd9654171435c563939671aa701df70d">Object</a>-&gt;Alloc;</div>
+<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span>    }</div>
+</div>
+<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span></div>
+<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span>    <span class="keyword">template</span> &lt;<span class="keyword">typename</span> T, <span class="keyword">typename</span>... TArgs&gt;</div>
+<div class="foldopen" id="foldopen00108" data-start="{" data-end="}">
+<div class="line"><a id="l00108" name="l00108"></a><span class="lineno"><a class="line" href="../../d4/d7e/class_f_r_d_g_allocator.html#a8bfc063b26c8c5ca7b3e025258798247">  108</a></span>    <span class="keyword">inline</span> T* <a class="code hl_function" href="../../d4/d7e/class_f_r_d_g_allocator.html#a8bfc063b26c8c5ca7b3e025258798247">AllocNoDestruct</a>(TArgs&amp;&amp;... Args)</div>
+<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span>    {</div>
+<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span>        <span class="keywordflow">return</span> <span class="keyword">new</span> (<a class="code hl_function" href="../../d4/d7e/class_f_r_d_g_allocator.html#aa380174845913a0d0f0c513944265cbb">AllocUninitialized&lt;T&gt;</a>(1)) T(<a class="code hl_function" href="../../d2/dd1/_unreal_template_8h.html#a6d7db053133615a836abeb3ab80d3304">Forward&lt;TArgs&amp;&amp;&gt;</a>(Args)...);</div>
+<div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span>    }</div>
+</div>
+<div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span> </div>
+<div class="foldopen" id="foldopen00113" data-start="{" data-end="}">
+<div class="line"><a id="l00113" name="l00113"></a><span class="lineno"><a class="line" href="../../d4/d7e/class_f_r_d_g_allocator.html#a0d7be8291593e06444a80c476047882c">  113</a></span>    <span class="keyword">inline</span> <a class="code hl_typedef" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a8dbb3cd84ca9fd010dadfc3815eefa5d">int32</a> <a class="code hl_function" href="../../d4/d7e/class_f_r_d_g_allocator.html#a0d7be8291593e06444a80c476047882c">GetByteCount</a>()<span class="keyword"> const</span></div>
+<div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span><span class="keyword">    </span>{</div>
+<div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span><span class="preprocessor">#if RDG_USE_MALLOC</span></div>
+<div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span>        <span class="keywordflow">return</span> <span class="keyword">static_cast&lt;</span><a class="code hl_typedef" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a8dbb3cd84ca9fd010dadfc3815eefa5d">int32</a><span class="keyword">&gt;</span>(NumMallocBytes);</div>
+<div class="line"><a id="l00117" name="l00117"></a><span class="lineno">  117</span><span class="preprocessor">#else</span></div>
+<div class="line"><a id="l00118" name="l00118"></a><span class="lineno">  118</span>        <span class="keywordflow">return</span> MemStack.GetByteCount();</div>
+<div class="line"><a id="l00119" name="l00119"></a><span class="lineno">  119</span><span class="preprocessor">#endif</span></div>
+<div class="line"><a id="l00120" name="l00120"></a><span class="lineno">  120</span>    }</div>
+</div>
+<div class="line"><a id="l00121" name="l00121"></a><span class="lineno">  121</span> </div>
+<div class="line"><a id="l00122" name="l00122"></a><span class="lineno">  122</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="../../d4/d7e/class_f_r_d_g_allocator.html#a5f79838c44127d88963ef2f920109578">ReleaseAll</a>();</div>
+<div class="line"><a id="l00123" name="l00123"></a><span class="lineno">  123</span> </div>
+<div class="line"><a id="l00124" name="l00124"></a><span class="lineno">  124</span><span class="keyword">private</span>:</div>
+<div class="line"><a id="l00125" name="l00125"></a><span class="lineno">  125</span><span class="preprocessor">#if RDG_USE_MALLOC</span></div>
+<div class="line"><a id="l00126" name="l00126"></a><span class="lineno">  126</span>    <a class="code hl_class" href="../../d6/db1/class_t_array.html">TArray&lt;void*&gt;</a> Mallocs;</div>
+<div class="line"><a id="l00127" name="l00127"></a><span class="lineno">  127</span>    <a class="code hl_typedef" href="../../dd/de9/preprocessor_8c.html#abc0f5bc07737e498f287334775dff2b6">uint64</a> NumMallocBytes = 0;</div>
+<div class="line"><a id="l00128" name="l00128"></a><span class="lineno">  128</span><span class="preprocessor">#else</span></div>
+<div class="line"><a id="l00129" name="l00129"></a><span class="lineno">  129</span>    <a class="code hl_class" href="../../df/d4b/class_f_mem_stack_base.html">FMemStackBase</a> MemStack;</div>
+<div class="line"><a id="l00130" name="l00130"></a><span class="lineno">  130</span><span class="preprocessor">#endif</span></div>
+<div class="line"><a id="l00131" name="l00131"></a><span class="lineno">  131</span>    <a class="code hl_class" href="../../d6/db1/class_t_array.html">TArray&lt;FObject*&gt;</a> Objects;</div>
+<div class="line"><a id="l00132" name="l00132"></a><span class="lineno">  132</span> </div>
+<div class="line"><a id="l00133" name="l00133"></a><span class="lineno">  133</span><span class="preprocessor">#if RDG_ALLOCATOR_DEBUG</span></div>
+<div class="line"><a id="l00134" name="l00134"></a><span class="lineno">  134</span>    RENDERCORE_API <span class="keywordtype">void</span> AcquireAccess();</div>
+<div class="line"><a id="l00135" name="l00135"></a><span class="lineno">  135</span>    RENDERCORE_API <span class="keywordtype">void</span> ReleaseAccess();</div>
+<div class="line"><a id="l00136" name="l00136"></a><span class="lineno">  136</span> </div>
+<div class="line"><a id="l00137" name="l00137"></a><span class="lineno">  137</span>    std::atomic_int32_t NumAccesses{0};</div>
+<div class="line"><a id="l00138" name="l00138"></a><span class="lineno">  138</span>    <span class="keyword">static</span> <span class="keyword">thread_local</span> <a class="code hl_typedef" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a8dbb3cd84ca9fd010dadfc3815eefa5d">int32</a> NumAccessesTLS;</div>
+<div class="line"><a id="l00139" name="l00139"></a><span class="lineno">  139</span><span class="preprocessor">#endif</span></div>
+<div class="line"><a id="l00140" name="l00140"></a><span class="lineno">  140</span> </div>
+<div class="line"><a id="l00141" name="l00141"></a><span class="lineno"><a class="line" href="../../d4/d7e/class_f_r_d_g_allocator.html#abd69a65a3372bfc6b950f699d45b55b5">  141</a></span>    <span class="keyword">friend</span> <span class="keyword">class </span><a class="code hl_friend" href="../../d4/d7e/class_f_r_d_g_allocator.html#abd69a65a3372bfc6b950f699d45b55b5">FRDGAllocatorScope</a>;</div>
+<div class="line"><a id="l00142" name="l00142"></a><span class="lineno">  142</span>    <span class="keyword">static</span> <span class="keyword">thread_local</span> <a class="code hl_function" href="../../d4/d7e/class_f_r_d_g_allocator.html#a0dc5324fa3e73f718e97e1a55cd18781">FRDGAllocator</a>* AllocatorTLS;</div>
+<div class="line"><a id="l00143" name="l00143"></a><span class="lineno">  143</span>};</div>
+</div>
+<div class="line"><a id="l00144" name="l00144"></a><span class="lineno">  144</span> </div>
+<div class="foldopen" id="foldopen00145" data-start="{" data-end="};">
+<div class="line"><a id="l00145" name="l00145"></a><span class="lineno"><a class="line" href="../../d5/d9a/class_f_r_d_g_allocator_scope.html">  145</a></span><span class="keyword">class </span><a class="code hl_function" href="../../d5/d9a/class_f_r_d_g_allocator_scope.html#a014448839868864ebde17d2f359b0a0d">FRDGAllocatorScope</a></div>
+<div class="line"><a id="l00146" name="l00146"></a><span class="lineno">  146</span>{</div>
+<div class="line"><a id="l00147" name="l00147"></a><span class="lineno">  147</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00148" name="l00148"></a><span class="lineno">  148</span>    RENDERCORE_API <a class="code hl_function" href="../../d5/d9a/class_f_r_d_g_allocator_scope.html#a014448839868864ebde17d2f359b0a0d">FRDGAllocatorScope</a>(<a class="code hl_class" href="../../d4/d7e/class_f_r_d_g_allocator.html">FRDGAllocator</a>&amp; <a class="code hl_enumvalue" href="../../d6/de8/_render_graph_definitions_8h.html#a2a79e6d685affd4f2fa2bc1eb19048a4afb1925517296a258d34f3c05e78ce0b2">Allocator</a>);</div>
+<div class="line"><a id="l00149" name="l00149"></a><span class="lineno">  149</span>    RENDERCORE_API <a class="code hl_function" href="../../d5/d9a/class_f_r_d_g_allocator_scope.html#a95c2cc8f856688466dbfee52e593de03">~FRDGAllocatorScope</a>();</div>
+<div class="line"><a id="l00150" name="l00150"></a><span class="lineno">  150</span> </div>
+<div class="line"><a id="l00151" name="l00151"></a><span class="lineno">  151</span><span class="keyword">private</span>:</div>
+<div class="line"><a id="l00152" name="l00152"></a><span class="lineno">  152</span>    <a class="code hl_class" href="../../d4/d7e/class_f_r_d_g_allocator.html">FRDGAllocator</a>* AllocatorToRestore;</div>
+<div class="line"><a id="l00153" name="l00153"></a><span class="lineno">  153</span>};</div>
+</div>
+<div class="line"><a id="l00154" name="l00154"></a><span class="lineno">  154</span> </div>
+<div class="line"><a id="l00155" name="l00155"></a><span class="lineno"><a class="line" href="../../d6/df5/_render_graph_allocator_8h.html#a580ca5522f163f84ed0ff41828da0459">  155</a></span><span class="preprocessor">#define RDG_FRIEND_ALLOCATOR_FRIEND(Type) friend class FRDGAllocator::TObject&lt;Type&gt;</span></div>
+<div class="line"><a id="l00156" name="l00156"></a><span class="lineno">  156</span> </div>
+<div class="foldopen" id="foldopen00157" data-start="{" data-end="}">
+<div class="line"><a id="l00157" name="l00157"></a><span class="lineno"><a class="line" href="../../df/df0/namespace_u_e_1_1_render_core_1_1_private.html">  157</a></span><span class="keyword">namespace </span><a class="code hl_namespace" href="../../df/df0/namespace_u_e_1_1_render_core_1_1_private.html">UE::RenderCore::Private</a></div>
+<div class="line"><a id="l00158" name="l00158"></a><span class="lineno">  158</span>{</div>
+<div class="line"><a id="l00159" name="l00159"></a><span class="lineno">  159</span>    [[noreturn]] RENDERCORE_API <span class="keywordtype">void</span> <a class="code hl_function" href="../../df/df0/namespace_u_e_1_1_render_core_1_1_private.html#ae29e79a4be76768272f1be8668ad27f2">OnInvalidRDGAllocatorNum</a>(<a class="code hl_typedef" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a8dbb3cd84ca9fd010dadfc3815eefa5d">int32</a> NewNum, <a class="code hl_typedef" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2c46f1fb01e11216aa2c983307deafb4">SIZE_T</a> NumBytesPerElement);</div>
+<div class="line"><a id="l00160" name="l00160"></a><span class="lineno">  160</span>}</div>
+</div>
+<div class="line"><a id="l00161" name="l00161"></a><span class="lineno">  161</span></div>
+<div class="line"><a id="l00163" name="l00163"></a><span class="lineno">  163</span><span class="keyword">template</span>&lt;u<span class="keywordtype">int</span>32 Alignment = DEFAULT_ALIGNMENT&gt;</div>
+<div class="foldopen" id="foldopen00164" data-start="{" data-end="};">
+<div class="line"><a id="l00164" name="l00164"></a><span class="lineno"><a class="line" href="../../d5/da1/class_t_r_d_g_array_allocator.html">  164</a></span><span class="keyword">class </span><a class="code hl_class" href="../../d5/da1/class_t_r_d_g_array_allocator.html">TRDGArrayAllocator</a></div>
+<div class="line"><a id="l00165" name="l00165"></a><span class="lineno">  165</span>{</div>
+<div class="line"><a id="l00166" name="l00166"></a><span class="lineno">  166</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00167" name="l00167"></a><span class="lineno"><a class="line" href="../../d5/da1/class_t_r_d_g_array_allocator.html#ad6f4e1f83e547b38ba7255435121bc44">  167</a></span>    <span class="keyword">using </span><a class="code hl_typedef" href="../../d5/da1/class_t_r_d_g_array_allocator.html#ad6f4e1f83e547b38ba7255435121bc44">SizeType</a> = <a class="code hl_typedef" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a8dbb3cd84ca9fd010dadfc3815eefa5d">int32</a>;</div>
+<div class="line"><a id="l00168" name="l00168"></a><span class="lineno">  168</span> </div>
+<div class="line"><a id="l00169" name="l00169"></a><span class="lineno"><a class="line" href="../../d5/da1/class_t_r_d_g_array_allocator.html#ab44533bedf7f86a553299a7af1efa68bae69b7518f19d6d867ab580081e921aff">  169</a></span>    <span class="keyword">enum</span> { <a class="code hl_enumvalue" href="../../d5/da1/class_t_r_d_g_array_allocator.html#ab44533bedf7f86a553299a7af1efa68bae69b7518f19d6d867ab580081e921aff">NeedsElementType</a> = <span class="keyword">true</span> };</div>
+<div class="line"><a id="l00170" name="l00170"></a><span class="lineno"><a class="line" href="../../d5/da1/class_t_r_d_g_array_allocator.html#a6a7f5d40afa67f8da8771e5a9c034c63a9bf46d21a6973967abb084d6627095e1">  170</a></span>    <span class="keyword">enum</span> { <a class="code hl_enumvalue" href="../../d5/da1/class_t_r_d_g_array_allocator.html#a6a7f5d40afa67f8da8771e5a9c034c63a9bf46d21a6973967abb084d6627095e1">RequireRangeCheck</a> = <span class="keyword">true</span> };</div>
+<div class="line"><a id="l00171" name="l00171"></a><span class="lineno">  171</span> </div>
+<div class="line"><a id="l00172" name="l00172"></a><span class="lineno">  172</span>    <span class="keyword">template</span>&lt;<span class="keyword">typename</span> ElementType&gt;</div>
+<div class="foldopen" id="foldopen00173" data-start="{" data-end="};">
+<div class="line"><a id="l00173" name="l00173"></a><span class="lineno"><a class="line" href="../../d7/deb/class_t_r_d_g_array_allocator_1_1_for_element_type.html">  173</a></span>    <span class="keyword">class </span><a class="code hl_function" href="../../d7/deb/class_t_r_d_g_array_allocator_1_1_for_element_type.html#a8a3c84406c0f8e0e430d7b2e798001b2">ForElementType</a></div>
+<div class="line"><a id="l00174" name="l00174"></a><span class="lineno">  174</span>    {</div>
+<div class="line"><a id="l00175" name="l00175"></a><span class="lineno">  175</span>    <span class="keyword">public</span>:</div>
+<div class="line"><a id="l00176" name="l00176"></a><span class="lineno"><a class="line" href="../../d7/deb/class_t_r_d_g_array_allocator_1_1_for_element_type.html#a8a3c84406c0f8e0e430d7b2e798001b2">  176</a></span>        <a class="code hl_function" href="../../d7/deb/class_t_r_d_g_array_allocator_1_1_for_element_type.html#a8a3c84406c0f8e0e430d7b2e798001b2">ForElementType</a>() = <span class="keywordflow">default</span>;</div>
+<div class="line"><a id="l00177" name="l00177"></a><span class="lineno">  177</span> </div>
+<div class="foldopen" id="foldopen00178" data-start="{" data-end="}">
+<div class="line"><a id="l00178" name="l00178"></a><span class="lineno"><a class="line" href="../../d7/deb/class_t_r_d_g_array_allocator_1_1_for_element_type.html#a9a006e540ffbc34a2b2cb62233e7e7ec">  178</a></span>        <span class="keyword">inline</span> <span class="keywordtype">void</span> <a class="code hl_function" href="../../d7/deb/class_t_r_d_g_array_allocator_1_1_for_element_type.html#a9a006e540ffbc34a2b2cb62233e7e7ec">MoveToEmpty</a>(<a class="code hl_function" href="../../d7/deb/class_t_r_d_g_array_allocator_1_1_for_element_type.html#a8a3c84406c0f8e0e430d7b2e798001b2">ForElementType</a>&amp; <a class="code hl_enumvalue" href="../../db/dff/_io_store_utilities_8cpp.html#a87a058d905c1a0bfb1670ef9a427caa4a6311ae17c1ee52b36e68aaf4ad066387">Other</a>)</div>
+<div class="line"><a id="l00179" name="l00179"></a><span class="lineno">  179</span>        {</div>
+<div class="line"><a id="l00180" name="l00180"></a><span class="lineno">  180</span>            <a class="code hl_define" href="../../d4/d75/_assertion_macros_8h.html#a12ff33b2f8cbad5116bd85ca93de5cb2">checkSlow</a>(<span class="keyword">this</span> != &amp;<a class="code hl_enumvalue" href="../../db/dff/_io_store_utilities_8cpp.html#a87a058d905c1a0bfb1670ef9a427caa4a6311ae17c1ee52b36e68aaf4ad066387">Other</a>);</div>
+<div class="line"><a id="l00181" name="l00181"></a><span class="lineno">  181</span> </div>
+<div class="line"><a id="l00182" name="l00182"></a><span class="lineno">  182</span>            Data = <a class="code hl_enumvalue" href="../../db/dff/_io_store_utilities_8cpp.html#a87a058d905c1a0bfb1670ef9a427caa4a6311ae17c1ee52b36e68aaf4ad066387">Other</a>.Data;</div>
+<div class="line"><a id="l00183" name="l00183"></a><span class="lineno">  183</span>            <a class="code hl_enumvalue" href="../../db/dff/_io_store_utilities_8cpp.html#a87a058d905c1a0bfb1670ef9a427caa4a6311ae17c1ee52b36e68aaf4ad066387">Other</a>.Data = <span class="keyword">nullptr</span>;</div>
+<div class="line"><a id="l00184" name="l00184"></a><span class="lineno">  184</span>        }</div>
+</div>
+<div class="line"><a id="l00185" name="l00185"></a><span class="lineno">  185</span> </div>
+<div class="foldopen" id="foldopen00186" data-start="{" data-end="}">
+<div class="line"><a id="l00186" name="l00186"></a><span class="lineno"><a class="line" href="../../d7/deb/class_t_r_d_g_array_allocator_1_1_for_element_type.html#abc034f9f54a09f32ce63f28e2b130afc">  186</a></span>        <span class="keyword">inline</span> ElementType* <a class="code hl_function" href="../../d7/deb/class_t_r_d_g_array_allocator_1_1_for_element_type.html#abc034f9f54a09f32ce63f28e2b130afc">GetAllocation</a>()<span class="keyword"> const</span></div>
+<div class="line"><a id="l00187" name="l00187"></a><span class="lineno">  187</span><span class="keyword">        </span>{</div>
+<div class="line"><a id="l00188" name="l00188"></a><span class="lineno">  188</span>            <span class="keywordflow">return</span> Data;</div>
+<div class="line"><a id="l00189" name="l00189"></a><span class="lineno">  189</span>        }</div>
+</div>
+<div class="line"><a id="l00190" name="l00190"></a><span class="lineno">  190</span> </div>
+<div class="foldopen" id="foldopen00191" data-start="{" data-end="}">
+<div class="line"><a id="l00191" name="l00191"></a><span class="lineno"><a class="line" href="../../d7/deb/class_t_r_d_g_array_allocator_1_1_for_element_type.html#a04af989d9bdf4a65907c83af4819e7cf">  191</a></span>        <span class="keywordtype">void</span> <a class="code hl_function" href="../../d7/deb/class_t_r_d_g_array_allocator_1_1_for_element_type.html#a04af989d9bdf4a65907c83af4819e7cf">ResizeAllocation</a>(<a class="code hl_typedef" href="../../d5/da1/class_t_r_d_g_array_allocator.html#ad6f4e1f83e547b38ba7255435121bc44">SizeType</a> CurrentNum, <a class="code hl_typedef" href="../../d5/da1/class_t_r_d_g_array_allocator.html#ad6f4e1f83e547b38ba7255435121bc44">SizeType</a> NewMax, <a class="code hl_typedef" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2c46f1fb01e11216aa2c983307deafb4">SIZE_T</a> NumBytesPerElement)</div>
+<div class="line"><a id="l00192" name="l00192"></a><span class="lineno">  192</span>        {</div>
+<div class="line"><a id="l00193" name="l00193"></a><span class="lineno">  193</span>            <span class="keywordtype">void</span>* OldData = Data;</div>
+<div class="line"><a id="l00194" name="l00194"></a><span class="lineno">  194</span>            <span class="keywordflow">if</span> (NewMax)</div>
+<div class="line"><a id="l00195" name="l00195"></a><span class="lineno">  195</span>            {</div>
+<div class="line"><a id="l00196" name="l00196"></a><span class="lineno">  196</span>                <span class="keyword">static_assert</span>(<span class="keyword">sizeof</span>(<a class="code hl_typedef" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a8dbb3cd84ca9fd010dadfc3815eefa5d">int32</a>) &lt;= <span class="keyword">sizeof</span>(<a class="code hl_typedef" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2c46f1fb01e11216aa2c983307deafb4">SIZE_T</a>), <span class="stringliteral">&quot;SIZE_T is expected to be larger than int32&quot;</span>);</div>
+<div class="line"><a id="l00197" name="l00197"></a><span class="lineno">  197</span> </div>
+<div class="line"><a id="l00198" name="l00198"></a><span class="lineno">  198</span>                <span class="comment">// Check for under/overflow</span></div>
+<div class="line"><a id="l00199" name="l00199"></a><span class="lineno">  199</span>                <span class="keywordflow">if</span> (<a class="code hl_define" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#ab10d0a221f4d7a706701b806c8135fd7">UNLIKELY</a>(NewMax &lt; 0 || NumBytesPerElement &lt; 1 || NumBytesPerElement &gt; (<a class="code hl_typedef" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2c46f1fb01e11216aa2c983307deafb4">SIZE_T</a>)<a class="code hl_define" href="../../dd/d20/_numeric_limits_8h.html#a0ca55812fa35a6bb8e78c8f9cf293713">MAX_int32</a>))</div>
+<div class="line"><a id="l00200" name="l00200"></a><span class="lineno">  200</span>                {</div>
+<div class="line"><a id="l00201" name="l00201"></a><span class="lineno">  201</span>                    <a class="code hl_function" href="../../df/df0/namespace_u_e_1_1_render_core_1_1_private.html#ae29e79a4be76768272f1be8668ad27f2">UE::RenderCore::Private::OnInvalidRDGAllocatorNum</a>(NewMax, NumBytesPerElement);</div>
+<div class="line"><a id="l00202" name="l00202"></a><span class="lineno">  202</span>                }</div>
+<div class="line"><a id="l00203" name="l00203"></a><span class="lineno">  203</span> </div>
+<div class="line"><a id="l00204" name="l00204"></a><span class="lineno">  204</span>                <span class="comment">// Allocate memory from the allocator.</span></div>
+<div class="line"><a id="l00205" name="l00205"></a><span class="lineno">  205</span>                <span class="keyword">const</span> <a class="code hl_typedef" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a8dbb3cd84ca9fd010dadfc3815eefa5d">int32</a> AllocSize = (<a class="code hl_typedef" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a8dbb3cd84ca9fd010dadfc3815eefa5d">int32</a>)(NewMax * NumBytesPerElement);</div>
+<div class="line"><a id="l00206" name="l00206"></a><span class="lineno">  206</span>                <span class="keyword">const</span> <a class="code hl_typedef" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a8dbb3cd84ca9fd010dadfc3815eefa5d">int32</a> AllocAlignment = FMath::Max(Alignment, (<a class="code hl_typedef" href="../../dd/de9/preprocessor_8c.html#a1134b580f8da4de94ca6b1de4d37975e">uint32</a>)<span class="keyword">alignof</span>(ElementType));</div>
+<div class="line"><a id="l00207" name="l00207"></a><span class="lineno">  207</span>                Data = (ElementType*)<a class="code hl_function" href="../../d4/d7e/class_f_r_d_g_allocator.html#a6ae9fc7b59c88e8d692eb34ac9c2cf78">FRDGAllocator::GetTLS</a>().Alloc(AllocSize, FMath::Max(AllocSize &gt;= 16 ? (<a class="code hl_typedef" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a8dbb3cd84ca9fd010dadfc3815eefa5d">int32</a>)16 : (<a class="code hl_typedef" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a8dbb3cd84ca9fd010dadfc3815eefa5d">int32</a>)8, AllocAlignment));</div>
+<div class="line"><a id="l00208" name="l00208"></a><span class="lineno">  208</span> </div>
+<div class="line"><a id="l00209" name="l00209"></a><span class="lineno">  209</span>                <span class="comment">// If the container previously held elements, copy them into the new allocation.</span></div>
+<div class="line"><a id="l00210" name="l00210"></a><span class="lineno">  210</span>                <span class="keywordflow">if</span> (OldData &amp;&amp; CurrentNum)</div>
+<div class="line"><a id="l00211" name="l00211"></a><span class="lineno">  211</span>                {</div>
+<div class="line"><a id="l00212" name="l00212"></a><span class="lineno">  212</span>                    <span class="keyword">const</span> <a class="code hl_typedef" href="../../d5/da1/class_t_r_d_g_array_allocator.html#ad6f4e1f83e547b38ba7255435121bc44">SizeType</a> NumCopiedElements = FMath::Min(NewMax, CurrentNum);</div>
+<div class="line"><a id="l00213" name="l00213"></a><span class="lineno">  213</span>                    <a class="code hl_function" href="../../df/da4/struct_f_memory.html#a9c502a07c1d4ab75a9b4911906d09886">FMemory::Memcpy</a>(Data, OldData, NumCopiedElements * NumBytesPerElement);</div>
+<div class="line"><a id="l00214" name="l00214"></a><span class="lineno">  214</span>                }</div>
+<div class="line"><a id="l00215" name="l00215"></a><span class="lineno">  215</span>            }</div>
+<div class="line"><a id="l00216" name="l00216"></a><span class="lineno">  216</span>        }</div>
+</div>
+<div class="foldopen" id="foldopen00217" data-start="{" data-end="}">
+<div class="line"><a id="l00217" name="l00217"></a><span class="lineno"><a class="line" href="../../d7/deb/class_t_r_d_g_array_allocator_1_1_for_element_type.html#ab800cd95d75d02eebf7a56a16fc1c608">  217</a></span>        <span class="keyword">inline</span> <a class="code hl_typedef" href="../../d5/da1/class_t_r_d_g_array_allocator.html#ad6f4e1f83e547b38ba7255435121bc44">SizeType</a> <a class="code hl_function" href="../../d7/deb/class_t_r_d_g_array_allocator_1_1_for_element_type.html#ab800cd95d75d02eebf7a56a16fc1c608">CalculateSlackReserve</a>(<a class="code hl_typedef" href="../../d5/da1/class_t_r_d_g_array_allocator.html#ad6f4e1f83e547b38ba7255435121bc44">SizeType</a> NewMax, <a class="code hl_typedef" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2c46f1fb01e11216aa2c983307deafb4">SIZE_T</a> NumBytesPerElement)<span class="keyword"> const</span></div>
+<div class="line"><a id="l00218" name="l00218"></a><span class="lineno">  218</span><span class="keyword">        </span>{</div>
+<div class="line"><a id="l00219" name="l00219"></a><span class="lineno">  219</span>            <span class="keywordflow">return</span> <a class="code hl_function" href="../../dc/d3d/_container_allocation_policies_8h.html#a1f0dc2b730cdc50072d6016cbdf56c0b">DefaultCalculateSlackReserve</a>(NewMax, NumBytesPerElement, <span class="keyword">false</span>, Alignment);</div>
+<div class="line"><a id="l00220" name="l00220"></a><span class="lineno">  220</span>        }</div>
+</div>
+<div class="line"><a id="l00221" name="l00221"></a><span class="lineno">  221</span> </div>
+<div class="foldopen" id="foldopen00222" data-start="{" data-end="}">
+<div class="line"><a id="l00222" name="l00222"></a><span class="lineno"><a class="line" href="../../d7/deb/class_t_r_d_g_array_allocator_1_1_for_element_type.html#ac2e21a73191481871ea01c04330bb80c">  222</a></span>        <span class="keyword">inline</span> <a class="code hl_typedef" href="../../d5/da1/class_t_r_d_g_array_allocator.html#ad6f4e1f83e547b38ba7255435121bc44">SizeType</a> <a class="code hl_function" href="../../d7/deb/class_t_r_d_g_array_allocator_1_1_for_element_type.html#ac2e21a73191481871ea01c04330bb80c">CalculateSlackShrink</a>(<a class="code hl_typedef" href="../../d5/da1/class_t_r_d_g_array_allocator.html#ad6f4e1f83e547b38ba7255435121bc44">SizeType</a> NewMax, <a class="code hl_typedef" href="../../d5/da1/class_t_r_d_g_array_allocator.html#ad6f4e1f83e547b38ba7255435121bc44">SizeType</a> CurrentMax, <a class="code hl_typedef" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2c46f1fb01e11216aa2c983307deafb4">SIZE_T</a> NumBytesPerElement)<span class="keyword"> const</span></div>
+<div class="line"><a id="l00223" name="l00223"></a><span class="lineno">  223</span><span class="keyword">        </span>{</div>
+<div class="line"><a id="l00224" name="l00224"></a><span class="lineno">  224</span>            <span class="keywordflow">return</span> <a class="code hl_function" href="../../dc/d3d/_container_allocation_policies_8h.html#abaa2233cb5eb873fdbe30b2706cb8f51">DefaultCalculateSlackShrink</a>(NewMax, CurrentMax, NumBytesPerElement, <span class="keyword">false</span>, Alignment);</div>
+<div class="line"><a id="l00225" name="l00225"></a><span class="lineno">  225</span>        }</div>
+</div>
+<div class="line"><a id="l00226" name="l00226"></a><span class="lineno">  226</span> </div>
+<div class="foldopen" id="foldopen00227" data-start="{" data-end="}">
+<div class="line"><a id="l00227" name="l00227"></a><span class="lineno"><a class="line" href="../../d7/deb/class_t_r_d_g_array_allocator_1_1_for_element_type.html#a026eded379eae51b72725fef629a7ae6">  227</a></span>        <span class="keyword">inline</span> <a class="code hl_typedef" href="../../d5/da1/class_t_r_d_g_array_allocator.html#ad6f4e1f83e547b38ba7255435121bc44">SizeType</a> <a class="code hl_function" href="../../d7/deb/class_t_r_d_g_array_allocator_1_1_for_element_type.html#a026eded379eae51b72725fef629a7ae6">CalculateSlackGrow</a>(<a class="code hl_typedef" href="../../d5/da1/class_t_r_d_g_array_allocator.html#ad6f4e1f83e547b38ba7255435121bc44">SizeType</a> NewMax, <a class="code hl_typedef" href="../../d5/da1/class_t_r_d_g_array_allocator.html#ad6f4e1f83e547b38ba7255435121bc44">SizeType</a> CurrentMax, <a class="code hl_typedef" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2c46f1fb01e11216aa2c983307deafb4">SIZE_T</a> NumBytesPerElement)<span class="keyword"> const</span></div>
+<div class="line"><a id="l00228" name="l00228"></a><span class="lineno">  228</span><span class="keyword">        </span>{</div>
+<div class="line"><a id="l00229" name="l00229"></a><span class="lineno">  229</span>            <span class="keywordflow">return</span> <a class="code hl_function" href="../../dc/d3d/_container_allocation_policies_8h.html#aeb0cc2c978697705aa7f948581ef733a">DefaultCalculateSlackGrow</a>(NewMax, CurrentMax, NumBytesPerElement, <span class="keyword">false</span>, Alignment);</div>
+<div class="line"><a id="l00230" name="l00230"></a><span class="lineno">  230</span>        }</div>
+</div>
+<div class="line"><a id="l00231" name="l00231"></a><span class="lineno">  231</span> </div>
+<div class="foldopen" id="foldopen00232" data-start="{" data-end="}">
+<div class="line"><a id="l00232" name="l00232"></a><span class="lineno"><a class="line" href="../../d7/deb/class_t_r_d_g_array_allocator_1_1_for_element_type.html#a79267ab36bfe6dc4323c0a2e2dc368ed">  232</a></span>        <span class="keyword">inline</span> <a class="code hl_typedef" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2c46f1fb01e11216aa2c983307deafb4">SIZE_T</a> <a class="code hl_function" href="../../d7/deb/class_t_r_d_g_array_allocator_1_1_for_element_type.html#a79267ab36bfe6dc4323c0a2e2dc368ed">GetAllocatedSize</a>(<a class="code hl_typedef" href="../../d5/da1/class_t_r_d_g_array_allocator.html#ad6f4e1f83e547b38ba7255435121bc44">SizeType</a> CurrentMax, <a class="code hl_typedef" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2c46f1fb01e11216aa2c983307deafb4">SIZE_T</a> NumBytesPerElement)<span class="keyword"> const</span></div>
+<div class="line"><a id="l00233" name="l00233"></a><span class="lineno">  233</span><span class="keyword">        </span>{</div>
+<div class="line"><a id="l00234" name="l00234"></a><span class="lineno">  234</span>            <span class="keywordflow">return</span> CurrentMax * NumBytesPerElement;</div>
+<div class="line"><a id="l00235" name="l00235"></a><span class="lineno">  235</span>        }</div>
+</div>
+<div class="line"><a id="l00236" name="l00236"></a><span class="lineno">  236</span> </div>
+<div class="foldopen" id="foldopen00237" data-start="{" data-end="}">
+<div class="line"><a id="l00237" name="l00237"></a><span class="lineno"><a class="line" href="../../d7/deb/class_t_r_d_g_array_allocator_1_1_for_element_type.html#ab8380ad7d5e2301f8dddad8801f53324">  237</a></span>        <span class="keywordtype">bool</span> <a class="code hl_function" href="../../d7/deb/class_t_r_d_g_array_allocator_1_1_for_element_type.html#ab8380ad7d5e2301f8dddad8801f53324">HasAllocation</a>()<span class="keyword"> const</span></div>
+<div class="line"><a id="l00238" name="l00238"></a><span class="lineno">  238</span><span class="keyword">        </span>{</div>
+<div class="line"><a id="l00239" name="l00239"></a><span class="lineno">  239</span>            <span class="keywordflow">return</span> !!Data;</div>
+<div class="line"><a id="l00240" name="l00240"></a><span class="lineno">  240</span>        }</div>
+</div>
+<div class="line"><a id="l00241" name="l00241"></a><span class="lineno">  241</span> </div>
+<div class="foldopen" id="foldopen00242" data-start="{" data-end="}">
+<div class="line"><a id="l00242" name="l00242"></a><span class="lineno"><a class="line" href="../../d7/deb/class_t_r_d_g_array_allocator_1_1_for_element_type.html#aac3efe15bb1b693ac4d2533d8074b121">  242</a></span>        <a class="code hl_typedef" href="../../d5/da1/class_t_r_d_g_array_allocator.html#ad6f4e1f83e547b38ba7255435121bc44">SizeType</a> <a class="code hl_function" href="../../d7/deb/class_t_r_d_g_array_allocator_1_1_for_element_type.html#aac3efe15bb1b693ac4d2533d8074b121">GetInitialCapacity</a>()<span class="keyword"> const</span></div>
+<div class="line"><a id="l00243" name="l00243"></a><span class="lineno">  243</span><span class="keyword">        </span>{</div>
+<div class="line"><a id="l00244" name="l00244"></a><span class="lineno">  244</span>            <span class="keywordflow">return</span> 0;</div>
+<div class="line"><a id="l00245" name="l00245"></a><span class="lineno">  245</span>        }</div>
+</div>
+<div class="line"><a id="l00246" name="l00246"></a><span class="lineno">  246</span> </div>
+<div class="line"><a id="l00247" name="l00247"></a><span class="lineno">  247</span>    <span class="keyword">private</span>:</div>
+<div class="line"><a id="l00248" name="l00248"></a><span class="lineno">  248</span>        ElementType* Data = <span class="keyword">nullptr</span>;</div>
+<div class="line"><a id="l00249" name="l00249"></a><span class="lineno">  249</span>    };</div>
+</div>
+<div class="line"><a id="l00250" name="l00250"></a><span class="lineno">  250</span> </div>
+<div class="line"><a id="l00251" name="l00251"></a><span class="lineno"><a class="line" href="../../d5/da1/class_t_r_d_g_array_allocator.html#aa6b331936dd4415e0524027642bc36ec">  251</a></span>    <span class="keyword">typedef</span> <a class="code hl_class" href="../../d7/deb/class_t_r_d_g_array_allocator_1_1_for_element_type.html">ForElementType&lt;FScriptContainerElement&gt;</a> <a class="code hl_typedef" href="../../d5/da1/class_t_r_d_g_array_allocator.html#aa6b331936dd4415e0524027642bc36ec">ForAnyElementType</a>;</div>
+<div class="line"><a id="l00252" name="l00252"></a><span class="lineno">  252</span>};</div>
+</div>
+<div class="line"><a id="l00253" name="l00253"></a><span class="lineno">  253</span> </div>
+<div class="line"><a id="l00254" name="l00254"></a><span class="lineno">  254</span><span class="keyword">template</span> &lt;u<span class="keywordtype">int</span>32 Alignment&gt;</div>
+<div class="foldopen" id="foldopen00255" data-start="{" data-end="};">
+<div class="line"><a id="l00255" name="l00255"></a><span class="lineno"><a class="line" href="../../de/dd5/struct_t_allocator_traits_3_01_t_r_d_g_array_allocator_3_01_alignment_01_4_01_4.html">  255</a></span><span class="keyword">struct </span><a class="code hl_struct" href="../../d8/dcb/struct_t_allocator_traits.html">TAllocatorTraits</a>&lt;<a class="code hl_class" href="../../d5/da1/class_t_r_d_g_array_allocator.html">TRDGArrayAllocator</a>&lt;Alignment&gt;&gt; : <a class="code hl_struct" href="../../d5/d0c/struct_t_allocator_traits_base.html">TAllocatorTraitsBase</a>&lt;TRDGArrayAllocator&lt;Alignment&gt;&gt;</div>
+<div class="line"><a id="l00256" name="l00256"></a><span class="lineno">  256</span>{</div>
+<div class="line"><a id="l00257" name="l00257"></a><span class="lineno"><a class="line" href="../../de/dd5/struct_t_allocator_traits_3_01_t_r_d_g_array_allocator_3_01_alignment_01_4_01_4.html#a7b28e41b1f8bb8f6f48a42603991b526a1512c5aff1432321ad0493467fcc4b76">  257</a></span>    <span class="keyword">enum</span> { <a class="code hl_enumvalue" href="../../de/dd5/struct_t_allocator_traits_3_01_t_r_d_g_array_allocator_3_01_alignment_01_4_01_4.html#a7b28e41b1f8bb8f6f48a42603991b526a1512c5aff1432321ad0493467fcc4b76">IsZeroConstruct</a> = <span class="keyword">true</span> };</div>
+<div class="line"><a id="l00258" name="l00258"></a><span class="lineno">  258</span>};</div>
+</div>
+<div class="line"><a id="l00259" name="l00259"></a><span class="lineno">  259</span> </div>
+<div class="line"><a id="l00260" name="l00260"></a><span class="lineno"><a class="line" href="../../d6/df5/_render_graph_allocator_8h.html#a5f1b2f43d0947bdff5fc1290f7418443">  260</a></span><span class="keyword">using </span><a class="code hl_typedef" href="../../d6/df5/_render_graph_allocator_8h.html#a5f1b2f43d0947bdff5fc1290f7418443">FRDGArrayAllocator</a> = <a class="code hl_class" href="../../d5/da1/class_t_r_d_g_array_allocator.html">TRDGArrayAllocator&lt;&gt;</a>;</div>
+<div class="line"><a id="l00261" name="l00261"></a><span class="lineno"><a class="line" href="../../d6/df5/_render_graph_allocator_8h.html#a2ab56df989247b4ee610a9d1035c917c">  261</a></span><span class="keyword">using </span><a class="code hl_typedef" href="../../d6/df5/_render_graph_allocator_8h.html#a2ab56df989247b4ee610a9d1035c917c">FRDGBitArrayAllocator</a> = <a class="code hl_typedef" href="../../dc/d3d/_container_allocation_policies_8h.html#a955ebaff17aade3efe4ecd32109bedea">TInlineAllocator&lt;4, FRDGArrayAllocator&gt;</a>;</div>
+<div class="line"><a id="l00262" name="l00262"></a><span class="lineno"><a class="line" href="../../d6/df5/_render_graph_allocator_8h.html#a4d5f17a3944ab1f6c562c7848582e659">  262</a></span><span class="keyword">using </span><a class="code hl_typedef" href="../../d6/df5/_render_graph_allocator_8h.html#a4d5f17a3944ab1f6c562c7848582e659">FRDGSparseArrayAllocator</a> = <a class="code hl_class" href="../../d1/dfc/class_t_sparse_array_allocator.html">TSparseArrayAllocator&lt;FRDGArrayAllocator, FRDGBitArrayAllocator&gt;</a>;</div>
+<div class="line"><a id="l00263" name="l00263"></a><span class="lineno"><a class="line" href="../../d6/df5/_render_graph_allocator_8h.html#a8ce4293a1e8de9e1b48a1e1da25421e2">  263</a></span><span class="keyword">using </span><a class="code hl_typedef" href="../../d6/df5/_render_graph_allocator_8h.html#a8ce4293a1e8de9e1b48a1e1da25421e2">FRDGSetAllocator</a> = <a class="code hl_class" href="../../dc/d8c/class_t_set_allocator.html">TSetAllocator&lt;FRDGSparseArrayAllocator, TInlineAllocator&lt;1, FRDGBitArrayAllocator&gt;</a>&gt;;</div>
+<div class="ttc" id="a_android_target_platform_settings_8h_html_ada4140d28211436b6e8e6940ad73b33fae93f994f01c537c4e2f7d8528c3eb5e9"><div class="ttname"><a href="../../dc/dd1/_android_target_platform_settings_8h.html#ada4140d28211436b6e8e6940ad73b33fae93f994f01c537c4e2f7d8528c3eb5e9">EAndroidTextureFormatCategory::Count</a></div><div class="ttdeci">@ Count</div><div class="ttdef"><b>定义</b> AndroidTargetPlatformSettings.h:23</div></div>
+<div class="ttc" id="a_assertion_macros_8h_html"><div class="ttname"><a href="../../d4/d75/_assertion_macros_8h.html">AssertionMacros.h</a></div></div>
+<div class="ttc" id="a_assertion_macros_8h_html_a12ff33b2f8cbad5116bd85ca93de5cb2"><div class="ttname"><a href="../../d4/d75/_assertion_macros_8h.html#a12ff33b2f8cbad5116bd85ca93de5cb2">checkSlow</a></div><div class="ttdeci">#define checkSlow(expr)</div><div class="ttdef"><b>定义</b> AssertionMacros.h:337</div></div>
+<div class="ttc" id="a_assertion_macros_8h_html_a586e110623cde145b8a5bdefb429e144"><div class="ttname"><a href="../../d4/d75/_assertion_macros_8h.html#a586e110623cde145b8a5bdefb429e144">check</a></div><div class="ttdeci">#define check(expr)</div><div class="ttdef"><b>定义</b> AssertionMacros.h:319</div></div>
+<div class="ttc" id="a_container_allocation_policies_8h_html"><div class="ttname"><a href="../../dc/d3d/_container_allocation_policies_8h.html">ContainerAllocationPolicies.h</a></div></div>
+<div class="ttc" id="a_container_allocation_policies_8h_html_a1f0dc2b730cdc50072d6016cbdf56c0b"><div class="ttname"><a href="../../dc/d3d/_container_allocation_policies_8h.html#a1f0dc2b730cdc50072d6016cbdf56c0b">DefaultCalculateSlackReserve</a></div><div class="ttdeci">UE_FORCEINLINE_HINT SizeType DefaultCalculateSlackReserve(SizeType NewMax, SIZE_T BytesPerElement, bool bAllowQuantize, uint32 Alignment=DEFAULT_ALIGNMENT)</div><div class="ttdef"><b>定义</b> ContainerAllocationPolicies.h:224</div></div>
+<div class="ttc" id="a_container_allocation_policies_8h_html_a955ebaff17aade3efe4ecd32109bedea"><div class="ttname"><a href="../../dc/d3d/_container_allocation_policies_8h.html#a955ebaff17aade3efe4ecd32109bedea">TInlineAllocator</a></div><div class="ttdeci">TSizedInlineAllocator&lt; NumInlineElements, 32, SecondaryAllocator &gt; TInlineAllocator</div><div class="ttdef"><b>定义</b> ContainerAllocationPolicies.h:1328</div></div>
+<div class="ttc" id="a_container_allocation_policies_8h_html_abaa2233cb5eb873fdbe30b2706cb8f51"><div class="ttname"><a href="../../dc/d3d/_container_allocation_policies_8h.html#abaa2233cb5eb873fdbe30b2706cb8f51">DefaultCalculateSlackShrink</a></div><div class="ttdeci">UE_FORCEINLINE_HINT SizeType DefaultCalculateSlackShrink(SizeType NewMax, SizeType CurrentMax, SIZE_T BytesPerElement, bool bAllowQuantize, uint32 Alignment=DEFAULT_ALIGNMENT)</div><div class="ttdef"><b>定义</b> ContainerAllocationPolicies.h:140</div></div>
+<div class="ttc" id="a_container_allocation_policies_8h_html_aeb0cc2c978697705aa7f948581ef733a"><div class="ttname"><a href="../../dc/d3d/_container_allocation_policies_8h.html#aeb0cc2c978697705aa7f948581ef733a">DefaultCalculateSlackGrow</a></div><div class="ttdeci">UE_FORCEINLINE_HINT SizeType DefaultCalculateSlackGrow(SizeType NewMax, SizeType CurrentMax, SIZE_T BytesPerElement, bool bAllowQuantize, uint32 Alignment=DEFAULT_ALIGNMENT)</div><div class="ttdef"><b>定义</b> ContainerAllocationPolicies.h:170</div></div>
+<div class="ttc" id="a_core_2_public_2_h_a_l_2_platform_8h_html_a2c46f1fb01e11216aa2c983307deafb4"><div class="ttname"><a href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2c46f1fb01e11216aa2c983307deafb4">SIZE_T</a></div><div class="ttdeci">FPlatformTypes::SIZE_T SIZE_T</div><div class="ttdoc">An unsigned integer the same size as a pointer, the same as UPTRINT</div><div class="ttdef"><b>定义</b> Platform.h:1215</div></div>
+<div class="ttc" id="a_core_2_public_2_h_a_l_2_platform_8h_html_a8dbb3cd84ca9fd010dadfc3815eefa5d"><div class="ttname"><a href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a8dbb3cd84ca9fd010dadfc3815eefa5d">int32</a></div><div class="ttdeci">FPlatformTypes::int32 int32</div><div class="ttdoc">A 32-bit signed integer.</div><div class="ttdef"><b>定义</b> Platform.h:1190</div></div>
+<div class="ttc" id="a_core_2_public_2_h_a_l_2_platform_8h_html_ab10d0a221f4d7a706701b806c8135fd7"><div class="ttname"><a href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#ab10d0a221f4d7a706701b806c8135fd7">UNLIKELY</a></div><div class="ttdeci">#define UNLIKELY(x)</div><div class="ttdef"><b>定义</b> Platform.h:909</div></div>
+<div class="ttc" id="a_core_2_public_2_templates_2_function_8h_html"><div class="ttname"><a href="../../da/da2/_core_2_public_2_templates_2_function_8h.html">Function.h</a></div></div>
+<div class="ttc" id="a_core_globals_8h_html"><div class="ttname"><a href="../../db/d21/_core_globals_8h.html">CoreGlobals.h</a></div></div>
+<div class="ttc" id="a_core_minimal_8h_html"><div class="ttname"><a href="../../dc/d5e/_core_minimal_8h.html">CoreMinimal.h</a></div></div>
+<div class="ttc" id="a_groom_visualization_data_8h_html_a5aac198462141e75e6d8274d4c8b6ee2a4789f23283b3a61f858b641a1bef19a3"><div class="ttname"><a href="../../de/d46/_groom_visualization_data_8h.html#a5aac198462141e75e6d8274d4c8b6ee2a4789f23283b3a61f858b641a1bef19a3">EGroomViewMode::Memory</a></div><div class="ttdeci">@ Memory</div><div class="ttdef"><b>定义</b> GroomVisualizationData.h:48</div></div>
+<div class="ttc" id="a_io_store_utilities_8cpp_html_a87a058d905c1a0bfb1670ef9a427caa4a6311ae17c1ee52b36e68aaf4ad066387"><div class="ttname"><a href="../../db/dff/_io_store_utilities_8cpp.html#a87a058d905c1a0bfb1670ef9a427caa4a6311ae17c1ee52b36e68aaf4ad066387">EPluginGraphSizeClass::Other</a></div><div class="ttdeci">@ Other</div><div class="ttdef"><b>定义</b> IoStoreUtilities.cpp:3098</div></div>
+<div class="ttc" id="a_mem_stack_8h_html"><div class="ttname"><a href="../../d2/d5d/_mem_stack_8h.html">MemStack.h</a></div></div>
+<div class="ttc" id="a_memory_base_8h_html"><div class="ttname"><a href="../../d4/d4f/_memory_base_8h.html">MemoryBase.h</a></div></div>
+<div class="ttc" id="a_navigation_system_types_8h_html_afd9654171435c563939671aa701df70d"><div class="ttname"><a href="../../d3/d19/_navigation_system_types_8h.html#afd9654171435c563939671aa701df70d">Object</a></div><div class="ttdeci">TWeakInterfacePtr&lt; INavigationInvokerInterface &gt; Object</div><div class="ttdef"><b>定义</b> NavigationSystemTypes.h:116</div></div>
+<div class="ttc" id="a_numeric_limits_8h_html_a0ca55812fa35a6bb8e78c8f9cf293713"><div class="ttname"><a href="../../dd/d20/_numeric_limits_8h.html#a0ca55812fa35a6bb8e78c8f9cf293713">MAX_int32</a></div><div class="ttdeci">#define MAX_int32</div><div class="ttdef"><b>定义</b> NumericLimits.h:25</div></div>
+<div class="ttc" id="a_render_graph_allocator_8h_html_a2ab56df989247b4ee610a9d1035c917c"><div class="ttname"><a href="../../d6/df5/_render_graph_allocator_8h.html#a2ab56df989247b4ee610a9d1035c917c">FRDGBitArrayAllocator</a></div><div class="ttdeci">TInlineAllocator&lt; 4, FRDGArrayAllocator &gt; FRDGBitArrayAllocator</div><div class="ttdef"><b>定义</b> RenderGraphAllocator.h:261</div></div>
+<div class="ttc" id="a_render_graph_allocator_8h_html_a4d5f17a3944ab1f6c562c7848582e659"><div class="ttname"><a href="../../d6/df5/_render_graph_allocator_8h.html#a4d5f17a3944ab1f6c562c7848582e659">FRDGSparseArrayAllocator</a></div><div class="ttdeci">TSparseArrayAllocator&lt; FRDGArrayAllocator, FRDGBitArrayAllocator &gt; FRDGSparseArrayAllocator</div><div class="ttdef"><b>定义</b> RenderGraphAllocator.h:262</div></div>
+<div class="ttc" id="a_render_graph_allocator_8h_html_a5f1b2f43d0947bdff5fc1290f7418443"><div class="ttname"><a href="../../d6/df5/_render_graph_allocator_8h.html#a5f1b2f43d0947bdff5fc1290f7418443">FRDGArrayAllocator</a></div><div class="ttdeci">TRDGArrayAllocator&lt;&gt; FRDGArrayAllocator</div><div class="ttdef"><b>定义</b> RenderGraphAllocator.h:260</div></div>
+<div class="ttc" id="a_render_graph_allocator_8h_html_a8ce4293a1e8de9e1b48a1e1da25421e2"><div class="ttname"><a href="../../d6/df5/_render_graph_allocator_8h.html#a8ce4293a1e8de9e1b48a1e1da25421e2">FRDGSetAllocator</a></div><div class="ttdeci">TSetAllocator&lt; FRDGSparseArrayAllocator, TInlineAllocator&lt; 1, FRDGBitArrayAllocator &gt; &gt; FRDGSetAllocator</div><div class="ttdef"><b>定义</b> RenderGraphAllocator.h:263</div></div>
+<div class="ttc" id="a_render_graph_definitions_8h_html_a2a79e6d685affd4f2fa2bc1eb19048a4afb1925517296a258d34f3c05e78ce0b2"><div class="ttname"><a href="../../d6/de8/_render_graph_definitions_8h.html#a2a79e6d685affd4f2fa2bc1eb19048a4afb1925517296a258d34f3c05e78ce0b2">ERDGHandleRegistryDestructPolicy::Allocator</a></div><div class="ttdeci">@ Allocator</div><div class="ttdef"><b>定义</b> RenderGraphDefinitions.h:441</div></div>
+<div class="ttc" id="a_static_array_8h_html"><div class="ttname"><a href="../../df/d65/_static_array_8h.html">StaticArray.h</a></div></div>
+<div class="ttc" id="a_unreal_math_s_s_e_8h_html"><div class="ttname"><a href="../../db/d28/_unreal_math_s_s_e_8h.html">UnrealMathSSE.h</a></div></div>
+<div class="ttc" id="a_unreal_memory_8h_html"><div class="ttname"><a href="../../df/da0/_unreal_memory_8h.html">UnrealMemory.h</a></div></div>
+<div class="ttc" id="a_unreal_template_8h_html"><div class="ttname"><a href="../../d2/dd1/_unreal_template_8h.html">UnrealTemplate.h</a></div></div>
+<div class="ttc" id="a_unreal_template_8h_html_a6d7db053133615a836abeb3ab80d3304"><div class="ttname"><a href="../../d2/dd1/_unreal_template_8h.html#a6d7db053133615a836abeb3ab80d3304">Forward</a></div><div class="ttdeci">UE_INTRINSIC_CAST UE_REWRITE constexpr T &amp;&amp; Forward(std::remove_reference_t&lt; T &gt; &amp;Obj) noexcept</div><div class="ttdef"><b>定义</b> UnrealTemplate.h:594</div></div>
+<div class="ttc" id="aclass_f_mem_stack_base_html"><div class="ttname"><a href="../../df/d4b/class_f_mem_stack_base.html">FMemStackBase</a></div><div class="ttdef"><b>定义</b> MemStack.h:78</div></div>
+<div class="ttc" id="aclass_f_r_d_g_allocator_1_1_f_object_html"><div class="ttname"><a href="../../d7/d1b/class_f_r_d_g_allocator_1_1_f_object.html">FRDGAllocator::FObject</a></div><div class="ttdef"><b>定义</b> RenderGraphAllocator.h:27</div></div>
+<div class="ttc" id="aclass_f_r_d_g_allocator_1_1_f_object_html_af072ed762404c35d2aa3ec6e4c831371"><div class="ttname"><a href="../../d7/d1b/class_f_r_d_g_allocator_1_1_f_object.html#af072ed762404c35d2aa3ec6e4c831371">FRDGAllocator::FObject::~FObject</a></div><div class="ttdeci">virtual ~FObject()=default</div></div>
+<div class="ttc" id="aclass_f_r_d_g_allocator_1_1_t_object_html"><div class="ttname"><a href="../../d5/dfc/class_f_r_d_g_allocator_1_1_t_object.html">FRDGAllocator::TObject</a></div><div class="ttdef"><b>定义</b> RenderGraphAllocator.h:34</div></div>
+<div class="ttc" id="aclass_f_r_d_g_allocator_1_1_t_object_html_ac479543be53643141296dd566778c473"><div class="ttname"><a href="../../d5/dfc/class_f_r_d_g_allocator_1_1_t_object.html#ac479543be53643141296dd566778c473">FRDGAllocator::TObject::FRDGAllocator</a></div><div class="ttdeci">friend class FRDGAllocator</div><div class="ttdef"><b>定义</b> RenderGraphAllocator.h:35</div></div>
+<div class="ttc" id="aclass_f_r_d_g_allocator_html"><div class="ttname"><a href="../../d4/d7e/class_f_r_d_g_allocator.html">FRDGAllocator</a></div><div class="ttdef"><b>定义</b> RenderGraphAllocator.h:24</div></div>
+<div class="ttc" id="aclass_f_r_d_g_allocator_html_a0d7be8291593e06444a80c476047882c"><div class="ttname"><a href="../../d4/d7e/class_f_r_d_g_allocator.html#a0d7be8291593e06444a80c476047882c">FRDGAllocator::GetByteCount</a></div><div class="ttdeci">int32 GetByteCount() const</div><div class="ttdef"><b>定义</b> RenderGraphAllocator.h:113</div></div>
+<div class="ttc" id="aclass_f_r_d_g_allocator_html_a0dc5324fa3e73f718e97e1a55cd18781"><div class="ttname"><a href="../../d4/d7e/class_f_r_d_g_allocator.html#a0dc5324fa3e73f718e97e1a55cd18781">FRDGAllocator::FRDGAllocator</a></div><div class="ttdeci">FRDGAllocator()</div><div class="ttdef"><b>定义</b> RenderGraphAllocator.cpp:13</div></div>
+<div class="ttc" id="aclass_f_r_d_g_allocator_html_a5f79838c44127d88963ef2f920109578"><div class="ttname"><a href="../../d4/d7e/class_f_r_d_g_allocator.html#a5f79838c44127d88963ef2f920109578">FRDGAllocator::ReleaseAll</a></div><div class="ttdeci">void ReleaseAll()</div><div class="ttdef"><b>定义</b> RenderGraphAllocator.cpp:71</div></div>
+<div class="ttc" id="aclass_f_r_d_g_allocator_html_a6ae9fc7b59c88e8d692eb34ac9c2cf78"><div class="ttname"><a href="../../d4/d7e/class_f_r_d_g_allocator.html#a6ae9fc7b59c88e8d692eb34ac9c2cf78">FRDGAllocator::GetTLS</a></div><div class="ttdeci">static RENDERCORE_API FRDGAllocator &amp; GetTLS()</div><div class="ttdef"><b>定义</b> RenderGraphAllocator.cpp:51</div></div>
+<div class="ttc" id="aclass_f_r_d_g_allocator_html_a7f5b2d4abb367e1595ad458166a3fbfb"><div class="ttname"><a href="../../d4/d7e/class_f_r_d_g_allocator.html#a7f5b2d4abb367e1595ad458166a3fbfb">FRDGAllocator::Alloc</a></div><div class="ttdeci">void * Alloc(uint64 SizeInBytes, uint32 AlignInBytes)</div><div class="ttdef"><b>定义</b> RenderGraphAllocator.h:53</div></div>
+<div class="ttc" id="aclass_f_r_d_g_allocator_html_a8bfc063b26c8c5ca7b3e025258798247"><div class="ttname"><a href="../../d4/d7e/class_f_r_d_g_allocator.html#a8bfc063b26c8c5ca7b3e025258798247">FRDGAllocator::AllocNoDestruct</a></div><div class="ttdeci">T * AllocNoDestruct(TArgs &amp;&amp;... Args)</div><div class="ttdef"><b>定义</b> RenderGraphAllocator.h:108</div></div>
+<div class="ttc" id="aclass_f_r_d_g_allocator_html_aa380174845913a0d0f0c513944265cbb"><div class="ttname"><a href="../../d4/d7e/class_f_r_d_g_allocator.html#aa380174845913a0d0f0c513944265cbb">FRDGAllocator::AllocUninitialized</a></div><div class="ttdeci">PODType * AllocUninitialized(uint64 Count=1)</div><div class="ttdef"><b>定义</b> RenderGraphAllocator.h:78</div></div>
+<div class="ttc" id="aclass_f_r_d_g_allocator_html_aa5cdb92a6529516c2bc2a994a3370a22"><div class="ttname"><a href="../../d4/d7e/class_f_r_d_g_allocator.html#aa5cdb92a6529516c2bc2a994a3370a22">FRDGAllocator::Alloc</a></div><div class="ttdeci">T * Alloc(TArgs &amp;&amp;... Args)</div><div class="ttdef"><b>定义</b> RenderGraphAllocator.h:85</div></div>
+<div class="ttc" id="aclass_f_r_d_g_allocator_html_abd69a65a3372bfc6b950f699d45b55b5"><div class="ttname"><a href="../../d4/d7e/class_f_r_d_g_allocator.html#abd69a65a3372bfc6b950f699d45b55b5">FRDGAllocator::FRDGAllocatorScope</a></div><div class="ttdeci">friend class FRDGAllocatorScope</div><div class="ttdef"><b>定义</b> RenderGraphAllocator.h:141</div></div>
+<div class="ttc" id="aclass_f_r_d_g_allocator_html_ac9cff5fdae4f44b655dca1a1f09b5464"><div class="ttname"><a href="../../d4/d7e/class_f_r_d_g_allocator.html#ac9cff5fdae4f44b655dca1a1f09b5464">FRDGAllocator::operator=</a></div><div class="ttdeci">FRDGAllocator &amp; operator=(FRDGAllocator &amp;&amp;)</div><div class="ttdef"><b>定义</b> RenderGraphAllocator.cpp:24</div></div>
+<div class="ttc" id="aclass_f_r_d_g_allocator_html_ae18b26fbc1d57902ea811c102ed62ab0"><div class="ttname"><a href="../../d4/d7e/class_f_r_d_g_allocator.html#ae18b26fbc1d57902ea811c102ed62ab0">FRDGAllocator::~FRDGAllocator</a></div><div class="ttdeci">~FRDGAllocator()</div><div class="ttdef"><b>定义</b> RenderGraphAllocator.cpp:46</div></div>
+<div class="ttc" id="aclass_f_r_d_g_allocator_scope_html_a014448839868864ebde17d2f359b0a0d"><div class="ttname"><a href="../../d5/d9a/class_f_r_d_g_allocator_scope.html#a014448839868864ebde17d2f359b0a0d">FRDGAllocatorScope::FRDGAllocatorScope</a></div><div class="ttdeci">RENDERCORE_API FRDGAllocatorScope(FRDGAllocator &amp;Allocator)</div><div class="ttdef"><b>定义</b> RenderGraphAllocator.cpp:98</div></div>
+<div class="ttc" id="aclass_f_r_d_g_allocator_scope_html_a95c2cc8f856688466dbfee52e593de03"><div class="ttname"><a href="../../d5/d9a/class_f_r_d_g_allocator_scope.html#a95c2cc8f856688466dbfee52e593de03">FRDGAllocatorScope::~FRDGAllocatorScope</a></div><div class="ttdeci">RENDERCORE_API ~FRDGAllocatorScope()</div><div class="ttdef"><b>定义</b> RenderGraphAllocator.cpp:104</div></div>
+<div class="ttc" id="aclass_t_array_html"><div class="ttname"><a href="../../d6/db1/class_t_array.html">TArray</a></div><div class="ttdef"><b>定义</b> Array.h:768</div></div>
+<div class="ttc" id="aclass_t_r_d_g_array_allocator_1_1_for_element_type_html"><div class="ttname"><a href="../../d7/deb/class_t_r_d_g_array_allocator_1_1_for_element_type.html">TRDGArrayAllocator::ForElementType</a></div><div class="ttdef"><b>定义</b> RenderGraphAllocator.h:174</div></div>
+<div class="ttc" id="aclass_t_r_d_g_array_allocator_1_1_for_element_type_html_a026eded379eae51b72725fef629a7ae6"><div class="ttname"><a href="../../d7/deb/class_t_r_d_g_array_allocator_1_1_for_element_type.html#a026eded379eae51b72725fef629a7ae6">TRDGArrayAllocator::ForElementType::CalculateSlackGrow</a></div><div class="ttdeci">SizeType CalculateSlackGrow(SizeType NewMax, SizeType CurrentMax, SIZE_T NumBytesPerElement) const</div><div class="ttdef"><b>定义</b> RenderGraphAllocator.h:227</div></div>
+<div class="ttc" id="aclass_t_r_d_g_array_allocator_1_1_for_element_type_html_a04af989d9bdf4a65907c83af4819e7cf"><div class="ttname"><a href="../../d7/deb/class_t_r_d_g_array_allocator_1_1_for_element_type.html#a04af989d9bdf4a65907c83af4819e7cf">TRDGArrayAllocator::ForElementType::ResizeAllocation</a></div><div class="ttdeci">void ResizeAllocation(SizeType CurrentNum, SizeType NewMax, SIZE_T NumBytesPerElement)</div><div class="ttdef"><b>定义</b> RenderGraphAllocator.h:191</div></div>
+<div class="ttc" id="aclass_t_r_d_g_array_allocator_1_1_for_element_type_html_a79267ab36bfe6dc4323c0a2e2dc368ed"><div class="ttname"><a href="../../d7/deb/class_t_r_d_g_array_allocator_1_1_for_element_type.html#a79267ab36bfe6dc4323c0a2e2dc368ed">TRDGArrayAllocator::ForElementType::GetAllocatedSize</a></div><div class="ttdeci">SIZE_T GetAllocatedSize(SizeType CurrentMax, SIZE_T NumBytesPerElement) const</div><div class="ttdef"><b>定义</b> RenderGraphAllocator.h:232</div></div>
+<div class="ttc" id="aclass_t_r_d_g_array_allocator_1_1_for_element_type_html_a8a3c84406c0f8e0e430d7b2e798001b2"><div class="ttname"><a href="../../d7/deb/class_t_r_d_g_array_allocator_1_1_for_element_type.html#a8a3c84406c0f8e0e430d7b2e798001b2">TRDGArrayAllocator::ForElementType::ForElementType</a></div><div class="ttdeci">ForElementType()=default</div></div>
+<div class="ttc" id="aclass_t_r_d_g_array_allocator_1_1_for_element_type_html_a9a006e540ffbc34a2b2cb62233e7e7ec"><div class="ttname"><a href="../../d7/deb/class_t_r_d_g_array_allocator_1_1_for_element_type.html#a9a006e540ffbc34a2b2cb62233e7e7ec">TRDGArrayAllocator::ForElementType::MoveToEmpty</a></div><div class="ttdeci">void MoveToEmpty(ForElementType &amp;Other)</div><div class="ttdef"><b>定义</b> RenderGraphAllocator.h:178</div></div>
+<div class="ttc" id="aclass_t_r_d_g_array_allocator_1_1_for_element_type_html_aac3efe15bb1b693ac4d2533d8074b121"><div class="ttname"><a href="../../d7/deb/class_t_r_d_g_array_allocator_1_1_for_element_type.html#aac3efe15bb1b693ac4d2533d8074b121">TRDGArrayAllocator::ForElementType::GetInitialCapacity</a></div><div class="ttdeci">SizeType GetInitialCapacity() const</div><div class="ttdef"><b>定义</b> RenderGraphAllocator.h:242</div></div>
+<div class="ttc" id="aclass_t_r_d_g_array_allocator_1_1_for_element_type_html_ab800cd95d75d02eebf7a56a16fc1c608"><div class="ttname"><a href="../../d7/deb/class_t_r_d_g_array_allocator_1_1_for_element_type.html#ab800cd95d75d02eebf7a56a16fc1c608">TRDGArrayAllocator::ForElementType::CalculateSlackReserve</a></div><div class="ttdeci">SizeType CalculateSlackReserve(SizeType NewMax, SIZE_T NumBytesPerElement) const</div><div class="ttdef"><b>定义</b> RenderGraphAllocator.h:217</div></div>
+<div class="ttc" id="aclass_t_r_d_g_array_allocator_1_1_for_element_type_html_ab8380ad7d5e2301f8dddad8801f53324"><div class="ttname"><a href="../../d7/deb/class_t_r_d_g_array_allocator_1_1_for_element_type.html#ab8380ad7d5e2301f8dddad8801f53324">TRDGArrayAllocator::ForElementType::HasAllocation</a></div><div class="ttdeci">bool HasAllocation() const</div><div class="ttdef"><b>定义</b> RenderGraphAllocator.h:237</div></div>
+<div class="ttc" id="aclass_t_r_d_g_array_allocator_1_1_for_element_type_html_abc034f9f54a09f32ce63f28e2b130afc"><div class="ttname"><a href="../../d7/deb/class_t_r_d_g_array_allocator_1_1_for_element_type.html#abc034f9f54a09f32ce63f28e2b130afc">TRDGArrayAllocator::ForElementType::GetAllocation</a></div><div class="ttdeci">ElementType * GetAllocation() const</div><div class="ttdef"><b>定义</b> RenderGraphAllocator.h:186</div></div>
+<div class="ttc" id="aclass_t_r_d_g_array_allocator_1_1_for_element_type_html_ac2e21a73191481871ea01c04330bb80c"><div class="ttname"><a href="../../d7/deb/class_t_r_d_g_array_allocator_1_1_for_element_type.html#ac2e21a73191481871ea01c04330bb80c">TRDGArrayAllocator::ForElementType::CalculateSlackShrink</a></div><div class="ttdeci">SizeType CalculateSlackShrink(SizeType NewMax, SizeType CurrentMax, SIZE_T NumBytesPerElement) const</div><div class="ttdef"><b>定义</b> RenderGraphAllocator.h:222</div></div>
+<div class="ttc" id="aclass_t_r_d_g_array_allocator_html"><div class="ttname"><a href="../../d5/da1/class_t_r_d_g_array_allocator.html">TRDGArrayAllocator</a></div><div class="ttdef"><b>定义</b> RenderGraphAllocator.h:165</div></div>
+<div class="ttc" id="aclass_t_r_d_g_array_allocator_html_a6a7f5d40afa67f8da8771e5a9c034c63a9bf46d21a6973967abb084d6627095e1"><div class="ttname"><a href="../../d5/da1/class_t_r_d_g_array_allocator.html#a6a7f5d40afa67f8da8771e5a9c034c63a9bf46d21a6973967abb084d6627095e1">TRDGArrayAllocator::RequireRangeCheck</a></div><div class="ttdeci">@ RequireRangeCheck</div><div class="ttdef"><b>定义</b> RenderGraphAllocator.h:170</div></div>
+<div class="ttc" id="aclass_t_r_d_g_array_allocator_html_aa6b331936dd4415e0524027642bc36ec"><div class="ttname"><a href="../../d5/da1/class_t_r_d_g_array_allocator.html#aa6b331936dd4415e0524027642bc36ec">TRDGArrayAllocator::ForAnyElementType</a></div><div class="ttdeci">ForElementType&lt; FScriptContainerElement &gt; ForAnyElementType</div><div class="ttdef"><b>定义</b> RenderGraphAllocator.h:251</div></div>
+<div class="ttc" id="aclass_t_r_d_g_array_allocator_html_ab44533bedf7f86a553299a7af1efa68bae69b7518f19d6d867ab580081e921aff"><div class="ttname"><a href="../../d5/da1/class_t_r_d_g_array_allocator.html#ab44533bedf7f86a553299a7af1efa68bae69b7518f19d6d867ab580081e921aff">TRDGArrayAllocator::NeedsElementType</a></div><div class="ttdeci">@ NeedsElementType</div><div class="ttdef"><b>定义</b> RenderGraphAllocator.h:169</div></div>
+<div class="ttc" id="aclass_t_r_d_g_array_allocator_html_ad6f4e1f83e547b38ba7255435121bc44"><div class="ttname"><a href="../../d5/da1/class_t_r_d_g_array_allocator.html#ad6f4e1f83e547b38ba7255435121bc44">TRDGArrayAllocator::SizeType</a></div><div class="ttdeci">int32 SizeType</div><div class="ttdef"><b>定义</b> RenderGraphAllocator.h:167</div></div>
+<div class="ttc" id="aclass_t_set_allocator_html"><div class="ttname"><a href="../../dc/d8c/class_t_set_allocator.html">TSetAllocator</a></div><div class="ttdef"><b>定义</b> ContainerAllocationPolicies.h:1926</div></div>
+<div class="ttc" id="aclass_t_sparse_array_allocator_html"><div class="ttname"><a href="../../d1/dfc/class_t_sparse_array_allocator.html">TSparseArrayAllocator</a></div><div class="ttdef"><b>定义</b> ContainerAllocationPolicies.h:1638</div></div>
+<div class="ttc" id="anamespace_u_e_1_1_render_core_1_1_private_html"><div class="ttname"><a href="../../df/df0/namespace_u_e_1_1_render_core_1_1_private.html">UE::RenderCore::Private</a></div><div class="ttdef"><b>定义</b> RenderGraphAllocator.h:158</div></div>
+<div class="ttc" id="anamespace_u_e_1_1_render_core_1_1_private_html_ae29e79a4be76768272f1be8668ad27f2"><div class="ttname"><a href="../../df/df0/namespace_u_e_1_1_render_core_1_1_private.html#ae29e79a4be76768272f1be8668ad27f2">UE::RenderCore::Private::OnInvalidRDGAllocatorNum</a></div><div class="ttdeci">RENDERCORE_API void OnInvalidRDGAllocatorNum(int32 NewNum, SIZE_T NumBytesPerElement)</div><div class="ttdef"><b>定义</b> RenderGraphAllocator.cpp:109</div></div>
+<div class="ttc" id="apreprocessor_8c_html_a1134b580f8da4de94ca6b1de4d37975e"><div class="ttname"><a href="../../dd/de9/preprocessor_8c.html#a1134b580f8da4de94ca6b1de4d37975e">uint32</a></div><div class="ttdeci">unsigned int uint32</div><div class="ttdef"><b>定义</b> preprocessor.c:67</div></div>
+<div class="ttc" id="apreprocessor_8c_html_abc0f5bc07737e498f287334775dff2b6"><div class="ttname"><a href="../../dd/de9/preprocessor_8c.html#abc0f5bc07737e498f287334775dff2b6">uint64</a></div><div class="ttdeci">uint64_t uint64</div><div class="ttdef"><b>定义</b> preprocessor.c:75</div></div>
+<div class="ttc" id="astruct_f_memory_html_a9c502a07c1d4ab75a9b4911906d09886"><div class="ttname"><a href="../../df/da4/struct_f_memory.html#a9c502a07c1d4ab75a9b4911906d09886">FMemory::Memcpy</a></div><div class="ttdeci">static UE_FORCEINLINE_HINT void * Memcpy(void *Dest, const void *Src, SIZE_T Count)</div><div class="ttdef"><b>定义</b> UnrealMemory.h:159</div></div>
+<div class="ttc" id="astruct_t_allocator_traits_3_01_t_r_d_g_array_allocator_3_01_alignment_01_4_01_4_html_a7b28e41b1f8bb8f6f48a42603991b526a1512c5aff1432321ad0493467fcc4b76"><div class="ttname"><a href="../../de/dd5/struct_t_allocator_traits_3_01_t_r_d_g_array_allocator_3_01_alignment_01_4_01_4.html#a7b28e41b1f8bb8f6f48a42603991b526a1512c5aff1432321ad0493467fcc4b76">TAllocatorTraits&lt; TRDGArrayAllocator&lt; Alignment &gt; &gt;::IsZeroConstruct</a></div><div class="ttdeci">@ IsZeroConstruct</div><div class="ttdef"><b>定义</b> RenderGraphAllocator.h:257</div></div>
+<div class="ttc" id="astruct_t_allocator_traits_base_html"><div class="ttname"><a href="../../d5/d0c/struct_t_allocator_traits_base.html">TAllocatorTraitsBase</a></div><div class="ttdef"><b>定义</b> ContainerAllocationPolicies.h:248</div></div>
+<div class="ttc" id="astruct_t_allocator_traits_html"><div class="ttname"><a href="../../d8/dcb/struct_t_allocator_traits.html">TAllocatorTraits</a></div><div class="ttdef"><b>定义</b> ContainerAllocationPolicies.h:257</div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+</div><!-- container -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a href="../../dir_0b6ee6e7e9547e675db4add2e5de97da.html">Engine</a></li><li class="navelem"><a href="../../dir_9579d1ecb2c7bf48cbe1049c41745cb4.html">Source</a></li><li class="navelem"><a href="../../dir_9f04efef762572853abdf73f62bebfcc.html">Runtime</a></li><li class="navelem"><a href="../../dir_43d0ee1d3ffe746915582c6da2fa51a8.html">RenderCore</a></li><li class="navelem"><a href="../../dir_17e4532974d48505347a9a81c1999d50.html">Public</a></li><li class="navelem"><a href="../../d6/df5/_render_graph_allocator_8h.html">RenderGraphAllocator.h</a></li>
+    <li class="footer">制作者 <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.15.0 </li>
+  </ul>
+</div>
+</body>
+</html>

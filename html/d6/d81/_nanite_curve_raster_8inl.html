@@ -1,0 +1,908 @@
+<!-- HTML header for doxygen 1.15.0-->
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh">
+<head>
+  <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=11" />
+  <meta name="generator" content="Doxygen 1.15.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>UE 5.8.4: Engine/Source/Runtime/Renderer/Private/Nanite/NaniteCurveRaster.inl 文件参考</title>
+  <link rel="icon" href="../../EdIconDefault.bmp" type="image/x-icon" />
+  <link href="../../tabs.css" rel="stylesheet" type="text/css" />
+  <script type="text/javascript" src="../../jquery.js"></script>
+  <script type="text/javascript" src="../../dynsections.js"></script>
+  <link href="../../navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../navtreedata.js"></script>
+<script type="text/javascript" src="../../navtree.js"></script>
+<script type="text/javascript" src="../../cookie.js"></script>
+  <link href="../../search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../search/searchdata.js"></script>
+<script type="text/javascript" src="../../search/search.js"></script>
+  <script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  extensions: ["tex2jax.js"],
+  jax: ["input/TeX","output/HTML-CSS"],
+});
+</script>
+<script type="text/javascript" async="async" src="https://cdn.jsdelivr.net/npm/mathjax@2/MathJax.js"></script>
+  <link href="../../doxygen.css" rel="stylesheet" type="text/css" />
+  <link href="../../doxygen-awesome.css" rel="stylesheet" type="text/css"/>
+<link href="../../doxygen-awesome-sidebar-only.css" rel="stylesheet" type="text/css"/>
+<link href="../../doxygen-awesome-sidebar-only-darkmode-toggle.css" rel="stylesheet" type="text/css"/>
+  <!-- ... other metadata & script includes ... -->
+  <script type="text/javascript" src="../../doxygen-awesome-darkmode-toggle.js"></script>
+  <script type="text/javascript">
+    DoxygenAwesomeDarkModeToggle.title = "Zwischen hellem/dunklem Modus wechseln"
+    DoxygenAwesomeDarkModeToggle.lightModeIcon = '🌞'
+    // icon from https://fonts.google.com/icons
+    DoxygenAwesomeDarkModeToggle.darkModeIcon = `<svg xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 24 24" height="24px" viewBox="0 0 24 24" width="24px" fill="#009793"><g><rect fill="none" height="24" width="24"/></g><g><g><path d="M8.1,14.15C9.77,14.63,11,16.17,11,18c0,0.68-0.19,1.31-0.48,1.87c0.48,0.09,0.97,0.14,1.48,0.14 c1.48,0,2.9-0.41,4.13-1.15c-2.62-0.92-5.23-2.82-6.8-5.86C7.74,9.94,7.78,7.09,8.29,4.9c-2.57,1.33-4.3,4.01-4.3,7.1c0,0,0,0,0,0 c0.01,0,0.01,0,0.02,0C5.66,12,7.18,12.83,8.1,14.15z" opacity=".3"/><path d="M19.78,17.51c-2.47,0-6.57-1.33-8.68-5.43C8.77,7.57,10.6,3.6,11.63,2.01C6.27,2.2,1.98,6.59,1.98,12 c0,0.14,0.02,0.28,0.02,0.42C2.61,12.16,3.28,12,3.98,12c0,0,0,0,0,0c0-3.09,1.73-5.77,4.3-7.1C7.78,7.09,7.74,9.94,9.32,13 c1.57,3.04,4.18,4.95,6.8,5.86c-1.23,0.74-2.65,1.15-4.13,1.15c-0.5,0-1-0.05-1.48-0.14c-0.37,0.7-0.94,1.27-1.64,1.64 c0.98,0.32,2.03,0.5,3.11,0.5c3.5,0,6.58-1.8,8.37-4.52C20.18,17.5,19.98,17.51,19.78,17.51z"/><path d="M7,16l-0.18,0C6.4,14.84,5.3,14,4,14c-1.66,0-3,1.34-3,3s1.34,3,3,3c0.62,0,2.49,0,3,0c1.1,0,2-0.9,2-2 C9,16.9,8.1,16,7,16z"/></g></g></svg>`
+    DoxygenAwesomeDarkModeToggle.init()
+  </script>
+  <script type="text/javascript" src="../../doxygen-awesome-fragment-copy-button.js"></script>
+  <script type="text/javascript">
+    DoxygenAwesomeFragmentCopyButton.title = "In die Zwischenablage kopieren"
+    // DoxygenAwesomeFragmentCopyButton.copyIcon = `<svg ...>`
+    // DoxygenAwesomeFragmentCopyButton.successIcon = `<svg ...>`
+    DoxygenAwesomeFragmentCopyButton.init()
+  </script>
+  <script type="text/javascript" src="../../doxygen-awesome-paragraph-link.js"></script>
+  <script type="text/javascript">
+    DoxygenAwesomeParagraphLink.title = "Abschnitt verknüpfen"
+    DoxygenAwesomeParagraphLink.icon = "¶"
+    DoxygenAwesomeParagraphLink.init()
+  </script>
+  <script type="text/javascript" src="../../doxygen-awesome-interactive-toc.js"></script>
+  <script type="text/javascript">
+    DoxygenAwesomeInteractiveToc.topOffset = 45
+    DoxygenAwesomeInteractiveToc.hideMobileMenu = false
+    DoxygenAwesomeInteractiveToc.init()
+  </script>
+</head>
+<body>
+    <div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+      <div id="titlearea">
+        <table cellspacing="0" cellpadding="0">
+          <tbody>
+            <tr id="projectrow">
+              <td id="projectlogo"><img alt="Logo" src="../../EdIconDefault.bmp"  /></td>
+              <td id="projectalign">
+                <div id="projectname">UE 5.8.4
+                </div>
+                <div id="projectbrief">Unreal Engine</div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <!-- end header part -->
+<!-- 制作者 Doxygen 1.15.0 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "../../search/",'.html');
+</script>
+<script type="text/javascript">
+$(function() { codefold.init(); });
+</script>
+<script type="text/javascript" src="../../menudata.js"></script>
+<script type="text/javascript" src="../../menu.js"></script>
+<script type="text/javascript">
+$(function() {
+  initMenu('../../',true,false,'search.php','搜索',true);
+  $(function() { init_search(); });
+});
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(function(){initNavTree('d6/d81/_nanite_curve_raster_8inl.html','../../',''); });
+</script>
+<div id="container">
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">载入中...</div>
+<div class="SRStatus" id="Searching">搜索中...</div>
+<div class="SRStatus" id="NoMatches">未找到</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">NaniteCurveRaster.inl 文件参考</div></div>
+</div><!--header-->
+<div class="contents">
+<div class="textblock"><code>#include &quot;<a class="el" href="../../d9/d2c/_shader_parameter_macros_8h_source.html">ShaderParameterMacros.h</a>&quot;</code><br />
+</div><div class="textblock"><div class="dynheader">
+NaniteCurveRaster.inl 的引用(Include)关系图:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d2/dbc/_nanite_curve_raster_8inl__incl.svg" width="4714" height="1163"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+</div><div class="textblock"><div class="dynheader">
+此图展示该文件被哪些文件直接或间接地引用了:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../dc/de5/_nanite_curve_raster_8inl__dep__incl.svg" width="176" height="176"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+</div>
+<p><a href="../../d6/d81/_nanite_curve_raster_8inl_source.html">浏览该文件的源代码.</a></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-nested-classes" class="groupheader"><a id="nested-classes" name="nested-classes"></a>
+类</h2></td></tr>
+<tr class="memitem:FNaniteCurveTileCount" id="r_FNaniteCurveTileCount"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/d83/class_f_nanite_curve_tile_count.html">FNaniteCurveTileCount</a></td></tr>
+<tr class="memitem:FNaniteCurveTileWrite" id="r_FNaniteCurveTileWrite"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/d0e/class_f_nanite_curve_tile_write.html">FNaniteCurveTileWrite</a></td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-namespaces" class="groupheader"><a id="namespaces" name="namespaces"></a>
+命名空间</h2></td></tr>
+<tr class="memitem:Nanite" id="r_Nanite"><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/d3d/namespace_nanite.html">Nanite</a></td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-define-members" class="groupheader"><a id="define-members" name="define-members"></a>
+宏定义</h2></td></tr>
+<tr class="memitem:a4345be2f3846f0e96b84f11ecd6ed11e" id="r_a4345be2f3846f0e96b84f11ecd6ed11e"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4345be2f3846f0e96b84f11ecd6ed11e">NAMEOF</a>(ShaderClass)</td></tr>
+<tr class="memitem:a5f602b16a8e9232f5cc232662981aeeb" id="r_a5f602b16a8e9232f5cc232662981aeeb"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5f602b16a8e9232f5cc232662981aeeb">SHADER_STRUCT_SIG</a>(ShaderClass)</td></tr>
+<tr class="memitem:a6b53d344c68eb9ae2175ef7e4e77d639" id="r_a6b53d344c68eb9ae2175ef7e4e77d639"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6b53d344c68eb9ae2175ef7e4e77d639">SHADER_STRUCT_INC</a>(ShaderClass,  ParameterStruct,  GroupSize)</td></tr>
+<tr class="memitem:ae7303668e8215d4652073a2054d2dd8d" id="r_ae7303668e8215d4652073a2054d2dd8d"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae7303668e8215d4652073a2054d2dd8d">SHADER_MODIFY_SIG</a>(Parameters,  OutEnvironment)</td></tr>
+<tr class="memitem:ad76b627ce304f5a85427a0b5bf0b1d12" id="r_ad76b627ce304f5a85427a0b5bf0b1d12"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad76b627ce304f5a85427a0b5bf0b1d12">SHADER_MODIFY_INC</a>(Parameters,  OutEnvironment)</td></tr>
+<tr class="memitem:ad2af73c08942ad3fbcd2c07342003196" id="r_ad2af73c08942ad3fbcd2c07342003196"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad2af73c08942ad3fbcd2c07342003196">SHADER_CONDITION_SIG</a>(Parameters)</td></tr>
+<tr class="memitem:a5f428d0bbc2ed44d83539ad2e418ad14" id="r_a5f428d0bbc2ed44d83539ad2e418ad14"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5f428d0bbc2ed44d83539ad2e418ad14">SHADER_CONDITION_INC</a>(Parameters)</td></tr>
+<tr class="memitem:ad6ba64ea34146957d772e8fd5bc8aa87" id="r_ad6ba64ea34146957d772e8fd5bc8aa87"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad6ba64ea34146957d772e8fd5bc8aa87">SHADER_PRECACHED_SIG</a>(Parameters)</td></tr>
+<tr class="memitem:aa05bd3fdf61c572157aba488b1493024" id="r_aa05bd3fdf61c572157aba488b1493024"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa05bd3fdf61c572157aba488b1493024">IMPLEMENT_GLOBAL_SHADER_STRUCT</a>(ShaderClass,  ParameterStruct,  SourceFilename,  Frequency,  GroupSize, ...)</td></tr>
+<tr class="memitem:a27fef1751e354bd4600dece9022aa18a" id="r_a27fef1751e354bd4600dece9022aa18a"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a27fef1751e354bd4600dece9022aa18a">IMPLEMENT_GLOBAL_SHADER_STRUCT_EX2</a>(ShaderClass,  ParameterStruct,  SourceFilename,  Frequency,  GroupSize)</td></tr>
+<tr class="memitem:ab6adc8c3bd15795cdc93b26d04c3272a" id="r_ab6adc8c3bd15795cdc93b26d04c3272a"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab6adc8c3bd15795cdc93b26d04c3272a">IMPLEMENT_GLOBAL_SHADER_STRUCT_SP</a>(ShaderClass,  ParameterStruct,  SourceFilename,  Frequency,  GroupSize)</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-func-members" class="groupheader"><a id="func-members" name="func-members"></a>
+函数</h2></td></tr>
+<tr class="memitem:a8d38b6b6f6dcb5e24f2dc72df9abf27f" id="r_a8d38b6b6f6dcb5e24f2dc72df9abf27f"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8d38b6b6f6dcb5e24f2dc72df9abf27f">IMPLEMENT_GLOBAL_SHADER_STRUCT</a> (CurveTileClear, FNaniteCurveCommonParameters, &quot;/Engine/<a class="el" href="../../d9/db1/namespace_private.html">Private</a>/<a class="el" href="../../d5/d3d/namespace_nanite.html">Nanite</a>/NaniteCurve.usf&quot;, <a class="el" href="../../da/dca/_r_h_i_definitions_8h.html#a0a3cc83cb6ebc79b66b43fae3ffee64ea2a84a18d7ac3d1fac11e3153f0abf73b">SF_Compute</a>, 64)</td></tr>
+<tr class="memitem:ac833cf14250a23f9be31fe0034500ef1" id="r_ac833cf14250a23f9be31fe0034500ef1"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac833cf14250a23f9be31fe0034500ef1">IMPLEMENT_GLOBAL_SHADER_STRUCT</a> (CurveTileCountCap, FNaniteCurveCommonParameters, &quot;/Engine/<a class="el" href="../../d9/db1/namespace_private.html">Private</a>/<a class="el" href="../../d5/d3d/namespace_nanite.html">Nanite</a>/NaniteCurve.usf&quot;, <a class="el" href="../../da/dca/_r_h_i_definitions_8h.html#a0a3cc83cb6ebc79b66b43fae3ffee64ea2a84a18d7ac3d1fac11e3153f0abf73b">SF_Compute</a>, 64)</td></tr>
+<tr class="memitem:aabeb4ee8da06dd34e37bdbe3d2a62cd6" id="r_aabeb4ee8da06dd34e37bdbe3d2a62cd6"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aabeb4ee8da06dd34e37bdbe3d2a62cd6">IMPLEMENT_GLOBAL_SHADER_STRUCT</a> (CurveTileIndirectArgs, FNaniteCurveCommonParameters, &quot;/Engine/<a class="el" href="../../d9/db1/namespace_private.html">Private</a>/<a class="el" href="../../d5/d3d/namespace_nanite.html">Nanite</a>/NaniteCurve.usf&quot;, <a class="el" href="../../da/dca/_r_h_i_definitions_8h.html#a0a3cc83cb6ebc79b66b43fae3ffee64ea2a84a18d7ac3d1fac11e3153f0abf73b">SF_Compute</a>, 1)</td></tr>
+<tr class="memitem:a539aaf294b89ce8d7b87eea995f80397" id="r_a539aaf294b89ce8d7b87eea995f80397"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a539aaf294b89ce8d7b87eea995f80397">IMPLEMENT_GLOBAL_SHADER_STRUCT</a> (CurveTileOffsetScan, FNaniteCurveCommonParameters, &quot;/Engine/<a class="el" href="../../d9/db1/namespace_private.html">Private</a>/<a class="el" href="../../d5/d3d/namespace_nanite.html">Nanite</a>/NaniteCurve.usf&quot;, <a class="el" href="../../da/dca/_r_h_i_definitions_8h.html#a0a3cc83cb6ebc79b66b43fae3ffee64ea2a84a18d7ac3d1fac11e3153f0abf73b">SF_Compute</a>, 16, 64, 256, 1024)</td></tr>
+<tr class="memitem:a8fa943ef169b8277847bb7e9338d5417" id="r_a8fa943ef169b8277847bb7e9338d5417"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8fa943ef169b8277847bb7e9338d5417">IMPLEMENT_GLOBAL_SHADER_STRUCT</a> (CurveTileOffsetMerge, FNaniteCurveCommonParameters, &quot;/Engine/<a class="el" href="../../d9/db1/namespace_private.html">Private</a>/<a class="el" href="../../d5/d3d/namespace_nanite.html">Nanite</a>/NaniteCurve.usf&quot;, <a class="el" href="../../da/dca/_r_h_i_definitions_8h.html#a0a3cc83cb6ebc79b66b43fae3ffee64ea2a84a18d7ac3d1fac11e3153f0abf73b">SF_Compute</a>, 16, 64, 256, 1024)</td></tr>
+<tr class="memitem:a9f04166343a24e5df9cb07c27ce146d9" id="r_a9f04166343a24e5df9cb07c27ce146d9"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9f04166343a24e5df9cb07c27ce146d9">IMPLEMENT_GLOBAL_SHADER_STRUCT</a> (CurveTileResolve, FNaniteCurveResolveParameters, &quot;/Engine/<a class="el" href="../../d9/db1/namespace_private.html">Private</a>/<a class="el" href="../../d5/d3d/namespace_nanite.html">Nanite</a>/NaniteCurve.usf&quot;, <a class="el" href="../../da/dca/_r_h_i_definitions_8h.html#a0a3cc83cb6ebc79b66b43fae3ffee64ea2a84a18d7ac3d1fac11e3153f0abf73b">SF_Compute</a>, <a class="el" href="../../d0/df6/_math_fwd_8h.html#af6853de5e4fcb2bad3bd5fdd2e50bffd">FIntPoint</a>(GetNaniteCurveTileWidth()))</td></tr>
+<tr class="memitem:a783263febd153c2f13f3c0e3daa56d19" id="r_a783263febd153c2f13f3c0e3daa56d19"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a783263febd153c2f13f3c0e3daa56d19">IMPLEMENT_GLOBAL_SHADER_STRUCT_EX2</a> (CurveTileTranslate, FNaniteCurveResolveParameters, &quot;/Engine/<a class="el" href="../../d9/db1/namespace_private.html">Private</a>/<a class="el" href="../../d5/d3d/namespace_nanite.html">Nanite</a>/NaniteCurve.usf&quot;, <a class="el" href="../../da/dca/_r_h_i_definitions_8h.html#a0a3cc83cb6ebc79b66b43fae3ffee64ea2a84a18d7ac3d1fac11e3153f0abf73b">SF_Compute</a>, <a class="el" href="../../d0/df6/_math_fwd_8h.html#af6853de5e4fcb2bad3bd5fdd2e50bffd">FIntPoint</a>(GetNaniteCurveTileWidth()))</td></tr>
+<tr class="memitem:a5128eca08229ebeef602c4cb2303437a" id="r_a5128eca08229ebeef602c4cb2303437a"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5128eca08229ebeef602c4cb2303437a">IMPLEMENT_GLOBAL_SHADER_STRUCT_SP</a> (CurveTileDebug, FNaniteCurveDebugParameters, &quot;/Engine/<a class="el" href="../../d9/db1/namespace_private.html">Private</a>/<a class="el" href="../../d5/d3d/namespace_nanite.html">Nanite</a>/NaniteCurve.usf&quot;, <a class="el" href="../../da/dca/_r_h_i_definitions_8h.html#a0a3cc83cb6ebc79b66b43fae3ffee64ea2a84a18d7ac3d1fac11e3153f0abf73b">SF_Compute</a>, <a class="el" href="../../d0/df6/_math_fwd_8h.html#af6853de5e4fcb2bad3bd5fdd2e50bffd">FIntPoint</a>(GetNaniteCurveTileWidth()))</td></tr>
+<tr class="memitem:a9d5639daaec2f1f19da442008880bacd" id="r_a9d5639daaec2f1f19da442008880bacd"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9d5639daaec2f1f19da442008880bacd">IMPLEMENT_GLOBAL_SHADER</a> (<a class="el" href="../../db/d83/class_f_nanite_curve_tile_count.html">FNaniteCurveTileCount</a>, &quot;/Engine/<a class="el" href="../../d9/db1/namespace_private.html">Private</a>/<a class="el" href="../../d5/d3d/namespace_nanite.html">Nanite</a>/NaniteRasterizer.usf&quot;, &quot;CurveTileCount&quot;, <a class="el" href="../../da/dca/_r_h_i_definitions_8h.html#a0a3cc83cb6ebc79b66b43fae3ffee64ea2a84a18d7ac3d1fac11e3153f0abf73b">SF_Compute</a>)</td></tr>
+<tr class="memitem:af80bee3a170d6ac29dd4961deb8b0548" id="r_af80bee3a170d6ac29dd4961deb8b0548"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af80bee3a170d6ac29dd4961deb8b0548">IMPLEMENT_GLOBAL_SHADER</a> (<a class="el" href="../../d0/d0e/class_f_nanite_curve_tile_write.html">FNaniteCurveTileWrite</a>, &quot;/Engine/<a class="el" href="../../d9/db1/namespace_private.html">Private</a>/<a class="el" href="../../d5/d3d/namespace_nanite.html">Nanite</a>/NaniteRasterizer.usf&quot;, &quot;CurveTileWrite&quot;, <a class="el" href="../../da/dca/_r_h_i_definitions_8h.html#a0a3cc83cb6ebc79b66b43fae3ffee64ea2a84a18d7ac3d1fac11e3153f0abf73b">SF_Compute</a>)</td></tr>
+</table>
+<a name="doc-define-members" id="doc-define-members"></a><h2 id="header-doc-define-members" class="groupheader">宏定义说明</h2>
+<a id="aa05bd3fdf61c572157aba488b1493024" name="aa05bd3fdf61c572157aba488b1493024"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa05bd3fdf61c572157aba488b1493024">&#9670;&#160;</a></span>IMPLEMENT_GLOBAL_SHADER_STRUCT</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define IMPLEMENT_GLOBAL_SHADER_STRUCT</td>
+          <td>(</td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>ShaderClass</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>ParameterStruct</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>SourceFilename</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>Frequency</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>GroupSize</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em></em></span>...&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>值:</b><div class="fragment"><div class="line">    <a class="code hl_define" href="#a5f602b16a8e9232f5cc232662981aeeb">SHADER_STRUCT_SIG</a>(ShaderClass) { <a class="code hl_define" href="#a6b53d344c68eb9ae2175ef7e4e77d639">SHADER_STRUCT_INC</a>(ShaderClass, ParameterStruct, __VA_OPT__(-) GroupSize)\</div>
+<div class="line">        __VA_OPT__(<span class="keyword">class</span> FGroupSizeDim : <a class="code hl_define" href="../../d0/d3f/_shader_permutation_8h.html#a37949bab6fb93b7942bc6b20578aacf9">SHADER_PERMUTATION_SPARSE_INT</a>(<span class="stringliteral">&quot;GROUP_SIZE&quot;</span>, GroupSize, __VA_ARGS__);)\</div>
+<div class="line">        <span class="keyword">using</span> FPermutationDomain = <a class="code hl_struct" href="../../d7/d5d/struct_t_shader_permutation_domain.html">TShaderPermutationDomain</a>&lt;__VA_OPT__(FGroupSizeDim)&gt;;         \</div>
+<div class="line">        SHADER_CONDITION_SIG(P) { <span class="keywordflow">return</span> <a class="code hl_define" href="#a5f428d0bbc2ed44d83539ad2e418ad14">SHADER_CONDITION_INC</a>(P); }                             \</div>
+<div class="line">        SHADER_MODIFY_SIG(P, O) { <a class="code hl_define" href="#ad76b627ce304f5a85427a0b5bf0b1d12">SHADER_MODIFY_INC</a>(P, O) }                                     \</div>
+<div class="line">    };                                                                                          \</div>
+<div class="line">    IMPLEMENT_GLOBAL_SHADER(FNanite##ShaderClass, SourceFilename, <a class="code hl_define" href="#a4345be2f3846f0e96b84f11ecd6ed11e">NAMEOF</a>(ShaderClass), <a class="code hl_enumvalue" href="../../d6/d3d/_unit_conversion_8h.html#afece06a778c21908864f232441e2925aa7cf395303ce3665a9834721d4b748e4b">Frequency</a>)</div>
+<div class="ttc" id="a_nanite_curve_raster_8inl_html_a4345be2f3846f0e96b84f11ecd6ed11e"><div class="ttname"><a href="#a4345be2f3846f0e96b84f11ecd6ed11e">NAMEOF</a></div><div class="ttdeci">#define NAMEOF(ShaderClass)</div><div class="ttdef"><b>定义</b> NaniteCurveRaster.inl:226</div></div>
+<div class="ttc" id="a_nanite_curve_raster_8inl_html_a5f428d0bbc2ed44d83539ad2e418ad14"><div class="ttname"><a href="#a5f428d0bbc2ed44d83539ad2e418ad14">SHADER_CONDITION_INC</a></div><div class="ttdeci">#define SHADER_CONDITION_INC(Parameters)</div><div class="ttdef"><b>定义</b> NaniteCurveRaster.inl:240</div></div>
+<div class="ttc" id="a_nanite_curve_raster_8inl_html_a5f602b16a8e9232f5cc232662981aeeb"><div class="ttname"><a href="#a5f602b16a8e9232f5cc232662981aeeb">SHADER_STRUCT_SIG</a></div><div class="ttdeci">#define SHADER_STRUCT_SIG(ShaderClass)</div><div class="ttdef"><b>定义</b> NaniteCurveRaster.inl:228</div></div>
+<div class="ttc" id="a_nanite_curve_raster_8inl_html_a6b53d344c68eb9ae2175ef7e4e77d639"><div class="ttname"><a href="#a6b53d344c68eb9ae2175ef7e4e77d639">SHADER_STRUCT_INC</a></div><div class="ttdeci">#define SHADER_STRUCT_INC(ShaderClass, ParameterStruct, GroupSize)</div><div class="ttdef"><b>定义</b> NaniteCurveRaster.inl:229</div></div>
+<div class="ttc" id="a_nanite_curve_raster_8inl_html_ad76b627ce304f5a85427a0b5bf0b1d12"><div class="ttname"><a href="#ad76b627ce304f5a85427a0b5bf0b1d12">SHADER_MODIFY_INC</a></div><div class="ttdeci">#define SHADER_MODIFY_INC(Parameters, OutEnvironment)</div><div class="ttdef"><b>定义</b> NaniteCurveRaster.inl:235</div></div>
+<div class="ttc" id="a_shader_permutation_8h_html_a37949bab6fb93b7942bc6b20578aacf9"><div class="ttname"><a href="../../d0/d3f/_shader_permutation_8h.html#a37949bab6fb93b7942bc6b20578aacf9">SHADER_PERMUTATION_SPARSE_INT</a></div><div class="ttdeci">#define SHADER_PERMUTATION_SPARSE_INT(InDefineName,...)</div><div class="ttdef"><b>定义</b> ShaderPermutation.h:668</div></div>
+<div class="ttc" id="a_unit_conversion_8h_html_afece06a778c21908864f232441e2925aa7cf395303ce3665a9834721d4b748e4b"><div class="ttname"><a href="../../d6/d3d/_unit_conversion_8h.html#afece06a778c21908864f232441e2925aa7cf395303ce3665a9834721d4b748e4b">EUnitType::Frequency</a></div><div class="ttdeci">@ Frequency</div><div class="ttdef"><b>定义</b> UnitConversion.h:107</div></div>
+<div class="ttc" id="astruct_t_shader_permutation_domain_html"><div class="ttname"><a href="../../d7/d5d/struct_t_shader_permutation_domain.html">TShaderPermutationDomain</a></div><div class="ttdef"><b>定义</b> ShaderPermutation.h:273</div></div>
+</div><!-- fragment -->
+</div>
+</div>
+<a id="a27fef1751e354bd4600dece9022aa18a" name="a27fef1751e354bd4600dece9022aa18a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a27fef1751e354bd4600dece9022aa18a">&#9670;&#160;</a></span>IMPLEMENT_GLOBAL_SHADER_STRUCT_EX2</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define IMPLEMENT_GLOBAL_SHADER_STRUCT_EX2</td>
+          <td>(</td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>ShaderClass</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>ParameterStruct</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>SourceFilename</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>Frequency</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>GroupSize</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>值:</b><div class="fragment"><div class="line">    <a class="code hl_define" href="#a5f602b16a8e9232f5cc232662981aeeb">SHADER_STRUCT_SIG</a>(ShaderClass) { <a class="code hl_define" href="#a6b53d344c68eb9ae2175ef7e4e77d639">SHADER_STRUCT_INC</a>(ShaderClass, ParameterStruct, GroupSize) \</div>
+<div class="line">        <span class="keyword">class </span>FMultiViewDim : <a class="code hl_define" href="../../d0/d3f/_shader_permutation_8h.html#a21d9834466d6364f20ed094ed3361f0b">SHADER_PERMUTATION_BOOL</a>(&quot;NANITE_MULTI_VIEW&quot;);                     \</div>
+<div class="line">        class FVirtualTextureTargetDim : <a class="code hl_define" href="../../d0/d3f/_shader_permutation_8h.html#a21d9834466d6364f20ed094ed3361f0b">SHADER_PERMUTATION_BOOL</a>(&quot;VIRTUAL_TEXTURE_TARGET&quot;);     \</div>
+<div class="line">        using FPermutationDomain = <a class="code hl_struct" href="../../d7/d5d/struct_t_shader_permutation_domain.html">TShaderPermutationDomain</a>&lt;FVirtualTextureTargetDim, FMultiViewDim&gt;;\</div>
+<div class="line">        <a class="code hl_define" href="#ad2af73c08942ad3fbcd2c07342003196">SHADER_CONDITION_SIG</a>(P) { <span class="keywordflow">return</span> <a class="code hl_define" href="#a5f428d0bbc2ed44d83539ad2e418ad14">SHADER_CONDITION_INC</a>(P); }                             \</div>
+<div class="line">        SHADER_MODIFY_SIG(P, O) { <a class="code hl_define" href="#ad76b627ce304f5a85427a0b5bf0b1d12">SHADER_MODIFY_INC</a>(P, O) }                                     \</div>
+<div class="line">    };                                                                                          \</div>
+<div class="line">    IMPLEMENT_GLOBAL_SHADER(FNanite##ShaderClass, SourceFilename, <a class="code hl_define" href="#a4345be2f3846f0e96b84f11ecd6ed11e">NAMEOF</a>(ShaderClass), <a class="code hl_enumvalue" href="../../d6/d3d/_unit_conversion_8h.html#afece06a778c21908864f232441e2925aa7cf395303ce3665a9834721d4b748e4b">Frequency</a>)</div>
+<div class="ttc" id="a_nanite_curve_raster_8inl_html_ad2af73c08942ad3fbcd2c07342003196"><div class="ttname"><a href="#ad2af73c08942ad3fbcd2c07342003196">SHADER_CONDITION_SIG</a></div><div class="ttdeci">#define SHADER_CONDITION_SIG(Parameters)</div><div class="ttdef"><b>定义</b> NaniteCurveRaster.inl:239</div></div>
+<div class="ttc" id="a_shader_permutation_8h_html_a21d9834466d6364f20ed094ed3361f0b"><div class="ttname"><a href="../../d0/d3f/_shader_permutation_8h.html#a21d9834466d6364f20ed094ed3361f0b">SHADER_PERMUTATION_BOOL</a></div><div class="ttdeci">#define SHADER_PERMUTATION_BOOL(InDefineName)</div><div class="ttdef"><b>定义</b> ShaderPermutation.h:629</div></div>
+</div><!-- fragment -->
+</div>
+</div>
+<a id="ab6adc8c3bd15795cdc93b26d04c3272a" name="ab6adc8c3bd15795cdc93b26d04c3272a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab6adc8c3bd15795cdc93b26d04c3272a">&#9670;&#160;</a></span>IMPLEMENT_GLOBAL_SHADER_STRUCT_SP</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define IMPLEMENT_GLOBAL_SHADER_STRUCT_SP</td>
+          <td>(</td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>ShaderClass</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>ParameterStruct</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>SourceFilename</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>Frequency</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>GroupSize</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>值:</b><div class="fragment"><div class="line">    <a class="code hl_define" href="#a5f602b16a8e9232f5cc232662981aeeb">SHADER_STRUCT_SIG</a>(ShaderClass) { <a class="code hl_define" href="#a6b53d344c68eb9ae2175ef7e4e77d639">SHADER_STRUCT_INC</a>(ShaderClass, ParameterStruct, GroupSize) \</div>
+<div class="line">        <span class="keyword">using </span>FPermutationDomain = <a class="code hl_class" href="../../d7/d5d/struct_t_shader_permutation_domain.html">TShaderPermutationDomain&lt;&gt;</a>;                                  \</div>
+<div class="line">        SHADER_PRECACHED_SIG(P) { <span class="keywordflow">return</span> <a class="code hl_enumvalue" href="../../d8/d34/_shader_8h.html#a37155cdfc76329d29aae5633ee1d43afaede683e317d9431090fec96a58dbbd37">EShaderPermutationPrecacheRequest::NotPrecached</a>; }     \</div>
+<div class="line">        SHADER_CONDITION_SIG(P) { <span class="keywordflow">return</span> <a class="code hl_define" href="#a5f428d0bbc2ed44d83539ad2e418ad14">SHADER_CONDITION_INC</a>(P); }                             \</div>
+<div class="line">        SHADER_MODIFY_SIG(P, O) { <a class="code hl_define" href="#ad76b627ce304f5a85427a0b5bf0b1d12">SHADER_MODIFY_INC</a>(P, O)                                       \</div>
+<div class="line">            ShaderPrint::ModifyCompilationEnvironment(P, O);                                    \</div>
+<div class="line">        }                                                                                       \</div>
+<div class="line">    };                                                                                          \</div>
+<div class="line">    IMPLEMENT_GLOBAL_SHADER(FNanite##ShaderClass, SourceFilename, <a class="code hl_define" href="#a4345be2f3846f0e96b84f11ecd6ed11e">NAMEOF</a>(ShaderClass), <a class="code hl_enumvalue" href="../../d6/d3d/_unit_conversion_8h.html#afece06a778c21908864f232441e2925aa7cf395303ce3665a9834721d4b748e4b">Frequency</a>)</div>
+<div class="ttc" id="a_shader_8h_html_a37155cdfc76329d29aae5633ee1d43afaede683e317d9431090fec96a58dbbd37"><div class="ttname"><a href="../../d8/d34/_shader_8h.html#a37155cdfc76329d29aae5633ee1d43afaede683e317d9431090fec96a58dbbd37">EShaderPermutationPrecacheRequest::NotPrecached</a></div><div class="ttdeci">@ NotPrecached</div><div class="ttdef"><b>定义</b> Shader.h:797</div></div>
+</div><!-- fragment -->
+</div>
+</div>
+<a id="a4345be2f3846f0e96b84f11ecd6ed11e" name="a4345be2f3846f0e96b84f11ecd6ed11e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4345be2f3846f0e96b84f11ecd6ed11e">&#9670;&#160;</a></span>NAMEOF</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define NAMEOF</td>
+          <td>(</td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>ShaderClass</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>值:</b><div class="fragment"><div class="line"><span class="preprocessor">#ShaderClass</span></div>
+</div><!-- fragment -->
+</div>
+</div>
+<a id="a5f428d0bbc2ed44d83539ad2e418ad14" name="a5f428d0bbc2ed44d83539ad2e418ad14"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5f428d0bbc2ed44d83539ad2e418ad14">&#9670;&#160;</a></span>SHADER_CONDITION_INC</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define SHADER_CONDITION_INC</td>
+          <td>(</td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>Parameters</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>值:</b><div class="fragment"><div class="line">    (<a class="code hl_function" href="../../dd/d43/class_f_nanite_global_shader.html#a8d508465acb5096fb2a7b41588e7e35d">FNaniteGlobalShader::ShouldCompilePermutation</a>(Parameters) &amp;&amp;                   \</div>
+<div class="line">     Nanite::SupportsCurveTiledRasterization(Parameters.Platform))</div>
+<div class="ttc" id="aclass_f_nanite_global_shader_html_a8d508465acb5096fb2a7b41588e7e35d"><div class="ttname"><a href="../../dd/d43/class_f_nanite_global_shader.html#a8d508465acb5096fb2a7b41588e7e35d">FNaniteGlobalShader::ShouldCompilePermutation</a></div><div class="ttdeci">static bool ShouldCompilePermutation(const FGlobalShaderPermutationParameters &amp;Parameters)</div><div class="ttdef"><b>定义</b> NaniteShared.h:439</div></div>
+</div><!-- fragment -->
+</div>
+</div>
+<a id="ad2af73c08942ad3fbcd2c07342003196" name="ad2af73c08942ad3fbcd2c07342003196"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad2af73c08942ad3fbcd2c07342003196">&#9670;&#160;</a></span>SHADER_CONDITION_SIG</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define SHADER_CONDITION_SIG</td>
+          <td>(</td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>Parameters</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>值:</b><div class="fragment"><div class="line"><span class="keyword">static</span> <span class="keywordtype">bool</span> ShouldCompilePermutation(<span class="keyword">const</span> <a class="code hl_struct" href="../../d8/d30/struct_f_global_shader_permutation_parameters.html">FGlobalShaderPermutationParameters</a>&amp; Parameters)</div>
+<div class="ttc" id="astruct_f_global_shader_permutation_parameters_html"><div class="ttname"><a href="../../d8/d30/struct_f_global_shader_permutation_parameters.html">FGlobalShaderPermutationParameters</a></div><div class="ttdef"><b>定义</b> GlobalShader.h:73</div></div>
+</div><!-- fragment -->
+</div>
+</div>
+<a id="ad76b627ce304f5a85427a0b5bf0b1d12" name="ad76b627ce304f5a85427a0b5bf0b1d12"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad76b627ce304f5a85427a0b5bf0b1d12">&#9670;&#160;</a></span>SHADER_MODIFY_INC</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define SHADER_MODIFY_INC</td>
+          <td>(</td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>Parameters</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>OutEnvironment</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>值:</b><div class="fragment"><div class="line">    <a class="code hl_function" href="../../dd/d43/class_f_nanite_global_shader.html#ad6ac71ebfdf06b6f6eb0384bb5cd8eca">FNaniteGlobalShader::ModifyCompilationEnvironment</a>(Parameters, OutEnvironment);  \</div>
+<div class="line">    SetNaniteCurveKernelConstants(OutEnvironment);                                  \</div>
+<div class="line">    SetNaniteCurveKernelGroupSize(OutEnvironment, GetGroupSize());</div>
+<div class="ttc" id="aclass_f_nanite_global_shader_html_ad6ac71ebfdf06b6f6eb0384bb5cd8eca"><div class="ttname"><a href="../../dd/d43/class_f_nanite_global_shader.html#ad6ac71ebfdf06b6f6eb0384bb5cd8eca">FNaniteGlobalShader::ModifyCompilationEnvironment</a></div><div class="ttdeci">static void ModifyCompilationEnvironment(const FGlobalShaderPermutationParameters &amp;Parameters, FShaderCompilerEnvironment &amp;OutEnvironment)</div><div class="ttdef"><b>定义</b> NaniteShared.h:444</div></div>
+</div><!-- fragment -->
+</div>
+</div>
+<a id="ae7303668e8215d4652073a2054d2dd8d" name="ae7303668e8215d4652073a2054d2dd8d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae7303668e8215d4652073a2054d2dd8d">&#9670;&#160;</a></span>SHADER_MODIFY_SIG</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define SHADER_MODIFY_SIG</td>
+          <td>(</td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>Parameters</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>OutEnvironment</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>值:</b><div class="fragment"><div class="line"><span class="keyword">static</span> <span class="keywordtype">void</span> ModifyCompilationEnvironment(<span class="keyword">const</span> <a class="code hl_struct" href="../../d8/d30/struct_f_global_shader_permutation_parameters.html">FGlobalShaderPermutationParameters</a>&amp; Parameters, <a class="code hl_struct" href="../../da/d3c/struct_f_shader_compiler_environment.html">FShaderCompilerEnvironment</a>&amp; OutEnvironment)</div>
+<div class="ttc" id="astruct_f_shader_compiler_environment_html"><div class="ttname"><a href="../../da/d3c/struct_f_shader_compiler_environment.html">FShaderCompilerEnvironment</a></div><div class="ttdef"><b>定义</b> ShaderCore.h:558</div></div>
+</div><!-- fragment -->
+</div>
+</div>
+<a id="ad6ba64ea34146957d772e8fd5bc8aa87" name="ad6ba64ea34146957d772e8fd5bc8aa87"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad6ba64ea34146957d772e8fd5bc8aa87">&#9670;&#160;</a></span>SHADER_PRECACHED_SIG</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define SHADER_PRECACHED_SIG</td>
+          <td>(</td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>Parameters</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>值:</b><div class="fragment"><div class="line"><span class="keyword">static</span> <a class="code hl_enumeration" href="../../d8/d34/_shader_8h.html#a37155cdfc76329d29aae5633ee1d43af">EShaderPermutationPrecacheRequest</a> ShouldPrecachePermutation(<span class="keyword">const</span> <a class="code hl_struct" href="../../d8/d30/struct_f_global_shader_permutation_parameters.html">FGlobalShaderPermutationParameters</a>&amp; Parameters)</div>
+<div class="ttc" id="a_shader_8h_html_a37155cdfc76329d29aae5633ee1d43af"><div class="ttname"><a href="../../d8/d34/_shader_8h.html#a37155cdfc76329d29aae5633ee1d43af">EShaderPermutationPrecacheRequest</a></div><div class="ttdeci">EShaderPermutationPrecacheRequest</div><div class="ttdef"><b>定义</b> Shader.h:795</div></div>
+</div><!-- fragment -->
+</div>
+</div>
+<a id="a6b53d344c68eb9ae2175ef7e4e77d639" name="a6b53d344c68eb9ae2175ef7e4e77d639"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6b53d344c68eb9ae2175ef7e4e77d639">&#9670;&#160;</a></span>SHADER_STRUCT_INC</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define SHADER_STRUCT_INC</td>
+          <td>(</td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>ShaderClass</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>ParameterStruct</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>GroupSize</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>值:</b><div class="fragment"><div class="line">    <a class="code hl_define" href="../../dd/d5a/_global_shader_8h.html#a1f1427678250ebe1d92ed05b536f6628">DECLARE_GLOBAL_SHADER</a>(FNanite##ShaderClass);                                    \</div>
+<div class="line">    SHADER_USE_PARAMETER_STRUCT(FNanite##ShaderClass, <a class="code hl_class" href="../../dd/d43/class_f_nanite_global_shader.html">FNaniteGlobalShader</a>);         \</div>
+<div class="line">    <span class="keyword">using </span>FParameters = ParameterStruct;                                            \</div>
+<div class="line">    <span class="keyword">static</span> <span class="keyword">auto</span> GetGroupSize() { <span class="keywordflow">return</span> GroupSize; }</div>
+<div class="ttc" id="a_global_shader_8h_html_a1f1427678250ebe1d92ed05b536f6628"><div class="ttname"><a href="../../dd/d5a/_global_shader_8h.html#a1f1427678250ebe1d92ed05b536f6628">DECLARE_GLOBAL_SHADER</a></div><div class="ttdeci">#define DECLARE_GLOBAL_SHADER(ShaderClass)</div><div class="ttdef"><b>定义</b> GlobalShader.h:431</div></div>
+<div class="ttc" id="aclass_f_nanite_global_shader_html"><div class="ttname"><a href="../../dd/d43/class_f_nanite_global_shader.html">FNaniteGlobalShader</a></div><div class="ttdef"><b>定义</b> NaniteShared.h:431</div></div>
+</div><!-- fragment -->
+</div>
+</div>
+<a id="a5f602b16a8e9232f5cc232662981aeeb" name="a5f602b16a8e9232f5cc232662981aeeb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5f602b16a8e9232f5cc232662981aeeb">&#9670;&#160;</a></span>SHADER_STRUCT_SIG</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define SHADER_STRUCT_SIG</td>
+          <td>(</td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>ShaderClass</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>值:</b><div class="fragment"><div class="line"><span class="keyword">class </span>FNanite##ShaderClass : <span class="keyword">public</span> <a class="code hl_class" href="../../dd/d43/class_f_nanite_global_shader.html">FNaniteGlobalShader</a></div>
+</div><!-- fragment -->
+</div>
+</div>
+<a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">函数说明</h2>
+<a id="a9d5639daaec2f1f19da442008880bacd" name="a9d5639daaec2f1f19da442008880bacd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9d5639daaec2f1f19da442008880bacd">&#9670;&#160;</a></span>IMPLEMENT_GLOBAL_SHADER() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">IMPLEMENT_GLOBAL_SHADER </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../db/d83/class_f_nanite_curve_tile_count.html">FNaniteCurveTileCount</a></td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&quot;/Engine/<a class="el" href="../../d9/db1/namespace_private.html">Private</a>/<a class="el" href="../../d5/d3d/namespace_nanite.html">Nanite</a>/NaniteRasterizer.usf&quot;</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&quot;CurveTileCount&quot;</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../da/dca/_r_h_i_definitions_8h.html#a0a3cc83cb6ebc79b66b43fae3ffee64ea2a84a18d7ac3d1fac11e3153f0abf73b">SF_Compute</a></td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="af80bee3a170d6ac29dd4961deb8b0548" name="af80bee3a170d6ac29dd4961deb8b0548"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af80bee3a170d6ac29dd4961deb8b0548">&#9670;&#160;</a></span>IMPLEMENT_GLOBAL_SHADER() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">IMPLEMENT_GLOBAL_SHADER </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d0/d0e/class_f_nanite_curve_tile_write.html">FNaniteCurveTileWrite</a></td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&quot;/Engine/<a class="el" href="../../d9/db1/namespace_private.html">Private</a>/<a class="el" href="../../d5/d3d/namespace_nanite.html">Nanite</a>/NaniteRasterizer.usf&quot;</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&quot;CurveTileWrite&quot;</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../da/dca/_r_h_i_definitions_8h.html#a0a3cc83cb6ebc79b66b43fae3ffee64ea2a84a18d7ac3d1fac11e3153f0abf73b">SF_Compute</a></td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a8d38b6b6f6dcb5e24f2dc72df9abf27f" name="a8d38b6b6f6dcb5e24f2dc72df9abf27f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8d38b6b6f6dcb5e24f2dc72df9abf27f">&#9670;&#160;</a></span>IMPLEMENT_GLOBAL_SHADER_STRUCT() <span class="overload">[1/6]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">IMPLEMENT_GLOBAL_SHADER_STRUCT </td>
+          <td>(</td>
+          <td class="paramtype">CurveTileClear</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">FNaniteCurveCommonParameters</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&quot;/Engine/<a class="el" href="../../d9/db1/namespace_private.html">Private</a>/<a class="el" href="../../d5/d3d/namespace_nanite.html">Nanite</a>/NaniteCurve.usf&quot;</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../da/dca/_r_h_i_definitions_8h.html#a0a3cc83cb6ebc79b66b43fae3ffee64ea2a84a18d7ac3d1fac11e3153f0abf73b">SF_Compute</a></td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">64</td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ac833cf14250a23f9be31fe0034500ef1" name="ac833cf14250a23f9be31fe0034500ef1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac833cf14250a23f9be31fe0034500ef1">&#9670;&#160;</a></span>IMPLEMENT_GLOBAL_SHADER_STRUCT() <span class="overload">[2/6]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">IMPLEMENT_GLOBAL_SHADER_STRUCT </td>
+          <td>(</td>
+          <td class="paramtype">CurveTileCountCap</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">FNaniteCurveCommonParameters</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&quot;/Engine/<a class="el" href="../../d9/db1/namespace_private.html">Private</a>/<a class="el" href="../../d5/d3d/namespace_nanite.html">Nanite</a>/NaniteCurve.usf&quot;</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../da/dca/_r_h_i_definitions_8h.html#a0a3cc83cb6ebc79b66b43fae3ffee64ea2a84a18d7ac3d1fac11e3153f0abf73b">SF_Compute</a></td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">64</td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aabeb4ee8da06dd34e37bdbe3d2a62cd6" name="aabeb4ee8da06dd34e37bdbe3d2a62cd6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aabeb4ee8da06dd34e37bdbe3d2a62cd6">&#9670;&#160;</a></span>IMPLEMENT_GLOBAL_SHADER_STRUCT() <span class="overload">[3/6]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">IMPLEMENT_GLOBAL_SHADER_STRUCT </td>
+          <td>(</td>
+          <td class="paramtype">CurveTileIndirectArgs</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">FNaniteCurveCommonParameters</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&quot;/Engine/<a class="el" href="../../d9/db1/namespace_private.html">Private</a>/<a class="el" href="../../d5/d3d/namespace_nanite.html">Nanite</a>/NaniteCurve.usf&quot;</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../da/dca/_r_h_i_definitions_8h.html#a0a3cc83cb6ebc79b66b43fae3ffee64ea2a84a18d7ac3d1fac11e3153f0abf73b">SF_Compute</a></td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">1</td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a8fa943ef169b8277847bb7e9338d5417" name="a8fa943ef169b8277847bb7e9338d5417"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8fa943ef169b8277847bb7e9338d5417">&#9670;&#160;</a></span>IMPLEMENT_GLOBAL_SHADER_STRUCT() <span class="overload">[4/6]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">IMPLEMENT_GLOBAL_SHADER_STRUCT </td>
+          <td>(</td>
+          <td class="paramtype">CurveTileOffsetMerge</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">FNaniteCurveCommonParameters</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&quot;/Engine/<a class="el" href="../../d9/db1/namespace_private.html">Private</a>/<a class="el" href="../../d5/d3d/namespace_nanite.html">Nanite</a>/NaniteCurve.usf&quot;</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../da/dca/_r_h_i_definitions_8h.html#a0a3cc83cb6ebc79b66b43fae3ffee64ea2a84a18d7ac3d1fac11e3153f0abf73b">SF_Compute</a></td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">16</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">64</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">256</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">1024</td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a539aaf294b89ce8d7b87eea995f80397" name="a539aaf294b89ce8d7b87eea995f80397"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a539aaf294b89ce8d7b87eea995f80397">&#9670;&#160;</a></span>IMPLEMENT_GLOBAL_SHADER_STRUCT() <span class="overload">[5/6]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">IMPLEMENT_GLOBAL_SHADER_STRUCT </td>
+          <td>(</td>
+          <td class="paramtype">CurveTileOffsetScan</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">FNaniteCurveCommonParameters</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&quot;/Engine/<a class="el" href="../../d9/db1/namespace_private.html">Private</a>/<a class="el" href="../../d5/d3d/namespace_nanite.html">Nanite</a>/NaniteCurve.usf&quot;</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../da/dca/_r_h_i_definitions_8h.html#a0a3cc83cb6ebc79b66b43fae3ffee64ea2a84a18d7ac3d1fac11e3153f0abf73b">SF_Compute</a></td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">16</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">64</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">256</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">1024</td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a9f04166343a24e5df9cb07c27ce146d9" name="a9f04166343a24e5df9cb07c27ce146d9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9f04166343a24e5df9cb07c27ce146d9">&#9670;&#160;</a></span>IMPLEMENT_GLOBAL_SHADER_STRUCT() <span class="overload">[6/6]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">IMPLEMENT_GLOBAL_SHADER_STRUCT </td>
+          <td>(</td>
+          <td class="paramtype">CurveTileResolve</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">FNaniteCurveResolveParameters</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&quot;/Engine/<a class="el" href="../../d9/db1/namespace_private.html">Private</a>/<a class="el" href="../../d5/d3d/namespace_nanite.html">Nanite</a>/NaniteCurve.usf&quot;</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../da/dca/_r_h_i_definitions_8h.html#a0a3cc83cb6ebc79b66b43fae3ffee64ea2a84a18d7ac3d1fac11e3153f0abf73b">SF_Compute</a></td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d0/df6/_math_fwd_8h.html#af6853de5e4fcb2bad3bd5fdd2e50bffd">FIntPoint</a>(GetNaniteCurveTileWidth())</td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a783263febd153c2f13f3c0e3daa56d19" name="a783263febd153c2f13f3c0e3daa56d19"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a783263febd153c2f13f3c0e3daa56d19">&#9670;&#160;</a></span>IMPLEMENT_GLOBAL_SHADER_STRUCT_EX2()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">IMPLEMENT_GLOBAL_SHADER_STRUCT_EX2 </td>
+          <td>(</td>
+          <td class="paramtype">CurveTileTranslate</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">FNaniteCurveResolveParameters</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&quot;/Engine/<a class="el" href="../../d9/db1/namespace_private.html">Private</a>/<a class="el" href="../../d5/d3d/namespace_nanite.html">Nanite</a>/NaniteCurve.usf&quot;</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../da/dca/_r_h_i_definitions_8h.html#a0a3cc83cb6ebc79b66b43fae3ffee64ea2a84a18d7ac3d1fac11e3153f0abf73b">SF_Compute</a></td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d0/df6/_math_fwd_8h.html#af6853de5e4fcb2bad3bd5fdd2e50bffd">FIntPoint</a>(GetNaniteCurveTileWidth())</td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a5128eca08229ebeef602c4cb2303437a" name="a5128eca08229ebeef602c4cb2303437a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5128eca08229ebeef602c4cb2303437a">&#9670;&#160;</a></span>IMPLEMENT_GLOBAL_SHADER_STRUCT_SP()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">IMPLEMENT_GLOBAL_SHADER_STRUCT_SP </td>
+          <td>(</td>
+          <td class="paramtype">CurveTileDebug</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">FNaniteCurveDebugParameters</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&quot;/Engine/<a class="el" href="../../d9/db1/namespace_private.html">Private</a>/<a class="el" href="../../d5/d3d/namespace_nanite.html">Nanite</a>/NaniteCurve.usf&quot;</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../da/dca/_r_h_i_definitions_8h.html#a0a3cc83cb6ebc79b66b43fae3ffee64ea2a84a18d7ac3d1fac11e3153f0abf73b">SF_Compute</a></td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d0/df6/_math_fwd_8h.html#af6853de5e4fcb2bad3bd5fdd2e50bffd">FIntPoint</a>(GetNaniteCurveTileWidth())</td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<div id="page-nav" class="page-nav-panel">
+<div id="page-nav-resize-handle"></div>
+<div id="page-nav-tree">
+<div id="page-nav-contents">
+</div><!-- page-nav-contents -->
+</div><!-- page-nav-tree -->
+</div><!-- page-nav -->
+</div><!-- container -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a href="../../dir_0b6ee6e7e9547e675db4add2e5de97da.html">Engine</a></li><li class="navelem"><a href="../../dir_9579d1ecb2c7bf48cbe1049c41745cb4.html">Source</a></li><li class="navelem"><a href="../../dir_9f04efef762572853abdf73f62bebfcc.html">Runtime</a></li><li class="navelem"><a href="../../dir_5ed6327f04b0f38d3f6fe5caa38b0445.html">Renderer</a></li><li class="navelem"><a href="../../dir_e317dc6f09036e33460f39c550131623.html">Private</a></li><li class="navelem"><a href="../../dir_e6a22c62973a1fa89952ced1ef190df2.html">Nanite</a></li><li class="navelem"><a href="../../d6/d81/_nanite_curve_raster_8inl.html">NaniteCurveRaster.inl</a></li>
+    <li class="footer">制作者 <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.15.0 </li>
+  </ul>
+</div>
+</body>
+</html>

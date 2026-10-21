@@ -1,0 +1,26 @@
+var class_u_audio_device_notification_subsystem =
+[
+    [ "~UAudioDeviceNotificationSubsystem", "d1/d4f/class_u_audio_device_notification_subsystem.html#a5e245bb41f48b1417fc1a14e15b5f92d", null ],
+    [ "Deinitialize", "d1/d4f/class_u_audio_device_notification_subsystem.html#abcfcb10888a766fc04a2976ce38f036f", null ],
+    [ "GetDeviceChangedRole", "d1/d4f/class_u_audio_device_notification_subsystem.html#a97fe5b57f9ae16736b5fd220509bb4d5", null ],
+    [ "GetDeviceChangedState", "d1/d4f/class_u_audio_device_notification_subsystem.html#ac7ec9359dfd943d104c4c627d6344739", null ],
+    [ "Initialize", "d1/d4f/class_u_audio_device_notification_subsystem.html#a01aee401c5c0c983b3de8b89b449c4f0", null ],
+    [ "OnDefaultCaptureDeviceChanged", "d1/d4f/class_u_audio_device_notification_subsystem.html#abaecdbf140cffd8735a434b65ad6b8a5", null ],
+    [ "OnDefaultRenderDeviceChanged", "d1/d4f/class_u_audio_device_notification_subsystem.html#ad1c847aacbe53c017596a06d63bb3184", null ],
+    [ "OnDeviceAdded", "d1/d4f/class_u_audio_device_notification_subsystem.html#ad475a0c6c1f889f71b33dff0a1d2a01b", null ],
+    [ "OnDeviceRemoved", "d1/d4f/class_u_audio_device_notification_subsystem.html#a4be39b7445731215c1c77a4f3ead02db", null ],
+    [ "OnDeviceStateChanged", "d1/d4f/class_u_audio_device_notification_subsystem.html#ab67c2b341fca4fa9c4b5473035d65ecb", null ],
+    [ "OnDeviceSwitched", "d1/d4f/class_u_audio_device_notification_subsystem.html#a6649d701ed96488be62d6c0dbc43cbcb", null ],
+    [ "DefaultCaptureDeviceChanged", "d1/d4f/class_u_audio_device_notification_subsystem.html#ac54cdc7765a472577b75bf48b7cc8f0b", null ],
+    [ "DefaultCaptureDeviceChangedNative", "d1/d4f/class_u_audio_device_notification_subsystem.html#aa7f9e62290a306cfb2ed4add060a02a3", null ],
+    [ "DefaultRenderDeviceChanged", "d1/d4f/class_u_audio_device_notification_subsystem.html#a501f4dcfc9ff1673107327b665b5c6e5", null ],
+    [ "DefaultRenderDeviceChangedNative", "d1/d4f/class_u_audio_device_notification_subsystem.html#ac76e3d26edad56b9f44b06c86abee1cd", null ],
+    [ "DeviceAdded", "d1/d4f/class_u_audio_device_notification_subsystem.html#a2e012654f4a76921b515cd7cc260976a", null ],
+    [ "DeviceAddedNative", "d1/d4f/class_u_audio_device_notification_subsystem.html#af81e23a9497f053fd6af4aa5c049b21d", null ],
+    [ "DeviceRemoved", "d1/d4f/class_u_audio_device_notification_subsystem.html#a9828b0fef166ce1e672497da29116370", null ],
+    [ "DeviceRemovedNative", "d1/d4f/class_u_audio_device_notification_subsystem.html#aaa793918bd5ce925e9d9b01f162910a0", null ],
+    [ "DeviceStateChanged", "d1/d4f/class_u_audio_device_notification_subsystem.html#a7c4459fe1481ecd945509b9195ac2c42", null ],
+    [ "DeviceStateChangedNative", "d1/d4f/class_u_audio_device_notification_subsystem.html#ab08e24c35de0130d0c4e71e364a257b7", null ],
+    [ "DeviceSwitched", "d1/d4f/class_u_audio_device_notification_subsystem.html#ac7cfbc73e8908f12525ea58ca8386417", null ],
+    [ "DeviceSwitchedNative", "d1/d4f/class_u_audio_device_notification_subsystem.html#a61a87a9e970da3d6298d4b5cb48eaef7", null ]
+];

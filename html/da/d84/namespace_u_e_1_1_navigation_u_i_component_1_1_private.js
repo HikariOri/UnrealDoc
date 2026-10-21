@@ -1,0 +1,4 @@
+var namespace_u_e_1_1_navigation_u_i_component_1_1_private =
+[
+    [ "FScopedNavigationUIComponentTransaction", "db/dc7/struct_u_e_1_1_navigation_u_i_component_1_1_private_1_1_f_scoped_navigation_u_i_component_transaction.html", "db/dc7/struct_u_e_1_1_navigation_u_i_component_1_1_private_1_1_f_scoped_navigation_u_i_component_transaction" ]
+];

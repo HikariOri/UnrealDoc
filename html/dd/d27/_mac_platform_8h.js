@@ -1,0 +1,26 @@
+var _mac_platform_8h =
+[
+    [ "FMacPlatformTypes", "d1/df6/struct_f_mac_platform_types.html", "d1/df6/struct_f_mac_platform_types" ],
+    [ "FORCEINLINE", "dd/d27/_mac_platform_8h.html#a724fb9f82013c782db5c3c12ea36aac8", null ],
+    [ "MAC_MAX_PATH", "dd/d27/_mac_platform_8h.html#a470d227a0c7676f5c438456a9454668b", null ],
+    [ "PLATFORM_ALWAYS_HAS_FMA3", "dd/d27/_mac_platform_8h.html#a7ff4d28aaf1bd3dc5f497719e70c8197", null ],
+    [ "PLATFORM_CACHE_LINE_SIZE", "dd/d27/_mac_platform_8h.html#acccc05e5b4bb5bace18887bce45fa2a4", null ],
+    [ "PLATFORM_CAN_SUPPORT_EDITORONLY_DATA", "dd/d27/_mac_platform_8h.html#ac75e699fef3a40136d8b0b0c2821eed7", null ],
+    [ "PLATFORM_COMPILER_DISTINGUISHES_INT_AND_LONG", "dd/d27/_mac_platform_8h.html#a939316c640a595b27aed91da2c1314c9", null ],
+    [ "PLATFORM_DESKTOP", "dd/d27/_mac_platform_8h.html#a42ab1ab324f6bf6534a814065a1cb053", null ],
+    [ "PLATFORM_ENABLE_VECTORINTRINSICS_NEON", "dd/d27/_mac_platform_8h.html#ac184f386d6718a33e956eb454b5055a1", null ],
+    [ "PLATFORM_GLOBAL_LOG_CATEGORY", "dd/d27/_mac_platform_8h.html#a5472f83c79bac6255c7c153bb4afff39", null ],
+    [ "PLATFORM_HAS_BSD_SOCKET_FEATURE_IOCTL", "dd/d27/_mac_platform_8h.html#a3d4812425e177f74cb13f6b62e9718d8", null ],
+    [ "PLATFORM_HAS_BSD_SOCKET_FEATURE_POLL", "dd/d27/_mac_platform_8h.html#af20f97f8b9be69d0b42cd5ff276ce9e6", null ],
+    [ "PLATFORM_MAC_ARM64", "dd/d27/_mac_platform_8h.html#adbcf4a892a79036d315544c2b3ba4f02", null ],
+    [ "PLATFORM_MAC_USE_CHAR16", "dd/d27/_mac_platform_8h.html#abb95877faf3c5a7e23e9f326d6b537a6", null ],
+    [ "PLATFORM_MAC_X86", "dd/d27/_mac_platform_8h.html#a55e8e7d214d7ac93eb7bdf42fcde8d15", null ],
+    [ "PLATFORM_MAX_FILEPATH_LENGTH_DEPRECATED", "dd/d27/_mac_platform_8h.html#a39e6db14fad8511f07272d254d44513c", null ],
+    [ "PLATFORM_SUPPORTS_BINDLESS_RENDERING", "dd/d27/_mac_platform_8h.html#ad3f2e597f7fcf2b4c1fb1790d06eb302", null ],
+    [ "PLATFORM_SUPPORTS_GEOMETRY_SHADERS", "dd/d27/_mac_platform_8h.html#a3e0e44ab707c14104d5e183496083ef1", null ],
+    [ "PLATFORM_SUPPORTS_MESH_SHADERS", "dd/d27/_mac_platform_8h.html#a178d1c2b6de864d6a5af1701cf527ab9", null ],
+    [ "PLATFORM_SUPPORTS_TBB", "dd/d27/_mac_platform_8h.html#aba5385d03286911b26d98ca261a6aec7", null ],
+    [ "PLATFORM_TCHAR_IS_CHAR16", "dd/d27/_mac_platform_8h.html#a417eb3ded827ee2a7af1a4ac4d81fc23", null ],
+    [ "PLATFORM_WCHAR_IS_4_BYTES", "dd/d27/_mac_platform_8h.html#a5f5b02cbfe3fb3909738572babbdf041", null ],
+    [ "FPlatformTypes", "dd/d27/_mac_platform_8h.html#aa96e4ce652b0960aa610008b83f9ec0a", null ]
+];

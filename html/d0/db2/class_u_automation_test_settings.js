@@ -1,0 +1,25 @@
+var class_u_automation_test_settings =
+[
+    [ "AssetsToOpen", "d0/db2/class_u_automation_test_settings.html#ab9712d9b80980e46f087f02c56286e2f", null ],
+    [ "AutomationTestmap", "d0/db2/class_u_automation_test_settings.html#abef9c53592d3ecce8d6f800395a9e40c", null ],
+    [ "BlueprintEditorPromotionTest", "d0/db2/class_u_automation_test_settings.html#abd15f9c95dcc715ff8d63024ccafcdb3", null ],
+    [ "BuildPromotionTest", "d0/db2/class_u_automation_test_settings.html#acd767e41150a2aba76bfaccf8f0ae08f", null ],
+    [ "bUseAllProjectMapsToPlayInPIE", "d0/db2/class_u_automation_test_settings.html#ac8d8027ba4f0659126f44e59ae53a446", null ],
+    [ "DefaultInteractiveFramerate", "d0/db2/class_u_automation_test_settings.html#aa97f5df08253dcc5a62d5d63034365f9", null ],
+    [ "DefaultInteractiveFramerateDuration", "d0/db2/class_u_automation_test_settings.html#a43f5228d01fd19035ad74d948e8a20be", null ],
+    [ "DefaultInteractiveFramerateWaitTime", "d0/db2/class_u_automation_test_settings.html#a21b2a026b934b10fc54547dd7678a3bc", null ],
+    [ "DefaultScreenshotResolution", "d0/db2/class_u_automation_test_settings.html#a92bc5131f8c41191a215a87444df76d5", null ],
+    [ "EditorPerformanceTestMaps", "d0/db2/class_u_automation_test_settings.html#acff91875a5f9f42ae12525840bdd39bd", null ],
+    [ "EditorTestModules", "d0/db2/class_u_automation_test_settings.html#aaa0850caf6f06bef9b00881f665d4a8b", null ],
+    [ "EngineTestModules", "d0/db2/class_u_automation_test_settings.html#aa7e6681014c2dea6e0edc006e5885a2d", null ],
+    [ "ExternalTools", "d0/db2/class_u_automation_test_settings.html#a7f52ab2f6e8f9b5a2882a493c9c9d22a", null ],
+    [ "ImportExportTestDefinitions", "d0/db2/class_u_automation_test_settings.html#ac8c8cd989bb45dcef26ac2c5591409ee", null ],
+    [ "LaunchOnSettings", "d0/db2/class_u_automation_test_settings.html#a4db6d07e7160a145f9f733a9d65502f4", null ],
+    [ "MapsToPIETest", "d0/db2/class_u_automation_test_settings.html#a47cbc6b1347a81b33b5568ebb2cee66a", null ],
+    [ "MaterialEditorPromotionTest", "d0/db2/class_u_automation_test_settings.html#a32c5a9e236c1ebb6f56082be2f66c9fc", null ],
+    [ "NavMeshBuildTimeoutSeconds", "d0/db2/class_u_automation_test_settings.html#aeebe9150bf895d63699d5255c4b6089d", null ],
+    [ "ParticleEditorPromotionTest", "d0/db2/class_u_automation_test_settings.html#a2f9b1c088475cc2d8cea3d1a237ce552", null ],
+    [ "PIEStartTimeoutSeconds", "d0/db2/class_u_automation_test_settings.html#a71b3ca2622a88c4027d0715b0f2d5f43", null ],
+    [ "PIETestDuration", "d0/db2/class_u_automation_test_settings.html#af65e185231b8792f99742c67f2a048b8", null ],
+    [ "TestLevelFolders", "d0/db2/class_u_automation_test_settings.html#a5d8acd257fbbe8f0d94596a12b2b39ff", null ]
+];

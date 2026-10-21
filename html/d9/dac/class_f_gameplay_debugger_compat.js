@@ -1,0 +1,25 @@
+var class_f_gameplay_debugger_compat =
+[
+    [ "AddReplicator", "d9/dac/class_f_gameplay_debugger_compat.html#a343fba3e7126f5fb21da9430ac6a29cc", null ],
+    [ "Exec", "d9/dac/class_f_gameplay_debugger_compat.html#a11f3773e9c78857f4b84bf4ea4794884", null ],
+    [ "GetAllReplicators", "d9/dac/class_f_gameplay_debugger_compat.html#a6f4d46269f1fb7599d232e44ac1d2163", null ],
+    [ "GetPlayerManager", "d9/dac/class_f_gameplay_debugger_compat.html#a64e89ae888bb948b090288f244581107", null ],
+    [ "NotifyCategoriesChanged", "d9/dac/class_f_gameplay_debugger_compat.html#a1028995056e936fbae5d280660c323b8", null ],
+    [ "NotifyExtensionsChanged", "d9/dac/class_f_gameplay_debugger_compat.html#a701217a2b137b6bfe4afce4985f7960f", null ],
+    [ "OnWorldInitialized", "d9/dac/class_f_gameplay_debugger_compat.html#a9d86e7ddfe482b4e8e9c516a787d68ad", null ],
+    [ "RegisterCategory", "d9/dac/class_f_gameplay_debugger_compat.html#a8687d57dff7c3dd8fdfb0ba3c4c63555", null ],
+    [ "RegisterExtension", "d9/dac/class_f_gameplay_debugger_compat.html#ad90d768b1fdb97f8a416d0a94e2fb2ae", null ],
+    [ "RemoveReplicator", "d9/dac/class_f_gameplay_debugger_compat.html#a5eca27e338d4a78b6eb49210b0b311f3", null ],
+    [ "ShutdownModule", "d9/dac/class_f_gameplay_debugger_compat.html#a58279b261490370a229fba4601c5f129", null ],
+    [ "ShutdownNewDebugger", "d9/dac/class_f_gameplay_debugger_compat.html#ad37ac391431f568ff5b85133a3e45a40", null ],
+    [ "StartupModule", "d9/dac/class_f_gameplay_debugger_compat.html#aa15d8c0cdaf08b2bbe62e9c0da7a2435", null ],
+    [ "StartupNewDebugger", "d9/dac/class_f_gameplay_debugger_compat.html#a14c0861eedeb303df6a8357361d192f7", null ],
+    [ "UnregisterCategory", "d9/dac/class_f_gameplay_debugger_compat.html#ab7ce1291418281a3e827fc89c39060d2", null ],
+    [ "UnregisterExtension", "d9/dac/class_f_gameplay_debugger_compat.html#ac59e0e703f31c51da5098e1c22bc51f1", null ],
+    [ "UseNewGameplayDebugger", "d9/dac/class_f_gameplay_debugger_compat.html#ac16e23d45eece95c167df18a28fa4484", null ],
+    [ "WorldAdded", "d9/dac/class_f_gameplay_debugger_compat.html#ac8ba9870b3cc1d4e4fb83d094e53ace8", null ],
+    [ "WorldDestroyed", "d9/dac/class_f_gameplay_debugger_compat.html#a749aa97c0ef8b5142a46fa968a6d846b", null ],
+    [ "AddonManager", "d9/dac/class_f_gameplay_debugger_compat.html#ad89ec720e18c89194a53a3562f269b18", null ],
+    [ "bNewDebuggerEnabled", "d9/dac/class_f_gameplay_debugger_compat.html#a6af004e8f801f991e5a693063a76fefc", null ],
+    [ "PlayerManagers", "d9/dac/class_f_gameplay_debugger_compat.html#ad46d2d6826457ba080953de7efefd867", null ]
+];

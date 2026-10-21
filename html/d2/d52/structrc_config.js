@@ -1,0 +1,26 @@
+var structrc_config =
+[
+    [ "bmax", "d2/d52/structrc_config.html#a73a1b50f976a3e25589d7905ccd6b45a", null ],
+    [ "bmin", "d2/d52/structrc_config.html#afada14f488f37c742a68692b4c510772", null ],
+    [ "borderSize", "d2/d52/structrc_config.html#aa0bd52ed5f1a5aa52742666a0f24e41c", null ],
+    [ "ch", "d2/d52/structrc_config.html#a660cef6b39043138de95490ff80025e9", null ],
+    [ "cs", "d2/d52/structrc_config.html#afe2819f3ddb7c119e81a8303bbeaf56d", null ],
+    [ "detailSampleDist", "d2/d52/structrc_config.html#a71bb9f56291891734b480bd39aaf054f", null ],
+    [ "detailSampleMaxError", "d2/d52/structrc_config.html#a1b2bddeeeb54153bd1a6af821f5d1c2e", null ],
+    [ "height", "d2/d52/structrc_config.html#a25cdb5fcddc1d2813eca2462f60c13d1", null ],
+    [ "maxEdgeLen", "d2/d52/structrc_config.html#ac3c8ea8caea4497e6307e41cf5d7cc97", null ],
+    [ "maxSimplificationError", "d2/d52/structrc_config.html#a6e83e83d2f7dd377bb66ad1ef291f005", null ],
+    [ "maxStepFromWalkableSlope", "d2/d52/structrc_config.html#a02bce63bc77ff5b57298f27b5a6e4a03", null ],
+    [ "maxVertsPerPoly", "d2/d52/structrc_config.html#a14739e425b85fde1d8216d32389ff89a", null ],
+    [ "mergeRegionArea", "d2/d52/structrc_config.html#ab1cb7148f953228fcab32f4cadd69f0a", null ],
+    [ "minRegionArea", "d2/d52/structrc_config.html#a0b2bfd311ebc8446751051f048daf377", null ],
+    [ "regionChunkSize", "d2/d52/structrc_config.html#adb570611c32890ba882802308f866733", null ],
+    [ "regionPartitioning", "d2/d52/structrc_config.html#adaae7ada6175e66b94d268d87562c882", null ],
+    [ "simplificationElevationRatio", "d2/d52/structrc_config.html#af47972d2da0298fc8641491985b85459", null ],
+    [ "tileSize", "d2/d52/structrc_config.html#a71383d155438aa287ff2af72f70b45b5", null ],
+    [ "walkableClimb", "d2/d52/structrc_config.html#accdba9b8409e8c093ee4ac415a989611", null ],
+    [ "walkableHeight", "d2/d52/structrc_config.html#ab965b5f2aaa0b1ee7f91b28ead07c8c7", null ],
+    [ "walkableRadius", "d2/d52/structrc_config.html#a85f1ff0f181cc33a3cc137cbd025c216", null ],
+    [ "walkableSlopeAngle", "d2/d52/structrc_config.html#ad24360b50cfda1ec4f88f528fef7a0b3", null ],
+    [ "width", "d2/d52/structrc_config.html#aa870882b1addeb37535185740838eb32", null ]
+];

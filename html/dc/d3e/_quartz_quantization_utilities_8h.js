@@ -1,0 +1,86 @@
+var _quartz_quantization_utilities_8h =
+[
+    [ "FQuartzPulseOverrideStep", "d3/dd4/struct_f_quartz_pulse_override_step.html", "d3/dd4/struct_f_quartz_pulse_override_step" ],
+    [ "FQuartzTimeSignature", "d5/d61/struct_f_quartz_time_signature.html", "d5/d61/struct_f_quartz_time_signature" ],
+    [ "FQuartzTransportTimeStamp", "df/d6e/struct_f_quartz_transport_time_stamp.html", "df/d6e/struct_f_quartz_transport_time_stamp" ],
+    [ "FQuartzClockSettings", "d5/d18/struct_f_quartz_clock_settings.html", "d5/d18/struct_f_quartz_clock_settings" ],
+    [ "FQuartLatencyTracker", "dc/df4/class_f_quart_latency_tracker.html", "dc/df4/class_f_quart_latency_tracker" ],
+    [ "Audio::FQuartzClockTickRate", "de/d20/struct_audio_1_1_f_quartz_clock_tick_rate.html", "de/d20/struct_audio_1_1_f_quartz_clock_tick_rate" ],
+    [ "Audio::FQuartzLatencyTimer", "dd/db3/class_audio_1_1_f_quartz_latency_timer.html", "dd/db3/class_audio_1_1_f_quartz_latency_timer" ],
+    [ "Audio::FQuartzCrossThreadMessage", "d0/dc7/class_audio_1_1_f_quartz_cross_thread_message.html", "d0/dc7/class_audio_1_1_f_quartz_cross_thread_message" ],
+    [ "Audio::FQuartzOffset", "d6/ddd/struct_audio_1_1_f_quartz_offset.html", "d6/ddd/struct_audio_1_1_f_quartz_offset" ],
+    [ "Audio::FQuartzGameThreadSubscriber", "d1/d45/struct_audio_1_1_f_quartz_game_thread_subscriber.html", "d1/d45/struct_audio_1_1_f_quartz_game_thread_subscriber" ],
+    [ "FQuartzQuantizationBoundary", "d1/d96/struct_f_quartz_quantization_boundary.html", "d1/d96/struct_f_quartz_quantization_boundary" ],
+    [ "Audio::FQuartzQuantizedRequestData", "d0/dcd/struct_audio_1_1_f_quartz_quantized_request_data.html", "d0/dcd/struct_audio_1_1_f_quartz_quantized_request_data" ],
+    [ "Audio::FQuartzQuantizedCommandInitInfo", "d4/d50/struct_audio_1_1_f_quartz_quantized_command_init_info.html", "d4/d50/struct_audio_1_1_f_quartz_quantized_command_init_info" ],
+    [ "Audio::IQuartzQuantizedCommand", "db/d84/class_audio_1_1_i_quartz_quantized_command.html", "db/d84/class_audio_1_1_i_quartz_quantized_command" ],
+    [ "Audio::FQuartzQuantizedCommandHandle", "db/dd3/struct_audio_1_1_f_quartz_quantized_command_handle.html", "db/dd3/struct_audio_1_1_f_quartz_quantized_command_handle" ],
+    [ "FAudioComponentCommandInfo", "d2/d4e/struct_f_audio_component_command_info.html", "d2/d4e/struct_f_audio_component_command_info" ],
+    [ "Audio::Quartz::FQuartzGameThreadCommandQueuePtr", "d6/d6e/namespace_audio_1_1_quartz.html#a5a75ba356c66462ded493c4a306c95bd", null ],
+    [ "Audio::Quartz::FQuartzSubscriberCommandQueue", "d6/d6e/namespace_audio_1_1_quartz.html#afe70ed817b861b1d9cdc4fea19b2ae17", null ],
+    [ "EQuartzCommandDelegateSubType", "dc/d3e/_quartz_quantization_utilities_8h.html#afbad81680b351c8ffaf504f9e971ee68", [
+      [ "UMETA", "dc/d3e/_quartz_quantization_utilities_8h.html#afbad81680b351c8ffaf504f9e971ee68aa3f80d8f0f1b4ffa8c475f5d60ea5635", null ],
+      [ "UMETA", "dc/d3e/_quartz_quantization_utilities_8h.html#afbad81680b351c8ffaf504f9e971ee68aa3f80d8f0f1b4ffa8c475f5d60ea5635", null ],
+      [ "UMETA", "dc/d3e/_quartz_quantization_utilities_8h.html#afbad81680b351c8ffaf504f9e971ee68aa3f80d8f0f1b4ffa8c475f5d60ea5635", null ],
+      [ "UMETA", "dc/d3e/_quartz_quantization_utilities_8h.html#afbad81680b351c8ffaf504f9e971ee68aa3f80d8f0f1b4ffa8c475f5d60ea5635", null ],
+      [ "UMETA", "dc/d3e/_quartz_quantization_utilities_8h.html#afbad81680b351c8ffaf504f9e971ee68aa3f80d8f0f1b4ffa8c475f5d60ea5635", null ],
+      [ "UMETA", "dc/d3e/_quartz_quantization_utilities_8h.html#afbad81680b351c8ffaf504f9e971ee68aa3f80d8f0f1b4ffa8c475f5d60ea5635", null ]
+    ] ],
+    [ "EQuartzCommandQuantization", "dc/d3e/_quartz_quantization_utilities_8h.html#a82bd41f22db40a0703d11b593c51f5bb", [
+      [ "UMETA", "dc/d3e/_quartz_quantization_utilities_8h.html#a82bd41f22db40a0703d11b593c51f5bbaa3f80d8f0f1b4ffa8c475f5d60ea5635", null ],
+      [ "UMETA", "dc/d3e/_quartz_quantization_utilities_8h.html#a82bd41f22db40a0703d11b593c51f5bbaa3f80d8f0f1b4ffa8c475f5d60ea5635", null ],
+      [ "UMETA", "dc/d3e/_quartz_quantization_utilities_8h.html#a82bd41f22db40a0703d11b593c51f5bbaa3f80d8f0f1b4ffa8c475f5d60ea5635", null ],
+      [ "UMETA", "dc/d3e/_quartz_quantization_utilities_8h.html#a82bd41f22db40a0703d11b593c51f5bbaa3f80d8f0f1b4ffa8c475f5d60ea5635", null ],
+      [ "UMETA", "dc/d3e/_quartz_quantization_utilities_8h.html#a82bd41f22db40a0703d11b593c51f5bbaa3f80d8f0f1b4ffa8c475f5d60ea5635", null ],
+      [ "UMETA", "dc/d3e/_quartz_quantization_utilities_8h.html#a82bd41f22db40a0703d11b593c51f5bbaa3f80d8f0f1b4ffa8c475f5d60ea5635", null ],
+      [ "UMETA", "dc/d3e/_quartz_quantization_utilities_8h.html#a82bd41f22db40a0703d11b593c51f5bbaa3f80d8f0f1b4ffa8c475f5d60ea5635", null ],
+      [ "UMETA", "dc/d3e/_quartz_quantization_utilities_8h.html#a82bd41f22db40a0703d11b593c51f5bbaa3f80d8f0f1b4ffa8c475f5d60ea5635", null ],
+      [ "UMETA", "dc/d3e/_quartz_quantization_utilities_8h.html#a82bd41f22db40a0703d11b593c51f5bbaa3f80d8f0f1b4ffa8c475f5d60ea5635", null ],
+      [ "UMETA", "dc/d3e/_quartz_quantization_utilities_8h.html#a82bd41f22db40a0703d11b593c51f5bbaa3f80d8f0f1b4ffa8c475f5d60ea5635", null ],
+      [ "UMETA", "dc/d3e/_quartz_quantization_utilities_8h.html#a82bd41f22db40a0703d11b593c51f5bbaa3f80d8f0f1b4ffa8c475f5d60ea5635", null ],
+      [ "UMETA", "dc/d3e/_quartz_quantization_utilities_8h.html#a82bd41f22db40a0703d11b593c51f5bbaa3f80d8f0f1b4ffa8c475f5d60ea5635", null ],
+      [ "UMETA", "dc/d3e/_quartz_quantization_utilities_8h.html#a82bd41f22db40a0703d11b593c51f5bbaa3f80d8f0f1b4ffa8c475f5d60ea5635", null ],
+      [ "UMETA", "dc/d3e/_quartz_quantization_utilities_8h.html#a82bd41f22db40a0703d11b593c51f5bbaa3f80d8f0f1b4ffa8c475f5d60ea5635", null ],
+      [ "UMETA", "dc/d3e/_quartz_quantization_utilities_8h.html#a82bd41f22db40a0703d11b593c51f5bbaa3f80d8f0f1b4ffa8c475f5d60ea5635", null ],
+      [ "UMETA", "dc/d3e/_quartz_quantization_utilities_8h.html#a82bd41f22db40a0703d11b593c51f5bbaa3f80d8f0f1b4ffa8c475f5d60ea5635", null ],
+      [ "UMETA", "dc/d3e/_quartz_quantization_utilities_8h.html#a82bd41f22db40a0703d11b593c51f5bbaa3f80d8f0f1b4ffa8c475f5d60ea5635", null ],
+      [ "UMETA", "dc/d3e/_quartz_quantization_utilities_8h.html#a82bd41f22db40a0703d11b593c51f5bbaa3f80d8f0f1b4ffa8c475f5d60ea5635", null ],
+      [ "UMETA", "dc/d3e/_quartz_quantization_utilities_8h.html#a82bd41f22db40a0703d11b593c51f5bbaa3f80d8f0f1b4ffa8c475f5d60ea5635", null ],
+      [ "UMETA", "dc/d3e/_quartz_quantization_utilities_8h.html#a82bd41f22db40a0703d11b593c51f5bbaa3f80d8f0f1b4ffa8c475f5d60ea5635", null ]
+    ] ],
+    [ "EQuartzCommandType", "dc/d3e/_quartz_quantization_utilities_8h.html#a7dd1163162d4351b6fd07afa79fa08c9", [
+      [ "UMETA", "dc/d3e/_quartz_quantization_utilities_8h.html#a7dd1163162d4351b6fd07afa79fa08c9aa3f80d8f0f1b4ffa8c475f5d60ea5635", null ],
+      [ "UMETA", "dc/d3e/_quartz_quantization_utilities_8h.html#a7dd1163162d4351b6fd07afa79fa08c9aa3f80d8f0f1b4ffa8c475f5d60ea5635", null ],
+      [ "UMETA", "dc/d3e/_quartz_quantization_utilities_8h.html#a7dd1163162d4351b6fd07afa79fa08c9aa3f80d8f0f1b4ffa8c475f5d60ea5635", null ],
+      [ "UMETA", "dc/d3e/_quartz_quantization_utilities_8h.html#a7dd1163162d4351b6fd07afa79fa08c9aa3f80d8f0f1b4ffa8c475f5d60ea5635", null ],
+      [ "UMETA", "dc/d3e/_quartz_quantization_utilities_8h.html#a7dd1163162d4351b6fd07afa79fa08c9aa3f80d8f0f1b4ffa8c475f5d60ea5635", null ],
+      [ "UMETA", "dc/d3e/_quartz_quantization_utilities_8h.html#a7dd1163162d4351b6fd07afa79fa08c9aa3f80d8f0f1b4ffa8c475f5d60ea5635", null ],
+      [ "UMETA", "dc/d3e/_quartz_quantization_utilities_8h.html#a7dd1163162d4351b6fd07afa79fa08c9aa3f80d8f0f1b4ffa8c475f5d60ea5635", null ],
+      [ "UMETA", "dc/d3e/_quartz_quantization_utilities_8h.html#a7dd1163162d4351b6fd07afa79fa08c9aa3f80d8f0f1b4ffa8c475f5d60ea5635", null ]
+    ] ],
+    [ "EQuartzDelegateType", "dc/d3e/_quartz_quantization_utilities_8h.html#adee12ced41602ec4482a16af7a4d28dd", [
+      [ "UMETA", "dc/d3e/_quartz_quantization_utilities_8h.html#adee12ced41602ec4482a16af7a4d28ddaa3f80d8f0f1b4ffa8c475f5d60ea5635", null ],
+      [ "UMETA", "dc/d3e/_quartz_quantization_utilities_8h.html#adee12ced41602ec4482a16af7a4d28ddaa3f80d8f0f1b4ffa8c475f5d60ea5635", null ],
+      [ "UMETA", "dc/d3e/_quartz_quantization_utilities_8h.html#adee12ced41602ec4482a16af7a4d28ddaa3f80d8f0f1b4ffa8c475f5d60ea5635", null ]
+    ] ],
+    [ "EQuartzTimeSignatureQuantization", "dc/d3e/_quartz_quantization_utilities_8h.html#afe91742d50764e082167e1ed4bc6c400", [
+      [ "UMETA", "dc/d3e/_quartz_quantization_utilities_8h.html#afe91742d50764e082167e1ed4bc6c400aa3f80d8f0f1b4ffa8c475f5d60ea5635", null ],
+      [ "UMETA", "dc/d3e/_quartz_quantization_utilities_8h.html#afe91742d50764e082167e1ed4bc6c400aa3f80d8f0f1b4ffa8c475f5d60ea5635", null ],
+      [ "UMETA", "dc/d3e/_quartz_quantization_utilities_8h.html#afe91742d50764e082167e1ed4bc6c400aa3f80d8f0f1b4ffa8c475f5d60ea5635", null ],
+      [ "UMETA", "dc/d3e/_quartz_quantization_utilities_8h.html#afe91742d50764e082167e1ed4bc6c400aa3f80d8f0f1b4ffa8c475f5d60ea5635", null ],
+      [ "UMETA", "dc/d3e/_quartz_quantization_utilities_8h.html#afe91742d50764e082167e1ed4bc6c400aa3f80d8f0f1b4ffa8c475f5d60ea5635", null ],
+      [ "UMETA", "dc/d3e/_quartz_quantization_utilities_8h.html#afe91742d50764e082167e1ed4bc6c400aa3f80d8f0f1b4ffa8c475f5d60ea5635", null ]
+    ] ],
+    [ "EQuarztQuantizationReference", "dc/d3e/_quartz_quantization_utilities_8h.html#a44cf18957407387c50317520ecbba08c", [
+      [ "UMETA", "dc/d3e/_quartz_quantization_utilities_8h.html#a44cf18957407387c50317520ecbba08caa3f80d8f0f1b4ffa8c475f5d60ea5635", null ],
+      [ "UMETA", "dc/d3e/_quartz_quantization_utilities_8h.html#a44cf18957407387c50317520ecbba08caa3f80d8f0f1b4ffa8c475f5d60ea5635", null ],
+      [ "UMETA", "dc/d3e/_quartz_quantization_utilities_8h.html#a44cf18957407387c50317520ecbba08caa3f80d8f0f1b4ffa8c475f5d60ea5635", null ],
+      [ "UMETA", "dc/d3e/_quartz_quantization_utilities_8h.html#a44cf18957407387c50317520ecbba08caa3f80d8f0f1b4ffa8c475f5d60ea5635", null ]
+    ] ],
+    [ "DECLARE_DYNAMIC_DELEGATE_FiveParams", "dc/d3e/_quartz_quantization_utilities_8h.html#a48aa81f5ca0db857b9392b1ccb12caa5", null ],
+    [ "DECLARE_DYNAMIC_DELEGATE_TwoParams", "dc/d3e/_quartz_quantization_utilities_8h.html#a03ea9e4a531601c94f5d686042296ed3", null ],
+    [ "DECLARE_DYNAMIC_MULTICAST_DELEGATE_FiveParams", "dc/d3e/_quartz_quantization_utilities_8h.html#a14eed3928b80defe6d94094e91646bbd", null ],
+    [ "DECLARE_DYNAMIC_MULTICAST_DELEGATE_TwoParams", "dc/d3e/_quartz_quantization_utilities_8h.html#a39f228963abf3a6e823c8fac9b9404cd", null ],
+    [ "DECLARE_LOG_CATEGORY_EXTERN", "dc/d3e/_quartz_quantization_utilities_8h.html#aac891b42351eb3f1b6cfc00c9347272e", null ],
+    [ "TimeSignatureQuantizationToCommandQuantization", "dc/d3e/_quartz_quantization_utilities_8h.html#a88951c2597de0d5ce5bb87f994182492", null ]
+];

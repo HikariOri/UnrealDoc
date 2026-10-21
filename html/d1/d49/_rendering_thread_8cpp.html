@@ -1,0 +1,1342 @@
+<!-- HTML header for doxygen 1.15.0-->
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh">
+<head>
+  <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=11" />
+  <meta name="generator" content="Doxygen 1.15.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>UE 5.8.4: Engine/Source/Runtime/RenderCore/Private/RenderingThread.cpp 文件参考</title>
+  <link rel="icon" href="../../EdIconDefault.bmp" type="image/x-icon" />
+  <link href="../../tabs.css" rel="stylesheet" type="text/css" />
+  <script type="text/javascript" src="../../jquery.js"></script>
+  <script type="text/javascript" src="../../dynsections.js"></script>
+  <link href="../../navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../navtreedata.js"></script>
+<script type="text/javascript" src="../../navtree.js"></script>
+<script type="text/javascript" src="../../cookie.js"></script>
+  <link href="../../search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../search/searchdata.js"></script>
+<script type="text/javascript" src="../../search/search.js"></script>
+  <script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  extensions: ["tex2jax.js"],
+  jax: ["input/TeX","output/HTML-CSS"],
+});
+</script>
+<script type="text/javascript" async="async" src="https://cdn.jsdelivr.net/npm/mathjax@2/MathJax.js"></script>
+  <link href="../../doxygen.css" rel="stylesheet" type="text/css" />
+  <link href="../../doxygen-awesome.css" rel="stylesheet" type="text/css"/>
+<link href="../../doxygen-awesome-sidebar-only.css" rel="stylesheet" type="text/css"/>
+<link href="../../doxygen-awesome-sidebar-only-darkmode-toggle.css" rel="stylesheet" type="text/css"/>
+  <!-- ... other metadata & script includes ... -->
+  <script type="text/javascript" src="../../doxygen-awesome-darkmode-toggle.js"></script>
+  <script type="text/javascript">
+    DoxygenAwesomeDarkModeToggle.title = "Zwischen hellem/dunklem Modus wechseln"
+    DoxygenAwesomeDarkModeToggle.lightModeIcon = '🌞'
+    // icon from https://fonts.google.com/icons
+    DoxygenAwesomeDarkModeToggle.darkModeIcon = `<svg xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 24 24" height="24px" viewBox="0 0 24 24" width="24px" fill="#009793"><g><rect fill="none" height="24" width="24"/></g><g><g><path d="M8.1,14.15C9.77,14.63,11,16.17,11,18c0,0.68-0.19,1.31-0.48,1.87c0.48,0.09,0.97,0.14,1.48,0.14 c1.48,0,2.9-0.41,4.13-1.15c-2.62-0.92-5.23-2.82-6.8-5.86C7.74,9.94,7.78,7.09,8.29,4.9c-2.57,1.33-4.3,4.01-4.3,7.1c0,0,0,0,0,0 c0.01,0,0.01,0,0.02,0C5.66,12,7.18,12.83,8.1,14.15z" opacity=".3"/><path d="M19.78,17.51c-2.47,0-6.57-1.33-8.68-5.43C8.77,7.57,10.6,3.6,11.63,2.01C6.27,2.2,1.98,6.59,1.98,12 c0,0.14,0.02,0.28,0.02,0.42C2.61,12.16,3.28,12,3.98,12c0,0,0,0,0,0c0-3.09,1.73-5.77,4.3-7.1C7.78,7.09,7.74,9.94,9.32,13 c1.57,3.04,4.18,4.95,6.8,5.86c-1.23,0.74-2.65,1.15-4.13,1.15c-0.5,0-1-0.05-1.48-0.14c-0.37,0.7-0.94,1.27-1.64,1.64 c0.98,0.32,2.03,0.5,3.11,0.5c3.5,0,6.58-1.8,8.37-4.52C20.18,17.5,19.98,17.51,19.78,17.51z"/><path d="M7,16l-0.18,0C6.4,14.84,5.3,14,4,14c-1.66,0-3,1.34-3,3s1.34,3,3,3c0.62,0,2.49,0,3,0c1.1,0,2-0.9,2-2 C9,16.9,8.1,16,7,16z"/></g></g></svg>`
+    DoxygenAwesomeDarkModeToggle.init()
+  </script>
+  <script type="text/javascript" src="../../doxygen-awesome-fragment-copy-button.js"></script>
+  <script type="text/javascript">
+    DoxygenAwesomeFragmentCopyButton.title = "In die Zwischenablage kopieren"
+    // DoxygenAwesomeFragmentCopyButton.copyIcon = `<svg ...>`
+    // DoxygenAwesomeFragmentCopyButton.successIcon = `<svg ...>`
+    DoxygenAwesomeFragmentCopyButton.init()
+  </script>
+  <script type="text/javascript" src="../../doxygen-awesome-paragraph-link.js"></script>
+  <script type="text/javascript">
+    DoxygenAwesomeParagraphLink.title = "Abschnitt verknüpfen"
+    DoxygenAwesomeParagraphLink.icon = "¶"
+    DoxygenAwesomeParagraphLink.init()
+  </script>
+  <script type="text/javascript" src="../../doxygen-awesome-interactive-toc.js"></script>
+  <script type="text/javascript">
+    DoxygenAwesomeInteractiveToc.topOffset = 45
+    DoxygenAwesomeInteractiveToc.hideMobileMenu = false
+    DoxygenAwesomeInteractiveToc.init()
+  </script>
+</head>
+<body>
+    <div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+      <div id="titlearea">
+        <table cellspacing="0" cellpadding="0">
+          <tbody>
+            <tr id="projectrow">
+              <td id="projectlogo"><img alt="Logo" src="../../EdIconDefault.bmp"  /></td>
+              <td id="projectalign">
+                <div id="projectname">UE 5.8.4
+                </div>
+                <div id="projectbrief">Unreal Engine</div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <!-- end header part -->
+<!-- 制作者 Doxygen 1.15.0 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "../../search/",'.html');
+</script>
+<script type="text/javascript">
+$(function() { codefold.init(); });
+</script>
+<script type="text/javascript" src="../../menudata.js"></script>
+<script type="text/javascript" src="../../menu.js"></script>
+<script type="text/javascript">
+$(function() {
+  initMenu('../../',true,false,'search.php','搜索',true);
+  $(function() { init_search(); });
+});
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(function(){initNavTree('d1/d49/_rendering_thread_8cpp.html','../../',''); });
+</script>
+<div id="container">
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">载入中...</div>
+<div class="SRStatus" id="Searching">搜索中...</div>
+<div class="SRStatus" id="NoMatches">未找到</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">RenderingThread.cpp 文件参考</div></div>
+</div><!--header-->
+<div class="contents">
+<div class="textblock"><code>#include &quot;<a class="el" href="../../d2/d2e/_rendering_thread_8h_source.html">RenderingThread.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../dd/d22/_runnable_8h_source.html">HAL/Runnable.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../dd/df4/_runnable_thread_8h_source.html">HAL/RunnableThread.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d8/d18/_exception_handling_8h_source.html">HAL/ExceptionHandling.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../de/d53/_platform_application_misc_8h_source.html">HAL/PlatformApplicationMisc.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d9/d11/_app_8h_source.html">Misc/App.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../de/d9b/_core_2_public_2_misc_2_command_line_8h_source.html">Misc/CommandLine.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../df/d56/_output_device_redirector_8h_source.html">Misc/OutputDeviceRedirector.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d4/d9d/_core_stats_8h_source.html">Misc/CoreStats.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d6/d57/_time_guard_8h_source.html">Misc/TimeGuard.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../dc/d17/_core_delegates_8h_source.html">Misc/CoreDelegates.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d6/df1/_scope_lock_8h_source.html">Misc/ScopeLock.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d5/dfb/_r_h_i_8h_source.html">RHI.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d8/d91/_render_command_state_stream_8h_source.html">RenderCommandStateStream.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d1/ddc/_render_core_8h_source.html">RenderCore.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d2/d6e/_render_command_fence_8h_source.html">RenderCommandFence.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d2/df6/_render_deferred_cleanup_8h_source.html">RenderDeferredCleanup.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d5/d07/_tickable_object_render_thread_8h_source.html">TickableObjectRenderThread.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../da/d71/_stats_system_8h_source.html">Stats/StatsSystem.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d5/d7a/_core_2_public_2_stats_2_stats_data_8h_source.html">Stats/StatsData.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d3/d2f/_thread_heart_beat_8h_source.html">HAL/ThreadHeartBeat.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d5/d7b/_render_resource_8h_source.html">RenderResource.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../dc/d7b/_r_h_i_utilities_8h_source.html">RHIUtilities.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d9/dc8/_low_level_mem_tracker_8h_source.html">HAL/LowLevelMemTracker.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d0/d5b/_misc_trace_8h_source.html">ProfilingDebugging/MiscTrace.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../df/dc1/_csv_profiler_8h_source.html">ProfilingDebugging/CsvProfiler.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d6/ddf/_task_trace_8h_source.html">Async/TaskTrace.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d8/df3/_data_driven_shader_platform_info_8h_source.html">DataDrivenShaderPlatformInfo.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d4/deb/_thread_manager_8h_source.html">HAL/ThreadManager.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d8/daf/_counters_trace_8h_source.html">ProfilingDebugging/CountersTrace.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d3/d90/_core_2_public_2_async_2_parallel_for_8h_source.html">Async/ParallelFor.h</a>&quot;</code><br />
+</div><div class="textblock"><div class="dynheader">
+RenderingThread.cpp 的引用(Include)关系图:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d2/d27/_rendering_thread_8cpp__incl.svg" width="5240" height="582"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+</div><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-nested-classes" class="groupheader"><a id="nested-classes" name="nested-classes"></a>
+类</h2></td></tr>
+<tr class="memitem:FRHIThread" id="r_FRHIThread"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/dc4/class_f_r_h_i_thread.html">FRHIThread</a></td></tr>
+<tr class="memitem:FRenderingThread" id="r_FRenderingThread"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/da5/class_f_rendering_thread.html">FRenderingThread</a></td></tr>
+<tr class="memitem:FSuspendRenderingTickables" id="r_FSuspendRenderingTickables"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/d8b/struct_f_suspend_rendering_tickables.html">FSuspendRenderingTickables</a></td></tr>
+<tr class="memitem:FRenderingThreadTickHeartbeat" id="r_FRenderingThreadTickHeartbeat"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/df9/class_f_rendering_thread_tick_heartbeat.html">FRenderingThreadTickHeartbeat</a></td></tr>
+<tr class="memitem:FConsoleRenderThreadPropagation" id="r_FConsoleRenderThreadPropagation"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/d6d/struct_f_console_render_thread_propagation.html">FConsoleRenderThreadPropagation</a></td></tr>
+<tr class="memitem:FRenderCommandFenceBundlerState" id="r_FRenderCommandFenceBundlerState"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><b>FRenderCommandFenceBundlerState</b></td></tr>
+<tr class="memitem:FRenderCommandPipeRegistry" id="r_FRenderCommandPipeRegistry"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/d4e/class_f_render_command_pipe_registry.html">FRenderCommandPipeRegistry</a></td></tr>
+<tr class="memitem:FFrameEndSync_3A_3AFRenderThreadFence" id="r_FFrameEndSync_3A_3AFRenderThreadFence"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/d13/struct_f_frame_end_sync_1_1_f_render_thread_fence.html">FFrameEndSync::FRenderThreadFence</a></td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-namespaces" class="groupheader"><a id="namespaces" name="namespaces"></a>
+命名空间</h2></td></tr>
+<tr class="memitem:UE" id="r_UE"><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/de5/namespace_u_e.html">UE</a></td></tr>
+<tr class="memitem:UE_3A_3ARenderCommandPipe" id="r_UE_3A_3ARenderCommandPipe"><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/dd5/namespace_u_e_1_1_render_command_pipe.html">UE::RenderCommandPipe</a></td></tr>
+<tr class="memitem:FFrameEndSync" id="r_FFrameEndSync"><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d2/d73/namespace_f_frame_end_sync.html">FFrameEndSync</a></td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-define-members" class="groupheader"><a id="define-members" name="define-members"></a>
+宏定义</h2></td></tr>
+<tr class="memitem:a71e4d2d25c5da9f261124739a3eeb01a" id="r_a71e4d2d25c5da9f261124739a3eeb01a"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a71e4d2d25c5da9f261124739a3eeb01a">UE_RENDER_COMMAND_FENCE_BUNDLER_REGION</a>&#160;&#160;&#160;<a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;Render Command Fence Bundler&quot;)</td></tr>
+<tr class="memitem:a179e091089b1da180806267c98ef15cf" id="r_a179e091089b1da180806267c98ef15cf"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a179e091089b1da180806267c98ef15cf">UE_RENDER_COMMAND_PIPE_RECORD_REGION</a>&#160;&#160;&#160;<a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;Render Command Pipe Recording&quot;)</td></tr>
+<tr class="memitem:a5fb898b61302c8232b9dbd41a63a421c" id="r_a5fb898b61302c8232b9dbd41a63a421c"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5fb898b61302c8232b9dbd41a63a421c">UE_RENDER_COMMAND_PIPE_SYNC_REGION</a>&#160;&#160;&#160;<a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;Render Command Pipe Synced&quot;)</td></tr>
+<tr class="memitem:ad7e4a347441b70f5f45646ff965c0c7c" id="r_ad7e4a347441b70f5f45646ff965c0c7c"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad7e4a347441b70f5f45646ff965c0c7c">UE_RENDER_COMMAND_BEGIN_REGION</a>(Region)</td></tr>
+<tr class="memitem:a1be01c96cba846eccc43bbbf423cda83" id="r_a1be01c96cba846eccc43bbbf423cda83"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a1be01c96cba846eccc43bbbf423cda83">UE_RENDER_COMMAND_END_REGION</a>(Region)</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-typedef-members" class="groupheader"><a id="typedef-members" name="typedef-members"></a>
+类型定义</h2></td></tr>
+<tr class="memitem:ad724e016befc54ea334e8570b1ff2d79" id="r_ad724e016befc54ea334e8570b1ff2d79"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d2/d73/namespace_f_frame_end_sync.html#ad724e016befc54ea334e8570b1ff2d79">FFrameEndSync::ESyncDepth</a> = <a class="el" href="../../d5/d86/class_f_render_command_fence.html#a930ab6965507ed1a86d5435879b51323">FRenderCommandFence::ESyncDepth</a></td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-func-members" class="groupheader"><a id="func-members" name="func-members"></a>
+函数</h2></td></tr>
+<tr class="memitem:a1eee47eebe98210acb4bbb8c2bda941e" id="r_a1eee47eebe98210acb4bbb8c2bda941e"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a1eee47eebe98210acb4bbb8c2bda941e">UE_TRACE_CHANNEL_DEFINE</a> (RenderCommandsChannel, &quot;Render thread command execution and synchronization.&quot;)</td></tr>
+<tr class="memitem:ac9d262452b343aef01e84aa0e0d1e7dc" id="r_ac9d262452b343aef01e84aa0e0d1e7dc"><td class="memItemLeft" align="right" valign="top">RENDERCORE_API <a class="el" href="../../dc/d48/class_t_atomic.html">TAtomic</a>&lt; <a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac9d262452b343aef01e84aa0e0d1e7dc">GMainThreadBlockedOnRenderThread</a> (<a class="el" href="../../d3/df7/radaudio__common_8h.html#ade27a78a51a66a5cfb6f09cf36bcfde9ae9de385ef6fe9bf3360d1038396b884c">false</a>)</td></tr>
+<tr class="memitem:adcf7dc729fd14d07cfe3366e76628309" id="r_adcf7dc729fd14d07cfe3366e76628309"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d2/d2e/_rendering_thread_8h.html#a542169015843d523b353d708d908858d">ERenderCommandPipeMode</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#adcf7dc729fd14d07cfe3366e76628309">GetValidatedRenderCommandPipeMode</a> (<a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a8dbb3cd84ca9fd010dadfc3815eefa5d">int32</a> CVarValue)</td></tr>
+<tr class="memitem:a9b0dd09da9d56695ea44fac883c0fe41" id="r_a9b0dd09da9d56695ea44fac883c0fe41"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../df/d63/_typed_element_query_capabilities_8inl.html#a72343342ce64c0755563ee6c5e27868d">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9b0dd09da9d56695ea44fac883c0fe41">RenderingThreadMain</a> (<a class="el" href="../../d5/d17/class_f_event.html">FEvent</a> *TaskGraphBoundSyncEvent)</td></tr>
+<tr class="memitem:af4a42877379e4ab7cdcd118e6862271c" id="r_af4a42877379e4ab7cdcd118e6862271c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../df/d63/_typed_element_query_capabilities_8inl.html#a72343342ce64c0755563ee6c5e27868d">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af4a42877379e4ab7cdcd118e6862271c">AdvanceRenderingThreadStatsGT</a> (<a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a> bDiscardCallstack, <a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a89241ea7101f26f05a4f1efd6be26b32">int64</a> StatsFrame, <a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a8dbb3cd84ca9fd010dadfc3815eefa5d">int32</a> DisableChangeTagStartFrame)</td></tr>
+<tr class="memitem:a58fbc8097780555c3f9b59a7c4e83cfd" id="r_a58fbc8097780555c3f9b59a7c4e83cfd"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d6/dff/class_f_delegate_handle.html">FDelegateHandle</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a58fbc8097780555c3f9b59a7c4e83cfd">RegisterStopRenderingThreadDelegate</a> (const FStopRenderingThread::FDelegate &amp;InDelegate)</td></tr>
+<tr class="memitem:ab56131b824a1ae90f1a528eba7aaea89" id="r_ab56131b824a1ae90f1a528eba7aaea89"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../df/d63/_typed_element_query_capabilities_8inl.html#a72343342ce64c0755563ee6c5e27868d">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab56131b824a1ae90f1a528eba7aaea89">UnregisterStopRenderingThreadDelegate</a> (<a class="el" href="../../d6/dff/class_f_delegate_handle.html">FDelegateHandle</a> InDelegateHandle)</td></tr>
+<tr class="memitem:ae95c58ed3127bceba1d525810931f657" id="r_ae95c58ed3127bceba1d525810931f657"><td class="memItemLeft" align="right" valign="top">RENDERCORE_API <a class="el" href="../../df/d63/_typed_element_query_capabilities_8inl.html#a72343342ce64c0755563ee6c5e27868d">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae95c58ed3127bceba1d525810931f657">LatchRenderThreadConfiguration</a> ()</td></tr>
+<tr class="memitem:af2be49406a0af448ddec4c19257fe2c3" id="r_af2be49406a0af448ddec4c19257fe2c3"><td class="memItemLeft" align="right" valign="top">RENDERCORE_API <a class="el" href="../../df/d63/_typed_element_query_capabilities_8inl.html#a72343342ce64c0755563ee6c5e27868d">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af2be49406a0af448ddec4c19257fe2c3">InitRenderingThread</a> ()</td></tr>
+<tr class="memitem:a35c07debbd4351f6c71dcbeb3e7fb460" id="r_a35c07debbd4351f6c71dcbeb3e7fb460"><td class="memItemLeft" align="right" valign="top">RENDERCORE_API <a class="el" href="../../df/d63/_typed_element_query_capabilities_8inl.html#a72343342ce64c0755563ee6c5e27868d">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a35c07debbd4351f6c71dcbeb3e7fb460">ShutdownRenderingThread</a> ()</td></tr>
+<tr class="memitem:a1eeedc951eade8ae3ff82b0da6360494" id="r_a1eeedc951eade8ae3ff82b0da6360494"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../df/d63/_typed_element_query_capabilities_8inl.html#a72343342ce64c0755563ee6c5e27868d">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a1eeedc951eade8ae3ff82b0da6360494">CheckRenderingThreadHealth</a> ()</td></tr>
+<tr class="memitem:ad9d1daf150ac1931bd6b604d345ad980" id="r_ad9d1daf150ac1931bd6b604d345ad980"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad9d1daf150ac1931bd6b604d345ad980">IsRenderingThreadHealthy</a> ()</td></tr>
+<tr class="memitem:ad99c22d2477eb8a992f01c943ba87d7e" id="r_ad99c22d2477eb8a992f01c943ba87d7e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../df/d63/_typed_element_query_capabilities_8inl.html#a72343342ce64c0755563ee6c5e27868d">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad99c22d2477eb8a992f01c943ba87d7e">StartRenderCommandFenceBundler</a> ()</td></tr>
+<tr class="memitem:a7a9599c93c443ab9cf61b9a461dfc7df" id="r_a7a9599c93c443ab9cf61b9a461dfc7df"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../df/d63/_typed_element_query_capabilities_8inl.html#a72343342ce64c0755563ee6c5e27868d">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7a9599c93c443ab9cf61b9a461dfc7df">FlushRenderCommandFenceBundler</a> ()</td></tr>
+<tr class="memitem:a5eb22854395a7d2243135956d80b7d5e" id="r_a5eb22854395a7d2243135956d80b7d5e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../df/d63/_typed_element_query_capabilities_8inl.html#a72343342ce64c0755563ee6c5e27868d">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5eb22854395a7d2243135956d80b7d5e">StopRenderCommandFenceBundler</a> ()</td></tr>
+<tr class="memitem:a7b8ea094417b1611d8b40bb78984f300" id="r_a7b8ea094417b1611d8b40bb78984f300"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../df/d63/_typed_element_query_capabilities_8inl.html#a72343342ce64c0755563ee6c5e27868d">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7b8ea094417b1611d8b40bb78984f300">SuspendRenderThreadTimeout</a> ()</td></tr>
+<tr class="memitem:a2367452449d526c5238703cc8de9bf95" id="r_a2367452449d526c5238703cc8de9bf95"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../df/d63/_typed_element_query_capabilities_8inl.html#a72343342ce64c0755563ee6c5e27868d">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2367452449d526c5238703cc8de9bf95">ResumeRenderThreadTimeout</a> ()</td></tr>
+<tr class="memitem:a2976002f57b1f71818facf03ed302921" id="r_a2976002f57b1f71818facf03ed302921"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2976002f57b1f71818facf03ed302921">IsRenderThreadTimeoutSuspended</a> ()</td></tr>
+<tr class="memitem:a36fbfdaa5777b47cf308baec615443ae" id="r_a36fbfdaa5777b47cf308baec615443ae"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../df/d63/_typed_element_query_capabilities_8inl.html#a72343342ce64c0755563ee6c5e27868d">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a36fbfdaa5777b47cf308baec615443ae">FlushRenderingCommands</a> ()</td></tr>
+<tr class="memitem:abd315e26c794aca517aa04bbe3b593cd" id="r_abd315e26c794aca517aa04bbe3b593cd"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d3/d7d/class_f_r_h_i_command_list_immediate.html">FRHICommandListImmediate</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#abd315e26c794aca517aa04bbe3b593cd">GetImmediateCommandList_ForRenderCommand</a> ()</td></tr>
+<tr class="memitem:ac4489c3486312a6e612cc8bdc43d4794" id="r_ac4489c3486312a6e612cc8bdc43d4794"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../df/d63/_typed_element_query_capabilities_8inl.html#a72343342ce64c0755563ee6c5e27868d">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac4489c3486312a6e612cc8bdc43d4794">BeginCleanup</a> (<a class="el" href="../../d0/d37/class_f_deferred_cleanup_interface.html">FDeferredCleanupInterface</a> *CleanupObject)</td></tr>
+<tr class="memitem:ac74252332473a01afba0830d91e7864e" id="r_ac74252332473a01afba0830d91e7864e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d7/dab/class_f_pending_cleanup_objects.html">FPendingCleanupObjects</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac74252332473a01afba0830d91e7864e">GetPendingCleanupObjects</a> ()</td></tr>
+<tr class="memitem:a75533da3281cbbefadda39c95d850c7d" id="r_a75533da3281cbbefadda39c95d850c7d"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a75533da3281cbbefadda39c95d850c7d">DECLARE_RENDER_COMMAND_TAG</a> (FRenderCommandTag_ExecuteCommandLists, ExecuteCommandLists)</td></tr>
+<tr class="memitem:a089f4ce20cad1851bb77a9d5b2d7b227" id="r_a089f4ce20cad1851bb77a9d5b2d7b227"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a089f4ce20cad1851bb77a9d5b2d7b227">HasBitsSet</a> (const <a class="el" href="../../d2/d2e/_rendering_thread_8h.html#a21cfc5e6ab4e323db9b9ba8c431b3099">FRenderCommandPipeBitArray</a> &amp;Bits)</td></tr>
+<tr class="memitem:a89225e0fede26460611724ef0463da58" id="r_a89225e0fede26460611724ef0463da58"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../df/d63/_typed_element_query_capabilities_8inl.html#a72343342ce64c0755563ee6c5e27868d">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/dd5/namespace_u_e_1_1_render_command_pipe.html#a89225e0fede26460611724ef0463da58">UE::RenderCommandPipe::Initialize</a> ()</td></tr>
+<tr class="memitem:abe1a770dab16d6bd3b51cf317072ee43" id="r_abe1a770dab16d6bd3b51cf317072ee43"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/dd5/namespace_u_e_1_1_render_command_pipe.html#abe1a770dab16d6bd3b51cf317072ee43">UE::RenderCommandPipe::IsRecording</a> ()</td></tr>
+<tr class="memitem:ac7d3b16e5014965929c5dfb661ac9944" id="r_ac7d3b16e5014965929c5dfb661ac9944"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/dd5/namespace_u_e_1_1_render_command_pipe.html#ac7d3b16e5014965929c5dfb661ac9944">UE::RenderCommandPipe::IsReplaying</a> ()</td></tr>
+<tr class="memitem:a9c56a71c8eb52c8cab1d17dedb235dbd" id="r_a9c56a71c8eb52c8cab1d17dedb235dbd"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/dd5/namespace_u_e_1_1_render_command_pipe.html#a9c56a71c8eb52c8cab1d17dedb235dbd">UE::RenderCommandPipe::IsReplaying</a> (const <a class="el" href="../../d5/d94/class_f_render_command_pipe.html">FRenderCommandPipe</a> &amp;Pipe)</td></tr>
+<tr class="memitem:a3982cc342ac0c758dbf8c408b5c596c1" id="r_a3982cc342ac0c758dbf8c408b5c596c1"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../df/d63/_typed_element_query_capabilities_8inl.html#a72343342ce64c0755563ee6c5e27868d">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/dd5/namespace_u_e_1_1_render_command_pipe.html#a3982cc342ac0c758dbf8c408b5c596c1">UE::RenderCommandPipe::StartRecording</a> ()</td></tr>
+<tr class="memitem:aedc59ea76cbc3151541173e361a13e38" id="r_aedc59ea76cbc3151541173e361a13e38"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../df/d63/_typed_element_query_capabilities_8inl.html#a72343342ce64c0755563ee6c5e27868d">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/dd5/namespace_u_e_1_1_render_command_pipe.html#aedc59ea76cbc3151541173e361a13e38">UE::RenderCommandPipe::StartRecording</a> (const <a class="el" href="../../d2/d2e/_rendering_thread_8h.html#a21cfc5e6ab4e323db9b9ba8c431b3099">FRenderCommandPipeBitArray</a> &amp;PipeBits)</td></tr>
+<tr class="memitem:a4be91a4220808e683efa4ba67e15dc23" id="r_a4be91a4220808e683efa4ba67e15dc23"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d2/d2e/_rendering_thread_8h.html#a21cfc5e6ab4e323db9b9ba8c431b3099">FRenderCommandPipeBitArray</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/dd5/namespace_u_e_1_1_render_command_pipe.html#a4be91a4220808e683efa4ba67e15dc23">UE::RenderCommandPipe::StopRecording</a> ()</td></tr>
+<tr class="memitem:a618e7313b980f4785ed0610a1b7ba6a9" id="r_a618e7313b980f4785ed0610a1b7ba6a9"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d2/d2e/_rendering_thread_8h.html#a21cfc5e6ab4e323db9b9ba8c431b3099">FRenderCommandPipeBitArray</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/dd5/namespace_u_e_1_1_render_command_pipe.html#a618e7313b980f4785ed0610a1b7ba6a9">UE::RenderCommandPipe::StopRecording</a> (TConstArrayView&lt; <a class="el" href="../../d5/d94/class_f_render_command_pipe.html">FRenderCommandPipe</a> * &gt; Pipes)</td></tr>
+<tr class="memitem:adcd169356090bf28786b477e466f7efc" id="r_adcd169356090bf28786b477e466f7efc"><td class="memItemLeft" align="right" valign="top">TConstArrayView&lt; <a class="el" href="../../d5/d94/class_f_render_command_pipe.html">FRenderCommandPipe</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/dd5/namespace_u_e_1_1_render_command_pipe.html#adcd169356090bf28786b477e466f7efc">UE::RenderCommandPipe::GetPipes</a> ()</td></tr>
+<tr class="memitem:ab103981e64f9d6ffd6b5956c39468685" id="r_ab103981e64f9d6ffd6b5956c39468685"><td class="memItemLeft" align="right" valign="top">FStopRecordingDelegate &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/dd5/namespace_u_e_1_1_render_command_pipe.html#ab103981e64f9d6ffd6b5956c39468685">UE::RenderCommandPipe::GetStopRecordingDelegate</a> ()</td></tr>
+<tr class="memitem:a40e07923c6944fb613179849fe72d124" id="r_a40e07923c6944fb613179849fe72d124"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a40e07923c6944fb613179849fe72d124">DECLARE_CYCLE_STAT</a> (<a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;Frame Sync Time&quot;), STAT_FrameSyncTime, STATGROUP_RenderThreadProcessing)</td></tr>
+<tr class="memitem:acc123f41e05631764bcf304b71fca328" id="r_acc123f41e05631764bcf304b71fca328"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../df/d63/_typed_element_query_capabilities_8inl.html#a72343342ce64c0755563ee6c5e27868d">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d2/d73/namespace_f_frame_end_sync.html#acc123f41e05631764bcf304b71fca328">FFrameEndSync::Sync</a> (<a class="el" href="../../d2/d73/namespace_f_frame_end_sync.html#aaf72f3f8de855c4470139b839a07733c">EFlushMode</a> FlushMode)</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-var-members" class="groupheader"><a id="var-members" name="var-members"></a>
+变量</h2></td></tr>
+<tr class="memitem:ab5741c1abf277b17e0545099dfe7989c" id="r_ab5741c1abf277b17e0545099dfe7989c"><td class="memItemLeft" align="right" valign="top">RENDERCORE_API <a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab5741c1abf277b17e0545099dfe7989c">GIsThreadedRendering</a> = <a class="el" href="../../d3/df7/radaudio__common_8h.html#ade27a78a51a66a5cfb6f09cf36bcfde9ae9de385ef6fe9bf3360d1038396b884c">false</a></td></tr>
+<tr class="memitem:a29a43e7c57f7f667d4cbd2ff05a556df" id="r_a29a43e7c57f7f667d4cbd2ff05a556df"><td class="memItemLeft" align="right" valign="top">RENDERCORE_API <a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a29a43e7c57f7f667d4cbd2ff05a556df">GUseThreadedRendering</a> = <a class="el" href="../../d3/df7/radaudio__common_8h.html#ade27a78a51a66a5cfb6f09cf36bcfde9ae9de385ef6fe9bf3360d1038396b884c">false</a></td></tr>
+<tr class="memitem:a4aeff5771923cb624e92c6517f111182" id="r_a4aeff5771923cb624e92c6517f111182"><td class="memItemLeft" align="right" valign="top">RENDERCORE_API <a class="el" href="../../dd/d2f/struct_t_optional.html">TOptional</a>&lt; <a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4aeff5771923cb624e92c6517f111182">GPendingUseThreadedRendering</a></td></tr>
+<tr class="memitem:a7cb5526c8ba0c4ff8cda771b6f6aec94" id="r_a7cb5526c8ba0c4ff8cda771b6f6aec94"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d2/d8e/_s_anim_notify_panel_8h.html#a7483aa7f043c623f8990a95320be654d">FString</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7cb5526c8ba0c4ff8cda771b6f6aec94">GRenderingThreadError</a></td></tr>
+<tr class="memitem:a8a9c7455c66a57eb527056c80ff25e33" id="r_a8a9c7455c66a57eb527056c80ff25e33"><td class="memItemLeft" align="right" valign="top">volatile <a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8a9c7455c66a57eb527056c80ff25e33">GIsRenderingThreadHealthy</a> = <a class="el" href="../../d3/df7/radaudio__common_8h.html#ade27a78a51a66a5cfb6f09cf36bcfde9a08f175a5505a10b9ed657defeb050e4b">true</a></td></tr>
+<tr class="memitem:ae445280a18fc5f4dedf736e36a038c42" id="r_ae445280a18fc5f4dedf736e36a038c42"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../df/d2a/_s_anim_notify_shared_8h.html#ac7c94e837fed3f8e4bb3dd94d7bd2ecf">float</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae445280a18fc5f4dedf736e36a038c42">GRenderingThreadMaxIdleTickFrequency</a> = 40.f</td></tr>
+<tr class="memitem:a530cd2b422719b270b2eba445f00ec0d" id="r_a530cd2b422719b270b2eba445f00ec0d"><td class="memItemLeft" align="right" valign="top">CORE_API <a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a530cd2b422719b270b2eba445f00ec0d">GRenderThreadPollingOn</a></td></tr>
+<tr class="memitem:ae9b2b8e00e491fccc365f958b91d64f5" id="r_ae9b2b8e00e491fccc365f958b91d64f5"><td class="memItemLeft" align="right" valign="top">CORE_API <a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a8dbb3cd84ca9fd010dadfc3815eefa5d">int32</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae9b2b8e00e491fccc365f958b91d64f5">GRenderThreadPollPeriodMs</a></td></tr>
+<tr class="memitem:a2021808457639591953c559e79087351" id="r_a2021808457639591953c559e79087351"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2021808457639591953c559e79087351">GRenderCommandFenceBundling</a> = <a class="el" href="../../d3/df7/radaudio__common_8h.html#ade27a78a51a66a5cfb6f09cf36bcfde9a08f175a5505a10b9ed657defeb050e4b">true</a></td></tr>
+<tr class="memitem:a240374ff5a3fe54906b31d3404c019b7" id="r_a240374ff5a3fe54906b31d3404c019b7"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d2/d79/class_f_auto_console_variable_ref.html">FAutoConsoleVariableRef</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a240374ff5a3fe54906b31d3404c019b7">CVarRenderCommandFenceBundling</a> (<a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;r.RenderCommandFenceBundling&quot;), <a class="el" href="#a2021808457639591953c559e79087351">GRenderCommandFenceBundling</a>, <a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot; 1: enabled (default);\n&quot;), <a class="el" href="../../d4/dd9/_i_console_manager_8h.html#a7f594f23c2b2c5687f1a502ebb3ba105a67b9bfb43c52f383b7ccefb8fe69a306">ECVF_Default</a>)</td></tr>
+<tr class="memitem:adc1a123971f9c424b66abd5eb628618a" id="r_adc1a123971f9c424b66abd5eb628618a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d2/d2e/_rendering_thread_8h.html#a542169015843d523b353d708d908858d">ERenderCommandPipeMode</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#adc1a123971f9c424b66abd5eb628618a">GRenderCommandPipeMode</a> = <a class="el" href="../../d2/d2e/_rendering_thread_8h.html#a542169015843d523b353d708d908858da6adf97f83acf6453d4a6a4b1070f3754">ERenderCommandPipeMode::None</a></td></tr>
+<tr class="memitem:a6ddf7d66a78fa0506091152b2b701b65" id="r_a6ddf7d66a78fa0506091152b2b701b65"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d6/daf/class_f_auto_console_variable.html">FAutoConsoleVariable</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6ddf7d66a78fa0506091152b2b701b65">CVarRenderCommandPipeMode</a> (<a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;r.RenderCommandPipeMode&quot;), 2, <a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot; 2: Render commands are enqueued into a render command pipe <a class="el" href="../../d3/db8/binka__ue__decode__test_8cpp.html#ac1ee511585a5c7a2d58c146185895b72">for</a> all declared pipes.;\n&quot;), FConsoleVariableDelegate::CreateLambda([](<a class="el" href="../../d7/dd4/class_i_console_variable.html">IConsoleVariable</a> *Variable) { <a class="el" href="../../d4/dd5/namespace_u_e_1_1_render_command_pipe.html#a4be91a4220808e683efa4ba67e15dc23">UE::RenderCommandPipe::StopRecording</a>();<a class="el" href="#adc1a123971f9c424b66abd5eb628618a">GRenderCommandPipeMode</a>=<a class="el" href="#adcf7dc729fd14d07cfe3366e76628309">GetValidatedRenderCommandPipeMode</a>(Variable-&gt;GetInt());}))</td></tr>
+<tr class="memitem:a1cfb783cf13df4d5e669ca0e8721d741" id="r_a1cfb783cf13df4d5e669ca0e8721d741"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../dd/de9/preprocessor_8c.html#a1134b580f8da4de94ca6b1de4d37975e">uint32</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a1cfb783cf13df4d5e669ca0e8721d741">GRenderThreadTime</a> = 0</td></tr>
+<tr class="memitem:a12d626bca25c888b1f1ad0fc6cafb56d" id="r_a12d626bca25c888b1f1ad0fc6cafb56d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../dd/de9/preprocessor_8c.html#a1134b580f8da4de94ca6b1de4d37975e">uint32</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a12d626bca25c888b1f1ad0fc6cafb56d">GRenderThreadWaitTime</a> = 0</td></tr>
+<tr class="memitem:a47886200e3800dfee66182f2f05ebda7" id="r_a47886200e3800dfee66182f2f05ebda7"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../dd/de9/preprocessor_8c.html#a1134b580f8da4de94ca6b1de4d37975e">uint32</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a47886200e3800dfee66182f2f05ebda7">GRHIThreadTime</a> = 0</td></tr>
+<tr class="memitem:aefcb06cc226151fd3d1d6e00c8e07ca5" id="r_aefcb06cc226151fd3d1d6e00c8e07ca5"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../dd/de9/preprocessor_8c.html#a1134b580f8da4de94ca6b1de4d37975e">uint32</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aefcb06cc226151fd3d1d6e00c8e07ca5">GRenderThreadTimeCriticalPath</a> = 0</td></tr>
+<tr class="memitem:a222b97e83e5754c0a922379b177d0d0f" id="r_a222b97e83e5754c0a922379b177d0d0f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d1/dc4/class_f_r_h_i_thread.html">FRHIThread</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a222b97e83e5754c0a922379b177d0d0f">GRHIThread</a> = nullptr</td></tr>
+<tr class="memitem:ae1dc45592a9024e0d49427fb02ac9250" id="r_ae1dc45592a9024e0d49427fb02ac9250"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../dc/d48/class_t_atomic.html">TAtomic</a>&lt; <a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae1dc45592a9024e0d49427fb02ac9250">GRunRenderingThreadHeartbeat</a></td></tr>
+<tr class="memitem:ae12e750792483ec5426a542b8ab81cda" id="r_ae12e750792483ec5426a542b8ab81cda"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../da/dd2/class_f_thread_safe_counter.html">FThreadSafeCounter</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae12e750792483ec5426a542b8ab81cda">OutstandingHeartbeats</a></td></tr>
+<tr class="memitem:aee75735cf7dbb857099d22fab88a2648" id="r_aee75735cf7dbb857099d22fab88a2648"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../dc/d48/class_t_atomic.html">TAtomic</a>&lt; <a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a8dbb3cd84ca9fd010dadfc3815eefa5d">int32</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aee75735cf7dbb857099d22fab88a2648">GSuspendRenderingTickables</a></td></tr>
+<tr class="memitem:a26fdd30cf330d16083ed71b137a88f4a" id="r_a26fdd30cf330d16083ed71b137a88f4a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../da/da5/class_f_runnable_thread.html">FRunnableThread</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a26fdd30cf330d16083ed71b137a88f4a">GRenderingThreadHeartbeat</a> = <a class="el" href="../../d0/d38/_developer_2_texture_format_oodle_2_sdks_22_89_810_2include_2oodle2base_8h.html#a070d2ce7b6bb7e5c05602aa8c308d0c4">NULL</a></td></tr>
+<tr class="memitem:a7ff15e9158d398ab66eee7db0f131145" id="r_a7ff15e9158d398ab66eee7db0f131145"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d7/d3c/class_f_runnable.html">FRunnable</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7ff15e9158d398ab66eee7db0f131145">GRenderingThreadRunnableHeartbeat</a> = <a class="el" href="../../d0/d38/_developer_2_texture_format_oodle_2_sdks_22_89_810_2include_2oodle2base_8h.html#a070d2ce7b6bb7e5c05602aa8c308d0c4">NULL</a></td></tr>
+<tr class="memitem:aa22c329b583114682dcacea9874ac804" id="r_aa22c329b583114682dcacea9874ac804"><td class="memItemLeft" align="right" valign="top">std::atomic&lt; int &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa22c329b583114682dcacea9874ac804">GTimeoutSuspendCount</a></td></tr>
+<tr class="memitem:ac4c1e383ffdde973ec17c4ecfdaae143" id="r_ac4c1e383ffdde973ec17c4ecfdaae143"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../dd/de9/preprocessor_8c.html#a1134b580f8da4de94ca6b1de4d37975e">uint32</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac4c1e383ffdde973ec17c4ecfdaae143">GGameThreadTime</a> = 0</td></tr>
+<tr class="memitem:ad5c90d1ac2905165929127dfd2d9fd6a" id="r_ad5c90d1ac2905165929127dfd2d9fd6a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../dd/de9/preprocessor_8c.html#a1134b580f8da4de94ca6b1de4d37975e">uint32</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad5c90d1ac2905165929127dfd2d9fd6a">GGameThreadWaitTime</a> = 0</td></tr>
+<tr class="memitem:a2dd55814bb5683289171b853c6c3dc46" id="r_a2dd55814bb5683289171b853c6c3dc46"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../dd/de9/preprocessor_8c.html#a1134b580f8da4de94ca6b1de4d37975e">uint32</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2dd55814bb5683289171b853c6c3dc46">GGameThreadTimeCriticalPath</a> = 0</td></tr>
+<tr class="memitem:ae9cb93bcf8224c96cae6658dd16e5a0f" id="r_ae9cb93bcf8224c96cae6658dd16e5a0f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../dd/de9/preprocessor_8c.html#a1134b580f8da4de94ca6b1de4d37975e">uint32</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae9cb93bcf8224c96cae6658dd16e5a0f">GSwapBufferTime</a> = 0</td></tr>
+<tr class="memitem:abb1776c3874025f24d5f94e50ea4414c" id="r_abb1776c3874025f24d5f94e50ea4414c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d5/d78/class_t_auto_console_variable.html">TAutoConsoleVariable</a>&lt; <a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a8dbb3cd84ca9fd010dadfc3815eefa5d">int32</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#abb1776c3874025f24d5f94e50ea4414c">CVarAllowOneFrameThreadLag</a> (<a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;r.OneFrameThreadLag&quot;), 1,)</td></tr>
+<tr class="memitem:af8e35f254086d2c8b956ef694635512f" id="r_af8e35f254086d2c8b956ef694635512f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d5/d78/class_t_auto_console_variable.html">TAutoConsoleVariable</a>&lt; <a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a8dbb3cd84ca9fd010dadfc3815eefa5d">int32</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af8e35f254086d2c8b956ef694635512f">CVarGTSyncType</a> (<a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;r.GTSyncType&quot;), 0, <a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot; &lt;= 0 - Sync the game thread with the N-1 render thread frame. Then sync with the N-m RHI thread frame where m is (2 + (-r.GTSyncType)) (i.e. negative <a class="el" href="../../d8/d06/_android_open_g_l_functions_8h.html#a250b37a0411d5375d92808e2840cb0dd">values</a> increase the amount of RHI thread overlap) (default = 0).\n&quot;) <a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;    2 - Sync the game thread with the GPU <a class="el" href="../../d7/d2a/_tuple_8h.html#a57104ec397da3ac6331a2ff3f85a1a91">swap</a> chain flip (only on supported platforms).\n&quot;), <a class="el" href="../../d4/dd9/_i_console_manager_8h.html#a7f594f23c2b2c5687f1a502ebb3ba105a67b9bfb43c52f383b7ccefb8fe69a306">ECVF_Default</a>)</td></tr>
+<tr class="memitem:a2ee6d1879c6ff43a42623f63710f6200" id="r_a2ee6d1879c6ff43a42623f63710f6200"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d6/db1/class_t_array.html">TArray</a>&lt; <a class="el" href="../../da/d13/struct_f_frame_end_sync_1_1_f_render_thread_fence.html">FRenderThreadFence</a>, <a class="el" href="../../dc/d3d/_container_allocation_policies_8h.html#a955ebaff17aade3efe4ecd32109bedea">TInlineAllocator</a>&lt; 2 &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d2/d73/namespace_f_frame_end_sync.html#a2ee6d1879c6ff43a42623f63710f6200">FFrameEndSync::RenderThreadFences</a></td></tr>
+<tr class="memitem:aa5003f9a652e126722cd6bc8873bd81c" id="r_aa5003f9a652e126722cd6bc8873bd81c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d6/db1/class_t_array.html">TArray</a>&lt; <a class="el" href="../../d5/d86/class_f_render_command_fence.html">FRenderCommandFence</a>, <a class="el" href="../../dc/d3d/_container_allocation_policies_8h.html#a955ebaff17aade3efe4ecd32109bedea">TInlineAllocator</a>&lt; 3 &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d2/d73/namespace_f_frame_end_sync.html#aa5003f9a652e126722cd6bc8873bd81c">FFrameEndSync::PipelineFences</a></td></tr>
+</table>
+<a name="doc-define-members" id="doc-define-members"></a><h2 id="header-doc-define-members" class="groupheader">宏定义说明</h2>
+<a id="ad7e4a347441b70f5f45646ff965c0c7c" name="ad7e4a347441b70f5f45646ff965c0c7c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad7e4a347441b70f5f45646ff965c0c7c">&#9670;&#160;</a></span>UE_RENDER_COMMAND_BEGIN_REGION</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define UE_RENDER_COMMAND_BEGIN_REGION</td>
+          <td>(</td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>Region</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a1be01c96cba846eccc43bbbf423cda83" name="a1be01c96cba846eccc43bbbf423cda83"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1be01c96cba846eccc43bbbf423cda83">&#9670;&#160;</a></span>UE_RENDER_COMMAND_END_REGION</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define UE_RENDER_COMMAND_END_REGION</td>
+          <td>(</td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>Region</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a71e4d2d25c5da9f261124739a3eeb01a" name="a71e4d2d25c5da9f261124739a3eeb01a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a71e4d2d25c5da9f261124739a3eeb01a">&#9670;&#160;</a></span>UE_RENDER_COMMAND_FENCE_BUNDLER_REGION</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define UE_RENDER_COMMAND_FENCE_BUNDLER_REGION&#160;&#160;&#160;<a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;Render Command Fence Bundler&quot;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a179e091089b1da180806267c98ef15cf" name="a179e091089b1da180806267c98ef15cf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a179e091089b1da180806267c98ef15cf">&#9670;&#160;</a></span>UE_RENDER_COMMAND_PIPE_RECORD_REGION</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define UE_RENDER_COMMAND_PIPE_RECORD_REGION&#160;&#160;&#160;<a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;Render Command Pipe Recording&quot;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a5fb898b61302c8232b9dbd41a63a421c" name="a5fb898b61302c8232b9dbd41a63a421c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5fb898b61302c8232b9dbd41a63a421c">&#9670;&#160;</a></span>UE_RENDER_COMMAND_PIPE_SYNC_REGION</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define UE_RENDER_COMMAND_PIPE_SYNC_REGION&#160;&#160;&#160;<a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;Render Command Pipe Synced&quot;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">函数说明</h2>
+<a id="af4a42877379e4ab7cdcd118e6862271c" name="af4a42877379e4ab7cdcd118e6862271c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af4a42877379e4ab7cdcd118e6862271c">&#9670;&#160;</a></span>AdvanceRenderingThreadStatsGT()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../df/d63/_typed_element_query_capabilities_8inl.html#a72343342ce64c0755563ee6c5e27868d">void</a> AdvanceRenderingThreadStatsGT </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a></td>          <td class="paramname"><span class="paramname"><em>bDiscardCallstack</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a89241ea7101f26f05a4f1efd6be26b32">int64</a></td>          <td class="paramname"><span class="paramname"><em>StatsFrame</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a8dbb3cd84ca9fd010dadfc3815eefa5d">int32</a></td>          <td class="paramname"><span class="paramname"><em>DisableChangeTagStartFrame</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Advances stats for the rendering thread. Called from the game thread. </p>
+
+</div>
+</div>
+<a id="ac4489c3486312a6e612cc8bdc43d4794" name="ac4489c3486312a6e612cc8bdc43d4794"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac4489c3486312a6e612cc8bdc43d4794">&#9670;&#160;</a></span>BeginCleanup()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../df/d63/_typed_element_query_capabilities_8inl.html#a72343342ce64c0755563ee6c5e27868d">void</a> BeginCleanup </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d0/d37/class_f_deferred_cleanup_interface.html">FDeferredCleanupInterface</a> *</td>          <td class="paramname"><span class="paramname"><em>CleanupObject</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Adds the specified deferred cleanup object to the current set of pending cleanup objects. </p>
+
+</div>
+</div>
+<a id="a1eeedc951eade8ae3ff82b0da6360494" name="a1eeedc951eade8ae3ff82b0da6360494"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1eeedc951eade8ae3ff82b0da6360494">&#9670;&#160;</a></span>CheckRenderingThreadHealth()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../df/d63/_typed_element_query_capabilities_8inl.html#a72343342ce64c0755563ee6c5e27868d">void</a> CheckRenderingThreadHealth </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Checks if the rendering thread is healthy and running. If it has crashed, UE_LOG is called with the exception information. </p>
+
+</div>
+</div>
+<a id="a40e07923c6944fb613179849fe72d124" name="a40e07923c6944fb613179849fe72d124"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a40e07923c6944fb613179849fe72d124">&#9670;&#160;</a></span>DECLARE_CYCLE_STAT()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">DECLARE_CYCLE_STAT </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;Frame Sync Time&quot;)</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">STAT_FrameSyncTime</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">STATGROUP_RenderThreadProcessing</td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a75533da3281cbbefadda39c95d850c7d" name="a75533da3281cbbefadda39c95d850c7d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a75533da3281cbbefadda39c95d850c7d">&#9670;&#160;</a></span>DECLARE_RENDER_COMMAND_TAG()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">DECLARE_RENDER_COMMAND_TAG </td>
+          <td>(</td>
+          <td class="paramtype">FRenderCommandTag_ExecuteCommandLists</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">ExecuteCommandLists</td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a7a9599c93c443ab9cf61b9a461dfc7df" name="a7a9599c93c443ab9cf61b9a461dfc7df"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7a9599c93c443ab9cf61b9a461dfc7df">&#9670;&#160;</a></span>FlushRenderCommandFenceBundler()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../df/d63/_typed_element_query_capabilities_8inl.html#a72343342ce64c0755563ee6c5e27868d">void</a> FlushRenderCommandFenceBundler </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a36fbfdaa5777b47cf308baec615443ae" name="a36fbfdaa5777b47cf308baec615443ae"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a36fbfdaa5777b47cf308baec615443ae">&#9670;&#160;</a></span>FlushRenderingCommands()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../df/d63/_typed_element_query_capabilities_8inl.html#a72343342ce64c0755563ee6c5e27868d">void</a> FlushRenderingCommands </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Waits for the rendering thread to finish executing all pending rendering commands. Should only be used from the game thread. </p>
+
+</div>
+</div>
+<a id="abd315e26c794aca517aa04bbe3b593cd" name="abd315e26c794aca517aa04bbe3b593cd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abd315e26c794aca517aa04bbe3b593cd">&#9670;&#160;</a></span>GetImmediateCommandList_ForRenderCommand()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d3/d7d/class_f_r_h_i_command_list_immediate.html">FRHICommandListImmediate</a> &amp; GetImmediateCommandList_ForRenderCommand </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ac74252332473a01afba0830d91e7864e" name="ac74252332473a01afba0830d91e7864e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac74252332473a01afba0830d91e7864e">&#9670;&#160;</a></span>GetPendingCleanupObjects()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d7/dab/class_f_pending_cleanup_objects.html">FPendingCleanupObjects</a> * GetPendingCleanupObjects </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Transfers ownership of the current set of pending cleanup objects to the caller. A new set is created for subsequent BeginCleanup calls. </p><dl class="section return"><dt>返回</dt><dd>A pointer to the set of pending cleanup objects. The called is responsible for deletion. </dd></dl>
+
+</div>
+</div>
+<a id="adcf7dc729fd14d07cfe3366e76628309" name="adcf7dc729fd14d07cfe3366e76628309"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adcf7dc729fd14d07cfe3366e76628309">&#9670;&#160;</a></span>GetValidatedRenderCommandPipeMode()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d2/d2e/_rendering_thread_8h.html#a542169015843d523b353d708d908858d">ERenderCommandPipeMode</a> GetValidatedRenderCommandPipeMode </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a8dbb3cd84ca9fd010dadfc3815eefa5d">int32</a></td>          <td class="paramname"><span class="paramname"><em>CVarValue</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ac9d262452b343aef01e84aa0e0d1e7dc" name="ac9d262452b343aef01e84aa0e0d1e7dc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac9d262452b343aef01e84aa0e0d1e7dc">&#9670;&#160;</a></span>GMainThreadBlockedOnRenderThread()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">RENDERCORE_API <a class="el" href="../../dc/d48/class_t_atomic.html">TAtomic</a>&lt; <a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a> &gt; GMainThreadBlockedOnRenderThread </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d3/df7/radaudio__common_8h.html#ade27a78a51a66a5cfb6f09cf36bcfde9ae9de385ef6fe9bf3360d1038396b884c">false</a></td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a089f4ce20cad1851bb77a9d5b2d7b227" name="a089f4ce20cad1851bb77a9d5b2d7b227"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a089f4ce20cad1851bb77a9d5b2d7b227">&#9670;&#160;</a></span>HasBitsSet()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a> HasBitsSet </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="../../d2/d2e/_rendering_thread_8h.html#a21cfc5e6ab4e323db9b9ba8c431b3099">FRenderCommandPipeBitArray</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>Bits</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="af2be49406a0af448ddec4c19257fe2c3" name="af2be49406a0af448ddec4c19257fe2c3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af2be49406a0af448ddec4c19257fe2c3">&#9670;&#160;</a></span>InitRenderingThread()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">RENDERCORE_API <a class="el" href="../../df/d63/_typed_element_query_capabilities_8inl.html#a72343342ce64c0755563ee6c5e27868d">void</a> InitRenderingThread </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ad9d1daf150ac1931bd6b604d345ad980" name="ad9d1daf150ac1931bd6b604d345ad980"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad9d1daf150ac1931bd6b604d345ad980">&#9670;&#160;</a></span>IsRenderingThreadHealthy()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a> IsRenderingThreadHealthy </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Checks if the rendering thread is healthy and running, without crashing </p>
+
+</div>
+</div>
+<a id="a2976002f57b1f71818facf03ed302921" name="a2976002f57b1f71818facf03ed302921"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2976002f57b1f71818facf03ed302921">&#9670;&#160;</a></span>IsRenderThreadTimeoutSuspended()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a> IsRenderThreadTimeoutSuspended </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ae95c58ed3127bceba1d525810931f657" name="ae95c58ed3127bceba1d525810931f657"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae95c58ed3127bceba1d525810931f657">&#9670;&#160;</a></span>LatchRenderThreadConfiguration()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">RENDERCORE_API <a class="el" href="../../df/d63/_typed_element_query_capabilities_8inl.html#a72343342ce64c0755563ee6c5e27868d">void</a> LatchRenderThreadConfiguration </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a58fbc8097780555c3f9b59a7c4e83cfd" name="a58fbc8097780555c3f9b59a7c4e83cfd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a58fbc8097780555c3f9b59a7c4e83cfd">&#9670;&#160;</a></span>RegisterStopRenderingThreadDelegate()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d6/dff/class_f_delegate_handle.html">FDelegateHandle</a> RegisterStopRenderingThreadDelegate </td>
+          <td>(</td>
+          <td class="paramtype">const FStopRenderingThread::FDelegate &amp;</td>          <td class="paramname"><span class="paramname"><em>InDelegate</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a9b0dd09da9d56695ea44fac883c0fe41" name="a9b0dd09da9d56695ea44fac883c0fe41"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9b0dd09da9d56695ea44fac883c0fe41">&#9670;&#160;</a></span>RenderingThreadMain()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../df/d63/_typed_element_query_capabilities_8inl.html#a72343342ce64c0755563ee6c5e27868d">void</a> RenderingThreadMain </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d5/d17/class_f_event.html">FEvent</a> *</td>          <td class="paramname"><span class="paramname"><em>TaskGraphBoundSyncEvent</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>The rendering thread main loop </p>
+
+</div>
+</div>
+<a id="a2367452449d526c5238703cc8de9bf95" name="a2367452449d526c5238703cc8de9bf95"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2367452449d526c5238703cc8de9bf95">&#9670;&#160;</a></span>ResumeRenderThreadTimeout()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../df/d63/_typed_element_query_capabilities_8inl.html#a72343342ce64c0755563ee6c5e27868d">void</a> ResumeRenderThreadTimeout </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a35c07debbd4351f6c71dcbeb3e7fb460" name="a35c07debbd4351f6c71dcbeb3e7fb460"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a35c07debbd4351f6c71dcbeb3e7fb460">&#9670;&#160;</a></span>ShutdownRenderingThread()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">RENDERCORE_API <a class="el" href="../../df/d63/_typed_element_query_capabilities_8inl.html#a72343342ce64c0755563ee6c5e27868d">void</a> ShutdownRenderingThread </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ad99c22d2477eb8a992f01c943ba87d7e" name="ad99c22d2477eb8a992f01c943ba87d7e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad99c22d2477eb8a992f01c943ba87d7e">&#9670;&#160;</a></span>StartRenderCommandFenceBundler()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../df/d63/_typed_element_query_capabilities_8inl.html#a72343342ce64c0755563ee6c5e27868d">void</a> StartRenderCommandFenceBundler </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a5eb22854395a7d2243135956d80b7d5e" name="a5eb22854395a7d2243135956d80b7d5e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5eb22854395a7d2243135956d80b7d5e">&#9670;&#160;</a></span>StopRenderCommandFenceBundler()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../df/d63/_typed_element_query_capabilities_8inl.html#a72343342ce64c0755563ee6c5e27868d">void</a> StopRenderCommandFenceBundler </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a7b8ea094417b1611d8b40bb78984f300" name="a7b8ea094417b1611d8b40bb78984f300"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7b8ea094417b1611d8b40bb78984f300">&#9670;&#160;</a></span>SuspendRenderThreadTimeout()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../df/d63/_typed_element_query_capabilities_8inl.html#a72343342ce64c0755563ee6c5e27868d">void</a> SuspendRenderThreadTimeout </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a1eee47eebe98210acb4bbb8c2bda941e" name="a1eee47eebe98210acb4bbb8c2bda941e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1eee47eebe98210acb4bbb8c2bda941e">&#9670;&#160;</a></span>UE_TRACE_CHANNEL_DEFINE()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">UE_TRACE_CHANNEL_DEFINE </td>
+          <td>(</td>
+          <td class="paramtype">RenderCommandsChannel</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&quot;Render thread command execution and synchronization.&quot;</td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ab56131b824a1ae90f1a528eba7aaea89" name="ab56131b824a1ae90f1a528eba7aaea89"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab56131b824a1ae90f1a528eba7aaea89">&#9670;&#160;</a></span>UnregisterStopRenderingThreadDelegate()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../df/d63/_typed_element_query_capabilities_8inl.html#a72343342ce64c0755563ee6c5e27868d">void</a> UnregisterStopRenderingThreadDelegate </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d6/dff/class_f_delegate_handle.html">FDelegateHandle</a></td>          <td class="paramname"><span class="paramname"><em>InDelegateHandle</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a name="doc-var-members" id="doc-var-members"></a><h2 id="header-doc-var-members" class="groupheader">变量说明</h2>
+<a id="abb1776c3874025f24d5f94e50ea4414c" name="abb1776c3874025f24d5f94e50ea4414c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abb1776c3874025f24d5f94e50ea4414c">&#9670;&#160;</a></span>CVarAllowOneFrameThreadLag</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d5/d78/class_t_auto_console_variable.html">TAutoConsoleVariable</a>&lt; <a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a8dbb3cd84ca9fd010dadfc3815eefa5d">int32</a> &gt; CVarAllowOneFrameThreadLag(<a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;r.OneFrameThreadLag&quot;), 1,) </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;r.OneFrameThreadLag&quot;)</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">1</td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="af8e35f254086d2c8b956ef694635512f" name="af8e35f254086d2c8b956ef694635512f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af8e35f254086d2c8b956ef694635512f">&#9670;&#160;</a></span>CVarGTSyncType</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d5/d78/class_t_auto_console_variable.html">TAutoConsoleVariable</a>&lt; <a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a8dbb3cd84ca9fd010dadfc3815eefa5d">int32</a> &gt; CVarGTSyncType(<a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;r.GTSyncType&quot;), 0, <a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot; &lt;= 0 - Sync the game thread with the N-1 render thread frame. Then sync with the N-m RHI thread frame where m is (2 + (-r.GTSyncType)) (i.e. negative <a class="el" href="../../d8/d06/_android_open_g_l_functions_8h.html#a250b37a0411d5375d92808e2840cb0dd">values</a> increase the amount of RHI thread overlap) (default = 0).\n&quot;) <a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;    2 - Sync the game thread with the GPU <a class="el" href="../../d7/d2a/_tuple_8h.html#a57104ec397da3ac6331a2ff3f85a1a91">swap</a> chain flip (only on supported platforms).\n&quot;), <a class="el" href="../../d4/dd9/_i_console_manager_8h.html#a7f594f23c2b2c5687f1a502ebb3ba105a67b9bfb43c52f383b7ccefb8fe69a306">ECVF_Default</a>) </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;r.GTSyncType&quot;)</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">0</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot; &lt;= 0 - Sync the game thread with the N-1 render thread frame. Then sync with the N-m RHI thread frame where m is (2 + (-r.GTSyncType)) (i.e. negative <a class="el" href="../../d8/d06/_android_open_g_l_functions_8h.html#a250b37a0411d5375d92808e2840cb0dd">values</a> increase the amount of RHI thread overlap) (default = 0).\n&quot;) <a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;    2 - Sync the game thread with the GPU <a class="el" href="../../d7/d2a/_tuple_8h.html#a57104ec397da3ac6331a2ff3f85a1a91">swap</a> chain flip (only on supported platforms).\n&quot;)</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d4/dd9/_i_console_manager_8h.html#a7f594f23c2b2c5687f1a502ebb3ba105a67b9bfb43c52f383b7ccefb8fe69a306">ECVF_Default</a></td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a240374ff5a3fe54906b31d3404c019b7" name="a240374ff5a3fe54906b31d3404c019b7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a240374ff5a3fe54906b31d3404c019b7">&#9670;&#160;</a></span>CVarRenderCommandFenceBundling</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d2/d79/class_f_auto_console_variable_ref.html">FAutoConsoleVariableRef</a> CVarRenderCommandFenceBundling(<a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;r.RenderCommandFenceBundling&quot;), <a class="el" href="#a2021808457639591953c559e79087351">GRenderCommandFenceBundling</a>, <a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot; 1: enabled (default);\n&quot;), <a class="el" href="../../d4/dd9/_i_console_manager_8h.html#a7f594f23c2b2c5687f1a502ebb3ba105a67b9bfb43c52f383b7ccefb8fe69a306">ECVF_Default</a>) </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;r.RenderCommandFenceBundling&quot;)</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="#a2021808457639591953c559e79087351">GRenderCommandFenceBundling</a></td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot; 1: enabled (default);\n&quot;)</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d4/dd9/_i_console_manager_8h.html#a7f594f23c2b2c5687f1a502ebb3ba105a67b9bfb43c52f383b7ccefb8fe69a306">ECVF_Default</a></td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a6ddf7d66a78fa0506091152b2b701b65" name="a6ddf7d66a78fa0506091152b2b701b65"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6ddf7d66a78fa0506091152b2b701b65">&#9670;&#160;</a></span>CVarRenderCommandPipeMode</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d6/daf/class_f_auto_console_variable.html">FAutoConsoleVariable</a> CVarRenderCommandPipeMode(<a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;r.RenderCommandPipeMode&quot;), 2, <a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot; 2: Render commands are enqueued into a render command pipe <a class="el" href="../../d3/db8/binka__ue__decode__test_8cpp.html#ac1ee511585a5c7a2d58c146185895b72">for</a> all declared pipes.;\n&quot;), FConsoleVariableDelegate::CreateLambda([](<a class="el" href="../../d7/dd4/class_i_console_variable.html">IConsoleVariable</a> *Variable) { <a class="el" href="../../d4/dd5/namespace_u_e_1_1_render_command_pipe.html#a4be91a4220808e683efa4ba67e15dc23">UE::RenderCommandPipe::StopRecording</a>(); <a class="el" href="#adc1a123971f9c424b66abd5eb628618a">GRenderCommandPipeMode</a>=<a class="el" href="#adcf7dc729fd14d07cfe3366e76628309">GetValidatedRenderCommandPipeMode</a>(Variable-&gt;GetInt()); })) </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;r.RenderCommandPipeMode&quot;)</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">2</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot; 2: Render commands are enqueued into a render command pipe <a class="el" href="../../d3/db8/binka__ue__decode__test_8cpp.html#ac1ee511585a5c7a2d58c146185895b72">for</a> all declared pipes.;\n&quot;)</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">FConsoleVariableDelegate::CreateLambda([](<a class="el" href="../../d7/dd4/class_i_console_variable.html">IConsoleVariable</a> *Variable) { <a class="el" href="../../d4/dd5/namespace_u_e_1_1_render_command_pipe.html#a4be91a4220808e683efa4ba67e15dc23">UE::RenderCommandPipe::StopRecording</a>(); <a class="el" href="#adc1a123971f9c424b66abd5eb628618a">GRenderCommandPipeMode</a>=<a class="el" href="#adcf7dc729fd14d07cfe3366e76628309">GetValidatedRenderCommandPipeMode</a>(Variable-&gt;GetInt());})</td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ac4c1e383ffdde973ec17c4ecfdaae143" name="ac4c1e383ffdde973ec17c4ecfdaae143"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac4c1e383ffdde973ec17c4ecfdaae143">&#9670;&#160;</a></span>GGameThreadTime</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../dd/de9/preprocessor_8c.html#a1134b580f8da4de94ca6b1de4d37975e">uint32</a> GGameThreadTime = 0</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>How many cycles the gamethread used (excluding idle time). It's set once per frame in <a class="el" href="../../d1/d29/class_f_viewport.html#a73efba5d4ed940c96183748ebb5fcae1">FViewport::Draw</a>. </p>
+
+</div>
+</div>
+<a id="a2dd55814bb5683289171b853c6c3dc46" name="a2dd55814bb5683289171b853c6c3dc46"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2dd55814bb5683289171b853c6c3dc46">&#9670;&#160;</a></span>GGameThreadTimeCriticalPath</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../dd/de9/preprocessor_8c.html#a1134b580f8da4de94ca6b1de4d37975e">uint32</a> GGameThreadTimeCriticalPath = 0</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>How many cycles the gamethread used, including dependent wait time. </p>
+
+</div>
+</div>
+<a id="ad5c90d1ac2905165929127dfd2d9fd6a" name="ad5c90d1ac2905165929127dfd2d9fd6a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad5c90d1ac2905165929127dfd2d9fd6a">&#9670;&#160;</a></span>GGameThreadWaitTime</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../dd/de9/preprocessor_8c.html#a1134b580f8da4de94ca6b1de4d37975e">uint32</a> GGameThreadWaitTime = 0</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>How much idle time on the game thread. It's set once per frame in <a class="el" href="../../d1/d29/class_f_viewport.html#a73efba5d4ed940c96183748ebb5fcae1">FViewport::Draw</a>. </p>
+
+</div>
+</div>
+<a id="a8a9c7455c66a57eb527056c80ff25e33" name="a8a9c7455c66a57eb527056c80ff25e33"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8a9c7455c66a57eb527056c80ff25e33">&#9670;&#160;</a></span>GIsRenderingThreadHealthy</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">volatile <a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a> GIsRenderingThreadHealthy = <a class="el" href="../../d3/df7/radaudio__common_8h.html#ade27a78a51a66a5cfb6f09cf36bcfde9a08f175a5505a10b9ed657defeb050e4b">true</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Polled by the game thread to detect crashes in the rendering thread. If the rendering thread crashes, it sets this variable to false. </p>
+
+</div>
+</div>
+<a id="ab5741c1abf277b17e0545099dfe7989c" name="ab5741c1abf277b17e0545099dfe7989c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab5741c1abf277b17e0545099dfe7989c">&#9670;&#160;</a></span>GIsThreadedRendering</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">RENDERCORE_API <a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a> GIsThreadedRendering = <a class="el" href="../../d3/df7/radaudio__common_8h.html#ade27a78a51a66a5cfb6f09cf36bcfde9ae9de385ef6fe9bf3360d1038396b884c">false</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Whether the renderer is currently running in a separate thread. If this is false, then all rendering commands will be executed immediately instead of being enqueued in the rendering command buffer. </p>
+
+</div>
+</div>
+<a id="a4aeff5771923cb624e92c6517f111182" name="a4aeff5771923cb624e92c6517f111182"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4aeff5771923cb624e92c6517f111182">&#9670;&#160;</a></span>GPendingUseThreadedRendering</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">RENDERCORE_API <a class="el" href="../../dd/d2f/struct_t_optional.html">TOptional</a>&lt;<a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a>&gt; GPendingUseThreadedRendering</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a2021808457639591953c559e79087351" name="a2021808457639591953c559e79087351"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2021808457639591953c559e79087351">&#9670;&#160;</a></span>GRenderCommandFenceBundling</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a> GRenderCommandFenceBundling = <a class="el" href="../../d3/df7/radaudio__common_8h.html#ade27a78a51a66a5cfb6f09cf36bcfde9a08f175a5505a10b9ed657defeb050e4b">true</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="adc1a123971f9c424b66abd5eb628618a" name="adc1a123971f9c424b66abd5eb628618a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adc1a123971f9c424b66abd5eb628618a">&#9670;&#160;</a></span>GRenderCommandPipeMode</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d2/d2e/_rendering_thread_8h.html#a542169015843d523b353d708d908858d">ERenderCommandPipeMode</a> GRenderCommandPipeMode = <a class="el" href="../../d2/d2e/_rendering_thread_8h.html#a542169015843d523b353d708d908858da6adf97f83acf6453d4a6a4b1070f3754">ERenderCommandPipeMode::None</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a7cb5526c8ba0c4ff8cda771b6f6aec94" name="a7cb5526c8ba0c4ff8cda771b6f6aec94"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7cb5526c8ba0c4ff8cda771b6f6aec94">&#9670;&#160;</a></span>GRenderingThreadError</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d2/d8e/_s_anim_notify_panel_8h.html#a7483aa7f043c623f8990a95320be654d">FString</a> GRenderingThreadError</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>If the rendering thread has been terminated by an unhandled exception, this contains the error message. </p>
+
+</div>
+</div>
+<a id="a26fdd30cf330d16083ed71b137a88f4a" name="a26fdd30cf330d16083ed71b137a88f4a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a26fdd30cf330d16083ed71b137a88f4a">&#9670;&#160;</a></span>GRenderingThreadHeartbeat</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../da/da5/class_f_runnable_thread.html">FRunnableThread</a>* GRenderingThreadHeartbeat = <a class="el" href="../../d0/d38/_developer_2_texture_format_oodle_2_sdks_22_89_810_2include_2oodle2base_8h.html#a070d2ce7b6bb7e5c05602aa8c308d0c4">NULL</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ae445280a18fc5f4dedf736e36a038c42" name="ae445280a18fc5f4dedf736e36a038c42"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae445280a18fc5f4dedf736e36a038c42">&#9670;&#160;</a></span>GRenderingThreadMaxIdleTickFrequency</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../df/d2a/_s_anim_notify_shared_8h.html#ac7c94e837fed3f8e4bb3dd94d7bd2ecf">float</a> GRenderingThreadMaxIdleTickFrequency = 40.f</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Maximum rate the rendering thread will tick tickables when idle (in Hz) </p>
+
+</div>
+</div>
+<a id="a7ff15e9158d398ab66eee7db0f131145" name="a7ff15e9158d398ab66eee7db0f131145"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7ff15e9158d398ab66eee7db0f131145">&#9670;&#160;</a></span>GRenderingThreadRunnableHeartbeat</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d7/d3c/class_f_runnable.html">FRunnable</a>* GRenderingThreadRunnableHeartbeat = <a class="el" href="../../d0/d38/_developer_2_texture_format_oodle_2_sdks_22_89_810_2include_2oodle2base_8h.html#a070d2ce7b6bb7e5c05602aa8c308d0c4">NULL</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a530cd2b422719b270b2eba445f00ec0d" name="a530cd2b422719b270b2eba445f00ec0d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a530cd2b422719b270b2eba445f00ec0d">&#9670;&#160;</a></span>GRenderThreadPollingOn</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">CORE_API <a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a> GRenderThreadPollingOn</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel extern">extern</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>RT Task Graph polling. </p>
+
+</div>
+</div>
+<a id="ae9b2b8e00e491fccc365f958b91d64f5" name="ae9b2b8e00e491fccc365f958b91d64f5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae9b2b8e00e491fccc365f958b91d64f5">&#9670;&#160;</a></span>GRenderThreadPollPeriodMs</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">CORE_API <a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a8dbb3cd84ca9fd010dadfc3815eefa5d">int32</a> GRenderThreadPollPeriodMs</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel extern">extern</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a1cfb783cf13df4d5e669ca0e8721d741" name="a1cfb783cf13df4d5e669ca0e8721d741"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1cfb783cf13df4d5e669ca0e8721d741">&#9670;&#160;</a></span>GRenderThreadTime</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../dd/de9/preprocessor_8c.html#a1134b580f8da4de94ca6b1de4d37975e">uint32</a> GRenderThreadTime = 0</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>How many cycles the renderthread used (excluding idle time). It's set once per frame in <a class="el" href="../../d1/d29/class_f_viewport.html#a73efba5d4ed940c96183748ebb5fcae1">FViewport::Draw</a>. </p>
+
+</div>
+</div>
+<a id="aefcb06cc226151fd3d1d6e00c8e07ca5" name="aefcb06cc226151fd3d1d6e00c8e07ca5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aefcb06cc226151fd3d1d6e00c8e07ca5">&#9670;&#160;</a></span>GRenderThreadTimeCriticalPath</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../dd/de9/preprocessor_8c.html#a1134b580f8da4de94ca6b1de4d37975e">uint32</a> GRenderThreadTimeCriticalPath = 0</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>How many cycles the renderthread used, including dependent wait time. </p>
+
+</div>
+</div>
+<a id="a12d626bca25c888b1f1ad0fc6cafb56d" name="a12d626bca25c888b1f1ad0fc6cafb56d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a12d626bca25c888b1f1ad0fc6cafb56d">&#9670;&#160;</a></span>GRenderThreadWaitTime</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../dd/de9/preprocessor_8c.html#a1134b580f8da4de94ca6b1de4d37975e">uint32</a> GRenderThreadWaitTime = 0</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>How many cycles of wait time renderthread used. It's set once per frame in <a class="el" href="../../d1/d29/class_f_viewport.html#a73efba5d4ed940c96183748ebb5fcae1">FViewport::Draw</a>. </p>
+
+</div>
+</div>
+<a id="a222b97e83e5754c0a922379b177d0d0f" name="a222b97e83e5754c0a922379b177d0d0f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a222b97e83e5754c0a922379b177d0d0f">&#9670;&#160;</a></span>GRHIThread</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d1/dc4/class_f_r_h_i_thread.html">FRHIThread</a>* GRHIThread = nullptr</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a47886200e3800dfee66182f2f05ebda7" name="a47886200e3800dfee66182f2f05ebda7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a47886200e3800dfee66182f2f05ebda7">&#9670;&#160;</a></span>GRHIThreadTime</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../dd/de9/preprocessor_8c.html#a1134b580f8da4de94ca6b1de4d37975e">uint32</a> GRHIThreadTime = 0</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>How many cycles the rhithread used (excluding idle time). </p>
+
+</div>
+</div>
+<a id="ae1dc45592a9024e0d49427fb02ac9250" name="ae1dc45592a9024e0d49427fb02ac9250"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae1dc45592a9024e0d49427fb02ac9250">&#9670;&#160;</a></span>GRunRenderingThreadHeartbeat</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../dc/d48/class_t_atomic.html">TAtomic</a>&lt;<a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a>&gt; GRunRenderingThreadHeartbeat</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>If the rendering thread is in its idle loop (which ticks rendering tickables </p>
+
+</div>
+</div>
+<a id="aee75735cf7dbb857099d22fab88a2648" name="aee75735cf7dbb857099d22fab88a2648"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aee75735cf7dbb857099d22fab88a2648">&#9670;&#160;</a></span>GSuspendRenderingTickables</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../dc/d48/class_t_atomic.html">TAtomic</a>&lt;<a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a8dbb3cd84ca9fd010dadfc3815eefa5d">int32</a>&gt; GSuspendRenderingTickables</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>rendering tickables shouldn't be updated during a flush </p>
+
+</div>
+</div>
+<a id="ae9cb93bcf8224c96cae6658dd16e5a0f" name="ae9cb93bcf8224c96cae6658dd16e5a0f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae9cb93bcf8224c96cae6658dd16e5a0f">&#9670;&#160;</a></span>GSwapBufferTime</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../dd/de9/preprocessor_8c.html#a1134b580f8da4de94ca6b1de4d37975e">uint32</a> GSwapBufferTime = 0</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>How many cycles it took to swap buffers to present the frame. </p>
+
+</div>
+</div>
+<a id="aa22c329b583114682dcacea9874ac804" name="aa22c329b583114682dcacea9874ac804"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa22c329b583114682dcacea9874ac804">&#9670;&#160;</a></span>GTimeoutSuspendCount</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::atomic&lt;int&gt; GTimeoutSuspendCount</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a29a43e7c57f7f667d4cbd2ff05a556df" name="a29a43e7c57f7f667d4cbd2ff05a556df"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a29a43e7c57f7f667d4cbd2ff05a556df">&#9670;&#160;</a></span>GUseThreadedRendering</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">RENDERCORE_API <a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a> GUseThreadedRendering = <a class="el" href="../../d3/df7/radaudio__common_8h.html#ade27a78a51a66a5cfb6f09cf36bcfde9ae9de385ef6fe9bf3360d1038396b884c">false</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Whether the rendering thread should be created or not. Currently set by command line parameter and by the ToggleRenderingThread console command. </p>
+
+</div>
+</div>
+<a id="ae12e750792483ec5426a542b8ab81cda" name="ae12e750792483ec5426a542b8ab81cda"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae12e750792483ec5426a542b8ab81cda">&#9670;&#160;</a></span>OutstandingHeartbeats</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../da/dd2/class_f_thread_safe_counter.html">FThreadSafeCounter</a> OutstandingHeartbeats</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<div id="page-nav" class="page-nav-panel">
+<div id="page-nav-resize-handle"></div>
+<div id="page-nav-tree">
+<div id="page-nav-contents">
+</div><!-- page-nav-contents -->
+</div><!-- page-nav-tree -->
+</div><!-- page-nav -->
+</div><!-- container -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a href="../../dir_0b6ee6e7e9547e675db4add2e5de97da.html">Engine</a></li><li class="navelem"><a href="../../dir_9579d1ecb2c7bf48cbe1049c41745cb4.html">Source</a></li><li class="navelem"><a href="../../dir_9f04efef762572853abdf73f62bebfcc.html">Runtime</a></li><li class="navelem"><a href="../../dir_43d0ee1d3ffe746915582c6da2fa51a8.html">RenderCore</a></li><li class="navelem"><a href="../../dir_2acc8acea7b541877dddfe08e21bdbb6.html">Private</a></li><li class="navelem"><a href="../../d1/d49/_rendering_thread_8cpp.html">RenderingThread.cpp</a></li>
+    <li class="footer">制作者 <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.15.0 </li>
+  </ul>
+</div>
+</body>
+</html>

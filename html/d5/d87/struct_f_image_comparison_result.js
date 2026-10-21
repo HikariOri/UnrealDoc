@@ -1,0 +1,28 @@
+var struct_f_image_comparison_result =
+[
+    [ "FImageComparisonResult", "d5/d87/struct_f_image_comparison_result.html#aac8f673dd1758967a46e0bc3a7fc8cb7", null ],
+    [ "FImageComparisonResult", "d5/d87/struct_f_image_comparison_result.html#a936ff07801741b96aabe236bce50c733", null ],
+    [ "AreSimilar", "d5/d87/struct_f_image_comparison_result.html#abfcd763b6b2c739915d23e32ba15a75e", null ],
+    [ "IsIdeal", "d5/d87/struct_f_image_comparison_result.html#ad3640c806b5082f11b7ac3e285e8d1f2", null ],
+    [ "IsNew", "d5/d87/struct_f_image_comparison_result.html#a2843e639d8c1bcb1695912feea3e941f", null ],
+    [ "IsValid", "d5/d87/struct_f_image_comparison_result.html#a5851f0f2d280d8a64e2bc8a89d7d9048", null ],
+    [ "SetInvalid", "d5/d87/struct_f_image_comparison_result.html#a2e0fe171e2bad646491266963403e58e", null ],
+    [ "ApprovedFilePath", "d5/d87/struct_f_image_comparison_result.html#a748682ea399880a07309e584235d7c02", null ],
+    [ "bSkipAttachingImages", "d5/d87/struct_f_image_comparison_result.html#a7503d665338f9b471b8bd647e11cbde2", null ],
+    [ "ComparisonFilePath", "d5/d87/struct_f_image_comparison_result.html#a79c1e10893aa920a58712666f86329bc", null ],
+    [ "ComparisonId", "d5/d87/struct_f_image_comparison_result.html#a7ffa19336f190175aa2444dee7ddda30", null ],
+    [ "CreationTime", "d5/d87/struct_f_image_comparison_result.html#a7dc7862696264c151b561de1c1417a32", null ],
+    [ "ErrorMessage", "d5/d87/struct_f_image_comparison_result.html#a68c163538d7c2bd9d209414e6094b715", null ],
+    [ "GlobalDifference", "d5/d87/struct_f_image_comparison_result.html#ad63b9150e41b2cbc27ab9021402df2fe", null ],
+    [ "IdealApprovedFolderPath", "d5/d87/struct_f_image_comparison_result.html#a13cadbcba9b2002cd72ca82d658cd2d3", null ],
+    [ "IncomingFilePath", "d5/d87/struct_f_image_comparison_result.html#a2f06517c787874546ffa6f993236d4dc", null ],
+    [ "MaxLocalDifference", "d5/d87/struct_f_image_comparison_result.html#ad67cfbf49b21ba79220d26185f027a66", null ],
+    [ "ReportApprovedFilePath", "d5/d87/struct_f_image_comparison_result.html#a6768d389c56ed71c8ec9cf4958b29e9b", null ],
+    [ "ReportComparisonFilePath", "d5/d87/struct_f_image_comparison_result.html#a3ffbbc14b5ab61337ae289127f2f04fe", null ],
+    [ "ReportIncomingFilePath", "d5/d87/struct_f_image_comparison_result.html#ae2f684bde9e721ae80fc6fdb4746c011", null ],
+    [ "ScreenshotPath", "d5/d87/struct_f_image_comparison_result.html#a8f08ebcfa2476743f98c119682e29185", null ],
+    [ "SourcePlatform", "d5/d87/struct_f_image_comparison_result.html#a1b69b8c54e7338df2a24ac33fa1a3518", null ],
+    [ "SourceRHI", "d5/d87/struct_f_image_comparison_result.html#ab79e137b00dbb75da0986720a5ca3be8", null ],
+    [ "Tolerance", "d5/d87/struct_f_image_comparison_result.html#a152028ef8e9d63e530a3e285472a2730", null ],
+    [ "Version", "d5/d87/struct_f_image_comparison_result.html#a4b242efd50debe5e260992ff175ba6da", null ]
+];

@@ -1,0 +1,36 @@
+var class_u_device_profile_manager =
+[
+    [ "EDeviceProfileMode", "db/db8/class_u_device_profile_manager.html#a88c086d5b6e3cef415c0fbbbccb7866f", [
+      [ "DPM_SetCVars", "db/db8/class_u_device_profile_manager.html#a88c086d5b6e3cef415c0fbbbccb7866fa7a6c291e61f70fcba60b77bbb8145f4e", null ],
+      [ "DPM_CacheValues", "db/db8/class_u_device_profile_manager.html#a88c086d5b6e3cef415c0fbbbccb7866fa873d788f5a0dad01e5f9da1ccb4d7a6d", null ],
+      [ "DPM_CacheValuesIgnoreMatchingRules", "db/db8/class_u_device_profile_manager.html#a88c086d5b6e3cef415c0fbbbccb7866fa87d5290c73b2bff920fcb774a69cc8c0", null ],
+      [ "DPM_SetCVarsForSingleDP", "db/db8/class_u_device_profile_manager.html#a88c086d5b6e3cef415c0fbbbccb7866fa60999aa20f27a9341dcec7b230c6a049", null ],
+      [ "DPM_SetCVarsForSingleFragment", "db/db8/class_u_device_profile_manager.html#a88c086d5b6e3cef415c0fbbbccb7866faf15a204db74e40e54fbc4e04c145374e", null ]
+    ] ],
+    [ "ChangeTaggedFragmentState", "db/db8/class_u_device_profile_manager.html#ab14a396c08c397245069eac5e8f3a38e", null ],
+    [ "CreateProfile", "db/db8/class_u_device_profile_manager.html#af80b96b41aaa60019e8a13a3eac5cf0f", null ],
+    [ "DeleteProfile", "db/db8/class_u_device_profile_manager.html#adf4ce79bdcab9f2e89c725d1e28f1d3d", null ],
+    [ "DoActiveProfilesReference", "db/db8/class_u_device_profile_manager.html#a99b859c0c43bc55958f1cbb432b8f976", null ],
+    [ "FindProfile", "db/db8/class_u_device_profile_manager.html#a10f4ddbc7b95f90bea78085b72ed529f", null ],
+    [ "GetActiveDeviceProfileFragmentByTag", "db/db8/class_u_device_profile_manager.html#aebfc5724c2131109a346b467e4a32f75", null ],
+    [ "GetActiveDeviceProfileMatchedFragmentsString", "db/db8/class_u_device_profile_manager.html#a2f471ceafc730538fa33442f52653fa7", null ],
+    [ "GetActiveDeviceProfileName", "db/db8/class_u_device_profile_manager.html#a8c1d79515be5b6a1105ca58cd53fa42f", null ],
+    [ "GetActiveProfile", "db/db8/class_u_device_profile_manager.html#a1ebaf30ea676e9af2f165066feb30d1b", null ],
+    [ "GetAllPossibleParentProfiles", "db/db8/class_u_device_profile_manager.html#ab0786148d04e93504c4b5ad449bdbb8c", null ],
+    [ "GetDPChain", "db/db8/class_u_device_profile_manager.html#a838e6cc35fede2039217f863d062aabc", null ],
+    [ "GetLoadableProfileNames", "db/db8/class_u_device_profile_manager.html#a92cbd380e4353431fce616fb87958b42", null ],
+    [ "GetPreviewDeviceProfile", "db/db8/class_u_device_profile_manager.html#a3a72fb6c5d9d1b5185a3fa958fcbedb0", null ],
+    [ "GetProfileConfigFiles", "db/db8/class_u_device_profile_manager.html#a8108933d976eb7f397488a0bfa0cb025", null ],
+    [ "HasLoadableProfileName", "db/db8/class_u_device_profile_manager.html#a2e89d4c221b60aa210c2142f8d7171e5", null ],
+    [ "LoadProfiles", "db/db8/class_u_device_profile_manager.html#a509db007108e461cd5cbaa65a28b6b38", null ],
+    [ "OnActiveDeviceProfileChanged", "db/db8/class_u_device_profile_manager.html#a761fb3bbfd46e8f2e95454ca52894e98", null ],
+    [ "OnManagerUpdated", "db/db8/class_u_device_profile_manager.html#a8ae6de5cdbed50032684fb883c283f44", null ],
+    [ "OnReapplyDeviceProfiles", "db/db8/class_u_device_profile_manager.html#aa40d5c453ed890153ca57f367bd88bce", null ],
+    [ "PostCDOContruct", "db/db8/class_u_device_profile_manager.html#ae8edf6195cc67516b86424941daceb34", null ],
+    [ "ReapplyDeviceProfile", "db/db8/class_u_device_profile_manager.html#afc1f39859fa0f406a434ba044b404469", null ],
+    [ "RestoreDefaultDeviceProfile", "db/db8/class_u_device_profile_manager.html#a2cf901e77723bc783ec0560e35ebd0ed", null ],
+    [ "SaveProfiles", "db/db8/class_u_device_profile_manager.html#a4bac9c3b5ec4cc1ef6af0745cb36583e", null ],
+    [ "SetOverrideDeviceProfile", "db/db8/class_u_device_profile_manager.html#a220818ba60fa3faf68ea2cce32f47e01", null ],
+    [ "WillReapplyDeviceProfiles", "db/db8/class_u_device_profile_manager.html#a8752d9de335e96f9dca120d542c1a46e", null ],
+    [ "Profiles", "db/db8/class_u_device_profile_manager.html#a0e65a0e3448d0fd1e667f859f75591cb", null ]
+];

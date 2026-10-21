@@ -1,0 +1,28 @@
+var struct_f_t_s_r_pass_config =
+[
+    [ "AlphaChannel", "dc/dd8/struct_f_t_s_r_pass_config.html#aa95a940c6c573a3315f3e8e39927d8fb", null ],
+    [ "HistoryR11G11B10", "dc/dd8/struct_f_t_s_r_pass_config.html#a97dbee395940fd6a7dd426d9760f2aa2", null ],
+    [ "HistoryRejectionSampleCount", "dc/dd8/struct_f_t_s_r_pass_config.html#a1496f6ce4d62a49c48d645fd342fe1c7", null ],
+    [ "HistorySampleCount", "dc/dd8/struct_f_t_s_r_pass_config.html#a008779ec1a53064bdf5fec70a4a4952d", null ],
+    [ "HistoryScreenPercentage", "dc/dd8/struct_f_t_s_r_pass_config.html#af680e826fd16b219bd22dd72f42b2b82", null ],
+    [ "HistoryUpdateQuality", "dc/dd8/struct_f_t_s_r_pass_config.html#a0b50dfe8b44bc7681eebec96ca2d6f78", null ],
+    [ "MotionBlurValidInCurrentFrame", "dc/dd8/struct_f_t_s_r_pass_config.html#a106e546621f47e4c7b9c1f24d981a747", null ],
+    [ "Pass", "dc/dd8/struct_f_t_s_r_pass_config.html#a0c6a2d50f49c9b390ae519a05848a1d8", null ],
+    [ "RejectionAntiAliasingQuality", "dc/dd8/struct_f_t_s_r_pass_config.html#ae0211c75cd5ccbb578da6d28ba9078b5", null ],
+    [ "ReprojectionField", "dc/dd8/struct_f_t_s_r_pass_config.html#af7344e5a8fd8e9507892ddc29782bb18", null ],
+    [ "ReprojectionFieldAntiAliasPixelSpeed", "dc/dd8/struct_f_t_s_r_pass_config.html#a8c79d62afffa0770952c47b723851990", null ],
+    [ "ResurrectionEnable", "dc/dd8/struct_f_t_s_r_pass_config.html#a968cb3d2f99dc8b30ca36d9583cf1db4", null ],
+    [ "ResurrectionPersistentFrameCount", "dc/dd8/struct_f_t_s_r_pass_config.html#abffe82c45c9966be22165b577e07db21", null ],
+    [ "ResurrectionPersistentFrameInterval", "dc/dd8/struct_f_t_s_r_pass_config.html#ad1f49c7e30c43bad38b568b0af39b37e", null ],
+    [ "ShadingRejectionExposureOffsetFactor", "dc/dd8/struct_f_t_s_r_pass_config.html#af2381dcbe03614843dd30c457ef471e9", null ],
+    [ "ShadingRejectionFlickering", "dc/dd8/struct_f_t_s_r_pass_config.html#a4e48304a1539d509b61d69bf7ef00973", null ],
+    [ "ShadingRejectionFlickeringAdjustToFrameRate", "dc/dd8/struct_f_t_s_r_pass_config.html#af1d7d046df7c4c744a4ce26812457f2b", null ],
+    [ "ShadingRejectionFlickeringFrameRateCap", "dc/dd8/struct_f_t_s_r_pass_config.html#ab32eb9c52b117274b5da43edd336deb1", null ],
+    [ "ShadingRejectionFlickeringMaxParallaxVelocity", "dc/dd8/struct_f_t_s_r_pass_config.html#a2467193c495f1d6e548dcc516c4b80a5", null ],
+    [ "ShadingRejectionFlickeringPeriod", "dc/dd8/struct_f_t_s_r_pass_config.html#af5ea3abc2498010c8c6750e790641946", null ],
+    [ "ThinGeometryDetectionEnable", "dc/dd8/struct_f_t_s_r_pass_config.html#aec4dfa7d97944043190a6429c87a2757", null ],
+    [ "ThinGeometryErrorMultiplier", "dc/dd8/struct_f_t_s_r_pass_config.html#a00020cfdca2fb6bad636f5881ab517ac", null ],
+    [ "VelocityWeightClampingPixelSpeed", "dc/dd8/struct_f_t_s_r_pass_config.html#a2f15dd7924eaac1b0a52768c17d14eca", null ],
+    [ "VelocityWeightClampingSampleCount", "dc/dd8/struct_f_t_s_r_pass_config.html#a94d8d009b977edc8f5110d2196b94582", null ],
+    [ "Visualize", "dc/dd8/struct_f_t_s_r_pass_config.html#ab132364d5a85ca582fe477b2dd76ca85", null ]
+];

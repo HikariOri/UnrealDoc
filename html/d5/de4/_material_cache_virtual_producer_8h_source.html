@@ -1,0 +1,228 @@
+<!-- HTML header for doxygen 1.15.0-->
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh">
+<head>
+  <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=11" />
+  <meta name="generator" content="Doxygen 1.15.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>UE 5.8.4: Engine/Source/Runtime/Renderer/Internal/MaterialCache/MaterialCacheVirtualProducer.h 源文件</title>
+  <link rel="icon" href="../../EdIconDefault.bmp" type="image/x-icon" />
+  <link href="../../tabs.css" rel="stylesheet" type="text/css" />
+  <script type="text/javascript" src="../../jquery.js"></script>
+  <script type="text/javascript" src="../../dynsections.js"></script>
+  <link href="../../navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../navtreedata.js"></script>
+<script type="text/javascript" src="../../navtree.js"></script>
+<script type="text/javascript" src="../../cookie.js"></script>
+  <link href="../../search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../search/searchdata.js"></script>
+<script type="text/javascript" src="../../search/search.js"></script>
+  <link href="../../doxygen.css" rel="stylesheet" type="text/css" />
+  <link href="../../doxygen-awesome.css" rel="stylesheet" type="text/css"/>
+<link href="../../doxygen-awesome-sidebar-only.css" rel="stylesheet" type="text/css"/>
+<link href="../../doxygen-awesome-sidebar-only-darkmode-toggle.css" rel="stylesheet" type="text/css"/>
+  <!-- ... other metadata & script includes ... -->
+  <script type="text/javascript" src="../../doxygen-awesome-darkmode-toggle.js"></script>
+  <script type="text/javascript">
+    DoxygenAwesomeDarkModeToggle.title = "Zwischen hellem/dunklem Modus wechseln"
+    DoxygenAwesomeDarkModeToggle.lightModeIcon = '🌞'
+    // icon from https://fonts.google.com/icons
+    DoxygenAwesomeDarkModeToggle.darkModeIcon = `<svg xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 24 24" height="24px" viewBox="0 0 24 24" width="24px" fill="#009793"><g><rect fill="none" height="24" width="24"/></g><g><g><path d="M8.1,14.15C9.77,14.63,11,16.17,11,18c0,0.68-0.19,1.31-0.48,1.87c0.48,0.09,0.97,0.14,1.48,0.14 c1.48,0,2.9-0.41,4.13-1.15c-2.62-0.92-5.23-2.82-6.8-5.86C7.74,9.94,7.78,7.09,8.29,4.9c-2.57,1.33-4.3,4.01-4.3,7.1c0,0,0,0,0,0 c0.01,0,0.01,0,0.02,0C5.66,12,7.18,12.83,8.1,14.15z" opacity=".3"/><path d="M19.78,17.51c-2.47,0-6.57-1.33-8.68-5.43C8.77,7.57,10.6,3.6,11.63,2.01C6.27,2.2,1.98,6.59,1.98,12 c0,0.14,0.02,0.28,0.02,0.42C2.61,12.16,3.28,12,3.98,12c0,0,0,0,0,0c0-3.09,1.73-5.77,4.3-7.1C7.78,7.09,7.74,9.94,9.32,13 c1.57,3.04,4.18,4.95,6.8,5.86c-1.23,0.74-2.65,1.15-4.13,1.15c-0.5,0-1-0.05-1.48-0.14c-0.37,0.7-0.94,1.27-1.64,1.64 c0.98,0.32,2.03,0.5,3.11,0.5c3.5,0,6.58-1.8,8.37-4.52C20.18,17.5,19.98,17.51,19.78,17.51z"/><path d="M7,16l-0.18,0C6.4,14.84,5.3,14,4,14c-1.66,0-3,1.34-3,3s1.34,3,3,3c0.62,0,2.49,0,3,0c1.1,0,2-0.9,2-2 C9,16.9,8.1,16,7,16z"/></g></g></svg>`
+    DoxygenAwesomeDarkModeToggle.init()
+  </script>
+  <script type="text/javascript" src="../../doxygen-awesome-fragment-copy-button.js"></script>
+  <script type="text/javascript">
+    DoxygenAwesomeFragmentCopyButton.title = "In die Zwischenablage kopieren"
+    // DoxygenAwesomeFragmentCopyButton.copyIcon = `<svg ...>`
+    // DoxygenAwesomeFragmentCopyButton.successIcon = `<svg ...>`
+    DoxygenAwesomeFragmentCopyButton.init()
+  </script>
+  <script type="text/javascript" src="../../doxygen-awesome-paragraph-link.js"></script>
+  <script type="text/javascript">
+    DoxygenAwesomeParagraphLink.title = "Abschnitt verknüpfen"
+    DoxygenAwesomeParagraphLink.icon = "¶"
+    DoxygenAwesomeParagraphLink.init()
+  </script>
+  <script type="text/javascript" src="../../doxygen-awesome-interactive-toc.js"></script>
+  <script type="text/javascript">
+    DoxygenAwesomeInteractiveToc.topOffset = 45
+    DoxygenAwesomeInteractiveToc.hideMobileMenu = false
+    DoxygenAwesomeInteractiveToc.init()
+  </script>
+</head>
+<body>
+    <div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+      <div id="titlearea">
+        <table cellspacing="0" cellpadding="0">
+          <tbody>
+            <tr id="projectrow">
+              <td id="projectlogo"><img alt="Logo" src="../../EdIconDefault.bmp"  /></td>
+              <td id="projectalign">
+                <div id="projectname">UE 5.8.4
+                </div>
+                <div id="projectbrief">Unreal Engine</div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <!-- end header part -->
+<!-- 制作者 Doxygen 1.15.0 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "../../search/",'.html');
+</script>
+<script type="text/javascript">
+$(function() { codefold.init(); });
+</script>
+<script type="text/javascript" src="../../menudata.js"></script>
+<script type="text/javascript" src="../../menu.js"></script>
+<script type="text/javascript">
+$(function() {
+  initMenu('../../',true,false,'search.php','搜索',true);
+  $(function() { init_search(); });
+});
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(function(){initNavTree('d5/de4/_material_cache_virtual_producer_8h_source.html','../../',''); });
+</script>
+<div id="container">
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">载入中...</div>
+<div class="SRStatus" id="Searching">搜索中...</div>
+<div class="SRStatus" id="NoMatches">未找到</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">MaterialCacheVirtualProducer.h</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="../../d5/de4/_material_cache_virtual_producer_8h.html">浏览该文件的文档.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="comment">// Copyright Epic Games, Inc. All Rights Reserved.</span></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span> </div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="preprocessor">#pragma once</span></div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span> </div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="preprocessor">#include &quot;<a class="code" href="../../d7/d0f/_material_cache_attribute_8h.html">MaterialCache/MaterialCacheAttribute.h</a>&quot;</span></div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="preprocessor">#include &quot;<a class="code" href="../../d9/d19/_material_cache_virtual_finalizer_8h.html">MaterialCache/MaterialCacheVirtualFinalizer.h</a>&quot;</span></div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="preprocessor">#include &quot;<a class="code" href="../../d0/d4e/_virtual_texturing_8h.html">VirtualTexturing.h</a>&quot;</span></div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="preprocessor">#include &quot;<a class="code" href="../../db/ded/_r_h_i_fwd_8h.html">RHIFwd.h</a>&quot;</span></div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span> </div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="keyword">class </span><a class="code hl_class" href="../../d4/dfa/class_f_scene.html">FScene</a>;</div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="keyword">struct </span><a class="code hl_struct" href="../../d6/d24/struct_f_material_cache_virtual_texture_allocation.html">FMaterialCacheVirtualTextureAllocation</a>;</div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span> </div>
+<div class="foldopen" id="foldopen00013" data-start="{" data-end="};">
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno"><a class="line" href="../../dd/d4f/class_f_material_cache_virtual_producer.html">   13</a></span><span class="keyword">class </span><a class="code hl_function" href="../../dd/d4f/class_f_material_cache_virtual_producer.html#a72c3eb4324f68beebc84c6ea8a5d5350">FMaterialCacheVirtualProducer</a> : <span class="keyword">public</span> <a class="code hl_function" href="../../dd/d40/class_i_virtual_texture.html#a1e1b591474b5d76670420c273f6281a1">IVirtualTexture</a></div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span>{</div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span>    <a class="code hl_function" href="../../dd/d4f/class_f_material_cache_virtual_producer.html#a72c3eb4324f68beebc84c6ea8a5d5350">FMaterialCacheVirtualProducer</a>(</div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span>        <a class="code hl_class" href="../../d4/dfa/class_f_scene.html">FScene</a>* Scene, </div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>        <span class="keyword">const</span> <a class="code hl_struct" href="../../d1/d61/struct_f_material_cache_tag_layout.html">FMaterialCacheTagLayout</a>&amp; TagLayout,</div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>        <span class="keyword">const</span> <a class="code hl_struct" href="../../d3/db2/struct_f_v_t_producer_description.html">FVTProducerDescription</a>&amp; InProducerDesc,</div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>        <a class="code hl_struct" href="../../d6/d24/struct_f_material_cache_virtual_texture_allocation.html">FMaterialCacheVirtualTextureAllocation</a>* Allocation</div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>    );</div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span> </div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span><span class="keyword">public</span>: </div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno"><a class="line" href="../../dd/d4f/class_f_material_cache_virtual_producer.html#ad23d523bb4dc32e1c74149118add0b5f">   24</a></span>    <span class="keyword">virtual</span> <a class="code hl_function" href="../../dd/d4f/class_f_material_cache_virtual_producer.html#ad23d523bb4dc32e1c74149118add0b5f">~FMaterialCacheVirtualProducer</a>() <span class="keyword">override</span> = <span class="keywordflow">default</span>;</div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span> </div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>    <span class="keyword">virtual</span> <span class="keywordtype">bool</span> <a class="code hl_function" href="../../dd/d4f/class_f_material_cache_virtual_producer.html#a753edfd536a62bb4d6e690933c3331cb">IsPageStreamed</a>(<a class="code hl_typedef" href="../../dd/de9/preprocessor_8c.html#adde6aaee8457bee49c2a92621fe22b79">uint8</a> vLevel, <a class="code hl_typedef" href="../../dd/de9/preprocessor_8c.html#a1134b580f8da4de94ca6b1de4d37975e">uint32</a> vAddress) <span class="keyword">const override</span>;</div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span> </div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>    <span class="keyword">virtual</span> <a class="code hl_struct" href="../../d4/dd3/struct_f_v_t_request_page_result.html">FVTRequestPageResult</a> <a class="code hl_function" href="../../dd/d4f/class_f_material_cache_virtual_producer.html#afd8b06870cc423318683d9b5eb5bf927">RequestPageData</a>(</div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>        <a class="code hl_class" href="../../d6/d36/class_f_r_h_i_command_list_base.html">FRHICommandListBase</a>&amp; RHICmdList,</div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>        <span class="keyword">const</span> <a class="code hl_union" href="../../d0/df1/union_f_virtual_texture_producer_handle.html">FVirtualTextureProducerHandle</a>&amp; ProducerHandle,</div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>        <a class="code hl_typedef" href="../../dd/de9/preprocessor_8c.html#adde6aaee8457bee49c2a92621fe22b79">uint8</a> LayerMask,</div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>        <a class="code hl_typedef" href="../../dd/de9/preprocessor_8c.html#adde6aaee8457bee49c2a92621fe22b79">uint8</a> vLevel,</div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>        <a class="code hl_typedef" href="../../dd/de9/preprocessor_8c.html#abc0f5bc07737e498f287334775dff2b6">uint64</a> vAddress,</div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>        <a class="code hl_enumeration" href="../../d0/d4e/_virtual_texturing_8h.html#a312c7c2907ce662cf676421d9f64021a">EVTRequestPagePriority</a> <a class="code hl_variable" href="../../d3/d19/_navigation_system_types_8h.html#a9de0323f5242b23bdfaefe24cb2aae7c">Priority</a></div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>    ) <span class="keyword">override</span>;</div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span> </div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>    <span class="keyword">virtual</span> <a class="code hl_class" href="../../d6/d72/class_i_virtual_texture_finalizer.html">IVirtualTextureFinalizer</a>* <a class="code hl_function" href="../../dd/d4f/class_f_material_cache_virtual_producer.html#a2c3a132a5b9bf3672a6431ca666e6acb">ProducePageData</a>(</div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>        <a class="code hl_class" href="../../d6/d36/class_f_r_h_i_command_list_base.html">FRHICommandListBase</a>&amp; RHICmdList,</div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>        <a class="code hl_enumeration" href="../../dc/dcf/namespace_e_r_h_i_feature_level.html#a04bc2ae8f7bf478747a40da91e1753dd">ERHIFeatureLevel::Type</a> FeatureLevel,</div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>        <a class="code hl_enumeration" href="../../d0/d4e/_virtual_texturing_8h.html#a0aea3a69ef2bef005b5eace6a3677697">EVTProducePageFlags</a> <a class="code hl_enumvalue" href="../../d5/d1e/_object_macros_8h.html#ab1b4d2b5a96eee3af0fdf40789726115a4ea7801f17a4e5485e8b050c052fb443">Flags</a>,</div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>        <span class="keyword">const</span> <a class="code hl_union" href="../../d0/df1/union_f_virtual_texture_producer_handle.html">FVirtualTextureProducerHandle</a>&amp; ProducerHandle,</div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>        <a class="code hl_typedef" href="../../dd/de9/preprocessor_8c.html#adde6aaee8457bee49c2a92621fe22b79">uint8</a> LayerMask,</div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>        <a class="code hl_typedef" href="../../dd/de9/preprocessor_8c.html#adde6aaee8457bee49c2a92621fe22b79">uint8</a> vLevel,</div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>        <a class="code hl_typedef" href="../../dd/de9/preprocessor_8c.html#abc0f5bc07737e498f287334775dff2b6">uint64</a> vAddress,</div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>        <a class="code hl_typedef" href="../../dd/de9/preprocessor_8c.html#abc0f5bc07737e498f287334775dff2b6">uint64</a> RequestHandle,</div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>        <span class="keyword">const</span> <a class="code hl_struct" href="../../d3/d45/struct_f_v_t_produce_target_layer.html">FVTProduceTargetLayer</a>* TargetLayers</div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>    ) <span class="keyword">override</span>;</div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span></div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno"><a class="line" href="../../dd/d4f/class_f_material_cache_virtual_producer.html#ad0cdf7d20bf7371b5f18c3258c98d1b6">   50</a></span>    <a class="code hl_class" href="../../d6/df5/class_f_material_cache_virtual_finalizer.html">FMaterialCacheVirtualFinalizer</a> <a class="code hl_variable" href="../../dd/d4f/class_f_material_cache_virtual_producer.html#ad0cdf7d20bf7371b5f18c3258c98d1b6">Finalizer</a>;</div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>    </div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span><span class="keyword">private</span>:</div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>    <a class="code hl_class" href="../../d4/dfa/class_f_scene.html">FScene</a>* Scene = <span class="keyword">nullptr</span>;</div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span></div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>    <a class="code hl_struct" href="../../d6/d24/struct_f_material_cache_virtual_texture_allocation.html">FMaterialCacheVirtualTextureAllocation</a>* Allocation = <span class="keyword">nullptr</span>;</div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>    </div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>    <a class="code hl_struct" href="../../d3/db2/struct_f_v_t_producer_description.html">FVTProducerDescription</a> ProducerDesc;</div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>};</div>
+</div>
+<div class="ttc" id="a_material_cache_attribute_8h_html"><div class="ttname"><a href="../../d7/d0f/_material_cache_attribute_8h.html">MaterialCacheAttribute.h</a></div></div>
+<div class="ttc" id="a_material_cache_virtual_finalizer_8h_html"><div class="ttname"><a href="../../d9/d19/_material_cache_virtual_finalizer_8h.html">MaterialCacheVirtualFinalizer.h</a></div></div>
+<div class="ttc" id="a_navigation_system_types_8h_html_a9de0323f5242b23bdfaefe24cb2aae7c"><div class="ttname"><a href="../../d3/d19/_navigation_system_types_8h.html#a9de0323f5242b23bdfaefe24cb2aae7c">Priority</a></div><div class="ttdeci">ENavigationInvokerPriority Priority</div><div class="ttdef"><b>定义</b> NavigationSystemTypes.h:129</div></div>
+<div class="ttc" id="a_object_macros_8h_html_ab1b4d2b5a96eee3af0fdf40789726115a4ea7801f17a4e5485e8b050c052fb443"><div class="ttname"><a href="../../d5/d1e/_object_macros_8h.html#ab1b4d2b5a96eee3af0fdf40789726115a4ea7801f17a4e5485e8b050c052fb443">EEnumFlags::Flags</a></div><div class="ttdeci">@ Flags</div><div class="ttdef"><b>定义</b> ObjectMacros.h:723</div></div>
+<div class="ttc" id="a_r_h_i_fwd_8h_html"><div class="ttname"><a href="../../db/ded/_r_h_i_fwd_8h.html">RHIFwd.h</a></div></div>
+<div class="ttc" id="a_virtual_texturing_8h_html"><div class="ttname"><a href="../../d0/d4e/_virtual_texturing_8h.html">VirtualTexturing.h</a></div></div>
+<div class="ttc" id="a_virtual_texturing_8h_html_a0aea3a69ef2bef005b5eace6a3677697"><div class="ttname"><a href="../../d0/d4e/_virtual_texturing_8h.html#a0aea3a69ef2bef005b5eace6a3677697">EVTProducePageFlags</a></div><div class="ttdeci">EVTProducePageFlags</div><div class="ttdef"><b>定义</b> VirtualTexturing.h:249</div></div>
+<div class="ttc" id="a_virtual_texturing_8h_html_a312c7c2907ce662cf676421d9f64021a"><div class="ttname"><a href="../../d0/d4e/_virtual_texturing_8h.html#a312c7c2907ce662cf676421d9f64021a">EVTRequestPagePriority</a></div><div class="ttdeci">EVTRequestPagePriority</div><div class="ttdef"><b>定义</b> VirtualTexturing.h:243</div></div>
+<div class="ttc" id="aclass_f_material_cache_virtual_finalizer_html"><div class="ttname"><a href="../../d6/df5/class_f_material_cache_virtual_finalizer.html">FMaterialCacheVirtualFinalizer</a></div><div class="ttdef"><b>定义</b> MaterialCacheVirtualFinalizer.h:26</div></div>
+<div class="ttc" id="aclass_f_material_cache_virtual_producer_html_a2c3a132a5b9bf3672a6431ca666e6acb"><div class="ttname"><a href="../../dd/d4f/class_f_material_cache_virtual_producer.html#a2c3a132a5b9bf3672a6431ca666e6acb">FMaterialCacheVirtualProducer::ProducePageData</a></div><div class="ttdeci">virtual IVirtualTextureFinalizer * ProducePageData(FRHICommandListBase &amp;RHICmdList, ERHIFeatureLevel::Type FeatureLevel, EVTProducePageFlags Flags, const FVirtualTextureProducerHandle &amp;ProducerHandle, uint8 LayerMask, uint8 vLevel, uint64 vAddress, uint64 RequestHandle, const FVTProduceTargetLayer *TargetLayers) override</div><div class="ttdef"><b>定义</b> MaterialCacheVirtualProducer.cpp:68</div></div>
+<div class="ttc" id="aclass_f_material_cache_virtual_producer_html_a72c3eb4324f68beebc84c6ea8a5d5350"><div class="ttname"><a href="../../dd/d4f/class_f_material_cache_virtual_producer.html#a72c3eb4324f68beebc84c6ea8a5d5350">FMaterialCacheVirtualProducer::FMaterialCacheVirtualProducer</a></div><div class="ttdeci">FMaterialCacheVirtualProducer(FScene *Scene, const FMaterialCacheTagLayout &amp;TagLayout, const FVTProducerDescription &amp;InProducerDesc, FMaterialCacheVirtualTextureAllocation *Allocation)</div><div class="ttdef"><b>定义</b> MaterialCacheVirtualProducer.cpp:12</div></div>
+<div class="ttc" id="aclass_f_material_cache_virtual_producer_html_a753edfd536a62bb4d6e690933c3331cb"><div class="ttname"><a href="../../dd/d4f/class_f_material_cache_virtual_producer.html#a753edfd536a62bb4d6e690933c3331cb">FMaterialCacheVirtualProducer::IsPageStreamed</a></div><div class="ttdeci">virtual bool IsPageStreamed(uint8 vLevel, uint32 vAddress) const override</div><div class="ttdef"><b>定义</b> MaterialCacheVirtualProducer.cpp:25</div></div>
+<div class="ttc" id="aclass_f_material_cache_virtual_producer_html_ad0cdf7d20bf7371b5f18c3258c98d1b6"><div class="ttname"><a href="../../dd/d4f/class_f_material_cache_virtual_producer.html#ad0cdf7d20bf7371b5f18c3258c98d1b6">FMaterialCacheVirtualProducer::Finalizer</a></div><div class="ttdeci">FMaterialCacheVirtualFinalizer Finalizer</div><div class="ttdef"><b>定义</b> MaterialCacheVirtualProducer.h:50</div></div>
+<div class="ttc" id="aclass_f_material_cache_virtual_producer_html_ad23d523bb4dc32e1c74149118add0b5f"><div class="ttname"><a href="../../dd/d4f/class_f_material_cache_virtual_producer.html#ad23d523bb4dc32e1c74149118add0b5f">FMaterialCacheVirtualProducer::~FMaterialCacheVirtualProducer</a></div><div class="ttdeci">virtual ~FMaterialCacheVirtualProducer() override=default</div></div>
+<div class="ttc" id="aclass_f_material_cache_virtual_producer_html_afd8b06870cc423318683d9b5eb5bf927"><div class="ttname"><a href="../../dd/d4f/class_f_material_cache_virtual_producer.html#afd8b06870cc423318683d9b5eb5bf927">FMaterialCacheVirtualProducer::RequestPageData</a></div><div class="ttdeci">virtual FVTRequestPageResult RequestPageData(FRHICommandListBase &amp;RHICmdList, const FVirtualTextureProducerHandle &amp;ProducerHandle, uint8 LayerMask, uint8 vLevel, uint64 vAddress, EVTRequestPagePriority Priority) override</div><div class="ttdef"><b>定义</b> MaterialCacheVirtualProducer.cpp:30</div></div>
+<div class="ttc" id="aclass_f_r_h_i_command_list_base_html"><div class="ttname"><a href="../../d6/d36/class_f_r_h_i_command_list_base.html">FRHICommandListBase</a></div><div class="ttdef"><b>定义</b> RHICommandList.h:454</div></div>
+<div class="ttc" id="aclass_f_scene_html"><div class="ttname"><a href="../../d4/dfa/class_f_scene.html">FScene</a></div><div class="ttdef"><b>定义</b> ScenePrivate.h:1625</div></div>
+<div class="ttc" id="aclass_i_virtual_texture_finalizer_html"><div class="ttname"><a href="../../d6/d72/class_i_virtual_texture_finalizer.html">IVirtualTextureFinalizer</a></div><div class="ttdef"><b>定义</b> VirtualTexturing.h:210</div></div>
+<div class="ttc" id="aclass_i_virtual_texture_html_a1e1b591474b5d76670420c273f6281a1"><div class="ttname"><a href="../../dd/d40/class_i_virtual_texture.html#a1e1b591474b5d76670420c273f6281a1">IVirtualTexture::IVirtualTexture</a></div><div class="ttdeci">IVirtualTexture()</div><div class="ttdef"><b>定义</b> VirtualTexturing.h:294</div></div>
+<div class="ttc" id="anamespace_e_r_h_i_feature_level_html_a04bc2ae8f7bf478747a40da91e1753dd"><div class="ttname"><a href="../../dc/dcf/namespace_e_r_h_i_feature_level.html#a04bc2ae8f7bf478747a40da91e1753dd">ERHIFeatureLevel::Type</a></div><div class="ttdeci">Type</div><div class="ttdef"><b>定义</b> RHIFeatureLevel.h:20</div></div>
+<div class="ttc" id="apreprocessor_8c_html_a1134b580f8da4de94ca6b1de4d37975e"><div class="ttname"><a href="../../dd/de9/preprocessor_8c.html#a1134b580f8da4de94ca6b1de4d37975e">uint32</a></div><div class="ttdeci">unsigned int uint32</div><div class="ttdef"><b>定义</b> preprocessor.c:67</div></div>
+<div class="ttc" id="apreprocessor_8c_html_abc0f5bc07737e498f287334775dff2b6"><div class="ttname"><a href="../../dd/de9/preprocessor_8c.html#abc0f5bc07737e498f287334775dff2b6">uint64</a></div><div class="ttdeci">uint64_t uint64</div><div class="ttdef"><b>定义</b> preprocessor.c:75</div></div>
+<div class="ttc" id="apreprocessor_8c_html_adde6aaee8457bee49c2a92621fe22b79"><div class="ttname"><a href="../../dd/de9/preprocessor_8c.html#adde6aaee8457bee49c2a92621fe22b79">uint8</a></div><div class="ttdeci">unsigned char uint8</div><div class="ttdef"><b>定义</b> preprocessor.c:65</div></div>
+<div class="ttc" id="astruct_f_material_cache_tag_layout_html"><div class="ttname"><a href="../../d1/d61/struct_f_material_cache_tag_layout.html">FMaterialCacheTagLayout</a></div><div class="ttdef"><b>定义</b> MaterialCacheAttribute.h:129</div></div>
+<div class="ttc" id="astruct_f_material_cache_virtual_texture_allocation_html"><div class="ttname"><a href="../../d6/d24/struct_f_material_cache_virtual_texture_allocation.html">FMaterialCacheVirtualTextureAllocation</a></div><div class="ttdef"><b>定义</b> IMaterialCacheVirtualTextureAllocation.h:25</div></div>
+<div class="ttc" id="astruct_f_v_t_produce_target_layer_html"><div class="ttname"><a href="../../d3/d45/struct_f_v_t_produce_target_layer.html">FVTProduceTargetLayer</a></div><div class="ttdef"><b>定义</b> VirtualTexturing.h:269</div></div>
+<div class="ttc" id="astruct_f_v_t_producer_description_html"><div class="ttname"><a href="../../d3/db2/struct_f_v_t_producer_description.html">FVTProducerDescription</a></div><div class="ttdef"><b>定义</b> VirtualTexturing.h:143</div></div>
+<div class="ttc" id="astruct_f_v_t_request_page_result_html"><div class="ttname"><a href="../../d4/dd3/struct_f_v_t_request_page_result.html">FVTRequestPageResult</a></div><div class="ttdef"><b>定义</b> VirtualTexturing.h:257</div></div>
+<div class="ttc" id="aunion_f_virtual_texture_producer_handle_html"><div class="ttname"><a href="../../d0/df1/union_f_virtual_texture_producer_handle.html">FVirtualTextureProducerHandle</a></div><div class="ttdef"><b>定义</b> VirtualTexturing.h:34</div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+</div><!-- container -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a href="../../dir_0b6ee6e7e9547e675db4add2e5de97da.html">Engine</a></li><li class="navelem"><a href="../../dir_9579d1ecb2c7bf48cbe1049c41745cb4.html">Source</a></li><li class="navelem"><a href="../../dir_9f04efef762572853abdf73f62bebfcc.html">Runtime</a></li><li class="navelem"><a href="../../dir_5ed6327f04b0f38d3f6fe5caa38b0445.html">Renderer</a></li><li class="navelem"><a href="../../dir_fa34d9b21419741b6724b4243c89fd0f.html">Internal</a></li><li class="navelem"><a href="../../dir_cb5b7f60d84a987409b99003f99fd4bd.html">MaterialCache</a></li><li class="navelem"><a href="../../d5/de4/_material_cache_virtual_producer_8h.html">MaterialCacheVirtualProducer.h</a></li>
+    <li class="footer">制作者 <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.15.0 </li>
+  </ul>
+</div>
+</body>
+</html>

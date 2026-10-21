@@ -1,0 +1,25 @@
+var class_t_media_sample_queue =
+[
+    [ "TMediaSampleQueue", "dc/d78/class_t_media_sample_queue.html#a2f58daf8b64c14812930cceb12e10fb1", null ],
+    [ "~TMediaSampleQueue", "dc/d78/class_t_media_sample_queue.html#aacf162e056f6ad07bb12d1901876600b", null ],
+    [ "CanAcceptSamples", "dc/d78/class_t_media_sample_queue.html#a30fe5ada1f1014bedd6152171cfa0079", null ],
+    [ "Dequeue", "dc/d78/class_t_media_sample_queue.html#ae68907fcac6acab2976a249fe013cb73", null ],
+    [ "Discard", "dc/d78/class_t_media_sample_queue.html#a708aa7cb89ead86656c9367c691c1566", null ],
+    [ "Enqueue", "dc/d78/class_t_media_sample_queue.html#ad59b0fe37dac4a5a8308e057c76281a0", null ],
+    [ "FetchBestSampleForTimeRange", "dc/d78/class_t_media_sample_queue.html#a9701d8619f6b3cfa05ff2a28c1ef3426", null ],
+    [ "FindRangeInQueue", "dc/d78/class_t_media_sample_queue.html#a72da9b544bd920e0b734034f71e3f527", null ],
+    [ "GetFlushCount", "dc/d78/class_t_media_sample_queue.html#aecc8bb456e5b0ec2a34cdca084d2fe0e", null ],
+    [ "GetNumDroppedSamples", "dc/d78/class_t_media_sample_queue.html#a7dc9a83891ca6b7b2f73e059ea9dd5e4", null ],
+    [ "GetSampleTimes", "dc/d78/class_t_media_sample_queue.html#a036f9a73c062e5677c2e86d48442f8c5", null ],
+    [ "Num", "dc/d78/class_t_media_sample_queue.html#a672595f95ce1de4f52369511f9fc9fa2", null ],
+    [ "Peek", "dc/d78/class_t_media_sample_queue.html#a53264c7df4acae670496a451ac3976b7", null ],
+    [ "Pop", "dc/d78/class_t_media_sample_queue.html#aa4ec01bf4cd9e6f88a83733d984a7a56", null ],
+    [ "PurgeOutdatedSamples", "dc/d78/class_t_media_sample_queue.html#afbc1680ea57364b48c32c145a70278a4", null ],
+    [ "PurgeUntilSequenceIndex", "dc/d78/class_t_media_sample_queue.html#a6c6182d3f124f60db0c0cdc6a98329c4", null ],
+    [ "RequestFlush", "dc/d78/class_t_media_sample_queue.html#a1ec0000699e08bc8b5f41b06feff6f21", null ],
+    [ "CriticalSection", "dc/d78/class_t_media_sample_queue.html#a0d2c2bd764281a74cd3f9ea96da90d71", null ],
+    [ "FlushCount", "dc/d78/class_t_media_sample_queue.html#a536c9e8cb091e8f69f43ab98d5dec82c", null ],
+    [ "MaxSamplesInQueue", "dc/d78/class_t_media_sample_queue.html#ac29587924df244a9e469473842ea7ded", null ],
+    [ "NumDroppedSamples", "dc/d78/class_t_media_sample_queue.html#a1c5df21cb489ee82fdd47310d73e65b5", null ],
+    [ "Samples", "dc/d78/class_t_media_sample_queue.html#a9be8594d9263d2b2b7d8045b9566c014", null ]
+];

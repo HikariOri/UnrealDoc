@@ -1,0 +1,25 @@
+var class_build_patch_services_1_1_f_build_statistics =
+[
+    [ "FBuildStatistics", "dd/d64/class_build_patch_services_1_1_f_build_statistics.html#a852d7ff13bb43128d9e0e06e1a7e89dc", null ],
+    [ "~FBuildStatistics", "dd/d64/class_build_patch_services_1_1_f_build_statistics.html#acc5a71b4a8fe09659fc144bdfb863e25", null ],
+    [ "GetBuildSize", "dd/d64/class_build_patch_services_1_1_f_build_statistics.html#afa5cd98b4dac24d189d0b1ccda613ade", null ],
+    [ "GetConfiguration", "dd/d64/class_build_patch_services_1_1_f_build_statistics.html#ab2a04c799260deba2fc30070961da4ad", null ],
+    [ "GetCurrentDownloads", "dd/d64/class_build_patch_services_1_1_f_build_statistics.html#a6a93ffc391e98e8ed8d0fcbbf171605d", null ],
+    [ "GetCurrentWorkingData", "dd/d64/class_build_patch_services_1_1_f_build_statistics.html#aef709381b434edb05b0125049c708017", null ],
+    [ "GetCurrentWorkingFileName", "dd/d64/class_build_patch_services_1_1_f_build_statistics.html#a54d715db6f414c0ecd562b1400ff3d34", null ],
+    [ "GetCurrentWorkingFileProgress", "dd/d64/class_build_patch_services_1_1_f_build_statistics.html#a5da4f71ef7c0a893d50b4a12d77fadb0", null ],
+    [ "GetDiskReadBytes", "dd/d64/class_build_patch_services_1_1_f_build_statistics.html#a4da8e6c712fdf10871097bf6cfee45a5", null ],
+    [ "GetDiskReadByteSpeed", "dd/d64/class_build_patch_services_1_1_f_build_statistics.html#aacf625f3b2b3cc8e227171340a56229d", null ],
+    [ "GetDiskWriteByteSpeed", "dd/d64/class_build_patch_services_1_1_f_build_statistics.html#afdaadffa11bfca463909b8874c855460", null ],
+    [ "GetDiskWrittenBytes", "dd/d64/class_build_patch_services_1_1_f_build_statistics.html#af08a09f44de897dd4295fdd80d31d0d4", null ],
+    [ "GetDownloadByteSpeed", "dd/d64/class_build_patch_services_1_1_f_build_statistics.html#a99f49ee6cb804d1c13f9a4c710d426f5", null ],
+    [ "GetDownloadedBytes", "dd/d64/class_build_patch_services_1_1_f_build_statistics.html#a8648018c8809d0de983675d08a01ef90", null ],
+    [ "GetDownloadSize", "dd/d64/class_build_patch_services_1_1_f_build_statistics.html#a1c7587463833f807269740acb5e5e30d", null ],
+    [ "GetFileOperationStates", "dd/d64/class_build_patch_services_1_1_f_build_statistics.html#a301ad974f92e5ce81eb59a261e25a644", null ],
+    [ "GetNumVerifyErrors", "dd/d64/class_build_patch_services_1_1_f_build_statistics.html#a233dafa585e393350baf0c7a66bc07d3", null ],
+    [ "GetVerifyErrorCounts", "dd/d64/class_build_patch_services_1_1_f_build_statistics.html#ad16bfb7645088b3c3966913afa757d2c", null ],
+    [ "IsDownloadActive", "dd/d64/class_build_patch_services_1_1_f_build_statistics.html#a0c7b59ae40e062d26c794fa672dd4887", null ],
+    [ "IsHardDiskActiveAdministering", "dd/d64/class_build_patch_services_1_1_f_build_statistics.html#aaffeb3c3aebec80fd341e087df9afc0f", null ],
+    [ "IsHardDiskActiveRead", "dd/d64/class_build_patch_services_1_1_f_build_statistics.html#a17366044c65428eeed7b74902cdb101f", null ],
+    [ "IsHardDiskActiveWrite", "dd/d64/class_build_patch_services_1_1_f_build_statistics.html#ab79b3484c898b672d18f4b78ec23b500", null ]
+];

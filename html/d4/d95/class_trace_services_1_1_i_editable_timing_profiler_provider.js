@@ -1,0 +1,28 @@
+var class_trace_services_1_1_i_editable_timing_profiler_provider =
+[
+    [ "~IEditableTimingProfilerProvider", "d4/d95/class_trace_services_1_1_i_editable_timing_profiler_provider.html#a71392c5876c75a572fd07647c1df29dc", null ],
+    [ "AddCpuTimer", "d4/d95/class_trace_services_1_1_i_editable_timing_profiler_provider.html#a1de37eb29910bcbb0a85c3896225a6a0", null ],
+    [ "AddGpuQueue", "d4/d95/class_trace_services_1_1_i_editable_timing_profiler_provider.html#a1f35eec0c7112759a93d2275cd10168a", null ],
+    [ "AddGpuSignalFence", "d4/d95/class_trace_services_1_1_i_editable_timing_profiler_provider.html#aafd03ad6c5d5187af8601bca66d72832", null ],
+    [ "AddGpuTimer", "d4/d95/class_trace_services_1_1_i_editable_timing_profiler_provider.html#a129e90f78e4796c53ace4183476cf205", null ],
+    [ "AddGpuWaitFence", "d4/d95/class_trace_services_1_1_i_editable_timing_profiler_provider.html#aed0cd677b9df394a355548e743fbf75b", null ],
+    [ "AddMetadata", "d4/d95/class_trace_services_1_1_i_editable_timing_profiler_provider.html#af2d81c01de8c26c1adc184977a9230ca", null ],
+    [ "AddMetadataSpec", "d4/d95/class_trace_services_1_1_i_editable_timing_profiler_provider.html#a82bd51d85772e7548db6edcd6eb42f6c", null ],
+    [ "AddTimer", "d4/d95/class_trace_services_1_1_i_editable_timing_profiler_provider.html#a0b5dab7216825a3ff1e63a9423284c3f", null ],
+    [ "AddTimer", "d4/d95/class_trace_services_1_1_i_editable_timing_profiler_provider.html#a590093740d09ea6501e89f0381e6e06a", null ],
+    [ "AddTimer", "d4/d95/class_trace_services_1_1_i_editable_timing_profiler_provider.html#a68835d6a85caedec1e183312c34421c4", null ],
+    [ "AddVerseTimer", "d4/d95/class_trace_services_1_1_i_editable_timing_profiler_provider.html#a09a266f36eaf86b2625d271361d50485", null ],
+    [ "GetCpuThreadEditableTimeline", "d4/d95/class_trace_services_1_1_i_editable_timing_profiler_provider.html#a22be60834f1816640e18eabf3c4faf3a", null ],
+    [ "GetEditableMetadata", "d4/d95/class_trace_services_1_1_i_editable_timing_profiler_provider.html#a03ecfdae46fda283298befb6c51ac64b", null ],
+    [ "GetGpuQueueEditableTimeline", "d4/d95/class_trace_services_1_1_i_editable_timing_profiler_provider.html#a5c77b20edaa98d7491f5a89d5bc86e6e", null ],
+    [ "GetGpuQueueWorkEditableTimeline", "d4/d95/class_trace_services_1_1_i_editable_timing_profiler_provider.html#acfbadc299eb52a9d3a1660dec1038971", null ],
+    [ "GetReadProvider", "d4/d95/class_trace_services_1_1_i_editable_timing_profiler_provider.html#af8b83fe5cdef3021bfb87aec71b80761", null ],
+    [ "GetVerseEditableTimeline", "d4/d95/class_trace_services_1_1_i_editable_timing_profiler_provider.html#ac552429c8782565a1248f6bb4477d688", null ],
+    [ "SetMetadata", "d4/d95/class_trace_services_1_1_i_editable_timing_profiler_provider.html#a4ef2e64be68a1f83b359d52cd62ce07b", null ],
+    [ "SetMetadata", "d4/d95/class_trace_services_1_1_i_editable_timing_profiler_provider.html#a7f1ac40a84eb891512ce75dcb0491cb8", null ],
+    [ "SetMetadataSpec", "d4/d95/class_trace_services_1_1_i_editable_timing_profiler_provider.html#a25076799f173af226cf42bd0ffb406d9", null ],
+    [ "SetRatioOfThreadsToUse", "d4/d95/class_trace_services_1_1_i_editable_timing_profiler_provider.html#ad8c001d71b9e0db6f985add5de0254dd", null ],
+    [ "SetTimerLocation", "d4/d95/class_trace_services_1_1_i_editable_timing_profiler_provider.html#a7a2d24010dd05c9fbf2be656577f2658", null ],
+    [ "SetTimerName", "d4/d95/class_trace_services_1_1_i_editable_timing_profiler_provider.html#a0747f74fc7d7822d3f8162ceb5a04bfa", null ],
+    [ "SetTimerNameAndLocation", "d4/d95/class_trace_services_1_1_i_editable_timing_profiler_provider.html#a66e95c825d32d305d9d4f4144bb3ac1b", null ]
+];

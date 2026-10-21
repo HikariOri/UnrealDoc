@@ -1,0 +1,484 @@
+<!-- HTML header for doxygen 1.15.0-->
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh">
+<head>
+  <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=11" />
+  <meta name="generator" content="Doxygen 1.15.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>UE 5.8.4: Engine/Source/Runtime/Apple/MetalRHI/Private/MetalDevice.h 源文件</title>
+  <link rel="icon" href="../../EdIconDefault.bmp" type="image/x-icon" />
+  <link href="../../tabs.css" rel="stylesheet" type="text/css" />
+  <script type="text/javascript" src="../../jquery.js"></script>
+  <script type="text/javascript" src="../../dynsections.js"></script>
+  <link href="../../navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../navtreedata.js"></script>
+<script type="text/javascript" src="../../navtree.js"></script>
+<script type="text/javascript" src="../../cookie.js"></script>
+  <link href="../../search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../search/searchdata.js"></script>
+<script type="text/javascript" src="../../search/search.js"></script>
+  <link href="../../doxygen.css" rel="stylesheet" type="text/css" />
+  <link href="../../doxygen-awesome.css" rel="stylesheet" type="text/css"/>
+<link href="../../doxygen-awesome-sidebar-only.css" rel="stylesheet" type="text/css"/>
+<link href="../../doxygen-awesome-sidebar-only-darkmode-toggle.css" rel="stylesheet" type="text/css"/>
+  <!-- ... other metadata & script includes ... -->
+  <script type="text/javascript" src="../../doxygen-awesome-darkmode-toggle.js"></script>
+  <script type="text/javascript">
+    DoxygenAwesomeDarkModeToggle.title = "Zwischen hellem/dunklem Modus wechseln"
+    DoxygenAwesomeDarkModeToggle.lightModeIcon = '🌞'
+    // icon from https://fonts.google.com/icons
+    DoxygenAwesomeDarkModeToggle.darkModeIcon = `<svg xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 24 24" height="24px" viewBox="0 0 24 24" width="24px" fill="#009793"><g><rect fill="none" height="24" width="24"/></g><g><g><path d="M8.1,14.15C9.77,14.63,11,16.17,11,18c0,0.68-0.19,1.31-0.48,1.87c0.48,0.09,0.97,0.14,1.48,0.14 c1.48,0,2.9-0.41,4.13-1.15c-2.62-0.92-5.23-2.82-6.8-5.86C7.74,9.94,7.78,7.09,8.29,4.9c-2.57,1.33-4.3,4.01-4.3,7.1c0,0,0,0,0,0 c0.01,0,0.01,0,0.02,0C5.66,12,7.18,12.83,8.1,14.15z" opacity=".3"/><path d="M19.78,17.51c-2.47,0-6.57-1.33-8.68-5.43C8.77,7.57,10.6,3.6,11.63,2.01C6.27,2.2,1.98,6.59,1.98,12 c0,0.14,0.02,0.28,0.02,0.42C2.61,12.16,3.28,12,3.98,12c0,0,0,0,0,0c0-3.09,1.73-5.77,4.3-7.1C7.78,7.09,7.74,9.94,9.32,13 c1.57,3.04,4.18,4.95,6.8,5.86c-1.23,0.74-2.65,1.15-4.13,1.15c-0.5,0-1-0.05-1.48-0.14c-0.37,0.7-0.94,1.27-1.64,1.64 c0.98,0.32,2.03,0.5,3.11,0.5c3.5,0,6.58-1.8,8.37-4.52C20.18,17.5,19.98,17.51,19.78,17.51z"/><path d="M7,16l-0.18,0C6.4,14.84,5.3,14,4,14c-1.66,0-3,1.34-3,3s1.34,3,3,3c0.62,0,2.49,0,3,0c1.1,0,2-0.9,2-2 C9,16.9,8.1,16,7,16z"/></g></g></svg>`
+    DoxygenAwesomeDarkModeToggle.init()
+  </script>
+  <script type="text/javascript" src="../../doxygen-awesome-fragment-copy-button.js"></script>
+  <script type="text/javascript">
+    DoxygenAwesomeFragmentCopyButton.title = "In die Zwischenablage kopieren"
+    // DoxygenAwesomeFragmentCopyButton.copyIcon = `<svg ...>`
+    // DoxygenAwesomeFragmentCopyButton.successIcon = `<svg ...>`
+    DoxygenAwesomeFragmentCopyButton.init()
+  </script>
+  <script type="text/javascript" src="../../doxygen-awesome-paragraph-link.js"></script>
+  <script type="text/javascript">
+    DoxygenAwesomeParagraphLink.title = "Abschnitt verknüpfen"
+    DoxygenAwesomeParagraphLink.icon = "¶"
+    DoxygenAwesomeParagraphLink.init()
+  </script>
+  <script type="text/javascript" src="../../doxygen-awesome-interactive-toc.js"></script>
+  <script type="text/javascript">
+    DoxygenAwesomeInteractiveToc.topOffset = 45
+    DoxygenAwesomeInteractiveToc.hideMobileMenu = false
+    DoxygenAwesomeInteractiveToc.init()
+  </script>
+</head>
+<body>
+    <div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+      <div id="titlearea">
+        <table cellspacing="0" cellpadding="0">
+          <tbody>
+            <tr id="projectrow">
+              <td id="projectlogo"><img alt="Logo" src="../../EdIconDefault.bmp"  /></td>
+              <td id="projectalign">
+                <div id="projectname">UE 5.8.4
+                </div>
+                <div id="projectbrief">Unreal Engine</div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <!-- end header part -->
+<!-- 制作者 Doxygen 1.15.0 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "../../search/",'.html');
+</script>
+<script type="text/javascript">
+$(function() { codefold.init(); });
+</script>
+<script type="text/javascript" src="../../menudata.js"></script>
+<script type="text/javascript" src="../../menu.js"></script>
+<script type="text/javascript">
+$(function() {
+  initMenu('../../',true,false,'search.php','搜索',true);
+  $(function() { init_search(); });
+});
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(function(){initNavTree('da/d37/_metal_device_8h_source.html','../../',''); });
+</script>
+<div id="container">
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">载入中...</div>
+<div class="SRStatus" id="Searching">搜索中...</div>
+<div class="SRStatus" id="NoMatches">未找到</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">MetalDevice.h</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="../../da/d37/_metal_device_8h.html">浏览该文件的文档.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="comment">// Copyright Epic Games, Inc. All Rights Reserved.</span></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span> </div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span> </div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#pragma once</span></div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span> </div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="preprocessor">#include &quot;<a class="code" href="../../d6/dbc/_metal_viewport_8h.html">MetalViewport.h</a>&quot;</span></div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="preprocessor">#include &quot;<a class="code" href="../../d2/d8b/_metal_command_queue_8h.html">MetalCommandQueue.h</a>&quot;</span></div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="preprocessor">#include &quot;<a class="code" href="../../d5/dcd/_metal_buffer_8h.html">MetalBuffer.h</a>&quot;</span></div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="preprocessor">#include &quot;<a class="code" href="../../d9/dce/_metal_capture_manager_8h.html">MetalCaptureManager.h</a>&quot;</span></div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="preprocessor">#include &quot;<a class="code" href="../../d2/d95/_metal_temp_allocator_8h.html">MetalTempAllocator.h</a>&quot;</span></div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="preprocessor">#include &quot;<a class="code" href="../../d9/dad/_metal_state_cache_8h.html">MetalStateCache.h</a>&quot;</span></div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="preprocessor">#include &quot;<a class="code" href="../../d2/dcd/_metal_counter_sampler_8h.html">MetalCounterSampler.h</a>&quot;</span></div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span> </div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="preprocessor">#if PLATFORM_IOS</span></div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span><span class="preprocessor">#include &quot;<a class="code" href="../../da/d50/_i_o_s_view_8h.html">IOS/IOSView.h</a>&quot;</span></div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span><span class="preprocessor">#endif</span></div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span><span class="preprocessor">#include &quot;<a class="code" href="../../d9/dcd/_lock_free_list_8h.html">Containers/LockFreeList.h</a>&quot;</span></div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span> </div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span><span class="comment">// Defines a unique command queue type within a Metal Device (owner by the command list managers).</span></div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span><span class="comment">// Currently only implements direct</span></div>
+<div class="foldopen" id="foldopen00021" data-start="{" data-end="};">
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno"><a class="line" href="../../da/d37/_metal_device_8h.html#a968d84b6613eb0b3fb8edeec7ad20771">   21</a></span><span class="keyword">enum class</span> <a class="code hl_enumeration" href="../../da/d37/_metal_device_8h.html#a968d84b6613eb0b3fb8edeec7ad20771">EMetalQueueType</a></div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>{</div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno"><a class="line" href="../../da/d37/_metal_device_8h.html#a968d84b6613eb0b3fb8edeec7ad20771afd1dd0c603be8170f9eae0be9f2f6afb">   23</a></span>    <a class="code hl_enumvalue" href="../../da/d37/_metal_device_8h.html#a968d84b6613eb0b3fb8edeec7ad20771afd1dd0c603be8170f9eae0be9f2f6afb">Direct</a> = 0,</div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno"><a class="line" href="../../da/d37/_metal_device_8h.html#a968d84b6613eb0b3fb8edeec7ad20771ae93f994f01c537c4e2f7d8528c3eb5e9">   24</a></span>    <a class="code hl_enumvalue" href="../../da/d37/_metal_device_8h.html#a968d84b6613eb0b3fb8edeec7ad20771ae93f994f01c537c4e2f7d8528c3eb5e9">Count</a>,</div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>};</div>
+</div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span></div>
+<div class="foldopen" id="foldopen00031" data-start="{" data-end="}">
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno"><a class="line" href="../../da/d37/_metal_device_8h.html#a047ecfce5fd98e976d8695f8f69c62ca">   31</a></span><span class="keyword">typedef</span> <a class="code hl_function" href="../../da/d37/_metal_device_8h.html#a047ecfce5fd98e976d8695f8f69c62ca">NS_OPTIONS</a>(<a class="code hl_typedef" href="../../dd/de9/preprocessor_8c.html#a1134b580f8da4de94ca6b1de4d37975e">uint32</a>, EMetalFeatures)</div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>{</div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>    EMetalFeaturesCountingQueries = 1 &lt;&lt; 1,</div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>    EMetalFeaturesBaseVertexInstance = 1 &lt;&lt; 2,</div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>    EMetalFeaturesIndirectBuffer = 1 &lt;&lt; 3,</div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>    EMetalFeaturesLayeredRendering = 1 &lt;&lt; 4,</div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>    EMetalFeaturesValidation = 1 &lt;&lt; 5,</div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>    EMetalFeaturesHeaps = 1 &lt;&lt; 6,</div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>    EMetalFeaturesFences = 1 &lt;&lt; 7,</div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>    EMetalFeaturesMSAADepthResolve = 1 &lt;&lt; 8,</div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>    EMetalFeaturesMSAAStoreAndResolve = 1 &lt;&lt; 9,</div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>    EMetalFeaturesCubemapArrays = 1 &lt;&lt; 10,</div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>    EMetalFeaturesMultipleViewports = 1 &lt;&lt; 11,</div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>    EMetalFeaturesPresentMinDuration = 1 &lt;&lt; 12,</div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>    EMetalFeaturesEfficientBufferBlits = 1 &lt;&lt; 13,</div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>    EMetalFeaturesBufferSubAllocation = 1 &lt;&lt; 14,</div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>    EMetalFeaturesPrivateBufferSubAllocation = 1 &lt;&lt; 15,</div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>    EMetalFeaturesTileShaders = 1 &lt;&lt; 16,</div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span>    EMetalFeaturesStageCounterSampling = 1 &lt;&lt; 17,</div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>    EMetalFeaturesBoundaryCounterSampling = 1 &lt;&lt; 18,</div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>    EMetalFeaturesRayTracing = 1 &lt;&lt; 19,</div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>};</div>
+</div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span></div>
+<div class="foldopen" id="foldopen00076" data-start="{" data-end="};">
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno"><a class="line" href="../../da/d37/_metal_device_8h.html#a7ccf094d892275866d0548056bf5b856">   76</a></span><span class="keyword">enum</span> <a class="code hl_enumeration" href="../../da/d37/_metal_device_8h.html#a7ccf094d892275866d0548056bf5b856">EMetalDebugLevel</a></div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span>{</div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno"><a class="line" href="../../da/d37/_metal_device_8h.html#a7ccf094d892275866d0548056bf5b856a5dd0c8621386de177afad229b4a27797">   78</a></span>    <a class="code hl_enumvalue" href="../../da/d37/_metal_device_8h.html#a7ccf094d892275866d0548056bf5b856a5dd0c8621386de177afad229b4a27797">EMetalDebugLevelOff</a>,</div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno"><a class="line" href="../../da/d37/_metal_device_8h.html#a7ccf094d892275866d0548056bf5b856a72656a83855bf2e72a5418984fa2e3d1">   79</a></span>    <a class="code hl_enumvalue" href="../../da/d37/_metal_device_8h.html#a7ccf094d892275866d0548056bf5b856a72656a83855bf2e72a5418984fa2e3d1">EMetalDebugLevelFastValidation</a>,</div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno"><a class="line" href="../../da/d37/_metal_device_8h.html#a7ccf094d892275866d0548056bf5b856a1c9b4479f7a062fa5884ed476e4e4b65">   80</a></span>    <a class="code hl_enumvalue" href="../../da/d37/_metal_device_8h.html#a7ccf094d892275866d0548056bf5b856a1c9b4479f7a062fa5884ed476e4e4b65">EMetalDebugLevelResetOnBind</a>,</div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno"><a class="line" href="../../da/d37/_metal_device_8h.html#a7ccf094d892275866d0548056bf5b856a91be786732a727cc8833db4aa52c2804">   81</a></span>    <a class="code hl_enumvalue" href="../../da/d37/_metal_device_8h.html#a7ccf094d892275866d0548056bf5b856a91be786732a727cc8833db4aa52c2804">EMetalDebugLevelConditionalSubmit</a>,</div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno"><a class="line" href="../../da/d37/_metal_device_8h.html#a7ccf094d892275866d0548056bf5b856ab4c58cb8f29029cd019c1a1262a5b1fa">   82</a></span>    <a class="code hl_enumvalue" href="../../da/d37/_metal_device_8h.html#a7ccf094d892275866d0548056bf5b856ab4c58cb8f29029cd019c1a1262a5b1fa">EMetalDebugLevelValidation</a>,</div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno"><a class="line" href="../../da/d37/_metal_device_8h.html#a7ccf094d892275866d0548056bf5b856a4d812a2c8e84a8992842c5d96955c767">   83</a></span>    <a class="code hl_enumvalue" href="../../da/d37/_metal_device_8h.html#a7ccf094d892275866d0548056bf5b856a4d812a2c8e84a8992842c5d96955c767">EMetalDebugLevelWaitForComplete</a>,</div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span>};</div>
+</div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span></div>
+<div class="foldopen" id="foldopen00089" data-start="{" data-end="};">
+<div class="line"><a id="l00089" name="l00089"></a><span class="lineno"><a class="line" href="../../da/d37/_metal_device_8h.html#a5ef5fa63ce2c14518498d2fef0bbb32b">   89</a></span><span class="keyword">enum class</span> <a class="code hl_enumeration" href="../../da/d37/_metal_device_8h.html#a5ef5fa63ce2c14518498d2fef0bbb32b">EMetalShaderValidationType</a></div>
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span>{</div>
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno"><a class="line" href="../../da/d37/_metal_device_8h.html#a5ef5fa63ce2c14518498d2fef0bbb32bab1c94ca2fbc3e78fc30069c8d0f01680">   91</a></span>    <a class="code hl_enumvalue" href="../../db/da0/_hair_strands_composition_8cpp.html#a01ae254fc9c19378956c218ed4e9c32da54991d225c58ce0af43461d4e9a82312">All</a>,</div>
+<div class="line"><a id="l00092" name="l00092"></a><span class="lineno"><a class="line" href="../../da/d37/_metal_device_8h.html#a5ef5fa63ce2c14518498d2fef0bbb32ba1e05f2bcc2c56958e999d712a4497378">   92</a></span>    <a class="code hl_enumvalue" href="../../da/d37/_metal_device_8h.html#a5ef5fa63ce2c14518498d2fef0bbb32ba1e05f2bcc2c56958e999d712a4497378">ComputeOnly</a>,</div>
+<div class="line"><a id="l00093" name="l00093"></a><span class="lineno"><a class="line" href="../../da/d37/_metal_device_8h.html#a5ef5fa63ce2c14518498d2fef0bbb32ba6da81b2a638517aa180374924d74584e">   93</a></span>    <a class="code hl_enumvalue" href="../../da/d37/_metal_device_8h.html#a5ef5fa63ce2c14518498d2fef0bbb32ba6da81b2a638517aa180374924d74584e">RenderPipelineOnly</a>,</div>
+<div class="line"><a id="l00094" name="l00094"></a><span class="lineno"><a class="line" href="../../da/d37/_metal_device_8h.html#a5ef5fa63ce2c14518498d2fef0bbb32ba1ee89161d6004f5426fb563bf7481144">   94</a></span>    <a class="code hl_enumvalue" href="../../da/d37/_metal_device_8h.html#a5ef5fa63ce2c14518498d2fef0bbb32ba1ee89161d6004f5426fb563bf7481144">ShaderName</a>,</div>
+<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span>};</div>
+</div>
+<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span> </div>
+<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span><span class="keyword">class </span>FMetalBindlessDescriptorManager;</div>
+<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span><span class="keyword">class </span>FMetalStaticSamplers;</div>
+<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span><span class="keyword">class </span>FMetalRayTracingCompactionRequestHandler;</div>
+<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span><span class="keyword">class </span>FMetalRayTracingPipelineCache;</div>
+<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span> </div>
+<div class="foldopen" id="foldopen00102" data-start="{" data-end="};">
+<div class="line"><a id="l00102" name="l00102"></a><span class="lineno"><a class="line" href="../../da/dac/class_f_metal_device.html">  102</a></span><span class="keyword">class </span>FMetalDevice</div>
+<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span>{</div>
+<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span>    <span class="keyword">static</span> FMetalDevice* <a class="code hl_function" href="../../da/dac/class_f_metal_device.html#a0bdf8b6f51919a7d8b9ceee05c8502ce">CreateDevice</a>();</div>
+<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span>    <span class="keyword">virtual</span> <a class="code hl_function" href="../../da/dac/class_f_metal_device.html#a6727eb36420ea42846e8f5f03c0e7f11">~FMetalDevice</a>();</div>
+<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span>    </div>
+<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="../../da/dac/class_f_metal_device.html#a0533cf6f9143572a92804017d7faec7d">PostInit</a>();</div>
+<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span>    </div>
+<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="../../da/dac/class_f_metal_device.html#a93d6c9fe4328406a5b86378b80ef2d4e">EnumerateFeatureSupport</a>();</div>
+<div class="line"><a id="l00111" name="l00111"></a><span class="lineno"><a class="line" href="../../da/dac/class_f_metal_device.html#afb1fb5e5ed3f967715395ccf2a889875">  111</a></span>    <span class="keyword">inline</span> <span class="keywordtype">bool</span> <a class="code hl_function" href="../../da/dac/class_f_metal_device.html#afb1fb5e5ed3f967715395ccf2a889875">SupportsFeature</a>(EMetalFeatures InFeature) { <span class="keywordflow">return</span> ((Features &amp; InFeature) != 0); }</div>
+<div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span>    </div>
+<div class="line"><a id="l00113" name="l00113"></a><span class="lineno"><a class="line" href="../../da/dac/class_f_metal_device.html#a5fc0748baf9a881697bee6b084ac996e">  113</a></span>    <span class="keyword">inline</span> <a class="code hl_class" href="../../d4/d9b/class_f_metal_resource_heap.html">FMetalResourceHeap</a>&amp; <a class="code hl_function" href="../../da/dac/class_f_metal_device.html#a5fc0748baf9a881697bee6b084ac996e">GetResourceHeap</a>(<span class="keywordtype">void</span>) { <span class="keywordflow">return</span> Heap; }</div>
+<div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span>    </div>
+<div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="../../da/dac/class_f_metal_device.html#a13aa5649554a466c0025c397ad70bbeb">EndDrawingViewport</a>(<span class="keyword">const</span> <a class="code hl_struct" href="../../d2/da5/struct_f_r_h_i_present_args.html">FRHIPresentArgs</a>&amp; InPresentArgs);</div>
+<div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span>    </div>
+<div class="line"><a id="l00117" name="l00117"></a><span class="lineno">  117</span>    MTLTexturePtr <a class="code hl_function" href="../../da/dac/class_f_metal_device.html#a369c78b1cc62a6e7d2a7788192eaebc6">CreateTexture</a>(<a class="code hl_class" href="../../d3/d3c/class_f_metal_surface.html">FMetalSurface</a>* <a class="code hl_enumvalue" href="../../d0/ddb/_datasmith_definitions_8h.html#ab0654806868c1d23646523c3948890b1aaa0d528ba11ea1485d466dfe1ea40819">Surface</a>, MTL::TextureDescriptor* Descriptor);</div>
+<div class="line"><a id="l00118" name="l00118"></a><span class="lineno">  118</span>    <a class="code hl_typedef" href="../../d5/dcd/_metal_buffer_8h.html#a87117ee010b337fb94a99fb940115603">FMetalBufferPtr</a> <a class="code hl_function" href="../../da/dac/class_f_metal_device.html#a72545b554bc98752d2796331f0c7d849">CreatePooledBuffer</a>(<a class="code hl_struct" href="../../d4/d29/struct_f_metal_pooled_buffer_args.html">FMetalPooledBufferArgs</a> <span class="keyword">const</span>&amp; Args);</div>
+<div class="line"><a id="l00119" name="l00119"></a><span class="lineno">  119</span>    MTLEventPtr <a class="code hl_function" href="../../da/dac/class_f_metal_device.html#aeb6d165c41555f18e4bf39aac51daab6">CreateEvent</a>();</div>
+<div class="line"><a id="l00120" name="l00120"></a><span class="lineno">  120</span>    MTLSharedEventPtr <a class="code hl_function" href="../../da/dac/class_f_metal_device.html#a2c0d6f3d8235b4f468962e989252e724">CreateSharedEvent</a>();</div>
+<div class="line"><a id="l00121" name="l00121"></a><span class="lineno">  121</span>    </div>
+<div class="line"><a id="l00122" name="l00122"></a><span class="lineno">  122</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="../../da/dac/class_f_metal_device.html#ae47ceae93fbe92be398649ad91144644">DrainHeap</a>();</div>
+<div class="line"><a id="l00123" name="l00123"></a><span class="lineno">  123</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="../../da/dac/class_f_metal_device.html#a905e9f44dd98b274c3361d23f576081a">GarbageCollect</a>();</div>
+<div class="line"><a id="l00124" name="l00124"></a><span class="lineno">  124</span>    </div>
+<div class="foldopen" id="foldopen00125" data-start="{" data-end="}">
+<div class="line"><a id="l00125" name="l00125"></a><span class="lineno"><a class="line" href="../../da/dac/class_f_metal_device.html#ae06a1c2f24217181c98cf2ca41daf112">  125</a></span>    <a class="code hl_class" href="../../d5/d95/class_f_metal_temp_allocator.html">FMetalTempAllocator</a>* <a class="code hl_function" href="../../da/dac/class_f_metal_device.html#ae06a1c2f24217181c98cf2ca41daf112">GetTransferAllocator</a>()</div>
+<div class="line"><a id="l00126" name="l00126"></a><span class="lineno">  126</span>    {</div>
+<div class="line"><a id="l00127" name="l00127"></a><span class="lineno">  127</span>        <span class="keywordflow">return</span> TransferBufferAllocator;</div>
+<div class="line"><a id="l00128" name="l00128"></a><span class="lineno">  128</span>    }</div>
+</div>
+<div class="line"><a id="l00129" name="l00129"></a><span class="lineno">  129</span>    </div>
+<div class="foldopen" id="foldopen00130" data-start="{" data-end="}">
+<div class="line"><a id="l00130" name="l00130"></a><span class="lineno"><a class="line" href="../../da/dac/class_f_metal_device.html#a3d7b32d7d38f7a4aa664d47779733b2a">  130</a></span>    <a class="code hl_class" href="../../d5/d95/class_f_metal_temp_allocator.html">FMetalTempAllocator</a>* <a class="code hl_function" href="../../da/dac/class_f_metal_device.html#a3d7b32d7d38f7a4aa664d47779733b2a">GetUniformAllocator</a>()</div>
+<div class="line"><a id="l00131" name="l00131"></a><span class="lineno">  131</span>    {</div>
+<div class="line"><a id="l00132" name="l00132"></a><span class="lineno">  132</span>        <span class="keywordflow">return</span> UniformBufferAllocator;</div>
+<div class="line"><a id="l00133" name="l00133"></a><span class="lineno">  133</span>    }</div>
+</div>
+<div class="line"><a id="l00134" name="l00134"></a><span class="lineno">  134</span>    </div>
+<div class="foldopen" id="foldopen00135" data-start="{" data-end="}">
+<div class="line"><a id="l00135" name="l00135"></a><span class="lineno"><a class="line" href="../../da/dac/class_f_metal_device.html#a27fa20cfff7abf8152e140f3cd7211ab">  135</a></span>    <a class="code hl_typedef" href="../../dd/de9/preprocessor_8c.html#a1134b580f8da4de94ca6b1de4d37975e">uint32</a> <a class="code hl_function" href="../../da/dac/class_f_metal_device.html#a27fa20cfff7abf8152e140f3cd7211ab">GetFrameNumberRHIThread</a>()</div>
+<div class="line"><a id="l00136" name="l00136"></a><span class="lineno">  136</span>    {</div>
+<div class="line"><a id="l00137" name="l00137"></a><span class="lineno">  137</span>        <span class="keywordflow">return</span> FrameNumberRHIThread;</div>
+<div class="line"><a id="l00138" name="l00138"></a><span class="lineno">  138</span>    }</div>
+</div>
+<div class="line"><a id="l00139" name="l00139"></a><span class="lineno">  139</span>    </div>
+<div class="foldopen" id="foldopen00140" data-start="{" data-end="}">
+<div class="line"><a id="l00140" name="l00140"></a><span class="lineno"><a class="line" href="../../da/dac/class_f_metal_device.html#a6203b3e9745d9815e84f1ecb5ce9c1bf">  140</a></span>    <a class="code hl_class" href="../../d8/d24/class_f_metal_command_queue.html">FMetalCommandQueue</a>&amp; <a class="code hl_function" href="../../da/dac/class_f_metal_device.html#a6203b3e9745d9815e84f1ecb5ce9c1bf">GetCommandQueue</a>(<a class="code hl_enumeration" href="../../da/d37/_metal_device_8h.html#a968d84b6613eb0b3fb8edeec7ad20771">EMetalQueueType</a> QueueType)</div>
+<div class="line"><a id="l00141" name="l00141"></a><span class="lineno">  141</span>    {</div>
+<div class="line"><a id="l00142" name="l00142"></a><span class="lineno">  142</span>        <a class="code hl_define" href="../../d4/d75/_assertion_macros_8h.html#a586e110623cde145b8a5bdefb429e144">check</a>(QueueType &lt; <a class="code hl_enumvalue" href="../../da/d37/_metal_device_8h.html#a968d84b6613eb0b3fb8edeec7ad20771ae93f994f01c537c4e2f7d8528c3eb5e9">EMetalQueueType::Count</a>);</div>
+<div class="line"><a id="l00143" name="l00143"></a><span class="lineno">  143</span>        <span class="keywordflow">return</span> *CommandQueues[(uint32_t)QueueType];</div>
+<div class="line"><a id="l00144" name="l00144"></a><span class="lineno">  144</span>    }</div>
+</div>
+<div class="line"><a id="l00145" name="l00145"></a><span class="lineno">  145</span>    </div>
+<div class="line"><a id="l00146" name="l00146"></a><span class="lineno">  146</span><span class="preprocessor">#if PLATFORM_SUPPORTS_BINDLESS_RENDERING</span></div>
+<div class="line"><a id="l00147" name="l00147"></a><span class="lineno">  147</span>    FMetalBindlessDescriptorManager* GetBindlessDescriptorManager()</div>
+<div class="line"><a id="l00148" name="l00148"></a><span class="lineno">  148</span>    {</div>
+<div class="line"><a id="l00149" name="l00149"></a><span class="lineno">  149</span>        <span class="keywordflow">return</span> BindlessDescriptorManager;</div>
+<div class="line"><a id="l00150" name="l00150"></a><span class="lineno">  150</span>    }</div>
+<div class="line"><a id="l00151" name="l00151"></a><span class="lineno">  151</span>    </div>
+<div class="line"><a id="l00152" name="l00152"></a><span class="lineno">  152</span>    FMetalStaticSamplers* GetStaticSamplers()</div>
+<div class="line"><a id="l00153" name="l00153"></a><span class="lineno">  153</span>    {</div>
+<div class="line"><a id="l00154" name="l00154"></a><span class="lineno">  154</span>        <span class="keywordflow">return</span> StaticSamplers;</div>
+<div class="line"><a id="l00155" name="l00155"></a><span class="lineno">  155</span>    }</div>
+<div class="line"><a id="l00156" name="l00156"></a><span class="lineno">  156</span><span class="preprocessor">#endif</span></div>
+<div class="line"><a id="l00157" name="l00157"></a><span class="lineno">  157</span>    </div>
+<div class="line"><a id="l00158" name="l00158"></a><span class="lineno">  158</span><span class="preprocessor">#if METAL_DEBUG_OPTIONS</span></div>
+<div class="line"><a id="l00159" name="l00159"></a><span class="lineno">  159</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="../../da/dac/class_f_metal_device.html#a0d09736ab1cb4dfac0668787fb52028e">AddActiveBuffer</a>(MTL::Buffer* <a class="code hl_enumvalue" href="../../d5/db6/_pixel_format_8h.html#a1ccf6fb7a1e0dcfacee1fa2b02a70b53a7e62bc342f41c946868f0ea6f0b712d8">Buffer</a>, <span class="keyword">const</span> NS::Range&amp; Range);</div>
+<div class="line"><a id="l00160" name="l00160"></a><span class="lineno">  160</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="../../da/dac/class_f_metal_device.html#a53e0c1184dfcc7d8aef5ec0a5005a5fb">RemoveActiveBuffer</a>(MTL::Buffer* <a class="code hl_enumvalue" href="../../d5/db6/_pixel_format_8h.html#a1ccf6fb7a1e0dcfacee1fa2b02a70b53a7e62bc342f41c946868f0ea6f0b712d8">Buffer</a>, <span class="keyword">const</span> NS::Range&amp; Range);</div>
+<div class="line"><a id="l00161" name="l00161"></a><span class="lineno">  161</span>    <span class="keywordtype">bool</span> <a class="code hl_function" href="../../da/dac/class_f_metal_device.html#a374255d99aec8a01ba17e99a05dbfd8c">ValidateIsInactiveBuffer</a>(MTL::Buffer* <a class="code hl_enumvalue" href="../../d5/db6/_pixel_format_8h.html#a1ccf6fb7a1e0dcfacee1fa2b02a70b53a7e62bc342f41c946868f0ea6f0b712d8">Buffer</a>, <span class="keyword">const</span> NS::Range&amp; Range);</div>
+<div class="line"><a id="l00162" name="l00162"></a><span class="lineno">  162</span><span class="preprocessor">#endif</span></div>
+<div class="line"><a id="l00163" name="l00163"></a><span class="lineno">  163</span>    </div>
+<div class="foldopen" id="foldopen00164" data-start="{" data-end="}">
+<div class="line"><a id="l00164" name="l00164"></a><span class="lineno"><a class="line" href="../../da/dac/class_f_metal_device.html#a574bb6cc6292a2b9d9edeb81c353956b">  164</a></span>    MTL::Device* <a class="code hl_function" href="../../da/dac/class_f_metal_device.html#a574bb6cc6292a2b9d9edeb81c353956b">GetDevice</a>()</div>
+<div class="line"><a id="l00165" name="l00165"></a><span class="lineno">  165</span>    {</div>
+<div class="line"><a id="l00166" name="l00166"></a><span class="lineno">  166</span>        <span class="keywordflow">return</span> Device;</div>
+<div class="line"><a id="l00167" name="l00167"></a><span class="lineno">  167</span>    }</div>
+</div>
+<div class="line"><a id="l00168" name="l00168"></a><span class="lineno">  168</span>    </div>
+<div class="foldopen" id="foldopen00169" data-start="{" data-end="}">
+<div class="line"><a id="l00169" name="l00169"></a><span class="lineno"><a class="line" href="../../da/dac/class_f_metal_device.html#a0692760145d0cbf664a7bfa0a23fbf54">  169</a></span>    <span class="keyword">inline</span> <a class="code hl_typedef" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a8dbb3cd84ca9fd010dadfc3815eefa5d">int32</a> <a class="code hl_function" href="../../da/dac/class_f_metal_device.html#a0692760145d0cbf664a7bfa0a23fbf54">GetRuntimeDebuggingLevel</a>(<span class="keywordtype">void</span>)<span class="keyword"> const</span></div>
+<div class="line"><a id="l00170" name="l00170"></a><span class="lineno">  170</span><span class="keyword">    </span>{</div>
+<div class="line"><a id="l00171" name="l00171"></a><span class="lineno">  171</span>        <span class="keywordflow">return</span> RuntimeDebuggingLevel;</div>
+<div class="line"><a id="l00172" name="l00172"></a><span class="lineno">  172</span>    }</div>
+</div>
+<div class="line"><a id="l00173" name="l00173"></a><span class="lineno">  173</span>    </div>
+<div class="foldopen" id="foldopen00174" data-start="{" data-end="}">
+<div class="line"><a id="l00174" name="l00174"></a><span class="lineno"><a class="line" href="../../da/dac/class_f_metal_device.html#af511d7c609e92918df32eaa8d541a2c4">  174</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="../../da/dac/class_f_metal_device.html#af511d7c609e92918df32eaa8d541a2c4">IncrementFrameRHIThread</a>()</div>
+<div class="line"><a id="l00175" name="l00175"></a><span class="lineno">  175</span>    {</div>
+<div class="line"><a id="l00176" name="l00176"></a><span class="lineno">  176</span>        FrameNumberRHIThread++;</div>
+<div class="line"><a id="l00177" name="l00177"></a><span class="lineno">  177</span>    }</div>
+</div>
+<div class="line"><a id="l00178" name="l00178"></a><span class="lineno">  178</span>    </div>
+<div class="foldopen" id="foldopen00179" data-start="{" data-end="}">
+<div class="line"><a id="l00179" name="l00179"></a><span class="lineno"><a class="line" href="../../da/dac/class_f_metal_device.html#ac4cad460b6e81107c45f41763cee8f26">  179</a></span>    dispatch_semaphore_t&amp; <a class="code hl_function" href="../../da/dac/class_f_metal_device.html#ac4cad460b6e81107c45f41763cee8f26">GetFrameSemaphore</a>()</div>
+<div class="line"><a id="l00180" name="l00180"></a><span class="lineno">  180</span>    {</div>
+<div class="line"><a id="l00181" name="l00181"></a><span class="lineno">  181</span>        <span class="keywordflow">return</span> FrameSemaphore;</div>
+<div class="line"><a id="l00182" name="l00182"></a><span class="lineno">  182</span>    }</div>
+</div>
+<div class="line"><a id="l00183" name="l00183"></a><span class="lineno">  183</span>    </div>
+<div class="foldopen" id="foldopen00184" data-start="{" data-end="}">
+<div class="line"><a id="l00184" name="l00184"></a><span class="lineno"><a class="line" href="../../da/dac/class_f_metal_device.html#aa350fef8986292afb7204a99bb6b6e0c">  184</a></span>    <a class="code hl_class" href="../../dc/d32/class_f_metal_counter_sampler.html">FMetalCounterSampler</a>* <a class="code hl_function" href="../../da/dac/class_f_metal_device.html#aa350fef8986292afb7204a99bb6b6e0c">GetCounterSampler</a>()</div>
+<div class="line"><a id="l00185" name="l00185"></a><span class="lineno">  185</span>    {</div>
+<div class="line"><a id="l00186" name="l00186"></a><span class="lineno">  186</span>        <span class="keywordflow">return</span> CounterSampler;</div>
+<div class="line"><a id="l00187" name="l00187"></a><span class="lineno">  187</span>    }</div>
+</div>
+<div class="line"><a id="l00188" name="l00188"></a><span class="lineno">  188</span>    </div>
+<div class="foldopen" id="foldopen00189" data-start="{" data-end="}">
+<div class="line"><a id="l00189" name="l00189"></a><span class="lineno"><a class="line" href="../../da/dac/class_f_metal_device.html#a6781aa74c052081322a11b0767a036f5">  189</a></span>    <span class="keywordtype">bool</span> <a class="code hl_function" href="../../da/dac/class_f_metal_device.html#a6781aa74c052081322a11b0767a036f5">IsShaderValidationEnabled</a>()</div>
+<div class="line"><a id="l00190" name="l00190"></a><span class="lineno">  190</span>    {</div>
+<div class="line"><a id="l00191" name="l00191"></a><span class="lineno">  191</span>        <span class="keywordflow">return</span> bShaderValidationEnabled;</div>
+<div class="line"><a id="l00192" name="l00192"></a><span class="lineno">  192</span>    }</div>
+</div>
+<div class="line"><a id="l00193" name="l00193"></a><span class="lineno">  193</span>    </div>
+<div class="foldopen" id="foldopen00194" data-start="{" data-end="}">
+<div class="line"><a id="l00194" name="l00194"></a><span class="lineno"><a class="line" href="../../da/dac/class_f_metal_device.html#a62eb1580d618035ffe3eba5b54c95b71">  194</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="../../da/dac/class_f_metal_device.html#a62eb1580d618035ffe3eba5b54c95b71">ForceHeapSupport</a>()</div>
+<div class="line"><a id="l00195" name="l00195"></a><span class="lineno">  195</span>    {</div>
+<div class="line"><a id="l00196" name="l00196"></a><span class="lineno">  196</span>        Features |= EMetalFeaturesHeaps;</div>
+<div class="line"><a id="l00197" name="l00197"></a><span class="lineno">  197</span>    }</div>
+</div>
+<div class="line"><a id="l00198" name="l00198"></a><span class="lineno">  198</span><span class="keyword">private</span>:</div>
+<div class="line"><a id="l00199" name="l00199"></a><span class="lineno">  199</span>    <a class="code hl_class" href="../../da/dac/class_f_metal_device.html">FMetalDevice</a>(MTL::Device* MetalDevices);</div>
+<div class="line"><a id="l00200" name="l00200"></a><span class="lineno">  200</span>    </div>
+<div class="line"><a id="l00201" name="l00201"></a><span class="lineno">  201</span>    <span class="keywordtype">void</span> FlushFreeList(<span class="keywordtype">bool</span> <span class="keyword">const</span> bFlushFences = <span class="keyword">true</span>);</div>
+<div class="line"><a id="l00202" name="l00202"></a><span class="lineno">  202</span>    </div>
+<div class="line"><a id="l00203" name="l00203"></a><span class="lineno">  203</span><span class="keyword">private</span>:</div>
+<div class="line"><a id="l00204" name="l00204"></a><span class="lineno">  204</span>    MTL::Device* Device;</div>
+<div class="line"><a id="l00205" name="l00205"></a><span class="lineno">  205</span>    </div>
+<div class="line"><a id="l00206" name="l00206"></a><span class="lineno">  206</span>    <a class="code hl_class" href="../../d6/db1/class_t_array.html">TArray</a>&lt;<a class="code hl_class" href="../../d8/d24/class_f_metal_command_queue.html">FMetalCommandQueue</a>*, <a class="code hl_typedef" href="../../dc/d3d/_container_allocation_policies_8h.html#a955ebaff17aade3efe4ecd32109bedea">TInlineAllocator</a>&lt;(<a class="code hl_typedef" href="../../dd/de9/preprocessor_8c.html#a1134b580f8da4de94ca6b1de4d37975e">uint32</a>)<a class="code hl_enumvalue" href="../../da/d37/_metal_device_8h.html#a968d84b6613eb0b3fb8edeec7ad20771ae93f994f01c537c4e2f7d8528c3eb5e9">EMetalQueueType::Count</a>&gt;&gt; CommandQueues;</div>
+<div class="line"><a id="l00207" name="l00207"></a><span class="lineno">  207</span>    </div>
+<div class="line"><a id="l00209" name="l00209"></a><span class="lineno">  209</span>    dispatch_semaphore_t FrameSemaphore;</div>
+<div class="line"><a id="l00210" name="l00210"></a><span class="lineno">  210</span>    </div>
+<div class="line"><a id="l00212" name="l00212"></a><span class="lineno">  212</span>    <a class="code hl_class" href="../../d4/d9b/class_f_metal_resource_heap.html">FMetalResourceHeap</a> Heap;</div>
+<div class="line"><a id="l00213" name="l00213"></a><span class="lineno">  213</span>    </div>
+<div class="line"><a id="l00215" name="l00215"></a><span class="lineno">  215</span>    <a class="code hl_class" href="../../d2/d72/class_f_metal_capture_manager.html">FMetalCaptureManager</a>* CaptureManager;</div>
+<div class="line"><a id="l00216" name="l00216"></a><span class="lineno">  216</span>    </div>
+<div class="line"><a id="l00217" name="l00217"></a><span class="lineno">  217</span>    <a class="code hl_class" href="../../d5/d95/class_f_metal_temp_allocator.html">FMetalTempAllocator</a>* UniformBufferAllocator;</div>
+<div class="line"><a id="l00218" name="l00218"></a><span class="lineno">  218</span>    <a class="code hl_class" href="../../d5/d95/class_f_metal_temp_allocator.html">FMetalTempAllocator</a>* TransferBufferAllocator;</div>
+<div class="line"><a id="l00219" name="l00219"></a><span class="lineno">  219</span>    </div>
+<div class="line"><a id="l00220" name="l00220"></a><span class="lineno">  220</span><span class="preprocessor">#if METAL_DEBUG_OPTIONS</span><span class="preprocessor"></span></div>
+<div class="line"><a id="l00222" name="l00222"></a><span class="lineno">  222</span>    <a class="code hl_class" href="../../d6/db1/class_t_array.html">TArray&lt;FMetalFence*&gt;</a> FrameFences;</div>
+<div class="line"><a id="l00223" name="l00223"></a><span class="lineno">  223</span>    </div>
+<div class="line"><a id="l00224" name="l00224"></a><span class="lineno">  224</span>    <a class="code hl_typedef" href="../../df/d05/_critical_section_8h.html#a3493a225a68d4748d7b1c85e8ae9d0b5">FCriticalSection</a> ActiveBuffersMutex;</div>
+<div class="line"><a id="l00225" name="l00225"></a><span class="lineno">  225</span>    </div>
+<div class="line"><a id="l00227" name="l00227"></a><span class="lineno">  227</span>    <a class="code hl_class" href="../../da/d41/class_t_map.html">TMap&lt;MTL::Buffer*, TArray&lt;NS::Range&gt;</a>&gt; ActiveBuffers;</div>
+<div class="line"><a id="l00228" name="l00228"></a><span class="lineno">  228</span><span class="preprocessor">#endif</span></div>
+<div class="line"><a id="l00229" name="l00229"></a><span class="lineno">  229</span>    </div>
+<div class="line"><a id="l00231" name="l00231"></a><span class="lineno">  231</span>    <a class="code hl_typedef" href="../../df/d05/_critical_section_8h.html#a3493a225a68d4748d7b1c85e8ae9d0b5">FCriticalSection</a> FreeListMutex;</div>
+<div class="line"><a id="l00232" name="l00232"></a><span class="lineno">  232</span>    </div>
+<div class="line"><a id="l00234" name="l00234"></a><span class="lineno">  234</span>    <a class="code hl_class" href="../../d5/d17/class_f_event.html">FEvent</a>* FrameReadyEvent;</div>
+<div class="line"><a id="l00235" name="l00235"></a><span class="lineno">  235</span>    </div>
+<div class="line"><a id="l00237" name="l00237"></a><span class="lineno">  237</span>    <a class="code hl_typedef" href="../../dd/de9/preprocessor_8c.html#a1134b580f8da4de94ca6b1de4d37975e">uint32</a> FrameCounter = 0;</div>
+<div class="line"><a id="l00238" name="l00238"></a><span class="lineno">  238</span>    </div>
+<div class="line"><a id="l00240" name="l00240"></a><span class="lineno">  240</span>    <a class="code hl_typedef" href="../../dd/de9/preprocessor_8c.html#abc0f5bc07737e498f287334775dff2b6">uint64</a> Features = 0;</div>
+<div class="line"><a id="l00241" name="l00241"></a><span class="lineno">  241</span>    </div>
+<div class="line"><a id="l00243" name="l00243"></a><span class="lineno">  243</span>    <a class="code hl_class" href="../../db/da9/class_f_metal_pipeline_state_cache_manager.html">FMetalPipelineStateCacheManager</a>* PSOManager;</div>
+<div class="line"><a id="l00244" name="l00244"></a><span class="lineno">  244</span></div>
+<div class="line"><a id="l00246" name="l00246"></a><span class="lineno">  246</span>    <a class="code hl_typedef" href="../../dd/de9/preprocessor_8c.html#a1134b580f8da4de94ca6b1de4d37975e">uint32</a> FrameNumberRHIThread = 0;</div>
+<div class="line"><a id="l00247" name="l00247"></a><span class="lineno">  247</span> </div>
+<div class="line"><a id="l00248" name="l00248"></a><span class="lineno">  248</span>    <a class="code hl_typedef" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a8dbb3cd84ca9fd010dadfc3815eefa5d">int32</a> RuntimeDebuggingLevel = 0;</div>
+<div class="line"><a id="l00249" name="l00249"></a><span class="lineno">  249</span>    </div>
+<div class="line"><a id="l00250" name="l00250"></a><span class="lineno">  250</span>    <a class="code hl_class" href="../../dc/d32/class_f_metal_counter_sampler.html">FMetalCounterSampler</a>* CounterSampler = <span class="keyword">nullptr</span>;</div>
+<div class="line"><a id="l00251" name="l00251"></a><span class="lineno">  251</span>    </div>
+<div class="line"><a id="l00252" name="l00252"></a><span class="lineno">  252</span>    <span class="keywordtype">bool</span> bShaderValidationEnabled = <span class="keyword">false</span>;</div>
+<div class="line"><a id="l00253" name="l00253"></a><span class="lineno">  253</span>    </div>
+<div class="line"><a id="l00254" name="l00254"></a><span class="lineno">  254</span><span class="preprocessor">#if PLATFORM_SUPPORTS_BINDLESS_RENDERING</span><span class="preprocessor"></span></div>
+<div class="line"><a id="l00256" name="l00256"></a><span class="lineno">  256</span>    FMetalBindlessDescriptorManager* BindlessDescriptorManager;</div>
+<div class="line"><a id="l00257" name="l00257"></a><span class="lineno">  257</span>    FMetalStaticSamplers* StaticSamplers;</div>
+<div class="line"><a id="l00258" name="l00258"></a><span class="lineno">  258</span><span class="preprocessor">#endif</span></div>
+<div class="line"><a id="l00259" name="l00259"></a><span class="lineno">  259</span> </div>
+<div class="line"><a id="l00260" name="l00260"></a><span class="lineno">  260</span><span class="preprocessor">#if METAL_RHI_RAYTRACING</span></div>
+<div class="line"><a id="l00261" name="l00261"></a><span class="lineno">  261</span>    FMetalRayTracingCompactionRequestHandler* RayTracingCompactionRequestHandler;</div>
+<div class="line"><a id="l00262" name="l00262"></a><span class="lineno">  262</span>    FMetalRayTracingPipelineCache* RayTracingPipelineCache;</div>
+<div class="line"><a id="l00263" name="l00263"></a><span class="lineno">  263</span>    </div>
+<div class="line"><a id="l00264" name="l00264"></a><span class="lineno">  264</span>    <span class="keywordtype">void</span> InitializeRayTracing();</div>
+<div class="line"><a id="l00265" name="l00265"></a><span class="lineno">  265</span>    <span class="keywordtype">void</span> CleanUpRayTracing();</div>
+<div class="line"><a id="l00266" name="l00266"></a><span class="lineno">  266</span>    </div>
+<div class="line"><a id="l00267" name="l00267"></a><span class="lineno">  267</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00268" name="l00268"></a><span class="lineno">  268</span>    <span class="keywordtype">void</span> UpdateRayTracing(<a class="code hl_class" href="../../d6/df9/class_f_metal_r_h_i_command_context.html">FMetalRHICommandContext</a>&amp; <a class="code hl_enumvalue" href="../../d2/d5b/_vulkan_submission_8h.html#aa4b3c8fa94b41c64030fd453ef8b865aaad4e206408c1c59bfb8a057ba7857446">Context</a>);</div>
+<div class="line"><a id="l00269" name="l00269"></a><span class="lineno">  269</span> </div>
+<div class="line"><a id="l00270" name="l00270"></a><span class="lineno">  270</span>    <span class="keyword">inline</span> FMetalRayTracingCompactionRequestHandler* GetRayTracingCompactionRequestHandler()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> RayTracingCompactionRequestHandler; }</div>
+<div class="line"><a id="l00271" name="l00271"></a><span class="lineno">  271</span>    <span class="keyword">inline</span> FMetalRayTracingPipelineCache* GetRayTracingPipelineCache()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> RayTracingPipelineCache; }</div>
+<div class="line"><a id="l00272" name="l00272"></a><span class="lineno">  272</span>    </div>
+<div class="line"><a id="l00273" name="l00273"></a><span class="lineno">  273</span>    <span class="comment">// Dummy Index buffer used when creating descriptors</span></div>
+<div class="line"><a id="l00274" name="l00274"></a><span class="lineno">  274</span>    <a class="code hl_typedef" href="../../d5/dcd/_metal_buffer_8h.html#a87117ee010b337fb94a99fb940115603">FMetalBufferPtr</a> DummyIndexBuffer;</div>
+<div class="line"><a id="l00275" name="l00275"></a><span class="lineno">  275</span><span class="preprocessor">#endif </span><span class="comment">// METAL_RHI_RAYTRACING</span></div>
+<div class="line"><a id="l00276" name="l00276"></a><span class="lineno">  276</span>};</div>
+</div>
+<div class="line"><a id="l00277" name="l00277"></a><span class="lineno">  277</span> </div>
+<div class="ttc" id="a_assertion_macros_8h_html_a586e110623cde145b8a5bdefb429e144"><div class="ttname"><a href="../../d4/d75/_assertion_macros_8h.html#a586e110623cde145b8a5bdefb429e144">check</a></div><div class="ttdeci">#define check(expr)</div><div class="ttdef"><b>定义</b> AssertionMacros.h:319</div></div>
+<div class="ttc" id="a_container_allocation_policies_8h_html_a955ebaff17aade3efe4ecd32109bedea"><div class="ttname"><a href="../../dc/d3d/_container_allocation_policies_8h.html#a955ebaff17aade3efe4ecd32109bedea">TInlineAllocator</a></div><div class="ttdeci">TSizedInlineAllocator&lt; NumInlineElements, 32, SecondaryAllocator &gt; TInlineAllocator</div><div class="ttdef"><b>定义</b> ContainerAllocationPolicies.h:1328</div></div>
+<div class="ttc" id="a_core_2_public_2_h_a_l_2_platform_8h_html_a8dbb3cd84ca9fd010dadfc3815eefa5d"><div class="ttname"><a href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a8dbb3cd84ca9fd010dadfc3815eefa5d">int32</a></div><div class="ttdeci">FPlatformTypes::int32 int32</div><div class="ttdoc">A 32-bit signed integer.</div><div class="ttdef"><b>定义</b> Platform.h:1190</div></div>
+<div class="ttc" id="a_critical_section_8h_html_a3493a225a68d4748d7b1c85e8ae9d0b5"><div class="ttname"><a href="../../df/d05/_critical_section_8h.html#a3493a225a68d4748d7b1c85e8ae9d0b5">FCriticalSection</a></div><div class="ttdeci">UE::FPlatformRecursiveMutex FCriticalSection</div><div class="ttdef"><b>定义</b> CriticalSection.h:53</div></div>
+<div class="ttc" id="a_datasmith_definitions_8h_html_ab0654806868c1d23646523c3948890b1aaa0d528ba11ea1485d466dfe1ea40819"><div class="ttname"><a href="../../d0/ddb/_datasmith_definitions_8h.html#ab0654806868c1d23646523c3948890b1aaa0d528ba11ea1485d466dfe1ea40819">EDatasmithShaderUsage::Surface</a></div><div class="ttdeci">@ Surface</div><div class="ttdef"><b>定义</b> DatasmithDefinitions.h:350</div></div>
+<div class="ttc" id="a_hair_strands_composition_8cpp_html_a01ae254fc9c19378956c218ed4e9c32da54991d225c58ce0af43461d4e9a82312"><div class="ttname"><a href="../../db/da0/_hair_strands_composition_8cpp.html#a01ae254fc9c19378956c218ed4e9c32da54991d225c58ce0af43461d4e9a82312">All</a></div><div class="ttdeci">@ All</div><div class="ttdef"><b>定义</b> HairStrandsComposition.cpp:54</div></div>
+<div class="ttc" id="a_i_o_s_view_8h_html"><div class="ttname"><a href="../../da/d50/_i_o_s_view_8h.html">IOSView.h</a></div></div>
+<div class="ttc" id="a_lock_free_list_8h_html"><div class="ttname"><a href="../../d9/dcd/_lock_free_list_8h.html">LockFreeList.h</a></div></div>
+<div class="ttc" id="a_metal_buffer_8h_html"><div class="ttname"><a href="../../d5/dcd/_metal_buffer_8h.html">MetalBuffer.h</a></div></div>
+<div class="ttc" id="a_metal_buffer_8h_html_a87117ee010b337fb94a99fb940115603"><div class="ttname"><a href="../../d5/dcd/_metal_buffer_8h.html#a87117ee010b337fb94a99fb940115603">FMetalBufferPtr</a></div><div class="ttdeci">TSharedPtr&lt; FMetalBuffer, ESPMode::ThreadSafe &gt; FMetalBufferPtr</div><div class="ttdef"><b>定义</b> MetalBuffer.h:14</div></div>
+<div class="ttc" id="a_metal_capture_manager_8h_html"><div class="ttname"><a href="../../d9/dce/_metal_capture_manager_8h.html">MetalCaptureManager.h</a></div></div>
+<div class="ttc" id="a_metal_command_queue_8h_html"><div class="ttname"><a href="../../d2/d8b/_metal_command_queue_8h.html">MetalCommandQueue.h</a></div></div>
+<div class="ttc" id="a_metal_counter_sampler_8h_html"><div class="ttname"><a href="../../d2/dcd/_metal_counter_sampler_8h.html">MetalCounterSampler.h</a></div></div>
+<div class="ttc" id="a_metal_device_8h_html_a047ecfce5fd98e976d8695f8f69c62ca"><div class="ttname"><a href="../../da/d37/_metal_device_8h.html#a047ecfce5fd98e976d8695f8f69c62ca">NS_OPTIONS</a></div><div class="ttdeci">typedef NS_OPTIONS(uint32, EMetalFeatures)</div><div class="ttdef"><b>定义</b> MetalDevice.h:31</div></div>
+<div class="ttc" id="a_metal_device_8h_html_a5ef5fa63ce2c14518498d2fef0bbb32b"><div class="ttname"><a href="../../da/d37/_metal_device_8h.html#a5ef5fa63ce2c14518498d2fef0bbb32b">EMetalShaderValidationType</a></div><div class="ttdeci">EMetalShaderValidationType</div><div class="ttdef"><b>定义</b> MetalDevice.h:90</div></div>
+<div class="ttc" id="a_metal_device_8h_html_a5ef5fa63ce2c14518498d2fef0bbb32ba1e05f2bcc2c56958e999d712a4497378"><div class="ttname"><a href="../../da/d37/_metal_device_8h.html#a5ef5fa63ce2c14518498d2fef0bbb32ba1e05f2bcc2c56958e999d712a4497378">EMetalShaderValidationType::ComputeOnly</a></div><div class="ttdeci">@ ComputeOnly</div><div class="ttdef"><b>定义</b> MetalDevice.h:92</div></div>
+<div class="ttc" id="a_metal_device_8h_html_a5ef5fa63ce2c14518498d2fef0bbb32ba1ee89161d6004f5426fb563bf7481144"><div class="ttname"><a href="../../da/d37/_metal_device_8h.html#a5ef5fa63ce2c14518498d2fef0bbb32ba1ee89161d6004f5426fb563bf7481144">EMetalShaderValidationType::ShaderName</a></div><div class="ttdeci">@ ShaderName</div><div class="ttdef"><b>定义</b> MetalDevice.h:94</div></div>
+<div class="ttc" id="a_metal_device_8h_html_a5ef5fa63ce2c14518498d2fef0bbb32ba6da81b2a638517aa180374924d74584e"><div class="ttname"><a href="../../da/d37/_metal_device_8h.html#a5ef5fa63ce2c14518498d2fef0bbb32ba6da81b2a638517aa180374924d74584e">EMetalShaderValidationType::RenderPipelineOnly</a></div><div class="ttdeci">@ RenderPipelineOnly</div><div class="ttdef"><b>定义</b> MetalDevice.h:93</div></div>
+<div class="ttc" id="a_metal_device_8h_html_a7ccf094d892275866d0548056bf5b856"><div class="ttname"><a href="../../da/d37/_metal_device_8h.html#a7ccf094d892275866d0548056bf5b856">EMetalDebugLevel</a></div><div class="ttdeci">EMetalDebugLevel</div><div class="ttdef"><b>定义</b> MetalDevice.h:77</div></div>
+<div class="ttc" id="a_metal_device_8h_html_a7ccf094d892275866d0548056bf5b856a1c9b4479f7a062fa5884ed476e4e4b65"><div class="ttname"><a href="../../da/d37/_metal_device_8h.html#a7ccf094d892275866d0548056bf5b856a1c9b4479f7a062fa5884ed476e4e4b65">EMetalDebugLevelResetOnBind</a></div><div class="ttdeci">@ EMetalDebugLevelResetOnBind</div><div class="ttdef"><b>定义</b> MetalDevice.h:80</div></div>
+<div class="ttc" id="a_metal_device_8h_html_a7ccf094d892275866d0548056bf5b856a4d812a2c8e84a8992842c5d96955c767"><div class="ttname"><a href="../../da/d37/_metal_device_8h.html#a7ccf094d892275866d0548056bf5b856a4d812a2c8e84a8992842c5d96955c767">EMetalDebugLevelWaitForComplete</a></div><div class="ttdeci">@ EMetalDebugLevelWaitForComplete</div><div class="ttdef"><b>定义</b> MetalDevice.h:83</div></div>
+<div class="ttc" id="a_metal_device_8h_html_a7ccf094d892275866d0548056bf5b856a5dd0c8621386de177afad229b4a27797"><div class="ttname"><a href="../../da/d37/_metal_device_8h.html#a7ccf094d892275866d0548056bf5b856a5dd0c8621386de177afad229b4a27797">EMetalDebugLevelOff</a></div><div class="ttdeci">@ EMetalDebugLevelOff</div><div class="ttdef"><b>定义</b> MetalDevice.h:78</div></div>
+<div class="ttc" id="a_metal_device_8h_html_a7ccf094d892275866d0548056bf5b856a72656a83855bf2e72a5418984fa2e3d1"><div class="ttname"><a href="../../da/d37/_metal_device_8h.html#a7ccf094d892275866d0548056bf5b856a72656a83855bf2e72a5418984fa2e3d1">EMetalDebugLevelFastValidation</a></div><div class="ttdeci">@ EMetalDebugLevelFastValidation</div><div class="ttdef"><b>定义</b> MetalDevice.h:79</div></div>
+<div class="ttc" id="a_metal_device_8h_html_a7ccf094d892275866d0548056bf5b856a91be786732a727cc8833db4aa52c2804"><div class="ttname"><a href="../../da/d37/_metal_device_8h.html#a7ccf094d892275866d0548056bf5b856a91be786732a727cc8833db4aa52c2804">EMetalDebugLevelConditionalSubmit</a></div><div class="ttdeci">@ EMetalDebugLevelConditionalSubmit</div><div class="ttdef"><b>定义</b> MetalDevice.h:81</div></div>
+<div class="ttc" id="a_metal_device_8h_html_a7ccf094d892275866d0548056bf5b856ab4c58cb8f29029cd019c1a1262a5b1fa"><div class="ttname"><a href="../../da/d37/_metal_device_8h.html#a7ccf094d892275866d0548056bf5b856ab4c58cb8f29029cd019c1a1262a5b1fa">EMetalDebugLevelValidation</a></div><div class="ttdeci">@ EMetalDebugLevelValidation</div><div class="ttdef"><b>定义</b> MetalDevice.h:82</div></div>
+<div class="ttc" id="a_metal_device_8h_html_a968d84b6613eb0b3fb8edeec7ad20771"><div class="ttname"><a href="../../da/d37/_metal_device_8h.html#a968d84b6613eb0b3fb8edeec7ad20771">EMetalQueueType</a></div><div class="ttdeci">EMetalQueueType</div><div class="ttdef"><b>定义</b> MetalDevice.h:22</div></div>
+<div class="ttc" id="a_metal_device_8h_html_a968d84b6613eb0b3fb8edeec7ad20771ae93f994f01c537c4e2f7d8528c3eb5e9"><div class="ttname"><a href="../../da/d37/_metal_device_8h.html#a968d84b6613eb0b3fb8edeec7ad20771ae93f994f01c537c4e2f7d8528c3eb5e9">EMetalQueueType::Count</a></div><div class="ttdeci">@ Count</div><div class="ttdef"><b>定义</b> MetalDevice.h:24</div></div>
+<div class="ttc" id="a_metal_device_8h_html_a968d84b6613eb0b3fb8edeec7ad20771afd1dd0c603be8170f9eae0be9f2f6afb"><div class="ttname"><a href="../../da/d37/_metal_device_8h.html#a968d84b6613eb0b3fb8edeec7ad20771afd1dd0c603be8170f9eae0be9f2f6afb">EMetalQueueType::Direct</a></div><div class="ttdeci">@ Direct</div><div class="ttdef"><b>定义</b> MetalDevice.h:23</div></div>
+<div class="ttc" id="a_metal_state_cache_8h_html"><div class="ttname"><a href="../../d9/dad/_metal_state_cache_8h.html">MetalStateCache.h</a></div></div>
+<div class="ttc" id="a_metal_temp_allocator_8h_html"><div class="ttname"><a href="../../d2/d95/_metal_temp_allocator_8h.html">MetalTempAllocator.h</a></div></div>
+<div class="ttc" id="a_metal_viewport_8h_html"><div class="ttname"><a href="../../d6/dbc/_metal_viewport_8h.html">MetalViewport.h</a></div></div>
+<div class="ttc" id="a_pixel_format_8h_html_a1ccf6fb7a1e0dcfacee1fa2b02a70b53a7e62bc342f41c946868f0ea6f0b712d8"><div class="ttname"><a href="../../d5/db6/_pixel_format_8h.html#a1ccf6fb7a1e0dcfacee1fa2b02a70b53a7e62bc342f41c946868f0ea6f0b712d8">EPixelFormatCapabilities::Buffer</a></div><div class="ttdeci">@ Buffer</div><div class="ttdef"><b>定义</b> PixelFormat.h:251</div></div>
+<div class="ttc" id="a_vulkan_submission_8h_html_aa4b3c8fa94b41c64030fd453ef8b865aaad4e206408c1c59bfb8a057ba7857446"><div class="ttname"><a href="../../d2/d5b/_vulkan_submission_8h.html#aa4b3c8fa94b41c64030fd453ef8b865aaad4e206408c1c59bfb8a057ba7857446">EVulkanSyncPointType::Context</a></div><div class="ttdeci">@ Context</div><div class="ttdef"><b>定义</b> VulkanSubmission.h:38</div></div>
+<div class="ttc" id="aclass_f_event_html"><div class="ttname"><a href="../../d5/d17/class_f_event.html">FEvent</a></div><div class="ttdef"><b>定义</b> Event.h:22</div></div>
+<div class="ttc" id="aclass_f_metal_capture_manager_html"><div class="ttname"><a href="../../d2/d72/class_f_metal_capture_manager.html">FMetalCaptureManager</a></div><div class="ttdef"><b>定义</b> MetalCaptureManager.h:10</div></div>
+<div class="ttc" id="aclass_f_metal_command_queue_html"><div class="ttname"><a href="../../d8/d24/class_f_metal_command_queue.html">FMetalCommandQueue</a></div><div class="ttdef"><b>定义</b> MetalCommandQueue.h:33</div></div>
+<div class="ttc" id="aclass_f_metal_counter_sampler_html"><div class="ttname"><a href="../../dc/d32/class_f_metal_counter_sampler.html">FMetalCounterSampler</a></div><div class="ttdef"><b>定义</b> MetalCounterSampler.h:65</div></div>
+<div class="ttc" id="aclass_f_metal_device_html"><div class="ttname"><a href="../../da/dac/class_f_metal_device.html">FMetalDevice</a></div><div class="ttdef"><b>定义</b> MetalDevice.h:103</div></div>
+<div class="ttc" id="aclass_f_metal_device_html_a0533cf6f9143572a92804017d7faec7d"><div class="ttname"><a href="../../da/dac/class_f_metal_device.html#a0533cf6f9143572a92804017d7faec7d">FMetalDevice::PostInit</a></div><div class="ttdeci">void PostInit()</div><div class="ttdef"><b>定义</b> MetalDevice.cpp:325</div></div>
+<div class="ttc" id="aclass_f_metal_device_html_a0692760145d0cbf664a7bfa0a23fbf54"><div class="ttname"><a href="../../da/dac/class_f_metal_device.html#a0692760145d0cbf664a7bfa0a23fbf54">FMetalDevice::GetRuntimeDebuggingLevel</a></div><div class="ttdeci">int32 GetRuntimeDebuggingLevel(void) const</div><div class="ttdef"><b>定义</b> MetalDevice.h:169</div></div>
+<div class="ttc" id="aclass_f_metal_device_html_a0bdf8b6f51919a7d8b9ceee05c8502ce"><div class="ttname"><a href="../../da/dac/class_f_metal_device.html#a0bdf8b6f51919a7d8b9ceee05c8502ce">FMetalDevice::CreateDevice</a></div><div class="ttdeci">static FMetalDevice * CreateDevice()</div><div class="ttdef"><b>定义</b> MetalDevice.cpp:186</div></div>
+<div class="ttc" id="aclass_f_metal_device_html_a0d09736ab1cb4dfac0668787fb52028e"><div class="ttname"><a href="../../da/dac/class_f_metal_device.html#a0d09736ab1cb4dfac0668787fb52028e">FMetalDevice::AddActiveBuffer</a></div><div class="ttdeci">void AddActiveBuffer(MTL::Buffer *Buffer, const NS::Range &amp;Range)</div><div class="ttdef"><b>定义</b> MetalDevice.cpp:516</div></div>
+<div class="ttc" id="aclass_f_metal_device_html_a13aa5649554a466c0025c397ad70bbeb"><div class="ttname"><a href="../../da/dac/class_f_metal_device.html#a13aa5649554a466c0025c397ad70bbeb">FMetalDevice::EndDrawingViewport</a></div><div class="ttdeci">void EndDrawingViewport(const FRHIPresentArgs &amp;InPresentArgs)</div><div class="ttdef"><b>定义</b> MetalDevice.cpp:431</div></div>
+<div class="ttc" id="aclass_f_metal_device_html_a27fa20cfff7abf8152e140f3cd7211ab"><div class="ttname"><a href="../../da/dac/class_f_metal_device.html#a27fa20cfff7abf8152e140f3cd7211ab">FMetalDevice::GetFrameNumberRHIThread</a></div><div class="ttdeci">uint32 GetFrameNumberRHIThread()</div><div class="ttdef"><b>定义</b> MetalDevice.h:135</div></div>
+<div class="ttc" id="aclass_f_metal_device_html_a2c0d6f3d8235b4f468962e989252e724"><div class="ttname"><a href="../../da/dac/class_f_metal_device.html#a2c0d6f3d8235b4f468962e989252e724">FMetalDevice::CreateSharedEvent</a></div><div class="ttdeci">MTLSharedEventPtr CreateSharedEvent()</div><div class="ttdef"><b>定义</b> MetalDevice.cpp:509</div></div>
+<div class="ttc" id="aclass_f_metal_device_html_a369c78b1cc62a6e7d2a7788192eaebc6"><div class="ttname"><a href="../../da/dac/class_f_metal_device.html#a369c78b1cc62a6e7d2a7788192eaebc6">FMetalDevice::CreateTexture</a></div><div class="ttdeci">MTLTexturePtr CreateTexture(FMetalSurface *Surface, MTL::TextureDescriptor *Descriptor)</div><div class="ttdef"><b>定义</b> MetalDevice.cpp:459</div></div>
+<div class="ttc" id="aclass_f_metal_device_html_a374255d99aec8a01ba17e99a05dbfd8c"><div class="ttname"><a href="../../da/dac/class_f_metal_device.html#a374255d99aec8a01ba17e99a05dbfd8c">FMetalDevice::ValidateIsInactiveBuffer</a></div><div class="ttdeci">bool ValidateIsInactiveBuffer(MTL::Buffer *Buffer, const NS::Range &amp;Range)</div><div class="ttdef"><b>定义</b> MetalDevice.cpp:550</div></div>
+<div class="ttc" id="aclass_f_metal_device_html_a3d7b32d7d38f7a4aa664d47779733b2a"><div class="ttname"><a href="../../da/dac/class_f_metal_device.html#a3d7b32d7d38f7a4aa664d47779733b2a">FMetalDevice::GetUniformAllocator</a></div><div class="ttdeci">FMetalTempAllocator * GetUniformAllocator()</div><div class="ttdef"><b>定义</b> MetalDevice.h:130</div></div>
+<div class="ttc" id="aclass_f_metal_device_html_a53e0c1184dfcc7d8aef5ec0a5005a5fb"><div class="ttname"><a href="../../da/dac/class_f_metal_device.html#a53e0c1184dfcc7d8aef5ec0a5005a5fb">FMetalDevice::RemoveActiveBuffer</a></div><div class="ttdeci">void RemoveActiveBuffer(MTL::Buffer *Buffer, const NS::Range &amp;Range)</div><div class="ttdef"><b>定义</b> MetalDevice.cpp:538</div></div>
+<div class="ttc" id="aclass_f_metal_device_html_a574bb6cc6292a2b9d9edeb81c353956b"><div class="ttname"><a href="../../da/dac/class_f_metal_device.html#a574bb6cc6292a2b9d9edeb81c353956b">FMetalDevice::GetDevice</a></div><div class="ttdeci">MTL::Device * GetDevice()</div><div class="ttdef"><b>定义</b> MetalDevice.h:164</div></div>
+<div class="ttc" id="aclass_f_metal_device_html_a5fc0748baf9a881697bee6b084ac996e"><div class="ttname"><a href="../../da/dac/class_f_metal_device.html#a5fc0748baf9a881697bee6b084ac996e">FMetalDevice::GetResourceHeap</a></div><div class="ttdeci">FMetalResourceHeap &amp; GetResourceHeap(void)</div><div class="ttdef"><b>定义</b> MetalDevice.h:113</div></div>
+<div class="ttc" id="aclass_f_metal_device_html_a6203b3e9745d9815e84f1ecb5ce9c1bf"><div class="ttname"><a href="../../da/dac/class_f_metal_device.html#a6203b3e9745d9815e84f1ecb5ce9c1bf">FMetalDevice::GetCommandQueue</a></div><div class="ttdeci">FMetalCommandQueue &amp; GetCommandQueue(EMetalQueueType QueueType)</div><div class="ttdef"><b>定义</b> MetalDevice.h:140</div></div>
+<div class="ttc" id="aclass_f_metal_device_html_a62eb1580d618035ffe3eba5b54c95b71"><div class="ttname"><a href="../../da/dac/class_f_metal_device.html#a62eb1580d618035ffe3eba5b54c95b71">FMetalDevice::ForceHeapSupport</a></div><div class="ttdeci">void ForceHeapSupport()</div><div class="ttdef"><b>定义</b> MetalDevice.h:194</div></div>
+<div class="ttc" id="aclass_f_metal_device_html_a6727eb36420ea42846e8f5f03c0e7f11"><div class="ttname"><a href="../../da/dac/class_f_metal_device.html#a6727eb36420ea42846e8f5f03c0e7f11">FMetalDevice::~FMetalDevice</a></div><div class="ttdeci">virtual ~FMetalDevice()</div><div class="ttdef"><b>定义</b> MetalDevice.cpp:293</div></div>
+<div class="ttc" id="aclass_f_metal_device_html_a6781aa74c052081322a11b0767a036f5"><div class="ttname"><a href="../../da/dac/class_f_metal_device.html#a6781aa74c052081322a11b0767a036f5">FMetalDevice::IsShaderValidationEnabled</a></div><div class="ttdeci">bool IsShaderValidationEnabled()</div><div class="ttdef"><b>定义</b> MetalDevice.h:189</div></div>
+<div class="ttc" id="aclass_f_metal_device_html_a72545b554bc98752d2796331f0c7d849"><div class="ttname"><a href="../../da/dac/class_f_metal_device.html#a72545b554bc98752d2796331f0c7d849">FMetalDevice::CreatePooledBuffer</a></div><div class="ttdeci">FMetalBufferPtr CreatePooledBuffer(FMetalPooledBufferArgs const &amp;Args)</div><div class="ttdef"><b>定义</b> MetalDevice.cpp:470</div></div>
+<div class="ttc" id="aclass_f_metal_device_html_a905e9f44dd98b274c3361d23f576081a"><div class="ttname"><a href="../../da/dac/class_f_metal_device.html#a905e9f44dd98b274c3361d23f576081a">FMetalDevice::GarbageCollect</a></div><div class="ttdeci">void GarbageCollect()</div><div class="ttdef"><b>定义</b> MetalDevice.cpp:451</div></div>
+<div class="ttc" id="aclass_f_metal_device_html_a93d6c9fe4328406a5b86378b80ef2d4e"><div class="ttname"><a href="../../da/dac/class_f_metal_device.html#a93d6c9fe4328406a5b86378b80ef2d4e">FMetalDevice::EnumerateFeatureSupport</a></div><div class="ttdeci">void EnumerateFeatureSupport()</div><div class="ttdef"><b>定义</b> MetalDevice.cpp:339</div></div>
+<div class="ttc" id="aclass_f_metal_device_html_aa350fef8986292afb7204a99bb6b6e0c"><div class="ttname"><a href="../../da/dac/class_f_metal_device.html#aa350fef8986292afb7204a99bb6b6e0c">FMetalDevice::GetCounterSampler</a></div><div class="ttdeci">FMetalCounterSampler * GetCounterSampler()</div><div class="ttdef"><b>定义</b> MetalDevice.h:184</div></div>
+<div class="ttc" id="aclass_f_metal_device_html_ac4cad460b6e81107c45f41763cee8f26"><div class="ttname"><a href="../../da/dac/class_f_metal_device.html#ac4cad460b6e81107c45f41763cee8f26">FMetalDevice::GetFrameSemaphore</a></div><div class="ttdeci">dispatch_semaphore_t &amp; GetFrameSemaphore()</div><div class="ttdef"><b>定义</b> MetalDevice.h:179</div></div>
+<div class="ttc" id="aclass_f_metal_device_html_ae06a1c2f24217181c98cf2ca41daf112"><div class="ttname"><a href="../../da/dac/class_f_metal_device.html#ae06a1c2f24217181c98cf2ca41daf112">FMetalDevice::GetTransferAllocator</a></div><div class="ttdeci">FMetalTempAllocator * GetTransferAllocator()</div><div class="ttdef"><b>定义</b> MetalDevice.h:125</div></div>
+<div class="ttc" id="aclass_f_metal_device_html_ae47ceae93fbe92be398649ad91144644"><div class="ttname"><a href="../../da/dac/class_f_metal_device.html#ae47ceae93fbe92be398649ad91144644">FMetalDevice::DrainHeap</a></div><div class="ttdeci">void DrainHeap()</div><div class="ttdef"><b>定义</b> MetalDevice.cpp:446</div></div>
+<div class="ttc" id="aclass_f_metal_device_html_aeb6d165c41555f18e4bf39aac51daab6"><div class="ttname"><a href="../../da/dac/class_f_metal_device.html#aeb6d165c41555f18e4bf39aac51daab6">FMetalDevice::CreateEvent</a></div><div class="ttdeci">MTLEventPtr CreateEvent()</div><div class="ttdef"><b>定义</b> MetalDevice.cpp:503</div></div>
+<div class="ttc" id="aclass_f_metal_device_html_af511d7c609e92918df32eaa8d541a2c4"><div class="ttname"><a href="../../da/dac/class_f_metal_device.html#af511d7c609e92918df32eaa8d541a2c4">FMetalDevice::IncrementFrameRHIThread</a></div><div class="ttdeci">void IncrementFrameRHIThread()</div><div class="ttdef"><b>定义</b> MetalDevice.h:174</div></div>
+<div class="ttc" id="aclass_f_metal_device_html_afb1fb5e5ed3f967715395ccf2a889875"><div class="ttname"><a href="../../da/dac/class_f_metal_device.html#afb1fb5e5ed3f967715395ccf2a889875">FMetalDevice::SupportsFeature</a></div><div class="ttdeci">bool SupportsFeature(EMetalFeatures InFeature)</div><div class="ttdef"><b>定义</b> MetalDevice.h:111</div></div>
+<div class="ttc" id="aclass_f_metal_pipeline_state_cache_manager_html"><div class="ttname"><a href="../../db/da9/class_f_metal_pipeline_state_cache_manager.html">FMetalPipelineStateCacheManager</a></div><div class="ttdef"><b>定义</b> MetalPipeline.h:95</div></div>
+<div class="ttc" id="aclass_f_metal_r_h_i_command_context_html"><div class="ttname"><a href="../../d6/df9/class_f_metal_r_h_i_command_context.html">FMetalRHICommandContext</a></div><div class="ttdef"><b>定义</b> MetalRHIContext.h:45</div></div>
+<div class="ttc" id="aclass_f_metal_resource_heap_html"><div class="ttname"><a href="../../d4/d9b/class_f_metal_resource_heap.html">FMetalResourceHeap</a></div><div class="ttdef"><b>定义</b> MetalBuffer.h:398</div></div>
+<div class="ttc" id="aclass_f_metal_surface_html"><div class="ttname"><a href="../../d3/d3c/class_f_metal_surface.html">FMetalSurface</a></div><div class="ttdef"><b>定义</b> MetalResources.h:214</div></div>
+<div class="ttc" id="aclass_f_metal_temp_allocator_html"><div class="ttname"><a href="../../d5/d95/class_f_metal_temp_allocator.html">FMetalTempAllocator</a></div><div class="ttdef"><b>定义</b> MetalTempAllocator.h:16</div></div>
+<div class="ttc" id="aclass_t_array_html"><div class="ttname"><a href="../../d6/db1/class_t_array.html">TArray</a></div><div class="ttdef"><b>定义</b> Array.h:768</div></div>
+<div class="ttc" id="aclass_t_map_html"><div class="ttname"><a href="../../da/d41/class_t_map.html">TMap</a></div><div class="ttdef"><b>定义</b> IAndroidDeviceDetection.h:12</div></div>
+<div class="ttc" id="apreprocessor_8c_html_a1134b580f8da4de94ca6b1de4d37975e"><div class="ttname"><a href="../../dd/de9/preprocessor_8c.html#a1134b580f8da4de94ca6b1de4d37975e">uint32</a></div><div class="ttdeci">unsigned int uint32</div><div class="ttdef"><b>定义</b> preprocessor.c:67</div></div>
+<div class="ttc" id="apreprocessor_8c_html_abc0f5bc07737e498f287334775dff2b6"><div class="ttname"><a href="../../dd/de9/preprocessor_8c.html#abc0f5bc07737e498f287334775dff2b6">uint64</a></div><div class="ttdeci">uint64_t uint64</div><div class="ttdef"><b>定义</b> preprocessor.c:75</div></div>
+<div class="ttc" id="astruct_f_metal_pooled_buffer_args_html"><div class="ttname"><a href="../../d4/d29/struct_f_metal_pooled_buffer_args.html">FMetalPooledBufferArgs</a></div><div class="ttdef"><b>定义</b> MetalBuffer.h:17</div></div>
+<div class="ttc" id="astruct_f_r_h_i_present_args_html"><div class="ttname"><a href="../../d2/da5/struct_f_r_h_i_present_args.html">FRHIPresentArgs</a></div><div class="ttdef"><b>定义</b> RHIResources.h:2526</div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+</div><!-- container -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a href="../../dir_0b6ee6e7e9547e675db4add2e5de97da.html">Engine</a></li><li class="navelem"><a href="../../dir_9579d1ecb2c7bf48cbe1049c41745cb4.html">Source</a></li><li class="navelem"><a href="../../dir_9f04efef762572853abdf73f62bebfcc.html">Runtime</a></li><li class="navelem"><a href="../../dir_05d919978e5b7878b3818d860fb97d16.html">Apple</a></li><li class="navelem"><a href="../../dir_9501e3cb84f3296a7a7a0837517b721e.html">MetalRHI</a></li><li class="navelem"><a href="../../dir_b549f56f8019ad8496b256d8421f4b3b.html">Private</a></li><li class="navelem"><a href="../../da/d37/_metal_device_8h.html">MetalDevice.h</a></li>
+    <li class="footer">制作者 <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.15.0 </li>
+  </ul>
+</div>
+</body>
+</html>

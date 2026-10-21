@@ -1,0 +1,26 @@
+var _localization_commandlet_tasks_8h =
+[
+    [ "LocalizationCommandletTasks::CompileTextForCulture", "dd/d5b/namespace_localization_commandlet_tasks.html#a6e4b8b802a91f30543e7b0b091d864e8", null ],
+    [ "LocalizationCommandletTasks::CompileTextForTarget", "dd/d5b/namespace_localization_commandlet_tasks.html#a1a7185adfc2a6ded3c841203bda0aa7b", null ],
+    [ "LocalizationCommandletTasks::CompileTextForTargets", "dd/d5b/namespace_localization_commandlet_tasks.html#a9282c656af3b9c75ed0b2b55ef0334fd", null ],
+    [ "LocalizationCommandletTasks::ExportDialogueScriptForCulture", "dd/d5b/namespace_localization_commandlet_tasks.html#a3e8714f11459f5c4c90308acce07adb1", null ],
+    [ "LocalizationCommandletTasks::ExportDialogueScriptForTarget", "dd/d5b/namespace_localization_commandlet_tasks.html#a97416ae7d762277fef4fe23b2e5dd638", null ],
+    [ "LocalizationCommandletTasks::ExportDialogueScriptForTargets", "dd/d5b/namespace_localization_commandlet_tasks.html#adce304fe96ab8627ddb9e97a13af33c4", null ],
+    [ "LocalizationCommandletTasks::ExportTextForCulture", "dd/d5b/namespace_localization_commandlet_tasks.html#af859f37a1cc9d504f4b8b346a118b833", null ],
+    [ "LocalizationCommandletTasks::ExportTextForTarget", "dd/d5b/namespace_localization_commandlet_tasks.html#a87e09b75c63608e203f3e8bd6083ef01", null ],
+    [ "LocalizationCommandletTasks::ExportTextForTargets", "dd/d5b/namespace_localization_commandlet_tasks.html#a893ff7485c6297d3b3b01144121494fe", null ],
+    [ "LocalizationCommandletTasks::GatherTextForTarget", "dd/d5b/namespace_localization_commandlet_tasks.html#a3a2b7d11e923008a214bf3280e9b648e", null ],
+    [ "LocalizationCommandletTasks::GatherTextForTargets", "dd/d5b/namespace_localization_commandlet_tasks.html#acd8fd7b878ac068fadc9bbd71149870b", null ],
+    [ "LocalizationCommandletTasks::GenerateWordCountReportForTarget", "dd/d5b/namespace_localization_commandlet_tasks.html#a145db8c16c36642e3e4170d1adf59ee9", null ],
+    [ "LocalizationCommandletTasks::GenerateWordCountReportsForTargets", "dd/d5b/namespace_localization_commandlet_tasks.html#ab56fdca319d8fbd76a45571b53d0aede", null ],
+    [ "LocalizationCommandletTasks::ImportDialogueForCulture", "dd/d5b/namespace_localization_commandlet_tasks.html#a04b03bb3c9551e85fff9f2df0cc13450", null ],
+    [ "LocalizationCommandletTasks::ImportDialogueForTarget", "dd/d5b/namespace_localization_commandlet_tasks.html#a60ac63a05166ec94dec7f41312200ed3", null ],
+    [ "LocalizationCommandletTasks::ImportDialogueForTargets", "dd/d5b/namespace_localization_commandlet_tasks.html#aad370ac1d8d03c3010f30d3ce9314fd8", null ],
+    [ "LocalizationCommandletTasks::ImportDialogueScriptForCulture", "dd/d5b/namespace_localization_commandlet_tasks.html#af7aa87f98fce509b2314ec18505b557c", null ],
+    [ "LocalizationCommandletTasks::ImportDialogueScriptForTarget", "dd/d5b/namespace_localization_commandlet_tasks.html#a6d007873d21a4f580197d95fdfbf9c7e", null ],
+    [ "LocalizationCommandletTasks::ImportDialogueScriptForTargets", "dd/d5b/namespace_localization_commandlet_tasks.html#aa7cb086c2a290ff5c4abed02ee7ee29d", null ],
+    [ "LocalizationCommandletTasks::ImportTextForCulture", "dd/d5b/namespace_localization_commandlet_tasks.html#a0d159331d09c3df3485ad213bf1e4fd6", null ],
+    [ "LocalizationCommandletTasks::ImportTextForTarget", "dd/d5b/namespace_localization_commandlet_tasks.html#a182e9db4410315c762d32bf625040f79", null ],
+    [ "LocalizationCommandletTasks::ImportTextForTargets", "dd/d5b/namespace_localization_commandlet_tasks.html#aa754841a51630b9c5636e7ec28dd005a", null ],
+    [ "LocalizationCommandletTasks::ReportLoadedAudioAssets", "dd/d5b/namespace_localization_commandlet_tasks.html#a941cebfd9cb1eb671a0dbd77c2599979", null ]
+];

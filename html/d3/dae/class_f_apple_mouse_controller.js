@@ -1,0 +1,38 @@
+var class_f_apple_mouse_controller =
+[
+    [ "FDeferredKeyEvent", "d6/d41/struct_f_apple_mouse_controller_1_1_f_deferred_key_event.html", "d6/d41/struct_f_apple_mouse_controller_1_1_f_deferred_key_event" ],
+    [ "FMouseMovementState", "d7/d6e/struct_f_apple_mouse_controller_1_1_f_mouse_movement_state.html", "d7/d6e/struct_f_apple_mouse_controller_1_1_f_mouse_movement_state" ],
+    [ "EKeyEventType", "d3/dae/class_f_apple_mouse_controller.html#a49ab2b4119bf1238f1f1e24a5a5d515a", [
+      [ "Invalid", "d3/dae/class_f_apple_mouse_controller.html#a49ab2b4119bf1238f1f1e24a5a5d515aa4bbb8f967da6d1a610596d7257179c2b", null ],
+      [ "Up", "d3/dae/class_f_apple_mouse_controller.html#a49ab2b4119bf1238f1f1e24a5a5d515aa258f49887ef8d14ac268c92b02503aaa", null ],
+      [ "Down", "d3/dae/class_f_apple_mouse_controller.html#a49ab2b4119bf1238f1f1e24a5a5d515aa08a38277b0309070706f6652eeae9a53", null ]
+    ] ],
+    [ "FAppleMouseController", "d3/dae/class_f_apple_mouse_controller.html#a96447821303ce878b52aab3083d05a90", null ],
+    [ "~FAppleMouseController", "d3/dae/class_f_apple_mouse_controller.html#a0d20c08a8af5fa94d2f57624af4a9ed4", null ],
+    [ "DECLARE_MULTICAST_DELEGATE_OneParam", "d3/dae/class_f_apple_mouse_controller.html#a182ca514a7ad3898632f2611f1786a31", null ],
+    [ "DispatchKeyUpdate", "d3/dae/class_f_apple_mouse_controller.html#a5890adc7f17c453e12ab033ae0884596", null ],
+    [ "DispatchKeyUpdates", "d3/dae/class_f_apple_mouse_controller.html#aaef725e403fa27e4627322538b150121", null ],
+    [ "DispatchMovementUpdates", "d3/dae/class_f_apple_mouse_controller.html#aeb2a61b61df4035d4d3f022982907a5f", null ],
+    [ "HandleKeyEvent", "d3/dae/class_f_apple_mouse_controller.html#ae0f7a0478c79128f0e40e30bcb39832f", null ],
+    [ "HandleMouseConnected", "d3/dae/class_f_apple_mouse_controller.html#a50a290422f2d5070bb6b0f0cf201df46", null ],
+    [ "HandleMouseDisconnected", "d3/dae/class_f_apple_mouse_controller.html#ac5921a573a7db05337cc468beed78d3a", null ],
+    [ "IsAnyMouseConnected", "d3/dae/class_f_apple_mouse_controller.html#ad119d9efd1795296d1bd6409af9f19b1", null ],
+    [ "IsEnabled", "d3/dae/class_f_apple_mouse_controller.html#a3ac4368ed848e0b8f8ad6fd6a330927d", null ],
+    [ "OnAvailabilityChanged", "d3/dae/class_f_apple_mouse_controller.html#add26bc1ad775c08cf4e6d4c39a35b2d2", null ],
+    [ "RebindMouseHandlers", "d3/dae/class_f_apple_mouse_controller.html#a4b2ff723bc1b6f69504ab2805b3d4762", null ],
+    [ "SendControllerEvents", "d3/dae/class_f_apple_mouse_controller.html#a594698c06a28bdd79de410ae8a894eef", null ],
+    [ "SetEnabled", "d3/dae/class_f_apple_mouse_controller.html#a0c9ca32e43b67ee1aa89cd5dd6d65383", null ],
+    [ "SetMessageHandler", "d3/dae/class_f_apple_mouse_controller.html#a32eb678cf952e5af39bf8d4a511551f9", null ],
+    [ "SuspendMovementHandler", "d3/dae/class_f_apple_mouse_controller.html#abb300f04a30eb0f757b50683a4043fe3", null ],
+    [ "AvailabilityChangedDelegate", "d3/dae/class_f_apple_mouse_controller.html#aeefdb1f677026649cd5f4172014e8751", null ],
+    [ "bEnabled", "d3/dae/class_f_apple_mouse_controller.html#acf5468b190b7b2d7199b5f8ee3ce5383", null ],
+    [ "bIsInitialized", "d3/dae/class_f_apple_mouse_controller.html#a23e876a8cb9e2ebe597431ac5034005c", null ],
+    [ "bNeedFlushPendingState", "d3/dae/class_f_apple_mouse_controller.html#a1d7ceab11e228d1543571ac39e64f31b", null ],
+    [ "ConnectedEventObserverID", "d3/dae/class_f_apple_mouse_controller.html#ac7f17e78e9010dcb9ac18f709da2492f", null ],
+    [ "CurrentMovementState", "d3/dae/class_f_apple_mouse_controller.html#a6452165b8507a6fe2cb2002eb7b8b3e8", null ],
+    [ "DeferredKeyEvents", "d3/dae/class_f_apple_mouse_controller.html#a57a6c3890efbeca4fb10bfe6aee66a18", null ],
+    [ "DisconnectedEventObserverID", "d3/dae/class_f_apple_mouse_controller.html#a5e907f5d335806aa73035332883c9f7c", null ],
+    [ "EnabledCapabilities", "d3/dae/class_f_apple_mouse_controller.html#a80ea1782fa1b3814e369eb20005af68a", null ],
+    [ "MessageHandler", "d3/dae/class_f_apple_mouse_controller.html#a6097952c3f4277939a7ed9f13d7d110c", null ],
+    [ "MovementDispatchedDelegate", "d3/dae/class_f_apple_mouse_controller.html#a22cd273d2c35c4a00bff34eee0f3a24d", null ]
+];

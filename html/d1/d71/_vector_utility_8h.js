@@ -1,0 +1,27 @@
+var _vector_utility_8h =
+[
+    [ "TMakeVectorRegister", "d1/d71/_vector_utility_8h.html#afeb166f0c77256cafcd2b169edf4c4bd", null ],
+    [ "TMakeVectorRegister< VectorRegister4Double >", "d1/d71/_vector_utility_8h.html#a836cee2e896799b4d36b9d15b66f2aac", null ],
+    [ "TMakeVectorRegister< VectorRegister4Float >", "d1/d71/_vector_utility_8h.html#a15c759151a9359bd8e8b21e175f7bbbe", null ],
+    [ "TMakeVectorRegisterConstant", "d1/d71/_vector_utility_8h.html#a598c909799591c7981064fd28aec71a0", null ],
+    [ "TMakeVectorRegisterConstant< VectorRegister4Double >", "d1/d71/_vector_utility_8h.html#a0e97ff7ca9bb525a3c1e468a57de6bb7", null ],
+    [ "TMakeVectorRegisterConstant< VectorRegister4Float >", "d1/d71/_vector_utility_8h.html#a0d435fe4321e240a2078366ea7e3dac6", null ],
+    [ "TMakeVectorRegisterFloatFromDouble", "d1/d71/_vector_utility_8h.html#a520c60880c70f99b23b303397849b755", null ],
+    [ "TMakeVectorRegisterFloatFromDouble< VectorRegister4Double >", "d1/d71/_vector_utility_8h.html#ad934d54aa97c929ce0bdbb536738cb51", null ],
+    [ "TMakeVectorRegisterFloatFromDouble< VectorRegister4Float >", "d1/d71/_vector_utility_8h.html#abab7ffba8a0343a212ae85d31a500007", null ],
+    [ "TVectorZero", "d1/d71/_vector_utility_8h.html#a7c52bfd9f3bfaa32bf44a0d019d947e9", null ],
+    [ "TVectorZero< VectorRegister4Double >", "d1/d71/_vector_utility_8h.html#a00f148021e4a3bbfecb7186351778b88", null ],
+    [ "TVectorZero< VectorRegister4Float >", "d1/d71/_vector_utility_8h.html#a7c31af86f9bff935b1c26ee56d1e7709", null ],
+    [ "VectorBitwiseNotAnd", "d1/d71/_vector_utility_8h.html#aa5851124861e156851b2a08d335989d6", null ],
+    [ "VectorBitwiseNotAnd", "d1/d71/_vector_utility_8h.html#a49576c0d0ab80dde627caceee54b1ce5", null ],
+    [ "VectorCast4FloatTo4Int", "d1/d71/_vector_utility_8h.html#a0763c0aa90700e53fc2ab8b263ce4362", null ],
+    [ "VectorCast4IntTo4Float", "d1/d71/_vector_utility_8h.html#ab11cf10d5b17bce006dab8ca7f02cefc", null ],
+    [ "Chaos::Private::VectorCrossNoFMA", "da/d10/namespace_chaos_1_1_private.html#ab0bd625c5f5c07e5459fde419f09db19", null ],
+    [ "Chaos::Private::VectorCrossNoFMA", "da/d10/namespace_chaos_1_1_private.html#af64e6d9e52b144f63382840fad29f04b", null ],
+    [ "Chaos::Private::VectorDot3FastX", "da/d10/namespace_chaos_1_1_private.html#acf4a46ad8920a17f5f69cf75fd1bf605", null ],
+    [ "Chaos::Private::VectorMatrixMultiply", "da/d10/namespace_chaos_1_1_private.html#a127f3857a733cd1c1b214d494ea4c9b1", null ],
+    [ "VectorMoveLh", "d1/d71/_vector_utility_8h.html#ace0a45c4edf90859dbe17afe054ddace", null ],
+    [ "VectorUnpackHi", "d1/d71/_vector_utility_8h.html#a90f4f38f2adae732309c793c47d47e00", null ],
+    [ "VectorUnpackLo", "d1/d71/_vector_utility_8h.html#ad01318220af62d35639acb04d794c069", null ],
+    [ "VectorUnpackLo", "d1/d71/_vector_utility_8h.html#adf08e948521bf16a899dbfd7f2378f8b", null ]
+];

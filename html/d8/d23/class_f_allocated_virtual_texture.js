@@ -1,0 +1,27 @@
+var class_f_allocated_virtual_texture =
+[
+    [ "FAllocatedVirtualTexture", "d8/d23/class_f_allocated_virtual_texture.html#ab1767276a7b18ac96bbc276ceccb9ed2", null ],
+    [ "~FAllocatedVirtualTexture", "d8/d23/class_f_allocated_virtual_texture.html#a1c073474075ae4402d1a749157f44582", null ],
+    [ "AssignVirtualAddress", "d8/d23/class_f_allocated_virtual_texture.html#a618639d1a9a25ddd00a04ab32c4c9d68", null ],
+    [ "Destroy", "d8/d23/class_f_allocated_virtual_texture.html#ada3c15e1d0cb814f6ac4436fd8de105d", null ],
+    [ "GetFrameAllocated", "d8/d23/class_f_allocated_virtual_texture.html#ab4302e946241b919682858d2a2fd7184", null ],
+    [ "GetNumPageTableLayers", "d8/d23/class_f_allocated_virtual_texture.html#a08631f80df0ec52f894168770203fdc9", null ],
+    [ "GetNumPageTableTextures", "d8/d23/class_f_allocated_virtual_texture.html#a3c3bb80dfa1e6e8f03461132607ccfef", null ],
+    [ "GetNumUniqueProducers", "d8/d23/class_f_allocated_virtual_texture.html#a46b32b00b11070c9afb2310d9f0be2ff", null ],
+    [ "GetPackedPageTableUniform", "d8/d23/class_f_allocated_virtual_texture.html#a21e0e8844e673f7e73de7d19f2fd468b", null ],
+    [ "GetPackedUniform", "d8/d23/class_f_allocated_virtual_texture.html#a7bc68512a6f8cb4e1a18ddbbbe17fe38", null ],
+    [ "GetPageTableIndirectionTexture", "d8/d23/class_f_allocated_virtual_texture.html#a90f2d561fcd28a42b77a717227315802", null ],
+    [ "GetPageTableTexture", "d8/d23/class_f_allocated_virtual_texture.html#ad96518ded82c947bc49c427df5fad582", null ],
+    [ "GetPersistentHash", "d8/d23/class_f_allocated_virtual_texture.html#aefa5b9ec071496594d6474b045cd7e05", null ],
+    [ "GetPhysicalSpaceForPageTableLayer", "d8/d23/class_f_allocated_virtual_texture.html#a761202c1fb979e91a91d3d8bb30fbab3", null ],
+    [ "GetPhysicalTexture", "d8/d23/class_f_allocated_virtual_texture.html#a67bdd5e228ba215777e22249f9853460", null ],
+    [ "GetPhysicalTextureSize", "d8/d23/class_f_allocated_virtual_texture.html#a57d0b015c04cdcd59430d306401e46e8", null ],
+    [ "GetPhysicalTextureSRV", "d8/d23/class_f_allocated_virtual_texture.html#a3f5bcdf8ab3023be335b8ad6d2333e16", null ],
+    [ "GetProducerIndexForPageTableLayer", "d8/d23/class_f_allocated_virtual_texture.html#acd171c56e15ac794871e7c89ecff89ca", null ],
+    [ "GetProducerPhysicalGroupIndexForPageTableLayer", "d8/d23/class_f_allocated_virtual_texture.html#ac298695ca3ed2f20f1f73e9127802212", null ],
+    [ "GetProducerTextureLayerMaskForPageTableLayer", "d8/d23/class_f_allocated_virtual_texture.html#a9bbdbd20f678039d39adf202caa54c17", null ],
+    [ "GetUniqueProducerHandle", "d8/d23/class_f_allocated_virtual_texture.html#ad8a25da0c9bca5f40d9909e807f52f9f", null ],
+    [ "GetUniqueProducerMipBias", "d8/d23/class_f_allocated_virtual_texture.html#aa9d15f1c8abf6b85b39f16e6f05db485", null ],
+    [ "LockOrUnlockTiles", "d8/d23/class_f_allocated_virtual_texture.html#aeca4eff911c4bdca7dc7ecc6aeb56f82", null ],
+    [ "TryMapLockedTiles", "d8/d23/class_f_allocated_virtual_texture.html#a504386aaadc3ced4f85047b1dc87bb8a", null ]
+];

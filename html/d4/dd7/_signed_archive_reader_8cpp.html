@@ -1,0 +1,681 @@
+<!-- HTML header for doxygen 1.15.0-->
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh">
+<head>
+  <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=11" />
+  <meta name="generator" content="Doxygen 1.15.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>UE 5.8.4: Engine/Source/Runtime/PakFile/Private/SignedArchiveReader.cpp 文件参考</title>
+  <link rel="icon" href="../../EdIconDefault.bmp" type="image/x-icon" />
+  <link href="../../tabs.css" rel="stylesheet" type="text/css" />
+  <script type="text/javascript" src="../../jquery.js"></script>
+  <script type="text/javascript" src="../../dynsections.js"></script>
+  <link href="../../navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../navtreedata.js"></script>
+<script type="text/javascript" src="../../navtree.js"></script>
+<script type="text/javascript" src="../../cookie.js"></script>
+  <link href="../../search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../search/searchdata.js"></script>
+<script type="text/javascript" src="../../search/search.js"></script>
+  <script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  extensions: ["tex2jax.js"],
+  jax: ["input/TeX","output/HTML-CSS"],
+});
+</script>
+<script type="text/javascript" async="async" src="https://cdn.jsdelivr.net/npm/mathjax@2/MathJax.js"></script>
+  <link href="../../doxygen.css" rel="stylesheet" type="text/css" />
+  <link href="../../doxygen-awesome.css" rel="stylesheet" type="text/css"/>
+<link href="../../doxygen-awesome-sidebar-only.css" rel="stylesheet" type="text/css"/>
+<link href="../../doxygen-awesome-sidebar-only-darkmode-toggle.css" rel="stylesheet" type="text/css"/>
+  <!-- ... other metadata & script includes ... -->
+  <script type="text/javascript" src="../../doxygen-awesome-darkmode-toggle.js"></script>
+  <script type="text/javascript">
+    DoxygenAwesomeDarkModeToggle.title = "Zwischen hellem/dunklem Modus wechseln"
+    DoxygenAwesomeDarkModeToggle.lightModeIcon = '🌞'
+    // icon from https://fonts.google.com/icons
+    DoxygenAwesomeDarkModeToggle.darkModeIcon = `<svg xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 24 24" height="24px" viewBox="0 0 24 24" width="24px" fill="#009793"><g><rect fill="none" height="24" width="24"/></g><g><g><path d="M8.1,14.15C9.77,14.63,11,16.17,11,18c0,0.68-0.19,1.31-0.48,1.87c0.48,0.09,0.97,0.14,1.48,0.14 c1.48,0,2.9-0.41,4.13-1.15c-2.62-0.92-5.23-2.82-6.8-5.86C7.74,9.94,7.78,7.09,8.29,4.9c-2.57,1.33-4.3,4.01-4.3,7.1c0,0,0,0,0,0 c0.01,0,0.01,0,0.02,0C5.66,12,7.18,12.83,8.1,14.15z" opacity=".3"/><path d="M19.78,17.51c-2.47,0-6.57-1.33-8.68-5.43C8.77,7.57,10.6,3.6,11.63,2.01C6.27,2.2,1.98,6.59,1.98,12 c0,0.14,0.02,0.28,0.02,0.42C2.61,12.16,3.28,12,3.98,12c0,0,0,0,0,0c0-3.09,1.73-5.77,4.3-7.1C7.78,7.09,7.74,9.94,9.32,13 c1.57,3.04,4.18,4.95,6.8,5.86c-1.23,0.74-2.65,1.15-4.13,1.15c-0.5,0-1-0.05-1.48-0.14c-0.37,0.7-0.94,1.27-1.64,1.64 c0.98,0.32,2.03,0.5,3.11,0.5c3.5,0,6.58-1.8,8.37-4.52C20.18,17.5,19.98,17.51,19.78,17.51z"/><path d="M7,16l-0.18,0C6.4,14.84,5.3,14,4,14c-1.66,0-3,1.34-3,3s1.34,3,3,3c0.62,0,2.49,0,3,0c1.1,0,2-0.9,2-2 C9,16.9,8.1,16,7,16z"/></g></g></svg>`
+    DoxygenAwesomeDarkModeToggle.init()
+  </script>
+  <script type="text/javascript" src="../../doxygen-awesome-fragment-copy-button.js"></script>
+  <script type="text/javascript">
+    DoxygenAwesomeFragmentCopyButton.title = "In die Zwischenablage kopieren"
+    // DoxygenAwesomeFragmentCopyButton.copyIcon = `<svg ...>`
+    // DoxygenAwesomeFragmentCopyButton.successIcon = `<svg ...>`
+    DoxygenAwesomeFragmentCopyButton.init()
+  </script>
+  <script type="text/javascript" src="../../doxygen-awesome-paragraph-link.js"></script>
+  <script type="text/javascript">
+    DoxygenAwesomeParagraphLink.title = "Abschnitt verknüpfen"
+    DoxygenAwesomeParagraphLink.icon = "¶"
+    DoxygenAwesomeParagraphLink.init()
+  </script>
+  <script type="text/javascript" src="../../doxygen-awesome-interactive-toc.js"></script>
+  <script type="text/javascript">
+    DoxygenAwesomeInteractiveToc.topOffset = 45
+    DoxygenAwesomeInteractiveToc.hideMobileMenu = false
+    DoxygenAwesomeInteractiveToc.init()
+  </script>
+</head>
+<body>
+    <div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+      <div id="titlearea">
+        <table cellspacing="0" cellpadding="0">
+          <tbody>
+            <tr id="projectrow">
+              <td id="projectlogo"><img alt="Logo" src="../../EdIconDefault.bmp"  /></td>
+              <td id="projectalign">
+                <div id="projectname">UE 5.8.4
+                </div>
+                <div id="projectbrief">Unreal Engine</div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <!-- end header part -->
+<!-- 制作者 Doxygen 1.15.0 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "../../search/",'.html');
+</script>
+<script type="text/javascript">
+$(function() { codefold.init(); });
+</script>
+<script type="text/javascript" src="../../menudata.js"></script>
+<script type="text/javascript" src="../../menu.js"></script>
+<script type="text/javascript">
+$(function() {
+  initMenu('../../',true,false,'search.php','搜索',true);
+  $(function() { init_search(); });
+});
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(function(){initNavTree('d4/dd7/_signed_archive_reader_8cpp.html','../../',''); });
+</script>
+<div id="container">
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">载入中...</div>
+<div class="SRStatus" id="Searching">搜索中...</div>
+<div class="SRStatus" id="NoMatches">未找到</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">SignedArchiveReader.cpp 文件参考</div></div>
+</div><!--header-->
+<div class="contents">
+<div class="textblock"><code>#include &quot;<a class="el" href="../../d4/d58/_signed_archive_reader_8h_source.html">SignedArchiveReader.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d3/df1/_file_manager_8h_source.html">HAL/FileManager.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d2/d37/_core_2_public_2_h_a_l_2_event_8h_source.html">HAL/Event.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../dd/df4/_runnable_thread_8h_source.html">HAL/RunnableThread.h</a>&quot;</code><br />
+</div><div class="textblock"><div class="dynheader">
+SignedArchiveReader.cpp 的引用(Include)关系图:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../da/d81/_signed_archive_reader_8cpp__incl.svg" width="4594" height="896"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+</div><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-func-members" class="groupheader"><a id="func-members" name="func-members"></a>
+函数</h2></td></tr>
+<tr class="memitem:a7e17b44d95cf795ca9c1e768b1772884" id="r_a7e17b44d95cf795ca9c1e768b1772884"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7e17b44d95cf795ca9c1e768b1772884">DECLARE_FLOAT_ACCUMULATOR_STAT</a> (<a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;FChunkCacheWorker.ProcessQueue&quot;), STAT_FChunkCacheWorker_ProcessQueue, STATGROUP_PakFile)</td></tr>
+<tr class="memitem:a924c0d20841dbf0c43868801073e5464" id="r_a924c0d20841dbf0c43868801073e5464"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a924c0d20841dbf0c43868801073e5464">DECLARE_FLOAT_ACCUMULATOR_STAT</a> (<a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;FChunkCacheWorker.CheckSignature&quot;), STAT_FChunkCacheWorker_CheckSignature, STATGROUP_PakFile)</td></tr>
+<tr class="memitem:ad3bef35dac6dcc5fd4d855a94065a526" id="r_ad3bef35dac6dcc5fd4d855a94065a526"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad3bef35dac6dcc5fd4d855a94065a526">DECLARE_FLOAT_ACCUMULATOR_STAT</a> (<a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;FChunkCacheWorker.RequestQueueUpdate&quot;), STAT_FChunkCacheWorker_RequestQueueUpdate, STATGROUP_PakFile)</td></tr>
+<tr class="memitem:a39a7623d7a485c08e403631af2d06876" id="r_a39a7623d7a485c08e403631af2d06876"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a39a7623d7a485c08e403631af2d06876">DECLARE_FLOAT_ACCUMULATOR_STAT</a> (<a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;FChunkCacheWorker.RequestWaitTime&quot;), STAT_FChunkCacheWorker_RequestWaitTime, STATGROUP_PakFile)</td></tr>
+<tr class="memitem:a5d9a32beb13dd99c0246cf0114b87fc3" id="r_a5d9a32beb13dd99c0246cf0114b87fc3"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5d9a32beb13dd99c0246cf0114b87fc3">DECLARE_FLOAT_ACCUMULATOR_STAT</a> (<a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;FChunkCacheWorker.Serialize&quot;), STAT_FChunkCacheWorker_Serialize, STATGROUP_PakFile)</td></tr>
+<tr class="memitem:a899d222d85a9f1c87ae6a2e035e3f7c0" id="r_a899d222d85a9f1c87ae6a2e035e3f7c0"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a899d222d85a9f1c87ae6a2e035e3f7c0">DECLARE_FLOAT_ACCUMULATOR_STAT</a> (<a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;FChunkCacheWorker.HashBuffer&quot;), STAT_FChunkCacheWorker_HashBuffer, STATGROUP_PakFile)</td></tr>
+<tr class="memitem:ab482441c9551dd8d51c7ab16dbdaabe8" id="r_ab482441c9551dd8d51c7ab16dbdaabe8"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab482441c9551dd8d51c7ab16dbdaabe8">DECLARE_FLOAT_ACCUMULATOR_STAT</a> (<a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;FChunkCacheWorker.WaitingForEvent&quot;), STAT_FChunkCacheWorker_WaitingForEvent, STATGROUP_PakFile)</td></tr>
+<tr class="memitem:a87a171f7ccb7ffda6e1b974aa4d98ad2" id="r_a87a171f7ccb7ffda6e1b974aa4d98ad2"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a87a171f7ccb7ffda6e1b974aa4d98ad2">DECLARE_FLOAT_ACCUMULATOR_STAT</a> (<a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;FChunkCacheWorker.GetFreeBuffer&quot;), STAT_FChunkCacheWorker_GetFreeBuffer, STATGROUP_PakFile)</td></tr>
+<tr class="memitem:af8b2a34d570e6a583f80f6d12a9e1809" id="r_af8b2a34d570e6a583f80f6d12a9e1809"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af8b2a34d570e6a583f80f6d12a9e1809">DECLARE_FLOAT_ACCUMULATOR_STAT</a> (<a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;FChunkCacheWorker.ReleaseBuffer&quot;), STAT_FChunkCacheWorker_ReleaseBuffer, STATGROUP_PakFile)</td></tr>
+<tr class="memitem:a653ac56f72777505462659344a21e0b0" id="r_a653ac56f72777505462659344a21e0b0"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a653ac56f72777505462659344a21e0b0">DECLARE_DWORD_ACCUMULATOR_STAT</a> (<a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;FChunkCacheWorker.NumProcessQueues&quot;), STAT_FChunkCacheWorker_NumProcessQueue, STATGROUP_PakFile)</td></tr>
+<tr class="memitem:acac6da260e94612c1198519d3aebc5a1" id="r_acac6da260e94612c1198519d3aebc5a1"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#acac6da260e94612c1198519d3aebc5a1">DECLARE_DWORD_ACCUMULATOR_STAT</a> (<a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;FChunkCacheWorker.NumProcessQueuesWithWork&quot;), STAT_FChunkCacheWorker_NumProcessQueueWithWork, STATGROUP_PakFile)</td></tr>
+<tr class="memitem:ad4d01db112a21e716c215faac5a8e87c" id="r_ad4d01db112a21e716c215faac5a8e87c"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad4d01db112a21e716c215faac5a8e87c">DECLARE_FLOAT_ACCUMULATOR_STAT</a> (<a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;FSignedArchiveReader.Serialize&quot;), STAT_SignedArchiveReader_Serialize, STATGROUP_PakFile)</td></tr>
+<tr class="memitem:a4516793ab1349101b8a96534b90d44a2" id="r_a4516793ab1349101b8a96534b90d44a2"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4516793ab1349101b8a96534b90d44a2">DECLARE_FLOAT_ACCUMULATOR_STAT</a> (<a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;FSignedArchiveReader.PreCacheChunks&quot;), STAT_SignedArchiveReader_PreCacheChunks, STATGROUP_PakFile)</td></tr>
+<tr class="memitem:add1ebfd79399958af5425c582d048a0c" id="r_add1ebfd79399958af5425c582d048a0c"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#add1ebfd79399958af5425c582d048a0c">DECLARE_FLOAT_ACCUMULATOR_STAT</a> (<a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;FSignedArchiveReader.CopyFromNewCache&quot;), STAT_SignedArchiveReader_CopyFromNewCache, STATGROUP_PakFile)</td></tr>
+<tr class="memitem:afcc3b43efe6e39f6aceba389ef0dd62e" id="r_afcc3b43efe6e39f6aceba389ef0dd62e"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#afcc3b43efe6e39f6aceba389ef0dd62e">DECLARE_FLOAT_ACCUMULATOR_STAT</a> (<a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;FSignedArchiveReader.CopyFromExistingCache&quot;), STAT_SignedArchiveReader_CopyFromExistingCache, STATGROUP_PakFile)</td></tr>
+<tr class="memitem:aab54ba7349a1284c5594caf2c7c3dd61" id="r_aab54ba7349a1284c5594caf2c7c3dd61"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aab54ba7349a1284c5594caf2c7c3dd61">DECLARE_FLOAT_ACCUMULATOR_STAT</a> (<a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;FSignedArchiveReader.ProcessChunkRequests&quot;), STAT_SignedArchiveReader_ProcessChunkRequests, STATGROUP_PakFile)</td></tr>
+<tr class="memitem:a79f458343d28d65e77dd00e947a88520" id="r_a79f458343d28d65e77dd00e947a88520"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a79f458343d28d65e77dd00e947a88520">DECLARE_FLOAT_ACCUMULATOR_STAT</a> (<a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;FSignedArchiveReader.WaitingForChunkWorker&quot;), STAT_SignedArchiveReader_WaitForChunkWorker, STATGROUP_PakFile)</td></tr>
+<tr class="memitem:a09b4fb5c5b6abbe59db349d59c01fc69" id="r_a09b4fb5c5b6abbe59db349d59c01fc69"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a09b4fb5c5b6abbe59db349d59c01fc69">DECLARE_DWORD_ACCUMULATOR_STAT</a> (<a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;FSignedArchiveReader.NumSerializes&quot;), STAT_SignedArchiveReader_NumSerializes, STATGROUP_PakFile)</td></tr>
+<tr class="memitem:a3e8f15a66da12c3727bb58137a0df912" id="r_a3e8f15a66da12c3727bb58137a0df912"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a3e8f15a66da12c3727bb58137a0df912">DECLARE_DWORD_ACCUMULATOR_STAT</a> (<a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;FSignedArchiveReader.NumChunkRequests&quot;), STAT_SignedArchiveReader_NumChunkRequests, STATGROUP_PakFile)</td></tr>
+</table>
+<a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">函数说明</h2>
+<a id="a653ac56f72777505462659344a21e0b0" name="a653ac56f72777505462659344a21e0b0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a653ac56f72777505462659344a21e0b0">&#9670;&#160;</a></span>DECLARE_DWORD_ACCUMULATOR_STAT() <span class="overload">[1/4]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">DECLARE_DWORD_ACCUMULATOR_STAT </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;FChunkCacheWorker.NumProcessQueues&quot;)</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">STAT_FChunkCacheWorker_NumProcessQueue</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">STATGROUP_PakFile</td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="acac6da260e94612c1198519d3aebc5a1" name="acac6da260e94612c1198519d3aebc5a1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acac6da260e94612c1198519d3aebc5a1">&#9670;&#160;</a></span>DECLARE_DWORD_ACCUMULATOR_STAT() <span class="overload">[2/4]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">DECLARE_DWORD_ACCUMULATOR_STAT </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;FChunkCacheWorker.NumProcessQueuesWithWork&quot;)</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">STAT_FChunkCacheWorker_NumProcessQueueWithWork</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">STATGROUP_PakFile</td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a3e8f15a66da12c3727bb58137a0df912" name="a3e8f15a66da12c3727bb58137a0df912"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3e8f15a66da12c3727bb58137a0df912">&#9670;&#160;</a></span>DECLARE_DWORD_ACCUMULATOR_STAT() <span class="overload">[3/4]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">DECLARE_DWORD_ACCUMULATOR_STAT </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;FSignedArchiveReader.NumChunkRequests&quot;)</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">STAT_SignedArchiveReader_NumChunkRequests</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">STATGROUP_PakFile</td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a09b4fb5c5b6abbe59db349d59c01fc69" name="a09b4fb5c5b6abbe59db349d59c01fc69"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a09b4fb5c5b6abbe59db349d59c01fc69">&#9670;&#160;</a></span>DECLARE_DWORD_ACCUMULATOR_STAT() <span class="overload">[4/4]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">DECLARE_DWORD_ACCUMULATOR_STAT </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;FSignedArchiveReader.NumSerializes&quot;)</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">STAT_SignedArchiveReader_NumSerializes</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">STATGROUP_PakFile</td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a924c0d20841dbf0c43868801073e5464" name="a924c0d20841dbf0c43868801073e5464"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a924c0d20841dbf0c43868801073e5464">&#9670;&#160;</a></span>DECLARE_FLOAT_ACCUMULATOR_STAT() <span class="overload">[1/15]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">DECLARE_FLOAT_ACCUMULATOR_STAT </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;FChunkCacheWorker.CheckSignature&quot;)</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">STAT_FChunkCacheWorker_CheckSignature</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">STATGROUP_PakFile</td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a87a171f7ccb7ffda6e1b974aa4d98ad2" name="a87a171f7ccb7ffda6e1b974aa4d98ad2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a87a171f7ccb7ffda6e1b974aa4d98ad2">&#9670;&#160;</a></span>DECLARE_FLOAT_ACCUMULATOR_STAT() <span class="overload">[2/15]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">DECLARE_FLOAT_ACCUMULATOR_STAT </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;FChunkCacheWorker.GetFreeBuffer&quot;)</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">STAT_FChunkCacheWorker_GetFreeBuffer</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">STATGROUP_PakFile</td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a899d222d85a9f1c87ae6a2e035e3f7c0" name="a899d222d85a9f1c87ae6a2e035e3f7c0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a899d222d85a9f1c87ae6a2e035e3f7c0">&#9670;&#160;</a></span>DECLARE_FLOAT_ACCUMULATOR_STAT() <span class="overload">[3/15]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">DECLARE_FLOAT_ACCUMULATOR_STAT </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;FChunkCacheWorker.HashBuffer&quot;)</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">STAT_FChunkCacheWorker_HashBuffer</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">STATGROUP_PakFile</td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a7e17b44d95cf795ca9c1e768b1772884" name="a7e17b44d95cf795ca9c1e768b1772884"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7e17b44d95cf795ca9c1e768b1772884">&#9670;&#160;</a></span>DECLARE_FLOAT_ACCUMULATOR_STAT() <span class="overload">[4/15]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">DECLARE_FLOAT_ACCUMULATOR_STAT </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;FChunkCacheWorker.ProcessQueue&quot;)</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">STAT_FChunkCacheWorker_ProcessQueue</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">STATGROUP_PakFile</td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="af8b2a34d570e6a583f80f6d12a9e1809" name="af8b2a34d570e6a583f80f6d12a9e1809"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af8b2a34d570e6a583f80f6d12a9e1809">&#9670;&#160;</a></span>DECLARE_FLOAT_ACCUMULATOR_STAT() <span class="overload">[5/15]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">DECLARE_FLOAT_ACCUMULATOR_STAT </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;FChunkCacheWorker.ReleaseBuffer&quot;)</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">STAT_FChunkCacheWorker_ReleaseBuffer</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">STATGROUP_PakFile</td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ad3bef35dac6dcc5fd4d855a94065a526" name="ad3bef35dac6dcc5fd4d855a94065a526"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad3bef35dac6dcc5fd4d855a94065a526">&#9670;&#160;</a></span>DECLARE_FLOAT_ACCUMULATOR_STAT() <span class="overload">[6/15]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">DECLARE_FLOAT_ACCUMULATOR_STAT </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;FChunkCacheWorker.RequestQueueUpdate&quot;)</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">STAT_FChunkCacheWorker_RequestQueueUpdate</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">STATGROUP_PakFile</td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a39a7623d7a485c08e403631af2d06876" name="a39a7623d7a485c08e403631af2d06876"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a39a7623d7a485c08e403631af2d06876">&#9670;&#160;</a></span>DECLARE_FLOAT_ACCUMULATOR_STAT() <span class="overload">[7/15]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">DECLARE_FLOAT_ACCUMULATOR_STAT </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;FChunkCacheWorker.RequestWaitTime&quot;)</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">STAT_FChunkCacheWorker_RequestWaitTime</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">STATGROUP_PakFile</td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a5d9a32beb13dd99c0246cf0114b87fc3" name="a5d9a32beb13dd99c0246cf0114b87fc3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5d9a32beb13dd99c0246cf0114b87fc3">&#9670;&#160;</a></span>DECLARE_FLOAT_ACCUMULATOR_STAT() <span class="overload">[8/15]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">DECLARE_FLOAT_ACCUMULATOR_STAT </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;FChunkCacheWorker.Serialize&quot;)</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">STAT_FChunkCacheWorker_Serialize</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">STATGROUP_PakFile</td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ab482441c9551dd8d51c7ab16dbdaabe8" name="ab482441c9551dd8d51c7ab16dbdaabe8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab482441c9551dd8d51c7ab16dbdaabe8">&#9670;&#160;</a></span>DECLARE_FLOAT_ACCUMULATOR_STAT() <span class="overload">[9/15]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">DECLARE_FLOAT_ACCUMULATOR_STAT </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;FChunkCacheWorker.WaitingForEvent&quot;)</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">STAT_FChunkCacheWorker_WaitingForEvent</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">STATGROUP_PakFile</td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="afcc3b43efe6e39f6aceba389ef0dd62e" name="afcc3b43efe6e39f6aceba389ef0dd62e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afcc3b43efe6e39f6aceba389ef0dd62e">&#9670;&#160;</a></span>DECLARE_FLOAT_ACCUMULATOR_STAT() <span class="overload">[10/15]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">DECLARE_FLOAT_ACCUMULATOR_STAT </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;FSignedArchiveReader.CopyFromExistingCache&quot;)</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">STAT_SignedArchiveReader_CopyFromExistingCache</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">STATGROUP_PakFile</td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="add1ebfd79399958af5425c582d048a0c" name="add1ebfd79399958af5425c582d048a0c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#add1ebfd79399958af5425c582d048a0c">&#9670;&#160;</a></span>DECLARE_FLOAT_ACCUMULATOR_STAT() <span class="overload">[11/15]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">DECLARE_FLOAT_ACCUMULATOR_STAT </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;FSignedArchiveReader.CopyFromNewCache&quot;)</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">STAT_SignedArchiveReader_CopyFromNewCache</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">STATGROUP_PakFile</td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a4516793ab1349101b8a96534b90d44a2" name="a4516793ab1349101b8a96534b90d44a2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4516793ab1349101b8a96534b90d44a2">&#9670;&#160;</a></span>DECLARE_FLOAT_ACCUMULATOR_STAT() <span class="overload">[12/15]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">DECLARE_FLOAT_ACCUMULATOR_STAT </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;FSignedArchiveReader.PreCacheChunks&quot;)</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">STAT_SignedArchiveReader_PreCacheChunks</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">STATGROUP_PakFile</td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aab54ba7349a1284c5594caf2c7c3dd61" name="aab54ba7349a1284c5594caf2c7c3dd61"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aab54ba7349a1284c5594caf2c7c3dd61">&#9670;&#160;</a></span>DECLARE_FLOAT_ACCUMULATOR_STAT() <span class="overload">[13/15]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">DECLARE_FLOAT_ACCUMULATOR_STAT </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;FSignedArchiveReader.ProcessChunkRequests&quot;)</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">STAT_SignedArchiveReader_ProcessChunkRequests</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">STATGROUP_PakFile</td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ad4d01db112a21e716c215faac5a8e87c" name="ad4d01db112a21e716c215faac5a8e87c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad4d01db112a21e716c215faac5a8e87c">&#9670;&#160;</a></span>DECLARE_FLOAT_ACCUMULATOR_STAT() <span class="overload">[14/15]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">DECLARE_FLOAT_ACCUMULATOR_STAT </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;FSignedArchiveReader.Serialize&quot;)</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">STAT_SignedArchiveReader_Serialize</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">STATGROUP_PakFile</td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a79f458343d28d65e77dd00e947a88520" name="a79f458343d28d65e77dd00e947a88520"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a79f458343d28d65e77dd00e947a88520">&#9670;&#160;</a></span>DECLARE_FLOAT_ACCUMULATOR_STAT() <span class="overload">[15/15]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">DECLARE_FLOAT_ACCUMULATOR_STAT </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;FSignedArchiveReader.WaitingForChunkWorker&quot;)</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">STAT_SignedArchiveReader_WaitForChunkWorker</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">STATGROUP_PakFile</td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<div id="page-nav" class="page-nav-panel">
+<div id="page-nav-resize-handle"></div>
+<div id="page-nav-tree">
+<div id="page-nav-contents">
+</div><!-- page-nav-contents -->
+</div><!-- page-nav-tree -->
+</div><!-- page-nav -->
+</div><!-- container -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a href="../../dir_0b6ee6e7e9547e675db4add2e5de97da.html">Engine</a></li><li class="navelem"><a href="../../dir_9579d1ecb2c7bf48cbe1049c41745cb4.html">Source</a></li><li class="navelem"><a href="../../dir_9f04efef762572853abdf73f62bebfcc.html">Runtime</a></li><li class="navelem"><a href="../../dir_3bb71f1a801eade3b76bc000a01d237a.html">PakFile</a></li><li class="navelem"><a href="../../dir_704715adc03854eaae83fe84611625c0.html">Private</a></li><li class="navelem"><a href="../../d4/dd7/_signed_archive_reader_8cpp.html">SignedArchiveReader.cpp</a></li>
+    <li class="footer">制作者 <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.15.0 </li>
+  </ul>
+</div>
+</body>
+</html>

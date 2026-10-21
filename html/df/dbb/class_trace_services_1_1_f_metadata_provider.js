@@ -1,0 +1,27 @@
+var class_trace_services_1_1_f_metadata_provider =
+[
+    [ "FMetadataProvider", "df/dbb/class_trace_services_1_1_f_metadata_provider.html#a756b58516279923d058c402d878baf0f", null ],
+    [ "~FMetadataProvider", "df/dbb/class_trace_services_1_1_f_metadata_provider.html#ad631e1fa014fcb3b2e73cb155edfee01", null ],
+    [ "BeginClearStackScope", "df/dbb/class_trace_services_1_1_f_metadata_provider.html#a3f0e2b28911deb20265efd4187ea5a49", null ],
+    [ "BeginEdit", "df/dbb/class_trace_services_1_1_f_metadata_provider.html#a9f611d608185cde974b3f9f4272ca635", null ],
+    [ "BeginRead", "df/dbb/class_trace_services_1_1_f_metadata_provider.html#aafb6cf5cb0f2c4c5f5e20fcd3bd943a7", null ],
+    [ "BeginRestoreSavedStackScope", "df/dbb/class_trace_services_1_1_f_metadata_provider.html#a92c810a57d96bf49932823d0a6f45810", null ],
+    [ "EditAccessCheck", "df/dbb/class_trace_services_1_1_f_metadata_provider.html#a5f12da4cad736418b30f3159c21ca85b", null ],
+    [ "EndClearStackScope", "df/dbb/class_trace_services_1_1_f_metadata_provider.html#a2121319e22c3144e24688dfd86a5ebd1", null ],
+    [ "EndEdit", "df/dbb/class_trace_services_1_1_f_metadata_provider.html#a882b25c379cb139792aaee0249a261a2", null ],
+    [ "EndRead", "df/dbb/class_trace_services_1_1_f_metadata_provider.html#a3e4add1db5c22ef058d274a1a0d763cd", null ],
+    [ "EndRestoreSavedStackScope", "df/dbb/class_trace_services_1_1_f_metadata_provider.html#a87a513c1ef2c2692f2af30a40e2cb430", null ],
+    [ "EnumerateMetadata", "df/dbb/class_trace_services_1_1_f_metadata_provider.html#a0a6584b21ef73a2188ac1bed6763580a", null ],
+    [ "GetMetadata", "df/dbb/class_trace_services_1_1_f_metadata_provider.html#a9078d7561dc7e8ebdca9aa54d61f7ebb", null ],
+    [ "GetMetadataStackSize", "df/dbb/class_trace_services_1_1_f_metadata_provider.html#a3510fba117ea968666b7f085ab8ee7c7", null ],
+    [ "GetRegisteredMetadataName", "df/dbb/class_trace_services_1_1_f_metadata_provider.html#a708e902d77d4faad54f88cc0bc3a8521", null ],
+    [ "GetRegisteredMetadataSchema", "df/dbb/class_trace_services_1_1_f_metadata_provider.html#a05cba045296039126738bff2bd7b379c", null ],
+    [ "GetRegisteredMetadataType", "df/dbb/class_trace_services_1_1_f_metadata_provider.html#a71348e7270544a86268c5b54f64b0369", null ],
+    [ "OnAnalysisCompleted", "df/dbb/class_trace_services_1_1_f_metadata_provider.html#a7851992135d2fa109b20c76ea2da8de3", null ],
+    [ "PinAndGetId", "df/dbb/class_trace_services_1_1_f_metadata_provider.html#aa4ff282e00c1daa8e990b7d786134765", null ],
+    [ "PopScopedMetadata", "df/dbb/class_trace_services_1_1_f_metadata_provider.html#a2bb2b115b09b5084657db1d5d549bbe7", null ],
+    [ "PushScopedMetadata", "df/dbb/class_trace_services_1_1_f_metadata_provider.html#a1eac5d4052c89a2d2c057fa0f9191c66", null ],
+    [ "ReadAccessCheck", "df/dbb/class_trace_services_1_1_f_metadata_provider.html#a4eea42250d00b9f8f3bf8e6b08a60358", null ],
+    [ "RegisterMetadataType", "df/dbb/class_trace_services_1_1_f_metadata_provider.html#a217db699cbf0dd49ec8f74f7850b95df", null ],
+    [ "SaveStack", "df/dbb/class_trace_services_1_1_f_metadata_provider.html#a0c12c7eb8fe0468dcf6800a650f5e14c", null ]
+];

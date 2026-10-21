@@ -1,0 +1,28 @@
+var zenbase_8h =
+[
+    [ "LINE_TERMINATOR_ANSI", "df/dff/zenbase_8h.html#a62b64c276d3d92743cad4835d70da514", null ],
+    [ "ZEN_ARRAY_COUNT", "df/dff/zenbase_8h.html#a29a36624f9c23f9be520e6c1af82b997", null ],
+    [ "ZEN_BUILD_DEBUG", "df/dff/zenbase_8h.html#ab4159047a3ac8bff732fb408467b62f7", null ],
+    [ "ZEN_BUILD_NAME", "df/dff/zenbase_8h.html#a4e83a93754865e67b63ab4196db4b76b", null ],
+    [ "ZEN_BUILD_RELEASE", "df/dff/zenbase_8h.html#a51790894c32c96accff837473fdd49ff", null ],
+    [ "ZEN_CODE_SECTION", "df/dff/zenbase_8h.html#a683317737c7b4ab43dd50b0d346cc826", null ],
+    [ "ZEN_COMPILER_CLANG", "df/dff/zenbase_8h.html#adef26fab1a2d911085568a4ece56212f", null ],
+    [ "ZEN_COMPILER_GCC", "df/dff/zenbase_8h.html#a928971172874230bfb20db6200c567ec", null ],
+    [ "ZEN_COMPILER_MSC", "df/dff/zenbase_8h.html#a26cd6c5c285ede3c54d4ade66b655496", null ],
+    [ "ZEN_DATA_SECTION", "df/dff/zenbase_8h.html#ad9f9ca27b6b8adf2fdd0b6329d144705", null ],
+    [ "ZEN_DEBUG_BREAK", "df/dff/zenbase_8h.html#a8adfe9679bf6c0f3e1ad30968054af52", null ],
+    [ "ZEN_DISABLE_OPTIMIZATION", "df/dff/zenbase_8h.html#a34641d0d41fe7f4d3a960d019843bd73", null ],
+    [ "ZEN_ENABLE_OPTIMIZATION", "df/dff/zenbase_8h.html#aa32487cba12ddcab1f6b00504bb9ef8c", null ],
+    [ "ZEN_ENABLE_OPTIMIZATION_ALWAYS", "df/dff/zenbase_8h.html#aeec69e9bc8e93e291bcaf8cf27345631", null ],
+    [ "ZEN_EXE_SUFFIX_LITERAL", "df/dff/zenbase_8h.html#aa1c82e238d1d51c191f076130a18b1a8", null ],
+    [ "ZEN_FORCEINLINE", "df/dff/zenbase_8h.html#ab652595bc868889b51a894b074646985", null ],
+    [ "ZEN_FORCENOINLINE", "df/dff/zenbase_8h.html#aee51b7cfe3ed29b6bc2c1d6e4620afad", null ],
+    [ "ZEN_NOINLINE", "df/dff/zenbase_8h.html#aa7986be1a38c4e4ab090a3f3647567c8", null ],
+    [ "ZEN_PLATFORM_LINUX", "df/dff/zenbase_8h.html#a9c0c429273d772c47707a9451608c2fa", null ],
+    [ "ZEN_PLATFORM_MAC", "df/dff/zenbase_8h.html#a884c8d13ddcbbb0f1e8ded1db62b6c33", null ],
+    [ "ZEN_PLATFORM_SUPPORTS_UNALIGNED_LOADS", "df/dff/zenbase_8h.html#ac56019671b2a48da5e4be580872dae25", null ],
+    [ "ZEN_PLATFORM_WINDOWS", "df/dff/zenbase_8h.html#ab043e549af0295360b39aec4b1536379", null ],
+    [ "ZEN_SIZEOF_WCHAR_T", "df/dff/zenbase_8h.html#a837d03c6d0acdd72c4f83cd650043e4d", null ],
+    [ "ZEN_UNUSED", "df/dff/zenbase_8h.html#ab546bf29a60da23f7ddda056ed871498", null ],
+    [ "ZenArrayCountHelper", "df/dff/zenbase_8h.html#a16b907e1f57e8ded923daf6ade21378f", null ]
+];

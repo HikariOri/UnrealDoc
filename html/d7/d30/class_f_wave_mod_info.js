@@ -1,0 +1,26 @@
+var class_f_wave_mod_info =
+[
+    [ "FWaveModInfo", "d7/d30/class_f_wave_mod_info.html#a43717d868e1c539e71f9d5ac9df68f28", null ],
+    [ "GetNumSamples", "d7/d30/class_f_wave_mod_info.html#ad3f2da8e47007b11c53542d644e59b92", null ],
+    [ "IsFormatSupported", "d7/d30/class_f_wave_mod_info.html#a091ca4ff7e1605db7e5408dfb343d61f", null ],
+    [ "IsFormatUncompressed", "d7/d30/class_f_wave_mod_info.html#a82e420cf839ac4ac5ce1bec407d6082e", null ],
+    [ "ReadWaveHeader", "d7/d30/class_f_wave_mod_info.html#ada4051678d5bd05ffb744c12b1ae92f5", null ],
+    [ "ReadWaveInfo", "d7/d30/class_f_wave_mod_info.html#a70acd0a565ca558b6e6b205ee958df67", null ],
+    [ "ReportImportFailure", "d7/d30/class_f_wave_mod_info.html#ac22de485392c1a61fbfe2f0988b2131a", null ],
+    [ "NewDataSize", "d7/d30/class_f_wave_mod_info.html#a6796bb071a7b25db715f7c1c68baeb95", null ],
+    [ "pAvgBytesPerSec", "d7/d30/class_f_wave_mod_info.html#a65880b16b4a771ef6cfd246c127cec04", null ],
+    [ "pBitsPerSample", "d7/d30/class_f_wave_mod_info.html#a0fe7461ee986bf08a2907c9980b57da9", null ],
+    [ "pBlockAlign", "d7/d30/class_f_wave_mod_info.html#ab4fb9051710606c0aae4b441f8d8acde", null ],
+    [ "pChannels", "d7/d30/class_f_wave_mod_info.html#a745a866474fd0526907a7173bbec584f", null ],
+    [ "pFormatTag", "d7/d30/class_f_wave_mod_info.html#a78529bd0010888139e1fb899401ba6b5", null ],
+    [ "pMasterSize", "d7/d30/class_f_wave_mod_info.html#ae10914ea68adc49a6e9da83bd898599f", null ],
+    [ "pSamplesPerSec", "d7/d30/class_f_wave_mod_info.html#a46b9434d6c97ad24c54b8837b995599c", null ],
+    [ "pWaveDataSize", "d7/d30/class_f_wave_mod_info.html#a5fdc6154fa934b72bf0f6173dbd289e2", null ],
+    [ "SampleDataEnd", "d7/d30/class_f_wave_mod_info.html#a3353f3772cf2a09dcaddadde8b89bff2", null ],
+    [ "SampleDataSize", "d7/d30/class_f_wave_mod_info.html#af5b9cdccdd547cf38852d3d901440059", null ],
+    [ "SampleDataStart", "d7/d30/class_f_wave_mod_info.html#a39ab0a6c1c0502401ec0608a52bfc1de", null ],
+    [ "TimecodeInfo", "d7/d30/class_f_wave_mod_info.html#a01d27fff6da05ad28ecbe89d1b7c528f", null ],
+    [ "WaveCues", "d7/d30/class_f_wave_mod_info.html#a8735cbb2bb31a85e19d1c3d65fbb0eee", null ],
+    [ "WaveDataEnd", "d7/d30/class_f_wave_mod_info.html#acf009b1d7513f387ab801e8e4cfcbb4a", null ],
+    [ "WaveSampleLoops", "d7/d30/class_f_wave_mod_info.html#ae3b7136e2a5f65dade904a59d454f5ce", null ]
+];

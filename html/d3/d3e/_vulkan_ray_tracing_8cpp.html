@@ -1,0 +1,756 @@
+<!-- HTML header for doxygen 1.15.0-->
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh">
+<head>
+  <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=11" />
+  <meta name="generator" content="Doxygen 1.15.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>UE 5.8.4: Engine/Source/Runtime/VulkanRHI/Private/VulkanRayTracing.cpp 文件参考</title>
+  <link rel="icon" href="../../EdIconDefault.bmp" type="image/x-icon" />
+  <link href="../../tabs.css" rel="stylesheet" type="text/css" />
+  <script type="text/javascript" src="../../jquery.js"></script>
+  <script type="text/javascript" src="../../dynsections.js"></script>
+  <link href="../../navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../navtreedata.js"></script>
+<script type="text/javascript" src="../../navtree.js"></script>
+<script type="text/javascript" src="../../cookie.js"></script>
+  <link href="../../search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../search/searchdata.js"></script>
+<script type="text/javascript" src="../../search/search.js"></script>
+  <script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  extensions: ["tex2jax.js"],
+  jax: ["input/TeX","output/HTML-CSS"],
+});
+</script>
+<script type="text/javascript" async="async" src="https://cdn.jsdelivr.net/npm/mathjax@2/MathJax.js"></script>
+  <link href="../../doxygen.css" rel="stylesheet" type="text/css" />
+  <link href="../../doxygen-awesome.css" rel="stylesheet" type="text/css"/>
+<link href="../../doxygen-awesome-sidebar-only.css" rel="stylesheet" type="text/css"/>
+<link href="../../doxygen-awesome-sidebar-only-darkmode-toggle.css" rel="stylesheet" type="text/css"/>
+  <!-- ... other metadata & script includes ... -->
+  <script type="text/javascript" src="../../doxygen-awesome-darkmode-toggle.js"></script>
+  <script type="text/javascript">
+    DoxygenAwesomeDarkModeToggle.title = "Zwischen hellem/dunklem Modus wechseln"
+    DoxygenAwesomeDarkModeToggle.lightModeIcon = '🌞'
+    // icon from https://fonts.google.com/icons
+    DoxygenAwesomeDarkModeToggle.darkModeIcon = `<svg xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 24 24" height="24px" viewBox="0 0 24 24" width="24px" fill="#009793"><g><rect fill="none" height="24" width="24"/></g><g><g><path d="M8.1,14.15C9.77,14.63,11,16.17,11,18c0,0.68-0.19,1.31-0.48,1.87c0.48,0.09,0.97,0.14,1.48,0.14 c1.48,0,2.9-0.41,4.13-1.15c-2.62-0.92-5.23-2.82-6.8-5.86C7.74,9.94,7.78,7.09,8.29,4.9c-2.57,1.33-4.3,4.01-4.3,7.1c0,0,0,0,0,0 c0.01,0,0.01,0,0.02,0C5.66,12,7.18,12.83,8.1,14.15z" opacity=".3"/><path d="M19.78,17.51c-2.47,0-6.57-1.33-8.68-5.43C8.77,7.57,10.6,3.6,11.63,2.01C6.27,2.2,1.98,6.59,1.98,12 c0,0.14,0.02,0.28,0.02,0.42C2.61,12.16,3.28,12,3.98,12c0,0,0,0,0,0c0-3.09,1.73-5.77,4.3-7.1C7.78,7.09,7.74,9.94,9.32,13 c1.57,3.04,4.18,4.95,6.8,5.86c-1.23,0.74-2.65,1.15-4.13,1.15c-0.5,0-1-0.05-1.48-0.14c-0.37,0.7-0.94,1.27-1.64,1.64 c0.98,0.32,2.03,0.5,3.11,0.5c3.5,0,6.58-1.8,8.37-4.52C20.18,17.5,19.98,17.51,19.78,17.51z"/><path d="M7,16l-0.18,0C6.4,14.84,5.3,14,4,14c-1.66,0-3,1.34-3,3s1.34,3,3,3c0.62,0,2.49,0,3,0c1.1,0,2-0.9,2-2 C9,16.9,8.1,16,7,16z"/></g></g></svg>`
+    DoxygenAwesomeDarkModeToggle.init()
+  </script>
+  <script type="text/javascript" src="../../doxygen-awesome-fragment-copy-button.js"></script>
+  <script type="text/javascript">
+    DoxygenAwesomeFragmentCopyButton.title = "In die Zwischenablage kopieren"
+    // DoxygenAwesomeFragmentCopyButton.copyIcon = `<svg ...>`
+    // DoxygenAwesomeFragmentCopyButton.successIcon = `<svg ...>`
+    DoxygenAwesomeFragmentCopyButton.init()
+  </script>
+  <script type="text/javascript" src="../../doxygen-awesome-paragraph-link.js"></script>
+  <script type="text/javascript">
+    DoxygenAwesomeParagraphLink.title = "Abschnitt verknüpfen"
+    DoxygenAwesomeParagraphLink.icon = "¶"
+    DoxygenAwesomeParagraphLink.init()
+  </script>
+  <script type="text/javascript" src="../../doxygen-awesome-interactive-toc.js"></script>
+  <script type="text/javascript">
+    DoxygenAwesomeInteractiveToc.topOffset = 45
+    DoxygenAwesomeInteractiveToc.hideMobileMenu = false
+    DoxygenAwesomeInteractiveToc.init()
+  </script>
+</head>
+<body>
+    <div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+      <div id="titlearea">
+        <table cellspacing="0" cellpadding="0">
+          <tbody>
+            <tr id="projectrow">
+              <td id="projectlogo"><img alt="Logo" src="../../EdIconDefault.bmp"  /></td>
+              <td id="projectalign">
+                <div id="projectname">UE 5.8.4
+                </div>
+                <div id="projectbrief">Unreal Engine</div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <!-- end header part -->
+<!-- 制作者 Doxygen 1.15.0 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "../../search/",'.html');
+</script>
+<script type="text/javascript">
+$(function() { codefold.init(); });
+</script>
+<script type="text/javascript" src="../../menudata.js"></script>
+<script type="text/javascript" src="../../menu.js"></script>
+<script type="text/javascript">
+$(function() {
+  initMenu('../../',true,false,'search.php','搜索',true);
+  $(function() { init_search(); });
+});
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(function(){initNavTree('d3/d3e/_vulkan_ray_tracing_8cpp.html','../../',''); });
+</script>
+<div id="container">
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">载入中...</div>
+<div class="SRStatus" id="Searching">搜索中...</div>
+<div class="SRStatus" id="NoMatches">未找到</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">VulkanRayTracing.cpp 文件参考</div></div>
+</div><!--header-->
+<div class="contents">
+<div class="textblock"><code>#include &quot;<a class="el" href="../../d8/d50/_vulkan_ray_tracing_8h_source.html">VulkanRayTracing.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d0/dc3/_vulkan_context_8h_source.html">VulkanContext.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d1/d81/_vulkan_descriptor_sets_8h_source.html">VulkanDescriptorSets.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d3/d2a/_vulkan_bindless_descriptor_manager_8h_source.html">VulkanBindlessDescriptorManager.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d6/d0e/_built_in_ray_tracing_shaders_8h_source.html">BuiltInRayTracingShaders.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../de/dc9/_sherwood_hash_table_8h_source.html">Experimental/Containers/SherwoodHashTable.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d3/d90/_core_2_public_2_async_2_parallel_for_8h_source.html">Async/ParallelFor.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../de/d9b/_core_2_public_2_misc_2_command_line_8h_source.html">Misc/CommandLine.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d7/d55/_parse_8h_source.html">Misc/Parse.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d9/d2c/_shader_parameter_macros_8h_source.html">ShaderParameterMacros.h</a>&quot;</code><br />
+</div><div class="textblock"><div class="dynheader">
+VulkanRayTracing.cpp 的引用(Include)关系图:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d3/dc3/_vulkan_ray_tracing_8cpp__incl.svg" width="3126" height="1014"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+</div><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-nested-classes" class="groupheader"><a id="nested-classes" name="nested-classes"></a>
+类</h2></td></tr>
+<tr class="memitem:FVulkanRayTracingGeometryParameters" id="r_FVulkanRayTracingGeometryParameters"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/d71/struct_f_vulkan_ray_tracing_geometry_parameters.html">FVulkanRayTracingGeometryParameters</a></td></tr>
+<tr class="memitem:FVulkanRayTracingPipelineLibraryCache" id="r_FVulkanRayTracingPipelineLibraryCache"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/db9/class_f_vulkan_ray_tracing_pipeline_library_cache.html">FVulkanRayTracingPipelineLibraryCache</a></td></tr>
+<tr class="memitem:FVulkanRayTracingPipelineLibraryCache_3A_3AFKey" id="r_FVulkanRayTracingPipelineLibraryCache_3A_3AFKey"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d8/d9c/struct_f_vulkan_ray_tracing_pipeline_library_cache_1_1_f_key.html">FVulkanRayTracingPipelineLibraryCache::FKey</a></td></tr>
+<tr class="memitem:FVulkanRayTracingPipelineLibraryCache_3A_3AFPipelineLibrary" id="r_FVulkanRayTracingPipelineLibraryCache_3A_3AFPipelineLibrary"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d8/ded/struct_f_vulkan_ray_tracing_pipeline_library_cache_1_1_f_pipeline_library.html">FVulkanRayTracingPipelineLibraryCache::FPipelineLibrary</a></td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-define-members" class="groupheader"><a id="define-members" name="define-members"></a>
+宏定义</h2></td></tr>
+<tr class="memitem:a1f2ac89e1d2d2c064e4867f095825c1d" id="r_a1f2ac89e1d2d2c064e4867f095825c1d"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a1f2ac89e1d2d2c064e4867f095825c1d">CHECK_VK_ENTRYPOINTS</a>(<a class="el" href="../../d8/df6/class_type.html">Type</a>,  Func)</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-enum-members" class="groupheader"><a id="enum-members" name="enum-members"></a>
+枚举</h2></td></tr>
+<tr class="memitem:a007c435e01df9715736c05113dc21b2c" id="r_a007c435e01df9715736c05113dc21b2c"><td class="memItemLeft" align="right" valign="top">enum class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a007c435e01df9715736c05113dc21b2c">EBLASBuildDataUsage</a> { <a class="el" href="#a007c435e01df9715736c05113dc21b2caa6e8f9aed2ac6481dc25a18a33342d03">Rendering</a> = 0
+, <a class="el" href="#a007c435e01df9715736c05113dc21b2ca6f6cb72d544962fa333e2e34ce64f719">Size</a> = 1
+ }</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-func-members" class="groupheader"><a id="func-members" name="func-members"></a>
+函数</h2></td></tr>
+<tr class="memitem:a22e9c100927542943f103cff6f37524f" id="r_a22e9c100927542943f103cff6f37524f"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a22e9c100927542943f103cff6f37524f">DECLARE_STATS_GROUP</a> (<a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;Vulkan: Ray Tracing&quot;), STATGROUP_VulkanRayTracing, STATCAT_Advanced)</td></tr>
+<tr class="memitem:a4c68999683f95a5baec1153757bef9b9" id="r_a4c68999683f95a5baec1153757bef9b9"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4c68999683f95a5baec1153757bef9b9">DECLARE_DWORD_ACCUMULATOR_STAT</a> (<a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;Created pipelines (total)&quot;), STAT_VulkanRayTracingCreatedPipelines, STATGROUP_VulkanRayTracing)</td></tr>
+<tr class="memitem:aa319f56e25d35026a155ed494b41d447" id="r_aa319f56e25d35026a155ed494b41d447"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa319f56e25d35026a155ed494b41d447">DECLARE_DWORD_ACCUMULATOR_STAT</a> (<a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;Compiled shaders (total)&quot;), STAT_VulkanRayTracingCompiledShaders, STATGROUP_VulkanRayTracing)</td></tr>
+<tr class="memitem:a2a11d4b4eccb89aa14a4337241cbc32d" id="r_a2a11d4b4eccb89aa14a4337241cbc32d"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2a11d4b4eccb89aa14a4337241cbc32d">DECLARE_DWORD_ACCUMULATOR_STAT</a> (<a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;Allocated bottom <a class="el" href="../../d8/d06/_android_open_g_l_functions_8h.html#abc60a79088789bd61297bf5f9ff500d1">level</a> acceleration structures&quot;), STAT_VulkanRayTracingAllocatedBLAS, STATGROUP_VulkanRayTracing)</td></tr>
+<tr class="memitem:a3f70ef9f258c80fe44fcc385509f6341" id="r_a3f70ef9f258c80fe44fcc385509f6341"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a3f70ef9f258c80fe44fcc385509f6341">DECLARE_DWORD_ACCUMULATOR_STAT</a> (<a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;Allocated top <a class="el" href="../../d8/d06/_android_open_g_l_functions_8h.html#abc60a79088789bd61297bf5f9ff500d1">level</a> acceleration structures&quot;), STAT_VulkanRayTracingAllocatedTLAS, STATGROUP_VulkanRayTracing)</td></tr>
+<tr class="memitem:a6d134b857f13359dbc698580b51d8831" id="r_a6d134b857f13359dbc698580b51d8831"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6d134b857f13359dbc698580b51d8831">DECLARE_DWORD_ACCUMULATOR_STAT</a> (<a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;Triangles in all BL acceleration structures&quot;), STAT_VulkanRayTracingTrianglesBLAS, STATGROUP_VulkanRayTracing)</td></tr>
+<tr class="memitem:a0c90a925749381113acc6b7183a7eef2" id="r_a0c90a925749381113acc6b7183a7eef2"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a0c90a925749381113acc6b7183a7eef2">DECLARE_DWORD_COUNTER_STAT</a> (<a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;Built BL AS (per frame)&quot;), STAT_VulkanRayTracingBuiltBLAS, STATGROUP_VulkanRayTracing)</td></tr>
+<tr class="memitem:a144c28443286985a8769d4c99c731418" id="r_a144c28443286985a8769d4c99c731418"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a144c28443286985a8769d4c99c731418">DECLARE_DWORD_COUNTER_STAT</a> (<a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;Updated BL AS (per frame)&quot;), STAT_VulkanRayTracingUpdatedBLAS, STATGROUP_VulkanRayTracing)</td></tr>
+<tr class="memitem:a39da19cdb3c77c8617639eda1632a104" id="r_a39da19cdb3c77c8617639eda1632a104"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a39da19cdb3c77c8617639eda1632a104">DECLARE_DWORD_COUNTER_STAT</a> (<a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;Built TL AS (per frame)&quot;), STAT_VulkanRayTracingBuiltTLAS, STATGROUP_VulkanRayTracing)</td></tr>
+<tr class="memitem:ad0caa798fa6aa5b0b54ad73bcf513ffe" id="r_ad0caa798fa6aa5b0b54ad73bcf513ffe"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad0caa798fa6aa5b0b54ad73bcf513ffe">DECLARE_DWORD_COUNTER_STAT</a> (<a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;Updated TL AS (per frame)&quot;), STAT_VulkanRayTracingUpdatedTLAS, STATGROUP_VulkanRayTracing)</td></tr>
+<tr class="memitem:a20bb1d39a6e70ce02ad9c53955fa6582" id="r_a20bb1d39a6e70ce02ad9c53955fa6582"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a20bb1d39a6e70ce02ad9c53955fa6582">DECLARE_MEMORY_STAT</a> (<a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;Total BL AS Memory&quot;), STAT_VulkanRayTracingBLASMemory, STATGROUP_VulkanRayTracing)</td></tr>
+<tr class="memitem:a35d7b112d1805017fecba372fa54965e" id="r_a35d7b112d1805017fecba372fa54965e"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a35d7b112d1805017fecba372fa54965e">DECLARE_MEMORY_STAT</a> (<a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;Static BL AS Memory&quot;), STAT_VulkanRayTracingStaticBLASMemory, STATGROUP_VulkanRayTracing)</td></tr>
+<tr class="memitem:a74ea517f368109f5051a1012c5ebd42f" id="r_a74ea517f368109f5051a1012c5ebd42f"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a74ea517f368109f5051a1012c5ebd42f">DECLARE_MEMORY_STAT</a> (<a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;Dynamic BL AS Memory&quot;), STAT_VulkanRayTracingDynamicBLASMemory, STATGROUP_VulkanRayTracing)</td></tr>
+<tr class="memitem:a8cae05d4fa18a671e83d59c883e0f51e" id="r_a8cae05d4fa18a671e83d59c883e0f51e"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8cae05d4fa18a671e83d59c883e0f51e">DECLARE_MEMORY_STAT</a> (<a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;TL AS Memory&quot;), STAT_VulkanRayTracingTLASMemory, STATGROUP_VulkanRayTracing)</td></tr>
+<tr class="memitem:a2b8793abea6fbc8f32c28c5aead250b1" id="r_a2b8793abea6fbc8f32c28c5aead250b1"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2b8793abea6fbc8f32c28c5aead250b1">DECLARE_MEMORY_STAT</a> (<a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;Total Used Video Memory&quot;), STAT_VulkanRayTracingUsedVideoMemory, STATGROUP_VulkanRayTracing)</td></tr>
+<tr class="memitem:a806c67141138aeae4765107fdb2b7cd0" id="r_a806c67141138aeae4765107fdb2b7cd0"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a806c67141138aeae4765107fdb2b7cd0">DECLARE_CYCLE_STAT</a> (<a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;RTPSO Compile Shader&quot;), STAT_RTPSO_CompileShader, STATGROUP_VulkanRayTracing)</td></tr>
+<tr class="memitem:a2536642991a25534254f71ba1ee413fc" id="r_a2536642991a25534254f71ba1ee413fc"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2536642991a25534254f71ba1ee413fc">DECLARE_CYCLE_STAT</a> (<a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;RTPSO Create Pipeline&quot;), STAT_RTPSO_CreatePipeline, STATGROUP_VulkanRayTracing)</td></tr>
+<tr class="memitem:a094dc7c8bcb4e55bba87d0652abe2ce6" id="r_a094dc7c8bcb4e55bba87d0652abe2ce6"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../df/d63/_typed_element_query_capabilities_8inl.html#a72343342ce64c0755563ee6c5e27868d">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a094dc7c8bcb4e55bba87d0652abe2ce6">BuildAccelerationStructure</a> (<a class="el" href="../../d0/dff/class_f_vulkan_command_list_context.html">FVulkanCommandListContext</a> &amp;CommandContext, <a class="el" href="../../d6/d08/class_f_vulkan_ray_tracing_scene.html">FVulkanRayTracingScene</a> &amp;Scene, <a class="el" href="../../db/da7/class_f_vulkan_buffer.html">FVulkanBuffer</a> *InScratchBuffer, <a class="el" href="../../dd/de9/preprocessor_8c.html#a1134b580f8da4de94ca6b1de4d37975e">uint32</a> InScratchOffset, <a class="el" href="../../db/da7/class_f_vulkan_buffer.html">FVulkanBuffer</a> *InInstanceBuffer, <a class="el" href="../../dd/de9/preprocessor_8c.html#a1134b580f8da4de94ca6b1de4d37975e">uint32</a> InInstanceOffset, <a class="el" href="../../dd/de9/preprocessor_8c.html#a1134b580f8da4de94ca6b1de4d37975e">uint32</a> NumInstances, <a class="el" href="../../d0/dc7/_r_h_i_context_8h.html#abbd402e65e16a6261f867dbf1d5f6049">EAccelerationStructureBuildMode</a> BuildMode)</td></tr>
+</table>
+<a name="doc-define-members" id="doc-define-members"></a><h2 id="header-doc-define-members" class="groupheader">宏定义说明</h2>
+<a id="a1f2ac89e1d2d2c064e4867f095825c1d" name="a1f2ac89e1d2d2c064e4867f095825c1d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1f2ac89e1d2d2c064e4867f095825c1d">&#9670;&#160;</a></span>CHECK_VK_ENTRYPOINTS</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define CHECK_VK_ENTRYPOINTS</td>
+          <td>(</td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em><a class="el" href="../../d8/df6/class_type.html">Type</a></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>Func</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>值:</b><div class="fragment"><div class="line"><span class="keywordflow">if</span> (VulkanDynamicAPI::Func == <a class="code hl_define" href="../../d0/d38/_developer_2_texture_format_oodle_2_sdks_22_89_810_2include_2oodle2base_8h.html#a070d2ce7b6bb7e5c05602aa8c308d0c4">NULL</a>) { bFoundAllEntryPoints = <span class="keyword">false</span>; <a class="code hl_define" href="../../d7/dcd/_log_macros_8h.html#a2b7439f43220057d491f6ab6cbeb3a32">UE_LOGF</a>(LogRHI, <a class="code hl_variable" href="../../da/d19/_derived_data_information_8h.html#ade340c439932934d718b6d080f587f26">Warning</a>, <span class="stringliteral">&quot;Failed to find entry point for %ls&quot;</span>, <a class="code hl_define" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(#Func)); }</div>
+<div class="ttc" id="a_core_2_public_2_h_a_l_2_platform_8h_html_a2978f60d40d64f3605b5a99f66f292a9"><div class="ttname"><a href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a></div><div class="ttdeci">#define TEXT(x)</div><div class="ttdef"><b>定义</b> Platform.h:1332</div></div>
+<div class="ttc" id="a_derived_data_information_8h_html_ade340c439932934d718b6d080f587f26"><div class="ttname"><a href="../../da/d19/_derived_data_information_8h.html#ade340c439932934d718b6d080f587f26">Warning</a></div><div class="ttdeci">enum DERIVEDDATAWIDGETS_API Warning</div><div class="ttdef"><b>定义</b> DerivedDataInformation.h:15</div></div>
+<div class="ttc" id="a_developer_2_texture_format_oodle_2_sdks_22_89_810_2include_2oodle2base_8h_html_a070d2ce7b6bb7e5c05602aa8c308d0c4"><div class="ttname"><a href="../../d0/d38/_developer_2_texture_format_oodle_2_sdks_22_89_810_2include_2oodle2base_8h.html#a070d2ce7b6bb7e5c05602aa8c308d0c4">NULL</a></div><div class="ttdeci">#define NULL</div><div class="ttdef"><b>定义</b> oodle2base.h:130</div></div>
+<div class="ttc" id="a_log_macros_8h_html_a2b7439f43220057d491f6ab6cbeb3a32"><div class="ttname"><a href="../../d7/dcd/_log_macros_8h.html#a2b7439f43220057d491f6ab6cbeb3a32">UE_LOGF</a></div><div class="ttdeci">#define UE_LOGF(CategoryName, Verbosity, Format,...)</div><div class="ttdef"><b>定义</b> LogMacros.h:291</div></div>
+</div><!-- fragment -->
+</div>
+</div>
+<a name="doc-enum-members" id="doc-enum-members"></a><h2 id="header-doc-enum-members" class="groupheader">枚举类型说明</h2>
+<a id="a007c435e01df9715736c05113dc21b2c" name="a007c435e01df9715736c05113dc21b2c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a007c435e01df9715736c05113dc21b2c">&#9670;&#160;</a></span>EBLASBuildDataUsage</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum class <a class="el" href="#a007c435e01df9715736c05113dc21b2c">EBLASBuildDataUsage</a></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel strong">strong</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<table class="fieldtable">
+<tr><th colspan="2">枚举值</th></tr><tr><td class="fieldname"><a id="a007c435e01df9715736c05113dc21b2caa6e8f9aed2ac6481dc25a18a33342d03" name="a007c435e01df9715736c05113dc21b2caa6e8f9aed2ac6481dc25a18a33342d03"></a>Rendering&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a007c435e01df9715736c05113dc21b2ca6f6cb72d544962fa333e2e34ce64f719" name="a007c435e01df9715736c05113dc21b2ca6f6cb72d544962fa333e2e34ce64f719"></a>Size&#160;</td><td class="fielddoc"></td></tr>
+</table>
+
+</div>
+</div>
+<a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">函数说明</h2>
+<a id="a094dc7c8bcb4e55bba87d0652abe2ce6" name="a094dc7c8bcb4e55bba87d0652abe2ce6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a094dc7c8bcb4e55bba87d0652abe2ce6">&#9670;&#160;</a></span>BuildAccelerationStructure()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../df/d63/_typed_element_query_capabilities_8inl.html#a72343342ce64c0755563ee6c5e27868d">void</a> BuildAccelerationStructure </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d0/dff/class_f_vulkan_command_list_context.html">FVulkanCommandListContext</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>CommandContext</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d6/d08/class_f_vulkan_ray_tracing_scene.html">FVulkanRayTracingScene</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>Scene</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../db/da7/class_f_vulkan_buffer.html">FVulkanBuffer</a> *</td>          <td class="paramname"><span class="paramname"><em>InScratchBuffer</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../dd/de9/preprocessor_8c.html#a1134b580f8da4de94ca6b1de4d37975e">uint32</a></td>          <td class="paramname"><span class="paramname"><em>InScratchOffset</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../db/da7/class_f_vulkan_buffer.html">FVulkanBuffer</a> *</td>          <td class="paramname"><span class="paramname"><em>InInstanceBuffer</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../dd/de9/preprocessor_8c.html#a1134b580f8da4de94ca6b1de4d37975e">uint32</a></td>          <td class="paramname"><span class="paramname"><em>InInstanceOffset</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../dd/de9/preprocessor_8c.html#a1134b580f8da4de94ca6b1de4d37975e">uint32</a></td>          <td class="paramname"><span class="paramname"><em>NumInstances</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d0/dc7/_r_h_i_context_8h.html#abbd402e65e16a6261f867dbf1d5f6049">EAccelerationStructureBuildMode</a></td>          <td class="paramname"><span class="paramname"><em>BuildMode</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a806c67141138aeae4765107fdb2b7cd0" name="a806c67141138aeae4765107fdb2b7cd0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a806c67141138aeae4765107fdb2b7cd0">&#9670;&#160;</a></span>DECLARE_CYCLE_STAT() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">DECLARE_CYCLE_STAT </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;RTPSO Compile Shader&quot;)</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">STAT_RTPSO_CompileShader</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">STATGROUP_VulkanRayTracing</td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a2536642991a25534254f71ba1ee413fc" name="a2536642991a25534254f71ba1ee413fc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2536642991a25534254f71ba1ee413fc">&#9670;&#160;</a></span>DECLARE_CYCLE_STAT() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">DECLARE_CYCLE_STAT </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;RTPSO Create Pipeline&quot;)</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">STAT_RTPSO_CreatePipeline</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">STATGROUP_VulkanRayTracing</td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a2a11d4b4eccb89aa14a4337241cbc32d" name="a2a11d4b4eccb89aa14a4337241cbc32d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2a11d4b4eccb89aa14a4337241cbc32d">&#9670;&#160;</a></span>DECLARE_DWORD_ACCUMULATOR_STAT() <span class="overload">[1/5]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">DECLARE_DWORD_ACCUMULATOR_STAT </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;Allocated bottom <a class="el" href="../../d8/d06/_android_open_g_l_functions_8h.html#abc60a79088789bd61297bf5f9ff500d1">level</a> acceleration structures&quot;)</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">STAT_VulkanRayTracingAllocatedBLAS</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">STATGROUP_VulkanRayTracing</td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a3f70ef9f258c80fe44fcc385509f6341" name="a3f70ef9f258c80fe44fcc385509f6341"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3f70ef9f258c80fe44fcc385509f6341">&#9670;&#160;</a></span>DECLARE_DWORD_ACCUMULATOR_STAT() <span class="overload">[2/5]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">DECLARE_DWORD_ACCUMULATOR_STAT </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;Allocated top <a class="el" href="../../d8/d06/_android_open_g_l_functions_8h.html#abc60a79088789bd61297bf5f9ff500d1">level</a> acceleration structures&quot;)</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">STAT_VulkanRayTracingAllocatedTLAS</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">STATGROUP_VulkanRayTracing</td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aa319f56e25d35026a155ed494b41d447" name="aa319f56e25d35026a155ed494b41d447"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa319f56e25d35026a155ed494b41d447">&#9670;&#160;</a></span>DECLARE_DWORD_ACCUMULATOR_STAT() <span class="overload">[3/5]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">DECLARE_DWORD_ACCUMULATOR_STAT </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;Compiled shaders (total)&quot;)</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">STAT_VulkanRayTracingCompiledShaders</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">STATGROUP_VulkanRayTracing</td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a4c68999683f95a5baec1153757bef9b9" name="a4c68999683f95a5baec1153757bef9b9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4c68999683f95a5baec1153757bef9b9">&#9670;&#160;</a></span>DECLARE_DWORD_ACCUMULATOR_STAT() <span class="overload">[4/5]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">DECLARE_DWORD_ACCUMULATOR_STAT </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;Created pipelines (total)&quot;)</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">STAT_VulkanRayTracingCreatedPipelines</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">STATGROUP_VulkanRayTracing</td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a6d134b857f13359dbc698580b51d8831" name="a6d134b857f13359dbc698580b51d8831"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6d134b857f13359dbc698580b51d8831">&#9670;&#160;</a></span>DECLARE_DWORD_ACCUMULATOR_STAT() <span class="overload">[5/5]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">DECLARE_DWORD_ACCUMULATOR_STAT </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;Triangles in all BL acceleration structures&quot;)</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">STAT_VulkanRayTracingTrianglesBLAS</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">STATGROUP_VulkanRayTracing</td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a0c90a925749381113acc6b7183a7eef2" name="a0c90a925749381113acc6b7183a7eef2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0c90a925749381113acc6b7183a7eef2">&#9670;&#160;</a></span>DECLARE_DWORD_COUNTER_STAT() <span class="overload">[1/4]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">DECLARE_DWORD_COUNTER_STAT </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;Built BL AS (per frame)&quot;)</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">STAT_VulkanRayTracingBuiltBLAS</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">STATGROUP_VulkanRayTracing</td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a39da19cdb3c77c8617639eda1632a104" name="a39da19cdb3c77c8617639eda1632a104"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a39da19cdb3c77c8617639eda1632a104">&#9670;&#160;</a></span>DECLARE_DWORD_COUNTER_STAT() <span class="overload">[2/4]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">DECLARE_DWORD_COUNTER_STAT </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;Built TL AS (per frame)&quot;)</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">STAT_VulkanRayTracingBuiltTLAS</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">STATGROUP_VulkanRayTracing</td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a144c28443286985a8769d4c99c731418" name="a144c28443286985a8769d4c99c731418"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a144c28443286985a8769d4c99c731418">&#9670;&#160;</a></span>DECLARE_DWORD_COUNTER_STAT() <span class="overload">[3/4]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">DECLARE_DWORD_COUNTER_STAT </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;Updated BL AS (per frame)&quot;)</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">STAT_VulkanRayTracingUpdatedBLAS</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">STATGROUP_VulkanRayTracing</td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ad0caa798fa6aa5b0b54ad73bcf513ffe" name="ad0caa798fa6aa5b0b54ad73bcf513ffe"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad0caa798fa6aa5b0b54ad73bcf513ffe">&#9670;&#160;</a></span>DECLARE_DWORD_COUNTER_STAT() <span class="overload">[4/4]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">DECLARE_DWORD_COUNTER_STAT </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;Updated TL AS (per frame)&quot;)</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">STAT_VulkanRayTracingUpdatedTLAS</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">STATGROUP_VulkanRayTracing</td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a74ea517f368109f5051a1012c5ebd42f" name="a74ea517f368109f5051a1012c5ebd42f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a74ea517f368109f5051a1012c5ebd42f">&#9670;&#160;</a></span>DECLARE_MEMORY_STAT() <span class="overload">[1/5]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">DECLARE_MEMORY_STAT </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;Dynamic BL AS Memory&quot;)</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">STAT_VulkanRayTracingDynamicBLASMemory</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">STATGROUP_VulkanRayTracing</td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a35d7b112d1805017fecba372fa54965e" name="a35d7b112d1805017fecba372fa54965e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a35d7b112d1805017fecba372fa54965e">&#9670;&#160;</a></span>DECLARE_MEMORY_STAT() <span class="overload">[2/5]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">DECLARE_MEMORY_STAT </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;Static BL AS Memory&quot;)</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">STAT_VulkanRayTracingStaticBLASMemory</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">STATGROUP_VulkanRayTracing</td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a8cae05d4fa18a671e83d59c883e0f51e" name="a8cae05d4fa18a671e83d59c883e0f51e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8cae05d4fa18a671e83d59c883e0f51e">&#9670;&#160;</a></span>DECLARE_MEMORY_STAT() <span class="overload">[3/5]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">DECLARE_MEMORY_STAT </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;TL AS Memory&quot;)</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">STAT_VulkanRayTracingTLASMemory</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">STATGROUP_VulkanRayTracing</td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a20bb1d39a6e70ce02ad9c53955fa6582" name="a20bb1d39a6e70ce02ad9c53955fa6582"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a20bb1d39a6e70ce02ad9c53955fa6582">&#9670;&#160;</a></span>DECLARE_MEMORY_STAT() <span class="overload">[4/5]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">DECLARE_MEMORY_STAT </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;Total BL AS Memory&quot;)</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">STAT_VulkanRayTracingBLASMemory</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">STATGROUP_VulkanRayTracing</td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a2b8793abea6fbc8f32c28c5aead250b1" name="a2b8793abea6fbc8f32c28c5aead250b1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2b8793abea6fbc8f32c28c5aead250b1">&#9670;&#160;</a></span>DECLARE_MEMORY_STAT() <span class="overload">[5/5]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">DECLARE_MEMORY_STAT </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;Total Used Video Memory&quot;)</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">STAT_VulkanRayTracingUsedVideoMemory</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">STATGROUP_VulkanRayTracing</td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a22e9c100927542943f103cff6f37524f" name="a22e9c100927542943f103cff6f37524f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a22e9c100927542943f103cff6f37524f">&#9670;&#160;</a></span>DECLARE_STATS_GROUP()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">DECLARE_STATS_GROUP </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;Vulkan: Ray Tracing&quot;)</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">STATGROUP_VulkanRayTracing</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">STATCAT_Advanced</td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<div id="page-nav" class="page-nav-panel">
+<div id="page-nav-resize-handle"></div>
+<div id="page-nav-tree">
+<div id="page-nav-contents">
+</div><!-- page-nav-contents -->
+</div><!-- page-nav-tree -->
+</div><!-- page-nav -->
+</div><!-- container -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a href="../../dir_0b6ee6e7e9547e675db4add2e5de97da.html">Engine</a></li><li class="navelem"><a href="../../dir_9579d1ecb2c7bf48cbe1049c41745cb4.html">Source</a></li><li class="navelem"><a href="../../dir_9f04efef762572853abdf73f62bebfcc.html">Runtime</a></li><li class="navelem"><a href="../../dir_8503564dab43a526c39a56578bc13c8e.html">VulkanRHI</a></li><li class="navelem"><a href="../../dir_fa0d1973b75b8809943ded9f59dc6133.html">Private</a></li><li class="navelem"><a href="../../d3/d3e/_vulkan_ray_tracing_8cpp.html">VulkanRayTracing.cpp</a></li>
+    <li class="footer">制作者 <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.15.0 </li>
+  </ul>
+</div>
+</body>
+</html>

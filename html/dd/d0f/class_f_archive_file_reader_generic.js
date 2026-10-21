@@ -1,0 +1,28 @@
+var class_f_archive_file_reader_generic =
+[
+    [ "FArchiveFileReaderGeneric", "dd/d0f/class_f_archive_file_reader_generic.html#a52c4b9b6d705f0777c203a31810b606e", null ],
+    [ "~FArchiveFileReaderGeneric", "dd/d0f/class_f_archive_file_reader_generic.html#a33d4c2be73e92d56ec645b018d4e61cb", null ],
+    [ "Close", "dd/d0f/class_f_archive_file_reader_generic.html#a5c9d885f3ca15cf4e2ed4ad445625d97", null ],
+    [ "CloseLowLevel", "dd/d0f/class_f_archive_file_reader_generic.html#a654a84eecf73dfec12bcf8419755f0cb", null ],
+    [ "FlushCache", "dd/d0f/class_f_archive_file_reader_generic.html#a8eafd65a9d8424d4cc4efee26dcc8150", null ],
+    [ "GetArchiveName", "dd/d0f/class_f_archive_file_reader_generic.html#a618ba7c92187ee3e49c58edbc0bc1f83", null ],
+    [ "InternalPrecache", "dd/d0f/class_f_archive_file_reader_generic.html#a59cc9d04fa70665db77cec3a75c8e34a", null ],
+    [ "IsSilent", "dd/d0f/class_f_archive_file_reader_generic.html#ad94a46ef9e8e65a4bb9e93faa31d2490", null ],
+    [ "Precache", "dd/d0f/class_f_archive_file_reader_generic.html#aa1a2ae57f34ec4a13851640a3f5150c9", null ],
+    [ "ReadLowLevel", "dd/d0f/class_f_archive_file_reader_generic.html#afb7cebd75056e9a2c636554f25c69b90", null ],
+    [ "Seek", "dd/d0f/class_f_archive_file_reader_generic.html#aba222cbc1211704daaba6ba2a3d95ad1", null ],
+    [ "SeekLowLevel", "dd/d0f/class_f_archive_file_reader_generic.html#ae306b8f0a7e7939832daab4f806590d8", null ],
+    [ "Serialize", "dd/d0f/class_f_archive_file_reader_generic.html#aff80e5880ef8853cb9f2a96f040e06a3", null ],
+    [ "Tell", "dd/d0f/class_f_archive_file_reader_generic.html#a8f3a086b46be6a8b7a144f446984b631", null ],
+    [ "TotalSize", "dd/d0f/class_f_archive_file_reader_generic.html#ae6cc0d71d797a8923be1a66a7b5e822e", null ],
+    [ "FArchiveFileReaderGenericTest", "dd/d0f/class_f_archive_file_reader_generic.html#a023def4b0daa1c438793a071853aaaae", null ],
+    [ "bFirstReadAfterSeek", "dd/d0f/class_f_archive_file_reader_generic.html#ad16b074918d50890d6b4d3ba292a134a", null ],
+    [ "BufferArray", "dd/d0f/class_f_archive_file_reader_generic.html#a917ef104470accbb6f63fad0a92d4809", null ],
+    [ "BufferBase", "dd/d0f/class_f_archive_file_reader_generic.html#a24f2c87eeef87207874ca65cfccabcf0", null ],
+    [ "BufferSize", "dd/d0f/class_f_archive_file_reader_generic.html#a9c6ae41332a48ce06488065ca95e5267", null ],
+    [ "Filename", "dd/d0f/class_f_archive_file_reader_generic.html#aa5428a0f2c0bdba55f945d6ca2fd3556", null ],
+    [ "Flags", "dd/d0f/class_f_archive_file_reader_generic.html#a0e8c15f0767f2cdd357551635600d3b4", null ],
+    [ "Handle", "dd/d0f/class_f_archive_file_reader_generic.html#a48f72891fc61d6d69220fe8bd5e04788", null ],
+    [ "Pos", "dd/d0f/class_f_archive_file_reader_generic.html#a73f1158df891d6d703802e107ca59952", null ],
+    [ "Size", "dd/d0f/class_f_archive_file_reader_generic.html#a6f49e26630eb7644ee3f36db7a3b3fdc", null ]
+];

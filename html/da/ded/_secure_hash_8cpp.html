@@ -1,0 +1,1252 @@
+<!-- HTML header for doxygen 1.15.0-->
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh">
+<head>
+  <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=11" />
+  <meta name="generator" content="Doxygen 1.15.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>UE 5.8.4: Engine/Source/Runtime/Core/Private/Misc/SecureHash.cpp 文件参考</title>
+  <link rel="icon" href="../../EdIconDefault.bmp" type="image/x-icon" />
+  <link href="../../tabs.css" rel="stylesheet" type="text/css" />
+  <script type="text/javascript" src="../../jquery.js"></script>
+  <script type="text/javascript" src="../../dynsections.js"></script>
+  <link href="../../navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../navtreedata.js"></script>
+<script type="text/javascript" src="../../navtree.js"></script>
+<script type="text/javascript" src="../../cookie.js"></script>
+  <link href="../../search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../search/searchdata.js"></script>
+<script type="text/javascript" src="../../search/search.js"></script>
+  <script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  extensions: ["tex2jax.js"],
+  jax: ["input/TeX","output/HTML-CSS"],
+});
+</script>
+<script type="text/javascript" async="async" src="https://cdn.jsdelivr.net/npm/mathjax@2/MathJax.js"></script>
+  <link href="../../doxygen.css" rel="stylesheet" type="text/css" />
+  <link href="../../doxygen-awesome.css" rel="stylesheet" type="text/css"/>
+<link href="../../doxygen-awesome-sidebar-only.css" rel="stylesheet" type="text/css"/>
+<link href="../../doxygen-awesome-sidebar-only-darkmode-toggle.css" rel="stylesheet" type="text/css"/>
+  <!-- ... other metadata & script includes ... -->
+  <script type="text/javascript" src="../../doxygen-awesome-darkmode-toggle.js"></script>
+  <script type="text/javascript">
+    DoxygenAwesomeDarkModeToggle.title = "Zwischen hellem/dunklem Modus wechseln"
+    DoxygenAwesomeDarkModeToggle.lightModeIcon = '🌞'
+    // icon from https://fonts.google.com/icons
+    DoxygenAwesomeDarkModeToggle.darkModeIcon = `<svg xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 24 24" height="24px" viewBox="0 0 24 24" width="24px" fill="#009793"><g><rect fill="none" height="24" width="24"/></g><g><g><path d="M8.1,14.15C9.77,14.63,11,16.17,11,18c0,0.68-0.19,1.31-0.48,1.87c0.48,0.09,0.97,0.14,1.48,0.14 c1.48,0,2.9-0.41,4.13-1.15c-2.62-0.92-5.23-2.82-6.8-5.86C7.74,9.94,7.78,7.09,8.29,4.9c-2.57,1.33-4.3,4.01-4.3,7.1c0,0,0,0,0,0 c0.01,0,0.01,0,0.02,0C5.66,12,7.18,12.83,8.1,14.15z" opacity=".3"/><path d="M19.78,17.51c-2.47,0-6.57-1.33-8.68-5.43C8.77,7.57,10.6,3.6,11.63,2.01C6.27,2.2,1.98,6.59,1.98,12 c0,0.14,0.02,0.28,0.02,0.42C2.61,12.16,3.28,12,3.98,12c0,0,0,0,0,0c0-3.09,1.73-5.77,4.3-7.1C7.78,7.09,7.74,9.94,9.32,13 c1.57,3.04,4.18,4.95,6.8,5.86c-1.23,0.74-2.65,1.15-4.13,1.15c-0.5,0-1-0.05-1.48-0.14c-0.37,0.7-0.94,1.27-1.64,1.64 c0.98,0.32,2.03,0.5,3.11,0.5c3.5,0,6.58-1.8,8.37-4.52C20.18,17.5,19.98,17.51,19.78,17.51z"/><path d="M7,16l-0.18,0C6.4,14.84,5.3,14,4,14c-1.66,0-3,1.34-3,3s1.34,3,3,3c0.62,0,2.49,0,3,0c1.1,0,2-0.9,2-2 C9,16.9,8.1,16,7,16z"/></g></g></svg>`
+    DoxygenAwesomeDarkModeToggle.init()
+  </script>
+  <script type="text/javascript" src="../../doxygen-awesome-fragment-copy-button.js"></script>
+  <script type="text/javascript">
+    DoxygenAwesomeFragmentCopyButton.title = "In die Zwischenablage kopieren"
+    // DoxygenAwesomeFragmentCopyButton.copyIcon = `<svg ...>`
+    // DoxygenAwesomeFragmentCopyButton.successIcon = `<svg ...>`
+    DoxygenAwesomeFragmentCopyButton.init()
+  </script>
+  <script type="text/javascript" src="../../doxygen-awesome-paragraph-link.js"></script>
+  <script type="text/javascript">
+    DoxygenAwesomeParagraphLink.title = "Abschnitt verknüpfen"
+    DoxygenAwesomeParagraphLink.icon = "¶"
+    DoxygenAwesomeParagraphLink.init()
+  </script>
+  <script type="text/javascript" src="../../doxygen-awesome-interactive-toc.js"></script>
+  <script type="text/javascript">
+    DoxygenAwesomeInteractiveToc.topOffset = 45
+    DoxygenAwesomeInteractiveToc.hideMobileMenu = false
+    DoxygenAwesomeInteractiveToc.init()
+  </script>
+</head>
+<body>
+    <div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+      <div id="titlearea">
+        <table cellspacing="0" cellpadding="0">
+          <tbody>
+            <tr id="projectrow">
+              <td id="projectlogo"><img alt="Logo" src="../../EdIconDefault.bmp"  /></td>
+              <td id="projectalign">
+                <div id="projectname">UE 5.8.4
+                </div>
+                <div id="projectbrief">Unreal Engine</div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <!-- end header part -->
+<!-- 制作者 Doxygen 1.15.0 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "../../search/",'.html');
+</script>
+<script type="text/javascript">
+$(function() { codefold.init(); });
+</script>
+<script type="text/javascript" src="../../menudata.js"></script>
+<script type="text/javascript" src="../../menu.js"></script>
+<script type="text/javascript">
+$(function() {
+  initMenu('../../',true,false,'search.php','搜索',true);
+  $(function() { init_search(); });
+});
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(function(){initNavTree('da/ded/_secure_hash_8cpp.html','../../',''); });
+</script>
+<div id="container">
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">载入中...</div>
+<div class="SRStatus" id="Searching">搜索中...</div>
+<div class="SRStatus" id="NoMatches">未找到</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">SecureHash.cpp 文件参考</div></div>
+</div><!--header-->
+<div class="contents">
+<div class="textblock"><code>#include &quot;<a class="el" href="../../d0/dd4/_secure_hash_8h_source.html">Misc/SecureHash.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d2/d18/_async_work_8h_source.html">Async/AsyncWork.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d3/df1/_file_manager_8h_source.html">HAL/FileManager.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../db/d5d/_memory_view_8h_source.html">Memory/MemoryView.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d9/d7b/_paths_8h_source.html">Misc/Paths.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d5/df1/_string_builder_8h_source.html">Misc/StringBuilder.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d4/d4e/_compact_binary_writer_8h_source.html">Serialization/CompactBinaryWriter.h</a>&quot;</code><br />
+</div><div class="textblock"><div class="dynheader">
+SecureHash.cpp 的引用(Include)关系图:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d6/d5d/_secure_hash_8cpp__incl.svg" width="5898" height="608"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+</div><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-define-members" class="groupheader"><a id="define-members" name="define-members"></a>
+宏定义</h2></td></tr>
+<tr class="memitem:a1ed504fcdd262c570dbce3eb6a7ff453" id="r_a1ed504fcdd262c570dbce3eb6a7ff453"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a1ed504fcdd262c570dbce3eb6a7ff453">UE_PLATFORM_SHA_FALLBACK</a>&#160;&#160;&#160;1</td></tr>
+<tr class="memitem:a78b3c7f9d5ac3d9fbd00a7a5dda79a13" id="r_a78b3c7f9d5ac3d9fbd00a7a5dda79a13"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a78b3c7f9d5ac3d9fbd00a7a5dda79a13">UE_PLATFORM_SHA_X86</a>&#160;&#160;&#160;0</td></tr>
+<tr class="memitem:a831cf2e8fff78a114064bee9a2f01e79" id="r_a831cf2e8fff78a114064bee9a2f01e79"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a831cf2e8fff78a114064bee9a2f01e79">UE_PLATFORM_SHA_ARMV8</a>&#160;&#160;&#160;0</td></tr>
+<tr class="memitem:ad0ab9bdca75fd23b0016e237df68fce9" id="r_ad0ab9bdca75fd23b0016e237df68fce9"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad0ab9bdca75fd23b0016e237df68fce9">MD5_F</a>(x,  y,  z)</td></tr>
+<tr class="memitem:ab540f1e093d05304b05b8fa06bc0d33d" id="r_ab540f1e093d05304b05b8fa06bc0d33d"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab540f1e093d05304b05b8fa06bc0d33d">MD5_G</a>(x,  y,  z)</td></tr>
+<tr class="memitem:ac569b30d9586e0f696514236fde77fd6" id="r_ac569b30d9586e0f696514236fde77fd6"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac569b30d9586e0f696514236fde77fd6">MD5_H</a>(x,  y,  z)</td></tr>
+<tr class="memitem:afe3515ec12be222a6df842075a29fcdf" id="r_afe3515ec12be222a6df842075a29fcdf"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#afe3515ec12be222a6df842075a29fcdf">MD5_I</a>(x,  y,  z)</td></tr>
+<tr class="memitem:a6288931c72fd1e7b50ea43b23b2f6ecf" id="r_a6288931c72fd1e7b50ea43b23b2f6ecf"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6288931c72fd1e7b50ea43b23b2f6ecf">ROTLEFT</a>(x,  n)</td></tr>
+<tr class="memitem:a63b858d572bcca2362027e6d41ad03ab" id="r_a63b858d572bcca2362027e6d41ad03ab"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a63b858d572bcca2362027e6d41ad03ab">MD5_FF</a>(a,  b,  c,  d,  x,  s,  ac)</td></tr>
+<tr class="memitem:a73050f4ea294b269de9b30bcba6855f1" id="r_a73050f4ea294b269de9b30bcba6855f1"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a73050f4ea294b269de9b30bcba6855f1">MD5_GG</a>(a,  b,  c,  d,  x,  s,  ac)</td></tr>
+<tr class="memitem:a574fe98679792678e34b65df2a682ebf" id="r_a574fe98679792678e34b65df2a682ebf"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a574fe98679792678e34b65df2a682ebf">MD5_HH</a>(a,  b,  c,  d,  x,  s,  ac)</td></tr>
+<tr class="memitem:a920a21e2d9c0d62adbd7d115300303e0" id="r_a920a21e2d9c0d62adbd7d115300303e0"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a920a21e2d9c0d62adbd7d115300303e0">MD5_II</a>(a,  b,  c,  d,  x,  s,  ac)</td></tr>
+<tr class="memitem:a5a3c565581b985fafc2f83ef0f511076" id="r_a5a3c565581b985fafc2f83ef0f511076"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5a3c565581b985fafc2f83ef0f511076">ROL32</a>(_val32,  _nBits)</td></tr>
+<tr class="memitem:a58fed0196571bcccb55532e7c842efb7" id="r_a58fed0196571bcccb55532e7c842efb7"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a58fed0196571bcccb55532e7c842efb7">SHABLK0</a>(i)</td></tr>
+<tr class="memitem:a9ef67069906f2c864a8c34aaae622718" id="r_a9ef67069906f2c864a8c34aaae622718"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9ef67069906f2c864a8c34aaae622718">SHABLK</a>(i)</td></tr>
+<tr class="memitem:a4021a71d3636ce21c02a2846fc3bc858" id="r_a4021a71d3636ce21c02a2846fc3bc858"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4021a71d3636ce21c02a2846fc3bc858">_R0</a>(v,  w,  x,  y,  z,  i)</td></tr>
+<tr class="memitem:a5c2318e319886034721b114530f34e9d" id="r_a5c2318e319886034721b114530f34e9d"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5c2318e319886034721b114530f34e9d">_R1</a>(v,  w,  x,  y,  z,  i)</td></tr>
+<tr class="memitem:a8d4c6925fe41be4f8b2bf847a17a2eb8" id="r_a8d4c6925fe41be4f8b2bf847a17a2eb8"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8d4c6925fe41be4f8b2bf847a17a2eb8">_R2</a>(v,  w,  x,  y,  z,  i)</td></tr>
+<tr class="memitem:aa22cd637de25e70b09d17865a93a68ef" id="r_aa22cd637de25e70b09d17865a93a68ef"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa22cd637de25e70b09d17865a93a68ef">_R3</a>(v,  w,  x,  y,  z,  i)</td></tr>
+<tr class="memitem:a081a9df956c2b047f64d466b19839fdf" id="r_a081a9df956c2b047f64d466b19839fdf"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a081a9df956c2b047f64d466b19839fdf">_R4</a>(v,  w,  x,  y,  z,  i)</td></tr>
+<tr class="memitem:a4be887a15639aa78e6a129b9c8f4d2b9" id="r_a4be887a15639aa78e6a129b9c8f4d2b9"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4be887a15639aa78e6a129b9c8f4d2b9">SHA1_BLOCK_SIZE</a>&#160;&#160;&#160;64</td></tr>
+<tr class="memitem:aabf6523ec07875093ef9e3ae53d3deba" id="r_aabf6523ec07875093ef9e3ae53d3deba"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aabf6523ec07875093ef9e3ae53d3deba">DISABLE_AUTHENTICATION_FOR_DEV</a>&#160;&#160;&#160;1</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-enum-members" class="groupheader"><a id="enum-members" name="enum-members"></a>
+枚举</h2></td></tr>
+<tr class="memitem:ae2e626400d5cd83fdc58bbc67fb32387" id="r_ae2e626400d5cd83fdc58bbc67fb32387"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom">{ <a class="el" href="#ae2e626400d5cd83fdc58bbc67fb32387a77b052b767022e256a5c325e6ff71eb9">_S11</a> =7
+ }</td></tr>
+<tr class="memitem:ab02873cf4264abb084364105622caf1c" id="r_ab02873cf4264abb084364105622caf1c"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom">{ <a class="el" href="#ab02873cf4264abb084364105622caf1caae4b1d2e8dbf8864e7bcad48a61d3b29">_S12</a> =12
+ }</td></tr>
+<tr class="memitem:ab53e458e67cd3cb20c46501ee2555f38" id="r_ab53e458e67cd3cb20c46501ee2555f38"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom">{ <a class="el" href="#ab53e458e67cd3cb20c46501ee2555f38a04cc1f61b89f7a6bdf7ff1d60d2169ca">_S13</a> =17
+ }</td></tr>
+<tr class="memitem:a3c4c22ebcd3ba20920065a087b7a9770" id="r_a3c4c22ebcd3ba20920065a087b7a9770"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom">{ <a class="el" href="#a3c4c22ebcd3ba20920065a087b7a9770a8efe21d885d3b5f473af2d9c0fec8f2e">_S14</a> =22
+ }</td></tr>
+<tr class="memitem:a317d84a72283fa3f16f54d96fd0fc14e" id="r_a317d84a72283fa3f16f54d96fd0fc14e"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom">{ <a class="el" href="#a317d84a72283fa3f16f54d96fd0fc14ea3a725745184671fd52dec9411b5f04bb">_S21</a> =5
+ }</td></tr>
+<tr class="memitem:ac10a22edd4cae056f884ce8d85b7d8d3" id="r_ac10a22edd4cae056f884ce8d85b7d8d3"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom">{ <a class="el" href="#ac10a22edd4cae056f884ce8d85b7d8d3a0b2bed7a67400cb1dc88838a77e56d76">_S22</a> =9
+ }</td></tr>
+<tr class="memitem:a278f5a047928e5626ebbe8d6b099fe33" id="r_a278f5a047928e5626ebbe8d6b099fe33"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom">{ <a class="el" href="#a278f5a047928e5626ebbe8d6b099fe33a217f6c0aad34377e2a76ae1683a4497b">_S23</a> =14
+ }</td></tr>
+<tr class="memitem:ae28ee5aa849472c915120dc4818d980e" id="r_ae28ee5aa849472c915120dc4818d980e"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom">{ <a class="el" href="#ae28ee5aa849472c915120dc4818d980ea8f38c6b5bc1e4c4bf738bfcda32d220a">_S24</a> =20
+ }</td></tr>
+<tr class="memitem:a77e7f8df900202ddffd60135ad440652" id="r_a77e7f8df900202ddffd60135ad440652"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom">{ <a class="el" href="#a77e7f8df900202ddffd60135ad440652a0c3d5cd09d99f070795b15d173e2fabb">_S31</a> =4
+ }</td></tr>
+<tr class="memitem:a31e67e91d80af2c4968441a875dc93b8" id="r_a31e67e91d80af2c4968441a875dc93b8"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom">{ <a class="el" href="#a31e67e91d80af2c4968441a875dc93b8a3324fecfdd0d1ea6dc2b0abc83860463">_S32</a> =11
+ }</td></tr>
+<tr class="memitem:ab700e3da1300a382c89a2e4c87e83871" id="r_ab700e3da1300a382c89a2e4c87e83871"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom">{ <a class="el" href="#ab700e3da1300a382c89a2e4c87e83871ad3508464865204cc33a1165d955015d7">_S33</a> =16
+ }</td></tr>
+<tr class="memitem:ab83e7ee7e1bd372725ef56206c276e68" id="r_ab83e7ee7e1bd372725ef56206c276e68"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom">{ <a class="el" href="#ab83e7ee7e1bd372725ef56206c276e68ab41dabe680a6afde6beba58884c84288">_S34</a> =23
+ }</td></tr>
+<tr class="memitem:a1acb497200adfb740501200b1b0671fd" id="r_a1acb497200adfb740501200b1b0671fd"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom">{ <a class="el" href="#a1acb497200adfb740501200b1b0671fdae403fc6f7113e4ddc7eed73352306c64">_S41</a> =6
+ }</td></tr>
+<tr class="memitem:a41c52f8001cf51b3c2ad7d5ae1777ce7" id="r_a41c52f8001cf51b3c2ad7d5ae1777ce7"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom">{ <a class="el" href="#a41c52f8001cf51b3c2ad7d5ae1777ce7a0f5644a8f3ac71d23f3debabb4634d5d">_S42</a> =10
+ }</td></tr>
+<tr class="memitem:a54e185d0bb6c348be4229cbdaed2d14d" id="r_a54e185d0bb6c348be4229cbdaed2d14d"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom">{ <a class="el" href="#a54e185d0bb6c348be4229cbdaed2d14dab829de767383fcea25aab29c0abf3e95">_S43</a> =15
+ }</td></tr>
+<tr class="memitem:a82e58a28e2dcf106c095d36e365519dd" id="r_a82e58a28e2dcf106c095d36e365519dd"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom">{ <a class="el" href="#a82e58a28e2dcf106c095d36e365519ddaab59058eb563e744fc753b488243cb94">_S44</a> =21
+ }</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-func-members" class="groupheader"><a id="func-members" name="func-members"></a>
+函数</h2></td></tr>
+<tr class="memitem:a6aebba93a1659f4e5fcf2a48298a5d3d" id="r_a6aebba93a1659f4e5fcf2a48298a5d3d"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6aebba93a1659f4e5fcf2a48298a5d3d">DEFINE_LOG_CATEGORY_STATIC</a> (LogSecureHash, Log, <a class="el" href="../../db/da0/_hair_strands_composition_8cpp.html#a01ae254fc9c19378956c218ed4e9c32da54991d225c58ce0af43461d4e9a82312">All</a>)</td></tr>
+<tr class="memitem:a562884facca55911e959fd638c502844" id="r_a562884facca55911e959fd638c502844"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../df/d63/_typed_element_query_capabilities_8inl.html#a72343342ce64c0755563ee6c5e27868d">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a562884facca55911e959fd638c502844">appOnFailSHAVerification</a> (const TCHAR *FailedPathname, <a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a> bFailedDueToMissingHash)</td></tr>
+</table>
+<a name="doc-define-members" id="doc-define-members"></a><h2 id="header-doc-define-members" class="groupheader">宏定义说明</h2>
+<a id="a4021a71d3636ce21c02a2846fc3bc858" name="a4021a71d3636ce21c02a2846fc3bc858"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4021a71d3636ce21c02a2846fc3bc858">&#9670;&#160;</a></span>_R0</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define _R0</td>
+          <td>(</td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>v</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>w</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>x</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>y</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>z</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>i</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>值:</b><div class="fragment"><div class="line">{ z+=((w&amp;(x^y))^y)+<a class="code hl_define" href="#a58fed0196571bcccb55532e7c842efb7">SHABLK0</a>(i)+0x5A827999+<a class="code hl_define" href="#a5a3c565581b985fafc2f83ef0f511076">ROL32</a>(v,5); w=<a class="code hl_define" href="#a5a3c565581b985fafc2f83ef0f511076">ROL32</a>(w,30); }</div>
+<div class="ttc" id="a_secure_hash_8cpp_html_a58fed0196571bcccb55532e7c842efb7"><div class="ttname"><a href="#a58fed0196571bcccb55532e7c842efb7">SHABLK0</a></div><div class="ttdeci">#define SHABLK0(i)</div><div class="ttdef"><b>定义</b> SecureHash.cpp:647</div></div>
+<div class="ttc" id="a_secure_hash_8cpp_html_a5a3c565581b985fafc2f83ef0f511076"><div class="ttname"><a href="#a5a3c565581b985fafc2f83ef0f511076">ROL32</a></div><div class="ttdeci">#define ROL32(_val32, _nBits)</div><div class="ttdef"><b>定义</b> SecureHash.cpp:640</div></div>
+</div><!-- fragment -->
+</div>
+</div>
+<a id="a5c2318e319886034721b114530f34e9d" name="a5c2318e319886034721b114530f34e9d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5c2318e319886034721b114530f34e9d">&#9670;&#160;</a></span>_R1</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define _R1</td>
+          <td>(</td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>v</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>w</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>x</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>y</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>z</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>i</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>值:</b><div class="fragment"><div class="line">{ z+=((w&amp;(x^y))^y)+<a class="code hl_define" href="#a9ef67069906f2c864a8c34aaae622718">SHABLK</a>(i)+0x5A827999+<a class="code hl_define" href="#a5a3c565581b985fafc2f83ef0f511076">ROL32</a>(v,5); w=<a class="code hl_define" href="#a5a3c565581b985fafc2f83ef0f511076">ROL32</a>(w,30); }</div>
+<div class="ttc" id="a_secure_hash_8cpp_html_a9ef67069906f2c864a8c34aaae622718"><div class="ttname"><a href="#a9ef67069906f2c864a8c34aaae622718">SHABLK</a></div><div class="ttdeci">#define SHABLK(i)</div><div class="ttdef"><b>定义</b> SecureHash.cpp:650</div></div>
+</div><!-- fragment -->
+</div>
+</div>
+<a id="a8d4c6925fe41be4f8b2bf847a17a2eb8" name="a8d4c6925fe41be4f8b2bf847a17a2eb8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8d4c6925fe41be4f8b2bf847a17a2eb8">&#9670;&#160;</a></span>_R2</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define _R2</td>
+          <td>(</td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>v</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>w</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>x</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>y</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>z</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>i</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>值:</b><div class="fragment"><div class="line">{ z+=(w^x^y)+<a class="code hl_define" href="#a9ef67069906f2c864a8c34aaae622718">SHABLK</a>(i)+0x6ED9EBA1+<a class="code hl_define" href="#a5a3c565581b985fafc2f83ef0f511076">ROL32</a>(v,5); w=<a class="code hl_define" href="#a5a3c565581b985fafc2f83ef0f511076">ROL32</a>(w,30); }</div>
+</div><!-- fragment -->
+</div>
+</div>
+<a id="aa22cd637de25e70b09d17865a93a68ef" name="aa22cd637de25e70b09d17865a93a68ef"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa22cd637de25e70b09d17865a93a68ef">&#9670;&#160;</a></span>_R3</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define _R3</td>
+          <td>(</td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>v</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>w</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>x</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>y</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>z</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>i</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>值:</b><div class="fragment"><div class="line">{ z+=(((w|x)&amp;y)|(w&amp;x))+<a class="code hl_define" href="#a9ef67069906f2c864a8c34aaae622718">SHABLK</a>(i)+0x8F1BBCDC+<a class="code hl_define" href="#a5a3c565581b985fafc2f83ef0f511076">ROL32</a>(v,5); w=<a class="code hl_define" href="#a5a3c565581b985fafc2f83ef0f511076">ROL32</a>(w,30); }</div>
+</div><!-- fragment -->
+</div>
+</div>
+<a id="a081a9df956c2b047f64d466b19839fdf" name="a081a9df956c2b047f64d466b19839fdf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a081a9df956c2b047f64d466b19839fdf">&#9670;&#160;</a></span>_R4</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define _R4</td>
+          <td>(</td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>v</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>w</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>x</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>y</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>z</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>i</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>值:</b><div class="fragment"><div class="line">{ z+=(w^x^y)+<a class="code hl_define" href="#a9ef67069906f2c864a8c34aaae622718">SHABLK</a>(i)+0xCA62C1D6+<a class="code hl_define" href="#a5a3c565581b985fafc2f83ef0f511076">ROL32</a>(v,5); w=<a class="code hl_define" href="#a5a3c565581b985fafc2f83ef0f511076">ROL32</a>(w,30); }</div>
+</div><!-- fragment -->
+</div>
+</div>
+<a id="aabf6523ec07875093ef9e3ae53d3deba" name="aabf6523ec07875093ef9e3ae53d3deba"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aabf6523ec07875093ef9e3ae53d3deba">&#9670;&#160;</a></span>DISABLE_AUTHENTICATION_FOR_DEV</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define DISABLE_AUTHENTICATION_FOR_DEV&#160;&#160;&#160;1</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Callback that is called if the asynchronous SHA verification fails This will be called from a pooled thread.</p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">FailedPathname</td><td>Pathname of file that failed to verify </td></tr>
+    <tr><td class="paramname">bFailedDueToMissingHash</td><td>true if the reason for the failure was that the hash was missing, and that was set as being an error condition </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ad0ab9bdca75fd23b0016e237df68fce9" name="ad0ab9bdca75fd23b0016e237df68fce9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad0ab9bdca75fd23b0016e237df68fce9">&#9670;&#160;</a></span>MD5_F</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define MD5_F</td>
+          <td>(</td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>x</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>y</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>z</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>值:</b><div class="fragment"><div class="line">(((x) &amp; (y)) | ((~x) &amp; (z)))</div>
+</div><!-- fragment -->
+</div>
+</div>
+<a id="a63b858d572bcca2362027e6d41ad03ab" name="a63b858d572bcca2362027e6d41ad03ab"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a63b858d572bcca2362027e6d41ad03ab">&#9670;&#160;</a></span>MD5_FF</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define MD5_FF</td>
+          <td>(</td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>a</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>b</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>c</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>d</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>x</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>s</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>ac</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>值:</b><div class="fragment"><div class="line">    { \</div>
+<div class="line">    (a) += <a class="code hl_define" href="#ad0ab9bdca75fd23b0016e237df68fce9">MD5_F</a> ((b), (c), (d)) + (x) + (<a class="code hl_typedef" href="../../dd/de9/preprocessor_8c.html#a1134b580f8da4de94ca6b1de4d37975e">uint32</a>)(ac); \</div>
+<div class="line">    (a) = <a class="code hl_define" href="#a6288931c72fd1e7b50ea43b23b2f6ecf">ROTLEFT</a> ((a), (s)); \</div>
+<div class="line">    (a) += (b); \</div>
+<div class="line">}</div>
+<div class="ttc" id="a_secure_hash_8cpp_html_a6288931c72fd1e7b50ea43b23b2f6ecf"><div class="ttname"><a href="#a6288931c72fd1e7b50ea43b23b2f6ecf">ROTLEFT</a></div><div class="ttdeci">#define ROTLEFT(x, n)</div><div class="ttdef"><b>定义</b> SecureHash.cpp:90</div></div>
+<div class="ttc" id="a_secure_hash_8cpp_html_ad0ab9bdca75fd23b0016e237df68fce9"><div class="ttname"><a href="#ad0ab9bdca75fd23b0016e237df68fce9">MD5_F</a></div><div class="ttdeci">#define MD5_F(x, y, z)</div><div class="ttdef"><b>定义</b> SecureHash.cpp:82</div></div>
+<div class="ttc" id="apreprocessor_8c_html_a1134b580f8da4de94ca6b1de4d37975e"><div class="ttname"><a href="../../dd/de9/preprocessor_8c.html#a1134b580f8da4de94ca6b1de4d37975e">uint32</a></div><div class="ttdeci">unsigned int uint32</div><div class="ttdef"><b>定义</b> preprocessor.c:67</div></div>
+</div><!-- fragment -->
+</div>
+</div>
+<a id="ab540f1e093d05304b05b8fa06bc0d33d" name="ab540f1e093d05304b05b8fa06bc0d33d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab540f1e093d05304b05b8fa06bc0d33d">&#9670;&#160;</a></span>MD5_G</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define MD5_G</td>
+          <td>(</td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>x</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>y</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>z</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>值:</b><div class="fragment"><div class="line">(((x) &amp; (z)) | ((y) &amp; (~z)))</div>
+</div><!-- fragment -->
+</div>
+</div>
+<a id="a73050f4ea294b269de9b30bcba6855f1" name="a73050f4ea294b269de9b30bcba6855f1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a73050f4ea294b269de9b30bcba6855f1">&#9670;&#160;</a></span>MD5_GG</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define MD5_GG</td>
+          <td>(</td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>a</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>b</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>c</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>d</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>x</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>s</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>ac</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>值:</b><div class="fragment"><div class="line">    { \</div>
+<div class="line">    (a) += <a class="code hl_define" href="#ab540f1e093d05304b05b8fa06bc0d33d">MD5_G</a> ((b), (c), (d)) + (x) + (<a class="code hl_typedef" href="../../dd/de9/preprocessor_8c.html#a1134b580f8da4de94ca6b1de4d37975e">uint32</a>)(ac); \</div>
+<div class="line">    (a) = <a class="code hl_define" href="#a6288931c72fd1e7b50ea43b23b2f6ecf">ROTLEFT</a> ((a), (s)); \</div>
+<div class="line">    (a) += (b); \</div>
+<div class="line">}</div>
+<div class="ttc" id="a_secure_hash_8cpp_html_ab540f1e093d05304b05b8fa06bc0d33d"><div class="ttname"><a href="#ab540f1e093d05304b05b8fa06bc0d33d">MD5_G</a></div><div class="ttdeci">#define MD5_G(x, y, z)</div><div class="ttdef"><b>定义</b> SecureHash.cpp:83</div></div>
+</div><!-- fragment -->
+</div>
+</div>
+<a id="ac569b30d9586e0f696514236fde77fd6" name="ac569b30d9586e0f696514236fde77fd6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac569b30d9586e0f696514236fde77fd6">&#9670;&#160;</a></span>MD5_H</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define MD5_H</td>
+          <td>(</td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>x</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>y</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>z</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>值:</b><div class="fragment"><div class="line">((x) ^ (y) ^ (z))</div>
+</div><!-- fragment -->
+</div>
+</div>
+<a id="a574fe98679792678e34b65df2a682ebf" name="a574fe98679792678e34b65df2a682ebf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a574fe98679792678e34b65df2a682ebf">&#9670;&#160;</a></span>MD5_HH</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define MD5_HH</td>
+          <td>(</td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>a</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>b</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>c</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>d</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>x</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>s</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>ac</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>值:</b><div class="fragment"><div class="line">    { \</div>
+<div class="line">    (a) += <a class="code hl_define" href="#ac569b30d9586e0f696514236fde77fd6">MD5_H</a> ((b), (c), (d)) + (x) + (<a class="code hl_typedef" href="../../dd/de9/preprocessor_8c.html#a1134b580f8da4de94ca6b1de4d37975e">uint32</a>)(ac); \</div>
+<div class="line">    (a) = <a class="code hl_define" href="#a6288931c72fd1e7b50ea43b23b2f6ecf">ROTLEFT</a> ((a), (s)); \</div>
+<div class="line">    (a) += (b); \</div>
+<div class="line">}</div>
+<div class="ttc" id="a_secure_hash_8cpp_html_ac569b30d9586e0f696514236fde77fd6"><div class="ttname"><a href="#ac569b30d9586e0f696514236fde77fd6">MD5_H</a></div><div class="ttdeci">#define MD5_H(x, y, z)</div><div class="ttdef"><b>定义</b> SecureHash.cpp:84</div></div>
+</div><!-- fragment -->
+</div>
+</div>
+<a id="afe3515ec12be222a6df842075a29fcdf" name="afe3515ec12be222a6df842075a29fcdf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afe3515ec12be222a6df842075a29fcdf">&#9670;&#160;</a></span>MD5_I</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define MD5_I</td>
+          <td>(</td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>x</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>y</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>z</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>值:</b><div class="fragment"><div class="line">((y) ^ ((x) | (~z)))</div>
+</div><!-- fragment -->
+</div>
+</div>
+<a id="a920a21e2d9c0d62adbd7d115300303e0" name="a920a21e2d9c0d62adbd7d115300303e0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a920a21e2d9c0d62adbd7d115300303e0">&#9670;&#160;</a></span>MD5_II</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define MD5_II</td>
+          <td>(</td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>a</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>b</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>c</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>d</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>x</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>s</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>ac</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>值:</b><div class="fragment"><div class="line">    { \</div>
+<div class="line">    (a) += <a class="code hl_define" href="#afe3515ec12be222a6df842075a29fcdf">MD5_I</a> ((b), (c), (d)) + (x) + (<a class="code hl_typedef" href="../../dd/de9/preprocessor_8c.html#a1134b580f8da4de94ca6b1de4d37975e">uint32</a>)(ac); \</div>
+<div class="line">    (a) = <a class="code hl_define" href="#a6288931c72fd1e7b50ea43b23b2f6ecf">ROTLEFT</a> ((a), (s)); \</div>
+<div class="line">    (a) += (b); \</div>
+<div class="line">}</div>
+<div class="ttc" id="a_secure_hash_8cpp_html_afe3515ec12be222a6df842075a29fcdf"><div class="ttname"><a href="#afe3515ec12be222a6df842075a29fcdf">MD5_I</a></div><div class="ttdeci">#define MD5_I(x, y, z)</div><div class="ttdef"><b>定义</b> SecureHash.cpp:85</div></div>
+</div><!-- fragment -->
+</div>
+</div>
+<a id="a5a3c565581b985fafc2f83ef0f511076" name="a5a3c565581b985fafc2f83ef0f511076"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5a3c565581b985fafc2f83ef0f511076">&#9670;&#160;</a></span>ROL32</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define ROL32</td>
+          <td>(</td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>_val32</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>_nBits</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>值:</b><div class="fragment"><div class="line">(((_val32)&lt;&lt;(_nBits))|((_val32)&gt;&gt;(32-(_nBits))))</div>
+</div><!-- fragment -->
+</div>
+</div>
+<a id="a6288931c72fd1e7b50ea43b23b2f6ecf" name="a6288931c72fd1e7b50ea43b23b2f6ecf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6288931c72fd1e7b50ea43b23b2f6ecf">&#9670;&#160;</a></span>ROTLEFT</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define ROTLEFT</td>
+          <td>(</td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>x</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>n</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>值:</b><div class="fragment"><div class="line">(((x) &lt;&lt; (n)) | ((x) &gt;&gt; (32-(n))))</div>
+</div><!-- fragment -->
+</div>
+</div>
+<a id="a4be887a15639aa78e6a129b9c8f4d2b9" name="a4be887a15639aa78e6a129b9c8f4d2b9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4be887a15639aa78e6a129b9c8f4d2b9">&#9670;&#160;</a></span>SHA1_BLOCK_SIZE</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define SHA1_BLOCK_SIZE&#160;&#160;&#160;64</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a9ef67069906f2c864a8c34aaae622718" name="a9ef67069906f2c864a8c34aaae622718"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9ef67069906f2c864a8c34aaae622718">&#9670;&#160;</a></span>SHABLK</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define SHABLK</td>
+          <td>(</td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>i</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>值:</b><div class="fragment"><div class="line">(block[i&amp;15] = <a class="code hl_define" href="#a5a3c565581b985fafc2f83ef0f511076">ROL32</a>(block[(i+13)&amp;15] ^ block[(i+8)&amp;15] ^ block[(i+2)&amp;15] ^ block[i&amp;15],1))</div>
+</div><!-- fragment -->
+</div>
+</div>
+<a id="a58fed0196571bcccb55532e7c842efb7" name="a58fed0196571bcccb55532e7c842efb7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a58fed0196571bcccb55532e7c842efb7">&#9670;&#160;</a></span>SHABLK0</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define SHABLK0</td>
+          <td>(</td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>i</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>值:</b><div class="fragment"><div class="line">(block[i])</div>
+</div><!-- fragment -->
+</div>
+</div>
+<a id="a831cf2e8fff78a114064bee9a2f01e79" name="a831cf2e8fff78a114064bee9a2f01e79"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a831cf2e8fff78a114064bee9a2f01e79">&#9670;&#160;</a></span>UE_PLATFORM_SHA_ARMV8</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define UE_PLATFORM_SHA_ARMV8&#160;&#160;&#160;0</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a1ed504fcdd262c570dbce3eb6a7ff453" name="a1ed504fcdd262c570dbce3eb6a7ff453"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1ed504fcdd262c570dbce3eb6a7ff453">&#9670;&#160;</a></span>UE_PLATFORM_SHA_FALLBACK</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define UE_PLATFORM_SHA_FALLBACK&#160;&#160;&#160;1</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a78b3c7f9d5ac3d9fbd00a7a5dda79a13" name="a78b3c7f9d5ac3d9fbd00a7a5dda79a13"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a78b3c7f9d5ac3d9fbd00a7a5dda79a13">&#9670;&#160;</a></span>UE_PLATFORM_SHA_X86</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define UE_PLATFORM_SHA_X86&#160;&#160;&#160;0</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a name="doc-enum-members" id="doc-enum-members"></a><h2 id="header-doc-enum-members" class="groupheader">枚举类型说明</h2>
+<a id="a317d84a72283fa3f16f54d96fd0fc14e" name="a317d84a72283fa3f16f54d96fd0fc14e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a317d84a72283fa3f16f54d96fd0fc14e">&#9670;&#160;</a></span>anonymous enum</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">anonymous enum</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<table class="fieldtable">
+<tr><th colspan="2">枚举值</th></tr><tr><td class="fieldname"><a id="a317d84a72283fa3f16f54d96fd0fc14ea3a725745184671fd52dec9411b5f04bb" name="a317d84a72283fa3f16f54d96fd0fc14ea3a725745184671fd52dec9411b5f04bb"></a>_S21&#160;</td><td class="fielddoc"></td></tr>
+</table>
+
+</div>
+</div>
+<a id="ab83e7ee7e1bd372725ef56206c276e68" name="ab83e7ee7e1bd372725ef56206c276e68"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab83e7ee7e1bd372725ef56206c276e68">&#9670;&#160;</a></span>anonymous enum</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">anonymous enum</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<table class="fieldtable">
+<tr><th colspan="2">枚举值</th></tr><tr><td class="fieldname"><a id="ab83e7ee7e1bd372725ef56206c276e68ab41dabe680a6afde6beba58884c84288" name="ab83e7ee7e1bd372725ef56206c276e68ab41dabe680a6afde6beba58884c84288"></a>_S34&#160;</td><td class="fielddoc"></td></tr>
+</table>
+
+</div>
+</div>
+<a id="a1acb497200adfb740501200b1b0671fd" name="a1acb497200adfb740501200b1b0671fd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1acb497200adfb740501200b1b0671fd">&#9670;&#160;</a></span>anonymous enum</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">anonymous enum</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<table class="fieldtable">
+<tr><th colspan="2">枚举值</th></tr><tr><td class="fieldname"><a id="a1acb497200adfb740501200b1b0671fdae403fc6f7113e4ddc7eed73352306c64" name="a1acb497200adfb740501200b1b0671fdae403fc6f7113e4ddc7eed73352306c64"></a>_S41&#160;</td><td class="fielddoc"></td></tr>
+</table>
+
+</div>
+</div>
+<a id="a82e58a28e2dcf106c095d36e365519dd" name="a82e58a28e2dcf106c095d36e365519dd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a82e58a28e2dcf106c095d36e365519dd">&#9670;&#160;</a></span>anonymous enum</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">anonymous enum</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<table class="fieldtable">
+<tr><th colspan="2">枚举值</th></tr><tr><td class="fieldname"><a id="a82e58a28e2dcf106c095d36e365519ddaab59058eb563e744fc753b488243cb94" name="a82e58a28e2dcf106c095d36e365519ddaab59058eb563e744fc753b488243cb94"></a>_S44&#160;</td><td class="fielddoc"></td></tr>
+</table>
+
+</div>
+</div>
+<a id="ae28ee5aa849472c915120dc4818d980e" name="ae28ee5aa849472c915120dc4818d980e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae28ee5aa849472c915120dc4818d980e">&#9670;&#160;</a></span>anonymous enum</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">anonymous enum</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<table class="fieldtable">
+<tr><th colspan="2">枚举值</th></tr><tr><td class="fieldname"><a id="ae28ee5aa849472c915120dc4818d980ea8f38c6b5bc1e4c4bf738bfcda32d220a" name="ae28ee5aa849472c915120dc4818d980ea8f38c6b5bc1e4c4bf738bfcda32d220a"></a>_S24&#160;</td><td class="fielddoc"></td></tr>
+</table>
+
+</div>
+</div>
+<a id="a41c52f8001cf51b3c2ad7d5ae1777ce7" name="a41c52f8001cf51b3c2ad7d5ae1777ce7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a41c52f8001cf51b3c2ad7d5ae1777ce7">&#9670;&#160;</a></span>anonymous enum</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">anonymous enum</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<table class="fieldtable">
+<tr><th colspan="2">枚举值</th></tr><tr><td class="fieldname"><a id="a41c52f8001cf51b3c2ad7d5ae1777ce7a0f5644a8f3ac71d23f3debabb4634d5d" name="a41c52f8001cf51b3c2ad7d5ae1777ce7a0f5644a8f3ac71d23f3debabb4634d5d"></a>_S42&#160;</td><td class="fielddoc"></td></tr>
+</table>
+
+</div>
+</div>
+<a id="a31e67e91d80af2c4968441a875dc93b8" name="a31e67e91d80af2c4968441a875dc93b8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a31e67e91d80af2c4968441a875dc93b8">&#9670;&#160;</a></span>anonymous enum</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">anonymous enum</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<table class="fieldtable">
+<tr><th colspan="2">枚举值</th></tr><tr><td class="fieldname"><a id="a31e67e91d80af2c4968441a875dc93b8a3324fecfdd0d1ea6dc2b0abc83860463" name="a31e67e91d80af2c4968441a875dc93b8a3324fecfdd0d1ea6dc2b0abc83860463"></a>_S32&#160;</td><td class="fielddoc"></td></tr>
+</table>
+
+</div>
+</div>
+<a id="a278f5a047928e5626ebbe8d6b099fe33" name="a278f5a047928e5626ebbe8d6b099fe33"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a278f5a047928e5626ebbe8d6b099fe33">&#9670;&#160;</a></span>anonymous enum</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">anonymous enum</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<table class="fieldtable">
+<tr><th colspan="2">枚举值</th></tr><tr><td class="fieldname"><a id="a278f5a047928e5626ebbe8d6b099fe33a217f6c0aad34377e2a76ae1683a4497b" name="a278f5a047928e5626ebbe8d6b099fe33a217f6c0aad34377e2a76ae1683a4497b"></a>_S23&#160;</td><td class="fielddoc"></td></tr>
+</table>
+
+</div>
+</div>
+<a id="ae2e626400d5cd83fdc58bbc67fb32387" name="ae2e626400d5cd83fdc58bbc67fb32387"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae2e626400d5cd83fdc58bbc67fb32387">&#9670;&#160;</a></span>anonymous enum</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">anonymous enum</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<table class="fieldtable">
+<tr><th colspan="2">枚举值</th></tr><tr><td class="fieldname"><a id="ae2e626400d5cd83fdc58bbc67fb32387a77b052b767022e256a5c325e6ff71eb9" name="ae2e626400d5cd83fdc58bbc67fb32387a77b052b767022e256a5c325e6ff71eb9"></a>_S11&#160;</td><td class="fielddoc"></td></tr>
+</table>
+
+</div>
+</div>
+<a id="a54e185d0bb6c348be4229cbdaed2d14d" name="a54e185d0bb6c348be4229cbdaed2d14d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a54e185d0bb6c348be4229cbdaed2d14d">&#9670;&#160;</a></span>anonymous enum</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">anonymous enum</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<table class="fieldtable">
+<tr><th colspan="2">枚举值</th></tr><tr><td class="fieldname"><a id="a54e185d0bb6c348be4229cbdaed2d14dab829de767383fcea25aab29c0abf3e95" name="a54e185d0bb6c348be4229cbdaed2d14dab829de767383fcea25aab29c0abf3e95"></a>_S43&#160;</td><td class="fielddoc"></td></tr>
+</table>
+
+</div>
+</div>
+<a id="ab53e458e67cd3cb20c46501ee2555f38" name="ab53e458e67cd3cb20c46501ee2555f38"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab53e458e67cd3cb20c46501ee2555f38">&#9670;&#160;</a></span>anonymous enum</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">anonymous enum</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<table class="fieldtable">
+<tr><th colspan="2">枚举值</th></tr><tr><td class="fieldname"><a id="ab53e458e67cd3cb20c46501ee2555f38a04cc1f61b89f7a6bdf7ff1d60d2169ca" name="ab53e458e67cd3cb20c46501ee2555f38a04cc1f61b89f7a6bdf7ff1d60d2169ca"></a>_S13&#160;</td><td class="fielddoc"></td></tr>
+</table>
+
+</div>
+</div>
+<a id="a3c4c22ebcd3ba20920065a087b7a9770" name="a3c4c22ebcd3ba20920065a087b7a9770"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3c4c22ebcd3ba20920065a087b7a9770">&#9670;&#160;</a></span>anonymous enum</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">anonymous enum</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<table class="fieldtable">
+<tr><th colspan="2">枚举值</th></tr><tr><td class="fieldname"><a id="a3c4c22ebcd3ba20920065a087b7a9770a8efe21d885d3b5f473af2d9c0fec8f2e" name="a3c4c22ebcd3ba20920065a087b7a9770a8efe21d885d3b5f473af2d9c0fec8f2e"></a>_S14&#160;</td><td class="fielddoc"></td></tr>
+</table>
+
+</div>
+</div>
+<a id="ab02873cf4264abb084364105622caf1c" name="ab02873cf4264abb084364105622caf1c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab02873cf4264abb084364105622caf1c">&#9670;&#160;</a></span>anonymous enum</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">anonymous enum</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<table class="fieldtable">
+<tr><th colspan="2">枚举值</th></tr><tr><td class="fieldname"><a id="ab02873cf4264abb084364105622caf1caae4b1d2e8dbf8864e7bcad48a61d3b29" name="ab02873cf4264abb084364105622caf1caae4b1d2e8dbf8864e7bcad48a61d3b29"></a>_S12&#160;</td><td class="fielddoc"></td></tr>
+</table>
+
+</div>
+</div>
+<a id="ac10a22edd4cae056f884ce8d85b7d8d3" name="ac10a22edd4cae056f884ce8d85b7d8d3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac10a22edd4cae056f884ce8d85b7d8d3">&#9670;&#160;</a></span>anonymous enum</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">anonymous enum</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<table class="fieldtable">
+<tr><th colspan="2">枚举值</th></tr><tr><td class="fieldname"><a id="ac10a22edd4cae056f884ce8d85b7d8d3a0b2bed7a67400cb1dc88838a77e56d76" name="ac10a22edd4cae056f884ce8d85b7d8d3a0b2bed7a67400cb1dc88838a77e56d76"></a>_S22&#160;</td><td class="fielddoc"></td></tr>
+</table>
+
+</div>
+</div>
+<a id="ab700e3da1300a382c89a2e4c87e83871" name="ab700e3da1300a382c89a2e4c87e83871"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab700e3da1300a382c89a2e4c87e83871">&#9670;&#160;</a></span>anonymous enum</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">anonymous enum</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<table class="fieldtable">
+<tr><th colspan="2">枚举值</th></tr><tr><td class="fieldname"><a id="ab700e3da1300a382c89a2e4c87e83871ad3508464865204cc33a1165d955015d7" name="ab700e3da1300a382c89a2e4c87e83871ad3508464865204cc33a1165d955015d7"></a>_S33&#160;</td><td class="fielddoc"></td></tr>
+</table>
+
+</div>
+</div>
+<a id="a77e7f8df900202ddffd60135ad440652" name="a77e7f8df900202ddffd60135ad440652"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a77e7f8df900202ddffd60135ad440652">&#9670;&#160;</a></span>anonymous enum</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">anonymous enum</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<table class="fieldtable">
+<tr><th colspan="2">枚举值</th></tr><tr><td class="fieldname"><a id="a77e7f8df900202ddffd60135ad440652a0c3d5cd09d99f070795b15d173e2fabb" name="a77e7f8df900202ddffd60135ad440652a0c3d5cd09d99f070795b15d173e2fabb"></a>_S31&#160;</td><td class="fielddoc"></td></tr>
+</table>
+
+</div>
+</div>
+<a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">函数说明</h2>
+<a id="a562884facca55911e959fd638c502844" name="a562884facca55911e959fd638c502844"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a562884facca55911e959fd638c502844">&#9670;&#160;</a></span>appOnFailSHAVerification()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../df/d63/_typed_element_query_capabilities_8inl.html#a72343342ce64c0755563ee6c5e27868d">void</a> appOnFailSHAVerification </td>
+          <td>(</td>
+          <td class="paramtype">const TCHAR *</td>          <td class="paramname"><span class="paramname"><em>FailedPathname</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a></td>          <td class="paramname"><span class="paramname"><em>bFailedDueToMissingHash</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Callback that is called if the asynchronous SHA verification fails This will be called from a pooled thread.</p>
+<p>NOTE: Each platform is expected to implement this!</p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">FailedPathname</td><td>Pathname of file that failed to verify </td></tr>
+    <tr><td class="paramname">bFailedDueToMissingHash</td><td>true if the reason for the failure was that the hash was missing, and that was set as being an error condition </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a6aebba93a1659f4e5fcf2a48298a5d3d" name="a6aebba93a1659f4e5fcf2a48298a5d3d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6aebba93a1659f4e5fcf2a48298a5d3d">&#9670;&#160;</a></span>DEFINE_LOG_CATEGORY_STATIC()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">DEFINE_LOG_CATEGORY_STATIC </td>
+          <td>(</td>
+          <td class="paramtype">LogSecureHash</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Log</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../db/da0/_hair_strands_composition_8cpp.html#a01ae254fc9c19378956c218ed4e9c32da54991d225c58ce0af43461d4e9a82312">All</a></td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<div id="page-nav" class="page-nav-panel">
+<div id="page-nav-resize-handle"></div>
+<div id="page-nav-tree">
+<div id="page-nav-contents">
+</div><!-- page-nav-contents -->
+</div><!-- page-nav-tree -->
+</div><!-- page-nav -->
+</div><!-- container -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a href="../../dir_0b6ee6e7e9547e675db4add2e5de97da.html">Engine</a></li><li class="navelem"><a href="../../dir_9579d1ecb2c7bf48cbe1049c41745cb4.html">Source</a></li><li class="navelem"><a href="../../dir_9f04efef762572853abdf73f62bebfcc.html">Runtime</a></li><li class="navelem"><a href="../../dir_3de6fe8d63806cea4bedcdcf5470dc5e.html">Core</a></li><li class="navelem"><a href="../../dir_f402c58b7df52a21db8a638c3e1c5585.html">Private</a></li><li class="navelem"><a href="../../dir_727bd2dc4337e97a156cc9c276c949cf.html">Misc</a></li><li class="navelem"><a href="../../da/ded/_secure_hash_8cpp.html">SecureHash.cpp</a></li>
+    <li class="footer">制作者 <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.15.0 </li>
+  </ul>
+</div>
+</body>
+</html>

@@ -1,0 +1,648 @@
+<!-- HTML header for doxygen 1.15.0-->
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh">
+<head>
+  <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=11" />
+  <meta name="generator" content="Doxygen 1.15.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>UE 5.8.4: Engine/Source/Runtime/Core/Private/Async/TaskGraph.cpp 文件参考</title>
+  <link rel="icon" href="../../EdIconDefault.bmp" type="image/x-icon" />
+  <link href="../../tabs.css" rel="stylesheet" type="text/css" />
+  <script type="text/javascript" src="../../jquery.js"></script>
+  <script type="text/javascript" src="../../dynsections.js"></script>
+  <link href="../../navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../navtreedata.js"></script>
+<script type="text/javascript" src="../../navtree.js"></script>
+<script type="text/javascript" src="../../cookie.js"></script>
+  <link href="../../search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../search/searchdata.js"></script>
+<script type="text/javascript" src="../../search/search.js"></script>
+  <script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  extensions: ["tex2jax.js"],
+  jax: ["input/TeX","output/HTML-CSS"],
+});
+</script>
+<script type="text/javascript" async="async" src="https://cdn.jsdelivr.net/npm/mathjax@2/MathJax.js"></script>
+  <link href="../../doxygen.css" rel="stylesheet" type="text/css" />
+  <link href="../../doxygen-awesome.css" rel="stylesheet" type="text/css"/>
+<link href="../../doxygen-awesome-sidebar-only.css" rel="stylesheet" type="text/css"/>
+<link href="../../doxygen-awesome-sidebar-only-darkmode-toggle.css" rel="stylesheet" type="text/css"/>
+  <!-- ... other metadata & script includes ... -->
+  <script type="text/javascript" src="../../doxygen-awesome-darkmode-toggle.js"></script>
+  <script type="text/javascript">
+    DoxygenAwesomeDarkModeToggle.title = "Zwischen hellem/dunklem Modus wechseln"
+    DoxygenAwesomeDarkModeToggle.lightModeIcon = '🌞'
+    // icon from https://fonts.google.com/icons
+    DoxygenAwesomeDarkModeToggle.darkModeIcon = `<svg xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 24 24" height="24px" viewBox="0 0 24 24" width="24px" fill="#009793"><g><rect fill="none" height="24" width="24"/></g><g><g><path d="M8.1,14.15C9.77,14.63,11,16.17,11,18c0,0.68-0.19,1.31-0.48,1.87c0.48,0.09,0.97,0.14,1.48,0.14 c1.48,0,2.9-0.41,4.13-1.15c-2.62-0.92-5.23-2.82-6.8-5.86C7.74,9.94,7.78,7.09,8.29,4.9c-2.57,1.33-4.3,4.01-4.3,7.1c0,0,0,0,0,0 c0.01,0,0.01,0,0.02,0C5.66,12,7.18,12.83,8.1,14.15z" opacity=".3"/><path d="M19.78,17.51c-2.47,0-6.57-1.33-8.68-5.43C8.77,7.57,10.6,3.6,11.63,2.01C6.27,2.2,1.98,6.59,1.98,12 c0,0.14,0.02,0.28,0.02,0.42C2.61,12.16,3.28,12,3.98,12c0,0,0,0,0,0c0-3.09,1.73-5.77,4.3-7.1C7.78,7.09,7.74,9.94,9.32,13 c1.57,3.04,4.18,4.95,6.8,5.86c-1.23,0.74-2.65,1.15-4.13,1.15c-0.5,0-1-0.05-1.48-0.14c-0.37,0.7-0.94,1.27-1.64,1.64 c0.98,0.32,2.03,0.5,3.11,0.5c3.5,0,6.58-1.8,8.37-4.52C20.18,17.5,19.98,17.51,19.78,17.51z"/><path d="M7,16l-0.18,0C6.4,14.84,5.3,14,4,14c-1.66,0-3,1.34-3,3s1.34,3,3,3c0.62,0,2.49,0,3,0c1.1,0,2-0.9,2-2 C9,16.9,8.1,16,7,16z"/></g></g></svg>`
+    DoxygenAwesomeDarkModeToggle.init()
+  </script>
+  <script type="text/javascript" src="../../doxygen-awesome-fragment-copy-button.js"></script>
+  <script type="text/javascript">
+    DoxygenAwesomeFragmentCopyButton.title = "In die Zwischenablage kopieren"
+    // DoxygenAwesomeFragmentCopyButton.copyIcon = `<svg ...>`
+    // DoxygenAwesomeFragmentCopyButton.successIcon = `<svg ...>`
+    DoxygenAwesomeFragmentCopyButton.init()
+  </script>
+  <script type="text/javascript" src="../../doxygen-awesome-paragraph-link.js"></script>
+  <script type="text/javascript">
+    DoxygenAwesomeParagraphLink.title = "Abschnitt verknüpfen"
+    DoxygenAwesomeParagraphLink.icon = "¶"
+    DoxygenAwesomeParagraphLink.init()
+  </script>
+  <script type="text/javascript" src="../../doxygen-awesome-interactive-toc.js"></script>
+  <script type="text/javascript">
+    DoxygenAwesomeInteractiveToc.topOffset = 45
+    DoxygenAwesomeInteractiveToc.hideMobileMenu = false
+    DoxygenAwesomeInteractiveToc.init()
+  </script>
+</head>
+<body>
+    <div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+      <div id="titlearea">
+        <table cellspacing="0" cellpadding="0">
+          <tbody>
+            <tr id="projectrow">
+              <td id="projectlogo"><img alt="Logo" src="../../EdIconDefault.bmp"  /></td>
+              <td id="projectalign">
+                <div id="projectname">UE 5.8.4
+                </div>
+                <div id="projectbrief">Unreal Engine</div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <!-- end header part -->
+<!-- 制作者 Doxygen 1.15.0 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "../../search/",'.html');
+</script>
+<script type="text/javascript">
+$(function() { codefold.init(); });
+</script>
+<script type="text/javascript" src="../../menudata.js"></script>
+<script type="text/javascript" src="../../menu.js"></script>
+<script type="text/javascript">
+$(function() {
+  initMenu('../../',true,false,'search.php','搜索',true);
+  $(function() { init_search(); });
+});
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(function(){initNavTree('dd/d83/_task_graph_8cpp.html','../../',''); });
+</script>
+<div id="container">
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">载入中...</div>
+<div class="SRStatus" id="Searching">搜索中...</div>
+<div class="SRStatus" id="NoMatches">未找到</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">TaskGraph.cpp 文件参考</div></div>
+</div><!--header-->
+<div class="contents">
+<div class="textblock"><code>#include &quot;<a class="el" href="../../db/d04/_core_types_8h_source.html">CoreTypes.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d4/d75/_assertion_macros_8h_source.html">Misc/AssertionMacros.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../dd/d20/_numeric_limits_8h_source.html">Math/NumericLimits.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d9/d51/_unreal_math_utility_8h_source.html">Math/UnrealMathUtility.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../df/da0/_unreal_memory_8h_source.html">HAL/UnrealMemory.h</a>&quot;</code><br />
+<code>#include &quot;Containers/Array.h&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d7/d9b/_unreal_string_8h_source.html">Containers/UnrealString.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d7/dcd/_log_macros_8h_source.html">Logging/LogMacros.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../de/d1f/_scoped_event_8h_source.html">Misc/ScopedEvent.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../dd/d22/_runnable_8h_source.html">HAL/Runnable.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../dd/df4/_runnable_thread_8h_source.html">HAL/RunnableThread.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d2/d6b/_single_thread_runnable_8h_source.html">Misc/SingleThreadRunnable.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d0/d14/_thread_safe_counter_8h_source.html">HAL/ThreadSafeCounter.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d4/d16/_noop_counter_8h_source.html">Misc/NoopCounter.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d6/df1/_scope_lock_8h_source.html">Misc/ScopeLock.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d8/d2a/_manual_reset_event_8h_source.html">Async/ManualResetEvent.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d9/dcd/_lock_free_list_8h_source.html">Containers/LockFreeList.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../da/da2/_core_2_public_2_templates_2_function_8h_source.html">Templates/Function.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d3/d48/_stats_8h_source.html">Stats/Stats.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d4/d9d/_core_stats_8h_source.html">Misc/CoreStats.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d4/db0/_core_2_public_2_math_2_random_stream_8h_source.html">Math/RandomStream.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d4/dd9/_i_console_manager_8h_source.html">HAL/IConsoleManager.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d9/d11/_app_8h_source.html">Misc/App.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d4/dd8/_fork_8h_source.html">Misc/Fork.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d2/d81/_timeout_8h_source.html">Misc/Timeout.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../dd/d24/_task_graph_interfaces_8h_source.html">Async/TaskGraphInterfaces.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d9/dc8/_low_level_mem_tracker_8h_source.html">HAL/LowLevelMemTracker.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d3/d2f/_thread_heart_beat_8h_source.html">HAL/ThreadHeartBeat.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d0/d77/_external_profiler_8h_source.html">ProfilingDebugging/ExternalProfiler.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d0/d5b/_misc_trace_8h_source.html">ProfilingDebugging/MiscTrace.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../de/daa/_scoped_timers_8h_source.html">ProfilingDebugging/ScopedTimers.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d4/dbe/_config_cache_ini_8h_source.html">Misc/ConfigCacheIni.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../dc/d17/_core_delegates_8h_source.html">Misc/CoreDelegates.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d4/dfa/_scheduler_8h_source.html">Async/Fundamental/Scheduler.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d9/dc3/_pipe_8h_source.html">Tasks/Pipe.h</a>&quot;</code><br />
+</div><div class="textblock"><div class="dynheader">
+TaskGraph.cpp 的引用(Include)关系图:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../da/d0f/_task_graph_8cpp__incl.svg" width="3818" height="955"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+</div><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-nested-classes" class="groupheader"><a id="nested-classes" name="nested-classes"></a>
+类</h2></td></tr>
+<tr class="memitem:FChaosMode" id="r_FChaosMode"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><b>FChaosMode</b></td></tr>
+<tr class="memitem:FChaosMode_3A_3AFState" id="r_FChaosMode_3A_3AFState"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/d5b/struct_f_chaos_mode_1_1_f_state.html">FChaosMode::FState</a></td></tr>
+<tr class="memitem:FTaskThreadBase" id="r_FTaskThreadBase"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/dd0/class_f_task_thread_base.html">FTaskThreadBase</a></td></tr>
+<tr class="memitem:FNamedTaskThread" id="r_FNamedTaskThread"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/d96/class_f_named_task_thread.html">FNamedTaskThread</a></td></tr>
+<tr class="memitem:FTaskThreadAnyThread" id="r_FTaskThreadAnyThread"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/dae/class_f_task_thread_any_thread.html">FTaskThreadAnyThread</a></td></tr>
+<tr class="memitem:FWorkerThread" id="r_FWorkerThread"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/df1/struct_f_worker_thread.html">FWorkerThread</a></td></tr>
+<tr class="memitem:FTaskGraphCompatibilityImplementation" id="r_FTaskGraphCompatibilityImplementation"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/dab/class_f_task_graph_compatibility_implementation.html">FTaskGraphCompatibilityImplementation</a></td></tr>
+<tr class="memitem:FBroadcastTask" id="r_FBroadcastTask"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/d7a/class_f_broadcast_task.html">FBroadcastTask</a></td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-namespaces" class="groupheader"><a id="namespaces" name="namespaces"></a>
+命名空间</h2></td></tr>
+<tr class="memitem:ENamedThreads" id="r_ENamedThreads"><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/d44/namespace_e_named_threads.html">ENamedThreads</a></td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-define-members" class="groupheader"><a id="define-members" name="define-members"></a>
+宏定义</h2></td></tr>
+<tr class="memitem:a122b43723b6a8ae286e006c563d4f253" id="r_a122b43723b6a8ae286e006c563d4f253"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a122b43723b6a8ae286e006c563d4f253">CREATE_HIPRI_TASK_THREADS</a>&#160;&#160;&#160;(0)</td></tr>
+<tr class="memitem:af934496120650f99a98d05d571c131c7" id="r_af934496120650f99a98d05d571c131c7"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af934496120650f99a98d05d571c131c7">CREATE_BACKGROUND_TASK_THREADS</a>&#160;&#160;&#160;(0)</td></tr>
+<tr class="memitem:a255fac43c25b48da3a1bac0eb9fa9996" id="r_a255fac43c25b48da3a1bac0eb9fa9996"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a255fac43c25b48da3a1bac0eb9fa9996">YIELD_BETWEEN_TASKS</a>&#160;&#160;&#160;0</td></tr>
+<tr class="memitem:a0b3186ec30506881a05df9a2b5321a67" id="r_a0b3186ec30506881a05df9a2b5321a67"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a0b3186ec30506881a05df9a2b5321a67">PROFILE_TASKGRAPH</a>&#160;&#160;&#160;(0)</td></tr>
+<tr class="memitem:ae4675881faeeebefe8db0fd71f578d52" id="r_ae4675881faeeebefe8db0fd71f578d52"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae4675881faeeebefe8db0fd71f578d52">TASKGRAPH_SCOPE_CYCLE_COUNTER</a>(<a class="el" href="../../df/dd5/radfft_8cpp.html#a353b84469a01fbe28e2db978bdf1fb86">Index</a>,  Name)</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-func-members" class="groupheader"><a id="func-members" name="func-members"></a>
+函数</h2></td></tr>
+<tr class="memitem:aa44b8dece2895b33b08119c7a5dea1d4" id="r_aa44b8dece2895b33b08119c7a5dea1d4"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa44b8dece2895b33b08119c7a5dea1d4">DEFINE_LOG_CATEGORY_STATIC</a> (LogTaskGraph, Log, <a class="el" href="../../db/da0/_hair_strands_composition_8cpp.html#a01ae254fc9c19378956c218ed4e9c32da54991d225c58ce0af43461d4e9a82312">All</a>)</td></tr>
+<tr class="memitem:a232b1dd1d69061f6cb5b8d2bc1a181a2" id="r_a232b1dd1d69061f6cb5b8d2bc1a181a2"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a232b1dd1d69061f6cb5b8d2bc1a181a2">DEFINE_STAT</a> (STAT_FReturnGraphTask)</td></tr>
+<tr class="memitem:a361836d39ae7b39fb420f05376845ace" id="r_a361836d39ae7b39fb420f05376845ace"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a361836d39ae7b39fb420f05376845ace">DEFINE_STAT</a> (STAT_FTriggerEventGraphTask)</td></tr>
+<tr class="memitem:a9c7f86f8939e55af7dd3e319f352b5e7" id="r_a9c7f86f8939e55af7dd3e319f352b5e7"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9c7f86f8939e55af7dd3e319f352b5e7">DEFINE_STAT</a> (STAT_ParallelFor)</td></tr>
+<tr class="memitem:ae1a8e65b1a7da2b51f5694d13020a6e4" id="r_ae1a8e65b1a7da2b51f5694d13020a6e4"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae1a8e65b1a7da2b51f5694d13020a6e4">DEFINE_STAT</a> (STAT_ParallelForTask)</td></tr>
+<tr class="memitem:a040892a6b766da5d40997cb99f5b5abd" id="r_a040892a6b766da5d40997cb99f5b5abd"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d6/db1/class_t_array.html">TArray</a>&lt; <a class="el" href="../../d9/dae/namespace_task_trace.html#a035d5adf005af808411400ee27efd529">TaskTrace::FId</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a040892a6b766da5d40997cb99f5b5abd">GetTraceIds</a> (const <a class="el" href="../../dd/d24/_task_graph_interfaces_8h.html#a83b134197cb9242554da6cf7ed4d3ddb">FGraphEventArray</a> &amp;Tasks)</td></tr>
+<tr class="memitem:a48723cb2b9ede86db9893113f7504ef6" id="r_a48723cb2b9ede86db9893113f7504ef6"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d0/d76/_android_platform_8h.html#a724fb9f82013c782db5c3c12ea36aac8">FORCEINLINE</a> <a class="el" href="../../df/d63/_typed_element_query_capabilities_8inl.html#a72343342ce64c0755563ee6c5e27868d">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a48723cb2b9ede86db9893113f7504ef6">TestRandomizedThreads</a> ()</td></tr>
+<tr class="memitem:a85a4da6365458aa39be1110ee5fa637a" id="r_a85a4da6365458aa39be1110ee5fa637a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../dd/d24/_task_graph_interfaces_8h.html#a986adf07a0a6fcbb855f238edfcce889">FGraphEventImplAllocator</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a85a4da6365458aa39be1110ee5fa637a">GetGraphEventImplAllocator</a> ()</td></tr>
+<tr class="memitem:a3e54eb24f4094367dfcfa49ffba3ff35" id="r_a3e54eb24f4094367dfcfa49ffba3ff35"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a3e54eb24f4094367dfcfa49ffba3ff35">DECLARE_CYCLE_STAT</a> (<a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;FBroadcastTask&quot;), STAT_FBroadcastTask, STATGROUP_TaskGraphTasks)</td></tr>
+<tr class="memitem:a7035a43d4fc5ecd1da7f15af8369a0ff" id="r_a7035a43d4fc5ecd1da7f15af8369a0ff"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a8dbb3cd84ca9fd010dadfc3815eefa5d">int32</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7035a43d4fc5ecd1da7f15af8369a0ff">WaitForAnyTaskCompleted</a> (const <a class="el" href="../../dd/d24/_task_graph_interfaces_8h.html#a83b134197cb9242554da6cf7ed4d3ddb">FGraphEventArray</a> &amp;GraphEvents, <a class="el" href="../../d1/d98/struct_f_timespan.html">FTimespan</a> Timeout)</td></tr>
+<tr class="memitem:a9b4ac5076c9989b9c116f2e4fb7dce33" id="r_a9b4ac5076c9989b9c116f2e4fb7dce33"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../df/de9/_task_graph_fwd_8h.html#aa97a5bd9481ed210005f7ccce5fa13ae">FGraphEventRef</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9b4ac5076c9989b9c116f2e4fb7dce33">AnyTaskCompleted</a> (const <a class="el" href="../../dd/d24/_task_graph_interfaces_8h.html#a83b134197cb9242554da6cf7ed4d3ddb">FGraphEventArray</a> &amp;GraphEvents)</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-var-members" class="groupheader"><a id="var-members" name="var-members"></a>
+变量</h2></td></tr>
+<tr class="memitem:a119bf8cccf567e0b35b93110053c3184" id="r_a119bf8cccf567e0b35b93110053c3184"><td class="memItemLeft" align="right" valign="top">CORE_API <a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a8dbb3cd84ca9fd010dadfc3815eefa5d">int32</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/d44/namespace_e_named_threads.html#a119bf8cccf567e0b35b93110053c3184">ENamedThreads::bHasBackgroundThreads</a> = <a class="el" href="#af934496120650f99a98d05d571c131c7">CREATE_BACKGROUND_TASK_THREADS</a></td></tr>
+<tr class="memitem:aa5a1142277f36f080a216b42b77a14d8" id="r_aa5a1142277f36f080a216b42b77a14d8"><td class="memItemLeft" align="right" valign="top">CORE_API <a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a8dbb3cd84ca9fd010dadfc3815eefa5d">int32</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/d44/namespace_e_named_threads.html#aa5a1142277f36f080a216b42b77a14d8">ENamedThreads::bHasHighPriorityThreads</a> = <a class="el" href="#a122b43723b6a8ae286e006c563d4f253">CREATE_HIPRI_TASK_THREADS</a></td></tr>
+<tr class="memitem:a530cd2b422719b270b2eba445f00ec0d" id="r_a530cd2b422719b270b2eba445f00ec0d"><td class="memItemLeft" align="right" valign="top">CORE_API <a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a530cd2b422719b270b2eba445f00ec0d">GRenderThreadPollingOn</a> = <a class="el" href="../../d3/df7/radaudio__common_8h.html#ade27a78a51a66a5cfb6f09cf36bcfde9ae9de385ef6fe9bf3360d1038396b884c">false</a></td></tr>
+<tr class="memitem:ae9b2b8e00e491fccc365f958b91d64f5" id="r_ae9b2b8e00e491fccc365f958b91d64f5"><td class="memItemLeft" align="right" valign="top">CORE_API <a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a8dbb3cd84ca9fd010dadfc3815eefa5d">int32</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae9b2b8e00e491fccc365f958b91d64f5">GRenderThreadPollPeriodMs</a> = -1</td></tr>
+<tr class="memitem:a88c71a2723289eabe366485190ef56e2" id="r_a88c71a2723289eabe366485190ef56e2"><td class="memItemLeft" align="right" valign="top">CORE_API <a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a88c71a2723289eabe366485190ef56e2">GAllowTaskGraphForkMultithreading</a> = <a class="el" href="../../d3/df7/radaudio__common_8h.html#ade27a78a51a66a5cfb6f09cf36bcfde9a08f175a5505a10b9ed657defeb050e4b">true</a></td></tr>
+<tr class="memitem:a1b9ff526778ef822c689b7a163871acf" id="r_a1b9ff526778ef822c689b7a163871acf"><td class="memItemLeft" align="right" valign="top">CORE_API <a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a1b9ff526778ef822c689b7a163871acf">GTaskGraphUseDynamicPrioritization</a> = 1</td></tr>
+<tr class="memitem:ab08469d4c106fec6d7cd15a9e1a2aed1" id="r_ab08469d4c106fec6d7cd15a9e1a2aed1"><td class="memItemLeft" align="right" valign="top">CORE_API <a class="el" href="../../df/d2a/_s_anim_notify_shared_8h.html#ac7c94e837fed3f8e4bb3dd94d7bd2ecf">float</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab08469d4c106fec6d7cd15a9e1a2aed1">GTaskGraphOversubscriptionRatio</a> = 2.0f</td></tr>
+<tr class="memitem:aa02cb45692820c8d6a1d3575530c52aa" id="r_aa02cb45692820c8d6a1d3575530c52aa"><td class="memItemLeft" align="right" valign="top">CORE_API <a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa02cb45692820c8d6a1d3575530c52aa">GTaskGraphUseDynamicThreadCreation</a> = (<a class="el" href="../../d0/d76/_android_platform_8h.html#a42ab1ab324f6bf6534a814065a1cb053">PLATFORM_DESKTOP</a> == 1)</td></tr>
+<tr class="memitem:aa9fc69791a19c3db49937bbf7bc41914" id="r_aa9fc69791a19c3db49937bbf7bc41914"><td class="memItemLeft" align="right" valign="top">CORE_API <a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a8dbb3cd84ca9fd010dadfc3815eefa5d">int32</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa9fc69791a19c3db49937bbf7bc41914">GNumForegroundWorkers</a> = 2</td></tr>
+<tr class="memitem:af4c33316121ae7ae985c2a266c7660f6" id="r_af4c33316121ae7ae985c2a266c7660f6"><td class="memItemLeft" align="right" valign="top">CORE_API <a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a8dbb3cd84ca9fd010dadfc3815eefa5d">int32</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af4c33316121ae7ae985c2a266c7660f6">GTaskThreadStackSize</a> = 0</td></tr>
+</table>
+<a name="doc-define-members" id="doc-define-members"></a><h2 id="header-doc-define-members" class="groupheader">宏定义说明</h2>
+<a id="af934496120650f99a98d05d571c131c7" name="af934496120650f99a98d05d571c131c7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af934496120650f99a98d05d571c131c7">&#9670;&#160;</a></span>CREATE_BACKGROUND_TASK_THREADS</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define CREATE_BACKGROUND_TASK_THREADS&#160;&#160;&#160;(0)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a122b43723b6a8ae286e006c563d4f253" name="a122b43723b6a8ae286e006c563d4f253"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a122b43723b6a8ae286e006c563d4f253">&#9670;&#160;</a></span>CREATE_HIPRI_TASK_THREADS</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define CREATE_HIPRI_TASK_THREADS&#160;&#160;&#160;(0)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a0b3186ec30506881a05df9a2b5321a67" name="a0b3186ec30506881a05df9a2b5321a67"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0b3186ec30506881a05df9a2b5321a67">&#9670;&#160;</a></span>PROFILE_TASKGRAPH</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define PROFILE_TASKGRAPH&#160;&#160;&#160;(0)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ae4675881faeeebefe8db0fd71f578d52" name="ae4675881faeeebefe8db0fd71f578d52"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae4675881faeeebefe8db0fd71f578d52">&#9670;&#160;</a></span>TASKGRAPH_SCOPE_CYCLE_COUNTER</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define TASKGRAPH_SCOPE_CYCLE_COUNTER</td>
+          <td>(</td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em><a class="el" href="../../df/dd5/radfft_8cpp.html#a353b84469a01fbe28e2db978bdf1fb86">Index</a></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>Name</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a255fac43c25b48da3a1bac0eb9fa9996" name="a255fac43c25b48da3a1bac0eb9fa9996"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a255fac43c25b48da3a1bac0eb9fa9996">&#9670;&#160;</a></span>YIELD_BETWEEN_TASKS</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define YIELD_BETWEEN_TASKS&#160;&#160;&#160;0</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">函数说明</h2>
+<a id="a9b4ac5076c9989b9c116f2e4fb7dce33" name="a9b4ac5076c9989b9c116f2e4fb7dce33"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9b4ac5076c9989b9c116f2e4fb7dce33">&#9670;&#160;</a></span>AnyTaskCompleted()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../df/de9/_task_graph_fwd_8h.html#aa97a5bd9481ed210005f7ccce5fa13ae">FGraphEventRef</a> AnyTaskCompleted </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="../../dd/d24/_task_graph_interfaces_8h.html#a83b134197cb9242554da6cf7ed4d3ddb">FGraphEventArray</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>GraphEvents</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a3e54eb24f4094367dfcfa49ffba3ff35" name="a3e54eb24f4094367dfcfa49ffba3ff35"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3e54eb24f4094367dfcfa49ffba3ff35">&#9670;&#160;</a></span>DECLARE_CYCLE_STAT()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">DECLARE_CYCLE_STAT </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;FBroadcastTask&quot;)</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">STAT_FBroadcastTask</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">STATGROUP_TaskGraphTasks</td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aa44b8dece2895b33b08119c7a5dea1d4" name="aa44b8dece2895b33b08119c7a5dea1d4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa44b8dece2895b33b08119c7a5dea1d4">&#9670;&#160;</a></span>DEFINE_LOG_CATEGORY_STATIC()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">DEFINE_LOG_CATEGORY_STATIC </td>
+          <td>(</td>
+          <td class="paramtype">LogTaskGraph</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Log</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../db/da0/_hair_strands_composition_8cpp.html#a01ae254fc9c19378956c218ed4e9c32da54991d225c58ce0af43461d4e9a82312">All</a></td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a232b1dd1d69061f6cb5b8d2bc1a181a2" name="a232b1dd1d69061f6cb5b8d2bc1a181a2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a232b1dd1d69061f6cb5b8d2bc1a181a2">&#9670;&#160;</a></span>DEFINE_STAT() <span class="overload">[1/4]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">DEFINE_STAT </td>
+          <td>(</td>
+          <td class="paramtype">STAT_FReturnGraphTask</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a361836d39ae7b39fb420f05376845ace" name="a361836d39ae7b39fb420f05376845ace"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a361836d39ae7b39fb420f05376845ace">&#9670;&#160;</a></span>DEFINE_STAT() <span class="overload">[2/4]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">DEFINE_STAT </td>
+          <td>(</td>
+          <td class="paramtype">STAT_FTriggerEventGraphTask</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a9c7f86f8939e55af7dd3e319f352b5e7" name="a9c7f86f8939e55af7dd3e319f352b5e7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9c7f86f8939e55af7dd3e319f352b5e7">&#9670;&#160;</a></span>DEFINE_STAT() <span class="overload">[3/4]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">DEFINE_STAT </td>
+          <td>(</td>
+          <td class="paramtype">STAT_ParallelFor</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ae1a8e65b1a7da2b51f5694d13020a6e4" name="ae1a8e65b1a7da2b51f5694d13020a6e4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae1a8e65b1a7da2b51f5694d13020a6e4">&#9670;&#160;</a></span>DEFINE_STAT() <span class="overload">[4/4]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">DEFINE_STAT </td>
+          <td>(</td>
+          <td class="paramtype">STAT_ParallelForTask</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a85a4da6365458aa39be1110ee5fa637a" name="a85a4da6365458aa39be1110ee5fa637a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a85a4da6365458aa39be1110ee5fa637a">&#9670;&#160;</a></span>GetGraphEventImplAllocator()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../dd/d24/_task_graph_interfaces_8h.html#a986adf07a0a6fcbb855f238edfcce889">FGraphEventImplAllocator</a> &amp; GetGraphEventImplAllocator </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a040892a6b766da5d40997cb99f5b5abd" name="a040892a6b766da5d40997cb99f5b5abd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a040892a6b766da5d40997cb99f5b5abd">&#9670;&#160;</a></span>GetTraceIds()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d6/db1/class_t_array.html">TArray</a>&lt; <a class="el" href="../../d9/dae/namespace_task_trace.html#a035d5adf005af808411400ee27efd529">TaskTrace::FId</a> &gt; GetTraceIds </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="../../dd/d24/_task_graph_interfaces_8h.html#a83b134197cb9242554da6cf7ed4d3ddb">FGraphEventArray</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>Tasks</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>returns trace IDs of given tasks </p>
+
+</div>
+</div>
+<a id="a48723cb2b9ede86db9893113f7504ef6" name="a48723cb2b9ede86db9893113f7504ef6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a48723cb2b9ede86db9893113f7504ef6">&#9670;&#160;</a></span>TestRandomizedThreads()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d0/d76/_android_platform_8h.html#a724fb9f82013c782db5c3c12ea36aac8">FORCEINLINE</a> <a class="el" href="../../df/d63/_typed_element_query_capabilities_8inl.html#a72343342ce64c0755563ee6c5e27868d">void</a> TestRandomizedThreads </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a7035a43d4fc5ecd1da7f15af8369a0ff" name="a7035a43d4fc5ecd1da7f15af8369a0ff"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7035a43d4fc5ecd1da7f15af8369a0ff">&#9670;&#160;</a></span>WaitForAnyTaskCompleted()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a8dbb3cd84ca9fd010dadfc3815eefa5d">int32</a> WaitForAnyTaskCompleted </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="../../dd/d24/_task_graph_interfaces_8h.html#a83b134197cb9242554da6cf7ed4d3ddb">FGraphEventArray</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>GraphEvents</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d1/d98/struct_f_timespan.html">FTimespan</a></td>          <td class="paramname"><span class="paramname"><em>Timeout</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a name="doc-var-members" id="doc-var-members"></a><h2 id="header-doc-var-members" class="groupheader">变量说明</h2>
+<a id="a88c71a2723289eabe366485190ef56e2" name="a88c71a2723289eabe366485190ef56e2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a88c71a2723289eabe366485190ef56e2">&#9670;&#160;</a></span>GAllowTaskGraphForkMultithreading</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">CORE_API <a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a> GAllowTaskGraphForkMultithreading = <a class="el" href="../../d3/df7/radaudio__common_8h.html#ade27a78a51a66a5cfb6f09cf36bcfde9a08f175a5505a10b9ed657defeb050e4b">true</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aa9fc69791a19c3db49937bbf7bc41914" name="aa9fc69791a19c3db49937bbf7bc41914"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa9fc69791a19c3db49937bbf7bc41914">&#9670;&#160;</a></span>GNumForegroundWorkers</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">CORE_API <a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a8dbb3cd84ca9fd010dadfc3815eefa5d">int32</a> GNumForegroundWorkers = 2</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a530cd2b422719b270b2eba445f00ec0d" name="a530cd2b422719b270b2eba445f00ec0d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a530cd2b422719b270b2eba445f00ec0d">&#9670;&#160;</a></span>GRenderThreadPollingOn</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">CORE_API <a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a> GRenderThreadPollingOn = <a class="el" href="../../d3/df7/radaudio__common_8h.html#ade27a78a51a66a5cfb6f09cf36bcfde9ae9de385ef6fe9bf3360d1038396b884c">false</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>RT Task Graph polling. </p>
+
+</div>
+</div>
+<a id="ae9b2b8e00e491fccc365f958b91d64f5" name="ae9b2b8e00e491fccc365f958b91d64f5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae9b2b8e00e491fccc365f958b91d64f5">&#9670;&#160;</a></span>GRenderThreadPollPeriodMs</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">CORE_API <a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a8dbb3cd84ca9fd010dadfc3815eefa5d">int32</a> GRenderThreadPollPeriodMs = -1</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ab08469d4c106fec6d7cd15a9e1a2aed1" name="ab08469d4c106fec6d7cd15a9e1a2aed1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab08469d4c106fec6d7cd15a9e1a2aed1">&#9670;&#160;</a></span>GTaskGraphOversubscriptionRatio</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">CORE_API <a class="el" href="../../df/d2a/_s_anim_notify_shared_8h.html#ac7c94e837fed3f8e4bb3dd94d7bd2ecf">float</a> GTaskGraphOversubscriptionRatio = 2.0f</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a1b9ff526778ef822c689b7a163871acf" name="a1b9ff526778ef822c689b7a163871acf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1b9ff526778ef822c689b7a163871acf">&#9670;&#160;</a></span>GTaskGraphUseDynamicPrioritization</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">CORE_API <a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a> GTaskGraphUseDynamicPrioritization = 1</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aa02cb45692820c8d6a1d3575530c52aa" name="aa02cb45692820c8d6a1d3575530c52aa"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa02cb45692820c8d6a1d3575530c52aa">&#9670;&#160;</a></span>GTaskGraphUseDynamicThreadCreation</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">CORE_API <a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a> GTaskGraphUseDynamicThreadCreation = (<a class="el" href="../../d0/d76/_android_platform_8h.html#a42ab1ab324f6bf6534a814065a1cb053">PLATFORM_DESKTOP</a> == 1)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="af4c33316121ae7ae985c2a266c7660f6" name="af4c33316121ae7ae985c2a266c7660f6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af4c33316121ae7ae985c2a266c7660f6">&#9670;&#160;</a></span>GTaskThreadStackSize</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">CORE_API <a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a8dbb3cd84ca9fd010dadfc3815eefa5d">int32</a> GTaskThreadStackSize = 0</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<div id="page-nav" class="page-nav-panel">
+<div id="page-nav-resize-handle"></div>
+<div id="page-nav-tree">
+<div id="page-nav-contents">
+</div><!-- page-nav-contents -->
+</div><!-- page-nav-tree -->
+</div><!-- page-nav -->
+</div><!-- container -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a href="../../dir_0b6ee6e7e9547e675db4add2e5de97da.html">Engine</a></li><li class="navelem"><a href="../../dir_9579d1ecb2c7bf48cbe1049c41745cb4.html">Source</a></li><li class="navelem"><a href="../../dir_9f04efef762572853abdf73f62bebfcc.html">Runtime</a></li><li class="navelem"><a href="../../dir_3de6fe8d63806cea4bedcdcf5470dc5e.html">Core</a></li><li class="navelem"><a href="../../dir_f402c58b7df52a21db8a638c3e1c5585.html">Private</a></li><li class="navelem"><a href="../../dir_d169363d7a5780c2ef5878d288d329a7.html">Async</a></li><li class="navelem"><a href="../../dd/d83/_task_graph_8cpp.html">TaskGraph.cpp</a></li>
+    <li class="footer">制作者 <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.15.0 </li>
+  </ul>
+</div>
+</body>
+</html>

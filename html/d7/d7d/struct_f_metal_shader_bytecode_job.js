@@ -1,0 +1,28 @@
+var struct_f_metal_shader_bytecode_job =
+[
+    [ "bCompileAsPCH", "d7/d7d/struct_f_metal_shader_bytecode_job.html#a2e7c991e38e49ac3650e557c1e84f5b6", null ],
+    [ "bOptimizeForSize", "d7/d7d/struct_f_metal_shader_bytecode_job.html#a2248c1fa765e9cadc6dc0d730b37fa86", null ],
+    [ "bStripIndividualMetalLibs", "d7/d7d/struct_f_metal_shader_bytecode_job.html#af6997b09c7c19014e73115571795f58e", null ],
+    [ "bUseNativeShaderLibrary", "d7/d7d/struct_f_metal_shader_bytecode_job.html#a0b224dbd594dacd63eafd1ba97329848", null ],
+    [ "CompilerVersion", "d7/d7d/struct_f_metal_shader_bytecode_job.html#ab99088b3389cdb43d9734e47a05ee32c", null ],
+    [ "DebugInfo", "d7/d7d/struct_f_metal_shader_bytecode_job.html#a0ff6ad369ef994bb2163c823f4c19f09", null ],
+    [ "Defines", "d7/d7d/struct_f_metal_shader_bytecode_job.html#a13a4a3f1946daa7da2df4e2fba33a893", null ],
+    [ "Errors", "d7/d7d/struct_f_metal_shader_bytecode_job.html#a9133452e6813b8a41a76d612003f101b", null ],
+    [ "IncludeDir", "d7/d7d/struct_f_metal_shader_bytecode_job.html#a7ff147a6c43f50ce07088de770018429", null ],
+    [ "InputFile", "d7/d7d/struct_f_metal_shader_bytecode_job.html#a382f6940487fe8725d6dec1ae584577f", null ],
+    [ "InputPCHFile", "d7/d7d/struct_f_metal_shader_bytecode_job.html#aa064bf65dffd300652243fb615397808", null ],
+    [ "MathMode", "d7/d7d/struct_f_metal_shader_bytecode_job.html#a4bba8ca818c1b7f0a1eb3a034b44ba5c", null ],
+    [ "Message", "d7/d7d/struct_f_metal_shader_bytecode_job.html#ab445db4b44dbf2ba6cd9c64c12846b69", null ],
+    [ "MinOSVersion", "d7/d7d/struct_f_metal_shader_bytecode_job.html#accfe539daecc5e7ebb33b47660774ade", null ],
+    [ "ModuleCacheDirectory", "d7/d7d/struct_f_metal_shader_bytecode_job.html#a66bdad79d1488b7958107be932ef716c", null ],
+    [ "OutputFile", "d7/d7d/struct_f_metal_shader_bytecode_job.html#aa0aa01e9cd56dca9f2e8939a4840f0cc", null ],
+    [ "OutputObjectFile", "d7/d7d/struct_f_metal_shader_bytecode_job.html#aaaaa249515bc5af571a62c9cab2737a1", null ],
+    [ "PreserveInvariance", "d7/d7d/struct_f_metal_shader_bytecode_job.html#a4d4984ec97a8a10a3a8043911062a470", null ],
+    [ "Results", "d7/d7d/struct_f_metal_shader_bytecode_job.html#a73b0c80ca011cadc5d69b83d98b03808", null ],
+    [ "ReturnCode", "d7/d7d/struct_f_metal_shader_bytecode_job.html#af587dc92a11bface6b6c195b87b4260b", null ],
+    [ "ShaderFormat", "d7/d7d/struct_f_metal_shader_bytecode_job.html#aaa2aa6ea833aa034e2da7570b2e4ba6d", null ],
+    [ "SourceCRC", "d7/d7d/struct_f_metal_shader_bytecode_job.html#af7fa1c50445a581e768c0d957bc56982", null ],
+    [ "SourceCRCLen", "d7/d7d/struct_f_metal_shader_bytecode_job.html#a827ad89142039b8c41aeafbbe890b43e", null ],
+    [ "Standard", "d7/d7d/struct_f_metal_shader_bytecode_job.html#a08677b7e314895812937e7cb5017306d", null ],
+    [ "TmpFolder", "d7/d7d/struct_f_metal_shader_bytecode_job.html#afb711cd14f42ce31e9ca5c9b864bb1fb", null ]
+];

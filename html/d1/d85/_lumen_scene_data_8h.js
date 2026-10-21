@@ -1,0 +1,45 @@
+var _lumen_scene_data_8h =
+[
+    [ "FLumenCardId", "d2/d3e/union_f_lumen_card_id.html", "d2/d3e/union_f_lumen_card_id" ],
+    [ "FLumenCardSharingInfo", "d8/d66/struct_f_lumen_card_sharing_info.html", "d8/d66/struct_f_lumen_card_sharing_info" ],
+    [ "FLumenCardSharingInfoPendingRemove", "d3/d69/struct_f_lumen_card_sharing_info_pending_remove.html", "d3/d69/struct_f_lumen_card_sharing_info_pending_remove" ],
+    [ "FLumenCardSharingInfoPendingAdd", "df/ddd/struct_f_lumen_card_sharing_info_pending_add.html", "df/ddd/struct_f_lumen_card_sharing_info_pending_add" ],
+    [ "FLumenSurfaceMipMap", "d3/dde/struct_f_lumen_surface_mip_map.html", "d3/dde/struct_f_lumen_surface_mip_map" ],
+    [ "FLumenMipMapDesc", "dd/d61/struct_f_lumen_mip_map_desc.html", "dd/d61/struct_f_lumen_mip_map_desc" ],
+    [ "FLumenCardCullingInfo", "d9/dad/class_f_lumen_card_culling_info.html", "d9/dad/class_f_lumen_card_culling_info" ],
+    [ "FLumenCard", "de/dad/class_f_lumen_card.html", "de/dad/class_f_lumen_card" ],
+    [ "FLumenCard::FSurfaceStats", "d1/d74/struct_f_lumen_card_1_1_f_surface_stats.html", "d1/d74/struct_f_lumen_card_1_1_f_surface_stats" ],
+    [ "FLumenPrimitiveGroupRemoveInfo", "d9/dae/class_f_lumen_primitive_group_remove_info.html", "d9/dae/class_f_lumen_primitive_group_remove_info" ],
+    [ "FLumenPrimitiveGroup", "d0/db7/class_f_lumen_primitive_group.html", "d0/db7/class_f_lumen_primitive_group" ],
+    [ "FLumenPrimitiveGroupCullingInfo", "dd/d14/struct_f_lumen_primitive_group_culling_info.html", "dd/d14/struct_f_lumen_primitive_group_culling_info" ],
+    [ "FLumenPageTableEntry", "d2/d3c/struct_f_lumen_page_table_entry.html", "d2/d3c/struct_f_lumen_page_table_entry" ],
+    [ "FSurfaceCacheRequest", "df/da4/class_f_surface_cache_request.html", "df/da4/class_f_surface_cache_request" ],
+    [ "FVirtualPageIndex", "d4/dab/union_f_virtual_page_index.html", "d4/dab/union_f_virtual_page_index" ],
+    [ "FLumenSurfaceCacheAllocator", "da/de4/class_f_lumen_surface_cache_allocator.html", "da/de4/class_f_lumen_surface_cache_allocator" ],
+    [ "FLumenSurfaceCacheAllocator::FAllocation", "d6/d28/struct_f_lumen_surface_cache_allocator_1_1_f_allocation.html", "d6/d28/struct_f_lumen_surface_cache_allocator_1_1_f_allocation" ],
+    [ "FLumenSurfaceCacheAllocator::FBinStats", "d5/d49/struct_f_lumen_surface_cache_allocator_1_1_f_bin_stats.html", "d5/d49/struct_f_lumen_surface_cache_allocator_1_1_f_bin_stats" ],
+    [ "FLumenSurfaceCacheAllocator::FStats", "d2/d6e/struct_f_lumen_surface_cache_allocator_1_1_f_stats.html", "d2/d6e/struct_f_lumen_surface_cache_allocator_1_1_f_stats" ],
+    [ "FLumenViewOrigin", "de/d01/struct_f_lumen_view_origin.html", "de/d01/struct_f_lumen_view_origin" ],
+    [ "FLumenSceneFrameTemporaries", "dc/da7/struct_f_lumen_scene_frame_temporaries.html", "dc/da7/struct_f_lumen_scene_frame_temporaries" ],
+    [ "FLumenGlobalLightingState", "d0/d7c/class_f_lumen_global_lighting_state.html", "d0/d7c/class_f_lumen_global_lighting_state" ],
+    [ "FLumenSceneData", "d9/d40/class_f_lumen_scene_data.html", "d9/d40/class_f_lumen_scene_data" ],
+    [ "FLumenSceneData::FFeedbackData", "d9/d54/struct_f_lumen_scene_data_1_1_f_feedback_data.html", "d9/d54/struct_f_lumen_scene_data_1_1_f_feedback_data" ],
+    [ "ELumenReflectionPass", "d1/d85/_lumen_scene_data_8h.html#ab12160fc73934419f9ae65be67a08606", [
+      [ "Opaque", "d1/d85/_lumen_scene_data_8h.html#ab12160fc73934419f9ae65be67a08606afaa90538de35640e4b1e31ccf35b6eb5", null ],
+      [ "SingleLayerWater", "d1/d85/_lumen_scene_data_8h.html#ab12160fc73934419f9ae65be67a08606a634a92fa8f8a119606167df2a53bdab6", null ],
+      [ "FrontLayerTranslucency", "d1/d85/_lumen_scene_data_8h.html#ab12160fc73934419f9ae65be67a08606a3ebb3e0d8567217b5fc43abaaef5a799", null ],
+      [ "MAX", "d1/d85/_lumen_scene_data_8h.html#ab12160fc73934419f9ae65be67a08606a26a4b44a837bf97b972628509912b4a5", null ]
+    ] ],
+    [ "ESurfaceCacheCompression", "d1/d85/_lumen_scene_data_8h.html#a2dbccb3df27d52e6005a30c8e4f3899c", [
+      [ "Disabled", "d1/d85/_lumen_scene_data_8h.html#a2dbccb3df27d52e6005a30c8e4f3899cab9f5c797ebbf55adccdd8539a65a0241", null ],
+      [ "UAVAliasing", "d1/d85/_lumen_scene_data_8h.html#a2dbccb3df27d52e6005a30c8e4f3899ca8ef374ba1d23664870830d49921d4d93", null ],
+      [ "CopyTextureRegion", "d1/d85/_lumen_scene_data_8h.html#a2dbccb3df27d52e6005a30c8e4f3899cae3cfaff38ed830882b0e6a9145929699", null ],
+      [ "FramebufferCompression", "d1/d85/_lumen_scene_data_8h.html#a2dbccb3df27d52e6005a30c8e4f3899ca2b0aba7f26f230a495dc1acaf2aeb828", null ]
+    ] ],
+    [ "Lumen::GetCompactedFeedbackBufferSize", "de/de9/namespace_lumen.html#ae81a3eff020f8d0320b57407a9392cc8", null ],
+    [ "Lumen::GetFeedbackBufferSize", "de/de9/namespace_lumen.html#a097382dcfd3860992235c51da6d0503e", null ],
+    [ "GetSurfaceCacheCompression", "d1/d85/_lumen_scene_data_8h.html#a8c7c6dae01aa1340ebc711cd26e5f9d2", null ],
+    [ "GetTypeHash", "d1/d85/_lumen_scene_data_8h.html#a9444d5f8c63d14bf6097be5b8f107ea0", null ],
+    [ "Lumen::SetLandscapeHeightSamplingParameters", "de/de9/namespace_lumen.html#a5bc78b10e8943b5fa06ce4952e5237f5", null ],
+    [ "Lumen::FeedbackBufferElementStride", "de/de9/namespace_lumen.html#ae4b8c800296eab28309b1636f05b621e", null ]
+];

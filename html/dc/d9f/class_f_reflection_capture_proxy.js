@@ -1,0 +1,25 @@
+var class_f_reflection_capture_proxy =
+[
+    [ "FReflectionCaptureProxy", "dc/d9f/class_f_reflection_capture_proxy.html#a976211d8678e3b0fec06e574e9cf286e", null ],
+    [ "SetTransform", "dc/d9f/class_f_reflection_capture_proxy.html#a2f1b3457b5a0b23c061ee16bb2777223", null ],
+    [ "UpdateMobileUniformBuffer", "dc/d9f/class_f_reflection_capture_proxy.html#aeacb6e0c0a7e67842ee34ef66be7b668", null ],
+    [ "UpdateMobileUniformBuffer", "dc/d9f/class_f_reflection_capture_proxy.html#aea11cfd790daa9b6690eb0eeb0b42060", null ],
+    [ "BoxScales", "dc/d9f/class_f_reflection_capture_proxy.html#a365656e3ca8d88ff3bc7dd232684059b", null ],
+    [ "BoxTransform", "dc/d9f/class_f_reflection_capture_proxy.html#a9f9a8c96e228d6b0ccb05b5fce1690ce", null ],
+    [ "BoxTransitionDistance", "dc/d9f/class_f_reflection_capture_proxy.html#a7276aff4f0964e5cf9a613f31baa2120", null ],
+    [ "Brightness", "dc/d9f/class_f_reflection_capture_proxy.html#a1d788fe2e272501daf9b464b6b5f644a", null ],
+    [ "bUsingPreviewCaptureData", "dc/d9f/class_f_reflection_capture_proxy.html#ab347c1583e4c77c9f716ef1ce0a26798", null ],
+    [ "CaptureOffset", "dc/d9f/class_f_reflection_capture_proxy.html#a5b924ccd9212fbd7ef3019e9645e1d60", null ],
+    [ "Component", "dc/d9f/class_f_reflection_capture_proxy.html#a13eea873a26002523b331151ecb1f14a", null ],
+    [ "EncodedHDRAverageBrightness", "dc/d9f/class_f_reflection_capture_proxy.html#ac00beb0351a0075f591da2bfc593b110", null ],
+    [ "EncodedHDRCubemap", "dc/d9f/class_f_reflection_capture_proxy.html#a812ee8b03daa54a710abc1bef60eed4b", null ],
+    [ "Guid", "dc/d9f/class_f_reflection_capture_proxy.html#ab27ba35136132613e801e855895eb029", null ],
+    [ "InfluenceRadius", "dc/d9f/class_f_reflection_capture_proxy.html#a27c9b3c514cd84888e11aab891694d80", null ],
+    [ "LocalReflectionPlane", "dc/d9f/class_f_reflection_capture_proxy.html#a405c04290015e636501696ecd98571fd", null ],
+    [ "MobileUniformBuffer", "dc/d9f/class_f_reflection_capture_proxy.html#a88f6a59d3e652a3365d5511c7043fdb3", null ],
+    [ "PackedIndex", "dc/d9f/class_f_reflection_capture_proxy.html#a643e140c4c70ea537fb26559325bf6ad", null ],
+    [ "Position", "dc/d9f/class_f_reflection_capture_proxy.html#ae3fb228292d0309878a88263137fb91f", null ],
+    [ "ReflectionXAxisAndYScale", "dc/d9f/class_f_reflection_capture_proxy.html#aaeafcf8488a1457e35841ffd2854a611", null ],
+    [ "Shape", "dc/d9f/class_f_reflection_capture_proxy.html#a2bc84155cc6ef45a46daa442fcfd5556", null ],
+    [ "SortedCaptureIndex", "dc/d9f/class_f_reflection_capture_proxy.html#a33b80294d56ed5264d006c120e5dac0e", null ]
+];

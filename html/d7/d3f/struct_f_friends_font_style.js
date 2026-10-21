@@ -1,0 +1,27 @@
+var struct_f_friends_font_style =
+[
+    [ "FFriendsFontStyle", "d7/d3f/struct_f_friends_font_style.html#ae1214a5d7b26e51c7d5608558eff06a2", null ],
+    [ "~FFriendsFontStyle", "d7/d3f/struct_f_friends_font_style.html#a22f52e1ac157209ab31b196d1daab2f4", null ],
+    [ "GetResources", "d7/d3f/struct_f_friends_font_style.html#a1e9f95bbf0bfb8b71a8d2bef54d33314", null ],
+    [ "GetTypeName", "d7/d3f/struct_f_friends_font_style.html#a93a68f5f512b715183c5427385375a79", null ],
+    [ "SetChatFont", "d7/d3f/struct_f_friends_font_style.html#a13dc8fde52b616f1e360c68b0eb38455", null ],
+    [ "SetDefaultDullFontColor", "d7/d3f/struct_f_friends_font_style.html#ab40e67cda9c457e90a57e38e5da26475", null ],
+    [ "SetDefaultFontColor", "d7/d3f/struct_f_friends_font_style.html#aa391a094b8f68d45e81b884aff4f215c", null ],
+    [ "SetFontLarge", "d7/d3f/struct_f_friends_font_style.html#ae4dd39bb03916012e645f35acdbd872a", null ],
+    [ "SetFontLargeBold", "d7/d3f/struct_f_friends_font_style.html#a3e6b12e346f48bb6879d430605501d51", null ],
+    [ "SetFontNormal", "d7/d3f/struct_f_friends_font_style.html#ad428b48cda90fac3d7a0e1497e619cde", null ],
+    [ "SetFontNormalBold", "d7/d3f/struct_f_friends_font_style.html#a481c9c8611a6837f773f93fd17a33c31", null ],
+    [ "SetFontSmall", "d7/d3f/struct_f_friends_font_style.html#a244ff1b6e5e82a5109a898c07e298526", null ],
+    [ "SetFontSmallBold", "d7/d3f/struct_f_friends_font_style.html#a0f9eead0d6bcdeb12ea11e20ddf85124", null ],
+    [ "SetInvertedFontColor", "d7/d3f/struct_f_friends_font_style.html#abe500ee741dd8a5dea37ec596da0dc3d", null ],
+    [ "DefaultDullFontColor", "d7/d3f/struct_f_friends_font_style.html#a75ac23f36e712db53df36aea0cf2dcff", null ],
+    [ "DefaultFontColor", "d7/d3f/struct_f_friends_font_style.html#a67162993352647bbd7c9606df74755cc", null ],
+    [ "FriendsChatFont", "d7/d3f/struct_f_friends_font_style.html#acd67362261b103209a99548606dfe269", null ],
+    [ "FriendsFontLarge", "d7/d3f/struct_f_friends_font_style.html#ac194f29714ae52616f02302e074ce319", null ],
+    [ "FriendsFontLargeBold", "d7/d3f/struct_f_friends_font_style.html#a474967e66ada31741686a39654ab397e", null ],
+    [ "FriendsFontNormal", "d7/d3f/struct_f_friends_font_style.html#a9d3f95062d7c06f5b740693bb44fd4cc", null ],
+    [ "FriendsFontNormalBold", "d7/d3f/struct_f_friends_font_style.html#a92357f2f8f8b9bc12dd64968207c0f81", null ],
+    [ "FriendsFontSmall", "d7/d3f/struct_f_friends_font_style.html#a4a4e3ec372924d1cb842c9db8590cb5b", null ],
+    [ "FriendsFontSmallBold", "d7/d3f/struct_f_friends_font_style.html#a639a88368d87bb7e6aef4a177209e876", null ],
+    [ "InvertedFontColor", "d7/d3f/struct_f_friends_font_style.html#a5ff889b8c46b31666473b51fa8332dbd", null ]
+];

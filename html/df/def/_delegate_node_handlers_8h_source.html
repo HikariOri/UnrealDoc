@@ -1,0 +1,319 @@
+<!-- HTML header for doxygen 1.15.0-->
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh">
+<head>
+  <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=11" />
+  <meta name="generator" content="Doxygen 1.15.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>UE 5.8.4: Engine/Source/Editor/BlueprintGraph/Private/DelegateNodeHandlers.h 源文件</title>
+  <link rel="icon" href="../../EdIconDefault.bmp" type="image/x-icon" />
+  <link href="../../tabs.css" rel="stylesheet" type="text/css" />
+  <script type="text/javascript" src="../../jquery.js"></script>
+  <script type="text/javascript" src="../../dynsections.js"></script>
+  <link href="../../navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../navtreedata.js"></script>
+<script type="text/javascript" src="../../navtree.js"></script>
+<script type="text/javascript" src="../../cookie.js"></script>
+  <link href="../../search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../search/searchdata.js"></script>
+<script type="text/javascript" src="../../search/search.js"></script>
+  <link href="../../doxygen.css" rel="stylesheet" type="text/css" />
+  <link href="../../doxygen-awesome.css" rel="stylesheet" type="text/css"/>
+<link href="../../doxygen-awesome-sidebar-only.css" rel="stylesheet" type="text/css"/>
+<link href="../../doxygen-awesome-sidebar-only-darkmode-toggle.css" rel="stylesheet" type="text/css"/>
+  <!-- ... other metadata & script includes ... -->
+  <script type="text/javascript" src="../../doxygen-awesome-darkmode-toggle.js"></script>
+  <script type="text/javascript">
+    DoxygenAwesomeDarkModeToggle.title = "Zwischen hellem/dunklem Modus wechseln"
+    DoxygenAwesomeDarkModeToggle.lightModeIcon = '🌞'
+    // icon from https://fonts.google.com/icons
+    DoxygenAwesomeDarkModeToggle.darkModeIcon = `<svg xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 24 24" height="24px" viewBox="0 0 24 24" width="24px" fill="#009793"><g><rect fill="none" height="24" width="24"/></g><g><g><path d="M8.1,14.15C9.77,14.63,11,16.17,11,18c0,0.68-0.19,1.31-0.48,1.87c0.48,0.09,0.97,0.14,1.48,0.14 c1.48,0,2.9-0.41,4.13-1.15c-2.62-0.92-5.23-2.82-6.8-5.86C7.74,9.94,7.78,7.09,8.29,4.9c-2.57,1.33-4.3,4.01-4.3,7.1c0,0,0,0,0,0 c0.01,0,0.01,0,0.02,0C5.66,12,7.18,12.83,8.1,14.15z" opacity=".3"/><path d="M19.78,17.51c-2.47,0-6.57-1.33-8.68-5.43C8.77,7.57,10.6,3.6,11.63,2.01C6.27,2.2,1.98,6.59,1.98,12 c0,0.14,0.02,0.28,0.02,0.42C2.61,12.16,3.28,12,3.98,12c0,0,0,0,0,0c0-3.09,1.73-5.77,4.3-7.1C7.78,7.09,7.74,9.94,9.32,13 c1.57,3.04,4.18,4.95,6.8,5.86c-1.23,0.74-2.65,1.15-4.13,1.15c-0.5,0-1-0.05-1.48-0.14c-0.37,0.7-0.94,1.27-1.64,1.64 c0.98,0.32,2.03,0.5,3.11,0.5c3.5,0,6.58-1.8,8.37-4.52C20.18,17.5,19.98,17.51,19.78,17.51z"/><path d="M7,16l-0.18,0C6.4,14.84,5.3,14,4,14c-1.66,0-3,1.34-3,3s1.34,3,3,3c0.62,0,2.49,0,3,0c1.1,0,2-0.9,2-2 C9,16.9,8.1,16,7,16z"/></g></g></svg>`
+    DoxygenAwesomeDarkModeToggle.init()
+  </script>
+  <script type="text/javascript" src="../../doxygen-awesome-fragment-copy-button.js"></script>
+  <script type="text/javascript">
+    DoxygenAwesomeFragmentCopyButton.title = "In die Zwischenablage kopieren"
+    // DoxygenAwesomeFragmentCopyButton.copyIcon = `<svg ...>`
+    // DoxygenAwesomeFragmentCopyButton.successIcon = `<svg ...>`
+    DoxygenAwesomeFragmentCopyButton.init()
+  </script>
+  <script type="text/javascript" src="../../doxygen-awesome-paragraph-link.js"></script>
+  <script type="text/javascript">
+    DoxygenAwesomeParagraphLink.title = "Abschnitt verknüpfen"
+    DoxygenAwesomeParagraphLink.icon = "¶"
+    DoxygenAwesomeParagraphLink.init()
+  </script>
+  <script type="text/javascript" src="../../doxygen-awesome-interactive-toc.js"></script>
+  <script type="text/javascript">
+    DoxygenAwesomeInteractiveToc.topOffset = 45
+    DoxygenAwesomeInteractiveToc.hideMobileMenu = false
+    DoxygenAwesomeInteractiveToc.init()
+  </script>
+</head>
+<body>
+    <div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+      <div id="titlearea">
+        <table cellspacing="0" cellpadding="0">
+          <tbody>
+            <tr id="projectrow">
+              <td id="projectlogo"><img alt="Logo" src="../../EdIconDefault.bmp"  /></td>
+              <td id="projectalign">
+                <div id="projectname">UE 5.8.4
+                </div>
+                <div id="projectbrief">Unreal Engine</div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <!-- end header part -->
+<!-- 制作者 Doxygen 1.15.0 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "../../search/",'.html');
+</script>
+<script type="text/javascript">
+$(function() { codefold.init(); });
+</script>
+<script type="text/javascript" src="../../menudata.js"></script>
+<script type="text/javascript" src="../../menu.js"></script>
+<script type="text/javascript">
+$(function() {
+  initMenu('../../',true,false,'search.php','搜索',true);
+  $(function() { init_search(); });
+});
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(function(){initNavTree('df/def/_delegate_node_handlers_8h_source.html','../../',''); });
+</script>
+<div id="container">
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">载入中...</div>
+<div class="SRStatus" id="Searching">搜索中...</div>
+<div class="SRStatus" id="NoMatches">未找到</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">DelegateNodeHandlers.h</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="../../df/def/_delegate_node_handlers_8h.html">浏览该文件的文档.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="comment">// Copyright Epic Games, Inc. All Rights Reserved.</span></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span> </div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="preprocessor">#pragma once</span></div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span> </div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="preprocessor">#include &quot;<a class="code" href="../../d8/d2a/_blueprint_compiled_statement_8h.html">BlueprintCompiledStatement.h</a>&quot;</span></div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="preprocessor">#include &quot;<a class="code" href="../../da/d4a/_call_function_handler_8h.html">CallFunctionHandler.h</a>&quot;</span></div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="preprocessor">#include &quot;Containers/Map.h&quot;</span></div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="preprocessor">#include &quot;<a class="code" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html">HAL/Platform.h</a>&quot;</span></div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="preprocessor">#include &quot;<a class="code" href="../../d5/dd3/_kismet_compiler_misc_8h.html">KismetCompilerMisc.h</a>&quot;</span></div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="preprocessor">#include &quot;<a class="code" href="../../d4/d75/_assertion_macros_8h.html">Misc/AssertionMacros.h</a>&quot;</span></div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="preprocessor">#include &quot;Misc/Crc.h&quot;</span></div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span> </div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="keyword">class </span><a class="code hl_class" href="../../d5/d59/class_f_kismet_compiler_context.html">FKismetCompilerContext</a>;</div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="keyword">class </span><a class="code hl_class" href="../../d3/d91/class_u_ed_graph_node.html">UEdGraphNode</a>;</div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span><span class="keyword">class </span><a class="code hl_class" href="../../d2/d2a/class_u_function.html">UFunction</a>;</div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span><span class="keyword">struct </span><a class="code hl_struct" href="../../dd/df0/struct_f_b_p_terminal.html">FBPTerminal</a>;</div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span><span class="keyword">struct </span><a class="code hl_struct" href="../../d1/d93/struct_f_kismet_function_context.html">FKismetFunctionContext</a>;</div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span></div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span><span class="comment">// FKCHandler_AddDelegate</span></div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span> </div>
+<div class="foldopen" id="foldopen00022" data-start="{" data-end="};">
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno"><a class="line" href="../../d9/def/struct_f_delegate_owner_id.html">   22</a></span><span class="keyword">struct </span><a class="code hl_function" href="../../d9/def/struct_f_delegate_owner_id.html#a9d524c5014b48a7d8bc9d99a526d8551">FDelegateOwnerId</a></div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>{</div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno"><a class="line" href="../../d9/def/struct_f_delegate_owner_id.html#ad40520853d7a53898ce3c7cf247f218b">   24</a></span>    <span class="keyword">typedef</span> <a class="code hl_class" href="../../da/d41/class_t_map.html">TMap&lt;FDelegateOwnerId, FBPTerminal*&gt;</a> <a class="code hl_typedef" href="../../d9/def/struct_f_delegate_owner_id.html#ad40520853d7a53898ce3c7cf247f218b">FInnerTermMap</a>;</div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span> </div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno"><a class="line" href="../../d9/def/struct_f_delegate_owner_id.html#a2af1a7284dba710af847f0dc46c6349e">   26</a></span>    <span class="keyword">const</span> <span class="keyword">class </span><a class="code hl_class" href="../../da/d6f/class_u_ed_graph_pin.html">UEdGraphPin</a>* <a class="code hl_variable" href="../../d9/def/struct_f_delegate_owner_id.html#a2af1a7284dba710af847f0dc46c6349e">OutputPin</a>;</div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno"><a class="line" href="../../d9/def/struct_f_delegate_owner_id.html#a717593d1c85ca000f88b4e1656ffc1c5">   27</a></span>    <span class="keyword">const</span> <span class="keyword">class </span><a class="code hl_class" href="../../db/de0/class_u_k2_node___base_m_c_delegate.html">UK2Node_BaseMCDelegate</a>* <a class="code hl_variable" href="../../d9/def/struct_f_delegate_owner_id.html#a717593d1c85ca000f88b4e1656ffc1c5">DelegateNode</a>;</div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span> </div>
+<div class="foldopen" id="foldopen00029" data-start="{" data-end="}">
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno"><a class="line" href="../../d9/def/struct_f_delegate_owner_id.html#a9d524c5014b48a7d8bc9d99a526d8551">   29</a></span>    <a class="code hl_function" href="../../d9/def/struct_f_delegate_owner_id.html#a9d524c5014b48a7d8bc9d99a526d8551">FDelegateOwnerId</a>(<span class="keyword">const</span> <span class="keyword">class</span> <a class="code hl_class" href="../../da/d6f/class_u_ed_graph_pin.html">UEdGraphPin</a>* InOutputPin, <span class="keyword">const</span> <span class="keyword">class</span> <a class="code hl_class" href="../../db/de0/class_u_k2_node___base_m_c_delegate.html">UK2Node_BaseMCDelegate</a>* InDelegateNode) </div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>        : <a class="code hl_variable" href="../../d9/def/struct_f_delegate_owner_id.html#a2af1a7284dba710af847f0dc46c6349e">OutputPin</a>(InOutputPin), <a class="code hl_variable" href="../../d9/def/struct_f_delegate_owner_id.html#a717593d1c85ca000f88b4e1656ffc1c5">DelegateNode</a>(InDelegateNode)</div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>    {</div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>        <a class="code hl_define" href="../../d4/d75/_assertion_macros_8h.html#abf7240b4b3cbf98f2811ba65069d6b18">ensure</a>(<a class="code hl_variable" href="../../d9/def/struct_f_delegate_owner_id.html#a2af1a7284dba710af847f0dc46c6349e">OutputPin</a> &amp;&amp; <a class="code hl_variable" href="../../d9/def/struct_f_delegate_owner_id.html#a717593d1c85ca000f88b4e1656ffc1c5">DelegateNode</a>);</div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>    }</div>
+</div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span> </div>
+<div class="foldopen" id="foldopen00035" data-start="{" data-end="}">
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno"><a class="line" href="../../d9/def/struct_f_delegate_owner_id.html#a781aaad76d555149ccdb028358bef869">   35</a></span>    <span class="keywordtype">bool</span> <a class="code hl_function" href="../../d9/def/struct_f_delegate_owner_id.html#a781aaad76d555149ccdb028358bef869">operator==</a>(<span class="keyword">const</span> <a class="code hl_function" href="../../d9/def/struct_f_delegate_owner_id.html#a9d524c5014b48a7d8bc9d99a526d8551">FDelegateOwnerId</a>&amp; <a class="code hl_enumvalue" href="../../db/dff/_io_store_utilities_8cpp.html#a87a058d905c1a0bfb1670ef9a427caa4a6311ae17c1ee52b36e68aaf4ad066387">Other</a>)<span class="keyword"> const</span></div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span><span class="keyword">    </span>{</div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>        <span class="keywordflow">return</span> (<a class="code hl_enumvalue" href="../../db/dff/_io_store_utilities_8cpp.html#a87a058d905c1a0bfb1670ef9a427caa4a6311ae17c1ee52b36e68aaf4ad066387">Other</a>.OutputPin == <a class="code hl_variable" href="../../d9/def/struct_f_delegate_owner_id.html#a2af1a7284dba710af847f0dc46c6349e">OutputPin</a>) &amp;&amp; (<a class="code hl_enumvalue" href="../../db/dff/_io_store_utilities_8cpp.html#a87a058d905c1a0bfb1670ef9a427caa4a6311ae17c1ee52b36e68aaf4ad066387">Other</a>.DelegateNode == <a class="code hl_variable" href="../../d9/def/struct_f_delegate_owner_id.html#a717593d1c85ca000f88b4e1656ffc1c5">DelegateNode</a>);</div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>    }</div>
+</div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span> </div>
+<div class="foldopen" id="foldopen00040" data-start="{" data-end="}">
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno"><a class="line" href="../../d9/def/struct_f_delegate_owner_id.html#af46979b7975c413c059c5c0638fb6637">   40</a></span>    <span class="keyword">friend</span> <a class="code hl_typedef" href="../../dd/de9/preprocessor_8c.html#a1134b580f8da4de94ca6b1de4d37975e">uint32</a> <a class="code hl_friend" href="../../d9/def/struct_f_delegate_owner_id.html#af46979b7975c413c059c5c0638fb6637">GetTypeHash</a>(<span class="keyword">const</span> <a class="code hl_function" href="../../d9/def/struct_f_delegate_owner_id.html#a9d524c5014b48a7d8bc9d99a526d8551">FDelegateOwnerId</a>&amp; DelegateOwnerId)</div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>    {</div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>        <span class="keywordflow">return</span> <a class="code hl_function" href="../../d7/d47/struct_f_crc.html#a3499743973b41596f14a871427f78eef">FCrc::MemCrc_DEPRECATED</a>(&amp;DelegateOwnerId,<span class="keyword">sizeof</span>(<a class="code hl_function" href="../../d9/def/struct_f_delegate_owner_id.html#a9d524c5014b48a7d8bc9d99a526d8551">FDelegateOwnerId</a>));</div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>    }</div>
+</div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>};</div>
+</div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span> </div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span> </div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span> </div>
+<div class="foldopen" id="foldopen00048" data-start="{" data-end="};">
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno"><a class="line" href="../../db/da2/class_f_k_c_handler___add_remove_delegate.html">   48</a></span><span class="keyword">class </span><a class="code hl_function" href="../../db/da2/class_f_k_c_handler___add_remove_delegate.html#a7592af1dc36fecf7e0f8daf18b72687a">FKCHandler_AddRemoveDelegate</a> : <span class="keyword">public</span> <a class="code hl_function" href="../../da/d4e/class_f_node_handling_functor.html#ad771a065aec821465ae761fc1071775d">FNodeHandlingFunctor</a></div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>{</div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>    <a class="code hl_enumeration" href="../../d8/d2a/_blueprint_compiled_statement_8h.html#a5d41f3f36f636ce5152f3ae61d0f319e">EKismetCompiledStatementType</a> Command;</div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>    <a class="code hl_typedef" href="../../d9/def/struct_f_delegate_owner_id.html#ad40520853d7a53898ce3c7cf247f218b">FDelegateOwnerId::FInnerTermMap</a> InnerTermMap;</div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span> </div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span><span class="keyword">public</span>:</div>
+<div class="foldopen" id="foldopen00054" data-start="{" data-end="}">
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno"><a class="line" href="../../db/da2/class_f_k_c_handler___add_remove_delegate.html#a7592af1dc36fecf7e0f8daf18b72687a">   54</a></span>    <a class="code hl_function" href="../../db/da2/class_f_k_c_handler___add_remove_delegate.html#a7592af1dc36fecf7e0f8daf18b72687a">FKCHandler_AddRemoveDelegate</a>(<a class="code hl_class" href="../../d5/d59/class_f_kismet_compiler_context.html">FKismetCompilerContext</a>&amp; InCompilerContext, <a class="code hl_enumeration" href="../../d8/d2a/_blueprint_compiled_statement_8h.html#a5d41f3f36f636ce5152f3ae61d0f319e">EKismetCompiledStatementType</a> InCommand)</div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>        : <a class="code hl_function" href="../../da/d4e/class_f_node_handling_functor.html#ad771a065aec821465ae761fc1071775d">FNodeHandlingFunctor</a>(InCompilerContext)</div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>        , Command(InCommand)</div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>    {</div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>    }</div>
+</div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span> </div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code hl_function" href="../../db/da2/class_f_k_c_handler___add_remove_delegate.html#addb50d45dadeeeb92fc147ebe573218c">RegisterNets</a>(<a class="code hl_struct" href="../../d1/d93/struct_f_kismet_function_context.html">FKismetFunctionContext</a>&amp; <a class="code hl_enumvalue" href="../../d2/d5b/_vulkan_submission_8h.html#aa4b3c8fa94b41c64030fd453ef8b865aaad4e206408c1c59bfb8a057ba7857446">Context</a>, <a class="code hl_class" href="../../d3/d91/class_u_ed_graph_node.html">UEdGraphNode</a>* <a class="code hl_enumvalue" href="../../dc/d14/_find_in_b_t_8h.html#aff1b3ad900d1554d1fb2a16fb8fe860aa6c3a6944a808a7c0bbb6788dbec54a9f">Node</a>) <span class="keyword">override</span>;</div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code hl_function" href="../../db/da2/class_f_k_c_handler___add_remove_delegate.html#a8430f05ab9944eaa2caee9736078163b">Compile</a>(<a class="code hl_struct" href="../../d1/d93/struct_f_kismet_function_context.html">FKismetFunctionContext</a>&amp; <a class="code hl_enumvalue" href="../../d2/d5b/_vulkan_submission_8h.html#aa4b3c8fa94b41c64030fd453ef8b865aaad4e206408c1c59bfb8a057ba7857446">Context</a>, <a class="code hl_class" href="../../d3/d91/class_u_ed_graph_node.html">UEdGraphNode</a>* <a class="code hl_enumvalue" href="../../dc/d14/_find_in_b_t_8h.html#aff1b3ad900d1554d1fb2a16fb8fe860aa6c3a6944a808a7c0bbb6788dbec54a9f">Node</a>) <span class="keyword">override</span>;</div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>};</div>
+</div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span></div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span><span class="comment">// FKCHandler_CreateDelegate</span></div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span> </div>
+<div class="foldopen" id="foldopen00067" data-start="{" data-end="};">
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno"><a class="line" href="../../d5/d72/class_f_k_c_handler___create_delegate.html">   67</a></span><span class="keyword">class </span><a class="code hl_function" href="../../d5/d72/class_f_k_c_handler___create_delegate.html#a6ad271c2259367a5c6b0887361e1883c">FKCHandler_CreateDelegate</a> : <span class="keyword">public</span> <a class="code hl_function" href="../../da/d4e/class_f_node_handling_functor.html#ad771a065aec821465ae761fc1071775d">FNodeHandlingFunctor</a></div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>{</div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span><span class="keyword">public</span>:</div>
+<div class="foldopen" id="foldopen00070" data-start="{" data-end="}">
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno"><a class="line" href="../../d5/d72/class_f_k_c_handler___create_delegate.html#a6ad271c2259367a5c6b0887361e1883c">   70</a></span>    <a class="code hl_function" href="../../d5/d72/class_f_k_c_handler___create_delegate.html#a6ad271c2259367a5c6b0887361e1883c">FKCHandler_CreateDelegate</a>(<a class="code hl_class" href="../../d5/d59/class_f_kismet_compiler_context.html">FKismetCompilerContext</a>&amp; InCompilerContext)</div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>        : <a class="code hl_function" href="../../da/d4e/class_f_node_handling_functor.html#ad771a065aec821465ae761fc1071775d">FNodeHandlingFunctor</a>(InCompilerContext)</div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>    {</div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>    }</div>
+</div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span> </div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code hl_function" href="../../d5/d72/class_f_k_c_handler___create_delegate.html#a1c4109cfe2101bfff842444cb806460b">RegisterNets</a>(<a class="code hl_struct" href="../../d1/d93/struct_f_kismet_function_context.html">FKismetFunctionContext</a>&amp; <a class="code hl_enumvalue" href="../../d2/d5b/_vulkan_submission_8h.html#aa4b3c8fa94b41c64030fd453ef8b865aaad4e206408c1c59bfb8a057ba7857446">Context</a>, <a class="code hl_class" href="../../d3/d91/class_u_ed_graph_node.html">UEdGraphNode</a>* <a class="code hl_enumvalue" href="../../dc/d14/_find_in_b_t_8h.html#aff1b3ad900d1554d1fb2a16fb8fe860aa6c3a6944a808a7c0bbb6788dbec54a9f">Node</a>) <span class="keyword">override</span>;</div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code hl_function" href="../../d5/d72/class_f_k_c_handler___create_delegate.html#aa7be4601967b0f66c064525fd482689a">Compile</a>(<a class="code hl_struct" href="../../d1/d93/struct_f_kismet_function_context.html">FKismetFunctionContext</a>&amp; <a class="code hl_enumvalue" href="../../d2/d5b/_vulkan_submission_8h.html#aa4b3c8fa94b41c64030fd453ef8b865aaad4e206408c1c59bfb8a057ba7857446">Context</a>, <a class="code hl_class" href="../../d3/d91/class_u_ed_graph_node.html">UEdGraphNode</a>* <a class="code hl_enumvalue" href="../../dc/d14/_find_in_b_t_8h.html#aff1b3ad900d1554d1fb2a16fb8fe860aa6c3a6944a808a7c0bbb6788dbec54a9f">Node</a>) <span class="keyword">override</span>;</div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span>};</div>
+</div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span></div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span><span class="comment">// FKCHandler_ClearDelegate</span></div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span> </div>
+<div class="foldopen" id="foldopen00082" data-start="{" data-end="};">
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno"><a class="line" href="../../d5/d68/class_f_k_c_handler___clear_delegate.html">   82</a></span><span class="keyword">class </span><a class="code hl_function" href="../../d5/d68/class_f_k_c_handler___clear_delegate.html#afbbb906322d173853fc5590a0234e12d">FKCHandler_ClearDelegate</a> : <span class="keyword">public</span> <a class="code hl_function" href="../../da/d4e/class_f_node_handling_functor.html#ad771a065aec821465ae761fc1071775d">FNodeHandlingFunctor</a></div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span>{</div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span>    <a class="code hl_typedef" href="../../d9/def/struct_f_delegate_owner_id.html#ad40520853d7a53898ce3c7cf247f218b">FDelegateOwnerId::FInnerTermMap</a> InnerTermMap;</div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span> </div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span><span class="keyword">public</span>:</div>
+<div class="foldopen" id="foldopen00087" data-start="{" data-end="}">
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno"><a class="line" href="../../d5/d68/class_f_k_c_handler___clear_delegate.html#afbbb906322d173853fc5590a0234e12d">   87</a></span>    <a class="code hl_function" href="../../d5/d68/class_f_k_c_handler___clear_delegate.html#afbbb906322d173853fc5590a0234e12d">FKCHandler_ClearDelegate</a>(<a class="code hl_class" href="../../d5/d59/class_f_kismet_compiler_context.html">FKismetCompilerContext</a>&amp; InCompilerContext)</div>
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span>        : <a class="code hl_function" href="../../da/d4e/class_f_node_handling_functor.html#ad771a065aec821465ae761fc1071775d">FNodeHandlingFunctor</a>(InCompilerContext)</div>
+<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span>    {</div>
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span>    }</div>
+</div>
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span> </div>
+<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span>    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code hl_function" href="../../d5/d68/class_f_k_c_handler___clear_delegate.html#ac899d5066dfae9c50fc6e3826d8ec372">RegisterNets</a>(<a class="code hl_struct" href="../../d1/d93/struct_f_kismet_function_context.html">FKismetFunctionContext</a>&amp; <a class="code hl_enumvalue" href="../../d2/d5b/_vulkan_submission_8h.html#aa4b3c8fa94b41c64030fd453ef8b865aaad4e206408c1c59bfb8a057ba7857446">Context</a>, <a class="code hl_class" href="../../d3/d91/class_u_ed_graph_node.html">UEdGraphNode</a>* <a class="code hl_enumvalue" href="../../dc/d14/_find_in_b_t_8h.html#aff1b3ad900d1554d1fb2a16fb8fe860aa6c3a6944a808a7c0bbb6788dbec54a9f">Node</a>) <span class="keyword">override</span>;</div>
+<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span>    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code hl_function" href="../../d5/d68/class_f_k_c_handler___clear_delegate.html#a6c248b7beb55032b2b332f91befd1904">Compile</a>(<a class="code hl_struct" href="../../d1/d93/struct_f_kismet_function_context.html">FKismetFunctionContext</a>&amp; <a class="code hl_enumvalue" href="../../d2/d5b/_vulkan_submission_8h.html#aa4b3c8fa94b41c64030fd453ef8b865aaad4e206408c1c59bfb8a057ba7857446">Context</a>, <a class="code hl_class" href="../../d3/d91/class_u_ed_graph_node.html">UEdGraphNode</a>* <a class="code hl_enumvalue" href="../../dc/d14/_find_in_b_t_8h.html#aff1b3ad900d1554d1fb2a16fb8fe860aa6c3a6944a808a7c0bbb6788dbec54a9f">Node</a>) <span class="keyword">override</span>;</div>
+<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span>};</div>
+</div>
+<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span></div>
+<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span><span class="comment">// FKCHandler_CallDelegate</span></div>
+<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span> </div>
+<div class="foldopen" id="foldopen00099" data-start="{" data-end="};">
+<div class="line"><a id="l00099" name="l00099"></a><span class="lineno"><a class="line" href="../../dd/d90/class_f_k_c_handler___call_delegate.html">   99</a></span><span class="keyword">class </span><a class="code hl_function" href="../../dd/d90/class_f_k_c_handler___call_delegate.html#a8277f7dcce71a89f73aba1302ecdfbc4">FKCHandler_CallDelegate</a> : <span class="keyword">public</span> <a class="code hl_function" href="../../d9/dc9/class_f_k_c_handler___call_function.html#ac4d305da865a59647e532922608966e1">FKCHandler_CallFunction</a></div>
+<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span>{</div>
+<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span>    <a class="code hl_typedef" href="../../d9/def/struct_f_delegate_owner_id.html#ad40520853d7a53898ce3c7cf247f218b">FDelegateOwnerId::FInnerTermMap</a> InnerTermMap;</div>
+<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span> </div>
+<div class="foldopen" id="foldopen00104" data-start="{" data-end="}">
+<div class="line"><a id="l00104" name="l00104"></a><span class="lineno"><a class="line" href="../../dd/d90/class_f_k_c_handler___call_delegate.html#a8277f7dcce71a89f73aba1302ecdfbc4">  104</a></span>    <a class="code hl_function" href="../../dd/d90/class_f_k_c_handler___call_delegate.html#a8277f7dcce71a89f73aba1302ecdfbc4">FKCHandler_CallDelegate</a>(<a class="code hl_class" href="../../d5/d59/class_f_kismet_compiler_context.html">FKismetCompilerContext</a>&amp; InCompilerContext)</div>
+<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span>        : <a class="code hl_function" href="../../d9/dc9/class_f_k_c_handler___call_function.html#ac4d305da865a59647e532922608966e1">FKCHandler_CallFunction</a>(InCompilerContext)</div>
+<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span>    {</div>
+<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span>    }</div>
+</div>
+<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span> </div>
+<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span>    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code hl_function" href="../../dd/d90/class_f_k_c_handler___call_delegate.html#a750eecd14d42e753fae0e37bd36bc95c">RegisterNets</a>(<a class="code hl_struct" href="../../d1/d93/struct_f_kismet_function_context.html">FKismetFunctionContext</a>&amp; <a class="code hl_enumvalue" href="../../d2/d5b/_vulkan_submission_8h.html#aa4b3c8fa94b41c64030fd453ef8b865aaad4e206408c1c59bfb8a057ba7857446">Context</a>, <a class="code hl_class" href="../../d3/d91/class_u_ed_graph_node.html">UEdGraphNode</a>* <a class="code hl_enumvalue" href="../../dc/d14/_find_in_b_t_8h.html#aff1b3ad900d1554d1fb2a16fb8fe860aa6c3a6944a808a7c0bbb6788dbec54a9f">Node</a>) <span class="keyword">override</span>;</div>
+<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span>    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code hl_function" href="../../dd/d90/class_f_k_c_handler___call_delegate.html#ae6af64ac47b706ba705046e294817c69">Compile</a>(<a class="code hl_struct" href="../../d1/d93/struct_f_kismet_function_context.html">FKismetFunctionContext</a>&amp; <a class="code hl_enumvalue" href="../../d2/d5b/_vulkan_submission_8h.html#aa4b3c8fa94b41c64030fd453ef8b865aaad4e206408c1c59bfb8a057ba7857446">Context</a>, <a class="code hl_class" href="../../d3/d91/class_u_ed_graph_node.html">UEdGraphNode</a>* <a class="code hl_enumvalue" href="../../dc/d14/_find_in_b_t_8h.html#aff1b3ad900d1554d1fb2a16fb8fe860aa6c3a6944a808a7c0bbb6788dbec54a9f">Node</a>) <span class="keyword">override</span>;</div>
+<div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span>    <span class="keyword">virtual</span> <a class="code hl_class" href="../../d2/d2a/class_u_function.html">UFunction</a>* <a class="code hl_function" href="../../dd/d90/class_f_k_c_handler___call_delegate.html#a0316f48f68c6358b901228bb4cf19705">FindFunction</a>(<a class="code hl_struct" href="../../d1/d93/struct_f_kismet_function_context.html">FKismetFunctionContext</a>&amp; <a class="code hl_enumvalue" href="../../d2/d5b/_vulkan_submission_8h.html#aa4b3c8fa94b41c64030fd453ef8b865aaad4e206408c1c59bfb8a057ba7857446">Context</a>, <a class="code hl_class" href="../../d3/d91/class_u_ed_graph_node.html">UEdGraphNode</a>* <a class="code hl_enumvalue" href="../../dc/d14/_find_in_b_t_8h.html#aff1b3ad900d1554d1fb2a16fb8fe860aa6c3a6944a808a7c0bbb6788dbec54a9f">Node</a>) <span class="keyword">override</span>;</div>
+<div class="line"><a id="l00112" name="l00112"></a><span class="lineno"><a class="line" href="../../dd/d90/class_f_k_c_handler___call_delegate.html#a740f7446601524f8c0698a9b20ad363e">  112</a></span>    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code hl_function" href="../../dd/d90/class_f_k_c_handler___call_delegate.html#a740f7446601524f8c0698a9b20ad363e">CheckIfFunctionIsCallable</a>(<a class="code hl_class" href="../../d2/d2a/class_u_function.html">UFunction</a>* <a class="code hl_enumvalue" href="../../dc/d01/_anim_graph_node___base_8h.html#a26fdf95dc856aecd19af22d98efbe98ca86408593c34af77fdd90df932f8b5261">Function</a>, <a class="code hl_struct" href="../../d1/d93/struct_f_kismet_function_context.html">FKismetFunctionContext</a>&amp; <a class="code hl_enumvalue" href="../../d2/d5b/_vulkan_submission_8h.html#aa4b3c8fa94b41c64030fd453ef8b865aaad4e206408c1c59bfb8a057ba7857446">Context</a>, <a class="code hl_class" href="../../d3/d91/class_u_ed_graph_node.html">UEdGraphNode</a>* <a class="code hl_enumvalue" href="../../dc/d14/_find_in_b_t_8h.html#aff1b3ad900d1554d1fb2a16fb8fe860aa6c3a6944a808a7c0bbb6788dbec54a9f">Node</a>)<span class="keyword"> override </span>{ }</div>
+<div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span>    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code hl_function" href="../../dd/d90/class_f_k_c_handler___call_delegate.html#a85a91ac0cc4d2b53bf59bb45ded1d3d3">AdditionalCompiledStatementHandling</a>(<a class="code hl_struct" href="../../d1/d93/struct_f_kismet_function_context.html">FKismetFunctionContext</a>&amp; <a class="code hl_enumvalue" href="../../d2/d5b/_vulkan_submission_8h.html#aa4b3c8fa94b41c64030fd453ef8b865aaad4e206408c1c59bfb8a057ba7857446">Context</a>, <a class="code hl_class" href="../../d3/d91/class_u_ed_graph_node.html">UEdGraphNode</a>* <a class="code hl_enumvalue" href="../../dc/d14/_find_in_b_t_8h.html#aff1b3ad900d1554d1fb2a16fb8fe860aa6c3a6944a808a7c0bbb6788dbec54a9f">Node</a>, <a class="code hl_struct" href="../../da/d35/struct_f_blueprint_compiled_statement.html">FBlueprintCompiledStatement</a>&amp; Statement) <span class="keyword">override</span>;</div>
+<div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span>};</div>
+</div>
+<div class="ttc" id="a_anim_graph_node___base_8h_html_a26fdf95dc856aecd19af22d98efbe98ca86408593c34af77fdd90df932f8b5261"><div class="ttname"><a href="../../dc/d01/_anim_graph_node___base_8h.html#a26fdf95dc856aecd19af22d98efbe98ca86408593c34af77fdd90df932f8b5261">EAnimGraphNodePropertyBindingType::Function</a></div><div class="ttdeci">@ Function</div><div class="ttdef"><b>定义</b> AnimGraphNode_Base.h:134</div></div>
+<div class="ttc" id="a_assertion_macros_8h_html"><div class="ttname"><a href="../../d4/d75/_assertion_macros_8h.html">AssertionMacros.h</a></div></div>
+<div class="ttc" id="a_assertion_macros_8h_html_abf7240b4b3cbf98f2811ba65069d6b18"><div class="ttname"><a href="../../d4/d75/_assertion_macros_8h.html#abf7240b4b3cbf98f2811ba65069d6b18">ensure</a></div><div class="ttdeci">#define ensure( InExpression)</div><div class="ttdef"><b>定义</b> AssertionMacros.h:469</div></div>
+<div class="ttc" id="a_blueprint_compiled_statement_8h_html"><div class="ttname"><a href="../../d8/d2a/_blueprint_compiled_statement_8h.html">BlueprintCompiledStatement.h</a></div></div>
+<div class="ttc" id="a_blueprint_compiled_statement_8h_html_a5d41f3f36f636ce5152f3ae61d0f319e"><div class="ttname"><a href="../../d8/d2a/_blueprint_compiled_statement_8h.html#a5d41f3f36f636ce5152f3ae61d0f319e">EKismetCompiledStatementType</a></div><div class="ttdeci">EKismetCompiledStatementType</div><div class="ttdef"><b>定义</b> BlueprintCompiledStatement.h:11</div></div>
+<div class="ttc" id="a_call_function_handler_8h_html"><div class="ttname"><a href="../../da/d4a/_call_function_handler_8h.html">CallFunctionHandler.h</a></div></div>
+<div class="ttc" id="a_core_2_public_2_h_a_l_2_platform_8h_html"><div class="ttname"><a href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html">Platform.h</a></div></div>
+<div class="ttc" id="a_find_in_b_t_8h_html_aff1b3ad900d1554d1fb2a16fb8fe860aa6c3a6944a808a7c0bbb6788dbec54a9f"><div class="ttname"><a href="../../dc/d14/_find_in_b_t_8h.html#aff1b3ad900d1554d1fb2a16fb8fe860aa6c3a6944a808a7c0bbb6788dbec54a9f">EFindInBTSearchType::Node</a></div><div class="ttdeci">@ Node</div><div class="ttdef"><b>定义</b> FindInBT.h:35</div></div>
+<div class="ttc" id="a_io_store_utilities_8cpp_html_a87a058d905c1a0bfb1670ef9a427caa4a6311ae17c1ee52b36e68aaf4ad066387"><div class="ttname"><a href="../../db/dff/_io_store_utilities_8cpp.html#a87a058d905c1a0bfb1670ef9a427caa4a6311ae17c1ee52b36e68aaf4ad066387">EPluginGraphSizeClass::Other</a></div><div class="ttdeci">@ Other</div><div class="ttdef"><b>定义</b> IoStoreUtilities.cpp:3098</div></div>
+<div class="ttc" id="a_kismet_compiler_misc_8h_html"><div class="ttname"><a href="../../d5/dd3/_kismet_compiler_misc_8h.html">KismetCompilerMisc.h</a></div></div>
+<div class="ttc" id="a_vulkan_submission_8h_html_aa4b3c8fa94b41c64030fd453ef8b865aaad4e206408c1c59bfb8a057ba7857446"><div class="ttname"><a href="../../d2/d5b/_vulkan_submission_8h.html#aa4b3c8fa94b41c64030fd453ef8b865aaad4e206408c1c59bfb8a057ba7857446">EVulkanSyncPointType::Context</a></div><div class="ttdeci">@ Context</div><div class="ttdef"><b>定义</b> VulkanSubmission.h:38</div></div>
+<div class="ttc" id="aclass_f_k_c_handler___add_remove_delegate_html_a7592af1dc36fecf7e0f8daf18b72687a"><div class="ttname"><a href="../../db/da2/class_f_k_c_handler___add_remove_delegate.html#a7592af1dc36fecf7e0f8daf18b72687a">FKCHandler_AddRemoveDelegate::FKCHandler_AddRemoveDelegate</a></div><div class="ttdeci">FKCHandler_AddRemoveDelegate(FKismetCompilerContext &amp;InCompilerContext, EKismetCompiledStatementType InCommand)</div><div class="ttdef"><b>定义</b> DelegateNodeHandlers.h:54</div></div>
+<div class="ttc" id="aclass_f_k_c_handler___add_remove_delegate_html_a8430f05ab9944eaa2caee9736078163b"><div class="ttname"><a href="../../db/da2/class_f_k_c_handler___add_remove_delegate.html#a8430f05ab9944eaa2caee9736078163b">FKCHandler_AddRemoveDelegate::Compile</a></div><div class="ttdeci">virtual void Compile(FKismetFunctionContext &amp;Context, UEdGraphNode *Node) override</div><div class="ttdef"><b>定义</b> DelegateNodeHandlers.cpp:187</div></div>
+<div class="ttc" id="aclass_f_k_c_handler___add_remove_delegate_html_addb50d45dadeeeb92fc147ebe573218c"><div class="ttname"><a href="../../db/da2/class_f_k_c_handler___add_remove_delegate.html#addb50d45dadeeeb92fc147ebe573218c">FKCHandler_AddRemoveDelegate::RegisterNets</a></div><div class="ttdeci">virtual void RegisterNets(FKismetFunctionContext &amp;Context, UEdGraphNode *Node) override</div><div class="ttdef"><b>定义</b> DelegateNodeHandlers.cpp:165</div></div>
+<div class="ttc" id="aclass_f_k_c_handler___call_delegate_html_a0316f48f68c6358b901228bb4cf19705"><div class="ttname"><a href="../../dd/d90/class_f_k_c_handler___call_delegate.html#a0316f48f68c6358b901228bb4cf19705">FKCHandler_CallDelegate::FindFunction</a></div><div class="ttdeci">virtual UFunction * FindFunction(FKismetFunctionContext &amp;Context, UEdGraphNode *Node) override</div><div class="ttdef"><b>定义</b> DelegateNodeHandlers.cpp:435</div></div>
+<div class="ttc" id="aclass_f_k_c_handler___call_delegate_html_a740f7446601524f8c0698a9b20ad363e"><div class="ttname"><a href="../../dd/d90/class_f_k_c_handler___call_delegate.html#a740f7446601524f8c0698a9b20ad363e">FKCHandler_CallDelegate::CheckIfFunctionIsCallable</a></div><div class="ttdeci">virtual void CheckIfFunctionIsCallable(UFunction *Function, FKismetFunctionContext &amp;Context, UEdGraphNode *Node) override</div><div class="ttdef"><b>定义</b> DelegateNodeHandlers.h:112</div></div>
+<div class="ttc" id="aclass_f_k_c_handler___call_delegate_html_a750eecd14d42e753fae0e37bd36bc95c"><div class="ttname"><a href="../../dd/d90/class_f_k_c_handler___call_delegate.html#a750eecd14d42e753fae0e37bd36bc95c">FKCHandler_CallDelegate::RegisterNets</a></div><div class="ttdeci">virtual void RegisterNets(FKismetFunctionContext &amp;Context, UEdGraphNode *Node) override</div><div class="ttdef"><b>定义</b> DelegateNodeHandlers.cpp:373</div></div>
+<div class="ttc" id="aclass_f_k_c_handler___call_delegate_html_a8277f7dcce71a89f73aba1302ecdfbc4"><div class="ttname"><a href="../../dd/d90/class_f_k_c_handler___call_delegate.html#a8277f7dcce71a89f73aba1302ecdfbc4">FKCHandler_CallDelegate::FKCHandler_CallDelegate</a></div><div class="ttdeci">FKCHandler_CallDelegate(FKismetCompilerContext &amp;InCompilerContext)</div><div class="ttdef"><b>定义</b> DelegateNodeHandlers.h:104</div></div>
+<div class="ttc" id="aclass_f_k_c_handler___call_delegate_html_a85a91ac0cc4d2b53bf59bb45ded1d3d3"><div class="ttname"><a href="../../dd/d90/class_f_k_c_handler___call_delegate.html#a85a91ac0cc4d2b53bf59bb45ded1d3d3">FKCHandler_CallDelegate::AdditionalCompiledStatementHandling</a></div><div class="ttdeci">virtual void AdditionalCompiledStatementHandling(FKismetFunctionContext &amp;Context, UEdGraphNode *Node, FBlueprintCompiledStatement &amp;Statement) override</div><div class="ttdef"><b>定义</b> DelegateNodeHandlers.cpp:444</div></div>
+<div class="ttc" id="aclass_f_k_c_handler___call_delegate_html_ae6af64ac47b706ba705046e294817c69"><div class="ttname"><a href="../../dd/d90/class_f_k_c_handler___call_delegate.html#ae6af64ac47b706ba705046e294817c69">FKCHandler_CallDelegate::Compile</a></div><div class="ttdeci">virtual void Compile(FKismetFunctionContext &amp;Context, UEdGraphNode *Node) override</div><div class="ttdef"><b>定义</b> DelegateNodeHandlers.cpp:381</div></div>
+<div class="ttc" id="aclass_f_k_c_handler___call_function_html_ac4d305da865a59647e532922608966e1"><div class="ttname"><a href="../../d9/dc9/class_f_k_c_handler___call_function.html#ac4d305da865a59647e532922608966e1">FKCHandler_CallFunction::FKCHandler_CallFunction</a></div><div class="ttdeci">FKCHandler_CallFunction(FKismetCompilerContext &amp;InCompilerContext)</div><div class="ttdef"><b>定义</b> CallFunctionHandler.h:27</div></div>
+<div class="ttc" id="aclass_f_k_c_handler___clear_delegate_html_a6c248b7beb55032b2b332f91befd1904"><div class="ttname"><a href="../../d5/d68/class_f_k_c_handler___clear_delegate.html#a6c248b7beb55032b2b332f91befd1904">FKCHandler_ClearDelegate::Compile</a></div><div class="ttdeci">virtual void Compile(FKismetFunctionContext &amp;Context, UEdGraphNode *Node) override</div><div class="ttdef"><b>定义</b> DelegateNodeHandlers.cpp:340</div></div>
+<div class="ttc" id="aclass_f_k_c_handler___clear_delegate_html_ac899d5066dfae9c50fc6e3826d8ec372"><div class="ttname"><a href="../../d5/d68/class_f_k_c_handler___clear_delegate.html#ac899d5066dfae9c50fc6e3826d8ec372">FKCHandler_ClearDelegate::RegisterNets</a></div><div class="ttdeci">virtual void RegisterNets(FKismetFunctionContext &amp;Context, UEdGraphNode *Node) override</div><div class="ttdef"><b>定义</b> DelegateNodeHandlers.cpp:334</div></div>
+<div class="ttc" id="aclass_f_k_c_handler___clear_delegate_html_afbbb906322d173853fc5590a0234e12d"><div class="ttname"><a href="../../d5/d68/class_f_k_c_handler___clear_delegate.html#afbbb906322d173853fc5590a0234e12d">FKCHandler_ClearDelegate::FKCHandler_ClearDelegate</a></div><div class="ttdeci">FKCHandler_ClearDelegate(FKismetCompilerContext &amp;InCompilerContext)</div><div class="ttdef"><b>定义</b> DelegateNodeHandlers.h:87</div></div>
+<div class="ttc" id="aclass_f_k_c_handler___create_delegate_html_a1c4109cfe2101bfff842444cb806460b"><div class="ttname"><a href="../../d5/d72/class_f_k_c_handler___create_delegate.html#a1c4109cfe2101bfff842444cb806460b">FKCHandler_CreateDelegate::RegisterNets</a></div><div class="ttdeci">virtual void RegisterNets(FKismetFunctionContext &amp;Context, UEdGraphNode *Node) override</div><div class="ttdef"><b>定义</b> DelegateNodeHandlers.cpp:223</div></div>
+<div class="ttc" id="aclass_f_k_c_handler___create_delegate_html_a6ad271c2259367a5c6b0887361e1883c"><div class="ttname"><a href="../../d5/d72/class_f_k_c_handler___create_delegate.html#a6ad271c2259367a5c6b0887361e1883c">FKCHandler_CreateDelegate::FKCHandler_CreateDelegate</a></div><div class="ttdeci">FKCHandler_CreateDelegate(FKismetCompilerContext &amp;InCompilerContext)</div><div class="ttdef"><b>定义</b> DelegateNodeHandlers.h:70</div></div>
+<div class="ttc" id="aclass_f_k_c_handler___create_delegate_html_aa7be4601967b0f66c064525fd482689a"><div class="ttname"><a href="../../d5/d72/class_f_k_c_handler___create_delegate.html#aa7be4601967b0f66c064525fd482689a">FKCHandler_CreateDelegate::Compile</a></div><div class="ttdeci">virtual void Compile(FKismetFunctionContext &amp;Context, UEdGraphNode *Node) override</div><div class="ttdef"><b>定义</b> DelegateNodeHandlers.cpp:296</div></div>
+<div class="ttc" id="aclass_f_kismet_compiler_context_html"><div class="ttname"><a href="../../d5/d59/class_f_kismet_compiler_context.html">FKismetCompilerContext</a></div><div class="ttdef"><b>定义</b> KismetCompiler.h:79</div></div>
+<div class="ttc" id="aclass_f_node_handling_functor_html_ad771a065aec821465ae761fc1071775d"><div class="ttname"><a href="../../da/d4e/class_f_node_handling_functor.html#ad771a065aec821465ae761fc1071775d">FNodeHandlingFunctor::FNodeHandlingFunctor</a></div><div class="ttdeci">FNodeHandlingFunctor(FKismetCompilerContext &amp;InCompilerContext)</div><div class="ttdef"><b>定义</b> KismetCompilerMisc.h:194</div></div>
+<div class="ttc" id="aclass_t_map_html"><div class="ttname"><a href="../../da/d41/class_t_map.html">TMap</a></div><div class="ttdef"><b>定义</b> IAndroidDeviceDetection.h:12</div></div>
+<div class="ttc" id="aclass_u_ed_graph_node_html"><div class="ttname"><a href="../../d3/d91/class_u_ed_graph_node.html">UEdGraphNode</a></div><div class="ttdef"><b>定义</b> EdGraphNode.h:289</div></div>
+<div class="ttc" id="aclass_u_ed_graph_pin_html"><div class="ttname"><a href="../../da/d6f/class_u_ed_graph_pin.html">UEdGraphPin</a></div><div class="ttdef"><b>定义</b> EdGraphPin.h:294</div></div>
+<div class="ttc" id="aclass_u_function_html"><div class="ttname"><a href="../../d2/d2a/class_u_function.html">UFunction</a></div><div class="ttdef"><b>定义</b> Class.h:2563</div></div>
+<div class="ttc" id="aclass_u_k2_node___base_m_c_delegate_html"><div class="ttname"><a href="../../db/de0/class_u_k2_node___base_m_c_delegate.html">UK2Node_BaseMCDelegate</a></div><div class="ttdef"><b>定义</b> K2Node_BaseMCDelegate.h:17</div></div>
+<div class="ttc" id="apreprocessor_8c_html_a1134b580f8da4de94ca6b1de4d37975e"><div class="ttname"><a href="../../dd/de9/preprocessor_8c.html#a1134b580f8da4de94ca6b1de4d37975e">uint32</a></div><div class="ttdeci">unsigned int uint32</div><div class="ttdef"><b>定义</b> preprocessor.c:67</div></div>
+<div class="ttc" id="astruct_f_b_p_terminal_html"><div class="ttname"><a href="../../dd/df0/struct_f_b_p_terminal.html">FBPTerminal</a></div><div class="ttdef"><b>定义</b> BPTerminal.h:16</div></div>
+<div class="ttc" id="astruct_f_blueprint_compiled_statement_html"><div class="ttname"><a href="../../da/d35/struct_f_blueprint_compiled_statement.html">FBlueprintCompiledStatement</a></div><div class="ttdef"><b>定义</b> BlueprintCompiledStatement.h:105</div></div>
+<div class="ttc" id="astruct_f_crc_html_a3499743973b41596f14a871427f78eef"><div class="ttname"><a href="../../d7/d47/struct_f_crc.html#a3499743973b41596f14a871427f78eef">FCrc::MemCrc_DEPRECATED</a></div><div class="ttdeci">static CORE_API uint32 MemCrc_DEPRECATED(const void *Data, int32 Length, uint32 CRC=0)</div><div class="ttdef"><b>定义</b> Crc.cpp:592</div></div>
+<div class="ttc" id="astruct_f_delegate_owner_id_html_a2af1a7284dba710af847f0dc46c6349e"><div class="ttname"><a href="../../d9/def/struct_f_delegate_owner_id.html#a2af1a7284dba710af847f0dc46c6349e">FDelegateOwnerId::OutputPin</a></div><div class="ttdeci">const class UEdGraphPin * OutputPin</div><div class="ttdef"><b>定义</b> DelegateNodeHandlers.h:26</div></div>
+<div class="ttc" id="astruct_f_delegate_owner_id_html_a717593d1c85ca000f88b4e1656ffc1c5"><div class="ttname"><a href="../../d9/def/struct_f_delegate_owner_id.html#a717593d1c85ca000f88b4e1656ffc1c5">FDelegateOwnerId::DelegateNode</a></div><div class="ttdeci">const class UK2Node_BaseMCDelegate * DelegateNode</div><div class="ttdef"><b>定义</b> DelegateNodeHandlers.h:27</div></div>
+<div class="ttc" id="astruct_f_delegate_owner_id_html_a781aaad76d555149ccdb028358bef869"><div class="ttname"><a href="../../d9/def/struct_f_delegate_owner_id.html#a781aaad76d555149ccdb028358bef869">FDelegateOwnerId::operator==</a></div><div class="ttdeci">bool operator==(const FDelegateOwnerId &amp;Other) const</div><div class="ttdef"><b>定义</b> DelegateNodeHandlers.h:35</div></div>
+<div class="ttc" id="astruct_f_delegate_owner_id_html_a9d524c5014b48a7d8bc9d99a526d8551"><div class="ttname"><a href="../../d9/def/struct_f_delegate_owner_id.html#a9d524c5014b48a7d8bc9d99a526d8551">FDelegateOwnerId::FDelegateOwnerId</a></div><div class="ttdeci">FDelegateOwnerId(const class UEdGraphPin *InOutputPin, const class UK2Node_BaseMCDelegate *InDelegateNode)</div><div class="ttdef"><b>定义</b> DelegateNodeHandlers.h:29</div></div>
+<div class="ttc" id="astruct_f_delegate_owner_id_html_ad40520853d7a53898ce3c7cf247f218b"><div class="ttname"><a href="../../d9/def/struct_f_delegate_owner_id.html#ad40520853d7a53898ce3c7cf247f218b">FDelegateOwnerId::FInnerTermMap</a></div><div class="ttdeci">TMap&lt; FDelegateOwnerId, FBPTerminal * &gt; FInnerTermMap</div><div class="ttdef"><b>定义</b> DelegateNodeHandlers.h:24</div></div>
+<div class="ttc" id="astruct_f_delegate_owner_id_html_af46979b7975c413c059c5c0638fb6637"><div class="ttname"><a href="../../d9/def/struct_f_delegate_owner_id.html#af46979b7975c413c059c5c0638fb6637">FDelegateOwnerId::GetTypeHash</a></div><div class="ttdeci">friend uint32 GetTypeHash(const FDelegateOwnerId &amp;DelegateOwnerId)</div><div class="ttdef"><b>定义</b> DelegateNodeHandlers.h:40</div></div>
+<div class="ttc" id="astruct_f_kismet_function_context_html"><div class="ttname"><a href="../../d1/d93/struct_f_kismet_function_context.html">FKismetFunctionContext</a></div><div class="ttdef"><b>定义</b> KismetCompiledFunctionContext.h:40</div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+</div><!-- container -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a href="../../dir_0b6ee6e7e9547e675db4add2e5de97da.html">Engine</a></li><li class="navelem"><a href="../../dir_9579d1ecb2c7bf48cbe1049c41745cb4.html">Source</a></li><li class="navelem"><a href="../../dir_c6cb6fb3292d721ac39edcf45c3f2a55.html">Editor</a></li><li class="navelem"><a href="../../dir_73e2fd4b0f20f996483ca4596af0796e.html">BlueprintGraph</a></li><li class="navelem"><a href="../../dir_ca2505cc9cd83fd5b1d6dd4aeccca48c.html">Private</a></li><li class="navelem"><a href="../../df/def/_delegate_node_handlers_8h.html">DelegateNodeHandlers.h</a></li>
+    <li class="footer">制作者 <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.15.0 </li>
+  </ul>
+</div>
+</body>
+</html>

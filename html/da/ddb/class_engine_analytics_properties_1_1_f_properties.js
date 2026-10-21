@@ -1,0 +1,25 @@
+var class_engine_analytics_properties_1_1_f_properties =
+[
+    [ "AverageFPS", "da/ddb/class_engine_analytics_properties_1_1_f_properties.html#ab871f5d019ba289b5f4bb479dd3d949e", null ],
+    [ "EngineTickCount", "da/ddb/class_engine_analytics_properties_1_1_f_properties.html#ab9beae2b5fced0b7002eef34ed238a26", null ],
+    [ "IsCrashing", "da/ddb/class_engine_analytics_properties_1_1_f_properties.html#a1c972bfafff049267975d83a3df5044f", null ],
+    [ "IsCrcMissing", "da/ddb/class_engine_analytics_properties_1_1_f_properties.html#a1983b8557c47c84bdb5891c8f444ff29", null ],
+    [ "IsDeliberateCrash", "da/ddb/class_engine_analytics_properties_1_1_f_properties.html#a3da543f926ca4ef62b5dce53f93c3bd9", null ],
+    [ "IsGpuCrash", "da/ddb/class_engine_analytics_properties_1_1_f_properties.html#a6592fe13f6c792af04dd8d109f18821c", null ],
+    [ "IsHang", "da/ddb/class_engine_analytics_properties_1_1_f_properties.html#a28035a86877a340e9b4cad4e2e3cfd0a", null ],
+    [ "IsLowDriveSpace", "da/ddb/class_engine_analytics_properties_1_1_f_properties.html#a8907a0917f213265179775e00eedf685", null ],
+    [ "IsTerminating", "da/ddb/class_engine_analytics_properties_1_1_f_properties.html#a0df8cdaa20e834c4b5edb2c5cb63f45f", null ],
+    [ "IsUserLoggingOut", "da/ddb/class_engine_analytics_properties_1_1_f_properties.html#a39f5e6323ed2fae7f1ad39a53646214c", null ],
+    [ "IsVanilla", "da/ddb/class_engine_analytics_properties_1_1_f_properties.html#a8c3df38ffb746c9732ae1f5e25dea1c9", null ],
+    [ "LastTickTimestamp", "da/ddb/class_engine_analytics_properties_1_1_f_properties.html#a8bf2f1946f3d2bcebba6aef765dca60b", null ],
+    [ "MonitorExitCode", "da/ddb/class_engine_analytics_properties_1_1_f_properties.html#a304806d4ca90925991809cf3bc0205d3", null ],
+    [ "RunningOnBattery", "da/ddb/class_engine_analytics_properties_1_1_f_properties.html#a5037a4e6cf3e8c91f86b33f8e97db1ad", null ],
+    [ "SessionDurationSecs", "da/ddb/class_engine_analytics_properties_1_1_f_properties.html#ac24b6b14d57bfaff3679f6762edd641f", null ],
+    [ "SessionTickCount", "da/ddb/class_engine_analytics_properties_1_1_f_properties.html#ac8eaa6c6d16590ae11947656fb6082f1", null ],
+    [ "ShutdownType", "da/ddb/class_engine_analytics_properties_1_1_f_properties.html#a630479d57ccb1314c33a74e43a43ed0c", null ],
+    [ "Timestamp", "da/ddb/class_engine_analytics_properties_1_1_f_properties.html#a90e8c5045a851d5bfaa3d78356139736", null ],
+    [ "UserActivity", "da/ddb/class_engine_analytics_properties_1_1_f_properties.html#ac4ce3abdb4fd43fd97e678d167fae104", null ],
+    [ "WasDebuggerIgnored", "da/ddb/class_engine_analytics_properties_1_1_f_properties.html#a8b2078277807c0791fc1d412a5175eac", null ],
+    [ "WasEverDebugged", "da/ddb/class_engine_analytics_properties_1_1_f_properties.html#aedd6b31bfc96e375b33fb0d352f2ffe6", null ],
+    [ "WasShutdown", "da/ddb/class_engine_analytics_properties_1_1_f_properties.html#a49541c04924faad36a314729bb0a1e14", null ]
+];

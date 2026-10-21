@@ -1,0 +1,25 @@
+var _p_s_o_precache_material_8cpp =
+[
+    [ "FMaterialInterfaceReleaseTask", "da/de4/class_f_material_interface_release_task.html", "da/de4/class_f_material_interface_release_task" ],
+    [ "FMaterialPSOPrecacheCollectionTask", "d1/d2e/class_f_material_p_s_o_precache_collection_task.html", "d1/d2e/class_f_material_p_s_o_precache_collection_task" ],
+    [ "FShaderMapPreloadTask", "db/d23/class_f_shader_map_preload_task.html", "db/d23/class_f_shader_map_preload_task" ],
+    [ "FShaderPreloadCollectionTask", "d0/d6f/class_f_shader_preload_collection_task.html", "d0/d6f/class_f_shader_preload_collection_task" ],
+    [ "FMaterialPSORequestManager", "d7/da8/class_f_material_p_s_o_request_manager.html", "d7/da8/class_f_material_p_s_o_request_manager" ],
+    [ "BoostPSOPriority", "d2/d8f/_p_s_o_precache_material_8cpp.html#a872ed6d308a46ebf313bfc8d1f8fc769", null ],
+    [ "BoostPSOPriorityOnDraw", "d2/d8f/_p_s_o_precache_material_8cpp.html#a053f824bc3fa2a23dd0f701ceb9e2951", null ],
+    [ "ClearMaterialPSORequests", "d2/d8f/_p_s_o_precache_material_8cpp.html#add4a267f53d91918a0d5a983598b1654", null ],
+    [ "DumpPSOPrecacheMaterialStats", "d2/d8f/_p_s_o_precache_material_8cpp.html#aeb52131697b90f84777bff1b0ae085e3", null ],
+    [ "GetMaterialPSOPrecacheData", "d2/d8f/_p_s_o_precache_material_8cpp.html#a8f26fc2833b4b45e0b42b7c4b71ae934", null ],
+    [ "GetMaterialPSOPrecacheParams", "d2/d8f/_p_s_o_precache_material_8cpp.html#a1c7e193d57afee4ae14c9ff8be5c6e76", null ],
+    [ "GetPrecacheRequestsCompletePrereqs", "d2/d8f/_p_s_o_precache_material_8cpp.html#a56ad19be8269338f1ec5516d1382dd52", null ],
+    [ "GetPSOPrecacheMaterialCompileTime", "d2/d8f/_p_s_o_precache_material_8cpp.html#a66401267c7f08fc96bd3eed393d4a15c", null ],
+    [ "KeepPrecachedPSOsInMemoryForActiveMaterials", "d2/d8f/_p_s_o_precache_material_8cpp.html#af727d0c447e9a43799e9ea56539b5599", null ],
+    [ "PrecacheMaterialPSOs", "d2/d8f/_p_s_o_precache_material_8cpp.html#ab37073d8f2d47414d9dcdc170eac3ba2", null ],
+    [ "PrecacheMaterialPSOs", "d2/d8f/_p_s_o_precache_material_8cpp.html#a2b3719507e7cfd824da78e906f22a970", null ],
+    [ "PreloadMaterialShaderMap", "d2/d8f/_p_s_o_precache_material_8cpp.html#ae592b19d89f4d08c5f0f2842d464222b", null ],
+    [ "ReleasePSOPrecacheData", "d2/d8f/_p_s_o_precache_material_8cpp.html#ac27eda70997f306aa08f985562a3518e", null ],
+    [ "GMaterialPSORequestManager", "d2/d8f/_p_s_o_precache_material_8cpp.html#a154562dbf0818979a34a92eac50fca60", null ],
+    [ "GPSOPrecacheKeepInMemoryForActiveMaterials", "d2/d8f/_p_s_o_precache_material_8cpp.html#abfb619f8bde35979652a05ba32fb1aab", null ],
+    [ "GPSOUseBackgroundThreadForCollection", "d2/d8f/_p_s_o_precache_material_8cpp.html#a69f10f76347676045b2197c092771be3", null ],
+    [ "GShaderPreloadFilterUniqueRequest", "d2/d8f/_p_s_o_precache_material_8cpp.html#ab55d01490b58859ea15099550b03eb23", null ]
+];

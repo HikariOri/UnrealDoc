@@ -1,0 +1,654 @@
+<!-- HTML header for doxygen 1.15.0-->
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh">
+<head>
+  <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=11" />
+  <meta name="generator" content="Doxygen 1.15.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>UE 5.8.4: Engine/Source/Runtime/Engine/Private/NetConnection.cpp 文件参考</title>
+  <link rel="icon" href="../../EdIconDefault.bmp" type="image/x-icon" />
+  <link href="../../tabs.css" rel="stylesheet" type="text/css" />
+  <script type="text/javascript" src="../../jquery.js"></script>
+  <script type="text/javascript" src="../../dynsections.js"></script>
+  <link href="../../navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../navtreedata.js"></script>
+<script type="text/javascript" src="../../navtree.js"></script>
+<script type="text/javascript" src="../../cookie.js"></script>
+  <link href="../../search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../search/searchdata.js"></script>
+<script type="text/javascript" src="../../search/search.js"></script>
+  <script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  extensions: ["tex2jax.js"],
+  jax: ["input/TeX","output/HTML-CSS"],
+});
+</script>
+<script type="text/javascript" async="async" src="https://cdn.jsdelivr.net/npm/mathjax@2/MathJax.js"></script>
+  <link href="../../doxygen.css" rel="stylesheet" type="text/css" />
+  <link href="../../doxygen-awesome.css" rel="stylesheet" type="text/css"/>
+<link href="../../doxygen-awesome-sidebar-only.css" rel="stylesheet" type="text/css"/>
+<link href="../../doxygen-awesome-sidebar-only-darkmode-toggle.css" rel="stylesheet" type="text/css"/>
+  <!-- ... other metadata & script includes ... -->
+  <script type="text/javascript" src="../../doxygen-awesome-darkmode-toggle.js"></script>
+  <script type="text/javascript">
+    DoxygenAwesomeDarkModeToggle.title = "Zwischen hellem/dunklem Modus wechseln"
+    DoxygenAwesomeDarkModeToggle.lightModeIcon = '🌞'
+    // icon from https://fonts.google.com/icons
+    DoxygenAwesomeDarkModeToggle.darkModeIcon = `<svg xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 24 24" height="24px" viewBox="0 0 24 24" width="24px" fill="#009793"><g><rect fill="none" height="24" width="24"/></g><g><g><path d="M8.1,14.15C9.77,14.63,11,16.17,11,18c0,0.68-0.19,1.31-0.48,1.87c0.48,0.09,0.97,0.14,1.48,0.14 c1.48,0,2.9-0.41,4.13-1.15c-2.62-0.92-5.23-2.82-6.8-5.86C7.74,9.94,7.78,7.09,8.29,4.9c-2.57,1.33-4.3,4.01-4.3,7.1c0,0,0,0,0,0 c0.01,0,0.01,0,0.02,0C5.66,12,7.18,12.83,8.1,14.15z" opacity=".3"/><path d="M19.78,17.51c-2.47,0-6.57-1.33-8.68-5.43C8.77,7.57,10.6,3.6,11.63,2.01C6.27,2.2,1.98,6.59,1.98,12 c0,0.14,0.02,0.28,0.02,0.42C2.61,12.16,3.28,12,3.98,12c0,0,0,0,0,0c0-3.09,1.73-5.77,4.3-7.1C7.78,7.09,7.74,9.94,9.32,13 c1.57,3.04,4.18,4.95,6.8,5.86c-1.23,0.74-2.65,1.15-4.13,1.15c-0.5,0-1-0.05-1.48-0.14c-0.37,0.7-0.94,1.27-1.64,1.64 c0.98,0.32,2.03,0.5,3.11,0.5c3.5,0,6.58-1.8,8.37-4.52C20.18,17.5,19.98,17.51,19.78,17.51z"/><path d="M7,16l-0.18,0C6.4,14.84,5.3,14,4,14c-1.66,0-3,1.34-3,3s1.34,3,3,3c0.62,0,2.49,0,3,0c1.1,0,2-0.9,2-2 C9,16.9,8.1,16,7,16z"/></g></g></svg>`
+    DoxygenAwesomeDarkModeToggle.init()
+  </script>
+  <script type="text/javascript" src="../../doxygen-awesome-fragment-copy-button.js"></script>
+  <script type="text/javascript">
+    DoxygenAwesomeFragmentCopyButton.title = "In die Zwischenablage kopieren"
+    // DoxygenAwesomeFragmentCopyButton.copyIcon = `<svg ...>`
+    // DoxygenAwesomeFragmentCopyButton.successIcon = `<svg ...>`
+    DoxygenAwesomeFragmentCopyButton.init()
+  </script>
+  <script type="text/javascript" src="../../doxygen-awesome-paragraph-link.js"></script>
+  <script type="text/javascript">
+    DoxygenAwesomeParagraphLink.title = "Abschnitt verknüpfen"
+    DoxygenAwesomeParagraphLink.icon = "¶"
+    DoxygenAwesomeParagraphLink.init()
+  </script>
+  <script type="text/javascript" src="../../doxygen-awesome-interactive-toc.js"></script>
+  <script type="text/javascript">
+    DoxygenAwesomeInteractiveToc.topOffset = 45
+    DoxygenAwesomeInteractiveToc.hideMobileMenu = false
+    DoxygenAwesomeInteractiveToc.init()
+  </script>
+</head>
+<body>
+    <div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+      <div id="titlearea">
+        <table cellspacing="0" cellpadding="0">
+          <tbody>
+            <tr id="projectrow">
+              <td id="projectlogo"><img alt="Logo" src="../../EdIconDefault.bmp"  /></td>
+              <td id="projectalign">
+                <div id="projectname">UE 5.8.4
+                </div>
+                <div id="projectbrief">Unreal Engine</div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <!-- end header part -->
+<!-- 制作者 Doxygen 1.15.0 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "../../search/",'.html');
+</script>
+<script type="text/javascript">
+$(function() { codefold.init(); });
+</script>
+<script type="text/javascript" src="../../menudata.js"></script>
+<script type="text/javascript" src="../../menu.js"></script>
+<script type="text/javascript">
+$(function() {
+  initMenu('../../',true,false,'search.php','搜索',true);
+  $(function() { init_search(); });
+});
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(function(){initNavTree('df/d7b/_net_connection_8cpp.html','../../',''); });
+</script>
+<div id="container">
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">载入中...</div>
+<div class="SRStatus" id="Searching">搜索中...</div>
+<div class="SRStatus" id="NoMatches">未找到</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">NetConnection.cpp 文件参考</div></div>
+</div><!--header-->
+<div class="contents">
+<div class="textblock"><code>#include &quot;<a class="el" href="../../d0/d06/_net_connection_8h_source.html">Engine/NetConnection.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d0/d6d/_replication_driver_8h_source.html">Engine/ReplicationDriver.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d3/df5/_game_instance_8h_source.html">Engine/GameInstance.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../dc/d86/_engine_stats_8h_source.html">EngineStats.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../da/d56/_net_trace_internal_8h_source.html">Net/Core/Trace/Private/NetTraceInternal.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d9/d40/_package_8h_source.html">UObject/Package.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d9/dbc/_player_controller_8h_source.html">GameFramework/PlayerController.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d2/dc5/_level_streaming_8h_source.html">Engine/LevelStreaming.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d2/dd5/_stateless_connect_handler_component_8h_source.html">PacketHandlers/StatelessConnectHandlerComponent.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d9/daf/_local_player_8h_source.html">Engine/LocalPlayer.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d7/d10/_stats_trace_8h_source.html">Stats/StatsTrace.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d6/d57/_unreal_engine_8h_source.html">UnrealEngine.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d9/dcc/_engine_utils_8h_source.html">EngineUtils.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d4/d0c/_unreal_network_8h_source.html">Net/UnrealNetwork.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d3/d3c/_network_profiler_8h_source.html">Net/NetworkProfiler.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d0/d2e/_data_replication_8h_source.html">Net/DataReplication.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d9/d2d/_actor_channel_8h_source.html">Engine/ActorChannel.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d4/da1/_child_connection_8h_source.html">Engine/ChildConnection.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d6/d54/_voice_channel_8h_source.html">Engine/VoiceChannel.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d9/d11/_app_8h_source.html">Misc/App.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../dc/d12/_data_channel_8h_source.html">Net/DataChannel.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../db/de5/_package_map_client_8h_source.html">Engine/PackageMapClient.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d2/d22/_network_object_list_8h_source.html">Engine/NetworkObjectList.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d6/dc9/_encryption_component_8h_source.html">EncryptionComponent.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../df/d72/_perf_counters_helpers_8h_source.html">Net/PerfCountersHelpers.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../dc/db8/_game_delegates_8h_source.html">GameDelegates.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../de/dd3/_package_name_8h_source.html">Misc/PackageName.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d4/ded/_greater_8h_source.html">Templates/Greater.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../da/dcb/_linker_load_8h_source.html">UObject/LinkerLoad.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../de/d1c/_u_object_iterator_8h_source.html">UObject/UObjectIterator.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d2/dab/_net_trace_8h_source.html">Net/Core/Trace/NetTrace.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d2/dc5/_network_granular_memory_logging_8h_source.html">Net/NetworkGranularMemoryLogging.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d2/d6e/_socket_subsystem_8h_source.html">SocketSubsystem.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d6/dab/_low_level_mem_stats_8h_source.html">HAL/LowLevelMemStats.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d4/dcd/_net_ping_8h_source.html">Net/NetPing.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d7/de6/_level_utils_8h_source.html">LevelUtils.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d9/da3/_r_p_c_do_s_detection_8h_source.html">Net/Core/Connection/RPCDoSDetection.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d8/d80/_r_p_c_do_s_detection_analytics_impl_8h_source.html">Net/RPCDoSDetectionAnalyticsImpl.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../dd/d33/_net_connection_fault_recovery_8h_source.html">Net/NetConnectionFaultRecovery.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d5/dfe/_net_sub_object_registry_getter_8h_source.html">Net/NetSubObjectRegistryGetter.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d2/dd9/_rep_layout_8h_source.html">Net/RepLayout.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../de/d2f/_network_subsystem_8h_source.html">Net/Subsystems/NetworkSubsystem.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../db/dcb/_iris_config_8h_source.html">Iris/IrisConfig.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../de/df7/_replication_system_8h_source.html">Iris/ReplicationSystem/ReplicationSystem.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d2/df1/_net_object_filter_8h_source.html">Iris/ReplicationSystem/Filtering/NetObjectFilter.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../df/d97/_engine_replication_bridge_8h_source.html">Net/Iris/ReplicationSystem/EngineReplicationBridge.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d2/da9/_net_token_store_8h_source.html">Iris/ReplicationSystem/NetTokenStore.h</a>&quot;</code><br />
+</div><div class="textblock"><div class="dynheader">
+NetConnection.cpp 的引用(Include)关系图:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d9/dc7/_net_connection_8cpp__incl.svg" width="6158" height="491"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+</div><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-nested-classes" class="groupheader"><a id="nested-classes" name="nested-classes"></a>
+类</h2></td></tr>
+<tr class="memitem:UE_3A_3ANet_3A_3AConnection_3A_3APrivate_3A_3AFValidateLevelVisibilityResult" id="r_UE_3A_3ANet_3A_3AConnection_3A_3APrivate_3A_3AFValidateLevelVisibilityResult"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d8/dca/struct_u_e_1_1_net_1_1_connection_1_1_private_1_1_f_validate_level_visibility_result.html">UE::Net::Connection::Private::FValidateLevelVisibilityResult</a></td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-namespaces" class="groupheader"><a id="namespaces" name="namespaces"></a>
+命名空间</h2></td></tr>
+<tr class="memitem:NetConnectionHelper" id="r_NetConnectionHelper"><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/d5a/namespace_net_connection_helper.html">NetConnectionHelper</a></td></tr>
+<tr class="memitem:UE" id="r_UE"><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/de5/namespace_u_e.html">UE</a></td></tr>
+<tr class="memitem:UE_3A_3ANet" id="r_UE_3A_3ANet"><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d95/namespace_u_e_1_1_net.html">UE::Net</a></td></tr>
+<tr class="memitem:UE_3A_3ANet_3A_3AConnection" id="r_UE_3A_3ANet_3A_3AConnection"><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/db9/namespace_u_e_1_1_net_1_1_connection.html">UE::Net::Connection</a></td></tr>
+<tr class="memitem:UE_3A_3ANet_3A_3AConnection_3A_3APrivate" id="r_UE_3A_3ANet_3A_3AConnection_3A_3APrivate"><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d2/d45/namespace_u_e_1_1_net_1_1_connection_1_1_private.html">UE::Net::Connection::Private</a></td></tr>
+<tr class="memitem:FChannelRecordImpl" id="r_FChannelRecordImpl"><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/dc6/namespace_f_channel_record_impl.html">FChannelRecordImpl</a></td></tr>
+<tr class="memitem:UE_3A_3ANet_3A_3APrivate" id="r_UE_3A_3ANet_3A_3APrivate"><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/d91/namespace_u_e_1_1_net_1_1_private.html">UE::Net::Private</a></td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-func-members" class="groupheader"><a id="func-members" name="func-members"></a>
+函数</h2></td></tr>
+<tr class="memitem:a5e660936c492a5e7c1699d7150f344ec" id="r_a5e660936c492a5e7c1699d7150f344ec"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5e660936c492a5e7c1699d7150f344ec">DECLARE_LLM_MEMORY_STAT</a> (<a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;NetConnection&quot;), STAT_NetConnectionLLM, STATGROUP_LLMFULL)</td></tr>
+<tr class="memitem:a96691588904eaf53f5df45cfdda19443" id="r_a96691588904eaf53f5df45cfdda19443"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a96691588904eaf53f5df45cfdda19443">LLM_DEFINE_TAG</a> (NetConnection, NAME_None, <a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;Networking&quot;), <a class="el" href="../../d3/d48/_stats_8h.html#ac5a62984f8fdfe4659ba24fd71d22f9a">GET_STATFNAME</a>(STAT_NetConnectionLLM), <a class="el" href="../../d3/d48/_stats_8h.html#ac5a62984f8fdfe4659ba24fd71d22f9a">GET_STATFNAME</a>(STAT_NetworkingSummaryLLM))</td></tr>
+<tr class="memitem:aa106cb3a5f5c6b559a4f5a001d74baf2" id="r_aa106cb3a5f5c6b559a4f5a001d74baf2"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa106cb3a5f5c6b559a4f5a001d74baf2">DECLARE_CYCLE_STAT</a> (<a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;NetConnection SendAcks&quot;), Stat_NetConnectionSendAck, STATGROUP_Net)</td></tr>
+<tr class="memitem:ad8fbccdfc1a27632910080b6420cf150" id="r_ad8fbccdfc1a27632910080b6420cf150"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad8fbccdfc1a27632910080b6420cf150">DECLARE_CYCLE_STAT</a> (<a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;NetConnection Tick&quot;), Stat_NetConnectionTick, STATGROUP_Net)</td></tr>
+<tr class="memitem:afdfd2b52b43f6eeefbaf10fa2896a810" id="r_afdfd2b52b43f6eeefbaf10fa2896a810"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#afdfd2b52b43f6eeefbaf10fa2896a810">DECLARE_CYCLE_STAT</a> (<a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;NetConnection ReceivedNak&quot;), Stat_NetConnectionReceivedNak, STATGROUP_Net)</td></tr>
+<tr class="memitem:a7d01730d31da27c8d8184f64f0c7831e" id="r_a7d01730d31da27c8d8184f64f0c7831e"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7d01730d31da27c8d8184f64f0c7831e">DECLARE_CYCLE_STAT</a> (<a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;NetConnection NetConnectionReceivedAcks&quot;), Stat_NetConnectionReceivedAcks, STATGROUP_Net)</td></tr>
+<tr class="memitem:a8ed72f3c77d336a32196884395e291ee" id="r_a8ed72f3c77d336a32196884395e291ee"><td class="memItemLeft" align="right" valign="top">ENGINE_API <a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/d5a/namespace_net_connection_helper.html#a8ed72f3c77d336a32196884395e291ee">NetConnectionHelper::HasDisabledBandwidthThrottling</a> ()</td></tr>
+<tr class="memitem:a144e02ac3aac4b0cb751c68ee250d36d" id="r_a144e02ac3aac4b0cb751c68ee250d36d"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="../../d8/dca/struct_u_e_1_1_net_1_1_connection_1_1_private_1_1_f_validate_level_visibility_result.html">FValidateLevelVisibilityResult</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d2/d45/namespace_u_e_1_1_net_1_1_connection_1_1_private.html#a144e02ac3aac4b0cb751c68ee250d36d">UE::Net::Connection::Private::ValidateLevelVisibility</a> (<a class="el" href="../../de/d4d/class_u_world.html">UWorld</a> *World, const <a class="el" href="../../d5/d27/struct_f_update_level_visibility_level_info.html">FUpdateLevelVisibilityLevelInfo</a> &amp;LevelVisibility)</td></tr>
+<tr class="memitem:a9cb2b7f01f610f895bb33bf86d90e15d" id="r_a9cb2b7f01f610f895bb33bf86d90e15d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a8dbb3cd84ca9fd010dadfc3815eefa5d">int32</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d2/d45/namespace_u_e_1_1_net_1_1_connection_1_1_private.html#a9cb2b7f01f610f895bb33bf86d90e15d">UE::Net::Connection::Private::GetClockTimeMilliseconds</a> (<a class="el" href="../../d6/dfd/_i_transport_control_8h.html#a583127f9ef2ec8125a93f6a2a8c89ab7">double</a> ClockTimeInSeconds)</td></tr>
+<tr class="memitem:a5c106c66fa6b34870d7f6caa22256810" id="r_a5c106c66fa6b34870d7f6caa22256810"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d2/d45/namespace_u_e_1_1_net_1_1_connection_1_1_private.html#a5c106c66fa6b34870d7f6caa22256810">UE::Net::Connection::Private::Add_DetectOverflow_Clamp</a> (<a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a89241ea7101f26f05a4f1efd6be26b32">int64</a> Original, <a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a89241ea7101f26f05a4f1efd6be26b32">int64</a> Change, <a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a8dbb3cd84ca9fd010dadfc3815eefa5d">int32</a> &amp;Result)</td></tr>
+<tr class="memitem:ae5950355ce08fba1fba2f34d54781fe1" id="r_ae5950355ce08fba1fba2f34d54781fe1"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../df/d63/_typed_element_query_capabilities_8inl.html#a72343342ce64c0755563ee6c5e27868d">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d2/d45/namespace_u_e_1_1_net_1_1_connection_1_1_private.html#ae5950355ce08fba1fba2f34d54781fe1">UE::Net::Connection::Private::TrackFlushedSubObject</a> (<a class="el" href="../../df/d95/namespace_u_e_1_1_net.html#a6c9ef57921cb86145b8951067f5c9305">FDormantObjectMap</a> &amp;InOutFlushedGuids, <a class="el" href="../../d7/d0b/class_u_object.html">UObject</a> *FlushedObject, const <a class="el" href="../../dd/dba/class_t_shared_ptr.html">TSharedPtr</a>&lt; <a class="el" href="../../d1/d04/class_f_net_g_u_i_d_cache.html">FNetGUIDCache</a> &gt; &amp;GuidCache)</td></tr>
+<tr class="memitem:af6b423c06c75b4e203b346bd269188fe" id="r_af6b423c06c75b4e203b346bd269188fe"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../df/d63/_typed_element_query_capabilities_8inl.html#a72343342ce64c0755563ee6c5e27868d">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d2/d45/namespace_u_e_1_1_net_1_1_connection_1_1_private.html#af6b423c06c75b4e203b346bd269188fe">UE::Net::Connection::Private::FlushDormancyForSubObjects</a> (<a class="el" href="../../d0/d1f/class_u_net_connection.html">UNetConnection</a> *<a class="el" href="../../d3/db9/namespace_u_e_1_1_net_1_1_connection.html">Connection</a>, <a class="el" href="../../db/d32/class_a_actor.html">AActor</a> *<a class="el" href="../../d3/d19/_navigation_system_types_8h.html#ae8c1bf4a26d11a08931a9268c317cf04">Actor</a>, const <a class="el" href="../../d9/dbe/struct_u_e_1_1_net_1_1_f_sub_object_registry.html">UE::Net::FSubObjectRegistry</a> &amp;SubObjects, <a class="el" href="../../df/d95/namespace_u_e_1_1_net.html#a6c9ef57921cb86145b8951067f5c9305">FDormantObjectMap</a> &amp;InOutFlushedGuids, const <a class="el" href="../../d1/d9e/class_t_static_bit_array.html">TStaticBitArray</a>&lt; <a class="el" href="../../db/d80/_core_net_types_8h.html#a8fac8535c25d092feeb22a0e4ed49215a25da123973ba67937667401dc7b7dac7">COND_Max</a> &gt; &amp;ConditionMap, const <a class="el" href="../../d0/d6c/class_u_e_1_1_net_1_1_f_net_condition_group_manager.html">FNetConditionGroupManager</a> *NetConditionGroupManager)</td></tr>
+<tr class="memitem:ab6dd916f0f09d9a92057a47e2bd0c23a" id="r_ab6dd916f0f09d9a92057a47e2bd0c23a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d5/dc9/_generic_platform_compiler_pre_setup_8h.html#a084b2ccd2e278a5d6b9f0088bd8f1474">PRAGMA_ENABLE_DEPRECATION_WARNINGS</a> const TCHAR *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab6dd916f0f09d9a92057a47e2bd0c23a">LexToString</a> (const <a class="el" href="../../d0/d06/_net_connection_8h.html#a96e997948ec60ca73a2295a7c39f31a0">EConnectionState</a> Value)</td></tr>
+<tr class="memitem:a098ae795308d5d0d4e5a2bba5d4b4247" id="r_a098ae795308d5d0d4e5a2bba5d4b4247"><td class="memTemplParams" colspan="2">template&lt;class Functor&gt; </td></tr>
+<tr class="memitem:a098ae795308d5d0d4e5a2bba5d4b4247 template"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../df/d63/_typed_element_query_capabilities_8inl.html#a72343342ce64c0755563ee6c5e27868d">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/dc6/namespace_f_channel_record_impl.html#a098ae795308d5d0d4e5a2bba5d4b4247">FChannelRecordImpl::ConsumeChannelRecordsForPacket</a> (<a class="el" href="../../da/d3b/struct_f_written_channels_record.html">FWrittenChannelsRecord</a> &amp;WrittenChannelsRecord, <a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a8dbb3cd84ca9fd010dadfc3815eefa5d">int32</a> PacketId, Functor &amp;&amp;Func)</td></tr>
+<tr class="memitem:ae8607783c44fa3f03a149ef214f130a2" id="r_ae8607783c44fa3f03a149ef214f130a2"><td class="memTemplParams" colspan="2">template&lt;class Functor&gt; </td></tr>
+<tr class="memitem:ae8607783c44fa3f03a149ef214f130a2 template"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../df/d63/_typed_element_query_capabilities_8inl.html#a72343342ce64c0755563ee6c5e27868d">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/dc6/namespace_f_channel_record_impl.html#ae8607783c44fa3f03a149ef214f130a2">FChannelRecordImpl::ConsumeAllChannelRecords</a> (<a class="el" href="../../da/d3b/struct_f_written_channels_record.html">FWrittenChannelsRecord</a> &amp;WrittenChannelsRecord, Functor &amp;&amp;Func)</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-var-members" class="groupheader"><a id="var-members" name="var-members"></a>
+变量</h2></td></tr>
+<tr class="memitem:a1908dcfb3030aa27eb7f416b3850a1bd" id="r_a1908dcfb3030aa27eb7f416b3850a1bd"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d5/d78/class_t_auto_console_variable.html">TAutoConsoleVariable</a>&lt; <a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a8dbb3cd84ca9fd010dadfc3815eefa5d">int32</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a1908dcfb3030aa27eb7f416b3850a1bd">CVarNetEnableCongestionControl</a> (<a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;net.EnableCongestionControl&quot;), 0, <a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;Enables congestion control module.&quot;))</td></tr>
+<tr class="memitem:a8ee083f3bde5fb2b7f84650fb0d5b854" id="r_a8ee083f3bde5fb2b7f84650fb0d5b854"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a8dbb3cd84ca9fd010dadfc3815eefa5d">int32</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8ee083f3bde5fb2b7f84650fb0d5b854">BufferBloatCooldownTimeInMS</a> = 1000</td></tr>
+<tr class="memitem:a263974226c7bf26f9a5ab82d18047bf7" id="r_a263974226c7bf26f9a5ab82d18047bf7"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a8dbb3cd84ca9fd010dadfc3815eefa5d">int32</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a263974226c7bf26f9a5ab82d18047bf7">GNetDormancyValidate</a></td></tr>
+<tr class="memitem:a0fac957ef3c6b82a2457a2dd811b6f24" id="r_a0fac957ef3c6b82a2457a2dd811b6f24"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a0fac957ef3c6b82a2457a2dd811b6f24">GbNetReuseReplicatorsForDormantObjects</a></td></tr>
+<tr class="memitem:afac2ec809c0ec6c066135302e6e42ede" id="r_afac2ec809c0ec6c066135302e6e42ede"><td class="memItemLeft" align="right" valign="top">constexpr <a class="el" href="../../dd/de9/preprocessor_8c.html#a1134b580f8da4de94ca6b1de4d37975e">uint32</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d2/d45/namespace_u_e_1_1_net_1_1_connection_1_1_private.html#afac2ec809c0ec6c066135302e6e42ede">UE::Net::Connection::Private::MaxJitterClockTimeValue</a> = (1 &lt;&lt; <a class="el" href="../../dd/d5a/namespace_net_connection_helper.html#ae2fac8aec45f2f1c2ba4fec9a9729c8e">NetConnectionHelper::NumBitsForJitterClockTimeInHeader</a>) - 1</td></tr>
+<tr class="memitem:ab8aabb0423091e22511ea70e05029607" id="r_ab8aabb0423091e22511ea70e05029607"><td class="memItemLeft" align="right" valign="top">constexpr <a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a8dbb3cd84ca9fd010dadfc3815eefa5d">int32</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d2/d45/namespace_u_e_1_1_net_1_1_connection_1_1_private.html#ab8aabb0423091e22511ea70e05029607">UE::Net::Connection::Private::MaxJitterPrecisionInMS</a> = 1000</td></tr>
+<tr class="memitem:af34a0d87bed045c1d22132524a97ddc4" id="r_af34a0d87bed045c1d22132524a97ddc4"><td class="memItemLeft" align="right" valign="top">constexpr <a class="el" href="../../d6/dfd/_i_transport_control_8h.html#a583127f9ef2ec8125a93f6a2a8c89ab7">double</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d2/d45/namespace_u_e_1_1_net_1_1_connection_1_1_private.html#af34a0d87bed045c1d22132524a97ddc4">UE::Net::Connection::Private::JitterNoiseReduction</a> = 16.0</td></tr>
+<tr class="memitem:ad1ca88d5aed3fcf5d4d1c05c8e8f6ac2" id="r_ad1ca88d5aed3fcf5d4d1c05c8e8f6ac2"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d2/d45/namespace_u_e_1_1_net_1_1_connection_1_1_private.html#ad1ca88d5aed3fcf5d4d1c05c8e8f6ac2">UE::Net::Connection::Private::bGracefulCloseEnabled</a> = <a class="el" href="../../d3/df7/radaudio__common_8h.html#ade27a78a51a66a5cfb6f09cf36bcfde9a08f175a5505a10b9ed657defeb050e4b">true</a></td></tr>
+<tr class="memitem:a2c75ac5f7134b099ec16721667f60840" id="r_a2c75ac5f7134b099ec16721667f60840"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d2/d79/class_f_auto_console_variable_ref.html">FAutoConsoleVariableRef</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d2/d45/namespace_u_e_1_1_net_1_1_connection_1_1_private.html#a2c75ac5f7134b099ec16721667f60840">UE::Net::Connection::Private::CVarNetGracefulCloseEnabled</a> (<a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;net.GracefulCloseEnabled&quot;), <a class="el" href="../../d2/d45/namespace_u_e_1_1_net_1_1_connection_1_1_private.html#ad1ca88d5aed3fcf5d4d1c05c8e8f6ac2">bGracefulCloseEnabled</a>, <a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;If enabled, connections will wait <a class="el" href="../../d3/db8/binka__ue__decode__test_8cpp.html#ac1ee511585a5c7a2d58c146185895b72">for</a> reliable bunches to be acked before cleaning up.&quot;))</td></tr>
+<tr class="memitem:a34b8c27d2ed76b8ce212f1a74474cd34" id="r_a34b8c27d2ed76b8ce212f1a74474cd34"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a8dbb3cd84ca9fd010dadfc3815eefa5d">int32</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d2/d45/namespace_u_e_1_1_net_1_1_connection_1_1_private.html#a34b8c27d2ed76b8ce212f1a74474cd34">UE::Net::Connection::Private::bTrackFlushedDormantObjects</a> = <a class="el" href="../../d3/df7/radaudio__common_8h.html#ade27a78a51a66a5cfb6f09cf36bcfde9a08f175a5505a10b9ed657defeb050e4b">true</a></td></tr>
+<tr class="memitem:a69b2844b353bf0f6645f926b9885ef15" id="r_a69b2844b353bf0f6645f926b9885ef15"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d2/d79/class_f_auto_console_variable_ref.html">FAutoConsoleVariableRef</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d2/d45/namespace_u_e_1_1_net_1_1_connection_1_1_private.html#a69b2844b353bf0f6645f926b9885ef15">UE::Net::Connection::Private::CVarNetTrackFlushedDormantObjects</a> (<a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;net.TrackFlushedDormantObjects&quot;), <a class="el" href="../../d2/d45/namespace_u_e_1_1_net_1_1_connection_1_1_private.html#a34b8c27d2ed76b8ce212f1a74474cd34">bTrackFlushedDormantObjects</a>, <a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;If enabled, track dormant subobjects when dormancy is flushed, so they can be properly deleted <a class="el" href="../../d3/db8/binka__ue__decode__test_8cpp.html#a374eb3a41808f317fb77da75985c3204">if</a> destroyed prior to the <a class="el" href="../../d9/dbf/_recast_mesh_8cpp.html#af019d68006e1f2d7b24c8f09051424cc">next</a> ReplicateActor.&quot;))</td></tr>
+<tr class="memitem:a08d95fab164639005a243e04bd9c1e68" id="r_a08d95fab164639005a243e04bd9c1e68"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a8dbb3cd84ca9fd010dadfc3815eefa5d">int32</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d2/d45/namespace_u_e_1_1_net_1_1_connection_1_1_private.html#a08d95fab164639005a243e04bd9c1e68">UE::Net::Connection::Private::bEnableFlushDormantSubObjects</a> = <a class="el" href="../../d3/df7/radaudio__common_8h.html#ade27a78a51a66a5cfb6f09cf36bcfde9a08f175a5505a10b9ed657defeb050e4b">true</a></td></tr>
+<tr class="memitem:a8dbd0524b161577cc3326295885ba0ff" id="r_a8dbd0524b161577cc3326295885ba0ff"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d2/d79/class_f_auto_console_variable_ref.html">FAutoConsoleVariableRef</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d2/d45/namespace_u_e_1_1_net_1_1_connection_1_1_private.html#a8dbd0524b161577cc3326295885ba0ff">UE::Net::Connection::Private::CVarNetFlushDormantSubObjects</a> (<a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;net.EnableFlushDormantSubObjects&quot;), <a class="el" href="../../d2/d45/namespace_u_e_1_1_net_1_1_connection_1_1_private.html#a08d95fab164639005a243e04bd9c1e68">bEnableFlushDormantSubObjects</a>, <a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;If enabled, FlushNetDormancy will flush replicated subobjects in addition to replicated components. Only applies to objects using the replicated subobject list.&quot;))</td></tr>
+<tr class="memitem:a4685720a9603939f8944f841ce7b03d4" id="r_a4685720a9603939f8944f841ce7b03d4"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a8dbb3cd84ca9fd010dadfc3815eefa5d">int32</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d2/d45/namespace_u_e_1_1_net_1_1_connection_1_1_private.html#a4685720a9603939f8944f841ce7b03d4">UE::Net::Connection::Private::bEnableFlushDormantSubObjectsCheckConditions</a> = <a class="el" href="../../d3/df7/radaudio__common_8h.html#ade27a78a51a66a5cfb6f09cf36bcfde9a08f175a5505a10b9ed657defeb050e4b">true</a></td></tr>
+<tr class="memitem:a1c5c3a5e00dacf64c9a04bad6f8c4089" id="r_a1c5c3a5e00dacf64c9a04bad6f8c4089"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d2/d79/class_f_auto_console_variable_ref.html">FAutoConsoleVariableRef</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d2/d45/namespace_u_e_1_1_net_1_1_connection_1_1_private.html#a1c5c3a5e00dacf64c9a04bad6f8c4089">UE::Net::Connection::Private::CVarNetFlushDormantSubObjectsCheckConditions</a> (<a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;net.EnableFlushDormantSubObjectsCheckConditions&quot;), <a class="el" href="../../d2/d45/namespace_u_e_1_1_net_1_1_connection_1_1_private.html#a4685720a9603939f8944f841ce7b03d4">bEnableFlushDormantSubObjectsCheckConditions</a>, <a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;If enabled, when net.EnableFlushDormantSubObjects is also <a class="el" href="../../d3/df7/radaudio__common_8h.html#ade27a78a51a66a5cfb6f09cf36bcfde9a08f175a5505a10b9ed657defeb050e4b">true</a> a dormancy flush will also <a class="el" href="../../d4/d75/_assertion_macros_8h.html#a586e110623cde145b8a5bdefb429e144">check</a> replicated subobject conditions&quot;))</td></tr>
+<tr class="memitem:ab835174119a7333060fd0fd5a8c76753" id="r_ab835174119a7333060fd0fd5a8c76753"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a8dbb3cd84ca9fd010dadfc3815eefa5d">int32</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d2/d45/namespace_u_e_1_1_net_1_1_connection_1_1_private.html#ab835174119a7333060fd0fd5a8c76753">UE::Net::Connection::Private::bFlushDormancyUseDefaultStateForUnloadedLevels</a> = <a class="el" href="../../d3/df7/radaudio__common_8h.html#ade27a78a51a66a5cfb6f09cf36bcfde9a08f175a5505a10b9ed657defeb050e4b">true</a></td></tr>
+<tr class="memitem:a056be3b3cf41982dc79e815e443ae128" id="r_a056be3b3cf41982dc79e815e443ae128"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d2/d79/class_f_auto_console_variable_ref.html">FAutoConsoleVariableRef</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d2/d45/namespace_u_e_1_1_net_1_1_connection_1_1_private.html#a056be3b3cf41982dc79e815e443ae128">UE::Net::Connection::Private::CVarFlushDormancyUseDefaultStateForUnloadedLevels</a> (<a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;net.FlushDormancyUseDefaultStateForUnloadedLevels&quot;), <a class="el" href="../../d2/d45/namespace_u_e_1_1_net_1_1_connection_1_1_private.html#ab835174119a7333060fd0fd5a8c76753">bFlushDormancyUseDefaultStateForUnloadedLevels</a>, <a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;If enabled, dormancy flushing will init replicators with default object state <a class="el" href="../../d3/db8/binka__ue__decode__test_8cpp.html#a374eb3a41808f317fb77da75985c3204">if</a> the client doesn't have the actor's <a class="el" href="../../d8/d06/_android_open_g_l_functions_8h.html#abc60a79088789bd61297bf5f9ff500d1">level</a> loaded.&quot;))</td></tr>
+<tr class="memitem:ab0bb16bafd5d8cd9342f61bfdc7bc31f" id="r_ab0bb16bafd5d8cd9342f61bfdc7bc31f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/d91/namespace_u_e_1_1_net_1_1_private.html#ab0bb16bafd5d8cd9342f61bfdc7bc31f">UE::Net::Private::bTrackDormantObjectsByLevel</a> = <a class="el" href="../../d3/df7/radaudio__common_8h.html#ade27a78a51a66a5cfb6f09cf36bcfde9ae9de385ef6fe9bf3360d1038396b884c">false</a></td></tr>
+<tr class="memitem:ab11ff6e2f11d151803b3954d03e96ba4" id="r_ab11ff6e2f11d151803b3954d03e96ba4"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../dd/de9/preprocessor_8c.html#a1134b580f8da4de94ca6b1de4d37975e">uint32</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab11ff6e2f11d151803b3954d03e96ba4">GNetOutBytes</a> = 0</td></tr>
+<tr class="memitem:a4505246951a66223ed8a639cfcc4a71b" id="r_a4505246951a66223ed8a639cfcc4a71b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../dc/d5b/class_f_auto_console_command_with_world_and_args.html">FAutoConsoleCommandWithWorldAndArgs</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4505246951a66223ed8a639cfcc4a71b">AddimulatedConnectionsCmd</a> (<a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;net.SimulateConnections&quot;), <a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;Starts a Simulated Net Driver&quot;), FConsoleCommandWithWorldAndArgsDelegate::CreateStatic(AddSimulatedNetConnections))</td></tr>
+<tr class="memitem:a28e7db1bc1e7f006345fdbfb537a2231" id="r_a28e7db1bc1e7f006345fdbfb537a2231"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../dc/d5b/class_f_auto_console_command_with_world_and_args.html">FAutoConsoleCommandWithWorldAndArgs</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a28e7db1bc1e7f006345fdbfb537a2231">RemoveSimulatedConnectionsCmd</a> (<a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;net.DisconnectSimulatedConnections&quot;), <a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;Disconnects some simulated connections (0 = all)&quot;), FConsoleCommandWithWorldAndArgsDelegate::CreateStatic(RemoveSimulatedNetConnections))</td></tr>
+<tr class="memitem:a04636de60a74198e0eb95bc4a0714e92" id="r_a04636de60a74198e0eb95bc4a0714e92"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../dc/d5b/class_f_auto_console_command_with_world_and_args.html">FAutoConsoleCommandWithWorldAndArgs</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a04636de60a74198e0eb95bc4a0714e92">ForceOnePacketPerBunch</a> (<a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;net.ForceOnePacketPerBunch&quot;), <a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;When set to <a class="el" href="../../d3/df7/radaudio__common_8h.html#ade27a78a51a66a5cfb6f09cf36bcfde9a08f175a5505a10b9ed657defeb050e4b">true</a> it will enable AutoFlush on all connections and force a packet to be sent <a class="el" href="../../d3/db8/binka__ue__decode__test_8cpp.html#ac1ee511585a5c7a2d58c146185895b72">for</a> every bunch we create. This forces one packet per replicated actor and can help find rare ordering bugs&quot;), FConsoleCommandWithWorldAndArgsDelegate::CreateLambda([](const <a class="el" href="../../d6/db1/class_t_array.html">TArray</a>&lt; <a class="el" href="../../d2/d8e/_s_anim_notify_panel_8h.html#a7483aa7f043c623f8990a95320be654d">FString</a> &gt; &amp;Args, <a class="el" href="../../de/d4d/class_u_world.html">UWorld</a> *World) { <a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a> bEnable=<a class="el" href="../../d3/df7/radaudio__common_8h.html#ade27a78a51a66a5cfb6f09cf36bcfde9a08f175a5505a10b9ed657defeb050e4b">true</a>;<a class="el" href="../../d3/db8/binka__ue__decode__test_8cpp.html#a374eb3a41808f317fb77da75985c3204">if</a>(<a class="el" href="../../d8/df1/_metal_r_h_i_private_8h.html#a8377b95bbf59edd1a902638208b8ed47a2baa9ca0e7468d1f502764b4899c4f26">Args.Num</a>() &gt; 0) { <a class="el" href="../../d3/d76/_cook_types_8cpp.html#a27903cfa4afd262cc5f83e541d11a12b">LexTryParseString</a>&lt; <a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a> &gt;(bEnable, *Args[0]);} <a class="el" href="../../d7/dcd/_log_macros_8h.html#a2b7439f43220057d491f6ab6cbeb3a32">UE_LOGF</a>(LogNet, <a class="el" href="../../de/da7/_direct_link_log_8h.html#ab4d085e7119005ae75db70919e0eb279">Display</a>, &quot;ForceOnePacketPerBunch set to %ls&quot;, bEnable?<a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;true&quot;):<a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;false&quot;));<a class="el" href="../../d3/db8/binka__ue__decode__test_8cpp.html#ac1ee511585a5c7a2d58c146185895b72">for</a>(<a class="el" href="../../df/d3b/class_t_object_iterator.html">TObjectIterator</a>&lt; <a class="el" href="../../d0/d1f/class_u_net_connection.html">UNetConnection</a> &gt; It;It;++It) { <a class="el" href="../../d3/db8/binka__ue__decode__test_8cpp.html#a374eb3a41808f317fb77da75985c3204">if</a>(It-&gt;Driver==World-&gt;NetDriver) { It-&gt;SetAutoFlush(bEnable);} } }))</td></tr>
+<tr class="memitem:a0784c2c751ff6d0f1903651443d996e0" id="r_a0784c2c751ff6d0f1903651443d996e0"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../dc/d5b/class_f_auto_console_command_with_world_and_args.html">FAutoConsoleCommandWithWorldAndArgs</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a0784c2c751ff6d0f1903651443d996e0">PrintActorReportCmd</a> (<a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;net.ActorReport&quot;), <a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;&quot;), FConsoleCommandWithWorldAndArgsDelegate::CreateStatic(PrintActorReportFunc))</td></tr>
+</table>
+<a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">函数说明</h2>
+<a id="a7d01730d31da27c8d8184f64f0c7831e" name="a7d01730d31da27c8d8184f64f0c7831e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7d01730d31da27c8d8184f64f0c7831e">&#9670;&#160;</a></span>DECLARE_CYCLE_STAT() <span class="overload">[1/4]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">DECLARE_CYCLE_STAT </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;NetConnection NetConnectionReceivedAcks&quot;)</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Stat_NetConnectionReceivedAcks</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">STATGROUP_Net</td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="afdfd2b52b43f6eeefbaf10fa2896a810" name="afdfd2b52b43f6eeefbaf10fa2896a810"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afdfd2b52b43f6eeefbaf10fa2896a810">&#9670;&#160;</a></span>DECLARE_CYCLE_STAT() <span class="overload">[2/4]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">DECLARE_CYCLE_STAT </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;NetConnection ReceivedNak&quot;)</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Stat_NetConnectionReceivedNak</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">STATGROUP_Net</td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aa106cb3a5f5c6b559a4f5a001d74baf2" name="aa106cb3a5f5c6b559a4f5a001d74baf2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa106cb3a5f5c6b559a4f5a001d74baf2">&#9670;&#160;</a></span>DECLARE_CYCLE_STAT() <span class="overload">[3/4]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">DECLARE_CYCLE_STAT </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;NetConnection SendAcks&quot;)</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Stat_NetConnectionSendAck</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">STATGROUP_Net</td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ad8fbccdfc1a27632910080b6420cf150" name="ad8fbccdfc1a27632910080b6420cf150"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad8fbccdfc1a27632910080b6420cf150">&#9670;&#160;</a></span>DECLARE_CYCLE_STAT() <span class="overload">[4/4]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">DECLARE_CYCLE_STAT </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;NetConnection Tick&quot;)</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Stat_NetConnectionTick</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">STATGROUP_Net</td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a5e660936c492a5e7c1699d7150f344ec" name="a5e660936c492a5e7c1699d7150f344ec"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5e660936c492a5e7c1699d7150f344ec">&#9670;&#160;</a></span>DECLARE_LLM_MEMORY_STAT()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">DECLARE_LLM_MEMORY_STAT </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;NetConnection&quot;)</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">STAT_NetConnectionLLM</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">STATGROUP_LLMFULL</td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ab6dd916f0f09d9a92057a47e2bd0c23a" name="ab6dd916f0f09d9a92057a47e2bd0c23a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab6dd916f0f09d9a92057a47e2bd0c23a">&#9670;&#160;</a></span>LexToString()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d5/dc9/_generic_platform_compiler_pre_setup_8h.html#a084b2ccd2e278a5d6b9f0088bd8f1474">PRAGMA_ENABLE_DEPRECATION_WARNINGS</a> const TCHAR * LexToString </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="../../d0/d06/_net_connection_8h.html#a96e997948ec60ca73a2295a7c39f31a0">EConnectionState</a></td>          <td class="paramname"><span class="paramname"><em>Value</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a96691588904eaf53f5df45cfdda19443" name="a96691588904eaf53f5df45cfdda19443"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a96691588904eaf53f5df45cfdda19443">&#9670;&#160;</a></span>LLM_DEFINE_TAG()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">LLM_DEFINE_TAG </td>
+          <td>(</td>
+          <td class="paramtype">NetConnection</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">NAME_None</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;Networking&quot;)</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d3/d48/_stats_8h.html#ac5a62984f8fdfe4659ba24fd71d22f9a">GET_STATFNAME</a>(STAT_NetConnectionLLM)</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d3/d48/_stats_8h.html#ac5a62984f8fdfe4659ba24fd71d22f9a">GET_STATFNAME</a>(STAT_NetworkingSummaryLLM)</td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a name="doc-var-members" id="doc-var-members"></a><h2 id="header-doc-var-members" class="groupheader">变量说明</h2>
+<a id="a4505246951a66223ed8a639cfcc4a71b" name="a4505246951a66223ed8a639cfcc4a71b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4505246951a66223ed8a639cfcc4a71b">&#9670;&#160;</a></span>AddimulatedConnectionsCmd</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../dc/d5b/class_f_auto_console_command_with_world_and_args.html">FAutoConsoleCommandWithWorldAndArgs</a> AddimulatedConnectionsCmd(<a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;net.SimulateConnections&quot;), <a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;Starts a Simulated Net Driver&quot;), FConsoleCommandWithWorldAndArgsDelegate::CreateStatic(AddSimulatedNetConnections)) </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;net.SimulateConnections&quot;)</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;Starts a Simulated Net Driver&quot;)</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">FConsoleCommandWithWorldAndArgsDelegate::CreateStatic(AddSimulatedNetConnections)</td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a8ee083f3bde5fb2b7f84650fb0d5b854" name="a8ee083f3bde5fb2b7f84650fb0d5b854"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8ee083f3bde5fb2b7f84650fb0d5b854">&#9670;&#160;</a></span>BufferBloatCooldownTimeInMS</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a8dbb3cd84ca9fd010dadfc3815eefa5d">int32</a> BufferBloatCooldownTimeInMS = 1000</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a1908dcfb3030aa27eb7f416b3850a1bd" name="a1908dcfb3030aa27eb7f416b3850a1bd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1908dcfb3030aa27eb7f416b3850a1bd">&#9670;&#160;</a></span>CVarNetEnableCongestionControl</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d5/d78/class_t_auto_console_variable.html">TAutoConsoleVariable</a>&lt; <a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a8dbb3cd84ca9fd010dadfc3815eefa5d">int32</a> &gt; CVarNetEnableCongestionControl(<a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;net.EnableCongestionControl&quot;), 0, <a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;Enables congestion control module.&quot;)) </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;net.EnableCongestionControl&quot;)</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">0</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;Enables congestion control module.&quot;)</td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a04636de60a74198e0eb95bc4a0714e92" name="a04636de60a74198e0eb95bc4a0714e92"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a04636de60a74198e0eb95bc4a0714e92">&#9670;&#160;</a></span>ForceOnePacketPerBunch</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../dc/d5b/class_f_auto_console_command_with_world_and_args.html">FAutoConsoleCommandWithWorldAndArgs</a> ForceOnePacketPerBunch(<a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;net.ForceOnePacketPerBunch&quot;), <a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;When set to <a class="el" href="../../d3/df7/radaudio__common_8h.html#ade27a78a51a66a5cfb6f09cf36bcfde9a08f175a5505a10b9ed657defeb050e4b">true</a> it will enable AutoFlush on all connections and force a packet to be sent <a class="el" href="../../d3/db8/binka__ue__decode__test_8cpp.html#ac1ee511585a5c7a2d58c146185895b72">for</a> every bunch we create. This forces one packet per replicated actor and can help find rare ordering bugs&quot;), FConsoleCommandWithWorldAndArgsDelegate::CreateLambda([](const <a class="el" href="../../d6/db1/class_t_array.html">TArray</a>&lt; <a class="el" href="../../d2/d8e/_s_anim_notify_panel_8h.html#a7483aa7f043c623f8990a95320be654d">FString</a> &gt; &amp;Args, <a class="el" href="../../de/d4d/class_u_world.html">UWorld</a> *World) { <a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a> bEnable=<a class="el" href="../../d3/df7/radaudio__common_8h.html#ade27a78a51a66a5cfb6f09cf36bcfde9a08f175a5505a10b9ed657defeb050e4b">true</a>; <a class="el" href="../../d3/db8/binka__ue__decode__test_8cpp.html#a374eb3a41808f317fb77da75985c3204">if</a>(<a class="el" href="../../d8/df1/_metal_r_h_i_private_8h.html#a8377b95bbf59edd1a902638208b8ed47a2baa9ca0e7468d1f502764b4899c4f26">Args.Num</a>() &gt; 0) { <a class="el" href="../../d3/d76/_cook_types_8cpp.html#a27903cfa4afd262cc5f83e541d11a12b">LexTryParseString</a>&lt; <a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a> &gt;(bEnable, *Args[0]); } <a class="el" href="../../d7/dcd/_log_macros_8h.html#a2b7439f43220057d491f6ab6cbeb3a32">UE_LOGF</a>(LogNet, <a class="el" href="../../de/da7/_direct_link_log_8h.html#ab4d085e7119005ae75db70919e0eb279">Display</a>, &quot;ForceOnePacketPerBunch set to %ls&quot;, bEnable?<a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;true&quot;):<a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;false&quot;)); <a class="el" href="../../d3/db8/binka__ue__decode__test_8cpp.html#ac1ee511585a5c7a2d58c146185895b72">for</a>(<a class="el" href="../../df/d3b/class_t_object_iterator.html">TObjectIterator</a>&lt; <a class="el" href="../../d0/d1f/class_u_net_connection.html">UNetConnection</a> &gt; It;It;++It) { <a class="el" href="../../d3/db8/binka__ue__decode__test_8cpp.html#a374eb3a41808f317fb77da75985c3204">if</a>(It-&gt;Driver==World-&gt;NetDriver) { It-&gt;SetAutoFlush(bEnable); } } })) </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;net.ForceOnePacketPerBunch&quot;)</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;When set to <a class="el" href="../../d3/df7/radaudio__common_8h.html#ade27a78a51a66a5cfb6f09cf36bcfde9a08f175a5505a10b9ed657defeb050e4b">true</a> it will enable AutoFlush on all connections and force a packet to be sent <a class="el" href="../../d3/db8/binka__ue__decode__test_8cpp.html#ac1ee511585a5c7a2d58c146185895b72">for</a> every bunch we create. This forces one packet per replicated actor and can help find rare ordering bugs&quot;)</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">FConsoleCommandWithWorldAndArgsDelegate::CreateLambda([](const <a class="el" href="../../d6/db1/class_t_array.html">TArray</a>&lt; <a class="el" href="../../d2/d8e/_s_anim_notify_panel_8h.html#a7483aa7f043c623f8990a95320be654d">FString</a> &gt; &amp;Args, <a class="el" href="../../de/d4d/class_u_world.html">UWorld</a> *World){ <a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a> bEnable=<a class="el" href="../../d3/df7/radaudio__common_8h.html#ade27a78a51a66a5cfb6f09cf36bcfde9a08f175a5505a10b9ed657defeb050e4b">true</a>;<a class="el" href="../../d3/db8/binka__ue__decode__test_8cpp.html#a374eb3a41808f317fb77da75985c3204">if</a>(<a class="el" href="../../d8/df1/_metal_r_h_i_private_8h.html#a8377b95bbf59edd1a902638208b8ed47a2baa9ca0e7468d1f502764b4899c4f26">Args.Num</a>() &gt; 0) { <a class="el" href="../../d3/d76/_cook_types_8cpp.html#a27903cfa4afd262cc5f83e541d11a12b">LexTryParseString</a>&lt; <a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a> &gt;(bEnable, *Args[0]);} <a class="el" href="../../d7/dcd/_log_macros_8h.html#a2b7439f43220057d491f6ab6cbeb3a32">UE_LOGF</a>(LogNet, <a class="el" href="../../de/da7/_direct_link_log_8h.html#ab4d085e7119005ae75db70919e0eb279">Display</a>, &quot;ForceOnePacketPerBunch set to %ls&quot;, bEnable?<a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;true&quot;):<a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;false&quot;));<a class="el" href="../../d3/db8/binka__ue__decode__test_8cpp.html#ac1ee511585a5c7a2d58c146185895b72">for</a>(<a class="el" href="../../df/d3b/class_t_object_iterator.html">TObjectIterator</a>&lt; <a class="el" href="../../d0/d1f/class_u_net_connection.html">UNetConnection</a> &gt; It;It;++It) { <a class="el" href="../../d3/db8/binka__ue__decode__test_8cpp.html#a374eb3a41808f317fb77da75985c3204">if</a>(It-&gt;Driver==World-&gt;NetDriver) { It-&gt;SetAutoFlush(bEnable); } }})</td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a0fac957ef3c6b82a2457a2dd811b6f24" name="a0fac957ef3c6b82a2457a2dd811b6f24"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0fac957ef3c6b82a2457a2dd811b6f24">&#9670;&#160;</a></span>GbNetReuseReplicatorsForDormantObjects</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a> GbNetReuseReplicatorsForDormantObjects</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel extern">extern</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a263974226c7bf26f9a5ab82d18047bf7" name="a263974226c7bf26f9a5ab82d18047bf7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a263974226c7bf26f9a5ab82d18047bf7">&#9670;&#160;</a></span>GNetDormancyValidate</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a8dbb3cd84ca9fd010dadfc3815eefa5d">int32</a> GNetDormancyValidate</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel extern">extern</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ab11ff6e2f11d151803b3954d03e96ba4" name="ab11ff6e2f11d151803b3954d03e96ba4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab11ff6e2f11d151803b3954d03e96ba4">&#9670;&#160;</a></span>GNetOutBytes</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../dd/de9/preprocessor_8c.html#a1134b580f8da4de94ca6b1de4d37975e">uint32</a> GNetOutBytes = 0</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a0784c2c751ff6d0f1903651443d996e0" name="a0784c2c751ff6d0f1903651443d996e0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0784c2c751ff6d0f1903651443d996e0">&#9670;&#160;</a></span>PrintActorReportCmd</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../dc/d5b/class_f_auto_console_command_with_world_and_args.html">FAutoConsoleCommandWithWorldAndArgs</a> PrintActorReportCmd(<a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;net.ActorReport&quot;), <a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;&quot;), FConsoleCommandWithWorldAndArgsDelegate::CreateStatic(PrintActorReportFunc)) </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;net.ActorReport&quot;)</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;&quot;)</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">FConsoleCommandWithWorldAndArgsDelegate::CreateStatic(PrintActorReportFunc)</td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a28e7db1bc1e7f006345fdbfb537a2231" name="a28e7db1bc1e7f006345fdbfb537a2231"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a28e7db1bc1e7f006345fdbfb537a2231">&#9670;&#160;</a></span>RemoveSimulatedConnectionsCmd</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../dc/d5b/class_f_auto_console_command_with_world_and_args.html">FAutoConsoleCommandWithWorldAndArgs</a> RemoveSimulatedConnectionsCmd(<a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;net.DisconnectSimulatedConnections&quot;), <a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;Disconnects some simulated connections (0 = all)&quot;), FConsoleCommandWithWorldAndArgsDelegate::CreateStatic(RemoveSimulatedNetConnections)) </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;net.DisconnectSimulatedConnections&quot;)</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;Disconnects some simulated connections (0 = all)&quot;)</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">FConsoleCommandWithWorldAndArgsDelegate::CreateStatic(RemoveSimulatedNetConnections)</td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<div id="page-nav" class="page-nav-panel">
+<div id="page-nav-resize-handle"></div>
+<div id="page-nav-tree">
+<div id="page-nav-contents">
+</div><!-- page-nav-contents -->
+</div><!-- page-nav-tree -->
+</div><!-- page-nav -->
+</div><!-- container -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a href="../../dir_0b6ee6e7e9547e675db4add2e5de97da.html">Engine</a></li><li class="navelem"><a href="../../dir_9579d1ecb2c7bf48cbe1049c41745cb4.html">Source</a></li><li class="navelem"><a href="../../dir_9f04efef762572853abdf73f62bebfcc.html">Runtime</a></li><li class="navelem"><a href="../../dir_750344885b5b0dabc1066bd532c992d7.html">Engine</a></li><li class="navelem"><a href="../../dir_0f80cfe80f66a90345f34a7a0d31ead6.html">Private</a></li><li class="navelem"><a href="../../df/d7b/_net_connection_8cpp.html">NetConnection.cpp</a></li>
+    <li class="footer">制作者 <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.15.0 </li>
+  </ul>
+</div>
+</body>
+</html>

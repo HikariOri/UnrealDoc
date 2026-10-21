@@ -1,0 +1,25 @@
+var struct_f_file_construction_state =
+[
+    [ "FFileConstructionState", "d7/d1d/struct_f_file_construction_state.html#add34eef4b5b31be944bb1321ef2e93c9", null ],
+    [ "SetAttributes", "d7/d1d/struct_f_file_construction_state.html#a8fb78ac6b8815237ebfc447687ce69c2", null ],
+    [ "BaseReferenceIndex", "d7/d1d/struct_f_file_construction_state.html#a190c3f493a3e2169cac2d0f2d9c36ae4", null ],
+    [ "bIsResumedFile", "d7/d1d/struct_f_file_construction_state.html#ab2b3932d23aae803f814128594058f38", null ],
+    [ "bSkippedConstruction", "d7/d1d/struct_f_file_construction_state.html#a166183f0ea1743f019c19203202dfc18", null ],
+    [ "bSuccess", "d7/d1d/struct_f_file_construction_state.html#a004b075b5854a6b1fdf98e7fa9564a90", null ],
+    [ "BuildFilename", "d7/d1d/struct_f_file_construction_state.html#a7490c457162cb553dbd16467d97d6838", null ],
+    [ "ConstructionError", "d7/d1d/struct_f_file_construction_state.html#aba5754636e6a8a091970a9fee950f4ce", null ],
+    [ "ConstructionIndex", "d7/d1d/struct_f_file_construction_state.html#ac36eb2d25e2043e0488c8eb271ec037e", null ],
+    [ "CreateFilePlatformLastError", "d7/d1d/struct_f_file_construction_state.html#a464eb335f80575f953c5890b12bdbd6c", null ],
+    [ "ErrorContextGuid", "d7/d1d/struct_f_file_construction_state.html#a614687ddcc8d198870caec05943328c3", null ],
+    [ "FileManifest", "d7/d1d/struct_f_file_construction_state.html#a4ed0a49a4d976c618a75ddf42d5d0204", null ],
+    [ "HashState", "d7/d1d/struct_f_file_construction_state.html#abf09468d38ddd0df88c3d6dbff0d31a7", null ],
+    [ "LastSeenProgress", "d7/d1d/struct_f_file_construction_state.html#a2074530899f579b6c0d3b39edca0bf18", null ],
+    [ "NewFile", "d7/d1d/struct_f_file_construction_state.html#a6691b409aa042913cbb4f07582c755f6", null ],
+    [ "NewFilename", "d7/d1d/struct_f_file_construction_state.html#aa9f92a98729a4d738debcbe7b6d23094", null ],
+    [ "NextChunkPartToRead", "d7/d1d/struct_f_file_construction_state.html#a30bb1ad053d2653ae1211e881c870a0e", null ],
+    [ "OutstandingBatches", "d7/d1d/struct_f_file_construction_state.html#ad89bebbbad939570ff5a27f6af1d969a", null ],
+    [ "Progress", "d7/d1d/struct_f_file_construction_state.html#ad51702662c64c5a4f9edc3a58a243c1d", null ],
+    [ "ProgressLock", "d7/d1d/struct_f_file_construction_state.html#ad561e67c5fb6fb689579b7699d336822", null ],
+    [ "Stage", "d7/d1d/struct_f_file_construction_state.html#a0d650551ecbac2d90d8c638ff3f7a062", null ],
+    [ "StartPosition", "d7/d1d/struct_f_file_construction_state.html#a04045951181bd007b0057cf4feafa613", null ]
+];

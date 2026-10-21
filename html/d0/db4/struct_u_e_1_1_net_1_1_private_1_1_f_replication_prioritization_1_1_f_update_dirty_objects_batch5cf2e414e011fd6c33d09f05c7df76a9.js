@@ -1,0 +1,6 @@
+var struct_u_e_1_1_net_1_1_private_1_1_f_replication_prioritization_1_1_f_update_dirty_objects_batch5cf2e414e011fd6c33d09f05c7df76a9 =
+[
+    [ "InstanceProtocols", "d0/db4/struct_u_e_1_1_net_1_1_private_1_1_f_replication_prioritization_1_1_f_update_dirty_objects_batch5cf2e414e011fd6c33d09f05c7df76a9.html#abc87bbae6b915b9dd702f72388d4fe92", null ],
+    [ "ObjectCount", "d0/db4/struct_u_e_1_1_net_1_1_private_1_1_f_replication_prioritization_1_1_f_update_dirty_objects_batch5cf2e414e011fd6c33d09f05c7df76a9.html#a237a9c5ca68bda4f6fc7028240d69dc5", null ],
+    [ "ObjectIndices", "d0/db4/struct_u_e_1_1_net_1_1_private_1_1_f_replication_prioritization_1_1_f_update_dirty_objects_batch5cf2e414e011fd6c33d09f05c7df76a9.html#a916e67c65d53758945fa1562ee9445b6", null ]
+];

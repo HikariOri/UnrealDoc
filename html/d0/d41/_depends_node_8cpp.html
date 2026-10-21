@@ -1,0 +1,541 @@
+<!-- HTML header for doxygen 1.15.0-->
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh">
+<head>
+  <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=11" />
+  <meta name="generator" content="Doxygen 1.15.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>UE 5.8.4: Engine/Source/Runtime/AssetRegistry/Private/DependsNode.cpp 文件参考</title>
+  <link rel="icon" href="../../EdIconDefault.bmp" type="image/x-icon" />
+  <link href="../../tabs.css" rel="stylesheet" type="text/css" />
+  <script type="text/javascript" src="../../jquery.js"></script>
+  <script type="text/javascript" src="../../dynsections.js"></script>
+  <link href="../../navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../navtreedata.js"></script>
+<script type="text/javascript" src="../../navtree.js"></script>
+<script type="text/javascript" src="../../cookie.js"></script>
+  <link href="../../search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../search/searchdata.js"></script>
+<script type="text/javascript" src="../../search/search.js"></script>
+  <script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  extensions: ["tex2jax.js"],
+  jax: ["input/TeX","output/HTML-CSS"],
+});
+</script>
+<script type="text/javascript" async="async" src="https://cdn.jsdelivr.net/npm/mathjax@2/MathJax.js"></script>
+  <link href="../../doxygen.css" rel="stylesheet" type="text/css" />
+  <link href="../../doxygen-awesome.css" rel="stylesheet" type="text/css"/>
+<link href="../../doxygen-awesome-sidebar-only.css" rel="stylesheet" type="text/css"/>
+<link href="../../doxygen-awesome-sidebar-only-darkmode-toggle.css" rel="stylesheet" type="text/css"/>
+  <!-- ... other metadata & script includes ... -->
+  <script type="text/javascript" src="../../doxygen-awesome-darkmode-toggle.js"></script>
+  <script type="text/javascript">
+    DoxygenAwesomeDarkModeToggle.title = "Zwischen hellem/dunklem Modus wechseln"
+    DoxygenAwesomeDarkModeToggle.lightModeIcon = '🌞'
+    // icon from https://fonts.google.com/icons
+    DoxygenAwesomeDarkModeToggle.darkModeIcon = `<svg xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 24 24" height="24px" viewBox="0 0 24 24" width="24px" fill="#009793"><g><rect fill="none" height="24" width="24"/></g><g><g><path d="M8.1,14.15C9.77,14.63,11,16.17,11,18c0,0.68-0.19,1.31-0.48,1.87c0.48,0.09,0.97,0.14,1.48,0.14 c1.48,0,2.9-0.41,4.13-1.15c-2.62-0.92-5.23-2.82-6.8-5.86C7.74,9.94,7.78,7.09,8.29,4.9c-2.57,1.33-4.3,4.01-4.3,7.1c0,0,0,0,0,0 c0.01,0,0.01,0,0.02,0C5.66,12,7.18,12.83,8.1,14.15z" opacity=".3"/><path d="M19.78,17.51c-2.47,0-6.57-1.33-8.68-5.43C8.77,7.57,10.6,3.6,11.63,2.01C6.27,2.2,1.98,6.59,1.98,12 c0,0.14,0.02,0.28,0.02,0.42C2.61,12.16,3.28,12,3.98,12c0,0,0,0,0,0c0-3.09,1.73-5.77,4.3-7.1C7.78,7.09,7.74,9.94,9.32,13 c1.57,3.04,4.18,4.95,6.8,5.86c-1.23,0.74-2.65,1.15-4.13,1.15c-0.5,0-1-0.05-1.48-0.14c-0.37,0.7-0.94,1.27-1.64,1.64 c0.98,0.32,2.03,0.5,3.11,0.5c3.5,0,6.58-1.8,8.37-4.52C20.18,17.5,19.98,17.51,19.78,17.51z"/><path d="M7,16l-0.18,0C6.4,14.84,5.3,14,4,14c-1.66,0-3,1.34-3,3s1.34,3,3,3c0.62,0,2.49,0,3,0c1.1,0,2-0.9,2-2 C9,16.9,8.1,16,7,16z"/></g></g></svg>`
+    DoxygenAwesomeDarkModeToggle.init()
+  </script>
+  <script type="text/javascript" src="../../doxygen-awesome-fragment-copy-button.js"></script>
+  <script type="text/javascript">
+    DoxygenAwesomeFragmentCopyButton.title = "In die Zwischenablage kopieren"
+    // DoxygenAwesomeFragmentCopyButton.copyIcon = `<svg ...>`
+    // DoxygenAwesomeFragmentCopyButton.successIcon = `<svg ...>`
+    DoxygenAwesomeFragmentCopyButton.init()
+  </script>
+  <script type="text/javascript" src="../../doxygen-awesome-paragraph-link.js"></script>
+  <script type="text/javascript">
+    DoxygenAwesomeParagraphLink.title = "Abschnitt verknüpfen"
+    DoxygenAwesomeParagraphLink.icon = "¶"
+    DoxygenAwesomeParagraphLink.init()
+  </script>
+  <script type="text/javascript" src="../../doxygen-awesome-interactive-toc.js"></script>
+  <script type="text/javascript">
+    DoxygenAwesomeInteractiveToc.topOffset = 45
+    DoxygenAwesomeInteractiveToc.hideMobileMenu = false
+    DoxygenAwesomeInteractiveToc.init()
+  </script>
+</head>
+<body>
+    <div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+      <div id="titlearea">
+        <table cellspacing="0" cellpadding="0">
+          <tbody>
+            <tr id="projectrow">
+              <td id="projectlogo"><img alt="Logo" src="../../EdIconDefault.bmp"  /></td>
+              <td id="projectalign">
+                <div id="projectname">UE 5.8.4
+                </div>
+                <div id="projectbrief">Unreal Engine</div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <!-- end header part -->
+<!-- 制作者 Doxygen 1.15.0 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "../../search/",'.html');
+</script>
+<script type="text/javascript">
+$(function() { codefold.init(); });
+</script>
+<script type="text/javascript" src="../../menudata.js"></script>
+<script type="text/javascript" src="../../menu.js"></script>
+<script type="text/javascript">
+$(function() {
+  initMenu('../../',true,false,'search.php','搜索',true);
+  $(function() { init_search(); });
+});
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(function(){initNavTree('d0/d41/_depends_node_8cpp.html','../../',''); });
+</script>
+<div id="container">
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">载入中...</div>
+<div class="SRStatus" id="Searching">搜索中...</div>
+<div class="SRStatus" id="NoMatches">未找到</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">DependsNode.cpp 文件参考</div></div>
+</div><!--header-->
+<div class="contents">
+<div class="textblock"><code>#include &quot;<a class="el" href="../../dd/df3/_depends_node_8h_source.html">DependsNode.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../da/dce/_asset_registry_state_8h_source.html">AssetRegistry/AssetRegistryState.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d0/da0/_asset_registry_private_8h_source.html">AssetRegistryPrivate.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d5/df1/_string_builder_8h_source.html">Misc/StringBuilder.h</a>&quot;</code><br />
+</div><div class="textblock"><div class="dynheader">
+DependsNode.cpp 的引用(Include)关系图:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d4/d19/_depends_node_8cpp__incl.svg" width="4754" height="1302"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+</div><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-func-members" class="groupheader"><a id="func-members" name="func-members"></a>
+函数</h2></td></tr>
+<tr class="memitem:ae318fca8c3788d6bcc459061c17f1e95" id="r_ae318fca8c3788d6bcc459061c17f1e95"><td class="memTemplParams" colspan="2">template&lt;<a class="el" href="../../dd/de9/preprocessor_8c.html#a1134b580f8da4de94ca6b1de4d37975e">uint32</a> FlagWidth&gt; </td></tr>
+<tr class="memitem:ae318fca8c3788d6bcc459061c17f1e95 template"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../df/d63/_typed_element_query_capabilities_8inl.html#a72343342ce64c0755563ee6c5e27868d">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae318fca8c3788d6bcc459061c17f1e95">SortDependencyList</a> (<a class="el" href="../../d6/db1/class_t_array.html">TArray</a>&lt; <a class="el" href="../../d0/d7e/class_f_depends_node.html">FDependsNode</a> * &gt; &amp;Dependencies, <a class="el" href="../../df/d02/class_t_bit_array.html">TBitArray</a>&lt;&gt; *Flags, <a class="el" href="../../de/dac/_allow_shrinking_8h.html#a79c72ec7a5c21b5e9640b16a759ac4da">EAllowShrinking</a> ShrinkPolicy)</td></tr>
+<tr class="memitem:aff019a246ff0c2fa2a96a566eae6d661" id="r_aff019a246ff0c2fa2a96a566eae6d661"><td class="memTemplParams" colspan="2">template&lt;<a class="el" href="../../dd/de9/preprocessor_8c.html#a1134b580f8da4de94ca6b1de4d37975e">uint32</a> FlagWidth, typename VisitorType&gt; </td></tr>
+<tr class="memitem:aff019a246ff0c2fa2a96a566eae6d661 template"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../df/d63/_typed_element_query_capabilities_8inl.html#a72343342ce64c0755563ee6c5e27868d">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aff019a246ff0c2fa2a96a566eae6d661">EnumerateMatchingDependencyFlags</a> (const <a class="el" href="../../df/d02/class_t_bit_array.html">TBitArray</a>&lt;&gt; *FlagBits, <a class="el" href="../../d0/da1/namespace_u_e_1_1_asset_registry.html#ab244620597edccdf511057a9dedfb7e1">UE::AssetRegistry::EDependencyProperty</a> CategoryMask, <a class="el" href="../../d0/da1/namespace_u_e_1_1_asset_registry.html#ab244620597edccdf511057a9dedfb7e1">UE::AssetRegistry::EDependencyProperty</a>(*ByteToProperties)(<a class="el" href="../../dd/de9/preprocessor_8c.html#adde6aaee8457bee49c2a92621fe22b79">uint8</a>), <a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a8dbb3cd84ca9fd010dadfc3815eefa5d">int32</a> ListIndex, const <a class="el" href="../../d6/d77/struct_u_e_1_1_asset_registry_1_1_f_dependency_query.html">UE::AssetRegistry::FDependencyQuery</a> &amp;SearchFlags, VisitorType &amp;&amp;Visitor)</td></tr>
+<tr class="memitem:afb8188dc82df5650ce7326ac50212909" id="r_afb8188dc82df5650ce7326ac50212909"><td class="memTemplParams" colspan="2">template&lt;<a class="el" href="../../dd/de9/preprocessor_8c.html#a1134b580f8da4de94ca6b1de4d37975e">uint32</a> FlagWidth, typename CallbackType&gt; </td></tr>
+<tr class="memitem:afb8188dc82df5650ce7326ac50212909 template"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../df/d63/_typed_element_query_capabilities_8inl.html#a72343342ce64c0755563ee6c5e27868d">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#afb8188dc82df5650ce7326ac50212909">IterateDependencyList</a> (CallbackType &amp;&amp;InCallback, <a class="el" href="../../d0/da1/namespace_u_e_1_1_asset_registry.html#aeb31328c978d11b1bb15faf20eaa8f91">UE::AssetRegistry::EDependencyCategory</a> SearchCategory, const <a class="el" href="../../d6/d77/struct_u_e_1_1_asset_registry_1_1_f_dependency_query.html">UE::AssetRegistry::FDependencyQuery</a> &amp;SearchFlags, <a class="el" href="../../d0/da1/namespace_u_e_1_1_asset_registry.html#aeb31328c978d11b1bb15faf20eaa8f91">UE::AssetRegistry::EDependencyCategory</a> ListCategory, <a class="el" href="../../d0/da1/namespace_u_e_1_1_asset_registry.html#ab244620597edccdf511057a9dedfb7e1">UE::AssetRegistry::EDependencyProperty</a> CategoryMask, const <a class="el" href="../../d6/db1/class_t_array.html">TArray</a>&lt; <a class="el" href="../../d0/d7e/class_f_depends_node.html">FDependsNode</a> * &gt; &amp;Dependencies, const <a class="el" href="../../df/d02/class_t_bit_array.html">TBitArray</a>&lt;&gt; *FlagBits, <a class="el" href="../../d0/da1/namespace_u_e_1_1_asset_registry.html#ab244620597edccdf511057a9dedfb7e1">UE::AssetRegistry::EDependencyProperty</a>(*ByteToProperties)(<a class="el" href="../../dd/de9/preprocessor_8c.html#adde6aaee8457bee49c2a92621fe22b79">uint8</a>), <a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a> IsSorted)</td></tr>
+<tr class="memitem:a2ac6c835f0c1d52e4a9a4b0e934e2736" id="r_a2ac6c835f0c1d52e4a9a4b0e934e2736"><td class="memTemplParams" colspan="2">template&lt;<a class="el" href="../../dd/de9/preprocessor_8c.html#a1134b580f8da4de94ca6b1de4d37975e">uint32</a> FlagWidth, typename CallbackType&gt; </td></tr>
+<tr class="memitem:a2ac6c835f0c1d52e4a9a4b0e934e2736 template"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../df/d63/_typed_element_query_capabilities_8inl.html#a72343342ce64c0755563ee6c5e27868d">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2ac6c835f0c1d52e4a9a4b0e934e2736">IterateDependencyList</a> (CallbackType &amp;&amp;InCallback, const <a class="el" href="../../d0/d7e/class_f_depends_node.html">FDependsNode</a> *SearchNode, <a class="el" href="../../d0/da1/namespace_u_e_1_1_asset_registry.html#aeb31328c978d11b1bb15faf20eaa8f91">UE::AssetRegistry::EDependencyCategory</a> SearchCategory, const <a class="el" href="../../d6/d77/struct_u_e_1_1_asset_registry_1_1_f_dependency_query.html">UE::AssetRegistry::FDependencyQuery</a> &amp;SearchFlags, <a class="el" href="../../d0/da1/namespace_u_e_1_1_asset_registry.html#aeb31328c978d11b1bb15faf20eaa8f91">UE::AssetRegistry::EDependencyCategory</a> ListCategory, <a class="el" href="../../d0/da1/namespace_u_e_1_1_asset_registry.html#ab244620597edccdf511057a9dedfb7e1">UE::AssetRegistry::EDependencyProperty</a> CategoryMask, const <a class="el" href="../../d6/db1/class_t_array.html">TArray</a>&lt; <a class="el" href="../../d0/d7e/class_f_depends_node.html">FDependsNode</a> * &gt; &amp;Dependencies, const <a class="el" href="../../df/d02/class_t_bit_array.html">TBitArray</a>&lt;&gt; *FlagBits, <a class="el" href="../../d0/da1/namespace_u_e_1_1_asset_registry.html#ab244620597edccdf511057a9dedfb7e1">UE::AssetRegistry::EDependencyProperty</a>(*ByteToProperties)(<a class="el" href="../../dd/de9/preprocessor_8c.html#adde6aaee8457bee49c2a92621fe22b79">uint8</a>), <a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a> IsSorted)</td></tr>
+<tr class="memitem:a49654d754a9a951e29e45b7165020ffa" id="r_a49654d754a9a951e29e45b7165020ffa"><td class="memTemplParams" colspan="2">template&lt;<a class="el" href="../../dd/de9/preprocessor_8c.html#a1134b580f8da4de94ca6b1de4d37975e">uint32</a> FlagWidth&gt; </td></tr>
+<tr class="memitem:a49654d754a9a951e29e45b7165020ffa template"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../df/d63/_typed_element_query_capabilities_8inl.html#a72343342ce64c0755563ee6c5e27868d">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a49654d754a9a951e29e45b7165020ffa">AddDependency</a> (<a class="el" href="../../d0/d7e/class_f_depends_node.html">FDependsNode</a> *InDependency, <a class="el" href="../../d0/da1/namespace_u_e_1_1_asset_registry.html#ab244620597edccdf511057a9dedfb7e1">UE::AssetRegistry::EDependencyProperty</a> AddProperties, <a class="el" href="../../d0/da1/namespace_u_e_1_1_asset_registry.html#ab244620597edccdf511057a9dedfb7e1">UE::AssetRegistry::EDependencyProperty</a> CategoryMask, <a class="el" href="../../d6/db1/class_t_array.html">TArray</a>&lt; <a class="el" href="../../d0/d7e/class_f_depends_node.html">FDependsNode</a> * &gt; &amp;Dependencies, <a class="el" href="../../df/d02/class_t_bit_array.html">TBitArray</a>&lt;&gt; *FlagBits, <a class="el" href="../../dd/de9/preprocessor_8c.html#adde6aaee8457bee49c2a92621fe22b79">uint8</a>(*PropertiesToByte)(<a class="el" href="../../d0/da1/namespace_u_e_1_1_asset_registry.html#ab244620597edccdf511057a9dedfb7e1">UE::AssetRegistry::EDependencyProperty</a>), <a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a> IsSorted)</td></tr>
+<tr class="memitem:a8df6157d606491b0dc4333b1aca1d449" id="r_a8df6157d606491b0dc4333b1aca1d449"><td class="memTemplParams" colspan="2">template&lt;<a class="el" href="../../dd/de9/preprocessor_8c.html#a1134b580f8da4de94ca6b1de4d37975e">uint32</a> FlagWidth&gt; </td></tr>
+<tr class="memitem:a8df6157d606491b0dc4333b1aca1d449 template"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../df/d63/_typed_element_query_capabilities_8inl.html#a72343342ce64c0755563ee6c5e27868d">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8df6157d606491b0dc4333b1aca1d449">RemoveDependency</a> (<a class="el" href="../../d0/d7e/class_f_depends_node.html">FDependsNode</a> *InDependency, <a class="el" href="../../d6/db1/class_t_array.html">TArray</a>&lt; <a class="el" href="../../d0/d7e/class_f_depends_node.html">FDependsNode</a> * &gt; &amp;Dependencies, <a class="el" href="../../df/d02/class_t_bit_array.html">TBitArray</a>&lt;&gt; *FlagBits, <a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a> IsSorted, <a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a> bAllowShrinking)</td></tr>
+<tr class="memitem:a0975f9e4f1d3bc0b791046bd1e969475" id="r_a0975f9e4f1d3bc0b791046bd1e969475"><td class="memTemplParams" colspan="2">template&lt;<a class="el" href="../../dd/de9/preprocessor_8c.html#a1134b580f8da4de94ca6b1de4d37975e">uint32</a> FlagWidth&gt; </td></tr>
+<tr class="memitem:a0975f9e4f1d3bc0b791046bd1e969475 template"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../df/d63/_typed_element_query_capabilities_8inl.html#a72343342ce64c0755563ee6c5e27868d">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a0975f9e4f1d3bc0b791046bd1e969475">RemoveAll</a> (const <a class="el" href="../../da/d20/class_t_unique_function.html">TUniqueFunction</a>&lt; <a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a>(const <a class="el" href="../../d0/d7e/class_f_depends_node.html">FDependsNode</a> *)&gt; &amp;ShouldRemove, <a class="el" href="../../d6/db1/class_t_array.html">TArray</a>&lt; <a class="el" href="../../d0/d7e/class_f_depends_node.html">FDependsNode</a> * &gt; &amp;Dependencies, <a class="el" href="../../df/d02/class_t_bit_array.html">TBitArray</a>&lt;&gt; *FlagBits, <a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a> IsSorted, <a class="el" href="../../de/dac/_allow_shrinking_8h.html#a79c72ec7a5c21b5e9640b16a759ac4da">EAllowShrinking</a> ShrinkPolicy)</td></tr>
+<tr class="memitem:af511afbeb6d1eeb9039036b71450b8ee" id="r_af511afbeb6d1eeb9039036b71450b8ee"><td class="memTemplParams" colspan="2">template&lt;<a class="el" href="../../dd/de9/preprocessor_8c.html#a1134b580f8da4de94ca6b1de4d37975e">uint32</a> FlagWidth&gt; </td></tr>
+<tr class="memitem:af511afbeb6d1eeb9039036b71450b8ee template"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../df/d63/_typed_element_query_capabilities_8inl.html#a72343342ce64c0755563ee6c5e27868d">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af511afbeb6d1eeb9039036b71450b8ee">RemapLinks</a> (const <a class="el" href="../../da/d20/class_t_unique_function.html">TUniqueFunction</a>&lt; <a class="el" href="../../d0/d7e/class_f_depends_node.html">FDependsNode</a> *(<a class="el" href="../../d0/d7e/class_f_depends_node.html">FDependsNode</a> *)&gt; &amp;Remap, <a class="el" href="../../d6/db1/class_t_array.html">TArray</a>&lt; <a class="el" href="../../d0/d7e/class_f_depends_node.html">FDependsNode</a> * &gt; &amp;Dependencies, <a class="el" href="../../df/d02/class_t_bit_array.html">TBitArray</a>&lt;&gt; *FlagBits, <a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a> IsSorted, <a class="el" href="../../de/dac/_allow_shrinking_8h.html#a79c72ec7a5c21b5e9640b16a759ac4da">EAllowShrinking</a> ShrinkPolicy)</td></tr>
+</table>
+<a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">函数说明</h2>
+<a id="a49654d754a9a951e29e45b7165020ffa" name="a49654d754a9a951e29e45b7165020ffa"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a49654d754a9a951e29e45b7165020ffa">&#9670;&#160;</a></span>AddDependency()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;<a class="el" href="../../dd/de9/preprocessor_8c.html#a1134b580f8da4de94ca6b1de4d37975e">uint32</a> FlagWidth&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../df/d63/_typed_element_query_capabilities_8inl.html#a72343342ce64c0755563ee6c5e27868d">void</a> AddDependency </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d0/d7e/class_f_depends_node.html">FDependsNode</a> *</td>          <td class="paramname"><span class="paramname"><em>InDependency</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d0/da1/namespace_u_e_1_1_asset_registry.html#ab244620597edccdf511057a9dedfb7e1">UE::AssetRegistry::EDependencyProperty</a></td>          <td class="paramname"><span class="paramname"><em>AddProperties</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d0/da1/namespace_u_e_1_1_asset_registry.html#ab244620597edccdf511057a9dedfb7e1">UE::AssetRegistry::EDependencyProperty</a></td>          <td class="paramname"><span class="paramname"><em>CategoryMask</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d6/db1/class_t_array.html">TArray</a>&lt; <a class="el" href="../../d0/d7e/class_f_depends_node.html">FDependsNode</a> * &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>Dependencies</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../df/d02/class_t_bit_array.html">TBitArray</a>&lt;&gt; *</td>          <td class="paramname"><span class="paramname"><em>FlagBits</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../dd/de9/preprocessor_8c.html#adde6aaee8457bee49c2a92621fe22b79">uint8</a>(*</td>          <td class="paramname"><span class="paramname"><em>PropertiesToByte&#160;</em></span>)(<a class="el" href="../../d0/da1/namespace_u_e_1_1_asset_registry.html#ab244620597edccdf511057a9dedfb7e1">UE::AssetRegistry::EDependencyProperty</a>), </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a></td>          <td class="paramname"><span class="paramname"><em>IsSorted</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aff019a246ff0c2fa2a96a566eae6d661" name="aff019a246ff0c2fa2a96a566eae6d661"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aff019a246ff0c2fa2a96a566eae6d661">&#9670;&#160;</a></span>EnumerateMatchingDependencyFlags()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;<a class="el" href="../../dd/de9/preprocessor_8c.html#a1134b580f8da4de94ca6b1de4d37975e">uint32</a> FlagWidth, typename VisitorType&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../df/d63/_typed_element_query_capabilities_8inl.html#a72343342ce64c0755563ee6c5e27868d">void</a> EnumerateMatchingDependencyFlags </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="../../df/d02/class_t_bit_array.html">TBitArray</a>&lt;&gt; *</td>          <td class="paramname"><span class="paramname"><em>FlagBits</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d0/da1/namespace_u_e_1_1_asset_registry.html#ab244620597edccdf511057a9dedfb7e1">UE::AssetRegistry::EDependencyProperty</a></td>          <td class="paramname"><span class="paramname"><em>CategoryMask</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d0/da1/namespace_u_e_1_1_asset_registry.html#ab244620597edccdf511057a9dedfb7e1">UE::AssetRegistry::EDependencyProperty</a>(*</td>          <td class="paramname"><span class="paramname"><em>ByteToProperties&#160;</em></span>)(<a class="el" href="../../dd/de9/preprocessor_8c.html#adde6aaee8457bee49c2a92621fe22b79">uint8</a>), </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a8dbb3cd84ca9fd010dadfc3815eefa5d">int32</a></td>          <td class="paramname"><span class="paramname"><em>ListIndex</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="../../d6/d77/struct_u_e_1_1_asset_registry_1_1_f_dependency_query.html">UE::AssetRegistry::FDependencyQuery</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>SearchFlags</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">VisitorType &amp;&amp;</td>          <td class="paramname"><span class="paramname"><em>Visitor</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Helper function for IterateDependencyList, which itself is a helper function for <a class="el" href="../../d0/d7e/class_f_depends_node.html">FDependsNode</a> functions. This function is given an index into one of the lists. All of the data for the list and how to interpret it is also passed in. The function looks of the set of DependencyProperty flag groups for the index, and iterates over that set, and calls the callback on each flag group that matches the requested SearchFlags. </p>
+
+</div>
+</div>
+<a id="a2ac6c835f0c1d52e4a9a4b0e934e2736" name="a2ac6c835f0c1d52e4a9a4b0e934e2736"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2ac6c835f0c1d52e4a9a4b0e934e2736">&#9670;&#160;</a></span>IterateDependencyList() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;<a class="el" href="../../dd/de9/preprocessor_8c.html#a1134b580f8da4de94ca6b1de4d37975e">uint32</a> FlagWidth, typename CallbackType&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../df/d63/_typed_element_query_capabilities_8inl.html#a72343342ce64c0755563ee6c5e27868d">void</a> IterateDependencyList </td>
+          <td>(</td>
+          <td class="paramtype">CallbackType &amp;&amp;</td>          <td class="paramname"><span class="paramname"><em>InCallback</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="../../d0/d7e/class_f_depends_node.html">FDependsNode</a> *</td>          <td class="paramname"><span class="paramname"><em>SearchNode</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d0/da1/namespace_u_e_1_1_asset_registry.html#aeb31328c978d11b1bb15faf20eaa8f91">UE::AssetRegistry::EDependencyCategory</a></td>          <td class="paramname"><span class="paramname"><em>SearchCategory</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="../../d6/d77/struct_u_e_1_1_asset_registry_1_1_f_dependency_query.html">UE::AssetRegistry::FDependencyQuery</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>SearchFlags</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d0/da1/namespace_u_e_1_1_asset_registry.html#aeb31328c978d11b1bb15faf20eaa8f91">UE::AssetRegistry::EDependencyCategory</a></td>          <td class="paramname"><span class="paramname"><em>ListCategory</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d0/da1/namespace_u_e_1_1_asset_registry.html#ab244620597edccdf511057a9dedfb7e1">UE::AssetRegistry::EDependencyProperty</a></td>          <td class="paramname"><span class="paramname"><em>CategoryMask</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="../../d6/db1/class_t_array.html">TArray</a>&lt; <a class="el" href="../../d0/d7e/class_f_depends_node.html">FDependsNode</a> * &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>Dependencies</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="../../df/d02/class_t_bit_array.html">TBitArray</a>&lt;&gt; *</td>          <td class="paramname"><span class="paramname"><em>FlagBits</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d0/da1/namespace_u_e_1_1_asset_registry.html#ab244620597edccdf511057a9dedfb7e1">UE::AssetRegistry::EDependencyProperty</a>(*</td>          <td class="paramname"><span class="paramname"><em>ByteToProperties&#160;</em></span>)(<a class="el" href="../../dd/de9/preprocessor_8c.html#adde6aaee8457bee49c2a92621fe22b79">uint8</a>), </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a></td>          <td class="paramname"><span class="paramname"><em>IsSorted</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Helper function for IterateOverDependencies, ContainsDependency, and others that need to find a given dependency in one of an <a class="el" href="../../d0/d7e/class_f_depends_node.html">FDependsNode</a>'s list of dependencies, while filtering by the list of DependencyProperties associated with each dependency. This function is given all of the data for the list and how to interpret it, and a requested SearchNode and SearchFlags. The function looks up the SearchNode in the list of dependencies, and iterates over the set of DependencyProperty flag groups for each dependency, and calls the callback with each flag group on the dependency that matches the requested SearchFlags. </p>
+
+</div>
+</div>
+<a id="afb8188dc82df5650ce7326ac50212909" name="afb8188dc82df5650ce7326ac50212909"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afb8188dc82df5650ce7326ac50212909">&#9670;&#160;</a></span>IterateDependencyList() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;<a class="el" href="../../dd/de9/preprocessor_8c.html#a1134b580f8da4de94ca6b1de4d37975e">uint32</a> FlagWidth, typename CallbackType&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../df/d63/_typed_element_query_capabilities_8inl.html#a72343342ce64c0755563ee6c5e27868d">void</a> IterateDependencyList </td>
+          <td>(</td>
+          <td class="paramtype">CallbackType &amp;&amp;</td>          <td class="paramname"><span class="paramname"><em>InCallback</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d0/da1/namespace_u_e_1_1_asset_registry.html#aeb31328c978d11b1bb15faf20eaa8f91">UE::AssetRegistry::EDependencyCategory</a></td>          <td class="paramname"><span class="paramname"><em>SearchCategory</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="../../d6/d77/struct_u_e_1_1_asset_registry_1_1_f_dependency_query.html">UE::AssetRegistry::FDependencyQuery</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>SearchFlags</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d0/da1/namespace_u_e_1_1_asset_registry.html#aeb31328c978d11b1bb15faf20eaa8f91">UE::AssetRegistry::EDependencyCategory</a></td>          <td class="paramname"><span class="paramname"><em>ListCategory</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d0/da1/namespace_u_e_1_1_asset_registry.html#ab244620597edccdf511057a9dedfb7e1">UE::AssetRegistry::EDependencyProperty</a></td>          <td class="paramname"><span class="paramname"><em>CategoryMask</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="../../d6/db1/class_t_array.html">TArray</a>&lt; <a class="el" href="../../d0/d7e/class_f_depends_node.html">FDependsNode</a> * &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>Dependencies</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="../../df/d02/class_t_bit_array.html">TBitArray</a>&lt;&gt; *</td>          <td class="paramname"><span class="paramname"><em>FlagBits</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d0/da1/namespace_u_e_1_1_asset_registry.html#ab244620597edccdf511057a9dedfb7e1">UE::AssetRegistry::EDependencyProperty</a>(*</td>          <td class="paramname"><span class="paramname"><em>ByteToProperties&#160;</em></span>)(<a class="el" href="../../dd/de9/preprocessor_8c.html#adde6aaee8457bee49c2a92621fe22b79">uint8</a>), </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a></td>          <td class="paramname"><span class="paramname"><em>IsSorted</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Helper function for GetDependencies, IterateOverDependencies, and others that need to find dependencies in each of an <a class="el" href="../../d0/d7e/class_f_depends_node.html">FDependsNode</a>'s list of dependencies, while filtering by the list of DependencyProperties associated with each dependency. This function is given all of the data for the list and how to interpret it, and a requested SearchFlags. The function iterates over all dependencies in the list, and iterates over the set of DependencyProperty flag groups for each dependency, and calls the callback with the dependency and with each flag group on the dependency that matches the requested SearchFlags. </p>
+
+</div>
+</div>
+<a id="af511afbeb6d1eeb9039036b71450b8ee" name="af511afbeb6d1eeb9039036b71450b8ee"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af511afbeb6d1eeb9039036b71450b8ee">&#9670;&#160;</a></span>RemapLinks()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;<a class="el" href="../../dd/de9/preprocessor_8c.html#a1134b580f8da4de94ca6b1de4d37975e">uint32</a> FlagWidth&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../df/d63/_typed_element_query_capabilities_8inl.html#a72343342ce64c0755563ee6c5e27868d">void</a> RemapLinks </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="../../da/d20/class_t_unique_function.html">TUniqueFunction</a>&lt; <a class="el" href="../../d0/d7e/class_f_depends_node.html">FDependsNode</a> *(<a class="el" href="../../d0/d7e/class_f_depends_node.html">FDependsNode</a> *)&gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>Remap</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d6/db1/class_t_array.html">TArray</a>&lt; <a class="el" href="../../d0/d7e/class_f_depends_node.html">FDependsNode</a> * &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>Dependencies</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../df/d02/class_t_bit_array.html">TBitArray</a>&lt;&gt; *</td>          <td class="paramname"><span class="paramname"><em>FlagBits</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a></td>          <td class="paramname"><span class="paramname"><em>IsSorted</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../de/dac/_allow_shrinking_8h.html#a79c72ec7a5c21b5e9640b16a759ac4da">EAllowShrinking</a></td>          <td class="paramname"><span class="paramname"><em>ShrinkPolicy</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a0975f9e4f1d3bc0b791046bd1e969475" name="a0975f9e4f1d3bc0b791046bd1e969475"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0975f9e4f1d3bc0b791046bd1e969475">&#9670;&#160;</a></span>RemoveAll()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;<a class="el" href="../../dd/de9/preprocessor_8c.html#a1134b580f8da4de94ca6b1de4d37975e">uint32</a> FlagWidth&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../df/d63/_typed_element_query_capabilities_8inl.html#a72343342ce64c0755563ee6c5e27868d">void</a> RemoveAll </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="../../da/d20/class_t_unique_function.html">TUniqueFunction</a>&lt; <a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a>(const <a class="el" href="../../d0/d7e/class_f_depends_node.html">FDependsNode</a> *)&gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>ShouldRemove</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d6/db1/class_t_array.html">TArray</a>&lt; <a class="el" href="../../d0/d7e/class_f_depends_node.html">FDependsNode</a> * &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>Dependencies</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../df/d02/class_t_bit_array.html">TBitArray</a>&lt;&gt; *</td>          <td class="paramname"><span class="paramname"><em>FlagBits</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a></td>          <td class="paramname"><span class="paramname"><em>IsSorted</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../de/dac/_allow_shrinking_8h.html#a79c72ec7a5c21b5e9640b16a759ac4da">EAllowShrinking</a></td>          <td class="paramname"><span class="paramname"><em>ShrinkPolicy</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a8df6157d606491b0dc4333b1aca1d449" name="a8df6157d606491b0dc4333b1aca1d449"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8df6157d606491b0dc4333b1aca1d449">&#9670;&#160;</a></span>RemoveDependency()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;<a class="el" href="../../dd/de9/preprocessor_8c.html#a1134b580f8da4de94ca6b1de4d37975e">uint32</a> FlagWidth&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../df/d63/_typed_element_query_capabilities_8inl.html#a72343342ce64c0755563ee6c5e27868d">void</a> RemoveDependency </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d0/d7e/class_f_depends_node.html">FDependsNode</a> *</td>          <td class="paramname"><span class="paramname"><em>InDependency</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d6/db1/class_t_array.html">TArray</a>&lt; <a class="el" href="../../d0/d7e/class_f_depends_node.html">FDependsNode</a> * &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>Dependencies</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../df/d02/class_t_bit_array.html">TBitArray</a>&lt;&gt; *</td>          <td class="paramname"><span class="paramname"><em>FlagBits</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a></td>          <td class="paramname"><span class="paramname"><em>IsSorted</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a></td>          <td class="paramname"><span class="paramname"><em>bAllowShrinking</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ae318fca8c3788d6bcc459061c17f1e95" name="ae318fca8c3788d6bcc459061c17f1e95"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae318fca8c3788d6bcc459061c17f1e95">&#9670;&#160;</a></span>SortDependencyList()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;<a class="el" href="../../dd/de9/preprocessor_8c.html#a1134b580f8da4de94ca6b1de4d37975e">uint32</a> FlagWidth&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../df/d63/_typed_element_query_capabilities_8inl.html#a72343342ce64c0755563ee6c5e27868d">void</a> SortDependencyList </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d6/db1/class_t_array.html">TArray</a>&lt; <a class="el" href="../../d0/d7e/class_f_depends_node.html">FDependsNode</a> * &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>Dependencies</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../df/d02/class_t_bit_array.html">TBitArray</a>&lt;&gt; *</td>          <td class="paramname"><span class="paramname"><em>Flags</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../de/dac/_allow_shrinking_8h.html#a79c72ec7a5c21b5e9640b16a759ac4da">EAllowShrinking</a></td>          <td class="paramname"><span class="paramname"><em>ShrinkPolicy</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<div id="page-nav" class="page-nav-panel">
+<div id="page-nav-resize-handle"></div>
+<div id="page-nav-tree">
+<div id="page-nav-contents">
+</div><!-- page-nav-contents -->
+</div><!-- page-nav-tree -->
+</div><!-- page-nav -->
+</div><!-- container -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a href="../../dir_0b6ee6e7e9547e675db4add2e5de97da.html">Engine</a></li><li class="navelem"><a href="../../dir_9579d1ecb2c7bf48cbe1049c41745cb4.html">Source</a></li><li class="navelem"><a href="../../dir_9f04efef762572853abdf73f62bebfcc.html">Runtime</a></li><li class="navelem"><a href="../../dir_6f8aeb6e66cb4451b866fe93c5bbd80c.html">AssetRegistry</a></li><li class="navelem"><a href="../../dir_4a99d31256733bbfe62f98c3558ef363.html">Private</a></li><li class="navelem"><a href="../../d0/d41/_depends_node_8cpp.html">DependsNode.cpp</a></li>
+    <li class="footer">制作者 <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.15.0 </li>
+  </ul>
+</div>
+</body>
+</html>

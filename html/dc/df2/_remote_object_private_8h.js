@@ -1,0 +1,37 @@
+var _remote_object_private_8h =
+[
+    [ "FTransactionalMigrationData", "dc/d73/struct_f_transactional_migration_data.html", "dc/d73/struct_f_transactional_migration_data" ],
+    [ "UE::RemoteObject::Private::FUnsafeToMigrateScope", "d7/d86/struct_u_e_1_1_remote_object_1_1_private_1_1_f_unsafe_to_migrate_scope.html", "d7/d86/struct_u_e_1_1_remote_object_1_1_private_1_1_f_unsafe_to_migrate_scope" ],
+    [ "UE::RemoteObject::Private::FScopedForceReturnObjectHandles", "d9/d71/struct_u_e_1_1_remote_object_1_1_private_1_1_f_scoped_force_return_object_handles.html", "d9/d71/struct_u_e_1_1_remote_object_1_1_private_1_1_f_scoped_force_return_object_handles" ],
+    [ "UE::RemoteObject::Private::FRemoteIdLocalizationHelper", "d7/d92/struct_u_e_1_1_remote_object_1_1_private_1_1_f_remote_id_localization_helper.html", null ],
+    [ "EMigratedDataState", "dc/df2/_remote_object_private_8h.html#a69a2997c8544ae095476b17a58271b89", [
+      [ "Uninitialized", "dc/df2/_remote_object_private_8h.html#a69a2997c8544ae095476b17a58271b89af704f57ea420275ad51bf55b7dec2c96", null ],
+      [ "Received", "dc/df2/_remote_object_private_8h.html#a69a2997c8544ae095476b17a58271b89aac5bb077c33753116b5e91ff1766e7bc", null ],
+      [ "Deserialized", "dc/df2/_remote_object_private_8h.html#a69a2997c8544ae095476b17a58271b89a6a79011a0ecd65fbcaf307cfe23b3e88", null ],
+      [ "PostMigrated", "dc/df2/_remote_object_private_8h.html#a69a2997c8544ae095476b17a58271b89af001b70d04327aeda89c33ee9cb8f9aa", null ],
+      [ "Completed", "dc/df2/_remote_object_private_8h.html#a69a2997c8544ae095476b17a58271b89a07ca5050e697392c9ed47e6453f1453f", null ]
+    ] ],
+    [ "DECLARE_LOG_CATEGORY_EXTERN", "dc/df2/_remote_object_private_8h.html#aedf931a6693cba9c95903156ef3e19c2", null ],
+    [ "EnumToString", "dc/df2/_remote_object_private_8h.html#a38fff5d2139de883b7f54ca009bc564a", null ],
+    [ "UE::RemoteObject::Private::FindAssetPath", "d1/dec/namespace_u_e_1_1_remote_object_1_1_private.html#a8cf2defeed0a97eb56ca9ac83f9e5928", null ],
+    [ "UE::RemoteObject::Private::FindOrAddRemoteObjectStub", "d1/dec/namespace_u_e_1_1_remote_object_1_1_private.html#a6a565ca8e53bd1cddc8586e402319138", null ],
+    [ "UE::RemoteObject::Private::FindRemoteObjectStub", "d1/dec/namespace_u_e_1_1_remote_object_1_1_private.html#a193fafbf9b217f6f368593793932f83c", null ],
+    [ "UE::RemoteObject::Private::ForEachStubWithMigratedData", "d1/dec/namespace_u_e_1_1_remote_object_1_1_private.html#a4fe516498b1e927858afa8c6afa571eb", null ],
+    [ "UE::RemoteObject::Private::GetServerBaseNameForUniqueName", "d1/dec/namespace_u_e_1_1_remote_object_1_1_private.html#adb53a514b9bc7dce0f6cc302fa1ead0b", null ],
+    [ "UE::RemoteObject::Private::InitRemoteObjects", "d1/dec/namespace_u_e_1_1_remote_object_1_1_private.html#ad583ac3709695a57524ad7b002293915", null ],
+    [ "UE::RemoteObject::Private::IsBorrowed", "d1/dec/namespace_u_e_1_1_remote_object_1_1_private.html#a32e370a734c21ee1340ea73ed3cc0b3d", null ],
+    [ "UE::RemoteObject::Private::IsForceReturnObjectHandles", "d1/dec/namespace_u_e_1_1_remote_object_1_1_private.html#aceb463b6777011fd572457c65418820f", null ],
+    [ "UE::RemoteObject::Private::IsRemoteObjectSystemCompiledInAndInitialized", "d1/dec/namespace_u_e_1_1_remote_object_1_1_private.html#ab4dc8e82ba75fbbdaccd7dd03d638b2e", null ],
+    [ "UE::RemoteObject::Private::IsRemoteObjectSystemInitialized", "d1/dec/namespace_u_e_1_1_remote_object_1_1_private.html#ac5eb0a7d7621a826defddf9874b501ea", null ],
+    [ "UE::RemoteObject::Private::IsRemoteReference", "d1/dec/namespace_u_e_1_1_remote_object_1_1_private.html#a2375b348991a2ab69fa41384ee61d895", null ],
+    [ "UE::RemoteObject::Private::MarkAsBorrowed", "d1/dec/namespace_u_e_1_1_remote_object_1_1_private.html#a5d49026480d1c4e945b9955e4e24fdac", null ],
+    [ "UE::RemoteObject::Private::MarkAsRemote", "d1/dec/namespace_u_e_1_1_remote_object_1_1_private.html#ae045406f1c8fe6e8486c2610e580034f", null ],
+    [ "UE::RemoteObject::Private::MarkAsRemoteReference", "d1/dec/namespace_u_e_1_1_remote_object_1_1_private.html#a50704c3f407f1a5e0296a23c7527543f", null ],
+    [ "UE::RemoteObject::Private::RegisterSharedObject", "d1/dec/namespace_u_e_1_1_remote_object_1_1_private.html#ae27ec3f71e953938eb0cbac59c1015f3", null ],
+    [ "UE::RemoteObject::Private::SetResidence", "d1/dec/namespace_u_e_1_1_remote_object_1_1_private.html#a5019b3d11bdc46230a6d043b79904789", null ],
+    [ "UE::RemoteObject::Private::SetTransactionallyPostMigratingObjects", "d1/dec/namespace_u_e_1_1_remote_object_1_1_private.html#a368cf90bfeaa00ac73eb83961c921ec9", null ],
+    [ "UE::RemoteObject::Private::ShutdownRemoteObjects", "d1/dec/namespace_u_e_1_1_remote_object_1_1_private.html#a5174185980da6d3eb102e1f47feb40fc", null ],
+    [ "UE::RemoteObject::Private::StoreAssetPath", "d1/dec/namespace_u_e_1_1_remote_object_1_1_private.html#ad7b908ac70a2f2dafa80b68b53320307", null ],
+    [ "UE::RemoteObject::Transfer::Private::StoreUnreachableRemoteObjectsToDatabase", "df/dd1/namespace_u_e_1_1_remote_object_1_1_transfer_1_1_private.html#adc05858297261687d8e0c9e9caaadd7e", null ],
+    [ "UE::RemoteObject::Private::UE_DEPRECATED", "d1/dec/namespace_u_e_1_1_remote_object_1_1_private.html#ae89d67556ac721db9ea33d60bccedef8", null ]
+];

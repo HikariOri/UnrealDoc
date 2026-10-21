@@ -1,0 +1,27 @@
+var _solaris_2u_lang_core_2_public_2u_lang_2_common_2_misc_2_arithmetic_8h =
+[
+    [ "uLang::CheckedConvertI32I64", "da/daf/namespaceu_lang.html#a7363c4fb17e10385fccf1ce2ed8da85b", null ],
+    [ "uLang::CheckedI64Abs", "da/daf/namespaceu_lang.html#a7a6aa24a60eb594adb9ecf14e8cef0a1", null ],
+    [ "uLang::CheckedI64Add", "da/daf/namespaceu_lang.html#a35280da72bac5dfad21ce56f212b35c2", null ],
+    [ "uLang::CheckedI64Divide", "da/daf/namespaceu_lang.html#a1c269258cfae947f9101f91199dc3771", null ],
+    [ "uLang::CheckedI64DivideAndRoundDown", "da/daf/namespaceu_lang.html#ac16cc4e1c792a34af7c21d298435fe77", null ],
+    [ "uLang::CheckedI64DivideAndRoundUp", "da/daf/namespaceu_lang.html#a47a10e2ce319b253cb3535f3ebbcd3f6", null ],
+    [ "uLang::CheckedI64Modulo", "da/daf/namespaceu_lang.html#ad9f77b158fd45a0d1a832364fdd5e546", null ],
+    [ "uLang::CheckedI64Multiply", "da/daf/namespaceu_lang.html#aa41cadb2977fcdd4642d6f85a15e2b89", null ],
+    [ "uLang::CheckedI64Negate", "da/daf/namespaceu_lang.html#ae4e490038171c96524551df669d37687", null ],
+    [ "uLang::CheckedI64Subtract", "da/daf/namespaceu_lang.html#a3e6a1097a703ac667d955a8e2de192fc", null ],
+    [ "uLang::IsFactor", "da/daf/namespaceu_lang.html#aa5aab89c44611ccf83e69f688ef3f726", null ],
+    [ "uLang::SameSign", "da/daf/namespaceu_lang.html#a64bced47b603303b2214ee800840360b", null ],
+    [ "uLang::Float32Max", "da/daf/namespaceu_lang.html#ae7db16b7b351fb2752c9ff2845247a4e", null ],
+    [ "uLang::Float32Min", "da/daf/namespaceu_lang.html#a193509527a349310c030160cda00f69e", null ],
+    [ "uLang::Float64Max", "da/daf/namespaceu_lang.html#a1c56c3d7e839b3f6058bc3e8413aa304", null ],
+    [ "uLang::Float64Min", "da/daf/namespaceu_lang.html#a91c870001d53d635bf6f8f6181537935", null ],
+    [ "uLang::Int32Max", "da/daf/namespaceu_lang.html#ad034821fa3d8dc4da10041e365cbb36c", null ],
+    [ "uLang::Int32MaxMagnitude", "da/daf/namespaceu_lang.html#a4d9e754f5adaad3a1372f25d2088a9c0", null ],
+    [ "uLang::Int32Min", "da/daf/namespaceu_lang.html#a3f85ce0b24f99b93dfe1bf068cf32a57", null ],
+    [ "uLang::Int64Max", "da/daf/namespaceu_lang.html#ab62bdbb99bcaad43aea2c457a4c99766", null ],
+    [ "uLang::Int64MaxMagnitude", "da/daf/namespaceu_lang.html#a240b03212ed26d4002b599b23afb3231", null ],
+    [ "uLang::Int64Min", "da/daf/namespaceu_lang.html#a4236553a6e7272b2b91f050183db5a63", null ],
+    [ "uLang::UInt32Max", "da/daf/namespaceu_lang.html#a8d76414464b62eb043a7256cf7b9a721", null ],
+    [ "uLang::UInt64Max", "da/daf/namespaceu_lang.html#ab7fd25723dec839408f8a75e5af00e73", null ]
+];

@@ -1,0 +1,47 @@
+var class_f_primitive_instance_data_manager =
+[
+    [ "EMode", "dc/d9d/class_f_primitive_instance_data_manager.html#ac810ba11d953cbc4d4ff5589cf746969", [
+      [ "Default", "dc/d9d/class_f_primitive_instance_data_manager.html#ac810ba11d953cbc4d4ff5589cf746969a7a1920d61156abc05a60135aefe8bc67", null ],
+      [ "Legacy", "dc/d9d/class_f_primitive_instance_data_manager.html#ac810ba11d953cbc4d4ff5589cf746969a0cc0a0507cf3d31e5089f420a4cf8b4b", null ],
+      [ "ExternalLegacyData", "dc/d9d/class_f_primitive_instance_data_manager.html#ac810ba11d953cbc4d4ff5589cf746969a722eef6dbeb60fd4e3544898d12bc3ad", null ]
+    ] ],
+    [ "ETrackingState", "dc/d9d/class_f_primitive_instance_data_manager.html#a9cff47a3b7aa829b3b3218769128b799", [
+      [ "Initial", "dc/d9d/class_f_primitive_instance_data_manager.html#a9cff47a3b7aa829b3b3218769128b799a4f2a91e15af2631ff9424564b8a45fb2", null ],
+      [ "Tracked", "dc/d9d/class_f_primitive_instance_data_manager.html#a9cff47a3b7aa829b3b3218769128b799a5e1b39ae9fac0eab832877bd5cd01690", null ],
+      [ "Disabled", "dc/d9d/class_f_primitive_instance_data_manager.html#a9cff47a3b7aa829b3b3218769128b799ab9f5c797ebbf55adccdd8539a65a0241", null ],
+      [ "Optimized", "dc/d9d/class_f_primitive_instance_data_manager.html#a9cff47a3b7aa829b3b3218769128b799a6e539d2ea7d82ed0e31c450e64ff8c04", null ]
+    ] ],
+    [ "FPrimitiveInstanceDataManager", "dc/d9d/class_f_primitive_instance_data_manager.html#a380b90e254ec42a6f51fa85f1438899b", null ],
+    [ "Add", "dc/d9d/class_f_primitive_instance_data_manager.html#a5e624df28e94651bcd87eb9102289cb9", null ],
+    [ "BakedLightingDataChanged", "dc/d9d/class_f_primitive_instance_data_manager.html#a126e044b6c6415dd5567ee05f197dc76", null ],
+    [ "BakedLightingDataChangedAll", "dc/d9d/class_f_primitive_instance_data_manager.html#a68786c6a0d76237aa1148530e9be0365", null ],
+    [ "ClearChangeTracking", "dc/d9d/class_f_primitive_instance_data_manager.html#a10ec6fefa3e938d092574573399a99ff", null ],
+    [ "ClearIdTracking", "dc/d9d/class_f_primitive_instance_data_manager.html#aee5a31aadab2cd53f8edd9e4afc75251", null ],
+    [ "CreateExplicitIdentityMapping", "dc/d9d/class_f_primitive_instance_data_manager.html#a72871b9cd2284987e0e8254efdbe9902", null ],
+    [ "CustomDataChanged", "dc/d9d/class_f_primitive_instance_data_manager.html#abe64a0621ff4ac81fab4267d4a243d9c", null ],
+    [ "FlushChanges", "dc/d9d/class_f_primitive_instance_data_manager.html#a034c9dc375441d125c9f8e8b4b2c42ce", null ],
+    [ "GetAllocatedSize", "dc/d9d/class_f_primitive_instance_data_manager.html#a56d120a537927d5717c40f71336b6109", null ],
+    [ "GetMaxInstanceId", "dc/d9d/class_f_primitive_instance_data_manager.html#a76d2b5c2a7be04d73096c2fb8681a6d4", null ],
+    [ "GetMaxInstanceIndex", "dc/d9d/class_f_primitive_instance_data_manager.html#a429eb84427b88aa2a1f0baf1cd15ade7", null ],
+    [ "GetMode", "dc/d9d/class_f_primitive_instance_data_manager.html#a2d0206e9fdf076cc8599e97d703d5631", null ],
+    [ "GetOrCreateProxy", "dc/d9d/class_f_primitive_instance_data_manager.html#a7da29e2d2a4e1d2fb698e961c1e65861", null ],
+    [ "GetProxy", "dc/d9d/class_f_primitive_instance_data_manager.html#a2d6976c956972eda1f42782b09ec06b3", null ],
+    [ "GetState", "dc/d9d/class_f_primitive_instance_data_manager.html#aa4096710556a9d677d6fc8b9ff1262db", null ],
+    [ "HasAnyChanges", "dc/d9d/class_f_primitive_instance_data_manager.html#ad12b62da18768bfeb1f0136e3f112bbc", null ],
+    [ "HasAnyInstanceChanges", "dc/d9d/class_f_primitive_instance_data_manager.html#a26597d3876f8df742a96afe71cd985af", null ],
+    [ "Invalidate", "dc/d9d/class_f_primitive_instance_data_manager.html#aed2180ac1bd7135551798a2c45f23552", null ],
+    [ "MarkForRebuildFromLegacy", "dc/d9d/class_f_primitive_instance_data_manager.html#a46f4df3b5125af9977c3ecf66021baa3", null ],
+    [ "NumCustomDataChanged", "dc/d9d/class_f_primitive_instance_data_manager.html#acd38ca18bbacd94b11067b6879547aff", null ],
+    [ "OnRegister", "dc/d9d/class_f_primitive_instance_data_manager.html#af7f5a3681df024f6f7dea4be47b8f1ec", null ],
+    [ "PostLoad", "dc/d9d/class_f_primitive_instance_data_manager.html#ad11c73cd41f881c8d5c64b85db29eb11", null ],
+    [ "PrimitiveTransformChanged", "dc/d9d/class_f_primitive_instance_data_manager.html#acfe019dfb128d90ee50a7d26bffdc035", null ],
+    [ "ReadCookedRenderData", "dc/d9d/class_f_primitive_instance_data_manager.html#ad677e939832c306cfd276da0a85468a5", null ],
+    [ "RemoveAt", "dc/d9d/class_f_primitive_instance_data_manager.html#abe3ce461292dbb1da4d18ee0a0d5d3ac", null ],
+    [ "RemoveAtSwap", "dc/d9d/class_f_primitive_instance_data_manager.html#a12ad338824b1d2cf0848a258019129f4", null ],
+    [ "ResetComponentDirtyTracking", "dc/d9d/class_f_primitive_instance_data_manager.html#ab3c38cf0162fc7c8310b1bfa977c9cda", null ],
+    [ "SetMode", "dc/d9d/class_f_primitive_instance_data_manager.html#ad8a6e3568319965b55f407fab71c227a", null ],
+    [ "TransformChanged", "dc/d9d/class_f_primitive_instance_data_manager.html#a083f798edb96aa2252456e4c07aa6ff9", null ],
+    [ "TransformChanged", "dc/d9d/class_f_primitive_instance_data_manager.html#a3d4e50d2d2aa4b3469389ec796b85868", null ],
+    [ "TransformsChangedAll", "dc/d9d/class_f_primitive_instance_data_manager.html#a6c797665c564c8423df613b52b98ed84", null ],
+    [ "ValidateMapping", "dc/d9d/class_f_primitive_instance_data_manager.html#a38d0057d3b458ef317fa4d9f78733e30", null ]
+];

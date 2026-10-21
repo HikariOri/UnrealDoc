@@ -1,0 +1,25 @@
+var struct_f_bandwidth_allocator_telemetry =
+[
+    [ "AllocatorErrors", "db/df2/struct_f_bandwidth_allocator_telemetry.html#a3b7a97e0b978bae9cd828c914e05a5eb", null ],
+    [ "BandwidthPercentage", "db/df2/struct_f_bandwidth_allocator_telemetry.html#a828fcaa90ec3dce0a6f456f2a9c50e9b", null ],
+    [ "bEnabled", "db/df2/struct_f_bandwidth_allocator_telemetry.html#a9719f043f64ad171aa88bc215558ee88", null ],
+    [ "bEnforcing", "db/df2/struct_f_bandwidth_allocator_telemetry.html#a45dfffdad3ef8cdff8c87a8d7792e951", null ],
+    [ "bInGameplay", "db/df2/struct_f_bandwidth_allocator_telemetry.html#acef36717f9c308b406e1d36af47480f8", null ],
+    [ "bMeasurementSuccess", "db/df2/struct_f_bandwidth_allocator_telemetry.html#a80ae126c5a56bd02a82992672517661b", null ],
+    [ "DecisionCount", "db/df2/struct_f_bandwidth_allocator_telemetry.html#a286c6e24ef4dcf8aa296381540695b52", null ],
+    [ "EffectiveBandwidthKbps", "db/df2/struct_f_bandwidth_allocator_telemetry.html#a75220af824c494730997bfac4f1d2da9", null ],
+    [ "MeasuredBandwidthKbps", "db/df2/struct_f_bandwidth_allocator_telemetry.html#a312c6073814a34bc0394381efed062f0", null ],
+    [ "MeasurementAverageKbps", "db/df2/struct_f_bandwidth_allocator_telemetry.html#a189a3268048c4a53bcca5844b2641e7f", null ],
+    [ "MeasurementCompletedCount", "db/df2/struct_f_bandwidth_allocator_telemetry.html#a0887684b79ad3eb2ab92abfc2bdeafd7", null ],
+    [ "MeasurementDurationSec", "db/df2/struct_f_bandwidth_allocator_telemetry.html#ab5b5042f1c4893b8690158fc4107adff", null ],
+    [ "MeasurementHistoryCount", "db/df2/struct_f_bandwidth_allocator_telemetry.html#a7159a242621c754c8c381615e41f0b09", null ],
+    [ "MeasurementMaxKbps", "db/df2/struct_f_bandwidth_allocator_telemetry.html#a8bebdf01e5de0f11c185a7240301dd63", null ],
+    [ "MeasurementMinKbps", "db/df2/struct_f_bandwidth_allocator_telemetry.html#a26eceaa87e7457e1f01d9f740e8ae34b", null ],
+    [ "MeasurementRequestCount", "db/df2/struct_f_bandwidth_allocator_telemetry.html#a5a3ca1ab209e822d26ddf911e024fce7", null ],
+    [ "MeasurementResult", "db/df2/struct_f_bandwidth_allocator_telemetry.html#ab634e994839e36ed4e3a5e8ae4b99e6f", null ],
+    [ "MeasurementVariancePercent", "db/df2/struct_f_bandwidth_allocator_telemetry.html#a5632944e82b9bafecb96504e51d8e3e5", null ],
+    [ "MeasurementWarmupSec", "db/df2/struct_f_bandwidth_allocator_telemetry.html#a828642682dd5f9fc31602546606bad46", null ],
+    [ "MinGameplayReserveKbps", "db/df2/struct_f_bandwidth_allocator_telemetry.html#a7d3b76dce354126eb6c1db0a5d4b956d", null ],
+    [ "NumRegisteredSystems", "db/df2/struct_f_bandwidth_allocator_telemetry.html#a5b23f875baa38afdf3f669ac61cf4ce2", null ],
+    [ "ReallocationCount", "db/df2/struct_f_bandwidth_allocator_telemetry.html#ae9d8daf24fc532d8b705427ed2d2f188", null ]
+];

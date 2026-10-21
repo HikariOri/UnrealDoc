@@ -1,0 +1,575 @@
+<!-- HTML header for doxygen 1.15.0-->
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh">
+<head>
+  <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=11" />
+  <meta name="generator" content="Doxygen 1.15.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>UE 5.8.4: Engine/Source/Runtime/CoreUObject/Private/UObject/UObjectConstructInternal.h 源文件</title>
+  <link rel="icon" href="../../EdIconDefault.bmp" type="image/x-icon" />
+  <link href="../../tabs.css" rel="stylesheet" type="text/css" />
+  <script type="text/javascript" src="../../jquery.js"></script>
+  <script type="text/javascript" src="../../dynsections.js"></script>
+  <link href="../../navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../navtreedata.js"></script>
+<script type="text/javascript" src="../../navtree.js"></script>
+<script type="text/javascript" src="../../cookie.js"></script>
+  <link href="../../search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../search/searchdata.js"></script>
+<script type="text/javascript" src="../../search/search.js"></script>
+  <link href="../../doxygen.css" rel="stylesheet" type="text/css" />
+  <link href="../../doxygen-awesome.css" rel="stylesheet" type="text/css"/>
+<link href="../../doxygen-awesome-sidebar-only.css" rel="stylesheet" type="text/css"/>
+<link href="../../doxygen-awesome-sidebar-only-darkmode-toggle.css" rel="stylesheet" type="text/css"/>
+  <!-- ... other metadata & script includes ... -->
+  <script type="text/javascript" src="../../doxygen-awesome-darkmode-toggle.js"></script>
+  <script type="text/javascript">
+    DoxygenAwesomeDarkModeToggle.title = "Zwischen hellem/dunklem Modus wechseln"
+    DoxygenAwesomeDarkModeToggle.lightModeIcon = '🌞'
+    // icon from https://fonts.google.com/icons
+    DoxygenAwesomeDarkModeToggle.darkModeIcon = `<svg xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 24 24" height="24px" viewBox="0 0 24 24" width="24px" fill="#009793"><g><rect fill="none" height="24" width="24"/></g><g><g><path d="M8.1,14.15C9.77,14.63,11,16.17,11,18c0,0.68-0.19,1.31-0.48,1.87c0.48,0.09,0.97,0.14,1.48,0.14 c1.48,0,2.9-0.41,4.13-1.15c-2.62-0.92-5.23-2.82-6.8-5.86C7.74,9.94,7.78,7.09,8.29,4.9c-2.57,1.33-4.3,4.01-4.3,7.1c0,0,0,0,0,0 c0.01,0,0.01,0,0.02,0C5.66,12,7.18,12.83,8.1,14.15z" opacity=".3"/><path d="M19.78,17.51c-2.47,0-6.57-1.33-8.68-5.43C8.77,7.57,10.6,3.6,11.63,2.01C6.27,2.2,1.98,6.59,1.98,12 c0,0.14,0.02,0.28,0.02,0.42C2.61,12.16,3.28,12,3.98,12c0,0,0,0,0,0c0-3.09,1.73-5.77,4.3-7.1C7.78,7.09,7.74,9.94,9.32,13 c1.57,3.04,4.18,4.95,6.8,5.86c-1.23,0.74-2.65,1.15-4.13,1.15c-0.5,0-1-0.05-1.48-0.14c-0.37,0.7-0.94,1.27-1.64,1.64 c0.98,0.32,2.03,0.5,3.11,0.5c3.5,0,6.58-1.8,8.37-4.52C20.18,17.5,19.98,17.51,19.78,17.51z"/><path d="M7,16l-0.18,0C6.4,14.84,5.3,14,4,14c-1.66,0-3,1.34-3,3s1.34,3,3,3c0.62,0,2.49,0,3,0c1.1,0,2-0.9,2-2 C9,16.9,8.1,16,7,16z"/></g></g></svg>`
+    DoxygenAwesomeDarkModeToggle.init()
+  </script>
+  <script type="text/javascript" src="../../doxygen-awesome-fragment-copy-button.js"></script>
+  <script type="text/javascript">
+    DoxygenAwesomeFragmentCopyButton.title = "In die Zwischenablage kopieren"
+    // DoxygenAwesomeFragmentCopyButton.copyIcon = `<svg ...>`
+    // DoxygenAwesomeFragmentCopyButton.successIcon = `<svg ...>`
+    DoxygenAwesomeFragmentCopyButton.init()
+  </script>
+  <script type="text/javascript" src="../../doxygen-awesome-paragraph-link.js"></script>
+  <script type="text/javascript">
+    DoxygenAwesomeParagraphLink.title = "Abschnitt verknüpfen"
+    DoxygenAwesomeParagraphLink.icon = "¶"
+    DoxygenAwesomeParagraphLink.init()
+  </script>
+  <script type="text/javascript" src="../../doxygen-awesome-interactive-toc.js"></script>
+  <script type="text/javascript">
+    DoxygenAwesomeInteractiveToc.topOffset = 45
+    DoxygenAwesomeInteractiveToc.hideMobileMenu = false
+    DoxygenAwesomeInteractiveToc.init()
+  </script>
+</head>
+<body>
+    <div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+      <div id="titlearea">
+        <table cellspacing="0" cellpadding="0">
+          <tbody>
+            <tr id="projectrow">
+              <td id="projectlogo"><img alt="Logo" src="../../EdIconDefault.bmp"  /></td>
+              <td id="projectalign">
+                <div id="projectname">UE 5.8.4
+                </div>
+                <div id="projectbrief">Unreal Engine</div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <!-- end header part -->
+<!-- 制作者 Doxygen 1.15.0 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "../../search/",'.html');
+</script>
+<script type="text/javascript">
+$(function() { codefold.init(); });
+</script>
+<script type="text/javascript" src="../../menudata.js"></script>
+<script type="text/javascript" src="../../menu.js"></script>
+<script type="text/javascript">
+$(function() {
+  initMenu('../../',true,false,'search.php','搜索',true);
+  $(function() { init_search(); });
+});
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(function(){initNavTree('d6/da8/_u_object_construct_internal_8h_source.html','../../',''); });
+</script>
+<div id="container">
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">载入中...</div>
+<div class="SRStatus" id="Searching">搜索中...</div>
+<div class="SRStatus" id="NoMatches">未找到</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">UObjectConstructInternal.h</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="../../d6/da8/_u_object_construct_internal_8h.html">浏览该文件的文档.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="comment">// Copyright Epic Games, Inc. All Rights Reserved.</span></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span> </div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="preprocessor">#pragma once</span></div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span> </div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="preprocessor">#if !defined(UE_WITH_CONSTINIT_UOBJECT) || !UE_WITH_CONSTINIT_UOBJECT</span></div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span> </div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="preprocessor">#include &quot;<a class="code" href="../../dc/d5e/_core_minimal_8h.html">CoreMinimal.h</a>&quot;</span></div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="preprocessor">#include &quot;<a class="code" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html">HAL/Platform.h</a>&quot;</span></div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="preprocessor">#include &quot;<a class="code" href="../../de/d5d/_class_8h.html">UObject/Class.h</a>&quot;</span></div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="preprocessor">#include &quot;<a class="code" href="../../d5/dbd/_u_object_allocator_8h.html">UObject/UObjectAllocator.h</a>&quot;</span></div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="preprocessor">#include &quot;<a class="code" href="../../d5/d24/_u_object_globals_8h.html">UObject/UObjectGlobals.h</a>&quot;</span></div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="preprocessor">#include &quot;<a class="code" href="../../dc/d50/_u_object_hash_8h.html">UObject/UObjectHash.h</a>&quot;</span></div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="preprocessor">#include &quot;<a class="code" href="../../d7/dd1/_module_manager_8h.html">Modules/ModuleManager.h</a>&quot;</span></div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span> </div>
+<div class="foldopen" id="foldopen00015" data-start="{" data-end="}">
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno"><a class="line" href="../../dc/d95/namespace_u_e_code_gen___private.html">   15</a></span><span class="keyword">namespace </span><a class="code hl_namespace" href="../../dc/d95/namespace_u_e_code_gen___private.html">UECodeGen_Private</a></div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span>{</div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span> </div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span><span class="comment">// Helper methods defined in UObjectGlobals.cpp</span></div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span><span class="keywordtype">void</span> <a class="code hl_function" href="../../dc/d95/namespace_u_e_code_gen___private.html#a2f5ee9742b712ec742eb12ad9e86f9c5">ConstructFProperties</a>(<a class="code hl_class" href="../../d7/d0b/class_u_object.html">UObject</a>* <a class="code hl_enumvalue" href="../../d1/d8a/_anim_node___anim_dynamics_8h.html#afaad9656e6554f964da78bac4fdbb3f2ae6e36dccbeaf26fca4a6813bf2e83a28">Outer</a>, <span class="keyword">const</span> FPropertyParamsBase* <span class="keyword">const</span>* PropertyArray, <a class="code hl_typedef" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a8dbb3cd84ca9fd010dadfc3815eefa5d">int32</a> NumProperties);</div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span><span class="preprocessor">#if WITH_METADATA</span></div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span><span class="keywordtype">void</span> AddMetaData(<a class="code hl_class" href="../../d7/d0b/class_u_object.html">UObject</a>* <a class="code hl_variable" href="../../d3/d19/_navigation_system_types_8h.html#afd9654171435c563939671aa701df70d">Object</a>, <span class="keyword">const</span> FMetaDataPairParam* MetaDataArray, <a class="code hl_typedef" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a8dbb3cd84ca9fd010dadfc3815eefa5d">int32</a> NumMetaData);</div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span><span class="preprocessor">#endif</span></div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span></div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span><span class="keyword">template</span>&lt;<span class="keyword">typename</span> UClassClass, <span class="keyword">typename</span> PostNewFn&gt;</div>
+<div class="foldopen" id="foldopen00044" data-start="{" data-end="}">
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno"><a class="line" href="../../dc/d95/namespace_u_e_code_gen___private.html#a43ec7cdca200bdbbee9126a853a49da6">   44</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="../../dc/d95/namespace_u_e_code_gen___private.html#a43ec7cdca200bdbbee9126a853a49da6">ConstructUClassNoInitHelper</a>(</div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>    <span class="keyword">const</span> TCHAR* <a class="code hl_enumvalue" href="../../d4/db2/_s_asset_view_8h.html#a1a1a4d5d4362e34cc0c99bb94fdcf2d4a3bd2acd7a468d69b03985ebe99042c18">PackageName</a>,</div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>    <span class="keyword">const</span> TCHAR* <a class="code hl_enumvalue" href="../../d1/d24/_content_browser_item_data_8h.html#ab996d81c628e8b9062d20ca9c39a64cda49ee3087348e8d44e1feda1917443987">Name</a>,</div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>    <a class="code hl_class" href="../../dd/d50/class_u_class.html">UClass</a>*&amp; ReturnClass,</div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>    <span class="keywordtype">void</span>(*RegisterNativeFunc)(),</div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>    <a class="code hl_typedef" href="../../dd/de9/preprocessor_8c.html#a1134b580f8da4de94ca6b1de4d37975e">uint32</a> InSize,</div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>    <a class="code hl_typedef" href="../../dd/de9/preprocessor_8c.html#a1134b580f8da4de94ca6b1de4d37975e">uint32</a> InAlignment,</div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>    <a class="code hl_enumeration" href="../../d5/d1e/_object_macros_8h.html#a3c3e7202f8ab4f8b50749aa95c1f6f5c">EClassFlags</a> InClassFlags,</div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>    <a class="code hl_enumeration" href="../../d5/d1e/_object_macros_8h.html#a0c04722e445dd94d05a5d11fcc2bcd53">EClassCastFlags</a> InClassCastFlags,</div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>    <span class="keyword">const</span> TCHAR* InConfigName,</div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>    <a class="code hl_typedef" href="../../dd/d50/class_u_class.html#a3d6bfe385d2afcad2df884a4ee03199f">UClass::ClassConstructorType</a> InClassConstructor,</div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>    <a class="code hl_typedef" href="../../dd/d50/class_u_class.html#a916816eb6f09a35ec365afc999ca1b32">UClass::ClassVTableHelperCtorCallerType</a> InClassVTableHelperCtorCaller,</div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>    <a class="code hl_struct" href="../../d2/de2/struct_f_u_object_cpp_class_static_functions.html">FUObjectCppClassStaticFunctions</a>&amp;&amp; InCppClassStaticFunctions,</div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>    <a class="code hl_typedef" href="../../dd/d50/class_u_class.html#aa809ae26800a12c36217e378c523b12c">UClass::StaticClassFunctionType</a> InSuperClassFn,</div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>    <a class="code hl_typedef" href="../../dd/d50/class_u_class.html#aa809ae26800a12c36217e378c523b12c">UClass::StaticClassFunctionType</a> InWithinClassFn,</div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>    PostNewFn&amp;&amp; InPostNewFn</div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>)</div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>{</div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span><span class="preprocessor">#if WITH_RELOAD</span></div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>    <span class="keywordflow">if</span> (<a class="code hl_function" href="../../d7/dd1/_module_manager_8h.html#a88bbc23a64d5d937dd355bf6e64b8358">IsReloadActive</a>() &amp;&amp; <a class="code hl_function" href="../../d7/dd1/_module_manager_8h.html#a316708ad96fba91bb61258d8b03d14c1">GetActiveReloadType</a>() != <a class="code hl_enumvalue" href="../../d7/dd1/_module_manager_8h.html#a1d2c1f2040ad882fa018834cf85d56e9a1bf32eb587953e1022293a6efb8d5fa3">EActiveReloadType::Reinstancing</a>)</div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>    {</div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>        <a class="code hl_class" href="../../d4/d0b/class_u_package.html">UPackage</a>* <a class="code hl_enumvalue" href="../../d4/dbc/_compact_binary_validation_8h.html#a50250313ecd931603c357ad8849e7932a209802fb858e2c83205027dbbb5d9e6c">Package</a> = <a class="code hl_function" href="../../d9/daa/_u_object_globals_8cpp.html#a1a55146f0da98ba99749d921816a39e4">FindPackage</a>(<a class="code hl_define" href="../../d0/d38/_developer_2_texture_format_oodle_2_sdks_22_89_810_2include_2oodle2base_8h.html#a070d2ce7b6bb7e5c05602aa8c308d0c4">NULL</a>, <a class="code hl_enumvalue" href="../../d4/db2/_s_asset_view_8h.html#a1a1a4d5d4362e34cc0c99bb94fdcf2d4a3bd2acd7a468d69b03985ebe99042c18">PackageName</a>);</div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span>        <span class="keywordflow">if</span> (<a class="code hl_enumvalue" href="../../d4/dbc/_compact_binary_validation_8h.html#a50250313ecd931603c357ad8849e7932a209802fb858e2c83205027dbbb5d9e6c">Package</a>)</div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>        {</div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>            ReturnClass = <a class="code hl_function" href="../../d5/d24/_u_object_globals_8h.html#a866b1cf22ab394d121294eb716af949e">FindObject&lt;UClassClass&gt;</a>((<a class="code hl_class" href="../../d7/d0b/class_u_object.html">UObject</a>*)<a class="code hl_enumvalue" href="../../d4/dbc/_compact_binary_validation_8h.html#a50250313ecd931603c357ad8849e7932a209802fb858e2c83205027dbbb5d9e6c">Package</a>, <a class="code hl_enumvalue" href="../../d1/d24/_content_browser_item_data_8h.html#ab996d81c628e8b9062d20ca9c39a64cda49ee3087348e8d44e1feda1917443987">Name</a>);</div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>            <span class="keywordflow">if</span> (ReturnClass)</div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>            {</div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>                <span class="keywordflow">if</span> (ReturnClass-&gt;HotReloadPrivateStaticClass(</div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>                    InSize,</div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>                    InClassFlags,</div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>                    InClassCastFlags,</div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>                    InConfigName,</div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>                    InClassConstructor,</div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span>                    InClassVTableHelperCtorCaller,</div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>                    <a class="code hl_struct" href="../../d2/de2/struct_f_u_object_cpp_class_static_functions.html">FUObjectCppClassStaticFunctions</a>(InCppClassStaticFunctions),</div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>                    InSuperClassFn(),</div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>                    InWithinClassFn()</div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>                ))</div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span>                {</div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span>                    <span class="comment">// Register the class&#39;s native functions.</span></div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span>                    <span class="keywordflow">if</span> (RegisterNativeFunc)</div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span>                    {</div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span>                        RegisterNativeFunc();</div>
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span>                    }</div>
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span>                }</div>
+<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span>                <span class="keywordflow">return</span>;</div>
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span>            }</div>
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span>            <span class="keywordflow">else</span></div>
+<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span>            {</div>
+<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span>                <a class="code hl_define" href="../../d7/dcd/_log_macros_8h.html#a2b7439f43220057d491f6ab6cbeb3a32">UE_LOGF</a>(LogClass, <a class="code hl_enumvalue" href="../../d4/dd7/_tool_menu_misc_8h.html#a7af3c9137c13dfad9fe897c12ae21017ace0be71e33226e4c1db2bcea5959f16b">Log</a>, <span class="stringliteral">&quot;Could not find existing class %ls in package %ls for reload, assuming new or modified class&quot;</span>, <a class="code hl_enumvalue" href="../../d1/d24/_content_browser_item_data_8h.html#ab996d81c628e8b9062d20ca9c39a64cda49ee3087348e8d44e1feda1917443987">Name</a>, <a class="code hl_enumvalue" href="../../d4/db2/_s_asset_view_8h.html#a1a1a4d5d4362e34cc0c99bb94fdcf2d4a3bd2acd7a468d69b03985ebe99042c18">PackageName</a>);</div>
+<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span>            }</div>
+<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span>        }</div>
+<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span>        <span class="keywordflow">else</span></div>
+<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span>        {</div>
+<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span>            <a class="code hl_define" href="../../d7/dcd/_log_macros_8h.html#a2b7439f43220057d491f6ab6cbeb3a32">UE_LOGF</a>(LogClass, <a class="code hl_enumvalue" href="../../d4/dd7/_tool_menu_misc_8h.html#a7af3c9137c13dfad9fe897c12ae21017ace0be71e33226e4c1db2bcea5959f16b">Log</a>, <span class="stringliteral">&quot;Could not find existing package %ls for reload of class %ls, assuming a new package.&quot;</span>, <a class="code hl_enumvalue" href="../../d4/db2/_s_asset_view_8h.html#a1a1a4d5d4362e34cc0c99bb94fdcf2d4a3bd2acd7a468d69b03985ebe99042c18">PackageName</a>, <a class="code hl_enumvalue" href="../../d1/d24/_content_browser_item_data_8h.html#ab996d81c628e8b9062d20ca9c39a64cda49ee3087348e8d44e1feda1917443987">Name</a>);</div>
+<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span>        }</div>
+<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span>    }</div>
+<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span><span class="preprocessor">#endif</span></div>
+<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span> </div>
+<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span>    UClassClass* NewClass = (UClassClass*)<a class="code hl_variable" href="../../d1/df9/_u_object_allocator_8cpp.html#af14358cc38fa1b54d3cddbf325d5d9a7">GUObjectAllocator</a>.AllocateUObject(<span class="keyword">sizeof</span>(UClassClass), <span class="keyword">alignof</span>(UClassClass), <span class="keyword">true</span>);</div>
+<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span>    NewClass = ::new (NewClass)</div>
+<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span>        UClassClass</div>
+<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span>        (</div>
+<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span>            <a class="code hl_enumvalue" href="../../d5/d1e/_object_macros_8h.html#a3f9034b9fef0662158542b34a4d3ec9eabec552a0d9e15857b91e12b6d86c64cb">EC_StaticConstructor</a>,</div>
+<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span>            <a class="code hl_enumvalue" href="../../d1/d24/_content_browser_item_data_8h.html#ab996d81c628e8b9062d20ca9c39a64cda49ee3087348e8d44e1feda1917443987">Name</a>,</div>
+<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span>            InSize,</div>
+<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span>            InAlignment,</div>
+<div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span>            InClassFlags,</div>
+<div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span>            InClassCastFlags,</div>
+<div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span>            InConfigName,</div>
+<div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span>            <a class="code hl_enumeration" href="../../d5/d1e/_object_macros_8h.html#a1508ac1247bcd79c4921cf8497e72c79">EObjectFlags</a>(<a class="code hl_enumvalue" href="../../d5/d1e/_object_macros_8h.html#a1508ac1247bcd79c4921cf8497e72c79a3f508e6c131a654c16291e952858d0b3">RF_Public</a> | <a class="code hl_enumvalue" href="../../d5/d1e/_object_macros_8h.html#a1508ac1247bcd79c4921cf8497e72c79aabf43de16d1590110c4f65e79eca0a2b">RF_Standalone</a> | <a class="code hl_enumvalue" href="../../d5/d1e/_object_macros_8h.html#a1508ac1247bcd79c4921cf8497e72c79aba928408a049941a937952e19300250d">RF_Transient</a> | <a class="code hl_enumvalue" href="../../d5/d1e/_object_macros_8h.html#a1508ac1247bcd79c4921cf8497e72c79a9a10d1dbab1eff6bf83e795818907f7d">RF_MarkAsNative</a> | <a class="code hl_enumvalue" href="../../d5/d1e/_object_macros_8h.html#a1508ac1247bcd79c4921cf8497e72c79a0613ee66c819d8f81c069f3603cad766">RF_MarkAsRootSet</a>),</div>
+<div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span>            InClassConstructor,</div>
+<div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span>            InClassVTableHelperCtorCaller,</div>
+<div class="line"><a id="l00117" name="l00117"></a><span class="lineno">  117</span>            <a class="code hl_function" href="../../d2/dd1/_unreal_template_8h.html#af9d82a97e855a2ee1464cc020639d843">MoveTemp</a>(InCppClassStaticFunctions)</div>
+<div class="line"><a id="l00118" name="l00118"></a><span class="lineno">  118</span>        );</div>
+<div class="line"><a id="l00119" name="l00119"></a><span class="lineno">  119</span>    <a class="code hl_define" href="../../d4/d75/_assertion_macros_8h.html#a586e110623cde145b8a5bdefb429e144">check</a>(NewClass);</div>
+<div class="line"><a id="l00120" name="l00120"></a><span class="lineno">  120</span>    ReturnClass = NewClass; <span class="comment">// This must be done here or recursive calls cause problems</span></div>
+<div class="line"><a id="l00121" name="l00121"></a><span class="lineno">  121</span>    InPostNewFn(NewClass);</div>
+<div class="line"><a id="l00122" name="l00122"></a><span class="lineno">  122</span> </div>
+<div class="line"><a id="l00123" name="l00123"></a><span class="lineno">  123</span>    <a class="code hl_function" href="../../d0/dbd/_class_8cpp.html#a3f937566b9b945c842e9ab74718e8137">InitializePrivateStaticClass</a>(</div>
+<div class="line"><a id="l00124" name="l00124"></a><span class="lineno">  124</span>        UClassClass::StaticClass,</div>
+<div class="line"><a id="l00125" name="l00125"></a><span class="lineno">  125</span>        InSuperClassFn(),</div>
+<div class="line"><a id="l00126" name="l00126"></a><span class="lineno">  126</span>        NewClass,</div>
+<div class="line"><a id="l00127" name="l00127"></a><span class="lineno">  127</span>        InWithinClassFn(),</div>
+<div class="line"><a id="l00128" name="l00128"></a><span class="lineno">  128</span>        <a class="code hl_enumvalue" href="../../d4/db2/_s_asset_view_8h.html#a1a1a4d5d4362e34cc0c99bb94fdcf2d4a3bd2acd7a468d69b03985ebe99042c18">PackageName</a>,</div>
+<div class="line"><a id="l00129" name="l00129"></a><span class="lineno">  129</span>        <a class="code hl_enumvalue" href="../../d1/d24/_content_browser_item_data_8h.html#ab996d81c628e8b9062d20ca9c39a64cda49ee3087348e8d44e1feda1917443987">Name</a></div>
+<div class="line"><a id="l00130" name="l00130"></a><span class="lineno">  130</span>    );</div>
+<div class="line"><a id="l00131" name="l00131"></a><span class="lineno">  131</span> </div>
+<div class="line"><a id="l00132" name="l00132"></a><span class="lineno">  132</span>    <span class="comment">// Register the class&#39;s native functions.</span></div>
+<div class="line"><a id="l00133" name="l00133"></a><span class="lineno">  133</span>    <span class="keywordflow">if</span> (RegisterNativeFunc)</div>
+<div class="line"><a id="l00134" name="l00134"></a><span class="lineno">  134</span>    {</div>
+<div class="line"><a id="l00135" name="l00135"></a><span class="lineno">  135</span>        RegisterNativeFunc();</div>
+<div class="line"><a id="l00136" name="l00136"></a><span class="lineno">  136</span>    }</div>
+<div class="line"><a id="l00137" name="l00137"></a><span class="lineno">  137</span>}</div>
+</div>
+<div class="line"><a id="l00138" name="l00138"></a><span class="lineno">  138</span> </div>
+<div class="line"><a id="l00139" name="l00139"></a><span class="lineno">  139</span><span class="keyword">template</span>&lt;<span class="keyword">typename</span> UEnumClass, <span class="keyword">typename</span> EnumParams, <span class="keyword">typename</span> PostNewFn&gt;</div>
+<div class="line"><a id="l00140" name="l00140"></a><span class="lineno">  140</span><span class="comment">// It is UB to call `OuterFunc` below because it can return a `UClass*` not `UObject*` (even though</span></div>
+<div class="line"><a id="l00141" name="l00141"></a><span class="lineno">  141</span><span class="comment">// there is a parent-child relation there). So we suppress UBSan for this function.</span></div>
+<div class="line"><a id="l00142" name="l00142"></a><span class="lineno">  142</span><a class="code hl_define" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a02356dd067d2a283a61df119dfe18cc8">UE_DISABLE_UBSAN</a></div>
+<div class="foldopen" id="foldopen00143" data-start="{" data-end="}">
+<div class="line"><a id="l00143" name="l00143"></a><span class="lineno"><a class="line" href="../../dc/d95/namespace_u_e_code_gen___private.html#aa7488bb124b55457be0f265c08d8df19">  143</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="../../dc/d95/namespace_u_e_code_gen___private.html#aa7488bb124b55457be0f265c08d8df19">ConstructUEnumHelper</a>(<a class="code hl_class" href="../../d6/d84/class_u_enum.html">UEnum</a>*&amp; OutEnum, <span class="keyword">const</span> EnumParams&amp; Params, PostNewFn&amp;&amp; InPostNewFn)</div>
+<div class="line"><a id="l00144" name="l00144"></a><span class="lineno">  144</span>{</div>
+<div class="line"><a id="l00145" name="l00145"></a><span class="lineno">  145</span>    <a class="code hl_typedef" href="../../d5/d1e/_object_macros_8h.html#af0905b5070e8c998e334777279adee20">FTypeConstructFunc</a>* OuterFunc = Params.OuterFunc;</div>
+<div class="line"><a id="l00146" name="l00146"></a><span class="lineno">  146</span> </div>
+<div class="line"><a id="l00147" name="l00147"></a><span class="lineno">  147</span>    <a class="code hl_class" href="../../d7/d0b/class_u_object.html">UObject</a>* <a class="code hl_enumvalue" href="../../d1/d8a/_anim_node___anim_dynamics_8h.html#afaad9656e6554f964da78bac4fdbb3f2ae6e36dccbeaf26fca4a6813bf2e83a28">Outer</a> = OuterFunc ? OuterFunc(<a class="code hl_enumvalue" href="../../d5/d1e/_object_macros_8h.html#a1ae15d343079a3a04e7b17c20d4294c3ae6e36dccbeaf26fca4a6813bf2e83a28">ETypeConstructPhase::Outer</a>) : <span class="keyword">nullptr</span>;</div>
+<div class="line"><a id="l00148" name="l00148"></a><span class="lineno">  148</span> </div>
+<div class="line"><a id="l00149" name="l00149"></a><span class="lineno">  149</span>    <span class="keywordflow">if</span> (OutEnum)</div>
+<div class="line"><a id="l00150" name="l00150"></a><span class="lineno">  150</span>    {</div>
+<div class="line"><a id="l00151" name="l00151"></a><span class="lineno">  151</span>        <span class="keywordflow">return</span>;</div>
+<div class="line"><a id="l00152" name="l00152"></a><span class="lineno">  152</span>    }</div>
+<div class="line"><a id="l00153" name="l00153"></a><span class="lineno">  153</span> </div>
+<div class="line"><a id="l00154" name="l00154"></a><span class="lineno">  154</span>    UEnumClass* NewEnum = <span class="keyword">new</span> (<a class="code hl_enumvalue" href="../../d5/d1e/_object_macros_8h.html#af972354d17b24291b49057f58280327eacfb24be0c78bc5683f2b61d637d06b6d">EC_InternalUseOnlyConstructor</a>, <a class="code hl_enumvalue" href="../../d1/d8a/_anim_node___anim_dynamics_8h.html#afaad9656e6554f964da78bac4fdbb3f2ae6e36dccbeaf26fca4a6813bf2e83a28">Outer</a>, <a class="code hl_define" href="../../da/dba/_string_conv_8h.html#a3fb821c30100771d47cb5be895c5b8d3">UTF8_TO_TCHAR</a>(Params.NameUTF8), Params.ObjectFlags) UEnumClass(<a class="code hl_class" href="../../d8/d43/class_f_object_initializer.html">FObjectInitializer</a>());</div>
+<div class="line"><a id="l00155" name="l00155"></a><span class="lineno">  155</span>    OutEnum = NewEnum;</div>
+<div class="line"><a id="l00156" name="l00156"></a><span class="lineno">  156</span>    InPostNewFn(NewEnum, Params);</div>
+<div class="line"><a id="l00157" name="l00157"></a><span class="lineno">  157</span> </div>
+<div class="line"><a id="l00158" name="l00158"></a><span class="lineno">  158</span>    <a class="code hl_class" href="../../d6/db1/class_t_array.html">TArray&lt;TPair&lt;FName, int64&gt;</a>&gt; EnumNames;</div>
+<div class="line"><a id="l00159" name="l00159"></a><span class="lineno">  159</span>    EnumNames.<a class="code hl_function" href="../../d6/db1/class_t_array.html#aedc7963689c9652f0381db73a03cd4c7">Reserve</a>(Params.NumEnumerators);</div>
+<div class="line"><a id="l00160" name="l00160"></a><span class="lineno">  160</span>    <span class="keywordflow">for</span> (<span class="keyword">const</span> FEnumeratorParam* Enumerator = Params.EnumeratorParams, *EnumeratorEnd = Enumerator + Params.NumEnumerators; Enumerator != EnumeratorEnd; ++Enumerator)</div>
+<div class="line"><a id="l00161" name="l00161"></a><span class="lineno">  161</span>    {</div>
+<div class="line"><a id="l00162" name="l00162"></a><span class="lineno">  162</span>        EnumNames.<a class="code hl_function" href="../../d6/db1/class_t_array.html#a539cc9cfacb551cfc82a73cd35a7dc69">Emplace</a>(<a class="code hl_define" href="../../da/dba/_string_conv_8h.html#a3fb821c30100771d47cb5be895c5b8d3">UTF8_TO_TCHAR</a>(Enumerator-&gt;NameUTF8), Enumerator-&gt;Value);</div>
+<div class="line"><a id="l00163" name="l00163"></a><span class="lineno">  163</span>    }</div>
+<div class="line"><a id="l00164" name="l00164"></a><span class="lineno">  164</span> </div>
+<div class="line"><a id="l00165" name="l00165"></a><span class="lineno">  165</span>    <span class="keyword">const</span> <a class="code hl_enumeration" href="../../d6/d84/class_u_enum.html#a883696618cf64fb5d4da5f56abef9f7b">UEnum::EAddMaxKeyIfMissing</a> AddMaxKeyIfMissing = <a class="code hl_enumvalue" href="../../d6/d84/class_u_enum.html#a883696618cf64fb5d4da5f56abef9f7ba93cba07454f06a4a960172bbd6e2a435">UEnum::EAddMaxKeyIfMissing::Yes</a>;</div>
+<div class="line"><a id="l00166" name="l00166"></a><span class="lineno">  166</span>    NewEnum-&gt;SetEnums(EnumNames, (<a class="code hl_enumeration" href="../../d6/d84/class_u_enum.html#a290fcb8c7ed607632dded4b92ae9cd8c">UEnum::ECppForm</a>)Params.CppForm, (<a class="code hl_enumeration" href="../../d6/d84/class_u_enum.html#af5d222aaab0f40c27c6212cfffd80173">UEnum::EUnderlyingType</a>)Params.UnderlyingType, Params.EnumFlags, AddMaxKeyIfMissing);</div>
+<div class="line"><a id="l00167" name="l00167"></a><span class="lineno">  167</span>    NewEnum-&gt;CppType = <a class="code hl_define" href="../../da/dba/_string_conv_8h.html#a3fb821c30100771d47cb5be895c5b8d3">UTF8_TO_TCHAR</a>(Params.CppTypeUTF8);</div>
+<div class="line"><a id="l00168" name="l00168"></a><span class="lineno">  168</span> </div>
+<div class="line"><a id="l00169" name="l00169"></a><span class="lineno">  169</span>    <span class="keywordflow">if</span> (Params.DisplayNameFunc)</div>
+<div class="line"><a id="l00170" name="l00170"></a><span class="lineno">  170</span>    {</div>
+<div class="line"><a id="l00171" name="l00171"></a><span class="lineno">  171</span>        NewEnum-&gt;SetEnumDisplayNameFn(Params.DisplayNameFunc);</div>
+<div class="line"><a id="l00172" name="l00172"></a><span class="lineno">  172</span>    }</div>
+<div class="line"><a id="l00173" name="l00173"></a><span class="lineno">  173</span> </div>
+<div class="line"><a id="l00174" name="l00174"></a><span class="lineno">  174</span><span class="preprocessor">#if WITH_METADATA</span></div>
+<div class="line"><a id="l00175" name="l00175"></a><span class="lineno">  175</span>    AddMetaData(NewEnum, Params.MetaDataArray, Params.NumMetaData);</div>
+<div class="line"><a id="l00176" name="l00176"></a><span class="lineno">  176</span><span class="preprocessor">#endif</span></div>
+<div class="line"><a id="l00177" name="l00177"></a><span class="lineno">  177</span>}</div>
+</div>
+<div class="line"><a id="l00178" name="l00178"></a><span class="lineno">  178</span> </div>
+<div class="line"><a id="l00179" name="l00179"></a><span class="lineno">  179</span><span class="keyword">template</span>&lt;<span class="keyword">typename</span> UScriptStructClass, <span class="keyword">typename</span> StructParams, <span class="keyword">typename</span> PostNewFn&gt;</div>
+<div class="line"><a id="l00180" name="l00180"></a><span class="lineno">  180</span><span class="comment">// It is UB to call `OuterFunc` below because it can return a `UClass*` not `UObject*` (even though</span></div>
+<div class="line"><a id="l00181" name="l00181"></a><span class="lineno">  181</span><span class="comment">// there is a parent-child relation there). So we suppress UBSan for this function.</span></div>
+<div class="line"><a id="l00182" name="l00182"></a><span class="lineno">  182</span><a class="code hl_define" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a02356dd067d2a283a61df119dfe18cc8">UE_DISABLE_UBSAN</a></div>
+<div class="foldopen" id="foldopen00183" data-start="{" data-end="}">
+<div class="line"><a id="l00183" name="l00183"></a><span class="lineno"><a class="line" href="../../dc/d95/namespace_u_e_code_gen___private.html#ab721621ba07578738d6cb0ced293bfd3">  183</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="../../dc/d95/namespace_u_e_code_gen___private.html#ab721621ba07578738d6cb0ced293bfd3">ConstructUScriptStructHelper</a>(<a class="code hl_class" href="../../dc/d09/class_u_script_struct.html">UScriptStruct</a>*&amp; OutStruct, <span class="keyword">const</span> StructParams&amp; Params, PostNewFn&amp;&amp; InPostNewFn)</div>
+<div class="line"><a id="l00184" name="l00184"></a><span class="lineno">  184</span>{</div>
+<div class="line"><a id="l00185" name="l00185"></a><span class="lineno">  185</span>    <a class="code hl_typedef" href="../../d5/d1e/_object_macros_8h.html#af0905b5070e8c998e334777279adee20">FTypeConstructFunc</a>* OuterFunc = Params.OuterFunc;</div>
+<div class="line"><a id="l00186" name="l00186"></a><span class="lineno">  186</span>    <a class="code hl_class" href="../../dc/d09/class_u_script_struct.html">UScriptStruct</a>* (*SuperFunc)(<a class="code hl_enumeration" href="../../d5/d1e/_object_macros_8h.html#a1ae15d343079a3a04e7b17c20d4294c3">ETypeConstructPhase</a>) = Params.SuperFunc;</div>
+<div class="line"><a id="l00187" name="l00187"></a><span class="lineno">  187</span>    <a class="code hl_struct" href="../../d7/db0/struct_u_script_struct_1_1_i_cpp_struct_ops.html">UScriptStruct::ICppStructOps</a>* (*StructOpsFunc)() = (<a class="code hl_struct" href="../../d7/db0/struct_u_script_struct_1_1_i_cpp_struct_ops.html">UScriptStruct::ICppStructOps</a> * (*)())Params.StructOpsFunc;</div>
+<div class="line"><a id="l00188" name="l00188"></a><span class="lineno">  188</span> </div>
+<div class="line"><a id="l00189" name="l00189"></a><span class="lineno">  189</span>    <a class="code hl_class" href="../../d7/d0b/class_u_object.html">UObject</a>* <a class="code hl_enumvalue" href="../../d1/d8a/_anim_node___anim_dynamics_8h.html#afaad9656e6554f964da78bac4fdbb3f2ae6e36dccbeaf26fca4a6813bf2e83a28">Outer</a> = OuterFunc ? OuterFunc(<a class="code hl_enumvalue" href="../../d5/d1e/_object_macros_8h.html#a1ae15d343079a3a04e7b17c20d4294c3ae6e36dccbeaf26fca4a6813bf2e83a28">ETypeConstructPhase::Outer</a>) : <span class="keyword">nullptr</span>;</div>
+<div class="line"><a id="l00190" name="l00190"></a><span class="lineno">  190</span>    <a class="code hl_class" href="../../dc/d09/class_u_script_struct.html">UScriptStruct</a>* Super = SuperFunc ? SuperFunc(<a class="code hl_enumvalue" href="../../d5/d1e/_object_macros_8h.html#a1ae15d343079a3a04e7b17c20d4294c3ae6e36dccbeaf26fca4a6813bf2e83a28">ETypeConstructPhase::Outer</a>) : <span class="keyword">nullptr</span>;</div>
+<div class="line"><a id="l00191" name="l00191"></a><span class="lineno">  191</span>    <a class="code hl_struct" href="../../d7/db0/struct_u_script_struct_1_1_i_cpp_struct_ops.html">UScriptStruct::ICppStructOps</a>* StructOps = StructOpsFunc ? StructOpsFunc() : <span class="keyword">nullptr</span>;</div>
+<div class="line"><a id="l00192" name="l00192"></a><span class="lineno">  192</span> </div>
+<div class="line"><a id="l00193" name="l00193"></a><span class="lineno">  193</span>    <span class="keywordflow">if</span> (OutStruct)</div>
+<div class="line"><a id="l00194" name="l00194"></a><span class="lineno">  194</span>    {</div>
+<div class="line"><a id="l00195" name="l00195"></a><span class="lineno">  195</span>        <span class="keywordflow">return</span>;</div>
+<div class="line"><a id="l00196" name="l00196"></a><span class="lineno">  196</span>    }</div>
+<div class="line"><a id="l00197" name="l00197"></a><span class="lineno">  197</span> </div>
+<div class="line"><a id="l00198" name="l00198"></a><span class="lineno">  198</span>    UScriptStructClass* NewStruct = <span class="keyword">new</span>(<a class="code hl_enumvalue" href="../../d5/d1e/_object_macros_8h.html#af972354d17b24291b49057f58280327eacfb24be0c78bc5683f2b61d637d06b6d">EC_InternalUseOnlyConstructor</a>, <a class="code hl_enumvalue" href="../../d1/d8a/_anim_node___anim_dynamics_8h.html#afaad9656e6554f964da78bac4fdbb3f2ae6e36dccbeaf26fca4a6813bf2e83a28">Outer</a>, <a class="code hl_define" href="../../da/dba/_string_conv_8h.html#a3fb821c30100771d47cb5be895c5b8d3">UTF8_TO_TCHAR</a>(Params.NameUTF8), Params.ObjectFlags) UScriptStructClass(<a class="code hl_class" href="../../d8/d43/class_f_object_initializer.html">FObjectInitializer</a>(), Super, StructOps, (<a class="code hl_enumeration" href="../../de/d5d/_class_8h.html#a626f94139a1edf14d6523ef5b4ab821f">EStructFlags</a>)Params.StructFlags, Params.SizeOf, Params.AlignOf);</div>
+<div class="line"><a id="l00199" name="l00199"></a><span class="lineno">  199</span>    OutStruct = NewStruct;</div>
+<div class="line"><a id="l00200" name="l00200"></a><span class="lineno">  200</span>    InPostNewFn(NewStruct, Params);</div>
+<div class="line"><a id="l00201" name="l00201"></a><span class="lineno">  201</span> </div>
+<div class="line"><a id="l00202" name="l00202"></a><span class="lineno">  202</span>    <a class="code hl_function" href="../../dc/d95/namespace_u_e_code_gen___private.html#a2f5ee9742b712ec742eb12ad9e86f9c5">ConstructFProperties</a>(NewStruct, Params.PropertyArray, Params.NumProperties);</div>
+<div class="line"><a id="l00203" name="l00203"></a><span class="lineno">  203</span>    NewStruct-&gt;StaticLink();</div>
+<div class="line"><a id="l00204" name="l00204"></a><span class="lineno">  204</span><span class="preprocessor">#if WITH_METADATA</span></div>
+<div class="line"><a id="l00205" name="l00205"></a><span class="lineno">  205</span>    AddMetaData(NewStruct, Params.MetaDataArray, Params.NumMetaData);</div>
+<div class="line"><a id="l00206" name="l00206"></a><span class="lineno">  206</span><span class="preprocessor">#endif</span></div>
+<div class="line"><a id="l00207" name="l00207"></a><span class="lineno">  207</span>}</div>
+</div>
+<div class="line"><a id="l00208" name="l00208"></a><span class="lineno">  208</span> </div>
+<div class="line"><a id="l00209" name="l00209"></a><span class="lineno">  209</span><span class="keyword">template</span>&lt;<span class="keyword">typename</span> UClassClass, <span class="keyword">typename</span> ClassParams, <span class="keyword">typename</span> PostNewFn&gt;</div>
+<div class="line"><a id="l00210" name="l00210"></a><span class="lineno">  210</span><span class="comment">// It is UB to call `SingletonFunc` below because it can return a `UClass*` not `UObject*` (even though</span></div>
+<div class="line"><a id="l00211" name="l00211"></a><span class="lineno">  211</span><span class="comment">// there is a parent-child relation there). So we suppress UBSan for this function.</span></div>
+<div class="line"><a id="l00212" name="l00212"></a><span class="lineno">  212</span><a class="code hl_define" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a02356dd067d2a283a61df119dfe18cc8">UE_DISABLE_UBSAN</a></div>
+<div class="foldopen" id="foldopen00213" data-start="{" data-end="}">
+<div class="line"><a id="l00213" name="l00213"></a><span class="lineno"><a class="line" href="../../dc/d95/namespace_u_e_code_gen___private.html#a96c8e5ed5f0057f4c12b443cdd7844a3">  213</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="../../dc/d95/namespace_u_e_code_gen___private.html#a96c8e5ed5f0057f4c12b443cdd7844a3">ConstructUClassHelper</a>(<a class="code hl_class" href="../../dd/d50/class_u_class.html">UClass</a>*&amp; OutClass, <span class="keyword">const</span> ClassParams&amp; Params, PostNewFn&amp;&amp; InPostNewFn)</div>
+<div class="line"><a id="l00214" name="l00214"></a><span class="lineno">  214</span>{</div>
+<div class="line"><a id="l00215" name="l00215"></a><span class="lineno">  215</span>    <span class="keywordflow">if</span> (OutClass &amp;&amp; (OutClass-&gt;<a class="code hl_variable" href="../../dd/d50/class_u_class.html#a885157cc67635a8ed8aa165b3864cdeb">ClassFlags</a> &amp; <a class="code hl_enumvalue" href="../../d5/d1e/_object_macros_8h.html#a3c3e7202f8ab4f8b50749aa95c1f6f5ca0c22abd0ef5fb25a92d5ff601695afd0">CLASS_Constructed</a>))</div>
+<div class="line"><a id="l00216" name="l00216"></a><span class="lineno">  216</span>    {</div>
+<div class="line"><a id="l00217" name="l00217"></a><span class="lineno">  217</span>        <span class="keywordflow">return</span>;</div>
+<div class="line"><a id="l00218" name="l00218"></a><span class="lineno">  218</span>    }</div>
+<div class="line"><a id="l00219" name="l00219"></a><span class="lineno">  219</span> </div>
+<div class="line"><a id="l00220" name="l00220"></a><span class="lineno">  220</span>    <span class="keywordflow">for</span> (<a class="code hl_typedef" href="../../d5/d1e/_object_macros_8h.html#af0905b5070e8c998e334777279adee20">FTypeConstructFunc</a>* <span class="keyword">const</span>* SingletonFunc = Params.DependencySingletonFuncArray, *<span class="keyword">const</span>* SingletonFuncEnd = SingletonFunc + Params.NumDependencySingletons; SingletonFunc != SingletonFuncEnd; ++SingletonFunc)</div>
+<div class="line"><a id="l00221" name="l00221"></a><span class="lineno">  221</span>    {</div>
+<div class="line"><a id="l00222" name="l00222"></a><span class="lineno">  222</span>        (*SingletonFunc)(<a class="code hl_enumvalue" href="../../d5/d1e/_object_macros_8h.html#a1ae15d343079a3a04e7b17c20d4294c3ae6e36dccbeaf26fca4a6813bf2e83a28">ETypeConstructPhase::Outer</a>);</div>
+<div class="line"><a id="l00223" name="l00223"></a><span class="lineno">  223</span>    }</div>
+<div class="line"><a id="l00224" name="l00224"></a><span class="lineno">  224</span> </div>
+<div class="line"><a id="l00225" name="l00225"></a><span class="lineno">  225</span>    <a class="code hl_class" href="../../dd/d50/class_u_class.html">UClass</a>* NewClass = Params.ClassNoRegisterFunc(<a class="code hl_enumvalue" href="../../d5/d1e/_object_macros_8h.html#a1ae15d343079a3a04e7b17c20d4294c3aa1684698ac3d8ffda353d0458c30b1e7">ETypeConstructPhase::Inner</a>);</div>
+<div class="line"><a id="l00226" name="l00226"></a><span class="lineno">  226</span>    OutClass = NewClass;</div>
+<div class="line"><a id="l00227" name="l00227"></a><span class="lineno">  227</span> </div>
+<div class="line"><a id="l00228" name="l00228"></a><span class="lineno">  228</span>    <span class="keywordflow">if</span> (NewClass-&gt;<a class="code hl_variable" href="../../dd/d50/class_u_class.html#a885157cc67635a8ed8aa165b3864cdeb">ClassFlags</a> &amp; <a class="code hl_enumvalue" href="../../d5/d1e/_object_macros_8h.html#a3c3e7202f8ab4f8b50749aa95c1f6f5ca0c22abd0ef5fb25a92d5ff601695afd0">CLASS_Constructed</a>)</div>
+<div class="line"><a id="l00229" name="l00229"></a><span class="lineno">  229</span>    {</div>
+<div class="line"><a id="l00230" name="l00230"></a><span class="lineno">  230</span>        <span class="keywordflow">return</span>;</div>
+<div class="line"><a id="l00231" name="l00231"></a><span class="lineno">  231</span>    }</div>
+<div class="line"><a id="l00232" name="l00232"></a><span class="lineno">  232</span> </div>
+<div class="line"><a id="l00233" name="l00233"></a><span class="lineno">  233</span>    InPostNewFn(<a class="code hl_function" href="../../d9/d41/_delegate_signature_impl_8inl.html#a81007001265f43f3a9b925add099558c">Cast&lt;UClassClass&gt;</a>(NewClass), Params);</div>
+<div class="line"><a id="l00234" name="l00234"></a><span class="lineno">  234</span> </div>
+<div class="line"><a id="l00235" name="l00235"></a><span class="lineno">  235</span>    <a class="code hl_function" href="../../df/dd3/_u_object_base_8cpp.html#a50e8b8b32e66f47789af8015abbf9d9c">UObjectForceRegistration</a>(NewClass);</div>
+<div class="line"><a id="l00236" name="l00236"></a><span class="lineno">  236</span> </div>
+<div class="line"><a id="l00237" name="l00237"></a><span class="lineno">  237</span>    <a class="code hl_class" href="../../dd/d50/class_u_class.html">UClass</a>* SuperClass = NewClass-&gt;<a class="code hl_function" href="../../dd/d50/class_u_class.html#aafb82e374c37f130107959822cc94d5a">GetSuperClass</a>();</div>
+<div class="line"><a id="l00238" name="l00238"></a><span class="lineno">  238</span>    <span class="keywordflow">if</span> (SuperClass)</div>
+<div class="line"><a id="l00239" name="l00239"></a><span class="lineno">  239</span>    {</div>
+<div class="line"><a id="l00240" name="l00240"></a><span class="lineno">  240</span>        NewClass-&gt;<a class="code hl_variable" href="../../dd/d50/class_u_class.html#a885157cc67635a8ed8aa165b3864cdeb">ClassFlags</a> |= (SuperClass-&gt;<a class="code hl_variable" href="../../dd/d50/class_u_class.html#a885157cc67635a8ed8aa165b3864cdeb">ClassFlags</a> &amp; <a class="code hl_define" href="../../d5/d1e/_object_macros_8h.html#a79f2bcca474629db428e24645f93a7f9">CLASS_Inherit</a>);</div>
+<div class="line"><a id="l00241" name="l00241"></a><span class="lineno">  241</span>    }</div>
+<div class="line"><a id="l00242" name="l00242"></a><span class="lineno">  242</span> </div>
+<div class="line"><a id="l00243" name="l00243"></a><span class="lineno">  243</span>    NewClass-&gt;<a class="code hl_variable" href="../../dd/d50/class_u_class.html#a885157cc67635a8ed8aa165b3864cdeb">ClassFlags</a> |= (<a class="code hl_enumeration" href="../../d5/d1e/_object_macros_8h.html#a3c3e7202f8ab4f8b50749aa95c1f6f5c">EClassFlags</a>)(Params.ClassFlags | <a class="code hl_enumvalue" href="../../d5/d1e/_object_macros_8h.html#a3c3e7202f8ab4f8b50749aa95c1f6f5ca0c22abd0ef5fb25a92d5ff601695afd0">CLASS_Constructed</a>);</div>
+<div class="line"><a id="l00244" name="l00244"></a><span class="lineno">  244</span>    <span class="comment">// Make sure the reference token stream is empty since it will be reconstructed later on</span></div>
+<div class="line"><a id="l00245" name="l00245"></a><span class="lineno">  245</span>    <span class="comment">// This should not apply to intrinsic classes since they emit native references before AssembleReferenceTokenStream is called.</span></div>
+<div class="line"><a id="l00246" name="l00246"></a><span class="lineno">  246</span>    <span class="keywordflow">if</span> ((NewClass-&gt;<a class="code hl_variable" href="../../dd/d50/class_u_class.html#a885157cc67635a8ed8aa165b3864cdeb">ClassFlags</a> &amp; <a class="code hl_enumvalue" href="../../d5/d1e/_object_macros_8h.html#a3c3e7202f8ab4f8b50749aa95c1f6f5ca3d0fae85ec257743308a418719cf47c6">CLASS_Intrinsic</a>) != <a class="code hl_enumvalue" href="../../d5/d1e/_object_macros_8h.html#a3c3e7202f8ab4f8b50749aa95c1f6f5ca3d0fae85ec257743308a418719cf47c6">CLASS_Intrinsic</a>)</div>
+<div class="line"><a id="l00247" name="l00247"></a><span class="lineno">  247</span>    {</div>
+<div class="line"><a id="l00248" name="l00248"></a><span class="lineno">  248</span>        <a class="code hl_define" href="../../d4/d75/_assertion_macros_8h.html#a586e110623cde145b8a5bdefb429e144">check</a>((NewClass-&gt;<a class="code hl_variable" href="../../dd/d50/class_u_class.html#a885157cc67635a8ed8aa165b3864cdeb">ClassFlags</a> &amp; <a class="code hl_enumvalue" href="../../d5/d1e/_object_macros_8h.html#a3c3e7202f8ab4f8b50749aa95c1f6f5caa0aa4ecc499eba24af875fc6260bb368">CLASS_TokenStreamAssembled</a>) != <a class="code hl_enumvalue" href="../../d5/d1e/_object_macros_8h.html#a3c3e7202f8ab4f8b50749aa95c1f6f5caa0aa4ecc499eba24af875fc6260bb368">CLASS_TokenStreamAssembled</a>);</div>
+<div class="line"><a id="l00249" name="l00249"></a><span class="lineno">  249</span>        NewClass-&gt;<a class="code hl_variable" href="../../dd/d50/class_u_class.html#a5565f8edb2e993c7afb5bffd51b99cad">ReferenceSchema</a>.<a class="code hl_function" href="../../d1/d16/class_u_e_1_1_g_c_1_1_f_schema_owner.html#aecc19d8507424a64f5d683c7ccf829e6">Reset</a>();</div>
+<div class="line"><a id="l00250" name="l00250"></a><span class="lineno">  250</span>    }</div>
+<div class="line"><a id="l00251" name="l00251"></a><span class="lineno">  251</span>    NewClass-&gt;<a class="code hl_function" href="../../dd/d50/class_u_class.html#af7c47416bba7f47f478e1610a29ab62d">CreateLinkAndAddChildFunctionsToMap</a>(Params.FunctionLinkArray, Params.NumFunctions);</div>
+<div class="line"><a id="l00252" name="l00252"></a><span class="lineno">  252</span> </div>
+<div class="line"><a id="l00253" name="l00253"></a><span class="lineno">  253</span>    <a class="code hl_function" href="../../dc/d95/namespace_u_e_code_gen___private.html#a2f5ee9742b712ec742eb12ad9e86f9c5">ConstructFProperties</a>(NewClass, Params.PropertyArray, Params.NumProperties);</div>
+<div class="line"><a id="l00254" name="l00254"></a><span class="lineno">  254</span> </div>
+<div class="line"><a id="l00255" name="l00255"></a><span class="lineno">  255</span>    <a class="code hl_function" href="../../d3/dc8/namespace_u_e_1_1_core_u_object_1_1_private.html#aa19e4809a90822fbe8c44045d1d022bf">UE::CoreUObject::Private::ConstructUClassPartials</a>(*NewClass);</div>
+<div class="line"><a id="l00256" name="l00256"></a><span class="lineno">  256</span> </div>
+<div class="line"><a id="l00257" name="l00257"></a><span class="lineno">  257</span>    <span class="keywordflow">if</span> (Params.ClassConfigNameUTF8)</div>
+<div class="line"><a id="l00258" name="l00258"></a><span class="lineno">  258</span>    {</div>
+<div class="line"><a id="l00259" name="l00259"></a><span class="lineno">  259</span>        NewClass-&gt;<a class="code hl_variable" href="../../dd/d50/class_u_class.html#a3ce9f6fe632a8cf10e05fccfd3404dc0">ClassConfigName</a> = <a class="code hl_variable" href="../../d2/dc9/_s_anim_segments_panel_8h.html#a5feee5d8f9e49b79aaf8fa9c6ef73d33">FName</a>(<a class="code hl_define" href="../../da/dba/_string_conv_8h.html#a3fb821c30100771d47cb5be895c5b8d3">UTF8_TO_TCHAR</a>(Params.ClassConfigNameUTF8));</div>
+<div class="line"><a id="l00260" name="l00260"></a><span class="lineno">  260</span>    }</div>
+<div class="line"><a id="l00261" name="l00261"></a><span class="lineno">  261</span> </div>
+<div class="line"><a id="l00262" name="l00262"></a><span class="lineno">  262</span>    NewClass-&gt;<a class="code hl_function" href="../../dd/d50/class_u_class.html#a64cc88f2460bcac6335fad08a4dc9467">SetCppTypeInfoStatic</a>(Params.CppClassInfo);</div>
+<div class="line"><a id="l00263" name="l00263"></a><span class="lineno">  263</span> </div>
+<div class="line"><a id="l00264" name="l00264"></a><span class="lineno">  264</span>    <span class="keywordflow">if</span> (<a class="code hl_typedef" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a8dbb3cd84ca9fd010dadfc3815eefa5d">int32</a> NumImplementedInterfaces = Params.NumImplementedInterfaces)</div>
+<div class="line"><a id="l00265" name="l00265"></a><span class="lineno">  265</span>    {</div>
+<div class="line"><a id="l00266" name="l00266"></a><span class="lineno">  266</span>        NewClass-&gt;<a class="code hl_variable" href="../../dd/d50/class_u_class.html#af6eea2aa8c71e904b256a076ee0b4243">Interfaces</a>.<a class="code hl_function" href="../../d6/db1/class_t_array.html#aedc7963689c9652f0381db73a03cd4c7">Reserve</a>(NumImplementedInterfaces);</div>
+<div class="line"><a id="l00267" name="l00267"></a><span class="lineno">  267</span>        <span class="keywordflow">for</span> (<span class="keyword">const</span> FImplementedInterfaceParams* ImplementedInterface = Params.ImplementedInterfaceArray, *ImplementedInterfaceEnd = ImplementedInterface + NumImplementedInterfaces; ImplementedInterface != ImplementedInterfaceEnd; ++ImplementedInterface)</div>
+<div class="line"><a id="l00268" name="l00268"></a><span class="lineno">  268</span>        {</div>
+<div class="line"><a id="l00269" name="l00269"></a><span class="lineno">  269</span>            <a class="code hl_class" href="../../dd/d50/class_u_class.html">UClass</a>* (*ClassFunc)(<a class="code hl_enumeration" href="../../d5/d1e/_object_macros_8h.html#a1ae15d343079a3a04e7b17c20d4294c3">ETypeConstructPhase</a>) = ImplementedInterface-&gt;ClassFunc;</div>
+<div class="line"><a id="l00270" name="l00270"></a><span class="lineno">  270</span>            <a class="code hl_class" href="../../dd/d50/class_u_class.html">UClass</a>* InterfaceClass = ClassFunc ? ClassFunc(<a class="code hl_enumvalue" href="../../d5/d1e/_object_macros_8h.html#a1ae15d343079a3a04e7b17c20d4294c3ae6e36dccbeaf26fca4a6813bf2e83a28">ETypeConstructPhase::Outer</a>) : <span class="keyword">nullptr</span>;</div>
+<div class="line"><a id="l00271" name="l00271"></a><span class="lineno">  271</span> </div>
+<div class="line"><a id="l00272" name="l00272"></a><span class="lineno">  272</span>            NewClass-&gt;<a class="code hl_variable" href="../../dd/d50/class_u_class.html#af6eea2aa8c71e904b256a076ee0b4243">Interfaces</a>.<a class="code hl_function" href="../../d6/db1/class_t_array.html#a539cc9cfacb551cfc82a73cd35a7dc69">Emplace</a>(InterfaceClass, ImplementedInterface-&gt;Offset, ImplementedInterface-&gt;bImplementedByK2);</div>
+<div class="line"><a id="l00273" name="l00273"></a><span class="lineno">  273</span>        }</div>
+<div class="line"><a id="l00274" name="l00274"></a><span class="lineno">  274</span>    }</div>
+<div class="line"><a id="l00275" name="l00275"></a><span class="lineno">  275</span> </div>
+<div class="line"><a id="l00276" name="l00276"></a><span class="lineno">  276</span><span class="preprocessor">#if WITH_METADATA</span></div>
+<div class="line"><a id="l00277" name="l00277"></a><span class="lineno">  277</span>    AddMetaData(NewClass, Params.MetaDataArray, Params.NumMetaData);</div>
+<div class="line"><a id="l00278" name="l00278"></a><span class="lineno">  278</span><span class="preprocessor">#endif</span></div>
+<div class="line"><a id="l00279" name="l00279"></a><span class="lineno">  279</span> </div>
+<div class="line"><a id="l00280" name="l00280"></a><span class="lineno">  280</span>    NewClass-&gt;<a class="code hl_function" href="../../d3/dbd/class_u_struct.html#aaeb53706e171ef3929244ca2594aadc9">StaticLink</a>();</div>
+<div class="line"><a id="l00281" name="l00281"></a><span class="lineno">  281</span> </div>
+<div class="line"><a id="l00282" name="l00282"></a><span class="lineno">  282</span>    NewClass-&gt;<a class="code hl_function" href="../../dd/d50/class_u_class.html#acff8b49ff78cd4c9d4585e30d45cee6e">SetSparseClassDataStruct</a>(NewClass-&gt;<a class="code hl_function" href="../../dd/d50/class_u_class.html#ac43d94779ddacca4a21bb74a4ce2bde3">GetSparseClassDataArchetypeStruct</a>());</div>
+<div class="line"><a id="l00283" name="l00283"></a><span class="lineno">  283</span>}</div>
+</div>
+<div class="line"><a id="l00284" name="l00284"></a><span class="lineno">  284</span> </div>
+<div class="line"><a id="l00285" name="l00285"></a><span class="lineno">  285</span><span class="keyword">template</span>&lt;<span class="keyword">typename</span> UFunctionClass, <span class="keyword">typename</span> FunctionParams, <span class="keyword">typename</span> NewFn&gt;</div>
+<div class="line"><a id="l00286" name="l00286"></a><span class="lineno">  286</span><span class="comment">// It is UB to call `OuterFunc` below because it can return a `UClass*` not `UObject*` (even though</span></div>
+<div class="line"><a id="l00287" name="l00287"></a><span class="lineno">  287</span><span class="comment">// there is a parent-child relation there). So we suppress UBSan for this function.</span></div>
+<div class="line"><a id="l00288" name="l00288"></a><span class="lineno">  288</span><a class="code hl_define" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a02356dd067d2a283a61df119dfe18cc8">UE_DISABLE_UBSAN</a></div>
+<div class="foldopen" id="foldopen00289" data-start="{" data-end="}">
+<div class="line"><a id="l00289" name="l00289"></a><span class="lineno"><a class="line" href="../../dc/d95/namespace_u_e_code_gen___private.html#a1c5d123e1c2c7d49598cd291de82b81c">  289</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="../../dc/d95/namespace_u_e_code_gen___private.html#a1c5d123e1c2c7d49598cd291de82b81c">ConstructUFunctionHelper</a>(<a class="code hl_class" href="../../d2/d2a/class_u_function.html">UFunction</a>*&amp; InOutFunction, <span class="keyword">const</span> FunctionParams&amp; Params, <a class="code hl_class" href="../../d2/d2a/class_u_function.html">UFunction</a>** InSingletonPtr, NewFn&amp;&amp; InNewFn)</div>
+<div class="line"><a id="l00290" name="l00290"></a><span class="lineno">  290</span>{</div>
+<div class="line"><a id="l00291" name="l00291"></a><span class="lineno">  291</span>    <a class="code hl_typedef" href="../../d5/d1e/_object_macros_8h.html#af0905b5070e8c998e334777279adee20">FTypeConstructFunc</a>* OuterFunc = Params.OuterFunc;</div>
+<div class="line"><a id="l00292" name="l00292"></a><span class="lineno">  292</span>    <a class="code hl_class" href="../../d2/d2a/class_u_function.html">UFunction</a>* (*SuperFunc)(<a class="code hl_enumeration" href="../../d5/d1e/_object_macros_8h.html#a1ae15d343079a3a04e7b17c20d4294c3">ETypeConstructPhase</a>) = Params.SuperFunc;</div>
+<div class="line"><a id="l00293" name="l00293"></a><span class="lineno">  293</span> </div>
+<div class="line"><a id="l00294" name="l00294"></a><span class="lineno">  294</span>    <a class="code hl_class" href="../../d7/d0b/class_u_object.html">UObject</a>* <a class="code hl_enumvalue" href="../../d1/d8a/_anim_node___anim_dynamics_8h.html#afaad9656e6554f964da78bac4fdbb3f2ae6e36dccbeaf26fca4a6813bf2e83a28">Outer</a> = OuterFunc ? OuterFunc(<a class="code hl_enumvalue" href="../../d5/d1e/_object_macros_8h.html#a1ae15d343079a3a04e7b17c20d4294c3ae6e36dccbeaf26fca4a6813bf2e83a28">ETypeConstructPhase::Outer</a>) : <span class="keyword">nullptr</span>;</div>
+<div class="line"><a id="l00295" name="l00295"></a><span class="lineno">  295</span>    <a class="code hl_class" href="../../d2/d2a/class_u_function.html">UFunction</a>* Super = SuperFunc ? SuperFunc(<a class="code hl_enumvalue" href="../../d5/d1e/_object_macros_8h.html#a1ae15d343079a3a04e7b17c20d4294c3ae6e36dccbeaf26fca4a6813bf2e83a28">ETypeConstructPhase::Outer</a>) : <span class="keyword">nullptr</span>;</div>
+<div class="line"><a id="l00296" name="l00296"></a><span class="lineno">  296</span> </div>
+<div class="line"><a id="l00297" name="l00297"></a><span class="lineno">  297</span>    <span class="keywordflow">if</span> (InOutFunction)</div>
+<div class="line"><a id="l00298" name="l00298"></a><span class="lineno">  298</span>    {</div>
+<div class="line"><a id="l00299" name="l00299"></a><span class="lineno">  299</span>        <span class="keywordflow">return</span>;</div>
+<div class="line"><a id="l00300" name="l00300"></a><span class="lineno">  300</span>    }</div>
+<div class="line"><a id="l00301" name="l00301"></a><span class="lineno">  301</span> </div>
+<div class="line"><a id="l00302" name="l00302"></a><span class="lineno">  302</span>    <a class="code hl_class" href="../../d5/dd5/class_f_name.html">FName</a> FuncName(<a class="code hl_define" href="../../da/dba/_string_conv_8h.html#a3fb821c30100771d47cb5be895c5b8d3">UTF8_TO_TCHAR</a>(Params.NameUTF8));</div>
+<div class="line"><a id="l00303" name="l00303"></a><span class="lineno">  303</span> </div>
+<div class="line"><a id="l00304" name="l00304"></a><span class="lineno">  304</span><span class="preprocessor">#if WITH_LIVE_CODING</span></div>
+<div class="line"><a id="l00305" name="l00305"></a><span class="lineno">  305</span>    <span class="comment">// When a package is patched, it might reference a function in a class.  When this happens, the existing UFunction</span></div>
+<div class="line"><a id="l00306" name="l00306"></a><span class="lineno">  306</span>    <span class="comment">// object gets reused but the UField&#39;s Next pointer gets nulled out.  This ends up terminating the function list</span></div>
+<div class="line"><a id="l00307" name="l00307"></a><span class="lineno">  307</span>    <span class="comment">// for the class.  To work around this issue, cache the next pointer and then restore it after the new instance</span></div>
+<div class="line"><a id="l00308" name="l00308"></a><span class="lineno">  308</span>    <span class="comment">// is created.  Only do this if we reuse the current instance.</span></div>
+<div class="line"><a id="l00309" name="l00309"></a><span class="lineno">  309</span>    <a class="code hl_class" href="../../d5/dc0/class_u_field.html">UField</a>* PrevFunctionNextField = <span class="keyword">nullptr</span>;</div>
+<div class="line"><a id="l00310" name="l00310"></a><span class="lineno">  310</span>    <a class="code hl_class" href="../../d2/d2a/class_u_function.html">UFunction</a>* PrevFunction = <span class="keyword">nullptr</span>;</div>
+<div class="line"><a id="l00311" name="l00311"></a><span class="lineno">  311</span>    <span class="keywordflow">if</span> (<a class="code hl_class" href="../../d7/d0b/class_u_object.html">UObject</a>* PrevObject = <a class="code hl_function" href="../../d4/de9/_u_object_hash_8cpp.html#adfa9c1e36d79395a316bdb39734fc4e8">StaticFindObjectFastInternal</a>( <span class="comment">/*Class=*/</span> <span class="keyword">nullptr</span>, <a class="code hl_enumvalue" href="../../d1/d8a/_anim_node___anim_dynamics_8h.html#afaad9656e6554f964da78bac4fdbb3f2ae6e36dccbeaf26fca4a6813bf2e83a28">Outer</a>, FuncName, <a class="code hl_enumvalue" href="../../de/d13/_find_object_flags_8h.html#a7cbdc1d48419c9c34ae81f693fba71c7ac95b5a03ce6f81bdee42bf93bdaf919a">EFindObjectFlags::ExactClass</a>))</div>
+<div class="line"><a id="l00312" name="l00312"></a><span class="lineno">  312</span>    {</div>
+<div class="line"><a id="l00313" name="l00313"></a><span class="lineno">  313</span>        PrevFunction = <a class="code hl_function" href="../../d9/d41/_delegate_signature_impl_8inl.html#a81007001265f43f3a9b925add099558c">Cast&lt;UFunction&gt;</a>(PrevObject);</div>
+<div class="line"><a id="l00314" name="l00314"></a><span class="lineno">  314</span>        <span class="keywordflow">if</span> (PrevFunction != <span class="keyword">nullptr</span>)</div>
+<div class="line"><a id="l00315" name="l00315"></a><span class="lineno">  315</span>        {</div>
+<div class="line"><a id="l00316" name="l00316"></a><span class="lineno">  316</span>            PrevFunctionNextField = PrevFunction-&gt;<a class="code hl_variable" href="../../d5/dc0/class_u_field.html#a8718fd2016e671d3df02ff5af5bacab3">Next</a>;</div>
+<div class="line"><a id="l00317" name="l00317"></a><span class="lineno">  317</span>        }</div>
+<div class="line"><a id="l00318" name="l00318"></a><span class="lineno">  318</span>    }</div>
+<div class="line"><a id="l00319" name="l00319"></a><span class="lineno">  319</span><span class="preprocessor">#endif</span></div>
+<div class="line"><a id="l00320" name="l00320"></a><span class="lineno">  320</span> </div>
+<div class="line"><a id="l00321" name="l00321"></a><span class="lineno">  321</span>    <a class="code hl_class" href="../../d2/d2a/class_u_function.html">UFunction</a>* NewFunction = InNewFn(<a class="code hl_enumvalue" href="../../d1/d8a/_anim_node___anim_dynamics_8h.html#afaad9656e6554f964da78bac4fdbb3f2ae6e36dccbeaf26fca4a6813bf2e83a28">Outer</a>, Super, FuncName, Params);</div>
+<div class="line"><a id="l00322" name="l00322"></a><span class="lineno">  322</span>    <a class="code hl_define" href="../../d4/d75/_assertion_macros_8h.html#a586e110623cde145b8a5bdefb429e144">check</a>(NewFunction);</div>
+<div class="line"><a id="l00323" name="l00323"></a><span class="lineno">  323</span>    InOutFunction = NewFunction;</div>
+<div class="line"><a id="l00324" name="l00324"></a><span class="lineno">  324</span> </div>
+<div class="line"><a id="l00325" name="l00325"></a><span class="lineno">  325</span><span class="preprocessor">#if WITH_LIVE_CODING</span></div>
+<div class="line"><a id="l00326" name="l00326"></a><span class="lineno">  326</span>    NewFunction-&gt;SingletonPtr = InSingletonPtr;</div>
+<div class="line"><a id="l00327" name="l00327"></a><span class="lineno">  327</span>    <span class="keywordflow">if</span> (NewFunction == PrevFunction)</div>
+<div class="line"><a id="l00328" name="l00328"></a><span class="lineno">  328</span>    {</div>
+<div class="line"><a id="l00329" name="l00329"></a><span class="lineno">  329</span>        NewFunction-&gt;<a class="code hl_variable" href="../../d5/dc0/class_u_field.html#a8718fd2016e671d3df02ff5af5bacab3">Next</a> = PrevFunctionNextField;</div>
+<div class="line"><a id="l00330" name="l00330"></a><span class="lineno">  330</span>    }</div>
+<div class="line"><a id="l00331" name="l00331"></a><span class="lineno">  331</span><span class="preprocessor">#endif</span></div>
+<div class="line"><a id="l00332" name="l00332"></a><span class="lineno">  332</span> </div>
+<div class="line"><a id="l00333" name="l00333"></a><span class="lineno">  333</span><span class="preprocessor">#if WITH_METADATA</span></div>
+<div class="line"><a id="l00334" name="l00334"></a><span class="lineno">  334</span>    AddMetaData(NewFunction, Params.MetaDataArray, Params.NumMetaData);</div>
+<div class="line"><a id="l00335" name="l00335"></a><span class="lineno">  335</span><span class="preprocessor">#endif</span></div>
+<div class="line"><a id="l00336" name="l00336"></a><span class="lineno">  336</span>    NewFunction-&gt;<a class="code hl_variable" href="../../d2/d2a/class_u_function.html#a31531b9de0fa8d9c394cc39c2d59c511">RPCId</a> = Params.RPCId;</div>
+<div class="line"><a id="l00337" name="l00337"></a><span class="lineno">  337</span>    NewFunction-&gt;<a class="code hl_variable" href="../../d2/d2a/class_u_function.html#ad2faa772e3ee9ee8521ea69a66b13761">RPCResponseId</a> = Params.RPCResponseId;</div>
+<div class="line"><a id="l00338" name="l00338"></a><span class="lineno">  338</span> </div>
+<div class="line"><a id="l00339" name="l00339"></a><span class="lineno">  339</span>    <a class="code hl_function" href="../../dc/d95/namespace_u_e_code_gen___private.html#a2f5ee9742b712ec742eb12ad9e86f9c5">ConstructFProperties</a>(NewFunction, Params.PropertyArray, Params.NumProperties);</div>
+<div class="line"><a id="l00340" name="l00340"></a><span class="lineno">  340</span> </div>
+<div class="line"><a id="l00341" name="l00341"></a><span class="lineno">  341</span>    NewFunction-&gt;<a class="code hl_function" href="../../d2/d2a/class_u_function.html#a608cfdc93329d5620dd394b501a453e6">Bind</a>();</div>
+<div class="line"><a id="l00342" name="l00342"></a><span class="lineno">  342</span>    NewFunction-&gt;<a class="code hl_function" href="../../d3/dbd/class_u_struct.html#aaeb53706e171ef3929244ca2594aadc9">StaticLink</a>();</div>
+<div class="line"><a id="l00343" name="l00343"></a><span class="lineno">  343</span>}</div>
+</div>
+<div class="line"><a id="l00344" name="l00344"></a><span class="lineno">  344</span> </div>
+<div class="line"><a id="l00345" name="l00345"></a><span class="lineno">  345</span>} <span class="comment">// namespace UECodeGen_Private</span></div>
+</div>
+<div class="line"><a id="l00346" name="l00346"></a><span class="lineno">  346</span><span class="preprocessor">#endif </span><span class="comment">// !UE_WITH_CONSTINIT_UOBJECT</span></div>
+<div class="ttc" id="a_anim_node___anim_dynamics_8h_html_afaad9656e6554f964da78bac4fdbb3f2ae6e36dccbeaf26fca4a6813bf2e83a28"><div class="ttname"><a href="../../d1/d8a/_anim_node___anim_dynamics_8h.html#afaad9656e6554f964da78bac4fdbb3f2ae6e36dccbeaf26fca4a6813bf2e83a28">ESphericalLimitType::Outer</a></div><div class="ttdeci">@ Outer</div><div class="ttdef"><b>定义</b> AnimNode_AnimDynamics.h:207</div></div>
+<div class="ttc" id="a_assertion_macros_8h_html_a586e110623cde145b8a5bdefb429e144"><div class="ttname"><a href="../../d4/d75/_assertion_macros_8h.html#a586e110623cde145b8a5bdefb429e144">check</a></div><div class="ttdeci">#define check(expr)</div><div class="ttdef"><b>定义</b> AssertionMacros.h:319</div></div>
+<div class="ttc" id="a_class_8cpp_html_a3f937566b9b945c842e9ab74718e8137"><div class="ttname"><a href="../../d0/dbd/_class_8cpp.html#a3f937566b9b945c842e9ab74718e8137">InitializePrivateStaticClass</a></div><div class="ttdeci">COREUOBJECT_API void InitializePrivateStaticClass(class UClass *(*TClass_StaticClassFn)(), class UClass *TClass_Super_StaticClass, class UClass *TClass_PrivateStaticClass, class UClass *TClass_WithinClass_StaticClass, const TCHAR *PackageName, const TCHAR *Name)</div><div class="ttdef"><b>定义</b> Class.cpp:129</div></div>
+<div class="ttc" id="a_class_8h_html"><div class="ttname"><a href="../../de/d5d/_class_8h.html">Class.h</a></div></div>
+<div class="ttc" id="a_class_8h_html_a626f94139a1edf14d6523ef5b4ab821f"><div class="ttname"><a href="../../de/d5d/_class_8h.html#a626f94139a1edf14d6523ef5b4ab821f">EStructFlags</a></div><div class="ttdeci">EStructFlags</div><div class="ttdef"><b>定义</b> Class.h:1044</div></div>
+<div class="ttc" id="a_compact_binary_validation_8h_html_a50250313ecd931603c357ad8849e7932a209802fb858e2c83205027dbbb5d9e6c"><div class="ttname"><a href="../../d4/dbc/_compact_binary_validation_8h.html#a50250313ecd931603c357ad8849e7932a209802fb858e2c83205027dbbb5d9e6c">ECbValidateMode::Package</a></div><div class="ttdeci">@ Package</div><div class="ttdef"><b>定义</b> CompactBinaryValidation.h:61</div></div>
+<div class="ttc" id="a_content_browser_item_data_8h_html_ab996d81c628e8b9062d20ca9c39a64cda49ee3087348e8d44e1feda1917443987"><div class="ttname"><a href="../../d1/d24/_content_browser_item_data_8h.html#ab996d81c628e8b9062d20ca9c39a64cda49ee3087348e8d44e1feda1917443987">EContentBrowserItemDataAttributeValueType::Name</a></div><div class="ttdeci">@ Name</div><div class="ttdef"><b>定义</b> ContentBrowserItemData.h:78</div></div>
+<div class="ttc" id="a_core_2_public_2_h_a_l_2_platform_8h_html"><div class="ttname"><a href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html">Platform.h</a></div></div>
+<div class="ttc" id="a_core_2_public_2_h_a_l_2_platform_8h_html_a02356dd067d2a283a61df119dfe18cc8"><div class="ttname"><a href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a02356dd067d2a283a61df119dfe18cc8">UE_DISABLE_UBSAN</a></div><div class="ttdeci">#define UE_DISABLE_UBSAN</div><div class="ttdef"><b>定义</b> Platform.h:995</div></div>
+<div class="ttc" id="a_core_2_public_2_h_a_l_2_platform_8h_html_a8dbb3cd84ca9fd010dadfc3815eefa5d"><div class="ttname"><a href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a8dbb3cd84ca9fd010dadfc3815eefa5d">int32</a></div><div class="ttdeci">FPlatformTypes::int32 int32</div><div class="ttdoc">A 32-bit signed integer.</div><div class="ttdef"><b>定义</b> Platform.h:1190</div></div>
+<div class="ttc" id="a_core_minimal_8h_html"><div class="ttname"><a href="../../dc/d5e/_core_minimal_8h.html">CoreMinimal.h</a></div></div>
+<div class="ttc" id="a_delegate_signature_impl_8inl_html_a81007001265f43f3a9b925add099558c"><div class="ttname"><a href="../../d9/d41/_delegate_signature_impl_8inl.html#a81007001265f43f3a9b925add099558c">Cast</a></div><div class="ttdeci">TCopyQualifiersFromTo_T&lt; From, To &gt; * Cast(From *Src)</div><div class="ttdef"><b>定义</b> Casts.h:89</div></div>
+<div class="ttc" id="a_developer_2_texture_format_oodle_2_sdks_22_89_810_2include_2oodle2base_8h_html_a070d2ce7b6bb7e5c05602aa8c308d0c4"><div class="ttname"><a href="../../d0/d38/_developer_2_texture_format_oodle_2_sdks_22_89_810_2include_2oodle2base_8h.html#a070d2ce7b6bb7e5c05602aa8c308d0c4">NULL</a></div><div class="ttdeci">#define NULL</div><div class="ttdef"><b>定义</b> oodle2base.h:130</div></div>
+<div class="ttc" id="a_find_object_flags_8h_html_a7cbdc1d48419c9c34ae81f693fba71c7ac95b5a03ce6f81bdee42bf93bdaf919a"><div class="ttname"><a href="../../de/d13/_find_object_flags_8h.html#a7cbdc1d48419c9c34ae81f693fba71c7ac95b5a03ce6f81bdee42bf93bdaf919a">EFindObjectFlags::ExactClass</a></div><div class="ttdeci">@ ExactClass</div><div class="ttdef"><b>定义</b> FindObjectFlags.h:12</div></div>
+<div class="ttc" id="a_log_macros_8h_html_a2b7439f43220057d491f6ab6cbeb3a32"><div class="ttname"><a href="../../d7/dcd/_log_macros_8h.html#a2b7439f43220057d491f6ab6cbeb3a32">UE_LOGF</a></div><div class="ttdeci">#define UE_LOGF(CategoryName, Verbosity, Format,...)</div><div class="ttdef"><b>定义</b> LogMacros.h:291</div></div>
+<div class="ttc" id="a_module_manager_8h_html"><div class="ttname"><a href="../../d7/dd1/_module_manager_8h.html">ModuleManager.h</a></div></div>
+<div class="ttc" id="a_module_manager_8h_html_a1d2c1f2040ad882fa018834cf85d56e9a1bf32eb587953e1022293a6efb8d5fa3"><div class="ttname"><a href="../../d7/dd1/_module_manager_8h.html#a1d2c1f2040ad882fa018834cf85d56e9a1bf32eb587953e1022293a6efb8d5fa3">EActiveReloadType::Reinstancing</a></div><div class="ttdeci">@ Reinstancing</div><div class="ttdef"><b>定义</b> ModuleManager.h:1146</div></div>
+<div class="ttc" id="a_module_manager_8h_html_a316708ad96fba91bb61258d8b03d14c1"><div class="ttname"><a href="../../d7/dd1/_module_manager_8h.html#a316708ad96fba91bb61258d8b03d14c1">GetActiveReloadType</a></div><div class="ttdeci">EActiveReloadType GetActiveReloadType()</div><div class="ttdef"><b>定义</b> ModuleManager.h:1184</div></div>
+<div class="ttc" id="a_module_manager_8h_html_a88bbc23a64d5d937dd355bf6e64b8358"><div class="ttname"><a href="../../d7/dd1/_module_manager_8h.html#a88bbc23a64d5d937dd355bf6e64b8358">IsReloadActive</a></div><div class="ttdeci">bool IsReloadActive()</div><div class="ttdef"><b>定义</b> ModuleManager.h:1186</div></div>
+<div class="ttc" id="a_navigation_system_types_8h_html_afd9654171435c563939671aa701df70d"><div class="ttname"><a href="../../d3/d19/_navigation_system_types_8h.html#afd9654171435c563939671aa701df70d">Object</a></div><div class="ttdeci">TWeakInterfacePtr&lt; INavigationInvokerInterface &gt; Object</div><div class="ttdef"><b>定义</b> NavigationSystemTypes.h:116</div></div>
+<div class="ttc" id="a_object_macros_8h_html_a0c04722e445dd94d05a5d11fcc2bcd53"><div class="ttname"><a href="../../d5/d1e/_object_macros_8h.html#a0c04722e445dd94d05a5d11fcc2bcd53">EClassCastFlags</a></div><div class="ttdeci">EClassCastFlags</div><div class="ttdef"><b>定义</b> ObjectMacros.h:344</div></div>
+<div class="ttc" id="a_object_macros_8h_html_a1508ac1247bcd79c4921cf8497e72c79"><div class="ttname"><a href="../../d5/d1e/_object_macros_8h.html#a1508ac1247bcd79c4921cf8497e72c79">EObjectFlags</a></div><div class="ttdeci">EObjectFlags</div><div class="ttdef"><b>定义</b> ObjectMacros.h:583</div></div>
+<div class="ttc" id="a_object_macros_8h_html_a1508ac1247bcd79c4921cf8497e72c79a0613ee66c819d8f81c069f3603cad766"><div class="ttname"><a href="../../d5/d1e/_object_macros_8h.html#a1508ac1247bcd79c4921cf8497e72c79a0613ee66c819d8f81c069f3603cad766">RF_MarkAsRootSet</a></div><div class="ttdeci">@ RF_MarkAsRootSet</div><div class="ttdoc">Object will be marked as root set on construction and not be garbage collected, even if unreferenced ...</div><div class="ttdef"><b>定义</b> ObjectMacros.h:599</div></div>
+<div class="ttc" id="a_object_macros_8h_html_a1508ac1247bcd79c4921cf8497e72c79a3f508e6c131a654c16291e952858d0b3"><div class="ttname"><a href="../../d5/d1e/_object_macros_8h.html#a1508ac1247bcd79c4921cf8497e72c79a3f508e6c131a654c16291e952858d0b3">RF_Public</a></div><div class="ttdeci">@ RF_Public</div><div class="ttdoc">Object is visible outside its package.</div><div class="ttdef"><b>定义</b> ObjectMacros.h:590</div></div>
+<div class="ttc" id="a_object_macros_8h_html_a1508ac1247bcd79c4921cf8497e72c79a9a10d1dbab1eff6bf83e795818907f7d"><div class="ttname"><a href="../../d5/d1e/_object_macros_8h.html#a1508ac1247bcd79c4921cf8497e72c79a9a10d1dbab1eff6bf83e795818907f7d">RF_MarkAsNative</a></div><div class="ttdeci">@ RF_MarkAsNative</div><div class="ttdoc">Object (UField) will be marked as native on construction (DO NOT USE THIS FLAG in HasAnyFlags() etc)</div><div class="ttdef"><b>定义</b> ObjectMacros.h:592</div></div>
+<div class="ttc" id="a_object_macros_8h_html_a1508ac1247bcd79c4921cf8497e72c79aabf43de16d1590110c4f65e79eca0a2b"><div class="ttname"><a href="../../d5/d1e/_object_macros_8h.html#a1508ac1247bcd79c4921cf8497e72c79aabf43de16d1590110c4f65e79eca0a2b">RF_Standalone</a></div><div class="ttdeci">@ RF_Standalone</div><div class="ttdoc">Keep object around for editing even if unreferenced.</div><div class="ttdef"><b>定义</b> ObjectMacros.h:591</div></div>
+<div class="ttc" id="a_object_macros_8h_html_a1508ac1247bcd79c4921cf8497e72c79aba928408a049941a937952e19300250d"><div class="ttname"><a href="../../d5/d1e/_object_macros_8h.html#a1508ac1247bcd79c4921cf8497e72c79aba928408a049941a937952e19300250d">RF_Transient</a></div><div class="ttdeci">@ RF_Transient</div><div class="ttdoc">Don&#39;t save object.</div><div class="ttdef"><b>定义</b> ObjectMacros.h:596</div></div>
+<div class="ttc" id="a_object_macros_8h_html_a1ae15d343079a3a04e7b17c20d4294c3"><div class="ttname"><a href="../../d5/d1e/_object_macros_8h.html#a1ae15d343079a3a04e7b17c20d4294c3">ETypeConstructPhase</a></div><div class="ttdeci">ETypeConstructPhase</div><div class="ttdef"><b>定义</b> ObjectMacros.h:1885</div></div>
+<div class="ttc" id="a_object_macros_8h_html_a1ae15d343079a3a04e7b17c20d4294c3aa1684698ac3d8ffda353d0458c30b1e7"><div class="ttname"><a href="../../d5/d1e/_object_macros_8h.html#a1ae15d343079a3a04e7b17c20d4294c3aa1684698ac3d8ffda353d0458c30b1e7">ETypeConstructPhase::Inner</a></div><div class="ttdeci">@ Inner</div><div class="ttdef"><b>定义</b> ObjectMacros.h:1886</div></div>
+<div class="ttc" id="a_object_macros_8h_html_a1ae15d343079a3a04e7b17c20d4294c3ae6e36dccbeaf26fca4a6813bf2e83a28"><div class="ttname"><a href="../../d5/d1e/_object_macros_8h.html#a1ae15d343079a3a04e7b17c20d4294c3ae6e36dccbeaf26fca4a6813bf2e83a28">ETypeConstructPhase::Outer</a></div><div class="ttdeci">@ Outer</div><div class="ttdef"><b>定义</b> ObjectMacros.h:1887</div></div>
+<div class="ttc" id="a_object_macros_8h_html_a3c3e7202f8ab4f8b50749aa95c1f6f5c"><div class="ttname"><a href="../../d5/d1e/_object_macros_8h.html#a3c3e7202f8ab4f8b50749aa95c1f6f5c">EClassFlags</a></div><div class="ttdeci">EClassFlags</div><div class="ttdef"><b>定义</b> ObjectMacros.h:206</div></div>
+<div class="ttc" id="a_object_macros_8h_html_a3c3e7202f8ab4f8b50749aa95c1f6f5ca0c22abd0ef5fb25a92d5ff601695afd0"><div class="ttname"><a href="../../d5/d1e/_object_macros_8h.html#a3c3e7202f8ab4f8b50749aa95c1f6f5ca0c22abd0ef5fb25a92d5ff601695afd0">CLASS_Constructed</a></div><div class="ttdeci">@ CLASS_Constructed</div><div class="ttdef"><b>定义</b> ObjectMacros.h:277</div></div>
+<div class="ttc" id="a_object_macros_8h_html_a3c3e7202f8ab4f8b50749aa95c1f6f5ca3d0fae85ec257743308a418719cf47c6"><div class="ttname"><a href="../../d5/d1e/_object_macros_8h.html#a3c3e7202f8ab4f8b50749aa95c1f6f5ca3d0fae85ec257743308a418719cf47c6">CLASS_Intrinsic</a></div><div class="ttdeci">@ CLASS_Intrinsic</div><div class="ttdef"><b>定义</b> ObjectMacros.h:275</div></div>
+<div class="ttc" id="a_object_macros_8h_html_a3c3e7202f8ab4f8b50749aa95c1f6f5caa0aa4ecc499eba24af875fc6260bb368"><div class="ttname"><a href="../../d5/d1e/_object_macros_8h.html#a3c3e7202f8ab4f8b50749aa95c1f6f5caa0aa4ecc499eba24af875fc6260bb368">CLASS_TokenStreamAssembled</a></div><div class="ttdeci">@ CLASS_TokenStreamAssembled</div><div class="ttdef"><b>定义</b> ObjectMacros.h:263</div></div>
+<div class="ttc" id="a_object_macros_8h_html_a3f9034b9fef0662158542b34a4d3ec9eabec552a0d9e15857b91e12b6d86c64cb"><div class="ttname"><a href="../../d5/d1e/_object_macros_8h.html#a3f9034b9fef0662158542b34a4d3ec9eabec552a0d9e15857b91e12b6d86c64cb">EC_StaticConstructor</a></div><div class="ttdeci">@ EC_StaticConstructor</div><div class="ttdef"><b>定义</b> ObjectMacros.h:181</div></div>
+<div class="ttc" id="a_object_macros_8h_html_a79f2bcca474629db428e24645f93a7f9"><div class="ttname"><a href="../../d5/d1e/_object_macros_8h.html#a79f2bcca474629db428e24645f93a7f9">CLASS_Inherit</a></div><div class="ttdeci">#define CLASS_Inherit</div><div class="ttdef"><b>定义</b> ObjectMacros.h:292</div></div>
+<div class="ttc" id="a_object_macros_8h_html_af0905b5070e8c998e334777279adee20"><div class="ttname"><a href="../../d5/d1e/_object_macros_8h.html#af0905b5070e8c998e334777279adee20">FTypeConstructFunc</a></div><div class="ttdeci">UObject *(ETypeConstructPhase) FTypeConstructFunc</div><div class="ttdef"><b>定义</b> ObjectMacros.h:1889</div></div>
+<div class="ttc" id="a_object_macros_8h_html_af972354d17b24291b49057f58280327eacfb24be0c78bc5683f2b61d637d06b6d"><div class="ttname"><a href="../../d5/d1e/_object_macros_8h.html#af972354d17b24291b49057f58280327eacfb24be0c78bc5683f2b61d637d06b6d">EC_InternalUseOnlyConstructor</a></div><div class="ttdeci">@ EC_InternalUseOnlyConstructor</div><div class="ttdef"><b>定义</b> ObjectMacros.h:182</div></div>
+<div class="ttc" id="a_s_anim_segments_panel_8h_html_a5feee5d8f9e49b79aaf8fa9c6ef73d33"><div class="ttname"><a href="../../d2/dc9/_s_anim_segments_panel_8h.html#a5feee5d8f9e49b79aaf8fa9c6ef73d33">FName</a></div><div class="ttdeci">int32 FName</div><div class="ttdef"><b>定义</b> SAnimSegmentsPanel.h:28</div></div>
+<div class="ttc" id="a_s_asset_view_8h_html_a1a1a4d5d4362e34cc0c99bb94fdcf2d4a3bd2acd7a468d69b03985ebe99042c18"><div class="ttname"><a href="../../d4/db2/_s_asset_view_8h.html#a1a1a4d5d4362e34cc0c99bb94fdcf2d4a3bd2acd7a468d69b03985ebe99042c18">EAssetViewCopyType::PackageName</a></div><div class="ttdeci">@ PackageName</div><div class="ttdef"><b>定义</b> SAssetView.h:108</div></div>
+<div class="ttc" id="a_string_conv_8h_html_a3fb821c30100771d47cb5be895c5b8d3"><div class="ttname"><a href="../../da/dba/_string_conv_8h.html#a3fb821c30100771d47cb5be895c5b8d3">UTF8_TO_TCHAR</a></div><div class="ttdeci">#define UTF8_TO_TCHAR(str)</div><div class="ttdef"><b>定义</b> StringConv.h:1019</div></div>
+<div class="ttc" id="a_tool_menu_misc_8h_html_a7af3c9137c13dfad9fe897c12ae21017ace0be71e33226e4c1db2bcea5959f16b"><div class="ttname"><a href="../../d4/dd7/_tool_menu_misc_8h.html#a7af3c9137c13dfad9fe897c12ae21017ace0be71e33226e4c1db2bcea5959f16b">EToolMenuInsertFallback::Log</a></div><div class="ttdeci">@ Log</div><div class="ttdef"><b>定义</b> ToolMenuMisc.h:76</div></div>
+<div class="ttc" id="a_u_object_allocator_8cpp_html_af14358cc38fa1b54d3cddbf325d5d9a7"><div class="ttname"><a href="../../d1/df9/_u_object_allocator_8cpp.html#af14358cc38fa1b54d3cddbf325d5d9a7">GUObjectAllocator</a></div><div class="ttdeci">COREUOBJECT_API FUObjectAllocator GUObjectAllocator</div><div class="ttdef"><b>定义</b> UObjectAllocator.cpp:11</div></div>
+<div class="ttc" id="a_u_object_allocator_8h_html"><div class="ttname"><a href="../../d5/dbd/_u_object_allocator_8h.html">UObjectAllocator.h</a></div></div>
+<div class="ttc" id="a_u_object_base_8cpp_html_a50e8b8b32e66f47789af8015abbf9d9c"><div class="ttname"><a href="../../df/dd3/_u_object_base_8cpp.html#a50e8b8b32e66f47789af8015abbf9d9c">UObjectForceRegistration</a></div><div class="ttdeci">void UObjectForceRegistration(UObjectBase *Object, bool bCheckForModuleRelease)</div><div class="ttdef"><b>定义</b> UObjectBase.cpp:665</div></div>
+<div class="ttc" id="a_u_object_globals_8cpp_html_a1a55146f0da98ba99749d921816a39e4"><div class="ttname"><a href="../../d9/daa/_u_object_globals_8cpp.html#a1a55146f0da98ba99749d921816a39e4">FindPackage</a></div><div class="ttdeci">UPackage * FindPackage(UObject *InOuter, const TCHAR *PackageName)</div><div class="ttdef"><b>定义</b> UObjectGlobals.cpp:1008</div></div>
+<div class="ttc" id="a_u_object_globals_8h_html"><div class="ttname"><a href="../../d5/d24/_u_object_globals_8h.html">UObjectGlobals.h</a></div></div>
+<div class="ttc" id="a_u_object_globals_8h_html_a866b1cf22ab394d121294eb716af949e"><div class="ttname"><a href="../../d5/d24/_u_object_globals_8h.html#a866b1cf22ab394d121294eb716af949e">FindObject</a></div><div class="ttdeci">T * FindObject(UObject *Outer, FStringView Name, EFindObjectFlags Flags=EFindObjectFlags::None)</div><div class="ttdef"><b>定义</b> UObjectGlobals.h:2075</div></div>
+<div class="ttc" id="a_u_object_hash_8cpp_html_adfa9c1e36d79395a316bdb39734fc4e8"><div class="ttname"><a href="../../d4/de9/_u_object_hash_8cpp.html#adfa9c1e36d79395a316bdb39734fc4e8">StaticFindObjectFastInternal</a></div><div class="ttdeci">UObject * StaticFindObjectFastInternal(const UClass *ObjectClass, const UObject *ObjectPackage, FName ObjectName, EFindObjectFlags Flags, EObjectFlags ExcludeFlags, EInternalObjectFlags ExclusiveInternalFlags)</div><div class="ttdef"><b>定义</b> UObjectHash.cpp:1162</div></div>
+<div class="ttc" id="a_u_object_hash_8h_html"><div class="ttname"><a href="../../dc/d50/_u_object_hash_8h.html">UObjectHash.h</a></div></div>
+<div class="ttc" id="a_unreal_template_8h_html_af9d82a97e855a2ee1464cc020639d843"><div class="ttname"><a href="../../d2/dd1/_unreal_template_8h.html#af9d82a97e855a2ee1464cc020639d843">MoveTemp</a></div><div class="ttdeci">UE_INTRINSIC_CAST UE_REWRITE constexpr std::remove_reference_t&lt; T &gt; &amp;&amp; MoveTemp(T &amp;&amp;Obj) noexcept</div><div class="ttdef"><b>定义</b> UnrealTemplate.h:530</div></div>
+<div class="ttc" id="aclass_f_name_html"><div class="ttname"><a href="../../d5/dd5/class_f_name.html">FName</a></div><div class="ttdef"><b>定义</b> NameTypes.h:632</div></div>
+<div class="ttc" id="aclass_f_object_initializer_html"><div class="ttname"><a href="../../d8/d43/class_f_object_initializer.html">FObjectInitializer</a></div><div class="ttdef"><b>定义</b> UObjectGlobals.h:1314</div></div>
+<div class="ttc" id="aclass_t_array_html"><div class="ttname"><a href="../../d6/db1/class_t_array.html">TArray</a></div><div class="ttdef"><b>定义</b> Array.h:768</div></div>
+<div class="ttc" id="aclass_t_array_html_a539cc9cfacb551cfc82a73cd35a7dc69"><div class="ttname"><a href="../../d6/db1/class_t_array.html#a539cc9cfacb551cfc82a73cd35a7dc69">TArray::Emplace</a></div><div class="ttdeci">UE_FORCEINLINE_HINT SizeType Emplace(ArgsType &amp;&amp;... Args)</div><div class="ttdef"><b>定义</b> Array.h:2813</div></div>
+<div class="ttc" id="aclass_t_array_html_aedc7963689c9652f0381db73a03cd4c7"><div class="ttname"><a href="../../d6/db1/class_t_array.html#aedc7963689c9652f0381db73a03cd4c7">TArray::Reserve</a></div><div class="ttdeci">UE_FORCEINLINE_HINT void Reserve(SizeType Number)</div><div class="ttdef"><b>定义</b> Array.h:3268</div></div>
+<div class="ttc" id="aclass_u_class_html"><div class="ttname"><a href="../../dd/d50/class_u_class.html">UClass</a></div><div class="ttdef"><b>定义</b> Class.h:3894</div></div>
+<div class="ttc" id="aclass_u_class_html_a3ce9f6fe632a8cf10e05fccfd3404dc0"><div class="ttname"><a href="../../dd/d50/class_u_class.html#a3ce9f6fe632a8cf10e05fccfd3404dc0">UClass::ClassConfigName</a></div><div class="ttdeci">FName ClassConfigName</div><div class="ttdef"><b>定义</b> Class.h:3972</div></div>
+<div class="ttc" id="aclass_u_class_html_a3d6bfe385d2afcad2df884a4ee03199f"><div class="ttname"><a href="../../dd/d50/class_u_class.html#a3d6bfe385d2afcad2df884a4ee03199f">UClass::ClassConstructorType</a></div><div class="ttdeci">void(* ClassConstructorType)(const FObjectInitializer &amp;)</div><div class="ttdef"><b>定义</b> Class.h:3903</div></div>
+<div class="ttc" id="aclass_u_class_html_a5565f8edb2e993c7afb5bffd51b99cad"><div class="ttname"><a href="../../dd/d50/class_u_class.html#a5565f8edb2e993c7afb5bffd51b99cad">UClass::ReferenceSchema</a></div><div class="ttdeci">UE::GC::FSchemaOwner ReferenceSchema</div><div class="ttdef"><b>定义</b> Class.h:4139</div></div>
+<div class="ttc" id="aclass_u_class_html_a64cc88f2460bcac6335fad08a4dc9467"><div class="ttname"><a href="../../dd/d50/class_u_class.html#a64cc88f2460bcac6335fad08a4dc9467">UClass::SetCppTypeInfoStatic</a></div><div class="ttdeci">void SetCppTypeInfoStatic(const FCppClassTypeInfoStatic *InCppTypeInfoStatic)</div><div class="ttdef"><b>定义</b> Class.h:4479</div></div>
+<div class="ttc" id="aclass_u_class_html_a885157cc67635a8ed8aa165b3864cdeb"><div class="ttname"><a href="../../dd/d50/class_u_class.html#a885157cc67635a8ed8aa165b3864cdeb">UClass::ClassFlags</a></div><div class="ttdeci">EClassFlags ClassFlags</div><div class="ttdef"><b>定义</b> Class.h:3939</div></div>
+<div class="ttc" id="aclass_u_class_html_a916816eb6f09a35ec365afc999ca1b32"><div class="ttname"><a href="../../dd/d50/class_u_class.html#a916816eb6f09a35ec365afc999ca1b32">UClass::ClassVTableHelperCtorCallerType</a></div><div class="ttdeci">UObject *(* ClassVTableHelperCtorCallerType)(FVTableHelper &amp;Helper)</div><div class="ttdef"><b>定义</b> Class.h:3904</div></div>
+<div class="ttc" id="aclass_u_class_html_aa809ae26800a12c36217e378c523b12c"><div class="ttname"><a href="../../dd/d50/class_u_class.html#aa809ae26800a12c36217e378c523b12c">UClass::StaticClassFunctionType</a></div><div class="ttdeci">UClass *(* StaticClassFunctionType)()</div><div class="ttdef"><b>定义</b> Class.h:3905</div></div>
+<div class="ttc" id="aclass_u_class_html_aafb82e374c37f130107959822cc94d5a"><div class="ttname"><a href="../../dd/d50/class_u_class.html#aafb82e374c37f130107959822cc94d5a">UClass::GetSuperClass</a></div><div class="ttdeci">UClass * GetSuperClass() const</div><div class="ttdef"><b>定义</b> Class.h:4498</div></div>
+<div class="ttc" id="aclass_u_class_html_ac43d94779ddacca4a21bb74a4ce2bde3"><div class="ttname"><a href="../../dd/d50/class_u_class.html#ac43d94779ddacca4a21bb74a4ce2bde3">UClass::GetSparseClassDataArchetypeStruct</a></div><div class="ttdeci">COREUOBJECT_API UScriptStruct * GetSparseClassDataArchetypeStruct() const</div><div class="ttdef"><b>定义</b> Class.cpp:6392</div></div>
+<div class="ttc" id="aclass_u_class_html_acff8b49ff78cd4c9d4585e30d45cee6e"><div class="ttname"><a href="../../dd/d50/class_u_class.html#acff8b49ff78cd4c9d4585e30d45cee6e">UClass::SetSparseClassDataStruct</a></div><div class="ttdeci">COREUOBJECT_API void SetSparseClassDataStruct(UScriptStruct *InSparseClassDataStruct)</div><div class="ttdef"><b>定义</b> Class.cpp:6765</div></div>
+<div class="ttc" id="aclass_u_class_html_af6eea2aa8c71e904b256a076ee0b4243"><div class="ttname"><a href="../../dd/d50/class_u_class.html#af6eea2aa8c71e904b256a076ee0b4243">UClass::Interfaces</a></div><div class="ttdeci">TArray&lt; FImplementedInterface &gt; Interfaces</div><div class="ttdef"><b>定义</b> Class.h:4126</div></div>
+<div class="ttc" id="aclass_u_class_html_af7c47416bba7f47f478e1610a29ab62d"><div class="ttname"><a href="../../dd/d50/class_u_class.html#af7c47416bba7f47f478e1610a29ab62d">UClass::CreateLinkAndAddChildFunctionsToMap</a></div><div class="ttdeci">COREUOBJECT_API void CreateLinkAndAddChildFunctionsToMap(const FClassFunctionLinkInfo *Functions, uint32 NumFunctions)</div><div class="ttdef"><b>定义</b> Class.cpp:7006</div></div>
+<div class="ttc" id="aclass_u_e_1_1_g_c_1_1_f_schema_owner_html_aecc19d8507424a64f5d683c7ccf829e6"><div class="ttname"><a href="../../d1/d16/class_u_e_1_1_g_c_1_1_f_schema_owner.html#aecc19d8507424a64f5d683c7ccf829e6">UE::GC::FSchemaOwner::Reset</a></div><div class="ttdeci">COREUOBJECT_API void Reset()</div><div class="ttdef"><b>定义</b> GarbageCollectionSchema.cpp:201</div></div>
+<div class="ttc" id="aclass_u_enum_html"><div class="ttname"><a href="../../d6/d84/class_u_enum.html">UEnum</a></div><div class="ttdef"><b>定义</b> Class.h:2878</div></div>
+<div class="ttc" id="aclass_u_enum_html_a290fcb8c7ed607632dded4b92ae9cd8c"><div class="ttname"><a href="../../d6/d84/class_u_enum.html#a290fcb8c7ed607632dded4b92ae9cd8c">UEnum::ECppForm</a></div><div class="ttdeci">ECppForm</div><div class="ttdef"><b>定义</b> Class.h:2889</div></div>
+<div class="ttc" id="aclass_u_enum_html_a883696618cf64fb5d4da5f56abef9f7b"><div class="ttname"><a href="../../d6/d84/class_u_enum.html#a883696618cf64fb5d4da5f56abef9f7b">UEnum::EAddMaxKeyIfMissing</a></div><div class="ttdeci">EAddMaxKeyIfMissing</div><div class="ttdef"><b>定义</b> Class.h:3153</div></div>
+<div class="ttc" id="aclass_u_enum_html_a883696618cf64fb5d4da5f56abef9f7ba93cba07454f06a4a960172bbd6e2a435"><div class="ttname"><a href="../../d6/d84/class_u_enum.html#a883696618cf64fb5d4da5f56abef9f7ba93cba07454f06a4a960172bbd6e2a435">UEnum::EAddMaxKeyIfMissing::Yes</a></div><div class="ttdeci">@ Yes</div><div class="ttdef"><b>定义</b> Class.h:3155</div></div>
+<div class="ttc" id="aclass_u_enum_html_af5d222aaab0f40c27c6212cfffd80173"><div class="ttname"><a href="../../d6/d84/class_u_enum.html#af5d222aaab0f40c27c6212cfffd80173">UEnum::EUnderlyingType</a></div><div class="ttdeci">EUnderlyingType</div><div class="ttdef"><b>定义</b> Class.h:2899</div></div>
+<div class="ttc" id="aclass_u_field_html"><div class="ttname"><a href="../../d5/dc0/class_u_field.html">UField</a></div><div class="ttdef"><b>定义</b> Class.h:172</div></div>
+<div class="ttc" id="aclass_u_field_html_a8718fd2016e671d3df02ff5af5bacab3"><div class="ttname"><a href="../../d5/dc0/class_u_field.html#a8718fd2016e671d3df02ff5af5bacab3">UField::Next</a></div><div class="ttdeci">TObjectPtr&lt; UField &gt; Next</div><div class="ttdef"><b>定义</b> Class.h:181</div></div>
+<div class="ttc" id="aclass_u_function_html"><div class="ttname"><a href="../../d2/d2a/class_u_function.html">UFunction</a></div><div class="ttdef"><b>定义</b> Class.h:2563</div></div>
+<div class="ttc" id="aclass_u_function_html_a31531b9de0fa8d9c394cc39c2d59c511"><div class="ttname"><a href="../../d2/d2a/class_u_function.html#a31531b9de0fa8d9c394cc39c2d59c511">UFunction::RPCId</a></div><div class="ttdeci">uint16 RPCId</div><div class="ttdef"><b>定义</b> Class.h:2580</div></div>
+<div class="ttc" id="aclass_u_function_html_a608cfdc93329d5620dd394b501a453e6"><div class="ttname"><a href="../../d2/d2a/class_u_function.html#a608cfdc93329d5620dd394b501a453e6">UFunction::Bind</a></div><div class="ttdeci">virtual COREUOBJECT_API void Bind() override</div><div class="ttdef"><b>定义</b> Class.cpp:7679</div></div>
+<div class="ttc" id="aclass_u_function_html_ad2faa772e3ee9ee8521ea69a66b13761"><div class="ttname"><a href="../../d2/d2a/class_u_function.html#ad2faa772e3ee9ee8521ea69a66b13761">UFunction::RPCResponseId</a></div><div class="ttdeci">uint16 RPCResponseId</div><div class="ttdef"><b>定义</b> Class.h:2582</div></div>
+<div class="ttc" id="aclass_u_object_html"><div class="ttname"><a href="../../d7/d0b/class_u_object.html">UObject</a></div><div class="ttdef"><b>定义</b> Object.h:99</div></div>
+<div class="ttc" id="aclass_u_package_html"><div class="ttname"><a href="../../d4/d0b/class_u_package.html">UPackage</a></div><div class="ttdef"><b>定义</b> Package.h:217</div></div>
+<div class="ttc" id="aclass_u_script_struct_html"><div class="ttname"><a href="../../dc/d09/class_u_script_struct.html">UScriptStruct</a></div><div class="ttdef"><b>定义</b> Class.h:1775</div></div>
+<div class="ttc" id="aclass_u_struct_html_aaeb53706e171ef3929244ca2594aadc9"><div class="ttname"><a href="../../d3/dbd/class_u_struct.html#aaeb53706e171ef3929244ca2594aadc9">UStruct::StaticLink</a></div><div class="ttdeci">COREUOBJECT_API void StaticLink(bool bRelinkExistingProperties=false)</div><div class="ttdef"><b>定义</b> Class.cpp:729</div></div>
+<div class="ttc" id="anamespace_u_e_1_1_core_u_object_1_1_private_html_aa19e4809a90822fbe8c44045d1d022bf"><div class="ttname"><a href="../../d3/dc8/namespace_u_e_1_1_core_u_object_1_1_private.html#aa19e4809a90822fbe8c44045d1d022bf">UE::CoreUObject::Private::ConstructUClassPartials</a></div><div class="ttdeci">void ConstructUClassPartials(UClass &amp;Class)</div><div class="ttdef"><b>定义</b> UObjectPartials.cpp:16</div></div>
+<div class="ttc" id="anamespace_u_e_code_gen___private_html"><div class="ttname"><a href="../../dc/d95/namespace_u_e_code_gen___private.html">UECodeGen_Private</a></div><div class="ttdef"><b>定义</b> UObjectConstructInternal.h:16</div></div>
+<div class="ttc" id="anamespace_u_e_code_gen___private_html_a1c5d123e1c2c7d49598cd291de82b81c"><div class="ttname"><a href="../../dc/d95/namespace_u_e_code_gen___private.html#a1c5d123e1c2c7d49598cd291de82b81c">UECodeGen_Private::ConstructUFunctionHelper</a></div><div class="ttdeci">UE_DISABLE_UBSAN void ConstructUFunctionHelper(UFunction *&amp;InOutFunction, const FunctionParams &amp;Params, UFunction **InSingletonPtr, NewFn &amp;&amp;InNewFn)</div><div class="ttdef"><b>定义</b> UObjectConstructInternal.h:289</div></div>
+<div class="ttc" id="anamespace_u_e_code_gen___private_html_a2f5ee9742b712ec742eb12ad9e86f9c5"><div class="ttname"><a href="../../dc/d95/namespace_u_e_code_gen___private.html#a2f5ee9742b712ec742eb12ad9e86f9c5">UECodeGen_Private::ConstructFProperties</a></div><div class="ttdeci">void ConstructFProperties(UObject *Outer, const FPropertyParamsBase *const *PropertyArray, int32 NumProperties)</div><div class="ttdef"><b>定义</b> UObjectGlobals.cpp:6499</div></div>
+<div class="ttc" id="anamespace_u_e_code_gen___private_html_a43ec7cdca200bdbbee9126a853a49da6"><div class="ttname"><a href="../../dc/d95/namespace_u_e_code_gen___private.html#a43ec7cdca200bdbbee9126a853a49da6">UECodeGen_Private::ConstructUClassNoInitHelper</a></div><div class="ttdeci">void ConstructUClassNoInitHelper(const TCHAR *PackageName, const TCHAR *Name, UClass *&amp;ReturnClass, void(*RegisterNativeFunc)(), uint32 InSize, uint32 InAlignment, EClassFlags InClassFlags, EClassCastFlags InClassCastFlags, const TCHAR *InConfigName, UClass::ClassConstructorType InClassConstructor, UClass::ClassVTableHelperCtorCallerType InClassVTableHelperCtorCaller, FUObjectCppClassStaticFunctions &amp;&amp;InCppClassStaticFunctions, UClass::StaticClassFunctionType InSuperClassFn, UClass::StaticClassFunctionType InWithinClassFn, PostNewFn &amp;&amp;InPostNewFn)</div><div class="ttdef"><b>定义</b> UObjectConstructInternal.h:44</div></div>
+<div class="ttc" id="anamespace_u_e_code_gen___private_html_a96c8e5ed5f0057f4c12b443cdd7844a3"><div class="ttname"><a href="../../dc/d95/namespace_u_e_code_gen___private.html#a96c8e5ed5f0057f4c12b443cdd7844a3">UECodeGen_Private::ConstructUClassHelper</a></div><div class="ttdeci">UE_DISABLE_UBSAN void ConstructUClassHelper(UClass *&amp;OutClass, const ClassParams &amp;Params, PostNewFn &amp;&amp;InPostNewFn)</div><div class="ttdef"><b>定义</b> UObjectConstructInternal.h:213</div></div>
+<div class="ttc" id="anamespace_u_e_code_gen___private_html_aa7488bb124b55457be0f265c08d8df19"><div class="ttname"><a href="../../dc/d95/namespace_u_e_code_gen___private.html#aa7488bb124b55457be0f265c08d8df19">UECodeGen_Private::ConstructUEnumHelper</a></div><div class="ttdeci">UE_DISABLE_UBSAN void ConstructUEnumHelper(UEnum *&amp;OutEnum, const EnumParams &amp;Params, PostNewFn &amp;&amp;InPostNewFn)</div><div class="ttdef"><b>定义</b> UObjectConstructInternal.h:143</div></div>
+<div class="ttc" id="anamespace_u_e_code_gen___private_html_ab721621ba07578738d6cb0ced293bfd3"><div class="ttname"><a href="../../dc/d95/namespace_u_e_code_gen___private.html#ab721621ba07578738d6cb0ced293bfd3">UECodeGen_Private::ConstructUScriptStructHelper</a></div><div class="ttdeci">UE_DISABLE_UBSAN void ConstructUScriptStructHelper(UScriptStruct *&amp;OutStruct, const StructParams &amp;Params, PostNewFn &amp;&amp;InPostNewFn)</div><div class="ttdef"><b>定义</b> UObjectConstructInternal.h:183</div></div>
+<div class="ttc" id="apreprocessor_8c_html_a1134b580f8da4de94ca6b1de4d37975e"><div class="ttname"><a href="../../dd/de9/preprocessor_8c.html#a1134b580f8da4de94ca6b1de4d37975e">uint32</a></div><div class="ttdeci">unsigned int uint32</div><div class="ttdef"><b>定义</b> preprocessor.c:67</div></div>
+<div class="ttc" id="astruct_f_u_object_cpp_class_static_functions_html"><div class="ttname"><a href="../../d2/de2/struct_f_u_object_cpp_class_static_functions.html">FUObjectCppClassStaticFunctions</a></div><div class="ttdef"><b>定义</b> ObjectMacros.h:2156</div></div>
+<div class="ttc" id="astruct_u_script_struct_1_1_i_cpp_struct_ops_html"><div class="ttname"><a href="../../d7/db0/struct_u_script_struct_1_1_i_cpp_struct_ops.html">UScriptStruct::ICppStructOps</a></div><div class="ttdef"><b>定义</b> Class.h:1780</div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+</div><!-- container -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a href="../../dir_0b6ee6e7e9547e675db4add2e5de97da.html">Engine</a></li><li class="navelem"><a href="../../dir_9579d1ecb2c7bf48cbe1049c41745cb4.html">Source</a></li><li class="navelem"><a href="../../dir_9f04efef762572853abdf73f62bebfcc.html">Runtime</a></li><li class="navelem"><a href="../../dir_87835aaea0d77a2a55fd49991cde0b5e.html">CoreUObject</a></li><li class="navelem"><a href="../../dir_8d13800183e64c83edfc0c4ca47054bf.html">Private</a></li><li class="navelem"><a href="../../dir_5bb6f74bfabf28434eeab32b256fbc86.html">UObject</a></li><li class="navelem"><a href="../../d6/da8/_u_object_construct_internal_8h.html">UObjectConstructInternal.h</a></li>
+    <li class="footer">制作者 <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.15.0 </li>
+  </ul>
+</div>
+</body>
+</html>

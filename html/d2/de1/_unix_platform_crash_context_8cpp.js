@@ -1,0 +1,36 @@
+var _unix_platform_crash_context_8cpp =
+[
+    [ "UnixCrashReporterTracker::CrashReporterProcess", "dd/d1b/struct_unix_crash_reporter_tracker_1_1_crash_reporter_process.html", "dd/d1b/struct_unix_crash_reporter_tracker_1_1_crash_reporter_process" ],
+    [ "HANDLE_CASE", "d2/de1/_unix_platform_crash_context_8cpp.html#a41a287f3cb0a9d7d026e647a705c6422", null ],
+    [ "SERVER_MAX_CONCURRENT_REPORTS", "d2/de1/_unix_platform_crash_context_8cpp.html#a1d510da478556f80d2bc2a049ed65e18", null ],
+    [ "UnixCrashReporterTracker::SlotStatus", "db/dab/namespace_unix_crash_reporter_tracker.html#a70981ec6ae4b2b6d4af99b31ba306dc8", [
+      [ "UnixCrashReporterTracker::SlotStatus::Available", "db/dab/namespace_unix_crash_reporter_tracker.html#a70981ec6ae4b2b6d4af99b31ba306dc8a78945de8de090e90045d299651a68a9b", null ],
+      [ "UnixCrashReporterTracker::SlotStatus::Spawning", "db/dab/namespace_unix_crash_reporter_tracker.html#a70981ec6ae4b2b6d4af99b31ba306dc8aabd8b51005b5a27c7aacebb8e08f6d6a", null ],
+      [ "UnixCrashReporterTracker::SlotStatus::Uploading", "db/dab/namespace_unix_crash_reporter_tracker.html#a70981ec6ae4b2b6d4af99b31ba306dc8a3f1c5b0049a9751e6f5f9e702b74a0dd", null ],
+      [ "UnixCrashReporterTracker::SlotStatus::Closing", "db/dab/namespace_unix_crash_reporter_tracker.html#a70981ec6ae4b2b6d4af99b31ba306dc8a5c8de6f894682fdb1786037b2040a26e", null ],
+      [ "UnixCrashReporterTracker::SlotStatus::Killing", "db/dab/namespace_unix_crash_reporter_tracker.html#a70981ec6ae4b2b6d4af99b31ba306dc8adcbed5cd612fe3a054bc2042d779c285", null ]
+    ] ],
+    [ "CreateExceptionInfoString", "d2/de1/_unix_platform_crash_context_8cpp.html#a9486545788118adf58fa00a310854565", null ],
+    [ "DefaultCrashHandler", "d2/de1/_unix_platform_crash_context_8cpp.html#ad51a946a19b76e034aa55c510d98ee94", null ],
+    [ "DescribeSignal", "d2/de1/_unix_platform_crash_context_8cpp.html#a6aa2fb05d882dbed1fb19e364d03d776", null ],
+    [ "GracefulTerminationHandler", "d2/de1/_unix_platform_crash_context_8cpp.html#a1e3e6f8861d9a895850bc25ab884b308", null ],
+    [ "UnixCrashReporterTracker::NumUploadingProcesses", "db/dab/namespace_unix_crash_reporter_tracker.html#a8945f871d5286f39e4a66b00df67585b", null ],
+    [ "PlatformCrashHandler", "d2/de1/_unix_platform_crash_context_8cpp.html#a4188a755d69c6e75e730ac6f0665dbaf", null ],
+    [ "UnixCrashReporterTracker::PreInit", "db/dab/namespace_unix_crash_reporter_tracker.html#ac4bd7e680ff11d50b418c5b791d42399", null ],
+    [ "UnixCrashReporterTracker::RemoveValidCrashReportTickerForChildProcess", "db/dab/namespace_unix_crash_reporter_tracker.html#ad0dc58a4b0cd34ec1d7715b72c39d25a", null ],
+    [ "ThreadStackWalker", "d2/de1/_unix_platform_crash_context_8cpp.html#a63165df53ca276111d84cb0ef3b8802f", null ],
+    [ "UnixCrashReporterTracker::Tick", "db/dab/namespace_unix_crash_reporter_tracker.html#a24db92721d4e3e7db4b3a874b0af863f", null ],
+    [ "UnixCrashReporterTracker::WaitForProcWithTimeout", "db/dab/namespace_unix_crash_reporter_tracker.html#ae2fe46c2a68dd7c013b207e3dcb32355", null ],
+    [ "GCrashErrorMessage", "d2/de1/_unix_platform_crash_context_8cpp.html#a706c1961b9a9f257717cb868720f3db7", null ],
+    [ "GCrashErrorProgramCounter", "d2/de1/_unix_platform_crash_context_8cpp.html#a208618e4ae2d0ec568bce42785131ca6", null ],
+    [ "GCrashErrorType", "d2/de1/_unix_platform_crash_context_8cpp.html#afe3a8b161fb80e115ca23ed75904739a", null ],
+    [ "GCrashHandlerPointer", "d2/de1/_unix_platform_crash_context_8cpp.html#ac1a1213f5a683c4c518e715046957f9f", null ],
+    [ "GCrashHandlerStackSize", "d2/de1/_unix_platform_crash_context_8cpp.html#ab1c27bb2376b64991277fdbeacce74e6", null ],
+    [ "GEnteredSignalHandler", "d2/de1/_unix_platform_crash_context_8cpp.html#a591ad54e474f7370a4ffc4bbd99e16cd", null ],
+    [ "GIsGPUCrashed", "d2/de1/_unix_platform_crash_context_8cpp.html#abb68f80b66c92415cc0e622ef206aab5", null ],
+    [ "GMaxNumberFileMappingCache", "d2/de1/_unix_platform_crash_context_8cpp.html#a545cb86809fbf781ac2cc6798d515a13", null ],
+    [ "GSignalToDefault", "d2/de1/_unix_platform_crash_context_8cpp.html#a2fb9d47ad1bb767d4cbad7da33316552", null ],
+    [ "GUnixStackWalkNoCrashOnTimeout", "d2/de1/_unix_platform_crash_context_8cpp.html#a2847ce3f553bbb5d982f1d391c1ccf89", null ],
+    [ "UnixCrashReporterTracker::MaxProcessSlots", "db/dab/namespace_unix_crash_reporter_tracker.html#a09186e4463f9693f241f28f8fad4ead0", null ],
+    [ "UnixCrashReporterTracker::Processes", "db/dab/namespace_unix_crash_reporter_tracker.html#aff52adef106092b599483348d59e599c", null ]
+];

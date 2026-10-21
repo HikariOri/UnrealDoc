@@ -1,0 +1,26 @@
+var class_i_audio_link_synchronizer =
+[
+    [ "FOnOpenStreamParams", "d4/d2b/struct_i_audio_link_synchronizer_1_1_f_on_open_stream_params.html", "d4/d2b/struct_i_audio_link_synchronizer_1_1_f_on_open_stream_params" ],
+    [ "FOnRenderParams", "d0/dc7/struct_i_audio_link_synchronizer_1_1_f_on_render_params.html", "d0/dc7/struct_i_audio_link_synchronizer_1_1_f_on_render_params" ],
+    [ "IAudioLinkSynchronizer", "da/dbf/class_i_audio_link_synchronizer.html#a4cfea135bfb34e59e939dd42c07f6129", null ],
+    [ "~IAudioLinkSynchronizer", "da/dbf/class_i_audio_link_synchronizer.html#ab768a1268aabaf8ed3c7155eed8b9405", null ],
+    [ "DECLARE_MULTICAST_DELEGATE", "da/dbf/class_i_audio_link_synchronizer.html#ac14e4b4f9a1322aa9a7264bd6ea53291", null ],
+    [ "DECLARE_MULTICAST_DELEGATE", "da/dbf/class_i_audio_link_synchronizer.html#af834068f6b4cad20f58a683cfc6a202f", null ],
+    [ "DECLARE_MULTICAST_DELEGATE", "da/dbf/class_i_audio_link_synchronizer.html#a94926aace28cfcfdb60b50a35a63ce4f", null ],
+    [ "DECLARE_MULTICAST_DELEGATE_OneParam", "da/dbf/class_i_audio_link_synchronizer.html#a453be7d413a084808fb578ddfda21df8", null ],
+    [ "DECLARE_MULTICAST_DELEGATE_OneParam", "da/dbf/class_i_audio_link_synchronizer.html#a3a74b315989300d3a0097a6d56962c1d", null ],
+    [ "DECLARE_MULTICAST_DELEGATE_OneParam", "da/dbf/class_i_audio_link_synchronizer.html#a5200d2695e53843651b42aee322cd5c8", null ],
+    [ "GetCachedOpenStreamParams", "da/dbf/class_i_audio_link_synchronizer.html#ae40828e76aab6b678f09e41fa2749655", null ],
+    [ "RegisterBeginRenderDelegate", "da/dbf/class_i_audio_link_synchronizer.html#a190cd9fda7975070c02c8c7830ec64d8", null ],
+    [ "RegisterCloseStreamDelegate", "da/dbf/class_i_audio_link_synchronizer.html#ac3356cf79e8c8a2195ce5f11861e954e", null ],
+    [ "RegisterEndRenderDelegate", "da/dbf/class_i_audio_link_synchronizer.html#aa291e7fd5b41bf47560bbd17d5097def", null ],
+    [ "RegisterOpenStreamDelegate", "da/dbf/class_i_audio_link_synchronizer.html#a9c3367ac7e453f2a4f58b9fd2c953f84", null ],
+    [ "RegisterResumeDelegate", "da/dbf/class_i_audio_link_synchronizer.html#a07e916921cf7d4289428dd09c1182ee9", null ],
+    [ "RegisterSuspendDelegate", "da/dbf/class_i_audio_link_synchronizer.html#a198c6f911f39a0a8a77409e53eb89a48", null ],
+    [ "RemoveBeginRenderDelegate", "da/dbf/class_i_audio_link_synchronizer.html#a900ce4f8effb1de717d571b6890a41e4", null ],
+    [ "RemoveCloseStreamDelegate", "da/dbf/class_i_audio_link_synchronizer.html#a5b03bdd213e4faf46ddb5426628e6d9c", null ],
+    [ "RemoveEndRenderDelegate", "da/dbf/class_i_audio_link_synchronizer.html#abee240c5850a08453ee766f063bf9cd1", null ],
+    [ "RemoveOpenStreamDelegate", "da/dbf/class_i_audio_link_synchronizer.html#a8efc9c063fc9d8dce323d0140116a159", null ],
+    [ "RemoveResumeDelegate", "da/dbf/class_i_audio_link_synchronizer.html#a554070cb559a5163e08524e5cb33d17d", null ],
+    [ "RemoveSuspendDelegate", "da/dbf/class_i_audio_link_synchronizer.html#a83fc0379d098d8bdf8c442d9b40d7140", null ]
+];

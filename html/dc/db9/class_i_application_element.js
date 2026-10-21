@@ -1,0 +1,26 @@
+var class_i_application_element =
+[
+    [ "CanFocus", "dc/db9/class_i_application_element.html#ae20cee7bb0e5453114f3faa243a035dd", null ],
+    [ "CreateLocator", "dc/db9/class_i_application_element.html#aa00632c520913dc3b0a2c278ffa82104", null ],
+    [ "Focus", "dc/db9/class_i_application_element.html#a8472e37a425f0ec20d950a3ae0acb984", null ],
+    [ "Focus", "dc/db9/class_i_application_element.html#ab52f1ed5948e12b8c1a7c9d80bdf6bd6", null ],
+    [ "GetAbsolutePosition", "dc/db9/class_i_application_element.html#a91919ba48661d1eae18a194420774c09", null ],
+    [ "GetRawElement", "dc/db9/class_i_application_element.html#a34dbdab522aa4b651d1624e02a46e33d", null ],
+    [ "GetScrollableParent", "dc/db9/class_i_application_element.html#a590b9b17431d6b55732d942cbfb12d53", null ],
+    [ "GetSize", "dc/db9/class_i_application_element.html#aea4be39575c7972b6cb62b0a0353b789", null ],
+    [ "GetText", "dc/db9/class_i_application_element.html#aa9e104f15c6762b4e0e68ed13edbf8cb", null ],
+    [ "GetWindow", "dc/db9/class_i_application_element.html#ae8f71239cb7f2c546edcf5cb23fdc225", null ],
+    [ "HasFocusedDescendants", "dc/db9/class_i_application_element.html#a58935a7adfd164cda874c8463c98e74a", null ],
+    [ "HasFocusedDescendants", "dc/db9/class_i_application_element.html#af0d2da81df646660845eebd00ac634d4", null ],
+    [ "IsChecked", "dc/db9/class_i_application_element.html#ac12aa6f689f4affc9ca2224b86bf1e76", null ],
+    [ "IsFocused", "dc/db9/class_i_application_element.html#a66291e772227dc51fd04336067ebaae9", null ],
+    [ "IsFocused", "dc/db9/class_i_application_element.html#ac257c3c08c26b920cc544d4e1ca999ab", null ],
+    [ "IsHovered", "dc/db9/class_i_application_element.html#a689ebe6f5f1bd354d27a75d195fe06be", null ],
+    [ "IsInteractable", "dc/db9/class_i_application_element.html#a101f7e735974d79a165ac24989b86c27", null ],
+    [ "IsScrollable", "dc/db9/class_i_application_element.html#a9de031f4cebf70cb513ae9306e193ffe", null ],
+    [ "IsScrollable", "dc/db9/class_i_application_element.html#a4286ac6af9af94a3e90849e1b6ac3d98", null ],
+    [ "IsScrolledToBeginning", "dc/db9/class_i_application_element.html#a0eed5c36ccc71b80b33131f687458c2d", null ],
+    [ "IsScrolledToEnd", "dc/db9/class_i_application_element.html#af816b48b6e22f372de334886a7252ebd", null ],
+    [ "IsVisible", "dc/db9/class_i_application_element.html#adc50c39919cff5b5b58a32bb8917241e", null ],
+    [ "ToDebugString", "dc/db9/class_i_application_element.html#a1cc2e895f972857bf238658e6547a6ef", null ]
+];

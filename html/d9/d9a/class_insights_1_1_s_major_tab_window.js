@@ -1,0 +1,26 @@
+var class_insights_1_1_s_major_tab_window =
+[
+    [ "SMajorTabWindow", "d9/d9a/class_insights_1_1_s_major_tab_window.html#a3f70752b938e93d84978a36d9cae2af2", null ],
+    [ "~SMajorTabWindow", "d9/d9a/class_insights_1_1_s_major_tab_window.html#aff1cd23dfa9759157ebbe01b3cf8af60", null ],
+    [ "AddOpenTab", "d9/d9a/class_insights_1_1_s_major_tab_window.html#a1b16b8383abb84db07a94fefef05e45d", null ],
+    [ "CloseAllOpenTabs", "d9/d9a/class_insights_1_1_s_major_tab_window.html#a9335dda955c326edd2e37882ca7770a8", null ],
+    [ "Construct", "d9/d9a/class_insights_1_1_s_major_tab_window.html#a70e94de58e2ae5c5e097894b9e8fc15a", null ],
+    [ "CreateDefaultTabLayout", "d9/d9a/class_insights_1_1_s_major_tab_window.html#acab30f36afca21782a63ecbbbafdebe8", null ],
+    [ "CreateToolbar", "d9/d9a/class_insights_1_1_s_major_tab_window.html#a66652314dc341c12e17f8db6f768cd70", null ],
+    [ "CreateWorkspaceMenuGroup", "d9/d9a/class_insights_1_1_s_major_tab_window.html#a658af10ecc9c25bcedd614a7ef95de30", null ],
+    [ "DECLARE_MULTICAST_DELEGATE", "d9/d9a/class_insights_1_1_s_major_tab_window.html#acd800edfd8b256cc5d885f27e49c211d", null ],
+    [ "GetAnalyticsEventName", "d9/d9a/class_insights_1_1_s_major_tab_window.html#acc0c3635a7189460d7cccd30e7b2b53d", null ],
+    [ "GetCommandList", "d9/d9a/class_insights_1_1_s_major_tab_window.html#a93c34e7fc19f50d34a48e2ab85a868f5", null ],
+    [ "GetMajorTabId", "d9/d9a/class_insights_1_1_s_major_tab_window.html#ab000515c2e4d25cf4f5578aa2b80bbe1", null ],
+    [ "GetTabManager", "d9/d9a/class_insights_1_1_s_major_tab_window.html#a98b69b834bc80e68f81742e3ce44629f", null ],
+    [ "GetWindowClosedEvent", "d9/d9a/class_insights_1_1_s_major_tab_window.html#a1a4ca015591b7406b6940860e9e50c67", null ],
+    [ "GetWorkspaceMenuGroup", "d9/d9a/class_insights_1_1_s_major_tab_window.html#a197a5b520c80f51e4f8cde7bf88abba5", null ],
+    [ "HideTab", "d9/d9a/class_insights_1_1_s_major_tab_window.html#a20d60ea19e0fd41599e3952b4b475dfc", null ],
+    [ "RegisterTabSpawners", "d9/d9a/class_insights_1_1_s_major_tab_window.html#af86dbacfb4e09bd03c27e562c6eaa211", null ],
+    [ "RemoveOpenTab", "d9/d9a/class_insights_1_1_s_major_tab_window.html#af91692e0e1c9dc9c258706608ebb3098", null ],
+    [ "Reset", "d9/d9a/class_insights_1_1_s_major_tab_window.html#a0a372ed185fb6ad6acab6d8ce811f825", null ],
+    [ "SetCommandList", "d9/d9a/class_insights_1_1_s_major_tab_window.html#a66b0e1064c42fa3d4596e90004d534b9", null ],
+    [ "ShowHideTab", "d9/d9a/class_insights_1_1_s_major_tab_window.html#aede01dd2f855dd798d3d5fd9216cac63", null ],
+    [ "ShowTab", "d9/d9a/class_insights_1_1_s_major_tab_window.html#aa3402ec2ca14bd2c1adde5949bef5f5b", null ],
+    [ "SLATE_BEGIN_ARGS", "d9/d9a/class_insights_1_1_s_major_tab_window.html#a07e90eea2630ef29bf10211a7df9227f", null ]
+];

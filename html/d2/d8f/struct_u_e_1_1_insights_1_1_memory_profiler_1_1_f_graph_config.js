@@ -1,0 +1,25 @@
+var struct_u_e_1_1_insights_1_1_memory_profiler_1_1_f_graph_config =
+[
+    [ "bRequiresDetailedStats", "d2/d8f/struct_u_e_1_1_insights_1_1_memory_profiler_1_1_f_graph_config.html#a2748c70ddaa8ced54ab25476907ec401", null ],
+    [ "bShowAverages", "d2/d8f/struct_u_e_1_1_insights_1_1_memory_profiler_1_1_f_graph_config.html#abee858f734531ab57ac26d1de5171458", null ],
+    [ "bSmooth", "d2/d8f/struct_u_e_1_1_insights_1_1_memory_profiler_1_1_f_graph_config.html#a08a8b8e6745b8a2dece2f163ae0959a3", null ],
+    [ "bStacked", "d2/d8f/struct_u_e_1_1_insights_1_1_memory_profiler_1_1_f_graph_config.html#a10cc0e8011b93b08b70788cddc6da871", null ],
+    [ "Budget", "d2/d8f/struct_u_e_1_1_insights_1_1_memory_profiler_1_1_f_graph_config.html#ad736cb62d947fb699fbbe197b63bf7d7", null ],
+    [ "bVSync", "d2/d8f/struct_u_e_1_1_insights_1_1_memory_profiler_1_1_f_graph_config.html#a60e28b58ac8ebca3156c77d146707c3a", null ],
+    [ "Compression", "d2/d8f/struct_u_e_1_1_insights_1_1_memory_profiler_1_1_f_graph_config.html#acb493fa5f39f9a804ce229c3ee0a8c6f", null ],
+    [ "Height", "d2/d8f/struct_u_e_1_1_insights_1_1_memory_profiler_1_1_f_graph_config.html#a6be785333d9f366ba324e511f94d7597", null ],
+    [ "HideStatPrefix", "d2/d8f/struct_u_e_1_1_insights_1_1_memory_profiler_1_1_f_graph_config.html#a60d6236069543a10d430fafb4e013294", null ],
+    [ "IgnoreStats", "d2/d8f/struct_u_e_1_1_insights_1_1_memory_profiler_1_1_f_graph_config.html#ad5b0ffb43a3175cddbaf497a774e0698", null ],
+    [ "LegendAverageThreshold", "d2/d8f/struct_u_e_1_1_insights_1_1_memory_profiler_1_1_f_graph_config.html#afa086541d5d58ad38aa69efe1d45a14b", null ],
+    [ "MainStat", "d2/d8f/struct_u_e_1_1_insights_1_1_memory_profiler_1_1_f_graph_config.html#a58a52ab7c566fb722c2472ffd227c3ef", null ],
+    [ "MaxHierarchyDepth", "d2/d8f/struct_u_e_1_1_insights_1_1_memory_profiler_1_1_f_graph_config.html#a547549674277305f8122237d74922515", null ],
+    [ "MaxY", "d2/d8f/struct_u_e_1_1_insights_1_1_memory_profiler_1_1_f_graph_config.html#a609b7100787a426ddcfc9c16bbf76c33", null ],
+    [ "MinY", "d2/d8f/struct_u_e_1_1_insights_1_1_memory_profiler_1_1_f_graph_config.html#a77ead340d784cb1ade003e9a159caf94", null ],
+    [ "ShowEvents", "d2/d8f/struct_u_e_1_1_insights_1_1_memory_profiler_1_1_f_graph_config.html#a30d6f84d4cd143145ce20a903e222085", null ],
+    [ "SmoothKernelPercent", "d2/d8f/struct_u_e_1_1_insights_1_1_memory_profiler_1_1_f_graph_config.html#a4e32b66a8ac3067512876ab796a8c67b", null ],
+    [ "SmoothKernelSize", "d2/d8f/struct_u_e_1_1_insights_1_1_memory_profiler_1_1_f_graph_config.html#aef2ead93150c5c174912f29f4f8e0d2d", null ],
+    [ "StatString", "d2/d8f/struct_u_e_1_1_insights_1_1_memory_profiler_1_1_f_graph_config.html#a03d8dc91bcc8f8110337b87101b37795", null ],
+    [ "Thickness", "d2/d8f/struct_u_e_1_1_insights_1_1_memory_profiler_1_1_f_graph_config.html#a13a4a8b3549427b7b9bf8391eaf5a533", null ],
+    [ "Title", "d2/d8f/struct_u_e_1_1_insights_1_1_memory_profiler_1_1_f_graph_config.html#a9dca7bad08606a8d7dd53a89675d6365", null ],
+    [ "Width", "d2/d8f/struct_u_e_1_1_insights_1_1_memory_profiler_1_1_f_graph_config.html#aabe289f47f0b7b936fed4e15dc04af62", null ]
+];

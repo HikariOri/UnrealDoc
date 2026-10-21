@@ -1,0 +1,27 @@
+var class_f_file_cache =
+[
+    [ "FSlotInfo", "de/dd3/struct_f_file_cache_1_1_f_slot_info.html", "de/dd3/struct_f_file_cache_1_1_f_slot_info" ],
+    [ "FFileCache", "db/d37/class_f_file_cache.html#a85840b45d01c208bfde681884d24bb17", null ],
+    [ "~FFileCache", "db/d37/class_f_file_cache.html#a39ed616148047a4ef4380da13deea6df", null ],
+    [ "AcquireAndLockSlot", "db/d37/class_f_file_cache.html#a3c04416a295dba1007f6e68c3ba2b776", null ],
+    [ "EvictAll", "db/d37/class_f_file_cache.html#ac1ee5ba48284c79e734d58b666b3e06d", null ],
+    [ "EvictFileCacheFromConsole", "db/d37/class_f_file_cache.html#ab704d763551b3a48faba8a3a05e57675", null ],
+    [ "FlushCompletedRequests", "db/d37/class_f_file_cache.html#aabe3a215bf9647a841751ec62f3728a8", null ],
+    [ "GetSlotMemory", "db/d37/class_f_file_cache.html#aabf41123a11c63e7f68883c6e437c37c", null ],
+    [ "IsSlotLocked", "db/d37/class_f_file_cache.html#adf657473bc6bd4a04189840d7b13fdf7", null ],
+    [ "LinkSlotHead", "db/d37/class_f_file_cache.html#a67a4166e14372ecd053e4abda66bd917", null ],
+    [ "LinkSlotTail", "db/d37/class_f_file_cache.html#aea29515ec28c0bb0597e15d58ddff48e", null ],
+    [ "LockSlot", "db/d37/class_f_file_cache.html#a0f04f6d692c4dccc7391d6e7524dc3b9", null ],
+    [ "PushCompletedRequest", "db/d37/class_f_file_cache.html#aa59dc72b81b0738d5577632aff8d27ec", null ],
+    [ "UnlinkSlot", "db/d37/class_f_file_cache.html#aeb069560703e49301f39188bae7c8a19", null ],
+    [ "UnlockSlot", "db/d37/class_f_file_cache.html#a83095ebeec7edd9355afce4357643e29", null ],
+    [ "CompletedRequests", "db/d37/class_f_file_cache.html#ae7b53e958508d1177af2c4f50bfcbfe8", null ],
+    [ "CompletedRequestsCounter", "db/d37/class_f_file_cache.html#a85ac2b31dd7177d16f30e9d7657f6a8c", null ],
+    [ "CriticalSection", "db/d37/class_f_file_cache.html#ab6494f9c084957612e00a7a644cf82b4", null ],
+    [ "EvictFileCacheCommand", "db/d37/class_f_file_cache.html#a0f2919c954ea97d6e7a704b26518cdb4", null ],
+    [ "Memory", "db/d37/class_f_file_cache.html#aed7d31906405b559c19afa83f8f72b95", null ],
+    [ "MinNumFreeSlots", "db/d37/class_f_file_cache.html#a556c339b719fcb8a0608ae4fbfe78aa2", null ],
+    [ "NumFreeSlots", "db/d37/class_f_file_cache.html#a85c4c502605321c94061309dd99b9a0a", null ],
+    [ "SizeInBytes", "db/d37/class_f_file_cache.html#a1942e55d0673a6ed3e759d5f56ed14cb", null ],
+    [ "SlotInfo", "db/d37/class_f_file_cache.html#a5a6b75329fd8da774e8d1d1ba59bbe23", null ]
+];

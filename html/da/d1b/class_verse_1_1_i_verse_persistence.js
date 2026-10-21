@@ -1,0 +1,25 @@
+var class_verse_1_1_i_verse_persistence =
+[
+    [ "EExternalAccess", "da/d1b/class_verse_1_1_i_verse_persistence.html#ac115b68fc19cc5dacab01c81f92dac6a", null ],
+    [ "TPersistablePredicateSave", "da/d1b/class_verse_1_1_i_verse_persistence.html#a456c40a0048714f49a945d510cabca89", null ],
+    [ "TPersistablePredicateVM", "da/d1b/class_verse_1_1_i_verse_persistence.html#a92eff54e425f1780f428d219b27f690a", null ],
+    [ "~IVersePersistence", "da/d1b/class_verse_1_1_i_verse_persistence.html#acb5b590224daaba28246780b18cb1e6e", null ],
+    [ "AddPersistentMap", "da/d1b/class_verse_1_1_i_verse_persistence.html#a9930efac3346eee84a101c44c0f05f70", null ],
+    [ "AddPersistentPair", "da/d1b/class_verse_1_1_i_verse_persistence.html#aa2a9e300da21e48211af963623541036", null ],
+    [ "AddPersistentPair", "da/d1b/class_verse_1_1_i_verse_persistence.html#a27afaf4c3b1a10e7095b58264eafb62e", null ],
+    [ "DECLARE_EVENT", "da/d1b/class_verse_1_1_i_verse_persistence.html#aa560405b56fb87f32d86fd8a3f46e2d3", null ],
+    [ "DECLARE_EVENT_FourParams", "da/d1b/class_verse_1_1_i_verse_persistence.html#a924cbb42b1da230804f2210a37305f8d", null ],
+    [ "DECLARE_EVENT_OneParam", "da/d1b/class_verse_1_1_i_verse_persistence.html#a0d298a998c132152dfa65d1e0ec87133", null ],
+    [ "DECLARE_EVENT_OneParam", "da/d1b/class_verse_1_1_i_verse_persistence.html#a0a6c03ce155fd1ecf55f9eab71c72d0b", null ],
+    [ "DECLARE_EVENT_OneParam", "da/d1b/class_verse_1_1_i_verse_persistence.html#ab3c4b3319d3c6e41cfe62a3833d3ab9b", null ],
+    [ "GetPersistablePredicate", "da/d1b/class_verse_1_1_i_verse_persistence.html#ac3b73eafaf9a498e32e90a1685d05b14", null ],
+    [ "OnPersistentMapConstructed", "da/d1b/class_verse_1_1_i_verse_persistence.html#a3a62055274038ae4c05d35e88f10335f", null ],
+    [ "OnPersistentMapKeyAdded", "da/d1b/class_verse_1_1_i_verse_persistence.html#aac01da433a8880db7a40d79540bd6383", null ],
+    [ "OnPersistentMapKeyRemoved", "da/d1b/class_verse_1_1_i_verse_persistence.html#a37fe592192fa8b80afdb6ea9d488c1ac", null ],
+    [ "OnPersistentMapsReleased", "da/d1b/class_verse_1_1_i_verse_persistence.html#a6ec67f93afb19397005477479822029a", null ],
+    [ "OnPersistentPairsUpdated", "da/d1b/class_verse_1_1_i_verse_persistence.html#a8c59cc347a95aa14be9e4feb9cc707ae", null ],
+    [ "RemovePersistentPairs", "da/d1b/class_verse_1_1_i_verse_persistence.html#a0dbc21af5957a472fbbe06020eaff89a", null ],
+    [ "ResetWeakMaps", "da/d1b/class_verse_1_1_i_verse_persistence.html#a656eb1b9ef67eb97ac52150d489232ca", null ],
+    [ "SetPersistablePredicate", "da/d1b/class_verse_1_1_i_verse_persistence.html#aab8dbe9419f48355d0e76c8828c20c49", null ],
+    [ "UpdatePersistentPairs", "da/d1b/class_verse_1_1_i_verse_persistence.html#a8fa8dbf921bb0c342041b43482df1b98", null ]
+];

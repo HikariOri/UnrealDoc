@@ -1,0 +1,27 @@
+var _landscape_edge_fixup_8cpp =
+[
+    [ "FHeightmapTextureEdgeSnapshotCustomVersion", "d1/d0e/struct_f_heightmap_texture_edge_snapshot_custom_version.html", "d1/d0e/struct_f_heightmap_texture_edge_snapshot_custom_version" ],
+    [ "FIXUP_DEBUG_LOG", "db/d78/_landscape_edge_fixup_8cpp.html#a55487e626e79164a6a01d8c8e64b7acd", null ],
+    [ "FIXUP_DEBUG_LOG_DETAIL", "db/d78/_landscape_edge_fixup_8cpp.html#a7793cb44fe4be7df7dddac69dace638f", null ],
+    [ "FIXUP_DEBUG_LOG_PATCH", "db/d78/_landscape_edge_fixup_8cpp.html#aac53319b303a9b294d5ad796c7901c90", null ],
+    [ "FIXUP_DEBUG_LOG_RENDER", "db/d78/_landscape_edge_fixup_8cpp.html#a284dfa5a7b32105a752d6e141b8ef231", null ],
+    [ "UE::Landscape::AllCornerNeighbors", "de/dcc/namespace_u_e_1_1_landscape.html#a7d696ff177aa823db03e4ebe1a22ab01", null ],
+    [ "UE::Landscape::AllEdgeNeighbors", "de/dcc/namespace_u_e_1_1_landscape.html#ac227d44300cd554e3f903032b338f431", null ],
+    [ "UE::Landscape::EdgesToAffectedNeighbors", "de/dcc/namespace_u_e_1_1_landscape.html#a28c179d8a547183e67d178e2c8399abd", null ],
+    [ "UE::Landscape::GetDirectionString", "de/dcc/namespace_u_e_1_1_landscape.html#a391220cd3fa18d9b48e15f6435bf1b7d", null ],
+    [ "UE::Landscape::GetEdgeArrayMipOffset", "de/dcc/namespace_u_e_1_1_landscape.html#aefb726986a89f550cdda5ccbdcaaf3dd", null ],
+    [ "UE::Landscape::GetEdgeDataSize", "de/dcc/namespace_u_e_1_1_landscape.html#ace569653e450a0e2001ab42c600ce22f", null ],
+    [ "UE::Landscape::GetNeighborRelativePosition", "de/dcc/namespace_u_e_1_1_landscape.html#ac29eb7399717d4d28db2447bd415ef54", null ],
+    [ "UE::Landscape::GetOppositeIndex", "de/dcc/namespace_u_e_1_1_landscape.html#a1bcdf5880090b4cb0cd4f46c865e9255", null ],
+    [ "UE::Landscape::GetSourceTextureEdgeStartCoord", "de/dcc/namespace_u_e_1_1_landscape.html#a0206ce372111c44d3220c23aa2d5e806", null ],
+    [ "UE::Landscape::GetSourceTextureEdgeStartStrideCount", "de/dcc/namespace_u_e_1_1_landscape.html#abec22c5783e24a004676c95bd76c528b", null ],
+    [ "UE::Landscape::IsDiagonalCorner", "de/dcc/namespace_u_e_1_1_landscape.html#a06064563781c8fcd9cbe51bc62d74443", null ],
+    [ "UE::Landscape::IsDoubleTriangleCorner", "de/dcc/namespace_u_e_1_1_landscape.html#a61653da586b841c2f6bf5227eff8a8d0", null ],
+    [ "UE::Landscape::IsTopOrBottomEdge", "de/dcc/namespace_u_e_1_1_landscape.html#a229b849171e4decc613a1b76539f0f72", null ],
+    [ "UE::Landscape::NeighborsToBlendedEdges", "de/dcc/namespace_u_e_1_1_landscape.html#a5e94f45b057b3be336e35f79d1be9713", null ],
+    [ "operator<<", "db/d78/_landscape_edge_fixup_8cpp.html#a01888e489e18f5fb0d941c1c9ba1bfd7", null ],
+    [ "UE::Landscape::RotateDirection", "de/dcc/namespace_u_e_1_1_landscape.html#a014f49e8370fe45cac1913d0070c7936", null ],
+    [ "UE::Landscape::RotateFlags", "de/dcc/namespace_u_e_1_1_landscape.html#ae04672a72ab3f6fbf70759199bd484db", null ],
+    [ "UE::Landscape::ToFlag", "de/dcc/namespace_u_e_1_1_landscape.html#aa8e71257a13b3cfedb189b5ff94fdabe", null ],
+    [ "GRegisterFHeightmapTextureEdgeSnapshotCustomVersion", "db/d78/_landscape_edge_fixup_8cpp.html#a4b1dac1c9d9ee12111e97169865132b4", null ]
+];

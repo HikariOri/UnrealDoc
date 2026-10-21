@@ -1,0 +1,4 @@
+var struct_f_a_i_test___b_t_decorator_force_success_composite_failed_from_last_child =
+[
+    [ "FAITest_BTDecoratorForceSuccessCompositeFailedFromLastChild", "dc/d43/struct_f_a_i_test___b_t_decorator_force_success_composite_failed_from_last_child.html#ae763b3ffca90bad8168b587da2622443", null ]
+];

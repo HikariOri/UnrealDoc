@@ -1,0 +1,26 @@
+var struct_f_polyglot_text_data =
+[
+    [ "FPolyglotTextData", "d5/d32/struct_f_polyglot_text_data.html#a409b28bb2e6d5ab74204b160791c9ab0", null ],
+    [ "FPolyglotTextData", "d5/d32/struct_f_polyglot_text_data.html#a0cf2df60ad19ae0beb6236d4a6766c32", null ],
+    [ "AddLocalizedString", "d5/d32/struct_f_polyglot_text_data.html#a7a3534fc6f693befd055ddd4a56e635c", null ],
+    [ "ClearLocalizedStrings", "d5/d32/struct_f_polyglot_text_data.html#ab8e40ba303d869c1b174f140376e5c0f", null ],
+    [ "GetCategory", "d5/d32/struct_f_polyglot_text_data.html#a0e5fad3c53b6c5ea91581e613b3fcab2", null ],
+    [ "GetIdentity", "d5/d32/struct_f_polyglot_text_data.html#a5e6d694589b22523b9ddc06a83a22426", null ],
+    [ "GetKey", "d5/d32/struct_f_polyglot_text_data.html#a0994a42b3b3e25fdeb88c4853e28932b", null ],
+    [ "GetLocalizedCultures", "d5/d32/struct_f_polyglot_text_data.html#ad69e90c76dee329e1d181cf5fe95adcd", null ],
+    [ "GetLocalizedString", "d5/d32/struct_f_polyglot_text_data.html#af93d9f93a7156bd723de5759571c95db", null ],
+    [ "GetNamespace", "d5/d32/struct_f_polyglot_text_data.html#a66c2f385eace7154a13d1d5c46fc0ade", null ],
+    [ "GetNativeCulture", "d5/d32/struct_f_polyglot_text_data.html#acf690411ebaa6690a34343a4a0d92a15", null ],
+    [ "GetNativeString", "d5/d32/struct_f_polyglot_text_data.html#a24e1be71c6f664c66d2f465fe6e49cb1", null ],
+    [ "GetText", "d5/d32/struct_f_polyglot_text_data.html#aec0732bef637776dbde6e4c587f5d99e", null ],
+    [ "IsMinimalPatch", "d5/d32/struct_f_polyglot_text_data.html#ac7e9d293ca6415505347068af99c365a", null ],
+    [ "IsMinimalPatch", "d5/d32/struct_f_polyglot_text_data.html#a3967dc788a21b98ac92d4a118d75dd8c", null ],
+    [ "IsValid", "d5/d32/struct_f_polyglot_text_data.html#a5376db7df339ce88bcde4db7f216267a", null ],
+    [ "RemoveLocalizedString", "d5/d32/struct_f_polyglot_text_data.html#a43957fcf0fd8313d2b0060c0acd600a5", null ],
+    [ "ResolveNativeCulture", "d5/d32/struct_f_polyglot_text_data.html#a87617f4b3a20dd87a3c81eb889933be5", null ],
+    [ "SetCategory", "d5/d32/struct_f_polyglot_text_data.html#a663071900e73791e92babb1dc0019af1", null ],
+    [ "SetIdentity", "d5/d32/struct_f_polyglot_text_data.html#abf73d5c0d28ccafd935dd2607b265d27", null ],
+    [ "SetNativeCulture", "d5/d32/struct_f_polyglot_text_data.html#a5a90fec495aba9a218956abcf6787025", null ],
+    [ "SetNativeString", "d5/d32/struct_f_polyglot_text_data.html#af6cc9172381b9a28233fe0b04c5da2ea", null ],
+    [ "Z_Construct_UScriptStruct_FPolyglotTextData_Statics", "d5/d32/struct_f_polyglot_text_data.html#a5096a842175cf50c035f21b2688588ed", null ]
+];

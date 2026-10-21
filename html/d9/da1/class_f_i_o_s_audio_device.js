@@ -1,0 +1,25 @@
+var class_f_i_o_s_audio_device =
+[
+    [ "FIOSAudioDevice", "d9/da1/class_f_i_o_s_audio_device.html#ab11c3be2e7d49eb98134d1ff9de88acd", null ],
+    [ "~FIOSAudioDevice", "d9/da1/class_f_i_o_s_audio_device.html#a9fe1097c5fe80402f1bd905adfdfe307", null ],
+    [ "CreateEffectsManager", "d9/da1/class_f_i_o_s_audio_device.html#abcf18a3e175cddb92abaa4884c595d43", null ],
+    [ "CreateSoundSource", "d9/da1/class_f_i_o_s_audio_device.html#ac3db0a01fb1eb7f3c71769bbf354295f", null ],
+    [ "Exec", "d9/da1/class_f_i_o_s_audio_device.html#a2d82a0f7eb5fb0a3626b165aee544411", null ],
+    [ "GetAudioUnitGraph", "d9/da1/class_f_i_o_s_audio_device.html#ab1d315cbfd5ef9449c85eeba7d919465", null ],
+    [ "GetHardwareSampleRate", "d9/da1/class_f_i_o_s_audio_device.html#a7e1b5deff8b8d5d18cc9d325b6ef7851", null ],
+    [ "GetMixerNode", "d9/da1/class_f_i_o_s_audio_device.html#a660fb34f49174e019ea30fe80e229eb8", null ],
+    [ "GetMixerUnit", "d9/da1/class_f_i_o_s_audio_device.html#a7a4c8d6182c5b93d8a7ccf62170eceee", null ],
+    [ "GetOutputUnit", "d9/da1/class_f_i_o_s_audio_device.html#ac57575c27a4a5678cfd76aa1435c3775", null ],
+    [ "GetPlatformSettings", "d9/da1/class_f_i_o_s_audio_device.html#a517b7faed0984368620e727eb820627c", null ],
+    [ "InitializeHardware", "d9/da1/class_f_i_o_s_audio_device.html#acda0b710ab624f4f342f9aaf35211519", null ],
+    [ "IsExernalBackgroundSoundActive", "d9/da1/class_f_i_o_s_audio_device.html#a1fc534a1837c091dd7b2806ba2519724", null ],
+    [ "ResumeContext", "d9/da1/class_f_i_o_s_audio_device.html#ae0bf0bb14157eeb42184ebc591d4fc8c", null ],
+    [ "SetAudioSessionActive", "d9/da1/class_f_i_o_s_audio_device.html#a43f99d076ca83534af69124ec0fd4840", null ],
+    [ "SetHardwareSampleRate", "d9/da1/class_f_i_o_s_audio_device.html#aa05b89fb58e99a9f082d2e0809cfb141", null ],
+    [ "SuspendContext", "d9/da1/class_f_i_o_s_audio_device.html#a7f00f8a49a31c1328bfabe92e003cf20", null ],
+    [ "TeardownHardware", "d9/da1/class_f_i_o_s_audio_device.html#a7f79a20cfd0dc689801579dde27d5431", null ],
+    [ "UpdateDeviceDeltaTime", "d9/da1/class_f_i_o_s_audio_device.html#a71dcc81d6bd27f44f97d0e5ba6a2ef47", null ],
+    [ "UpdateHardware", "d9/da1/class_f_i_o_s_audio_device.html#aab5c3ed96049186fd8d5997d9236dcee", null ],
+    [ "FIOSAudioSoundBuffer", "d9/da1/class_f_i_o_s_audio_device.html#aebd86a0407215724825893d1dd0a8cf6", null ],
+    [ "FIOSAudioSoundSource", "d9/da1/class_f_i_o_s_audio_device.html#a0bd327446a48efca5b2a3d39a5e8c1d3", null ]
+];

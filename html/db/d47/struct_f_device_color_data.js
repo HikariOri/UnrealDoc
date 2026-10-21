@@ -1,0 +1,6 @@
+var struct_f_device_color_data =
+[
+    [ "bEnable", "db/d47/struct_f_device_color_data.html#a4b11e97ac83fd8e04fa8cc72dbe202e9", null ],
+    [ "bResetAfterCompletion", "db/d47/struct_f_device_color_data.html#a2eecfe15b0efb62a9c23e510e3f07e60", null ],
+    [ "LightColor", "db/d47/struct_f_device_color_data.html#ac2177d8bc1f998438681c8dac9c9d42c", null ]
+];

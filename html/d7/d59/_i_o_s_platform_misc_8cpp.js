@@ -1,0 +1,25 @@
+var _i_o_s_platform_misc_8cpp =
+[
+    [ "UE::FIOSPlatformMisc::Entitlements::__Blob", "da/dae/struct_u_e_1_1_f_i_o_s_platform_misc_1_1_entitlements_1_1_____blob.html", "da/dae/struct_u_e_1_1_f_i_o_s_platform_misc_1_1_entitlements_1_1_____blob" ],
+    [ "UE::FIOSPlatformMisc::Entitlements::__BlobIndex", "d1/d81/struct_u_e_1_1_f_i_o_s_platform_misc_1_1_entitlements_1_1_____blob_index.html", "d1/d81/struct_u_e_1_1_f_i_o_s_platform_misc_1_1_entitlements_1_1_____blob_index" ],
+    [ "UE::FIOSPlatformMisc::Entitlements::__MultiBlob", "d6/d6a/struct_u_e_1_1_f_i_o_s_platform_misc_1_1_entitlements_1_1_____multi_blob.html", "d6/d6a/struct_u_e_1_1_f_i_o_s_platform_misc_1_1_entitlements_1_1_____multi_blob" ],
+    [ "UE::FIOSPlatformMisc::Entitlements::FEntitlementsData", "d5/dc4/struct_u_e_1_1_f_i_o_s_platform_misc_1_1_entitlements_1_1_f_entitlements_data.html", "d5/dc4/struct_u_e_1_1_f_i_o_s_platform_misc_1_1_entitlements_1_1_f_entitlements_data" ],
+    [ "UE::FIOSPlatformMisc::Entitlements::FEntitlementsData::FDeleteByFree", "da/dc4/struct_u_e_1_1_f_i_o_s_platform_misc_1_1_entitlements_1_1_f_entitlements_data_1_1_f_delete_by_free.html", "da/dc4/struct_u_e_1_1_f_i_o_s_platform_misc_1_1_entitlements_1_1_f_entitlements_data_1_1_f_delete_by_free" ],
+    [ "FCPUFeatures", "df/da8/struct_f_c_p_u_features.html", "df/da8/struct_f_c_p_u_features" ],
+    [ "FIOSExec", "dd/da4/class_f_i_o_s_exec.html", "dd/da4/class_f_i_o_s_exec" ],
+    [ "ENABLE_ADVERTISING_IDENTIFIER", "d7/d59/_i_o_s_platform_misc_8cpp.html#a026e4f6d190c5298f98ae83895956f60", null ],
+    [ "UE::FIOSPlatformMisc::Entitlements::CS_BlobIndex", "d6/d26/namespace_u_e_1_1_f_i_o_s_platform_misc_1_1_entitlements.html#a8e06ca5919a9ef8422810bc1cdaf0bcb", null ],
+    [ "UE::FIOSPlatformMisc::Entitlements::CS_GenericBlob", "d6/d26/namespace_u_e_1_1_f_i_o_s_platform_misc_1_1_entitlements.html#a4f910740430e625894eb03c295ad45af", null ],
+    [ "UE::FIOSPlatformMisc::Entitlements::CS_MultiBlob", "d6/d26/namespace_u_e_1_1_f_i_o_s_platform_misc_1_1_entitlements.html#a32f8fd6dd56f62bed2c715d84969b25b", null ],
+    [ "GetIOSDeviceIDString", "d7/d59/_i_o_s_platform_misc_8cpp.html#a636bc906d5cd552c6a03960bc0ddd268", null ],
+    [ "GetUIInterfaceOrientationMask", "d7/d59/_i_o_s_platform_misc_8cpp.html#ad6391702e10dd769cf39c5b950037a41", null ],
+    [ "ReportEnsure", "d7/d59/_i_o_s_platform_misc_8cpp.html#a2350fceb57486c684677bbfa65a0a27f", null ],
+    [ "GCrashHandlerPointer", "d7/d59/_i_o_s_platform_misc_8cpp.html#ac1a1213f5a683c4c518e715046957f9f", null ],
+    [ "GDebugConsoleOpen", "d7/d59/_i_o_s_platform_misc_8cpp.html#a0649045a85a67079881b20a2c7b91499", null ],
+    [ "GIOSExec", "d7/d59/_i_o_s_platform_misc_8cpp.html#a2d8a951a27d9946407eb7d69b5069921", null ],
+    [ "GIOSVirtualKeyboardInputFieldHeight", "d7/d59/_i_o_s_platform_misc_8cpp.html#ad8cd638a7487e7c3d79f77c22fcdfb27", null ],
+    [ "GIsGPUCrashed", "d7/d59/_i_o_s_platform_misc_8cpp.html#abb68f80b66c92415cc0e622ef206aab5", null ],
+    [ "GMemoryWarningHandler", "d7/d59/_i_o_s_platform_misc_8cpp.html#a322126e51b30e0310faf9c83f78a6555", null ],
+    [ "GShowSplashScreen", "d7/d59/_i_o_s_platform_misc_8cpp.html#af062077fe9c05befeafaedc1d508a70e", null ],
+    [ "GStartupFreeMemoryMB", "d7/d59/_i_o_s_platform_misc_8cpp.html#a00538855aa06e92b61860121afae73e2", null ]
+];

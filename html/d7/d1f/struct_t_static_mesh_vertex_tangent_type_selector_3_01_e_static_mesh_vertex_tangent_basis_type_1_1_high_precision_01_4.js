@@ -1,0 +1,4 @@
+var struct_t_static_mesh_vertex_tangent_type_selector_3_01_e_static_mesh_vertex_tangent_basis_type_1_1_high_precision_01_4 =
+[
+    [ "TangentTypeT", "d7/d1f/struct_t_static_mesh_vertex_tangent_type_selector_3_01_e_static_mesh_vertex_tangent_basis_type_1_1_high_precision_01_4.html#ab60820fb24b659c3adeb9b4362c314fb", null ]
+];

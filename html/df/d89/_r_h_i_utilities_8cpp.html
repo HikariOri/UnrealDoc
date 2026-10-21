@@ -1,0 +1,783 @@
+<!-- HTML header for doxygen 1.15.0-->
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh">
+<head>
+  <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=11" />
+  <meta name="generator" content="Doxygen 1.15.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>UE 5.8.4: Engine/Source/Runtime/RHI/Private/RHIUtilities.cpp 文件参考</title>
+  <link rel="icon" href="../../EdIconDefault.bmp" type="image/x-icon" />
+  <link href="../../tabs.css" rel="stylesheet" type="text/css" />
+  <script type="text/javascript" src="../../jquery.js"></script>
+  <script type="text/javascript" src="../../dynsections.js"></script>
+  <link href="../../navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../navtreedata.js"></script>
+<script type="text/javascript" src="../../navtree.js"></script>
+<script type="text/javascript" src="../../cookie.js"></script>
+  <link href="../../search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../search/searchdata.js"></script>
+<script type="text/javascript" src="../../search/search.js"></script>
+  <script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  extensions: ["tex2jax.js"],
+  jax: ["input/TeX","output/HTML-CSS"],
+});
+</script>
+<script type="text/javascript" async="async" src="https://cdn.jsdelivr.net/npm/mathjax@2/MathJax.js"></script>
+  <link href="../../doxygen.css" rel="stylesheet" type="text/css" />
+  <link href="../../doxygen-awesome.css" rel="stylesheet" type="text/css"/>
+<link href="../../doxygen-awesome-sidebar-only.css" rel="stylesheet" type="text/css"/>
+<link href="../../doxygen-awesome-sidebar-only-darkmode-toggle.css" rel="stylesheet" type="text/css"/>
+  <!-- ... other metadata & script includes ... -->
+  <script type="text/javascript" src="../../doxygen-awesome-darkmode-toggle.js"></script>
+  <script type="text/javascript">
+    DoxygenAwesomeDarkModeToggle.title = "Zwischen hellem/dunklem Modus wechseln"
+    DoxygenAwesomeDarkModeToggle.lightModeIcon = '🌞'
+    // icon from https://fonts.google.com/icons
+    DoxygenAwesomeDarkModeToggle.darkModeIcon = `<svg xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 24 24" height="24px" viewBox="0 0 24 24" width="24px" fill="#009793"><g><rect fill="none" height="24" width="24"/></g><g><g><path d="M8.1,14.15C9.77,14.63,11,16.17,11,18c0,0.68-0.19,1.31-0.48,1.87c0.48,0.09,0.97,0.14,1.48,0.14 c1.48,0,2.9-0.41,4.13-1.15c-2.62-0.92-5.23-2.82-6.8-5.86C7.74,9.94,7.78,7.09,8.29,4.9c-2.57,1.33-4.3,4.01-4.3,7.1c0,0,0,0,0,0 c0.01,0,0.01,0,0.02,0C5.66,12,7.18,12.83,8.1,14.15z" opacity=".3"/><path d="M19.78,17.51c-2.47,0-6.57-1.33-8.68-5.43C8.77,7.57,10.6,3.6,11.63,2.01C6.27,2.2,1.98,6.59,1.98,12 c0,0.14,0.02,0.28,0.02,0.42C2.61,12.16,3.28,12,3.98,12c0,0,0,0,0,0c0-3.09,1.73-5.77,4.3-7.1C7.78,7.09,7.74,9.94,9.32,13 c1.57,3.04,4.18,4.95,6.8,5.86c-1.23,0.74-2.65,1.15-4.13,1.15c-0.5,0-1-0.05-1.48-0.14c-0.37,0.7-0.94,1.27-1.64,1.64 c0.98,0.32,2.03,0.5,3.11,0.5c3.5,0,6.58-1.8,8.37-4.52C20.18,17.5,19.98,17.51,19.78,17.51z"/><path d="M7,16l-0.18,0C6.4,14.84,5.3,14,4,14c-1.66,0-3,1.34-3,3s1.34,3,3,3c0.62,0,2.49,0,3,0c1.1,0,2-0.9,2-2 C9,16.9,8.1,16,7,16z"/></g></g></svg>`
+    DoxygenAwesomeDarkModeToggle.init()
+  </script>
+  <script type="text/javascript" src="../../doxygen-awesome-fragment-copy-button.js"></script>
+  <script type="text/javascript">
+    DoxygenAwesomeFragmentCopyButton.title = "In die Zwischenablage kopieren"
+    // DoxygenAwesomeFragmentCopyButton.copyIcon = `<svg ...>`
+    // DoxygenAwesomeFragmentCopyButton.successIcon = `<svg ...>`
+    DoxygenAwesomeFragmentCopyButton.init()
+  </script>
+  <script type="text/javascript" src="../../doxygen-awesome-paragraph-link.js"></script>
+  <script type="text/javascript">
+    DoxygenAwesomeParagraphLink.title = "Abschnitt verknüpfen"
+    DoxygenAwesomeParagraphLink.icon = "¶"
+    DoxygenAwesomeParagraphLink.init()
+  </script>
+  <script type="text/javascript" src="../../doxygen-awesome-interactive-toc.js"></script>
+  <script type="text/javascript">
+    DoxygenAwesomeInteractiveToc.topOffset = 45
+    DoxygenAwesomeInteractiveToc.hideMobileMenu = false
+    DoxygenAwesomeInteractiveToc.init()
+  </script>
+</head>
+<body>
+    <div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+      <div id="titlearea">
+        <table cellspacing="0" cellpadding="0">
+          <tbody>
+            <tr id="projectrow">
+              <td id="projectlogo"><img alt="Logo" src="../../EdIconDefault.bmp"  /></td>
+              <td id="projectalign">
+                <div id="projectname">UE 5.8.4
+                </div>
+                <div id="projectbrief">Unreal Engine</div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <!-- end header part -->
+<!-- 制作者 Doxygen 1.15.0 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "../../search/",'.html');
+</script>
+<script type="text/javascript">
+$(function() { codefold.init(); });
+</script>
+<script type="text/javascript" src="../../menudata.js"></script>
+<script type="text/javascript" src="../../menu.js"></script>
+<script type="text/javascript">
+$(function() {
+  initMenu('../../',true,false,'search.php','搜索',true);
+  $(function() { init_search(); });
+});
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(function(){initNavTree('df/d89/_r_h_i_utilities_8cpp.html','../../',''); });
+</script>
+<div id="container">
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">载入中...</div>
+<div class="SRStatus" id="Searching">搜索中...</div>
+<div class="SRStatus" id="NoMatches">未找到</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">RHIUtilities.cpp 文件参考</div></div>
+</div><!--header-->
+<div class="contents">
+<div class="textblock"><code>#include &quot;<a class="el" href="../../dc/d7b/_r_h_i_utilities_8h_source.html">RHIUtilities.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../dd/d24/_task_graph_interfaces_8h_source.html">Async/TaskGraphInterfaces.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d2/db2/_platform_stack_walk_8h_source.html">HAL/PlatformStackWalk.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d5/dfb/_r_h_i_8h_source.html">RHI.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d7/d80/_generic_platform_frame_pacer_8h_source.html">GenericPlatform/GenericPlatformFramePacer.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../dd/d22/_runnable_8h_source.html">HAL/Runnable.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../dd/df4/_runnable_thread_8h_source.html">HAL/RunnableThread.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d8/dcf/_platform_frame_pacer_8h_source.html">HAL/PlatformFramePacer.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../de/d9b/_core_2_public_2_misc_2_command_line_8h_source.html">Misc/CommandLine.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d7/d96/_r_h_i_access_8h_source.html">RHIAccess.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../db/ded/_r_h_i_fwd_8h_source.html">RHIFwd.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../df/d82/_r_h_i_strings_8h_source.html">RHIStrings.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d1/d6d/_core_2_public_2_tasks_2_task_8h_source.html">Tasks/Task.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d0/d5b/_misc_trace_8h_source.html">ProfilingDebugging/MiscTrace.h</a>&quot;</code><br />
+</div><div class="textblock"><div class="dynheader">
+RHIUtilities.cpp 的引用(Include)关系图:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d0/d8b/_r_h_i_utilities_8cpp__incl.svg" width="4782" height="1046"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+</div><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-nested-classes" class="groupheader"><a id="nested-classes" name="nested-classes"></a>
+类</h2></td></tr>
+<tr class="memitem:FRHIFrameFlipTrackingRunnable" id="r_FRHIFrameFlipTrackingRunnable"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/d3c/class_f_r_h_i_frame_flip_tracking_runnable.html">FRHIFrameFlipTrackingRunnable</a></td></tr>
+<tr class="memitem:FRHIFrameOffsetThread" id="r_FRHIFrameOffsetThread"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/d69/struct_f_r_h_i_frame_offset_thread.html">FRHIFrameOffsetThread</a></td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-define-members" class="groupheader"><a id="define-members" name="define-members"></a>
+宏定义</h2></td></tr>
+<tr class="memitem:a5e767795ec8f5cd990c96f48a481498d" id="r_a5e767795ec8f5cd990c96f48a481498d"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5e767795ec8f5cd990c96f48a481498d">USE_FRAME_OFFSET_THREAD</a>&#160;&#160;&#160;1</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-func-members" class="groupheader"><a id="func-members" name="func-members"></a>
+函数</h2></td></tr>
+<tr class="memitem:aaf84f2b9282d692b728f832b0774c0a9" id="r_aaf84f2b9282d692b728f832b0774c0a9"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../df/d63/_typed_element_query_capabilities_8inl.html#a72343342ce64c0755563ee6c5e27868d">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aaf84f2b9282d692b728f832b0774c0a9">SetDepthBoundsTest</a> (<a class="el" href="../../d9/dfe/class_f_r_h_i_command_list.html">FRHICommandList</a> &amp;RHICmdList, <a class="el" href="../../df/d2a/_s_anim_notify_shared_8h.html#ac7c94e837fed3f8e4bb3dd94d7bd2ecf">float</a> WorldSpaceDepthNear, <a class="el" href="../../df/d2a/_s_anim_notify_shared_8h.html#ac7c94e837fed3f8e4bb3dd94d7bd2ecf">float</a> WorldSpaceDepthFar, const <a class="el" href="../../d0/df6/_math_fwd_8h.html#ae2f14b7680a0cbff5852407c51bedc6b">FMatrix</a> &amp;ProjectionMatrix)</td></tr>
+<tr class="memitem:a12f65cf899a6dd7bbf5e762f2b2f2b07" id="r_a12f65cf899a6dd7bbf5e762f2b2f2b07"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../dd/de9/preprocessor_8c.html#a1134b580f8da4de94ca6b1de4d37975e">uint32</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a12f65cf899a6dd7bbf5e762f2b2f2b07">RHIGetSyncInterval</a> ()</td></tr>
+<tr class="memitem:a27bccab8ce46ddcbcf5c17c32b0ea0a5" id="r_a27bccab8ce46ddcbcf5c17c32b0ea0a5"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../df/d2a/_s_anim_notify_shared_8h.html#ac7c94e837fed3f8e4bb3dd94d7bd2ecf">float</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a27bccab8ce46ddcbcf5c17c32b0ea0a5">RHIGetSyncSlackMS</a> ()</td></tr>
+<tr class="memitem:a40c3791981940a863755b891418c5c04" id="r_a40c3791981940a863755b891418c5c04"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a40c3791981940a863755b891418c5c04">RHIGetSyncAllowVariable</a> ()</td></tr>
+<tr class="memitem:a1b4d306bf4598e1529a70372ff2b82a7" id="r_a1b4d306bf4598e1529a70372ff2b82a7"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../df/d63/_typed_element_query_capabilities_8inl.html#a72343342ce64c0755563ee6c5e27868d">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a1b4d306bf4598e1529a70372ff2b82a7">RHIGetPresentThresholds</a> (<a class="el" href="../../df/d2a/_s_anim_notify_shared_8h.html#ac7c94e837fed3f8e4bb3dd94d7bd2ecf">float</a> &amp;OutTopPercent, <a class="el" href="../../df/d2a/_s_anim_notify_shared_8h.html#ac7c94e837fed3f8e4bb3dd94d7bd2ecf">float</a> &amp;OutBottomPercent)</td></tr>
+<tr class="memitem:a1e4470bde4aa4c7f15cb7e307ef7fee2" id="r_a1e4470bde4aa4c7f15cb7e307ef7fee2"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../df/d63/_typed_element_query_capabilities_8inl.html#a72343342ce64c0755563ee6c5e27868d">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a1e4470bde4aa4c7f15cb7e307ef7fee2">RHITriggerTaskEventOnFlip</a> (<a class="el" href="../../dd/de9/preprocessor_8c.html#abc0f5bc07737e498f287334775dff2b6">uint64</a> PresentIndex, const <a class="el" href="../../d0/d05/class_u_e_1_1_tasks_1_1_f_task_event.html">UE::Tasks::FTaskEvent</a> &amp;<a class="el" href="../../d0/db7/_mem_pro_8cpp.html#a015c636e3d5fbffd727839df1d4ad055">Event</a>)</td></tr>
+<tr class="memitem:aaf26a15a645a30ff05a75f0cdc62712d" id="r_aaf26a15a645a30ff05a75f0cdc62712d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../df/d63/_typed_element_query_capabilities_8inl.html#a72343342ce64c0755563ee6c5e27868d">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aaf26a15a645a30ff05a75f0cdc62712d">RHIInitializeFlipTracking</a> ()</td></tr>
+<tr class="memitem:acf4f0a028cb8a9d3dca461dc66a924fc" id="r_acf4f0a028cb8a9d3dca461dc66a924fc"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../df/d63/_typed_element_query_capabilities_8inl.html#a72343342ce64c0755563ee6c5e27868d">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#acf4f0a028cb8a9d3dca461dc66a924fc">RHICalculateFrameTime</a> ()</td></tr>
+<tr class="memitem:a3fc22d703deabb5052d2d8e37054e743" id="r_a3fc22d703deabb5052d2d8e37054e743"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../df/d2a/_s_anim_notify_shared_8h.html#ac7c94e837fed3f8e4bb3dd94d7bd2ecf">float</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a3fc22d703deabb5052d2d8e37054e743">RHIGetFrameTime</a> ()</td></tr>
+<tr class="memitem:a903ad557a34cc4ddc6bd6c56d681e277" id="r_a903ad557a34cc4ddc6bd6c56d681e277"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../df/d63/_typed_element_query_capabilities_8inl.html#a72343342ce64c0755563ee6c5e27868d">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a903ad557a34cc4ddc6bd6c56d681e277">RHIShutdownFlipTracking</a> ()</td></tr>
+<tr class="memitem:a82d7367f0941c1627201fa39037c30f1" id="r_a82d7367f0941c1627201fa39037c30f1"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d7/d96/_r_h_i_access_8h.html#a1eaf811225721de2bf99870b8c8e98b4">ERHIAccess</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a82d7367f0941c1627201fa39037c30f1">RHIGetDefaultResourceState</a> (<a class="el" href="../../da/dca/_r_h_i_definitions_8h.html#ad4ae7462d4e6cb213ec4f7673da42d5d">ETextureCreateFlags</a> InUsage, <a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a> bInHasInitialData)</td></tr>
+<tr class="memitem:a3ab1051bc99d5d611a3b22f2466833ea" id="r_a3ab1051bc99d5d611a3b22f2466833ea"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d7/d96/_r_h_i_access_8h.html#a1eaf811225721de2bf99870b8c8e98b4">ERHIAccess</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a3ab1051bc99d5d611a3b22f2466833ea">RHIGetDefaultResourceState</a> (<a class="el" href="../../da/dca/_r_h_i_definitions_8h.html#a3db81c713491cce681aef2edb09183c8">EBufferUsageFlags</a> InUsage, <a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a> bInHasInitialData)</td></tr>
+<tr class="memitem:a6f3b77e8607a5b78bea80c7d59e2ed1d" id="r_a6f3b77e8607a5b78bea80c7d59e2ed1d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../df/d63/_typed_element_query_capabilities_8inl.html#a72343342ce64c0755563ee6c5e27868d">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6f3b77e8607a5b78bea80c7d59e2ed1d">DecodeRenderTargetMode</a> (<a class="el" href="../../da/dca/_r_h_i_definitions_8h.html#a3b5b6a02ce74d8e2ffd66d2ec897e855">ESimpleRenderTargetMode</a> Mode, <a class="el" href="../../da/dca/_r_h_i_definitions_8h.html#ade9cba1bfb915996e4921f5e3dd9202d">ERenderTargetLoadAction</a> &amp;ColorLoadAction, <a class="el" href="../../da/dca/_r_h_i_definitions_8h.html#ac2100547677ea4eb0298448c17554067">ERenderTargetStoreAction</a> &amp;ColorStoreAction, <a class="el" href="../../da/dca/_r_h_i_definitions_8h.html#ade9cba1bfb915996e4921f5e3dd9202d">ERenderTargetLoadAction</a> &amp;DepthLoadAction, <a class="el" href="../../da/dca/_r_h_i_definitions_8h.html#ac2100547677ea4eb0298448c17554067">ERenderTargetStoreAction</a> &amp;DepthStoreAction, <a class="el" href="../../da/dca/_r_h_i_definitions_8h.html#ade9cba1bfb915996e4921f5e3dd9202d">ERenderTargetLoadAction</a> &amp;StencilLoadAction, <a class="el" href="../../da/dca/_r_h_i_definitions_8h.html#ac2100547677ea4eb0298448c17554067">ERenderTargetStoreAction</a> &amp;StencilStoreAction, <a class="el" href="../../d2/d1e/class_f_exclusive_depth_stencil.html">FExclusiveDepthStencil</a> DepthStencilUsage)</td></tr>
+<tr class="memitem:ab5db213ca88892e29a8502cd9eb841d0" id="r_ab5db213ca88892e29a8502cd9eb841d0"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../da/dca/_r_h_i_definitions_8h.html#af06c79fd5ba4eff8f57bad218ef35b09">EGpuVendorId</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab5db213ca88892e29a8502cd9eb841d0">RHIGetPreferredAdapterVendor</a> ()</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-var-members" class="groupheader"><a id="var-members" name="var-members"></a>
+变量</h2></td></tr>
+<tr class="memitem:a81407d1e893e29a2f5412919f344def3" id="r_a81407d1e893e29a2f5412919f344def3"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d5/d78/class_t_auto_console_variable.html">TAutoConsoleVariable</a>&lt; <a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a8dbb3cd84ca9fd010dadfc3815eefa5d">int32</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a81407d1e893e29a2f5412919f344def3">CVarRHISyncInterval</a> (<a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;rhi.SyncInterval&quot;), 1, <a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;  3 - etc...\n&quot;), <a class="el" href="../../d4/dd9/_i_console_manager_8h.html#a7f594f23c2b2c5687f1a502ebb3ba105a67b9bfb43c52f383b7ccefb8fe69a306">ECVF_Default</a>)</td></tr>
+<tr class="memitem:a9b40410fee4895c236e3cf14b1243552" id="r_a9b40410fee4895c236e3cf14b1243552"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d5/d78/class_t_auto_console_variable.html">TAutoConsoleVariable</a>&lt; <a class="el" href="../../df/d2a/_s_anim_notify_shared_8h.html#ac7c94e837fed3f8e4bb3dd94d7bd2ecf">float</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9b40410fee4895c236e3cf14b1243552">CVarRHIPresentThresholdTop</a> (<a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;rhi.PresentThreshold.Top&quot;), 0.0f, <a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;Range: 0.0 - 1.0\n&quot;), <a class="el" href="../../d4/dd9/_i_console_manager_8h.html#a7f594f23c2b2c5687f1a502ebb3ba105a67b9bfb43c52f383b7ccefb8fe69a306">ECVF_Default</a>)</td></tr>
+<tr class="memitem:a1622c1a8091da5c295fb4f3841c68723" id="r_a1622c1a8091da5c295fb4f3841c68723"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d5/d78/class_t_auto_console_variable.html">TAutoConsoleVariable</a>&lt; <a class="el" href="../../df/d2a/_s_anim_notify_shared_8h.html#ac7c94e837fed3f8e4bb3dd94d7bd2ecf">float</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a1622c1a8091da5c295fb4f3841c68723">CVarRHIPresentThresholdBottom</a> (<a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;rhi.PresentThreshold.Bottom&quot;), 0.0f, <a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;Range: 0.0 - 1.0\n&quot;), <a class="el" href="../../d4/dd9/_i_console_manager_8h.html#a7f594f23c2b2c5687f1a502ebb3ba105a67b9bfb43c52f383b7ccefb8fe69a306">ECVF_Default</a>)</td></tr>
+<tr class="memitem:a35f00867d9d7f4e205b3323ddcadcf75" id="r_a35f00867d9d7f4e205b3323ddcadcf75"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d5/d78/class_t_auto_console_variable.html">TAutoConsoleVariable</a>&lt; <a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a8dbb3cd84ca9fd010dadfc3815eefa5d">int32</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a35f00867d9d7f4e205b3323ddcadcf75">CVarRHISyncAllowEarlyKick</a> (<a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;rhi.SyncAllowEarlyKick&quot;), 1, <a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;When 1, allows the RHI vsync thread to kick off the <a class="el" href="../../d9/dbf/_recast_mesh_8cpp.html#af019d68006e1f2d7b24c8f09051424cc">next</a> frame early <a class="el" href="../../d3/db8/binka__ue__decode__test_8cpp.html#a374eb3a41808f317fb77da75985c3204">if</a> we've missed the vsync.&quot;), <a class="el" href="../../d4/dd9/_i_console_manager_8h.html#a7f594f23c2b2c5687f1a502ebb3ba105a67b9bfb43c52f383b7ccefb8fe69a306">ECVF_Default</a>)</td></tr>
+<tr class="memitem:a5ea75c9f2c1ed1b79f19ebb4bb338f22" id="r_a5ea75c9f2c1ed1b79f19ebb4bb338f22"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d5/d78/class_t_auto_console_variable.html">TAutoConsoleVariable</a>&lt; <a class="el" href="../../df/d2a/_s_anim_notify_shared_8h.html#ac7c94e837fed3f8e4bb3dd94d7bd2ecf">float</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5ea75c9f2c1ed1b79f19ebb4bb338f22">CVarRHISyncSlackMS</a> (<a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;rhi.SyncSlackMS&quot;), 10, <a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;Increases input latency by this many milliseconds, to help performance (trade-off tunable). Gamethread will be kicked off this many milliseconds before the vsync&quot;), <a class="el" href="../../d4/dd9/_i_console_manager_8h.html#a7f594f23c2b2c5687f1a502ebb3ba105a67b9bfb43c52f383b7ccefb8fe69a306">ECVF_Default</a>)</td></tr>
+<tr class="memitem:a0816909f3ede8fccdbf06f35a9c9da80" id="r_a0816909f3ede8fccdbf06f35a9c9da80"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d5/d78/class_t_auto_console_variable.html">TAutoConsoleVariable</a>&lt; <a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a8dbb3cd84ca9fd010dadfc3815eefa5d">int32</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a0816909f3ede8fccdbf06f35a9c9da80">CVarRHISyncAllowVariable</a> (<a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;rhi.SyncAllowVariable&quot;), 1, <a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;When 1, allows the RHI to use variable refresh rate, <a class="el" href="../../d3/db8/binka__ue__decode__test_8cpp.html#a374eb3a41808f317fb77da75985c3204">if</a> supported by the output hardware.&quot;), <a class="el" href="../../d4/dd9/_i_console_manager_8h.html#a7f594f23c2b2c5687f1a502ebb3ba105a67b9bfb43c52f383b7ccefb8fe69a306">ECVF_Default</a>)</td></tr>
+<tr class="memitem:a52d34726b53ee78dfe5a1d70e4dff26a" id="r_a52d34726b53ee78dfe5a1d70e4dff26a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../df/d2a/_s_anim_notify_shared_8h.html#ac7c94e837fed3f8e4bb3dd94d7bd2ecf">float</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a52d34726b53ee78dfe5a1d70e4dff26a">GRHIFrameTimeMS</a> = 0.0f</td></tr>
+<tr class="memitem:a3866a6fe5792b368f5cbd76b164ec0e2" id="r_a3866a6fe5792b368f5cbd76b164ec0e2"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d6/dfd/_i_transport_control_8h.html#a583127f9ef2ec8125a93f6a2a8c89ab7">double</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a3866a6fe5792b368f5cbd76b164ec0e2">GLastRHITimeInSeconds</a> = 0.0</td></tr>
+<tr class="memitem:aa77caf4c6fa4327602021aa73afeca50" id="r_aa77caf4c6fa4327602021aa73afeca50"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a8dbb3cd84ca9fd010dadfc3815eefa5d">int32</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa77caf4c6fa4327602021aa73afeca50">GEnableConsole120Fps</a> = 0</td></tr>
+<tr class="memitem:a66b0a88ce7adaaed5f5e5b156638817f" id="r_a66b0a88ce7adaaed5f5e5b156638817f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a8dbb3cd84ca9fd010dadfc3815eefa5d">int32</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a66b0a88ce7adaaed5f5e5b156638817f">InternalEnableConsole120Fps</a> = 0</td></tr>
+</table>
+<a name="doc-define-members" id="doc-define-members"></a><h2 id="header-doc-define-members" class="groupheader">宏定义说明</h2>
+<a id="a5e767795ec8f5cd990c96f48a481498d" name="a5e767795ec8f5cd990c96f48a481498d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5e767795ec8f5cd990c96f48a481498d">&#9670;&#160;</a></span>USE_FRAME_OFFSET_THREAD</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define USE_FRAME_OFFSET_THREAD&#160;&#160;&#160;1</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">函数说明</h2>
+<a id="a6f3b77e8607a5b78bea80c7d59e2ed1d" name="a6f3b77e8607a5b78bea80c7d59e2ed1d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6f3b77e8607a5b78bea80c7d59e2ed1d">&#9670;&#160;</a></span>DecodeRenderTargetMode()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../df/d63/_typed_element_query_capabilities_8inl.html#a72343342ce64c0755563ee6c5e27868d">void</a> DecodeRenderTargetMode </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../da/dca/_r_h_i_definitions_8h.html#a3b5b6a02ce74d8e2ffd66d2ec897e855">ESimpleRenderTargetMode</a></td>          <td class="paramname"><span class="paramname"><em>Mode</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../da/dca/_r_h_i_definitions_8h.html#ade9cba1bfb915996e4921f5e3dd9202d">ERenderTargetLoadAction</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>ColorLoadAction</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../da/dca/_r_h_i_definitions_8h.html#ac2100547677ea4eb0298448c17554067">ERenderTargetStoreAction</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>ColorStoreAction</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../da/dca/_r_h_i_definitions_8h.html#ade9cba1bfb915996e4921f5e3dd9202d">ERenderTargetLoadAction</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>DepthLoadAction</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../da/dca/_r_h_i_definitions_8h.html#ac2100547677ea4eb0298448c17554067">ERenderTargetStoreAction</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>DepthStoreAction</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../da/dca/_r_h_i_definitions_8h.html#ade9cba1bfb915996e4921f5e3dd9202d">ERenderTargetLoadAction</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>StencilLoadAction</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../da/dca/_r_h_i_definitions_8h.html#ac2100547677ea4eb0298448c17554067">ERenderTargetStoreAction</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>StencilStoreAction</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d2/d1e/class_f_exclusive_depth_stencil.html">FExclusiveDepthStencil</a></td>          <td class="paramname"><span class="paramname"><em>DepthStencilUsage</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Convert the <a class="el" href="../../da/dca/_r_h_i_definitions_8h.html#a3b5b6a02ce74d8e2ffd66d2ec897e855">ESimpleRenderTargetMode</a> into usable values </p><dl class="todo"><dt><b><a class="el" href="../../dd/da0/todo.html#_todo000186">待办事项</a></b></dt><dd>: Can we easily put this into a .cpp somewhere? </dd></dl>
+
+</div>
+</div>
+<a id="acf4f0a028cb8a9d3dca461dc66a924fc" name="acf4f0a028cb8a9d3dca461dc66a924fc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acf4f0a028cb8a9d3dca461dc66a924fc">&#9670;&#160;</a></span>RHICalculateFrameTime()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../df/d63/_typed_element_query_capabilities_8inl.html#a72343342ce64c0755563ee6c5e27868d">void</a> RHICalculateFrameTime </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a3ab1051bc99d5d611a3b22f2466833ea" name="a3ab1051bc99d5d611a3b22f2466833ea"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3ab1051bc99d5d611a3b22f2466833ea">&#9670;&#160;</a></span>RHIGetDefaultResourceState() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">RHI_API <a class="el" href="../../d7/d96/_r_h_i_access_8h.html#a1eaf811225721de2bf99870b8c8e98b4">ERHIAccess</a> RHIGetDefaultResourceState </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../da/dca/_r_h_i_definitions_8h.html#a3db81c713491cce681aef2edb09183c8">EBufferUsageFlags</a></td>          <td class="paramname"><span class="paramname"><em>InUsage</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a></td>          <td class="paramname"><span class="paramname"><em>bInHasInitialData</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Get the best default resource state for the given buffer creation flags </p>
+
+</div>
+</div>
+<a id="a82d7367f0941c1627201fa39037c30f1" name="a82d7367f0941c1627201fa39037c30f1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a82d7367f0941c1627201fa39037c30f1">&#9670;&#160;</a></span>RHIGetDefaultResourceState() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">RHI_API <a class="el" href="../../d7/d96/_r_h_i_access_8h.html#a1eaf811225721de2bf99870b8c8e98b4">ERHIAccess</a> RHIGetDefaultResourceState </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../da/dca/_r_h_i_definitions_8h.html#ad4ae7462d4e6cb213ec4f7673da42d5d">ETextureCreateFlags</a></td>          <td class="paramname"><span class="paramname"><em>InUsage</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a></td>          <td class="paramname"><span class="paramname"><em>bInHasInitialData</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Get the best default resource state for the given texture creation flags </p>
+
+</div>
+</div>
+<a id="a3fc22d703deabb5052d2d8e37054e743" name="a3fc22d703deabb5052d2d8e37054e743"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3fc22d703deabb5052d2d8e37054e743">&#9670;&#160;</a></span>RHIGetFrameTime()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../df/d2a/_s_anim_notify_shared_8h.html#ac7c94e837fed3f8e4bb3dd94d7bd2ecf">float</a> RHIGetFrameTime </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Sets the FrameIndex and InputTime for the current frame. </p>
+
+</div>
+</div>
+<a id="ab5db213ca88892e29a8502cd9eb841d0" name="ab5db213ca88892e29a8502cd9eb841d0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab5db213ca88892e29a8502cd9eb841d0">&#9670;&#160;</a></span>RHIGetPreferredAdapterVendor()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../da/dca/_r_h_i_definitions_8h.html#af06c79fd5ba4eff8f57bad218ef35b09">EGpuVendorId</a> RHIGetPreferredAdapterVendor </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Returns the VendorID of the preferred vendor or -1 if none were specified. </p>
+
+</div>
+</div>
+<a id="a1b4d306bf4598e1529a70372ff2b82a7" name="a1b4d306bf4598e1529a70372ff2b82a7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1b4d306bf4598e1529a70372ff2b82a7">&#9670;&#160;</a></span>RHIGetPresentThresholds()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../df/d63/_typed_element_query_capabilities_8inl.html#a72343342ce64c0755563ee6c5e27868d">void</a> RHIGetPresentThresholds </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../df/d2a/_s_anim_notify_shared_8h.html#ac7c94e837fed3f8e4bb3dd94d7bd2ecf">float</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>OutTopPercent</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../df/d2a/_s_anim_notify_shared_8h.html#ac7c94e837fed3f8e4bb3dd94d7bd2ecf">float</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>OutBottomPercent</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Returns the top and bottom vsync present thresholds (the values of rhi.PresentThreshold.Top and rhi.PresentThreshold.Bottom) </p>
+
+</div>
+</div>
+<a id="a40c3791981940a863755b891418c5c04" name="a40c3791981940a863755b891418c5c04"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a40c3791981940a863755b891418c5c04">&#9670;&#160;</a></span>RHIGetSyncAllowVariable()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a> RHIGetSyncAllowVariable </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Returns the value of the rhi.SyncAllowVariable CVar. </p>
+
+</div>
+</div>
+<a id="a12f65cf899a6dd7bbf5e762f2b2f2b07" name="a12f65cf899a6dd7bbf5e762f2b2f2b07"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a12f65cf899a6dd7bbf5e762f2b2f2b07">&#9670;&#160;</a></span>RHIGetSyncInterval()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../dd/de9/preprocessor_8c.html#a1134b580f8da4de94ca6b1de4d37975e">uint32</a> RHIGetSyncInterval </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Returns the value of the rhi.SyncInterval CVar. </p>
+
+</div>
+</div>
+<a id="a27bccab8ce46ddcbcf5c17c32b0ea0a5" name="a27bccab8ce46ddcbcf5c17c32b0ea0a5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a27bccab8ce46ddcbcf5c17c32b0ea0a5">&#9670;&#160;</a></span>RHIGetSyncSlackMS()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../df/d2a/_s_anim_notify_shared_8h.html#ac7c94e837fed3f8e4bb3dd94d7bd2ecf">float</a> RHIGetSyncSlackMS </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Returns the value of the rhi.SyncSlackMS CVar or length of a full frame interval if the frame offset system is disabled. </p>
+
+</div>
+</div>
+<a id="aaf26a15a645a30ff05a75f0cdc62712d" name="aaf26a15a645a30ff05a75f0cdc62712d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aaf26a15a645a30ff05a75f0cdc62712d">&#9670;&#160;</a></span>RHIInitializeFlipTracking()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../df/d63/_typed_element_query_capabilities_8inl.html#a72343342ce64c0755563ee6c5e27868d">void</a> RHIInitializeFlipTracking </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a903ad557a34cc4ddc6bd6c56d681e277" name="a903ad557a34cc4ddc6bd6c56d681e277"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a903ad557a34cc4ddc6bd6c56d681e277">&#9670;&#160;</a></span>RHIShutdownFlipTracking()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../df/d63/_typed_element_query_capabilities_8inl.html#a72343342ce64c0755563ee6c5e27868d">void</a> RHIShutdownFlipTracking </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a1e4470bde4aa4c7f15cb7e307ef7fee2" name="a1e4470bde4aa4c7f15cb7e307ef7fee2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1e4470bde4aa4c7f15cb7e307ef7fee2">&#9670;&#160;</a></span>RHITriggerTaskEventOnFlip()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../df/d63/_typed_element_query_capabilities_8inl.html#a72343342ce64c0755563ee6c5e27868d">void</a> RHITriggerTaskEventOnFlip </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../dd/de9/preprocessor_8c.html#abc0f5bc07737e498f287334775dff2b6">uint64</a></td>          <td class="paramname"><span class="paramname"><em>PresentIndex</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="../../d0/d05/class_u_e_1_1_tasks_1_1_f_task_event.html">UE::Tasks::FTaskEvent</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>Event</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aaf84f2b9282d692b728f832b0774c0a9" name="aaf84f2b9282d692b728f832b0774c0a9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aaf84f2b9282d692b728f832b0774c0a9">&#9670;&#160;</a></span>SetDepthBoundsTest()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../df/d63/_typed_element_query_capabilities_8inl.html#a72343342ce64c0755563ee6c5e27868d">void</a> SetDepthBoundsTest </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d9/dfe/class_f_r_h_i_command_list.html">FRHICommandList</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>RHICmdList</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../df/d2a/_s_anim_notify_shared_8h.html#ac7c94e837fed3f8e4bb3dd94d7bd2ecf">float</a></td>          <td class="paramname"><span class="paramname"><em>WorldSpaceDepthNear</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../df/d2a/_s_anim_notify_shared_8h.html#ac7c94e837fed3f8e4bb3dd94d7bd2ecf">float</a></td>          <td class="paramname"><span class="paramname"><em>WorldSpaceDepthFar</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="../../d0/df6/_math_fwd_8h.html#ae2f14b7680a0cbff5852407c51bedc6b">FMatrix</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>ProjectionMatrix</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a name="doc-var-members" id="doc-var-members"></a><h2 id="header-doc-var-members" class="groupheader">变量说明</h2>
+<a id="a1622c1a8091da5c295fb4f3841c68723" name="a1622c1a8091da5c295fb4f3841c68723"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1622c1a8091da5c295fb4f3841c68723">&#9670;&#160;</a></span>CVarRHIPresentThresholdBottom</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d5/d78/class_t_auto_console_variable.html">TAutoConsoleVariable</a>&lt; <a class="el" href="../../df/d2a/_s_anim_notify_shared_8h.html#ac7c94e837fed3f8e4bb3dd94d7bd2ecf">float</a> &gt; CVarRHIPresentThresholdBottom(<a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;rhi.PresentThreshold.Bottom&quot;), 0.0f, <a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;Range: 0.0 - 1.0\n&quot;), <a class="el" href="../../d4/dd9/_i_console_manager_8h.html#a7f594f23c2b2c5687f1a502ebb3ba105a67b9bfb43c52f383b7ccefb8fe69a306">ECVF_Default</a>) </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;rhi.PresentThreshold.Bottom&quot;)</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">0.</td>          <td class="paramname"><span class="paramname"><em>0f</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;Range: 0.0 - 1.0\n&quot;)</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d4/dd9/_i_console_manager_8h.html#a7f594f23c2b2c5687f1a502ebb3ba105a67b9bfb43c52f383b7ccefb8fe69a306">ECVF_Default</a></td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a9b40410fee4895c236e3cf14b1243552" name="a9b40410fee4895c236e3cf14b1243552"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9b40410fee4895c236e3cf14b1243552">&#9670;&#160;</a></span>CVarRHIPresentThresholdTop</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d5/d78/class_t_auto_console_variable.html">TAutoConsoleVariable</a>&lt; <a class="el" href="../../df/d2a/_s_anim_notify_shared_8h.html#ac7c94e837fed3f8e4bb3dd94d7bd2ecf">float</a> &gt; CVarRHIPresentThresholdTop(<a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;rhi.PresentThreshold.Top&quot;), 0.0f, <a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;Range: 0.0 - 1.0\n&quot;), <a class="el" href="../../d4/dd9/_i_console_manager_8h.html#a7f594f23c2b2c5687f1a502ebb3ba105a67b9bfb43c52f383b7ccefb8fe69a306">ECVF_Default</a>) </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;rhi.PresentThreshold.Top&quot;)</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">0.</td>          <td class="paramname"><span class="paramname"><em>0f</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;Range: 0.0 - 1.0\n&quot;)</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d4/dd9/_i_console_manager_8h.html#a7f594f23c2b2c5687f1a502ebb3ba105a67b9bfb43c52f383b7ccefb8fe69a306">ECVF_Default</a></td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a35f00867d9d7f4e205b3323ddcadcf75" name="a35f00867d9d7f4e205b3323ddcadcf75"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a35f00867d9d7f4e205b3323ddcadcf75">&#9670;&#160;</a></span>CVarRHISyncAllowEarlyKick</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d5/d78/class_t_auto_console_variable.html">TAutoConsoleVariable</a>&lt; <a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a8dbb3cd84ca9fd010dadfc3815eefa5d">int32</a> &gt; CVarRHISyncAllowEarlyKick(<a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;rhi.SyncAllowEarlyKick&quot;), 1, <a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;When 1, allows the RHI vsync thread to kick off the <a class="el" href="../../d9/dbf/_recast_mesh_8cpp.html#af019d68006e1f2d7b24c8f09051424cc">next</a> frame early <a class="el" href="../../d3/db8/binka__ue__decode__test_8cpp.html#a374eb3a41808f317fb77da75985c3204">if</a> we've missed the vsync.&quot;), <a class="el" href="../../d4/dd9/_i_console_manager_8h.html#a7f594f23c2b2c5687f1a502ebb3ba105a67b9bfb43c52f383b7ccefb8fe69a306">ECVF_Default</a>) </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;rhi.SyncAllowEarlyKick&quot;)</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">1</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;When 1, allows the RHI vsync thread to kick off the <a class="el" href="../../d9/dbf/_recast_mesh_8cpp.html#af019d68006e1f2d7b24c8f09051424cc">next</a> frame early <a class="el" href="../../d3/db8/binka__ue__decode__test_8cpp.html#a374eb3a41808f317fb77da75985c3204">if</a> we've missed the vsync.&quot;)</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d4/dd9/_i_console_manager_8h.html#a7f594f23c2b2c5687f1a502ebb3ba105a67b9bfb43c52f383b7ccefb8fe69a306">ECVF_Default</a></td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a0816909f3ede8fccdbf06f35a9c9da80" name="a0816909f3ede8fccdbf06f35a9c9da80"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0816909f3ede8fccdbf06f35a9c9da80">&#9670;&#160;</a></span>CVarRHISyncAllowVariable</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d5/d78/class_t_auto_console_variable.html">TAutoConsoleVariable</a>&lt; <a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a8dbb3cd84ca9fd010dadfc3815eefa5d">int32</a> &gt; CVarRHISyncAllowVariable(<a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;rhi.SyncAllowVariable&quot;), 1, <a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;When 1, allows the RHI to use variable refresh rate, <a class="el" href="../../d3/db8/binka__ue__decode__test_8cpp.html#a374eb3a41808f317fb77da75985c3204">if</a> supported by the output hardware.&quot;), <a class="el" href="../../d4/dd9/_i_console_manager_8h.html#a7f594f23c2b2c5687f1a502ebb3ba105a67b9bfb43c52f383b7ccefb8fe69a306">ECVF_Default</a>) </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;rhi.SyncAllowVariable&quot;)</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">1</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;When 1, allows the RHI to use variable refresh rate, <a class="el" href="../../d3/db8/binka__ue__decode__test_8cpp.html#a374eb3a41808f317fb77da75985c3204">if</a> supported by the output hardware.&quot;)</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d4/dd9/_i_console_manager_8h.html#a7f594f23c2b2c5687f1a502ebb3ba105a67b9bfb43c52f383b7ccefb8fe69a306">ECVF_Default</a></td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a81407d1e893e29a2f5412919f344def3" name="a81407d1e893e29a2f5412919f344def3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a81407d1e893e29a2f5412919f344def3">&#9670;&#160;</a></span>CVarRHISyncInterval</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d5/d78/class_t_auto_console_variable.html">TAutoConsoleVariable</a>&lt; <a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a8dbb3cd84ca9fd010dadfc3815eefa5d">int32</a> &gt; CVarRHISyncInterval(<a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;rhi.SyncInterval&quot;), 1, <a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;  3 - etc...\n&quot;), <a class="el" href="../../d4/dd9/_i_console_manager_8h.html#a7f594f23c2b2c5687f1a502ebb3ba105a67b9bfb43c52f383b7ccefb8fe69a306">ECVF_Default</a>) </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;rhi.SyncInterval&quot;)</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">1</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;  3 - etc...\n&quot;)</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d4/dd9/_i_console_manager_8h.html#a7f594f23c2b2c5687f1a502ebb3ba105a67b9bfb43c52f383b7ccefb8fe69a306">ECVF_Default</a></td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a5ea75c9f2c1ed1b79f19ebb4bb338f22" name="a5ea75c9f2c1ed1b79f19ebb4bb338f22"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5ea75c9f2c1ed1b79f19ebb4bb338f22">&#9670;&#160;</a></span>CVarRHISyncSlackMS</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d5/d78/class_t_auto_console_variable.html">TAutoConsoleVariable</a>&lt; <a class="el" href="../../df/d2a/_s_anim_notify_shared_8h.html#ac7c94e837fed3f8e4bb3dd94d7bd2ecf">float</a> &gt; CVarRHISyncSlackMS(<a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;rhi.SyncSlackMS&quot;), 10, <a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;Increases input latency by this many milliseconds, to help performance (trade-off tunable). Gamethread will be kicked off this many milliseconds before the vsync&quot;), <a class="el" href="../../d4/dd9/_i_console_manager_8h.html#a7f594f23c2b2c5687f1a502ebb3ba105a67b9bfb43c52f383b7ccefb8fe69a306">ECVF_Default</a>) </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;rhi.SyncSlackMS&quot;)</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">10</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;Increases input latency by this many milliseconds, to help performance (trade-off tunable). Gamethread will be kicked off this many milliseconds before the vsync&quot;)</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d4/dd9/_i_console_manager_8h.html#a7f594f23c2b2c5687f1a502ebb3ba105a67b9bfb43c52f383b7ccefb8fe69a306">ECVF_Default</a></td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aa77caf4c6fa4327602021aa73afeca50" name="aa77caf4c6fa4327602021aa73afeca50"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa77caf4c6fa4327602021aa73afeca50">&#9670;&#160;</a></span>GEnableConsole120Fps</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a8dbb3cd84ca9fd010dadfc3815eefa5d">int32</a> GEnableConsole120Fps = 0</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a3866a6fe5792b368f5cbd76b164ec0e2" name="a3866a6fe5792b368f5cbd76b164ec0e2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3866a6fe5792b368f5cbd76b164ec0e2">&#9670;&#160;</a></span>GLastRHITimeInSeconds</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d6/dfd/_i_transport_control_8h.html#a583127f9ef2ec8125a93f6a2a8c89ab7">double</a> GLastRHITimeInSeconds = 0.0</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a52d34726b53ee78dfe5a1d70e4dff26a" name="a52d34726b53ee78dfe5a1d70e4dff26a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a52d34726b53ee78dfe5a1d70e4dff26a">&#9670;&#160;</a></span>GRHIFrameTimeMS</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../df/d2a/_s_anim_notify_shared_8h.html#ac7c94e837fed3f8e4bb3dd94d7bd2ecf">float</a> GRHIFrameTimeMS = 0.0f</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a66b0a88ce7adaaed5f5e5b156638817f" name="a66b0a88ce7adaaed5f5e5b156638817f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a66b0a88ce7adaaed5f5e5b156638817f">&#9670;&#160;</a></span>InternalEnableConsole120Fps</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a8dbb3cd84ca9fd010dadfc3815eefa5d">int32</a> InternalEnableConsole120Fps = 0</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<div id="page-nav" class="page-nav-panel">
+<div id="page-nav-resize-handle"></div>
+<div id="page-nav-tree">
+<div id="page-nav-contents">
+</div><!-- page-nav-contents -->
+</div><!-- page-nav-tree -->
+</div><!-- page-nav -->
+</div><!-- container -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a href="../../dir_0b6ee6e7e9547e675db4add2e5de97da.html">Engine</a></li><li class="navelem"><a href="../../dir_9579d1ecb2c7bf48cbe1049c41745cb4.html">Source</a></li><li class="navelem"><a href="../../dir_9f04efef762572853abdf73f62bebfcc.html">Runtime</a></li><li class="navelem"><a href="../../dir_17e95c33057ffb10235013ccaac986bc.html">RHI</a></li><li class="navelem"><a href="../../dir_cacbbf0fe3bd5b6dc058f14df2b05bc8.html">Private</a></li><li class="navelem"><a href="../../df/d89/_r_h_i_utilities_8cpp.html">RHIUtilities.cpp</a></li>
+    <li class="footer">制作者 <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.15.0 </li>
+  </ul>
+</div>
+</body>
+</html>

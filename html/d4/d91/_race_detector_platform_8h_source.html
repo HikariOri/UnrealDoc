@@ -1,0 +1,260 @@
+<!-- HTML header for doxygen 1.15.0-->
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh">
+<head>
+  <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=11" />
+  <meta name="generator" content="Doxygen 1.15.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>UE 5.8.4: Engine/Source/Runtime/Core/Internal/Sanitizer/RaceDetectorPlatform.h 源文件</title>
+  <link rel="icon" href="../../EdIconDefault.bmp" type="image/x-icon" />
+  <link href="../../tabs.css" rel="stylesheet" type="text/css" />
+  <script type="text/javascript" src="../../jquery.js"></script>
+  <script type="text/javascript" src="../../dynsections.js"></script>
+  <link href="../../navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../navtreedata.js"></script>
+<script type="text/javascript" src="../../navtree.js"></script>
+<script type="text/javascript" src="../../cookie.js"></script>
+  <link href="../../search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../search/searchdata.js"></script>
+<script type="text/javascript" src="../../search/search.js"></script>
+  <link href="../../doxygen.css" rel="stylesheet" type="text/css" />
+  <link href="../../doxygen-awesome.css" rel="stylesheet" type="text/css"/>
+<link href="../../doxygen-awesome-sidebar-only.css" rel="stylesheet" type="text/css"/>
+<link href="../../doxygen-awesome-sidebar-only-darkmode-toggle.css" rel="stylesheet" type="text/css"/>
+  <!-- ... other metadata & script includes ... -->
+  <script type="text/javascript" src="../../doxygen-awesome-darkmode-toggle.js"></script>
+  <script type="text/javascript">
+    DoxygenAwesomeDarkModeToggle.title = "Zwischen hellem/dunklem Modus wechseln"
+    DoxygenAwesomeDarkModeToggle.lightModeIcon = '🌞'
+    // icon from https://fonts.google.com/icons
+    DoxygenAwesomeDarkModeToggle.darkModeIcon = `<svg xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 24 24" height="24px" viewBox="0 0 24 24" width="24px" fill="#009793"><g><rect fill="none" height="24" width="24"/></g><g><g><path d="M8.1,14.15C9.77,14.63,11,16.17,11,18c0,0.68-0.19,1.31-0.48,1.87c0.48,0.09,0.97,0.14,1.48,0.14 c1.48,0,2.9-0.41,4.13-1.15c-2.62-0.92-5.23-2.82-6.8-5.86C7.74,9.94,7.78,7.09,8.29,4.9c-2.57,1.33-4.3,4.01-4.3,7.1c0,0,0,0,0,0 c0.01,0,0.01,0,0.02,0C5.66,12,7.18,12.83,8.1,14.15z" opacity=".3"/><path d="M19.78,17.51c-2.47,0-6.57-1.33-8.68-5.43C8.77,7.57,10.6,3.6,11.63,2.01C6.27,2.2,1.98,6.59,1.98,12 c0,0.14,0.02,0.28,0.02,0.42C2.61,12.16,3.28,12,3.98,12c0,0,0,0,0,0c0-3.09,1.73-5.77,4.3-7.1C7.78,7.09,7.74,9.94,9.32,13 c1.57,3.04,4.18,4.95,6.8,5.86c-1.23,0.74-2.65,1.15-4.13,1.15c-0.5,0-1-0.05-1.48-0.14c-0.37,0.7-0.94,1.27-1.64,1.64 c0.98,0.32,2.03,0.5,3.11,0.5c3.5,0,6.58-1.8,8.37-4.52C20.18,17.5,19.98,17.51,19.78,17.51z"/><path d="M7,16l-0.18,0C6.4,14.84,5.3,14,4,14c-1.66,0-3,1.34-3,3s1.34,3,3,3c0.62,0,2.49,0,3,0c1.1,0,2-0.9,2-2 C9,16.9,8.1,16,7,16z"/></g></g></svg>`
+    DoxygenAwesomeDarkModeToggle.init()
+  </script>
+  <script type="text/javascript" src="../../doxygen-awesome-fragment-copy-button.js"></script>
+  <script type="text/javascript">
+    DoxygenAwesomeFragmentCopyButton.title = "In die Zwischenablage kopieren"
+    // DoxygenAwesomeFragmentCopyButton.copyIcon = `<svg ...>`
+    // DoxygenAwesomeFragmentCopyButton.successIcon = `<svg ...>`
+    DoxygenAwesomeFragmentCopyButton.init()
+  </script>
+  <script type="text/javascript" src="../../doxygen-awesome-paragraph-link.js"></script>
+  <script type="text/javascript">
+    DoxygenAwesomeParagraphLink.title = "Abschnitt verknüpfen"
+    DoxygenAwesomeParagraphLink.icon = "¶"
+    DoxygenAwesomeParagraphLink.init()
+  </script>
+  <script type="text/javascript" src="../../doxygen-awesome-interactive-toc.js"></script>
+  <script type="text/javascript">
+    DoxygenAwesomeInteractiveToc.topOffset = 45
+    DoxygenAwesomeInteractiveToc.hideMobileMenu = false
+    DoxygenAwesomeInteractiveToc.init()
+  </script>
+</head>
+<body>
+    <div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+      <div id="titlearea">
+        <table cellspacing="0" cellpadding="0">
+          <tbody>
+            <tr id="projectrow">
+              <td id="projectlogo"><img alt="Logo" src="../../EdIconDefault.bmp"  /></td>
+              <td id="projectalign">
+                <div id="projectname">UE 5.8.4
+                </div>
+                <div id="projectbrief">Unreal Engine</div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <!-- end header part -->
+<!-- 制作者 Doxygen 1.15.0 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "../../search/",'.html');
+</script>
+<script type="text/javascript">
+$(function() { codefold.init(); });
+</script>
+<script type="text/javascript" src="../../menudata.js"></script>
+<script type="text/javascript" src="../../menu.js"></script>
+<script type="text/javascript">
+$(function() {
+  initMenu('../../',true,false,'search.php','搜索',true);
+  $(function() { init_search(); });
+});
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(function(){initNavTree('d4/d91/_race_detector_platform_8h_source.html','../../',''); });
+</script>
+<div id="container">
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">载入中...</div>
+<div class="SRStatus" id="Searching">搜索中...</div>
+<div class="SRStatus" id="NoMatches">未找到</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">RaceDetectorPlatform.h</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="../../d4/d91/_race_detector_platform_8h.html">浏览该文件的文档.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="comment">// Copyright Epic Games, Inc. All Rights Reserved.</span></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span> </div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="preprocessor">#pragma once</span></div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span> </div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="preprocessor">#include &quot;<a class="code" href="../../d3/dd3/_core_misc_defines_8h.html">Misc/CoreMiscDefines.h</a>&quot;</span></div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span> </div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="preprocessor">#if USING_INSTRUMENTATION</span></div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span> </div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="preprocessor">#include &quot;<a class="code" href="../../db/d04/_core_types_8h.html">CoreTypes.h</a>&quot;</span></div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="preprocessor">#include &quot;<a class="code" href="../../db/da2/_instrumentation_2_internal_2_instrumentation_2_defines_8h.html">Instrumentation/Defines.h</a>&quot;</span></div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span> </div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="keyword">namespace </span>UE::Sanitizer::RaceDetector {</div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span>    <span class="keyword">namespace </span><a class="code hl_enumvalue" href="../../dd/d39/_cbor_types_8h.html#a29d4ca1c483acdb52d5031dcfaf7b8d8a419f3742e6de8e0ec4b22cce005e7630">Platform</a> {</div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span>        <span class="comment">// Performs any platform specific initialization.</span></div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span>        <a class="code hl_define" href="../../db/da2/_instrumentation_2_internal_2_instrumentation_2_defines_8h.html#a55cc5742929c33ab93380e88ff8dd196">INSTRUMENTATION_FUNCTION_ATTRIBUTES</a> <span class="keywordtype">bool</span>  InitializePlatform();</div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span>        <span class="comment">// Performs any platform specific cleanup.</span></div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span>        <a class="code hl_define" href="../../db/da2/_instrumentation_2_internal_2_instrumentation_2_defines_8h.html#a55cc5742929c33ab93380e88ff8dd196">INSTRUMENTATION_FUNCTION_ATTRIBUTES</a> <span class="keywordtype">bool</span>  <a class="code hl_function" href="../../d4/de8/_core_utilities_8cpp.html#a158aacaac8fb11bf3bac541130031753">CleanupPlatform</a>();</div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>        <span class="comment">// Prepare address space of shadow memory</span></div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>        <a class="code hl_define" href="../../db/da2/_instrumentation_2_internal_2_instrumentation_2_defines_8h.html#a55cc5742929c33ab93380e88ff8dd196">INSTRUMENTATION_FUNCTION_ATTRIBUTES</a> <span class="keywordtype">void</span>  InitShadowMemory();</div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>        <span class="comment">// Returns the command line the process was started with.</span></div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>        <a class="code hl_define" href="../../db/da2/_instrumentation_2_internal_2_instrumentation_2_defines_8h.html#a55cc5742929c33ab93380e88ff8dd196">INSTRUMENTATION_FUNCTION_ATTRIBUTES</a> <span class="keyword">const</span> <a class="code hl_typedef" href="../../d4/d83/namespace_cross_compiler.html#ad4d968bae01be345ca4bcc2426796f38">TCHAR</a>* GetCommandLine();</div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>        <span class="comment">// Returns the page size granularity.</span></div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>        <a class="code hl_define" href="../../db/da2/_instrumentation_2_internal_2_instrumentation_2_defines_8h.html#a55cc5742929c33ab93380e88ff8dd196">INSTRUMENTATION_FUNCTION_ATTRIBUTES</a> <a class="code hl_typedef" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a9312caeb4a64708527581a5c78438b5a">UPTRINT</a> GetPageSize();</div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>        <span class="comment">// Returns the base address of the shadow memory address space.</span></div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>        <span class="comment">// Note: InitShadowMemory must have been called before, otherwise this is meaningless.</span></div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>        <a class="code hl_define" href="../../db/da2/_instrumentation_2_internal_2_instrumentation_2_defines_8h.html#a55cc5742929c33ab93380e88ff8dd196">INSTRUMENTATION_FUNCTION_ATTRIBUTES</a> <a class="code hl_typedef" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a9312caeb4a64708527581a5c78438b5a">UPTRINT</a> GetShadowMemoryBase();</div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>        <span class="comment">// Returns the size of the entire shadow memory address space.</span></div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>        <span class="comment">// Note: InitShadowMemory must have been called before, otherwise this is meaningless.</span></div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>        <a class="code hl_define" href="../../db/da2/_instrumentation_2_internal_2_instrumentation_2_defines_8h.html#a55cc5742929c33ab93380e88ff8dd196">INSTRUMENTATION_FUNCTION_ATTRIBUTES</a> <a class="code hl_typedef" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a9312caeb4a64708527581a5c78438b5a">UPTRINT</a> GetShadowMemorySize();</div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>        <span class="comment">// Get the base of the shadow memory for clock banks.</span></div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>        <a class="code hl_define" href="../../db/da2/_instrumentation_2_internal_2_instrumentation_2_defines_8h.html#a55cc5742929c33ab93380e88ff8dd196">INSTRUMENTATION_FUNCTION_ATTRIBUTES</a> <a class="code hl_typedef" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a9312caeb4a64708527581a5c78438b5a">UPTRINT</a> GetShadowClockBase();</div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>        <span class="comment">// Returns the number of bytes currently mapped in the shadow memory.</span></div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>        <a class="code hl_define" href="../../db/da2/_instrumentation_2_internal_2_instrumentation_2_defines_8h.html#a55cc5742929c33ab93380e88ff8dd196">INSTRUMENTATION_FUNCTION_ATTRIBUTES</a> <a class="code hl_typedef" href="../../dd/de9/preprocessor_8c.html#abc0f5bc07737e498f287334775dff2b6">uint64</a> GetShadowMemoryUsage();</div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>        <span class="comment">// Returns whether a particular range is already accessible in shadow memory.</span></div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>        <a class="code hl_define" href="../../db/da2/_instrumentation_2_internal_2_instrumentation_2_defines_8h.html#a55cc5742929c33ab93380e88ff8dd196">INSTRUMENTATION_FUNCTION_ATTRIBUTES</a> <span class="keywordtype">bool</span> IsShadowMemoryMapped(<a class="code hl_typedef" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a9312caeb4a64708527581a5c78438b5a">UPTRINT</a> <a class="code hl_enumvalue" href="../../d1/de3/_level_editor_viewport_settings_8h.html#a051305eadd1140d5b2b755a6a3092cb1a095a1b43effec73955e31e790438de49">Base</a>, <a class="code hl_typedef" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a9312caeb4a64708527581a5c78438b5a">UPTRINT</a> <a class="code hl_variable" href="../../d0/de4/_sequence_history_8h.html#a41f48316f09703e0b7cd9ac6b643e9c8">Size</a>);</div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>        <span class="comment">// Maps a range in shadow memory so that it is safe to access.</span></div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>        <a class="code hl_define" href="../../db/da2/_instrumentation_2_internal_2_instrumentation_2_defines_8h.html#a55cc5742929c33ab93380e88ff8dd196">INSTRUMENTATION_FUNCTION_ATTRIBUTES</a> <span class="keywordtype">void</span> MapShadowMemory(<a class="code hl_typedef" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a9312caeb4a64708527581a5c78438b5a">UPTRINT</a> <a class="code hl_enumvalue" href="../../d1/de3/_level_editor_viewport_settings_8h.html#a051305eadd1140d5b2b755a6a3092cb1a095a1b43effec73955e31e790438de49">Base</a>, <a class="code hl_typedef" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a9312caeb4a64708527581a5c78438b5a">UPTRINT</a> <a class="code hl_variable" href="../../d0/de4/_sequence_history_8h.html#a41f48316f09703e0b7cd9ac6b643e9c8">Size</a>);</div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>        <span class="comment">// Unmaps the entire range of shadow memory.</span></div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>        <a class="code hl_define" href="../../db/da2/_instrumentation_2_internal_2_instrumentation_2_defines_8h.html#a55cc5742929c33ab93380e88ff8dd196">INSTRUMENTATION_FUNCTION_ATTRIBUTES</a> <span class="keywordtype">void</span> UnmapShadowMemory();</div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>        <span class="comment">// Returns whether a debugger is currently attached to our process.</span></div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>        <a class="code hl_define" href="../../db/da2/_instrumentation_2_internal_2_instrumentation_2_defines_8h.html#a55cc5742929c33ab93380e88ff8dd196">INSTRUMENTATION_FUNCTION_ATTRIBUTES</a> <span class="keywordtype">bool</span> <a class="code hl_function" href="../../da/daf/namespaceu_lang.html#a9c4f173df276b2ba49c644f40b7920d2">IsDebuggerPresent</a>();</div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>        <span class="comment">// Returns whether there is any page currently mapped in shadow memory.</span></div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>        <a class="code hl_define" href="../../db/da2/_instrumentation_2_internal_2_instrumentation_2_defines_8h.html#a55cc5742929c33ab93380e88ff8dd196">INSTRUMENTATION_FUNCTION_ATTRIBUTES</a> <span class="keywordtype">bool</span> HasShadowMemoryMapped();</div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>        <span class="comment">// Sends a hint to visual studio to hide first chance exception to reduce noise caused by shadow memory access.</span></div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>        <a class="code hl_define" href="../../db/da2/_instrumentation_2_internal_2_instrumentation_2_defines_8h.html#a55cc5742929c33ab93380e88ff8dd196">INSTRUMENTATION_FUNCTION_ATTRIBUTES</a> <span class="keywordtype">void</span> HideFirstChanceExceptionInVisualStudio();</div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>        <span class="comment">// Sleeps for the given amount of milliseconds.</span></div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>        <a class="code hl_define" href="../../db/da2/_instrumentation_2_internal_2_instrumentation_2_defines_8h.html#a55cc5742929c33ab93380e88ff8dd196">INSTRUMENTATION_FUNCTION_ATTRIBUTES</a> <span class="keywordtype">void</span> SleepMS(<a class="code hl_typedef" href="../../dd/de9/preprocessor_8c.html#a1134b580f8da4de94ca6b1de4d37975e">uint32</a> <a class="code hl_enumvalue" href="../../d6/d3d/_unit_conversion_8h.html#a9dbd83757db11891db81e11540fb669aa38f246763036ccaeba7db6d563c4d821">Milliseconds</a>);</div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>        <span class="comment">// Capture the current callstack.</span></div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>        <a class="code hl_define" href="../../db/da2/_instrumentation_2_internal_2_instrumentation_2_defines_8h.html#a55cc5742929c33ab93380e88ff8dd196">INSTRUMENTATION_FUNCTION_ATTRIBUTES</a> <a class="code hl_typedef" href="../../dd/de9/preprocessor_8c.html#a05f6b0ae8f6a6e135b0e290c25fe0e4e">uint16</a> CaptureStackBackTrace(<a class="code hl_typedef" href="../../dd/de9/preprocessor_8c.html#a1134b580f8da4de94ca6b1de4d37975e">uint32</a> FrameToSkip, <a class="code hl_typedef" href="../../dd/de9/preprocessor_8c.html#a1134b580f8da4de94ca6b1de4d37975e">uint32</a> FrameToCapture, <span class="keywordtype">void</span>** Backtrace);</div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>        <span class="comment">// Allocates a Tls index.</span></div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>        <a class="code hl_define" href="../../db/da2/_instrumentation_2_internal_2_instrumentation_2_defines_8h.html#a55cc5742929c33ab93380e88ff8dd196">INSTRUMENTATION_FUNCTION_ATTRIBUTES</a> <a class="code hl_typedef" href="../../dd/de9/preprocessor_8c.html#a1134b580f8da4de94ca6b1de4d37975e">uint32</a> AllocTlsSlot();</div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>        <span class="comment">// Releases a Tls index.</span></div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>        <a class="code hl_define" href="../../db/da2/_instrumentation_2_internal_2_instrumentation_2_defines_8h.html#a55cc5742929c33ab93380e88ff8dd196">INSTRUMENTATION_FUNCTION_ATTRIBUTES</a> <span class="keywordtype">void</span> FreeTlsSlot(<a class="code hl_typedef" href="../../dd/de9/preprocessor_8c.html#a1134b580f8da4de94ca6b1de4d37975e">uint32</a> <a class="code hl_typedef" href="../../df/dd5/radfft_8cpp.html#a353b84469a01fbe28e2db978bdf1fb86">Index</a>);</div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>        <span class="comment">// Gets the value of the Tls index for the current thread.</span></div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>        <a class="code hl_define" href="../../db/da2/_instrumentation_2_internal_2_instrumentation_2_defines_8h.html#a55cc5742929c33ab93380e88ff8dd196">INSTRUMENTATION_FUNCTION_ATTRIBUTES</a> <span class="keywordtype">void</span>* GetTlsValue(<a class="code hl_typedef" href="../../dd/de9/preprocessor_8c.html#a1134b580f8da4de94ca6b1de4d37975e">uint32</a> <a class="code hl_typedef" href="../../df/dd5/radfft_8cpp.html#a353b84469a01fbe28e2db978bdf1fb86">Index</a>);</div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>        <span class="comment">// Sets the value of the Tls index for the current thread.</span></div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>        <a class="code hl_define" href="../../db/da2/_instrumentation_2_internal_2_instrumentation_2_defines_8h.html#a55cc5742929c33ab93380e88ff8dd196">INSTRUMENTATION_FUNCTION_ATTRIBUTES</a> <span class="keywordtype">void</span> SetTlsValue(<a class="code hl_typedef" href="../../dd/de9/preprocessor_8c.html#a1134b580f8da4de94ca6b1de4d37975e">uint32</a> <a class="code hl_typedef" href="../../df/dd5/radfft_8cpp.html#a353b84469a01fbe28e2db978bdf1fb86">Index</a>, <span class="keywordtype">void</span>* <a class="code hl_enumvalue" href="../../d1/d75/_s_color_picker_8h.html#a84461ad6c05d7bc638a383922014d918a689202409e48743b914713f96d93947c">Value</a>);</div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>        <span class="comment">// Returns the current thread Id.</span></div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>        <a class="code hl_define" href="../../db/da2/_instrumentation_2_internal_2_instrumentation_2_defines_8h.html#a55cc5742929c33ab93380e88ff8dd196">INSTRUMENTATION_FUNCTION_ATTRIBUTES</a> <a class="code hl_typedef" href="../../dd/de9/preprocessor_8c.html#a1134b580f8da4de94ca6b1de4d37975e">uint32</a> <a class="code hl_function" href="../../d8/d5e/namespace_windows.html#a470bc3bb69629c116360080eea602ff4">GetCurrentThreadId</a>();</div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span> </div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>        <span class="comment">// Rewrites the patchable function prefix with the proper jmp to the target.</span></div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>        <a class="code hl_define" href="../../db/da2/_instrumentation_2_internal_2_instrumentation_2_defines_8h.html#a55cc5742929c33ab93380e88ff8dd196">INSTRUMENTATION_FUNCTION_ATTRIBUTES</a> <span class="keywordtype">void</span> PrepareTrampoline(<span class="keywordtype">void</span>* PatchableFunctionAddress, <span class="keywordtype">void</span>* TargetFunctionAddress, <span class="keywordtype">bool</span> bUseRETBypass);</div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>        <span class="comment">// Rewrites the patchable function prefix back to its original compiled NOPs.</span></div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>        <a class="code hl_define" href="../../db/da2/_instrumentation_2_internal_2_instrumentation_2_defines_8h.html#a55cc5742929c33ab93380e88ff8dd196">INSTRUMENTATION_FUNCTION_ATTRIBUTES</a> <span class="keywordtype">void</span> CleanupTrampoline(<span class="keywordtype">void</span>* PatchableFunctionAddress);</div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>        <span class="comment">// Rewrites the 2 first bytes of the function to jump at the beginning of the prefix section.</span></div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span>        <a class="code hl_define" href="../../db/da2/_instrumentation_2_internal_2_instrumentation_2_defines_8h.html#a55cc5742929c33ab93380e88ff8dd196">INSTRUMENTATION_FUNCTION_ATTRIBUTES</a> <span class="keywordtype">void</span> ActivateTrampoline(<span class="keywordtype">void</span>* PatchableFunctionAddress);</div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>        <span class="comment">// Rewrites the 2 first bytes of the function to either do nothing or do an immediate return (RET bypass).</span></div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>        <a class="code hl_define" href="../../db/da2/_instrumentation_2_internal_2_instrumentation_2_defines_8h.html#a55cc5742929c33ab93380e88ff8dd196">INSTRUMENTATION_FUNCTION_ATTRIBUTES</a> <span class="keywordtype">void</span> DeactivateTrampoline(<span class="keywordtype">void</span>* PatchableFunctionAddress, <span class="keywordtype">bool</span> bUseRETBypass);</div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>        <span class="comment">// This needs to be called after trampoline activation or deactivation to make sure it takes effect immediately.</span></div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>        <a class="code hl_define" href="../../db/da2/_instrumentation_2_internal_2_instrumentation_2_defines_8h.html#a55cc5742929c33ab93380e88ff8dd196">INSTRUMENTATION_FUNCTION_ATTRIBUTES</a> <span class="keywordtype">void</span> FlushInstructionCache();</div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>        <span class="comment">// Get the limits of the stack for the current thread.</span></div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>        <a class="code hl_define" href="../../db/da2/_instrumentation_2_internal_2_instrumentation_2_defines_8h.html#a55cc5742929c33ab93380e88ff8dd196">INSTRUMENTATION_FUNCTION_ATTRIBUTES</a> <span class="keywordtype">void</span> GetCurrentThreadStackLimits(<span class="keywordtype">void</span>** LowLimit, <span class="keywordtype">void</span>** HighLimit);</div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>        <span class="comment">// Check if the thread id given is currently alive</span></div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>        <a class="code hl_define" href="../../db/da2/_instrumentation_2_internal_2_instrumentation_2_defines_8h.html#a55cc5742929c33ab93380e88ff8dd196">INSTRUMENTATION_FUNCTION_ATTRIBUTES</a> <span class="keywordtype">bool</span> <a class="code hl_function" href="../../df/d95/namespace_mem_pro_1_1_generic_platform.html#adc3af90ae2c67307f167f6f224070db3">IsThreadAlive</a>(<a class="code hl_typedef" href="../../dd/de9/preprocessor_8c.html#a1134b580f8da4de94ca6b1de4d37975e">uint32</a> ThreadId);</div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>        <span class="comment">// Provides a compilation barrier</span></div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>        <a class="code hl_define" href="../../db/da2/_instrumentation_2_internal_2_instrumentation_2_defines_8h.html#a55cc5742929c33ab93380e88ff8dd196">INSTRUMENTATION_FUNCTION_ATTRIBUTES</a> <a class="code hl_define" href="../../d0/d76/_android_platform_8h.html#a724fb9f82013c782db5c3c12ea36aac8">FORCEINLINE</a> <span class="keywordtype">void</span> AsymmetricThreadFenceLight()</div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span>        {</div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>            _ReadWriteBarrier();</div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>        }</div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span> </div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>        <span class="comment">// The function generates an interprocessor interrupt (IPI) to all processors that are part of the current process affinity.</span></div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span>        <span class="comment">// It guarantees the visibility of write operations performed on one processor to the other processors.</span></div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span>        <a class="code hl_define" href="../../db/da2/_instrumentation_2_internal_2_instrumentation_2_defines_8h.html#a55cc5742929c33ab93380e88ff8dd196">INSTRUMENTATION_FUNCTION_ATTRIBUTES</a> <span class="keywordtype">void</span> AsymmetricThreadFenceHeavy();</div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span> </div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span>        <span class="comment">// Linear allocator for sync objects — reserves virtual address space, commits in chunks,</span></div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span>        <span class="comment">// decommits the entire region in a single syscall on shadow reset.</span></div>
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span>        <a class="code hl_define" href="../../db/da2/_instrumentation_2_internal_2_instrumentation_2_defines_8h.html#a55cc5742929c33ab93380e88ff8dd196">INSTRUMENTATION_FUNCTION_ATTRIBUTES</a> <span class="keywordtype">void</span>  InitSyncObjectAllocator(<a class="code hl_typedef" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2c46f1fb01e11216aa2c983307deafb4">SIZE_T</a> ReservedSize, <a class="code hl_typedef" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2c46f1fb01e11216aa2c983307deafb4">SIZE_T</a> CommitGranularity);</div>
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span>        <a class="code hl_define" href="../../db/da2/_instrumentation_2_internal_2_instrumentation_2_defines_8h.html#a55cc5742929c33ab93380e88ff8dd196">INSTRUMENTATION_FUNCTION_ATTRIBUTES</a> <span class="keywordtype">void</span>  ShutdownSyncObjectAllocator();</div>
+<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span>        <a class="code hl_define" href="../../db/da2/_instrumentation_2_internal_2_instrumentation_2_defines_8h.html#a55cc5742929c33ab93380e88ff8dd196">INSTRUMENTATION_FUNCTION_ATTRIBUTES</a> <span class="keywordtype">void</span>* SyncObjectAllocatorAlloc(<a class="code hl_typedef" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2c46f1fb01e11216aa2c983307deafb4">SIZE_T</a> <a class="code hl_variable" href="../../d0/de4/_sequence_history_8h.html#a41f48316f09703e0b7cd9ac6b643e9c8">Size</a>);</div>
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span>        <a class="code hl_define" href="../../db/da2/_instrumentation_2_internal_2_instrumentation_2_defines_8h.html#a55cc5742929c33ab93380e88ff8dd196">INSTRUMENTATION_FUNCTION_ATTRIBUTES</a> <span class="keywordtype">void</span>  SyncObjectAllocatorReset();</div>
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span>        <a class="code hl_define" href="../../db/da2/_instrumentation_2_internal_2_instrumentation_2_defines_8h.html#a55cc5742929c33ab93380e88ff8dd196">INSTRUMENTATION_FUNCTION_ATTRIBUTES</a> <span class="keywordtype">void</span>  SyncObjectAllocatorAddRef();</div>
+<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span>        <a class="code hl_define" href="../../db/da2/_instrumentation_2_internal_2_instrumentation_2_defines_8h.html#a55cc5742929c33ab93380e88ff8dd196">INSTRUMENTATION_FUNCTION_ATTRIBUTES</a> <span class="keywordtype">void</span>  SyncObjectAllocatorRelease();</div>
+<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span>        <a class="code hl_define" href="../../db/da2/_instrumentation_2_internal_2_instrumentation_2_defines_8h.html#a55cc5742929c33ab93380e88ff8dd196">INSTRUMENTATION_FUNCTION_ATTRIBUTES</a> <a class="code hl_typedef" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a8dbb3cd84ca9fd010dadfc3815eefa5d">int32</a> SyncObjectAllocatorGetRefCount();</div>
+<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span>        <a class="code hl_define" href="../../db/da2/_instrumentation_2_internal_2_instrumentation_2_defines_8h.html#a55cc5742929c33ab93380e88ff8dd196">INSTRUMENTATION_FUNCTION_ATTRIBUTES</a> <a class="code hl_typedef" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2c46f1fb01e11216aa2c983307deafb4">SIZE_T</a> SyncObjectAllocatorGetCommittedSize();</div>
+<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span>    }</div>
+<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span>}</div>
+<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span> </div>
+<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span><span class="preprocessor">#endif </span><span class="comment">// USING_INSTRUMENTATION</span></div>
+<div class="ttc" id="a_android_platform_8h_html_a724fb9f82013c782db5c3c12ea36aac8"><div class="ttname"><a href="../../d0/d76/_android_platform_8h.html#a724fb9f82013c782db5c3c12ea36aac8">FORCEINLINE</a></div><div class="ttdeci">#define FORCEINLINE</div><div class="ttdef"><b>定义</b> AndroidPlatform.h:144</div></div>
+<div class="ttc" id="a_cbor_types_8h_html_a29d4ca1c483acdb52d5031dcfaf7b8d8a419f3742e6de8e0ec4b22cce005e7630"><div class="ttname"><a href="../../dd/d39/_cbor_types_8h.html#a29d4ca1c483acdb52d5031dcfaf7b8d8a419f3742e6de8e0ec4b22cce005e7630">ECborEndianness::Platform</a></div><div class="ttdeci">@ Platform</div><div class="ttdef"><b>定义</b> CborTypes.h:319</div></div>
+<div class="ttc" id="a_core_2_public_2_h_a_l_2_platform_8h_html_a2c46f1fb01e11216aa2c983307deafb4"><div class="ttname"><a href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2c46f1fb01e11216aa2c983307deafb4">SIZE_T</a></div><div class="ttdeci">FPlatformTypes::SIZE_T SIZE_T</div><div class="ttdoc">An unsigned integer the same size as a pointer, the same as UPTRINT</div><div class="ttdef"><b>定义</b> Platform.h:1215</div></div>
+<div class="ttc" id="a_core_2_public_2_h_a_l_2_platform_8h_html_a8dbb3cd84ca9fd010dadfc3815eefa5d"><div class="ttname"><a href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a8dbb3cd84ca9fd010dadfc3815eefa5d">int32</a></div><div class="ttdeci">FPlatformTypes::int32 int32</div><div class="ttdoc">A 32-bit signed integer.</div><div class="ttdef"><b>定义</b> Platform.h:1190</div></div>
+<div class="ttc" id="a_core_2_public_2_h_a_l_2_platform_8h_html_a9312caeb4a64708527581a5c78438b5a"><div class="ttname"><a href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a9312caeb4a64708527581a5c78438b5a">UPTRINT</a></div><div class="ttdeci">FPlatformTypes::UPTRINT UPTRINT</div><div class="ttdoc">An unsigned integer the same size as a pointer</div><div class="ttdef"><b>定义</b> Platform.h:1211</div></div>
+<div class="ttc" id="a_core_misc_defines_8h_html"><div class="ttname"><a href="../../d3/dd3/_core_misc_defines_8h.html">CoreMiscDefines.h</a></div></div>
+<div class="ttc" id="a_core_types_8h_html"><div class="ttname"><a href="../../db/d04/_core_types_8h.html">CoreTypes.h</a></div></div>
+<div class="ttc" id="a_core_utilities_8cpp_html_a158aacaac8fb11bf3bac541130031753"><div class="ttname"><a href="../../d4/de8/_core_utilities_8cpp.html#a158aacaac8fb11bf3bac541130031753">CleanupPlatform</a></div><div class="ttdeci">void CleanupPlatform()</div><div class="ttdef"><b>定义</b> CoreUtilities.cpp:122</div></div>
+<div class="ttc" id="a_instrumentation_2_internal_2_instrumentation_2_defines_8h_html"><div class="ttname"><a href="../../db/da2/_instrumentation_2_internal_2_instrumentation_2_defines_8h.html">Defines.h</a></div></div>
+<div class="ttc" id="a_instrumentation_2_internal_2_instrumentation_2_defines_8h_html_a55cc5742929c33ab93380e88ff8dd196"><div class="ttname"><a href="../../db/da2/_instrumentation_2_internal_2_instrumentation_2_defines_8h.html#a55cc5742929c33ab93380e88ff8dd196">INSTRUMENTATION_FUNCTION_ATTRIBUTES</a></div><div class="ttdeci">#define INSTRUMENTATION_FUNCTION_ATTRIBUTES</div><div class="ttdef"><b>定义</b> Defines.h:14</div></div>
+<div class="ttc" id="a_level_editor_viewport_settings_8h_html_a051305eadd1140d5b2b755a6a3092cb1a095a1b43effec73955e31e790438de49"><div class="ttname"><a href="../../d1/de3/_level_editor_viewport_settings_8h.html#a051305eadd1140d5b2b755a6a3092cb1a095a1b43effec73955e31e790438de49">EMaterialKind::Base</a></div><div class="ttdeci">@ Base</div><div class="ttdef"><b>定义</b> LevelEditorViewportSettings.h:80</div></div>
+<div class="ttc" id="a_s_color_picker_8h_html_a84461ad6c05d7bc638a383922014d918a689202409e48743b914713f96d93947c"><div class="ttname"><a href="../../d1/d75/_s_color_picker_8h.html#a84461ad6c05d7bc638a383922014d918a689202409e48743b914713f96d93947c">EColorPickerChannels::Value</a></div><div class="ttdeci">@ Value</div><div class="ttdef"><b>定义</b> SColorPicker.h:39</div></div>
+<div class="ttc" id="a_sequence_history_8h_html_a41f48316f09703e0b7cd9ac6b643e9c8"><div class="ttname"><a href="../../d0/de4/_sequence_history_8h.html#a41f48316f09703e0b7cd9ac6b643e9c8">Size</a></div><div class="ttdeci">constexpr SIZE_T TSequenceHistory&lt; HistorySize &gt;::Size</div><div class="ttdef"><b>定义</b> SequenceHistory.h:69</div></div>
+<div class="ttc" id="a_unit_conversion_8h_html_a9dbd83757db11891db81e11540fb669aa38f246763036ccaeba7db6d563c4d821"><div class="ttname"><a href="../../d6/d3d/_unit_conversion_8h.html#a9dbd83757db11891db81e11540fb669aa38f246763036ccaeba7db6d563c4d821">EUnit::Milliseconds</a></div><div class="ttdeci">@ Milliseconds</div><div class="ttdef"><b>定义</b> UnitConversion.h:82</div></div>
+<div class="ttc" id="anamespace_cross_compiler_html_ad4d968bae01be345ca4bcc2426796f38"><div class="ttname"><a href="../../d4/d83/namespace_cross_compiler.html#ad4d968bae01be345ca4bcc2426796f38">CrossCompiler::TCHAR</a></div><div class="ttdeci">FPlatformTypes::TCHAR TCHAR</div><div class="ttdoc">Either ANSICHAR or WIDECHAR, depending on whether the platform supports wide characters or the requir...</div><div class="ttdef"><b>定义</b> HlslLexer.cpp:13</div></div>
+<div class="ttc" id="anamespace_mem_pro_1_1_generic_platform_html_adc3af90ae2c67307f167f6f224070db3"><div class="ttname"><a href="../../df/d95/namespace_mem_pro_1_1_generic_platform.html#adc3af90ae2c67307f167f6f224070db3">MemPro::GenericPlatform::IsThreadAlive</a></div><div class="ttdeci">bool IsThreadAlive(const void *p_os_thread_mem)</div><div class="ttdef"><b>定义</b> MemPro.cpp:4050</div></div>
+<div class="ttc" id="anamespace_windows_html_a470bc3bb69629c116360080eea602ff4"><div class="ttname"><a href="../../d8/d5e/namespace_windows.html#a470bc3bb69629c116360080eea602ff4">Windows::GetCurrentThreadId</a></div><div class="ttdeci">MINIMAL_WINDOWS_API DWORD WINAPI GetCurrentThreadId()</div></div>
+<div class="ttc" id="anamespaceu_lang_html_a9c4f173df276b2ba49c644f40b7920d2"><div class="ttname"><a href="../../da/daf/namespaceu_lang.html#a9c4f173df276b2ba49c644f40b7920d2">uLang::IsDebuggerPresent</a></div><div class="ttdeci">bool IsDebuggerPresent()</div><div class="ttdef"><b>定义</b> LinuxCommon.h:33</div></div>
+<div class="ttc" id="apreprocessor_8c_html_a05f6b0ae8f6a6e135b0e290c25fe0e4e"><div class="ttname"><a href="../../dd/de9/preprocessor_8c.html#a05f6b0ae8f6a6e135b0e290c25fe0e4e">uint16</a></div><div class="ttdeci">unsigned short uint16</div><div class="ttdef"><b>定义</b> preprocessor.c:68</div></div>
+<div class="ttc" id="apreprocessor_8c_html_a1134b580f8da4de94ca6b1de4d37975e"><div class="ttname"><a href="../../dd/de9/preprocessor_8c.html#a1134b580f8da4de94ca6b1de4d37975e">uint32</a></div><div class="ttdeci">unsigned int uint32</div><div class="ttdef"><b>定义</b> preprocessor.c:67</div></div>
+<div class="ttc" id="apreprocessor_8c_html_abc0f5bc07737e498f287334775dff2b6"><div class="ttname"><a href="../../dd/de9/preprocessor_8c.html#abc0f5bc07737e498f287334775dff2b6">uint64</a></div><div class="ttdeci">uint64_t uint64</div><div class="ttdef"><b>定义</b> preprocessor.c:75</div></div>
+<div class="ttc" id="aradfft_8cpp_html_a353b84469a01fbe28e2db978bdf1fb86"><div class="ttname"><a href="../../df/dd5/radfft_8cpp.html#a353b84469a01fbe28e2db978bdf1fb86">Index</a></div><div class="ttdeci">U16 Index</div><div class="ttdef"><b>定义</b> radfft.cpp:71</div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+</div><!-- container -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a href="../../dir_0b6ee6e7e9547e675db4add2e5de97da.html">Engine</a></li><li class="navelem"><a href="../../dir_9579d1ecb2c7bf48cbe1049c41745cb4.html">Source</a></li><li class="navelem"><a href="../../dir_9f04efef762572853abdf73f62bebfcc.html">Runtime</a></li><li class="navelem"><a href="../../dir_3de6fe8d63806cea4bedcdcf5470dc5e.html">Core</a></li><li class="navelem"><a href="../../dir_6758ca413fb343b05a6896666ddf1afa.html">Internal</a></li><li class="navelem"><a href="../../dir_c8d84730b4b521f8d36ac19e5550d89e.html">Sanitizer</a></li><li class="navelem"><a href="../../d4/d91/_race_detector_platform_8h.html">RaceDetectorPlatform.h</a></li>
+    <li class="footer">制作者 <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.15.0 </li>
+  </ul>
+</div>
+</body>
+</html>

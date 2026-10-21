@@ -1,0 +1,27 @@
+var class_u_automation_performace_helper =
+[
+    [ "UAutomationPerformaceHelper", "d1/d56/class_u_automation_performace_helper.html#ac74577f280f0cd1d4c8a16c0abfb981c", null ],
+    [ "BeginRecording", "d1/d56/class_u_automation_performace_helper.html#a1dc4ecce9bb39f55197c1a98fa99169b", null ],
+    [ "BeginRecordingBaseline", "d1/d56/class_u_automation_performace_helper.html#a27c37c20cc6737019cbe8d175e897c78", null ],
+    [ "BeginStatsFile", "d1/d56/class_u_automation_performace_helper.html#aa69dec0a7b2db04363b6d0f4cbf9b49d", null ],
+    [ "EndRecording", "d1/d56/class_u_automation_performace_helper.html#adfe671ba56b139f853e6c0ad6492ffd6", null ],
+    [ "EndRecordingBaseline", "d1/d56/class_u_automation_performace_helper.html#a9bc6ec5d9cd7c7e5d44396a69f063314", null ],
+    [ "EndStatsFile", "d1/d56/class_u_automation_performace_helper.html#aa250189e7334bf004f58b4ef97562814", null ],
+    [ "GetCurrentRecord", "d1/d56/class_u_automation_performace_helper.html#a7df8691f6212c834aa31d31935d75ebd", null ],
+    [ "GetCurrentRecord", "d1/d56/class_u_automation_performace_helper.html#a7922968c5e5d1ee26fa6808276ada7ca", null ],
+    [ "GetWorld", "d1/d56/class_u_automation_performace_helper.html#a2aaf803f0c7736b32fd0966f6e458beb", null ],
+    [ "IsCurrentRecordWithinGameThreadBudget", "d1/d56/class_u_automation_performace_helper.html#a4ffebb9e4d26ca06702e4391a9cc2e4a", null ],
+    [ "IsCurrentRecordWithinGPUBudget", "d1/d56/class_u_automation_performace_helper.html#a2f639ea20dc77066ec9f65e5086733fe", null ],
+    [ "IsCurrentRecordWithinRenderThreadBudget", "d1/d56/class_u_automation_performace_helper.html#aec7f43ea82e9cebb7e74e544c3063bd5", null ],
+    [ "IsRecording", "d1/d56/class_u_automation_performace_helper.html#adde55195c21885d7e12da5eca14158d3", null ],
+    [ "OnAllTestsComplete", "d1/d56/class_u_automation_performace_helper.html#a8bcf577c75f6637fdc5a4c192367f713", null ],
+    [ "OnBeginTests", "d1/d56/class_u_automation_performace_helper.html#ab74eb3fa823ce6bdc45c718fa1f6c94a", null ],
+    [ "Sample", "d1/d56/class_u_automation_performace_helper.html#a755fc2e773d7fe654b81cd6bb0f28147", null ],
+    [ "StartCPUProfiling", "d1/d56/class_u_automation_performace_helper.html#a5220afe0d8f60699458af9904395b237", null ],
+    [ "StopCPUProfiling", "d1/d56/class_u_automation_performace_helper.html#a54e055c06e8b5f2ac20cd916bcad5564", null ],
+    [ "Tick", "d1/d56/class_u_automation_performace_helper.html#af0dc4cc2a530476e5b450bc8bb8cf20f", null ],
+    [ "TriggerGPUTraceIfRecordFallsBelowBudget", "d1/d56/class_u_automation_performace_helper.html#a88c7055c8553a655bb6abdb582bfc187", null ],
+    [ "WriteLogFile", "d1/d56/class_u_automation_performace_helper.html#a9b581bcac8141841458af65eb0a2239e", null ],
+    [ "OutputFileBase", "d1/d56/class_u_automation_performace_helper.html#a0710612a1a3e55d05e0a1c66cee27459", null ],
+    [ "StartOfTestingTime", "d1/d56/class_u_automation_performace_helper.html#a3fc68b5fd450e91fa0444820cd824306", null ]
+];

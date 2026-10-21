@@ -1,0 +1,465 @@
+<!-- HTML header for doxygen 1.15.0-->
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh">
+<head>
+  <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=11" />
+  <meta name="generator" content="Doxygen 1.15.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>UE 5.8.4: Engine/Source/Runtime/Core/Public/HAL/VirtualAllocator.h 源文件</title>
+  <link rel="icon" href="../../EdIconDefault.bmp" type="image/x-icon" />
+  <link href="../../tabs.css" rel="stylesheet" type="text/css" />
+  <script type="text/javascript" src="../../jquery.js"></script>
+  <script type="text/javascript" src="../../dynsections.js"></script>
+  <link href="../../navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../navtreedata.js"></script>
+<script type="text/javascript" src="../../navtree.js"></script>
+<script type="text/javascript" src="../../cookie.js"></script>
+  <link href="../../search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../search/searchdata.js"></script>
+<script type="text/javascript" src="../../search/search.js"></script>
+  <link href="../../doxygen.css" rel="stylesheet" type="text/css" />
+  <link href="../../doxygen-awesome.css" rel="stylesheet" type="text/css"/>
+<link href="../../doxygen-awesome-sidebar-only.css" rel="stylesheet" type="text/css"/>
+<link href="../../doxygen-awesome-sidebar-only-darkmode-toggle.css" rel="stylesheet" type="text/css"/>
+  <!-- ... other metadata & script includes ... -->
+  <script type="text/javascript" src="../../doxygen-awesome-darkmode-toggle.js"></script>
+  <script type="text/javascript">
+    DoxygenAwesomeDarkModeToggle.title = "Zwischen hellem/dunklem Modus wechseln"
+    DoxygenAwesomeDarkModeToggle.lightModeIcon = '🌞'
+    // icon from https://fonts.google.com/icons
+    DoxygenAwesomeDarkModeToggle.darkModeIcon = `<svg xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 24 24" height="24px" viewBox="0 0 24 24" width="24px" fill="#009793"><g><rect fill="none" height="24" width="24"/></g><g><g><path d="M8.1,14.15C9.77,14.63,11,16.17,11,18c0,0.68-0.19,1.31-0.48,1.87c0.48,0.09,0.97,0.14,1.48,0.14 c1.48,0,2.9-0.41,4.13-1.15c-2.62-0.92-5.23-2.82-6.8-5.86C7.74,9.94,7.78,7.09,8.29,4.9c-2.57,1.33-4.3,4.01-4.3,7.1c0,0,0,0,0,0 c0.01,0,0.01,0,0.02,0C5.66,12,7.18,12.83,8.1,14.15z" opacity=".3"/><path d="M19.78,17.51c-2.47,0-6.57-1.33-8.68-5.43C8.77,7.57,10.6,3.6,11.63,2.01C6.27,2.2,1.98,6.59,1.98,12 c0,0.14,0.02,0.28,0.02,0.42C2.61,12.16,3.28,12,3.98,12c0,0,0,0,0,0c0-3.09,1.73-5.77,4.3-7.1C7.78,7.09,7.74,9.94,9.32,13 c1.57,3.04,4.18,4.95,6.8,5.86c-1.23,0.74-2.65,1.15-4.13,1.15c-0.5,0-1-0.05-1.48-0.14c-0.37,0.7-0.94,1.27-1.64,1.64 c0.98,0.32,2.03,0.5,3.11,0.5c3.5,0,6.58-1.8,8.37-4.52C20.18,17.5,19.98,17.51,19.78,17.51z"/><path d="M7,16l-0.18,0C6.4,14.84,5.3,14,4,14c-1.66,0-3,1.34-3,3s1.34,3,3,3c0.62,0,2.49,0,3,0c1.1,0,2-0.9,2-2 C9,16.9,8.1,16,7,16z"/></g></g></svg>`
+    DoxygenAwesomeDarkModeToggle.init()
+  </script>
+  <script type="text/javascript" src="../../doxygen-awesome-fragment-copy-button.js"></script>
+  <script type="text/javascript">
+    DoxygenAwesomeFragmentCopyButton.title = "In die Zwischenablage kopieren"
+    // DoxygenAwesomeFragmentCopyButton.copyIcon = `<svg ...>`
+    // DoxygenAwesomeFragmentCopyButton.successIcon = `<svg ...>`
+    DoxygenAwesomeFragmentCopyButton.init()
+  </script>
+  <script type="text/javascript" src="../../doxygen-awesome-paragraph-link.js"></script>
+  <script type="text/javascript">
+    DoxygenAwesomeParagraphLink.title = "Abschnitt verknüpfen"
+    DoxygenAwesomeParagraphLink.icon = "¶"
+    DoxygenAwesomeParagraphLink.init()
+  </script>
+  <script type="text/javascript" src="../../doxygen-awesome-interactive-toc.js"></script>
+  <script type="text/javascript">
+    DoxygenAwesomeInteractiveToc.topOffset = 45
+    DoxygenAwesomeInteractiveToc.hideMobileMenu = false
+    DoxygenAwesomeInteractiveToc.init()
+  </script>
+</head>
+<body>
+    <div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+      <div id="titlearea">
+        <table cellspacing="0" cellpadding="0">
+          <tbody>
+            <tr id="projectrow">
+              <td id="projectlogo"><img alt="Logo" src="../../EdIconDefault.bmp"  /></td>
+              <td id="projectalign">
+                <div id="projectname">UE 5.8.4
+                </div>
+                <div id="projectbrief">Unreal Engine</div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <!-- end header part -->
+<!-- 制作者 Doxygen 1.15.0 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "../../search/",'.html');
+</script>
+<script type="text/javascript">
+$(function() { codefold.init(); });
+</script>
+<script type="text/javascript" src="../../menudata.js"></script>
+<script type="text/javascript" src="../../menu.js"></script>
+<script type="text/javascript">
+$(function() {
+  initMenu('../../',true,false,'search.php','搜索',true);
+  $(function() { init_search(); });
+});
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(function(){initNavTree('dc/d43/_virtual_allocator_8h_source.html','../../',''); });
+</script>
+<div id="container">
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">载入中...</div>
+<div class="SRStatus" id="Searching">搜索中...</div>
+<div class="SRStatus" id="NoMatches">未找到</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">VirtualAllocator.h</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="../../dc/d43/_virtual_allocator_8h.html">浏览该文件的文档.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="comment">// Copyright Epic Games, Inc. All Rights Reserved.</span></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span> </div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="preprocessor">#pragma once</span></div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span> </div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="preprocessor">#include &quot;<a class="code" href="../../db/d04/_core_types_8h.html">CoreTypes.h</a>&quot;</span></div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="preprocessor">#include &quot;<a class="code" href="../../de/d38/_unique_lock_8h.html">Async/UniqueLock.h</a>&quot;</span></div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="preprocessor">#include &quot;<a class="code" href="../../d0/d14/_thread_safe_counter_8h.html">HAL/ThreadSafeCounter.h</a>&quot;</span></div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="preprocessor">#include &quot;<a class="code" href="../../d8/d26/_platform_mutex_8h.html">HAL/PlatformMutex.h</a>&quot;</span></div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="preprocessor">#include &quot;<a class="code" href="../../d2/da9/_platform_process_8h.html">HAL/PlatformProcess.h</a>&quot;</span></div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="preprocessor">#include &quot;<a class="code" href="../../d4/d2d/_alignment_templates_8h.html">Templates/AlignmentTemplates.h</a>&quot;</span></div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span> </div>
+<div class="foldopen" id="foldopen00012" data-start="{" data-end="};">
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno"><a class="line" href="../../d5/dce/class_f_virtual_allocator.html">   12</a></span><span class="keyword">class </span><a class="code hl_function" href="../../d5/dce/class_f_virtual_allocator.html#abbcb0bb68a21b9f4842eb660055cdbf2">FVirtualAllocator</a></div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span>{</div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span>    <span class="keyword">struct </span>FFreeLink</div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span>    {</div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span>        <span class="keywordtype">void</span> *Ptr = <span class="keyword">nullptr</span>;</div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span>        FFreeLink* Next = <span class="keyword">nullptr</span>;</div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>    };</div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span> </div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>    <span class="keyword">struct </span>FPerBlockSize</div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>    {</div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>        <a class="code hl_typedef" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a89241ea7101f26f05a4f1efd6be26b32">int64</a> AllocBlocksSize = 0;</div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>        <a class="code hl_typedef" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a89241ea7101f26f05a4f1efd6be26b32">int64</a> FreeBlocksSize = 0;</div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>        FFreeLink* FirstFree = <span class="keyword">nullptr</span>;</div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>    };</div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span> </div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>    <a class="code hl_typedef" href="../../da/de5/namespace_u_e.html#a30602c02de16f3a41a9ee9e8b3c5bde1">UE::FPlatformRecursiveMutex</a> Mutex;</div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span> </div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>    <a class="code hl_typedef" href="../../dd/de9/preprocessor_8c.html#adde6aaee8457bee49c2a92621fe22b79">uint8</a>* LowAddress;</div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>    <a class="code hl_typedef" href="../../dd/de9/preprocessor_8c.html#adde6aaee8457bee49c2a92621fe22b79">uint8</a>* HighAddress;</div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span> </div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>    <span class="keywordtype">size_t</span> TotalSize;</div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>    <span class="keywordtype">size_t</span> PageSize;</div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>    <span class="keywordtype">size_t</span> MaximumAlignment;</div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span> </div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>    <a class="code hl_typedef" href="../../dd/de9/preprocessor_8c.html#adde6aaee8457bee49c2a92621fe22b79">uint8</a>* NextAlloc;</div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span> </div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>    FFreeLink* RecycledLinks;</div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>    <a class="code hl_typedef" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a89241ea7101f26f05a4f1efd6be26b32">int64</a> LinkSize;</div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span> </div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>    <span class="keywordtype">bool</span> bBacksMalloc;</div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span> </div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>    FPerBlockSize Blocks[64]; </div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span> </div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>    <span class="keywordtype">void</span> FreeVirtualByBlock(<span class="keywordtype">void</span>* Ptr, FPerBlockSize&amp; <a class="code hl_enumvalue" href="../../d6/d24/_mass_debugger_model_8h.html#ab943367b7db0363d748d2315b2de2beeae1e4c8c9ccd9fc39c391da4bcd093fb2">Block</a>, <span class="keywordtype">size_t</span> AlignedSize)</div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>    {</div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>        <span class="comment">// already locked</span></div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>        <span class="keywordflow">if</span> (!RecycledLinks)</div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>        {</div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>            <span class="keywordtype">void</span> *Alloc;</div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>            <span class="comment">// If we ARE malloc, then we know we can (and must) commit part of our range for free links. Otherwise, we can just use malloc (and can&#39;t use our VM space anyway)</span></div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>            <span class="keywordflow">if</span> (bBacksMalloc)</div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>            {</div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>                Alloc = <a class="code hl_function" href="../../d5/dce/class_f_virtual_allocator.html#abaf958914f69c0a3710c0ceec8f23172">AllocNewVM</a>(MaximumAlignment);</div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>                <a class="code hl_typedef" href="../../dd/de9/preprocessor_8c.html#a1134b580f8da4de94ca6b1de4d37975e">uint32</a> Pages = MaximumAlignment / FPlatformMemory::FPlatformVirtualMemoryBlock::GetVirtualSizeAlignment();</div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>                <a class="code hl_define" href="../../d4/d75/_assertion_macros_8h.html#a586e110623cde145b8a5bdefb429e144">check</a>(Pages &amp;&amp; MaximumAlignment % FPlatformMemory::FPlatformVirtualMemoryBlock::GetVirtualSizeAlignment() == 0);</div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>                <a class="code hl_class" href="../../d7/db3/class_f_android_platform_memory_1_1_f_platform_virtual_memory_block.html">FPlatformMemory::FPlatformVirtualMemoryBlock</a> VMBlock(Alloc, Pages);</div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>                VMBlock.<a class="code hl_function" href="../../d7/db3/class_f_android_platform_memory_1_1_f_platform_virtual_memory_block.html#ab098c15019f9058286d178922e1f958b">Commit</a>();</div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>            }</div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>            <span class="keywordflow">else</span></div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>            {</div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>                Alloc = FMemory::Malloc(MaximumAlignment);</div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>            }</div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>            <span class="keywordflow">for</span> (<a class="code hl_typedef" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a8dbb3cd84ca9fd010dadfc3815eefa5d">int32</a> <a class="code hl_typedef" href="../../df/dd5/radfft_8cpp.html#a353b84469a01fbe28e2db978bdf1fb86">Index</a> = 0; (<a class="code hl_typedef" href="../../df/dd5/radfft_8cpp.html#a353b84469a01fbe28e2db978bdf1fb86">Index</a> + 1) * <span class="keyword">sizeof</span>(FFreeLink) &lt;= MaximumAlignment; <a class="code hl_typedef" href="../../df/dd5/radfft_8cpp.html#a353b84469a01fbe28e2db978bdf1fb86">Index</a>++)</div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>            {</div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span>                FFreeLink* NewLink = <span class="keyword">new</span> ((<span class="keywordtype">void</span>*)(((<a class="code hl_typedef" href="../../dd/de9/preprocessor_8c.html#adde6aaee8457bee49c2a92621fe22b79">uint8</a>*)Alloc + <a class="code hl_typedef" href="../../df/dd5/radfft_8cpp.html#a353b84469a01fbe28e2db978bdf1fb86">Index</a> * <span class="keyword">sizeof</span>(FFreeLink)))) FFreeLink;</div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>                NewLink-&gt;Next = RecycledLinks;</div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>                RecycledLinks = NewLink;</div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>            }</div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>            LinkSize += MaximumAlignment;</div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>            <a class="code hl_define" href="../../d4/d75/_assertion_macros_8h.html#a12ff33b2f8cbad5116bd85ca93de5cb2">checkSlow</a>(RecycledLinks); <span class="comment">// To suppress a static analysis warning about RecycledLinks being null below.</span></div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>        }</div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span> </div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>        FFreeLink* <a class="code hl_enumvalue" href="../../da/d60/_i_web_browser_window_8h.html#a290607c0eba20987856774741ebf2da3a97e7c9a7d06eac006a28bf05467fcc8b">Link</a> = RecycledLinks;</div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>        RecycledLinks = <a class="code hl_enumvalue" href="../../da/d60/_i_web_browser_window_8h.html#a290607c0eba20987856774741ebf2da3a97e7c9a7d06eac006a28bf05467fcc8b">Link</a>-&gt;Next;</div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>        <a class="code hl_define" href="../../d4/d75/_assertion_macros_8h.html#a586e110623cde145b8a5bdefb429e144">check</a>(!<a class="code hl_enumvalue" href="../../da/d60/_i_web_browser_window_8h.html#a290607c0eba20987856774741ebf2da3a97e7c9a7d06eac006a28bf05467fcc8b">Link</a>-&gt;Ptr &amp;&amp; Ptr);</div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span>        <a class="code hl_enumvalue" href="../../da/d60/_i_web_browser_window_8h.html#a290607c0eba20987856774741ebf2da3a97e7c9a7d06eac006a28bf05467fcc8b">Link</a>-&gt;Ptr = Ptr;</div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>        <a class="code hl_enumvalue" href="../../da/d60/_i_web_browser_window_8h.html#a290607c0eba20987856774741ebf2da3a97e7c9a7d06eac006a28bf05467fcc8b">Link</a>-&gt;Next = <a class="code hl_enumvalue" href="../../d6/d24/_mass_debugger_model_8h.html#ab943367b7db0363d748d2315b2de2beeae1e4c8c9ccd9fc39c391da4bcd093fb2">Block</a>.FirstFree;</div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>        <a class="code hl_enumvalue" href="../../d6/d24/_mass_debugger_model_8h.html#ab943367b7db0363d748d2315b2de2beeae1e4c8c9ccd9fc39c391da4bcd093fb2">Block</a>.FirstFree = <a class="code hl_enumvalue" href="../../da/d60/_i_web_browser_window_8h.html#a290607c0eba20987856774741ebf2da3a97e7c9a7d06eac006a28bf05467fcc8b">Link</a>;</div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span> </div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>        <a class="code hl_enumvalue" href="../../d6/d24/_mass_debugger_model_8h.html#ab943367b7db0363d748d2315b2de2beeae1e4c8c9ccd9fc39c391da4bcd093fb2">Block</a>.FreeBlocksSize += AlignedSize;</div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span>    }</div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span><span class="keyword">protected</span>:</div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno"><a class="line" href="../../d5/dce/class_f_virtual_allocator.html#ae8683d9bf069c2cb19b0ba9bd596f099">   84</a></span>    <span class="keywordtype">size_t</span> <a class="code hl_variable" href="../../d5/dce/class_f_virtual_allocator.html#ae8683d9bf069c2cb19b0ba9bd596f099">SpaceConsumed</a>;</div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno"><a class="line" href="../../d5/dce/class_f_virtual_allocator.html#a3a022a64e2d7ce801ba2ac74347ab701">   85</a></span>    <span class="keywordtype">size_t</span> <a class="code hl_variable" href="../../d5/dce/class_f_virtual_allocator.html#a3a022a64e2d7ce801ba2ac74347ab701">SpaceConsumedPeak</a>;</div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span> </div>
+<div class="foldopen" id="foldopen00087" data-start="{" data-end="}">
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno"><a class="line" href="../../d5/dce/class_f_virtual_allocator.html#abaf958914f69c0a3710c0ceec8f23172">   87</a></span>    <span class="keyword">virtual</span> <a class="code hl_typedef" href="../../dd/de9/preprocessor_8c.html#adde6aaee8457bee49c2a92621fe22b79">uint8</a>* <a class="code hl_function" href="../../d5/dce/class_f_virtual_allocator.html#abaf958914f69c0a3710c0ceec8f23172">AllocNewVM</a>(<span class="keywordtype">size_t</span> AlignedSize)</div>
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span>    {</div>
+<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span>        <a class="code hl_typedef" href="../../dd/de9/preprocessor_8c.html#adde6aaee8457bee49c2a92621fe22b79">uint8</a>* Result = NextAlloc;</div>
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span>        <a class="code hl_define" href="../../d4/d75/_assertion_macros_8h.html#a586e110623cde145b8a5bdefb429e144">check</a>(<a class="code hl_function" href="../../d4/d2d/_alignment_templates_8h.html#a65d7627b830bf2b9c4fe38a70b4232a8">IsAligned</a>(Result, MaximumAlignment) &amp;&amp; <a class="code hl_function" href="../../d4/d2d/_alignment_templates_8h.html#a65d7627b830bf2b9c4fe38a70b4232a8">IsAligned</a>(AlignedSize, MaximumAlignment));</div>
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span>        NextAlloc = Result + AlignedSize;</div>
+<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span>        <a class="code hl_variable" href="../../d5/dce/class_f_virtual_allocator.html#ae8683d9bf069c2cb19b0ba9bd596f099">SpaceConsumed</a> = NextAlloc - LowAddress;</div>
+<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span>        <span class="keywordflow">if</span> (<a class="code hl_variable" href="../../d5/dce/class_f_virtual_allocator.html#ae8683d9bf069c2cb19b0ba9bd596f099">SpaceConsumed</a> &gt; <a class="code hl_variable" href="../../d5/dce/class_f_virtual_allocator.html#a3a022a64e2d7ce801ba2ac74347ab701">SpaceConsumedPeak</a>)</div>
+<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span>        {</div>
+<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span>            <a class="code hl_variable" href="../../d5/dce/class_f_virtual_allocator.html#a3a022a64e2d7ce801ba2ac74347ab701">SpaceConsumedPeak</a> = <a class="code hl_variable" href="../../d5/dce/class_f_virtual_allocator.html#ae8683d9bf069c2cb19b0ba9bd596f099">SpaceConsumed</a>;</div>
+<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span>        }</div>
+<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span>        <span class="keywordflow">return</span> Result;</div>
+<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span>    }</div>
+</div>
+<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span> </div>
+<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span> </div>
+<div class="foldopen" id="foldopen00102" data-start="{" data-end="}">
+<div class="line"><a id="l00102" name="l00102"></a><span class="lineno"><a class="line" href="../../d5/dce/class_f_virtual_allocator.html#abbcb0bb68a21b9f4842eb660055cdbf2">  102</a></span>    <a class="code hl_function" href="../../d5/dce/class_f_virtual_allocator.html#abbcb0bb68a21b9f4842eb660055cdbf2">FVirtualAllocator</a>(<span class="keywordtype">void</span> *InLowAdress, <span class="keywordtype">void</span>* InHighAddress, <span class="keywordtype">size_t</span> InPageSize, <span class="keywordtype">size_t</span> InMaximumAlignment, <span class="keywordtype">bool</span> bInBacksMalloc)</div>
+<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span>        : LowAddress((<a class="code hl_typedef" href="../../dd/de9/preprocessor_8c.html#adde6aaee8457bee49c2a92621fe22b79">uint8</a>*)InLowAdress)</div>
+<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span>        , HighAddress((<a class="code hl_typedef" href="../../dd/de9/preprocessor_8c.html#adde6aaee8457bee49c2a92621fe22b79">uint8</a>*)InHighAddress)</div>
+<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span>        , PageSize(InPageSize)</div>
+<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span>        , MaximumAlignment(<a class="code hl_struct" href="../../d1/d85/struct_f_math.html">FMath</a>::<a class="code hl_enumvalue" href="../../d5/d25/_i_o_s_device_helper_8h.html#aac22347d98824c2cd3360f339d7ef07aa0fd430d535aa1902074d95d60a93f744">Max</a>(InMaximumAlignment, InPageSize))</div>
+<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span>        , NextAlloc((<a class="code hl_typedef" href="../../dd/de9/preprocessor_8c.html#adde6aaee8457bee49c2a92621fe22b79">uint8</a>*)InLowAdress)</div>
+<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span>        , RecycledLinks(nullptr)</div>
+<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span>        , LinkSize(0)</div>
+<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span>        , bBacksMalloc(bInBacksMalloc)</div>
+<div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span>        , <a class="code hl_variable" href="../../d5/dce/class_f_virtual_allocator.html#ae8683d9bf069c2cb19b0ba9bd596f099">SpaceConsumed</a>(0)</div>
+<div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span>        , <a class="code hl_variable" href="../../d5/dce/class_f_virtual_allocator.html#a3a022a64e2d7ce801ba2ac74347ab701">SpaceConsumedPeak</a>(0)</div>
+<div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span>    {</div>
+<div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span>        TotalSize = HighAddress - LowAddress;</div>
+<div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span>        <a class="code hl_define" href="../../d4/d75/_assertion_macros_8h.html#a586e110623cde145b8a5bdefb429e144">check</a>(LowAddress &amp;&amp; HighAddress &amp;&amp; LowAddress &lt; HighAddress &amp;&amp; <a class="code hl_function" href="../../d4/d2d/_alignment_templates_8h.html#a65d7627b830bf2b9c4fe38a70b4232a8">IsAligned</a>(LowAddress, MaximumAlignment));</div>
+<div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span>    }</div>
+</div>
+<div class="line"><a id="l00117" name="l00117"></a><span class="lineno">  117</span> </div>
+<div class="line"><a id="l00118" name="l00118"></a><span class="lineno"><a class="line" href="../../d5/dce/class_f_virtual_allocator.html#a05855ab9c5f120d7bfe9eefb23acf8ac">  118</a></span>    <span class="keyword">virtual</span> <a class="code hl_function" href="../../d5/dce/class_f_virtual_allocator.html#a05855ab9c5f120d7bfe9eefb23acf8ac">~FVirtualAllocator</a>() = <span class="keywordflow">default</span>;</div>
+<div class="line"><a id="l00119" name="l00119"></a><span class="lineno">  119</span> </div>
+<div class="foldopen" id="foldopen00120" data-start="{" data-end="}">
+<div class="line"><a id="l00120" name="l00120"></a><span class="lineno"><a class="line" href="../../d5/dce/class_f_virtual_allocator.html#a6ec77a4efbb0aa8487aef347a41380e9">  120</a></span>    <a class="code hl_typedef" href="../../dd/de9/preprocessor_8c.html#a1134b580f8da4de94ca6b1de4d37975e">uint32</a> <a class="code hl_function" href="../../d5/dce/class_f_virtual_allocator.html#a6ec77a4efbb0aa8487aef347a41380e9">GetPagesForSizeAndAlignment</a>(<span class="keywordtype">size_t</span> <a class="code hl_variable" href="../../d0/de4/_sequence_history_8h.html#a41f48316f09703e0b7cd9ac6b643e9c8">Size</a>, <span class="keywordtype">size_t</span> Alignment = 1)<span class="keyword"> const</span></div>
+<div class="line"><a id="l00121" name="l00121"></a><span class="lineno">  121</span><span class="keyword">    </span>{</div>
+<div class="line"><a id="l00122" name="l00122"></a><span class="lineno">  122</span>        <a class="code hl_define" href="../../d4/d75/_assertion_macros_8h.html#a586e110623cde145b8a5bdefb429e144">check</a>(Alignment &lt;= MaximumAlignment &amp;&amp; Alignment &gt; 0);</div>
+<div class="line"><a id="l00123" name="l00123"></a><span class="lineno">  123</span>        <span class="keywordtype">size_t</span> SizeAndAlignment = FMath::Max(<a class="code hl_function" href="../../d4/d2d/_alignment_templates_8h.html#a090e5768f9d9641d38d2685f8d7fa45e">Align</a>(<a class="code hl_variable" href="../../d0/de4/_sequence_history_8h.html#a41f48316f09703e0b7cd9ac6b643e9c8">Size</a>, Alignment), PageSize);</div>
+<div class="line"><a id="l00124" name="l00124"></a><span class="lineno">  124</span>        <span class="keywordflow">if</span> (SizeAndAlignment * 2 &gt;= TotalSize)</div>
+<div class="line"><a id="l00125" name="l00125"></a><span class="lineno">  125</span>        {</div>
+<div class="line"><a id="l00126" name="l00126"></a><span class="lineno">  126</span>            <span class="comment">// this is hack, MB3 will ask for tons of virtual and never free it, so we won&#39;t round up to power of two</span></div>
+<div class="line"><a id="l00127" name="l00127"></a><span class="lineno">  127</span>            <span class="keywordtype">size_t</span> Pages = SizeAndAlignment / PageSize;</div>
+<div class="line"><a id="l00128" name="l00128"></a><span class="lineno">  128</span>            <a class="code hl_define" href="../../d4/d75/_assertion_macros_8h.html#a586e110623cde145b8a5bdefb429e144">check</a>(Pages == <a class="code hl_typedef" href="../../dd/de9/preprocessor_8c.html#a1134b580f8da4de94ca6b1de4d37975e">uint32</a>(Pages)); <span class="comment">// overflow of uint32</span></div>
+<div class="line"><a id="l00129" name="l00129"></a><span class="lineno">  129</span>            <span class="keywordflow">return</span> <a class="code hl_typedef" href="../../dd/de9/preprocessor_8c.html#a1134b580f8da4de94ca6b1de4d37975e">uint32</a>(Pages);</div>
+<div class="line"><a id="l00130" name="l00130"></a><span class="lineno">  130</span>        }</div>
+<div class="line"><a id="l00131" name="l00131"></a><span class="lineno">  131</span>        <span class="keywordtype">size_t</span> <a class="code hl_variable" href="../../d3/db8/binka__ue__decode__test_8cpp.html#a1b0a2287ccd798ce69649ce1896c5ac8">BlockIndex</a> = FMath::CeilLogTwo64(FMath::Max(SizeAndAlignment, PageSize));</div>
+<div class="line"><a id="l00132" name="l00132"></a><span class="lineno">  132</span>        <span class="keywordtype">size_t</span> AlignedSize = size_t(1) &lt;&lt; <a class="code hl_variable" href="../../d3/db8/binka__ue__decode__test_8cpp.html#a1b0a2287ccd798ce69649ce1896c5ac8">BlockIndex</a>;</div>
+<div class="line"><a id="l00133" name="l00133"></a><span class="lineno">  133</span>        <a class="code hl_define" href="../../d4/d75/_assertion_macros_8h.html#a586e110623cde145b8a5bdefb429e144">check</a>(AlignedSize % PageSize == 0);</div>
+<div class="line"><a id="l00134" name="l00134"></a><span class="lineno">  134</span>        <span class="keywordtype">size_t</span> Pages = AlignedSize / PageSize;</div>
+<div class="line"><a id="l00135" name="l00135"></a><span class="lineno">  135</span>        <a class="code hl_define" href="../../d4/d75/_assertion_macros_8h.html#a586e110623cde145b8a5bdefb429e144">check</a>(Pages == <a class="code hl_typedef" href="../../dd/de9/preprocessor_8c.html#a1134b580f8da4de94ca6b1de4d37975e">uint32</a>(Pages)); <span class="comment">// overflow of uint32</span></div>
+<div class="line"><a id="l00136" name="l00136"></a><span class="lineno">  136</span>        <span class="keywordflow">return</span> <a class="code hl_typedef" href="../../dd/de9/preprocessor_8c.html#a1134b580f8da4de94ca6b1de4d37975e">uint32</a>(Pages);</div>
+<div class="line"><a id="l00137" name="l00137"></a><span class="lineno">  137</span>    }</div>
+</div>
+<div class="line"><a id="l00138" name="l00138"></a><span class="lineno">  138</span> </div>
+<div class="foldopen" id="foldopen00139" data-start="{" data-end="}">
+<div class="line"><a id="l00139" name="l00139"></a><span class="lineno"><a class="line" href="../../d5/dce/class_f_virtual_allocator.html#a2af10279b46f99ab58cf093ca06a2d42">  139</a></span>    <span class="keywordtype">void</span>* <a class="code hl_function" href="../../d5/dce/class_f_virtual_allocator.html#a2af10279b46f99ab58cf093ca06a2d42">AllocateVirtualPages</a>(<a class="code hl_typedef" href="../../dd/de9/preprocessor_8c.html#a1134b580f8da4de94ca6b1de4d37975e">uint32</a> NumPages, <span class="keywordtype">size_t</span> AlignmentForCheck = 1) </div>
+<div class="line"><a id="l00140" name="l00140"></a><span class="lineno">  140</span>    {</div>
+<div class="line"><a id="l00141" name="l00141"></a><span class="lineno">  141</span>        <a class="code hl_define" href="../../d4/d75/_assertion_macros_8h.html#a586e110623cde145b8a5bdefb429e144">check</a>(AlignmentForCheck &lt;= MaximumAlignment &amp;&amp; AlignmentForCheck &gt; 0 &amp;&amp; NumPages);</div>
+<div class="line"><a id="l00142" name="l00142"></a><span class="lineno">  142</span> </div>
+<div class="line"><a id="l00143" name="l00143"></a><span class="lineno">  143</span> </div>
+<div class="line"><a id="l00144" name="l00144"></a><span class="lineno">  144</span>        <span class="keywordtype">size_t</span> <a class="code hl_variable" href="../../d3/db8/binka__ue__decode__test_8cpp.html#a1b0a2287ccd798ce69649ce1896c5ac8">BlockIndex</a> = FMath::CeilLogTwo64(NumPages * PageSize);</div>
+<div class="line"><a id="l00145" name="l00145"></a><span class="lineno">  145</span>        <span class="keywordtype">size_t</span> AlignedSize = size_t(1) &lt;&lt; <a class="code hl_variable" href="../../d3/db8/binka__ue__decode__test_8cpp.html#a1b0a2287ccd798ce69649ce1896c5ac8">BlockIndex</a>;</div>
+<div class="line"><a id="l00146" name="l00146"></a><span class="lineno">  146</span>        <span class="keywordtype">bool</span> bHackForHugeBlock = <span class="keyword">false</span>;</div>
+<div class="line"><a id="l00147" name="l00147"></a><span class="lineno">  147</span>        <span class="keywordflow">if</span> (<span class="keywordtype">size_t</span>(NumPages) * PageSize * 2 &gt;= TotalSize)</div>
+<div class="line"><a id="l00148" name="l00148"></a><span class="lineno">  148</span>        {</div>
+<div class="line"><a id="l00149" name="l00149"></a><span class="lineno">  149</span>            <span class="comment">// this is hack, MB3 will ask for tons of virtual and never free it, so we won&#39;t round up to power of two</span></div>
+<div class="line"><a id="l00150" name="l00150"></a><span class="lineno">  150</span>            AlignedSize = size_t(NumPages) * PageSize;</div>
+<div class="line"><a id="l00151" name="l00151"></a><span class="lineno">  151</span>            bHackForHugeBlock = <span class="keyword">true</span>;</div>
+<div class="line"><a id="l00152" name="l00152"></a><span class="lineno">  152</span>        }</div>
+<div class="line"><a id="l00153" name="l00153"></a><span class="lineno">  153</span>        FPerBlockSize&amp; <a class="code hl_enumvalue" href="../../d6/d24/_mass_debugger_model_8h.html#ab943367b7db0363d748d2315b2de2beeae1e4c8c9ccd9fc39c391da4bcd093fb2">Block</a> = Blocks[<a class="code hl_variable" href="../../d3/db8/binka__ue__decode__test_8cpp.html#a1b0a2287ccd798ce69649ce1896c5ac8">BlockIndex</a>];</div>
+<div class="line"><a id="l00154" name="l00154"></a><span class="lineno">  154</span> </div>
+<div class="line"><a id="l00155" name="l00155"></a><span class="lineno">  155</span>        <a class="code hl_class" href="../../dc/d2c/class_u_e_1_1_t_unique_lock.html">UE::TUniqueLock</a> <a class="code hl_variable" href="../../d9/db1/_unversioned_property_serialization_8cpp.html#aa6a5f618e102b90dfb31e5b43751501f">Lock</a>(Mutex);</div>
+<div class="line"><a id="l00156" name="l00156"></a><span class="lineno">  156</span> </div>
+<div class="line"><a id="l00157" name="l00157"></a><span class="lineno">  157</span> </div>
+<div class="line"><a id="l00158" name="l00158"></a><span class="lineno">  158</span>        <a class="code hl_typedef" href="../../dd/de9/preprocessor_8c.html#adde6aaee8457bee49c2a92621fe22b79">uint8</a>* Result;</div>
+<div class="line"><a id="l00159" name="l00159"></a><span class="lineno">  159</span>        <span class="keywordflow">if</span> (<a class="code hl_enumvalue" href="../../d6/d24/_mass_debugger_model_8h.html#ab943367b7db0363d748d2315b2de2beeae1e4c8c9ccd9fc39c391da4bcd093fb2">Block</a>.FirstFree)</div>
+<div class="line"><a id="l00160" name="l00160"></a><span class="lineno">  160</span>        {</div>
+<div class="line"><a id="l00161" name="l00161"></a><span class="lineno">  161</span>            <a class="code hl_define" href="../../d4/d75/_assertion_macros_8h.html#a586e110623cde145b8a5bdefb429e144">check</a>(!bHackForHugeBlock);</div>
+<div class="line"><a id="l00162" name="l00162"></a><span class="lineno">  162</span>            Result = (<a class="code hl_typedef" href="../../dd/de9/preprocessor_8c.html#adde6aaee8457bee49c2a92621fe22b79">uint8</a>*)<a class="code hl_enumvalue" href="../../d6/d24/_mass_debugger_model_8h.html#ab943367b7db0363d748d2315b2de2beeae1e4c8c9ccd9fc39c391da4bcd093fb2">Block</a>.FirstFree-&gt;Ptr;</div>
+<div class="line"><a id="l00163" name="l00163"></a><span class="lineno">  163</span>            <a class="code hl_define" href="../../d4/d75/_assertion_macros_8h.html#a586e110623cde145b8a5bdefb429e144">check</a>(Result);</div>
+<div class="line"><a id="l00164" name="l00164"></a><span class="lineno">  164</span>            <a class="code hl_enumvalue" href="../../d6/d24/_mass_debugger_model_8h.html#ab943367b7db0363d748d2315b2de2beeae1e4c8c9ccd9fc39c391da4bcd093fb2">Block</a>.FirstFree-&gt;Ptr = <span class="keyword">nullptr</span>;</div>
+<div class="line"><a id="l00165" name="l00165"></a><span class="lineno">  165</span> </div>
+<div class="line"><a id="l00166" name="l00166"></a><span class="lineno">  166</span>            FFreeLink* <a class="code hl_enumvalue" href="../../d4/d8f/_anim_node___random_player_8h.html#a44040536c5887425d1741165af9cd6a1a10ac3d04253ef7e1ddc73e6091c0cd55">Next</a> = RecycledLinks;</div>
+<div class="line"><a id="l00167" name="l00167"></a><span class="lineno">  167</span>            RecycledLinks = <a class="code hl_enumvalue" href="../../d6/d24/_mass_debugger_model_8h.html#ab943367b7db0363d748d2315b2de2beeae1e4c8c9ccd9fc39c391da4bcd093fb2">Block</a>.FirstFree;</div>
+<div class="line"><a id="l00168" name="l00168"></a><span class="lineno">  168</span>            <a class="code hl_enumvalue" href="../../d6/d24/_mass_debugger_model_8h.html#ab943367b7db0363d748d2315b2de2beeae1e4c8c9ccd9fc39c391da4bcd093fb2">Block</a>.FirstFree = <a class="code hl_enumvalue" href="../../d6/d24/_mass_debugger_model_8h.html#ab943367b7db0363d748d2315b2de2beeae1e4c8c9ccd9fc39c391da4bcd093fb2">Block</a>.FirstFree-&gt;Next;</div>
+<div class="line"><a id="l00169" name="l00169"></a><span class="lineno">  169</span>            <a class="code hl_define" href="../../d4/d75/_assertion_macros_8h.html#a586e110623cde145b8a5bdefb429e144">check</a>(!<a class="code hl_enumvalue" href="../../d6/d24/_mass_debugger_model_8h.html#ab943367b7db0363d748d2315b2de2beeae1e4c8c9ccd9fc39c391da4bcd093fb2">Block</a>.FirstFree || <a class="code hl_enumvalue" href="../../d6/d24/_mass_debugger_model_8h.html#ab943367b7db0363d748d2315b2de2beeae1e4c8c9ccd9fc39c391da4bcd093fb2">Block</a>.FirstFree-&gt;Ptr);</div>
+<div class="line"><a id="l00170" name="l00170"></a><span class="lineno">  170</span>            RecycledLinks-&gt;Next = <a class="code hl_enumvalue" href="../../d4/d8f/_anim_node___random_player_8h.html#a44040536c5887425d1741165af9cd6a1a10ac3d04253ef7e1ddc73e6091c0cd55">Next</a>;</div>
+<div class="line"><a id="l00171" name="l00171"></a><span class="lineno">  171</span> </div>
+<div class="line"><a id="l00172" name="l00172"></a><span class="lineno">  172</span>            <a class="code hl_define" href="../../d4/d75/_assertion_macros_8h.html#a586e110623cde145b8a5bdefb429e144">check</a>(<a class="code hl_function" href="../../d4/d2d/_alignment_templates_8h.html#a65d7627b830bf2b9c4fe38a70b4232a8">IsAligned</a>(Result, FMath::Min(AlignedSize, MaximumAlignment)));</div>
+<div class="line"><a id="l00173" name="l00173"></a><span class="lineno">  173</span>            <a class="code hl_enumvalue" href="../../d6/d24/_mass_debugger_model_8h.html#ab943367b7db0363d748d2315b2de2beeae1e4c8c9ccd9fc39c391da4bcd093fb2">Block</a>.FreeBlocksSize -= AlignedSize;</div>
+<div class="line"><a id="l00174" name="l00174"></a><span class="lineno">  174</span>        }</div>
+<div class="line"><a id="l00175" name="l00175"></a><span class="lineno">  175</span>        <span class="keywordflow">else</span></div>
+<div class="line"><a id="l00176" name="l00176"></a><span class="lineno">  176</span>        {</div>
+<div class="line"><a id="l00177" name="l00177"></a><span class="lineno">  177</span>            <span class="keywordtype">size_t</span> AllocSize = FMath::Max(AlignedSize, MaximumAlignment);</div>
+<div class="line"><a id="l00178" name="l00178"></a><span class="lineno">  178</span>            <a class="code hl_typedef" href="../../dd/de9/preprocessor_8c.html#adde6aaee8457bee49c2a92621fe22b79">uint8</a>* LocalNextAlloc = <a class="code hl_function" href="../../d5/dce/class_f_virtual_allocator.html#abaf958914f69c0a3710c0ceec8f23172">AllocNewVM</a>(AllocSize);</div>
+<div class="line"><a id="l00179" name="l00179"></a><span class="lineno">  179</span>            <a class="code hl_define" href="../../d4/d75/_assertion_macros_8h.html#a586e110623cde145b8a5bdefb429e144">check</a>(<a class="code hl_function" href="../../d4/d2d/_alignment_templates_8h.html#a65d7627b830bf2b9c4fe38a70b4232a8">IsAligned</a>(LocalNextAlloc, MaximumAlignment));</div>
+<div class="line"><a id="l00180" name="l00180"></a><span class="lineno">  180</span> </div>
+<div class="line"><a id="l00181" name="l00181"></a><span class="lineno">  181</span>            <a class="code hl_typedef" href="../../dd/de9/preprocessor_8c.html#adde6aaee8457bee49c2a92621fe22b79">uint8</a>* NewNextAlloc = LocalNextAlloc + AllocSize;</div>
+<div class="line"><a id="l00182" name="l00182"></a><span class="lineno">  182</span> </div>
+<div class="line"><a id="l00183" name="l00183"></a><span class="lineno">  183</span>            <span class="keywordflow">if</span> (NewNextAlloc &gt; HighAddress)</div>
+<div class="line"><a id="l00184" name="l00184"></a><span class="lineno">  184</span>            {</div>
+<div class="line"><a id="l00185" name="l00185"></a><span class="lineno">  185</span>                <a class="code hl_function" href="../../d2/dac/struct_f_generic_platform_memory.html#ab6edbdb88dc947d2235bf325fc3378f3">FPlatformMemory::OnOutOfMemory</a>(HighAddress - LowAddress, 0);</div>
+<div class="line"><a id="l00186" name="l00186"></a><span class="lineno">  186</span>            }</div>
+<div class="line"><a id="l00187" name="l00187"></a><span class="lineno">  187</span> </div>
+<div class="line"><a id="l00188" name="l00188"></a><span class="lineno">  188</span>            <a class="code hl_enumvalue" href="../../d6/d24/_mass_debugger_model_8h.html#ab943367b7db0363d748d2315b2de2beeae1e4c8c9ccd9fc39c391da4bcd093fb2">Block</a>.AllocBlocksSize += AllocSize;</div>
+<div class="line"><a id="l00189" name="l00189"></a><span class="lineno">  189</span>            Result = LocalNextAlloc;</div>
+<div class="line"><a id="l00190" name="l00190"></a><span class="lineno">  190</span>            <a class="code hl_define" href="../../d4/d75/_assertion_macros_8h.html#a586e110623cde145b8a5bdefb429e144">check</a>(Result);</div>
+<div class="line"><a id="l00191" name="l00191"></a><span class="lineno">  191</span>            LocalNextAlloc += AlignedSize;</div>
+<div class="line"><a id="l00192" name="l00192"></a><span class="lineno">  192</span>            <span class="keywordflow">while</span> (LocalNextAlloc &lt; NewNextAlloc &amp;&amp; !bHackForHugeBlock)</div>
+<div class="line"><a id="l00193" name="l00193"></a><span class="lineno">  193</span>            {</div>
+<div class="line"><a id="l00194" name="l00194"></a><span class="lineno">  194</span>                FreeVirtualByBlock(LocalNextAlloc, <a class="code hl_enumvalue" href="../../d6/d24/_mass_debugger_model_8h.html#ab943367b7db0363d748d2315b2de2beeae1e4c8c9ccd9fc39c391da4bcd093fb2">Block</a>, AlignedSize);</div>
+<div class="line"><a id="l00195" name="l00195"></a><span class="lineno">  195</span>                LocalNextAlloc += AlignedSize;</div>
+<div class="line"><a id="l00196" name="l00196"></a><span class="lineno">  196</span>            }</div>
+<div class="line"><a id="l00197" name="l00197"></a><span class="lineno">  197</span>        }</div>
+<div class="line"><a id="l00198" name="l00198"></a><span class="lineno">  198</span>        <a class="code hl_define" href="../../d4/d75/_assertion_macros_8h.html#a586e110623cde145b8a5bdefb429e144">check</a>(<a class="code hl_function" href="../../d4/d2d/_alignment_templates_8h.html#a65d7627b830bf2b9c4fe38a70b4232a8">IsAligned</a>(Result, AlignmentForCheck));</div>
+<div class="line"><a id="l00199" name="l00199"></a><span class="lineno">  199</span>        <span class="keywordflow">return</span> Result;</div>
+<div class="line"><a id="l00200" name="l00200"></a><span class="lineno">  200</span>    }</div>
+</div>
+<div class="line"><a id="l00201" name="l00201"></a><span class="lineno">  201</span>    </div>
+<div class="foldopen" id="foldopen00202" data-start="{" data-end="}">
+<div class="line"><a id="l00202" name="l00202"></a><span class="lineno"><a class="line" href="../../d5/dce/class_f_virtual_allocator.html#aaad3b00fba016eb24d84f7801cf9a285">  202</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="../../d5/dce/class_f_virtual_allocator.html#aaad3b00fba016eb24d84f7801cf9a285">FreeVirtual</a>(<span class="keywordtype">void</span>* Ptr, <a class="code hl_typedef" href="../../dd/de9/preprocessor_8c.html#a1134b580f8da4de94ca6b1de4d37975e">uint32</a> NumPages)</div>
+<div class="line"><a id="l00203" name="l00203"></a><span class="lineno">  203</span>    {</div>
+<div class="line"><a id="l00204" name="l00204"></a><span class="lineno">  204</span>        <span class="keywordflow">if</span> (<span class="keywordtype">size_t</span>(NumPages) * PageSize * 2 &gt;= TotalSize)</div>
+<div class="line"><a id="l00205" name="l00205"></a><span class="lineno">  205</span>        {</div>
+<div class="line"><a id="l00206" name="l00206"></a><span class="lineno">  206</span>            <span class="comment">// this is hack, MB3 will ask for tons of virtual and never free it, so we won&#39;t round up to power of two</span></div>
+<div class="line"><a id="l00207" name="l00207"></a><span class="lineno">  207</span>            <a class="code hl_define" href="../../d4/d75/_assertion_macros_8h.html#a586e110623cde145b8a5bdefb429e144">check</a>(!<span class="stringliteral">&quot;Huge vm blocks may not be freed.&quot;</span>);</div>
+<div class="line"><a id="l00208" name="l00208"></a><span class="lineno">  208</span>            <span class="keywordflow">return</span>;</div>
+<div class="line"><a id="l00209" name="l00209"></a><span class="lineno">  209</span>        }</div>
+<div class="line"><a id="l00210" name="l00210"></a><span class="lineno">  210</span>        <span class="keywordtype">size_t</span> <a class="code hl_variable" href="../../d3/db8/binka__ue__decode__test_8cpp.html#a1b0a2287ccd798ce69649ce1896c5ac8">BlockIndex</a> = FMath::CeilLogTwo64(NumPages * PageSize);</div>
+<div class="line"><a id="l00211" name="l00211"></a><span class="lineno">  211</span>        <span class="keywordtype">size_t</span> AlignedSize = size_t(1) &lt;&lt; <a class="code hl_variable" href="../../d3/db8/binka__ue__decode__test_8cpp.html#a1b0a2287ccd798ce69649ce1896c5ac8">BlockIndex</a>;</div>
+<div class="line"><a id="l00212" name="l00212"></a><span class="lineno">  212</span> </div>
+<div class="line"><a id="l00213" name="l00213"></a><span class="lineno">  213</span>        FPerBlockSize&amp; <a class="code hl_enumvalue" href="../../d6/d24/_mass_debugger_model_8h.html#ab943367b7db0363d748d2315b2de2beeae1e4c8c9ccd9fc39c391da4bcd093fb2">Block</a> = Blocks[<a class="code hl_variable" href="../../d3/db8/binka__ue__decode__test_8cpp.html#a1b0a2287ccd798ce69649ce1896c5ac8">BlockIndex</a>];</div>
+<div class="line"><a id="l00214" name="l00214"></a><span class="lineno">  214</span>        <a class="code hl_class" href="../../dc/d2c/class_u_e_1_1_t_unique_lock.html">UE::TUniqueLock</a> <a class="code hl_variable" href="../../d9/db1/_unversioned_property_serialization_8cpp.html#aa6a5f618e102b90dfb31e5b43751501f">Lock</a>(Mutex);</div>
+<div class="line"><a id="l00215" name="l00215"></a><span class="lineno">  215</span>        FreeVirtualByBlock(Ptr, <a class="code hl_enumvalue" href="../../d6/d24/_mass_debugger_model_8h.html#ab943367b7db0363d748d2315b2de2beeae1e4c8c9ccd9fc39c391da4bcd093fb2">Block</a>, AlignedSize);</div>
+<div class="line"><a id="l00216" name="l00216"></a><span class="lineno">  216</span>    }</div>
+</div>
+<div class="line"><a id="l00217" name="l00217"></a><span class="lineno">  217</span> </div>
+<div class="foldopen" id="foldopen00218" data-start="{" data-end="};">
+<div class="line"><a id="l00218" name="l00218"></a><span class="lineno"><a class="line" href="../../d3/de1/struct_f_virtual_allocator_1_1_f_virtual_allocator_stats_per_block_size.html">  218</a></span>    <span class="keyword">struct </span><a class="code hl_struct" href="../../d3/de1/struct_f_virtual_allocator_1_1_f_virtual_allocator_stats_per_block_size.html">FVirtualAllocatorStatsPerBlockSize</a></div>
+<div class="line"><a id="l00219" name="l00219"></a><span class="lineno">  219</span>    {</div>
+<div class="line"><a id="l00220" name="l00220"></a><span class="lineno"><a class="line" href="../../d3/de1/struct_f_virtual_allocator_1_1_f_virtual_allocator_stats_per_block_size.html#ab6cfe24601c8e970fd47b8c25fdfe239">  220</a></span>        <span class="keywordtype">size_t</span> <a class="code hl_variable" href="../../d3/de1/struct_f_virtual_allocator_1_1_f_virtual_allocator_stats_per_block_size.html#ab6cfe24601c8e970fd47b8c25fdfe239">AllocBlocksSize</a>;</div>
+<div class="line"><a id="l00221" name="l00221"></a><span class="lineno"><a class="line" href="../../d3/de1/struct_f_virtual_allocator_1_1_f_virtual_allocator_stats_per_block_size.html#adab5131491b87bfb004c3cb140aa5eb2">  221</a></span>        <span class="keywordtype">size_t</span> <a class="code hl_variable" href="../../d3/de1/struct_f_virtual_allocator_1_1_f_virtual_allocator_stats_per_block_size.html#adab5131491b87bfb004c3cb140aa5eb2">FreeBlocksSize</a>;</div>
+<div class="line"><a id="l00222" name="l00222"></a><span class="lineno">  222</span>    };</div>
+</div>
+<div class="foldopen" id="foldopen00223" data-start="{" data-end="};">
+<div class="line"><a id="l00223" name="l00223"></a><span class="lineno"><a class="line" href="../../d0/dc3/struct_f_virtual_allocator_1_1_f_virtual_allocator_stats.html">  223</a></span>    <span class="keyword">struct </span><a class="code hl_struct" href="../../d0/dc3/struct_f_virtual_allocator_1_1_f_virtual_allocator_stats.html">FVirtualAllocatorStats</a></div>
+<div class="line"><a id="l00224" name="l00224"></a><span class="lineno">  224</span>    {</div>
+<div class="line"><a id="l00225" name="l00225"></a><span class="lineno"><a class="line" href="../../d0/dc3/struct_f_virtual_allocator_1_1_f_virtual_allocator_stats.html#a5c75dc2f50e595a3e36ac371bc376513">  225</a></span>        <span class="keywordtype">size_t</span> <a class="code hl_variable" href="../../d0/dc3/struct_f_virtual_allocator_1_1_f_virtual_allocator_stats.html#a5c75dc2f50e595a3e36ac371bc376513">PageSize</a>;</div>
+<div class="line"><a id="l00226" name="l00226"></a><span class="lineno"><a class="line" href="../../d0/dc3/struct_f_virtual_allocator_1_1_f_virtual_allocator_stats.html#aa7e8ce884dd485366235017cbc35125b">  226</a></span>        <span class="keywordtype">size_t</span> <a class="code hl_variable" href="../../d0/dc3/struct_f_virtual_allocator_1_1_f_virtual_allocator_stats.html#aa7e8ce884dd485366235017cbc35125b">MaximumAlignment</a>;</div>
+<div class="line"><a id="l00227" name="l00227"></a><span class="lineno"><a class="line" href="../../d0/dc3/struct_f_virtual_allocator_1_1_f_virtual_allocator_stats.html#a1f01d48ff275279e457af3a7d883b9ce">  227</a></span>        <span class="keywordtype">size_t</span> <a class="code hl_variable" href="../../d0/dc3/struct_f_virtual_allocator_1_1_f_virtual_allocator_stats.html#a1f01d48ff275279e457af3a7d883b9ce">VMSpaceTotal</a>;</div>
+<div class="line"><a id="l00228" name="l00228"></a><span class="lineno"><a class="line" href="../../d0/dc3/struct_f_virtual_allocator_1_1_f_virtual_allocator_stats.html#a33eb58905249d33e6b014b9cdd70ebf7">  228</a></span>        <span class="keywordtype">size_t</span> <a class="code hl_variable" href="../../d0/dc3/struct_f_virtual_allocator_1_1_f_virtual_allocator_stats.html#a33eb58905249d33e6b014b9cdd70ebf7">VMSpaceConsumed</a>;</div>
+<div class="line"><a id="l00229" name="l00229"></a><span class="lineno"><a class="line" href="../../d0/dc3/struct_f_virtual_allocator_1_1_f_virtual_allocator_stats.html#a49127e74fd2305d736299314b31adaa7">  229</a></span>        <span class="keywordtype">size_t</span> <a class="code hl_variable" href="../../d0/dc3/struct_f_virtual_allocator_1_1_f_virtual_allocator_stats.html#a49127e74fd2305d736299314b31adaa7">VMSpaceConsumedPeak</a>;</div>
+<div class="line"><a id="l00230" name="l00230"></a><span class="lineno">  230</span> </div>
+<div class="line"><a id="l00231" name="l00231"></a><span class="lineno"><a class="line" href="../../d0/dc3/struct_f_virtual_allocator_1_1_f_virtual_allocator_stats.html#a0678241a347dae6e3790fa7a485482f8">  231</a></span>        <span class="keywordtype">size_t</span> <a class="code hl_variable" href="../../d0/dc3/struct_f_virtual_allocator_1_1_f_virtual_allocator_stats.html#a0678241a347dae6e3790fa7a485482f8">FreeListLinks</a>;</div>
+<div class="line"><a id="l00232" name="l00232"></a><span class="lineno">  232</span> </div>
+<div class="line"><a id="l00233" name="l00233"></a><span class="lineno"><a class="line" href="../../d0/dc3/struct_f_virtual_allocator_1_1_f_virtual_allocator_stats.html#aee063bc6b076677133d7d26a85935821">  233</a></span>        <a class="code hl_struct" href="../../d3/de1/struct_f_virtual_allocator_1_1_f_virtual_allocator_stats_per_block_size.html">FVirtualAllocatorStatsPerBlockSize</a> <a class="code hl_variable" href="../../d0/dc3/struct_f_virtual_allocator_1_1_f_virtual_allocator_stats.html#aee063bc6b076677133d7d26a85935821">BlockStats</a>[64];</div>
+<div class="line"><a id="l00234" name="l00234"></a><span class="lineno">  234</span>    };</div>
+</div>
+<div class="line"><a id="l00235" name="l00235"></a><span class="lineno">  235</span> </div>
+<div class="foldopen" id="foldopen00236" data-start="{" data-end="}">
+<div class="line"><a id="l00236" name="l00236"></a><span class="lineno"><a class="line" href="../../d5/dce/class_f_virtual_allocator.html#aa06a18b494b4b5ab9c3c3b317dbbd500">  236</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="../../d5/dce/class_f_virtual_allocator.html#aa06a18b494b4b5ab9c3c3b317dbbd500">GetStats</a>(<a class="code hl_struct" href="../../d0/dc3/struct_f_virtual_allocator_1_1_f_virtual_allocator_stats.html">FVirtualAllocatorStats</a>&amp; OutStats)</div>
+<div class="line"><a id="l00237" name="l00237"></a><span class="lineno">  237</span>    {</div>
+<div class="line"><a id="l00238" name="l00238"></a><span class="lineno">  238</span>        <a class="code hl_class" href="../../dc/d2c/class_u_e_1_1_t_unique_lock.html">UE::TUniqueLock</a> <a class="code hl_variable" href="../../d9/db1/_unversioned_property_serialization_8cpp.html#aa6a5f618e102b90dfb31e5b43751501f">Lock</a>(Mutex);</div>
+<div class="line"><a id="l00239" name="l00239"></a><span class="lineno">  239</span>        OutStats.<a class="code hl_variable" href="../../d0/dc3/struct_f_virtual_allocator_1_1_f_virtual_allocator_stats.html#a5c75dc2f50e595a3e36ac371bc376513">PageSize</a> = PageSize;</div>
+<div class="line"><a id="l00240" name="l00240"></a><span class="lineno">  240</span>        OutStats.<a class="code hl_variable" href="../../d0/dc3/struct_f_virtual_allocator_1_1_f_virtual_allocator_stats.html#aa7e8ce884dd485366235017cbc35125b">MaximumAlignment</a> = MaximumAlignment;</div>
+<div class="line"><a id="l00241" name="l00241"></a><span class="lineno">  241</span>        OutStats.<a class="code hl_variable" href="../../d0/dc3/struct_f_virtual_allocator_1_1_f_virtual_allocator_stats.html#a1f01d48ff275279e457af3a7d883b9ce">VMSpaceTotal</a> = HighAddress - LowAddress;</div>
+<div class="line"><a id="l00242" name="l00242"></a><span class="lineno">  242</span>        OutStats.<a class="code hl_variable" href="../../d0/dc3/struct_f_virtual_allocator_1_1_f_virtual_allocator_stats.html#a33eb58905249d33e6b014b9cdd70ebf7">VMSpaceConsumed</a> = <a class="code hl_variable" href="../../d5/dce/class_f_virtual_allocator.html#ae8683d9bf069c2cb19b0ba9bd596f099">SpaceConsumed</a>;</div>
+<div class="line"><a id="l00243" name="l00243"></a><span class="lineno">  243</span>        OutStats.<a class="code hl_variable" href="../../d0/dc3/struct_f_virtual_allocator_1_1_f_virtual_allocator_stats.html#a49127e74fd2305d736299314b31adaa7">VMSpaceConsumedPeak</a> = <a class="code hl_variable" href="../../d5/dce/class_f_virtual_allocator.html#a3a022a64e2d7ce801ba2ac74347ab701">SpaceConsumedPeak</a>;</div>
+<div class="line"><a id="l00244" name="l00244"></a><span class="lineno">  244</span>        OutStats.<a class="code hl_variable" href="../../d0/dc3/struct_f_virtual_allocator_1_1_f_virtual_allocator_stats.html#a0678241a347dae6e3790fa7a485482f8">FreeListLinks</a> = LinkSize;</div>
+<div class="line"><a id="l00245" name="l00245"></a><span class="lineno">  245</span> </div>
+<div class="line"><a id="l00246" name="l00246"></a><span class="lineno">  246</span>        <span class="keywordflow">for</span> (<a class="code hl_typedef" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a8dbb3cd84ca9fd010dadfc3815eefa5d">int32</a> <a class="code hl_typedef" href="../../df/dd5/radfft_8cpp.html#a353b84469a01fbe28e2db978bdf1fb86">Index</a> = 0; <a class="code hl_typedef" href="../../df/dd5/radfft_8cpp.html#a353b84469a01fbe28e2db978bdf1fb86">Index</a> &lt; 64; <a class="code hl_typedef" href="../../df/dd5/radfft_8cpp.html#a353b84469a01fbe28e2db978bdf1fb86">Index</a>++)</div>
+<div class="line"><a id="l00247" name="l00247"></a><span class="lineno">  247</span>        {</div>
+<div class="line"><a id="l00248" name="l00248"></a><span class="lineno">  248</span>            OutStats.<a class="code hl_variable" href="../../d0/dc3/struct_f_virtual_allocator_1_1_f_virtual_allocator_stats.html#aee063bc6b076677133d7d26a85935821">BlockStats</a>[<a class="code hl_typedef" href="../../df/dd5/radfft_8cpp.html#a353b84469a01fbe28e2db978bdf1fb86">Index</a>].<a class="code hl_variable" href="../../d3/de1/struct_f_virtual_allocator_1_1_f_virtual_allocator_stats_per_block_size.html#ab6cfe24601c8e970fd47b8c25fdfe239">AllocBlocksSize</a> = Blocks[<a class="code hl_typedef" href="../../df/dd5/radfft_8cpp.html#a353b84469a01fbe28e2db978bdf1fb86">Index</a>].AllocBlocksSize;</div>
+<div class="line"><a id="l00249" name="l00249"></a><span class="lineno">  249</span>            OutStats.<a class="code hl_variable" href="../../d0/dc3/struct_f_virtual_allocator_1_1_f_virtual_allocator_stats.html#aee063bc6b076677133d7d26a85935821">BlockStats</a>[<a class="code hl_typedef" href="../../df/dd5/radfft_8cpp.html#a353b84469a01fbe28e2db978bdf1fb86">Index</a>].<a class="code hl_variable" href="../../d3/de1/struct_f_virtual_allocator_1_1_f_virtual_allocator_stats_per_block_size.html#adab5131491b87bfb004c3cb140aa5eb2">FreeBlocksSize</a> = Blocks[<a class="code hl_typedef" href="../../df/dd5/radfft_8cpp.html#a353b84469a01fbe28e2db978bdf1fb86">Index</a>].FreeBlocksSize;</div>
+<div class="line"><a id="l00250" name="l00250"></a><span class="lineno">  250</span>        }</div>
+<div class="line"><a id="l00251" name="l00251"></a><span class="lineno">  251</span>    }</div>
+</div>
+<div class="line"><a id="l00252" name="l00252"></a><span class="lineno">  252</span>};</div>
+</div>
+<div class="line"><a id="l00253" name="l00253"></a><span class="lineno">  253</span> </div>
+<div class="line"><a id="l00254" name="l00254"></a><span class="lineno">  254</span><span class="preprocessor">#if UE_ENABLE_INCLUDE_ORDER_DEPRECATED_IN_5_8</span></div>
+<div class="line"><a id="l00255" name="l00255"></a><span class="lineno">  255</span><span class="preprocessor">#   include &quot;<a class="code" href="../../df/d05/_critical_section_8h.html">HAL/CriticalSection.h</a>&quot;</span></div>
+<div class="line"><a id="l00256" name="l00256"></a><span class="lineno">  256</span><span class="preprocessor">#   include &quot;<a class="code" href="../../d6/df1/_scope_lock_8h.html">Misc/ScopeLock.h</a>&quot;</span></div>
+<div class="line"><a id="l00257" name="l00257"></a><span class="lineno">  257</span><span class="preprocessor">#endif</span></div>
+<div class="ttc" id="a_alignment_templates_8h_html"><div class="ttname"><a href="../../d4/d2d/_alignment_templates_8h.html">AlignmentTemplates.h</a></div></div>
+<div class="ttc" id="a_alignment_templates_8h_html_a090e5768f9d9641d38d2685f8d7fa45e"><div class="ttname"><a href="../../d4/d2d/_alignment_templates_8h.html#a090e5768f9d9641d38d2685f8d7fa45e">Align</a></div><div class="ttdeci">UE_FORCEINLINE_HINT constexpr T Align(T Val, uint64 Alignment)</div><div class="ttdef"><b>定义</b> AlignmentTemplates.h:21</div></div>
+<div class="ttc" id="a_alignment_templates_8h_html_a65d7627b830bf2b9c4fe38a70b4232a8"><div class="ttname"><a href="../../d4/d2d/_alignment_templates_8h.html#a65d7627b830bf2b9c4fe38a70b4232a8">IsAligned</a></div><div class="ttdeci">UE_FORCEINLINE_HINT constexpr bool IsAligned(T Val, uint64 Alignment)</div><div class="ttdef"><b>定义</b> AlignmentTemplates.h:51</div></div>
+<div class="ttc" id="a_anim_node___random_player_8h_html_a44040536c5887425d1741165af9cd6a1a10ac3d04253ef7e1ddc73e6091c0cd55"><div class="ttname"><a href="../../d4/d8f/_anim_node___random_player_8h.html#a44040536c5887425d1741165af9cd6a1a10ac3d04253ef7e1ddc73e6091c0cd55">ERandomDataIndexType::Next</a></div><div class="ttdeci">@ Next</div><div class="ttdef"><b>定义</b> AnimNode_RandomPlayer.h:17</div></div>
+<div class="ttc" id="a_assertion_macros_8h_html_a12ff33b2f8cbad5116bd85ca93de5cb2"><div class="ttname"><a href="../../d4/d75/_assertion_macros_8h.html#a12ff33b2f8cbad5116bd85ca93de5cb2">checkSlow</a></div><div class="ttdeci">#define checkSlow(expr)</div><div class="ttdef"><b>定义</b> AssertionMacros.h:337</div></div>
+<div class="ttc" id="a_assertion_macros_8h_html_a586e110623cde145b8a5bdefb429e144"><div class="ttname"><a href="../../d4/d75/_assertion_macros_8h.html#a586e110623cde145b8a5bdefb429e144">check</a></div><div class="ttdeci">#define check(expr)</div><div class="ttdef"><b>定义</b> AssertionMacros.h:319</div></div>
+<div class="ttc" id="a_core_2_public_2_h_a_l_2_platform_8h_html_a89241ea7101f26f05a4f1efd6be26b32"><div class="ttname"><a href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a89241ea7101f26f05a4f1efd6be26b32">int64</a></div><div class="ttdeci">FPlatformTypes::int64 int64</div><div class="ttdoc">A 64-bit signed integer.</div><div class="ttdef"><b>定义</b> Platform.h:1192</div></div>
+<div class="ttc" id="a_core_2_public_2_h_a_l_2_platform_8h_html_a8dbb3cd84ca9fd010dadfc3815eefa5d"><div class="ttname"><a href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a8dbb3cd84ca9fd010dadfc3815eefa5d">int32</a></div><div class="ttdeci">FPlatformTypes::int32 int32</div><div class="ttdoc">A 32-bit signed integer.</div><div class="ttdef"><b>定义</b> Platform.h:1190</div></div>
+<div class="ttc" id="a_core_types_8h_html"><div class="ttname"><a href="../../db/d04/_core_types_8h.html">CoreTypes.h</a></div></div>
+<div class="ttc" id="a_critical_section_8h_html"><div class="ttname"><a href="../../df/d05/_critical_section_8h.html">CriticalSection.h</a></div></div>
+<div class="ttc" id="a_i_o_s_device_helper_8h_html_aac22347d98824c2cd3360f339d7ef07aa0fd430d535aa1902074d95d60a93f744"><div class="ttname"><a href="../../d5/d25/_i_o_s_device_helper_8h.html#aac22347d98824c2cd3360f339d7ef07aa0fd430d535aa1902074d95d60a93f744">Max</a></div><div class="ttdeci">@ Max</div><div class="ttdef"><b>定义</b> IOSDeviceHelper.h:13</div></div>
+<div class="ttc" id="a_i_web_browser_window_8h_html_a290607c0eba20987856774741ebf2da3a97e7c9a7d06eac006a28bf05467fcc8b"><div class="ttname"><a href="../../da/d60/_i_web_browser_window_8h.html#a290607c0eba20987856774741ebf2da3a97e7c9a7d06eac006a28bf05467fcc8b">EWebTransitionSource::Link</a></div><div class="ttdeci">@ Link</div><div class="ttdef"><b>定义</b> IWebBrowserWindow.h:42</div></div>
+<div class="ttc" id="a_mass_debugger_model_8h_html_ab943367b7db0363d748d2315b2de2beeae1e4c8c9ccd9fc39c391da4bcd093fb2"><div class="ttname"><a href="../../d6/d24/_mass_debugger_model_8h.html#ab943367b7db0363d748d2315b2de2beeae1e4c8c9ccd9fc39c391da4bcd093fb2">EMassDebuggerProcessingGraphNodeSelection::Block</a></div><div class="ttdeci">@ Block</div><div class="ttdef"><b>定义</b> MassDebuggerModel.h:118</div></div>
+<div class="ttc" id="a_platform_mutex_8h_html"><div class="ttname"><a href="../../d8/d26/_platform_mutex_8h.html">PlatformMutex.h</a></div></div>
+<div class="ttc" id="a_platform_process_8h_html"><div class="ttname"><a href="../../d2/da9/_platform_process_8h.html">PlatformProcess.h</a></div></div>
+<div class="ttc" id="a_scope_lock_8h_html"><div class="ttname"><a href="../../d6/df1/_scope_lock_8h.html">ScopeLock.h</a></div></div>
+<div class="ttc" id="a_sequence_history_8h_html_a41f48316f09703e0b7cd9ac6b643e9c8"><div class="ttname"><a href="../../d0/de4/_sequence_history_8h.html#a41f48316f09703e0b7cd9ac6b643e9c8">Size</a></div><div class="ttdeci">constexpr SIZE_T TSequenceHistory&lt; HistorySize &gt;::Size</div><div class="ttdef"><b>定义</b> SequenceHistory.h:69</div></div>
+<div class="ttc" id="a_thread_safe_counter_8h_html"><div class="ttname"><a href="../../d0/d14/_thread_safe_counter_8h.html">ThreadSafeCounter.h</a></div></div>
+<div class="ttc" id="a_unique_lock_8h_html"><div class="ttname"><a href="../../de/d38/_unique_lock_8h.html">UniqueLock.h</a></div></div>
+<div class="ttc" id="a_unversioned_property_serialization_8cpp_html_aa6a5f618e102b90dfb31e5b43751501f"><div class="ttname"><a href="../../d9/db1/_unversioned_property_serialization_8cpp.html#aa6a5f618e102b90dfb31e5b43751501f">Lock</a></div><div class="ttdeci">FRWLock Lock</div><div class="ttdef"><b>定义</b> UnversionedPropertySerialization.cpp:939</div></div>
+<div class="ttc" id="abinka__ue__decode__test_8cpp_html_a1b0a2287ccd798ce69649ce1896c5ac8"><div class="ttname"><a href="../../d3/db8/binka__ue__decode__test_8cpp.html#a1b0a2287ccd798ce69649ce1896c5ac8">BlockIndex</a></div><div class="ttdeci">int BlockIndex</div><div class="ttdef"><b>定义</b> binka_ue_decode_test.cpp:38</div></div>
+<div class="ttc" id="aclass_f_android_platform_memory_1_1_f_platform_virtual_memory_block_html"><div class="ttname"><a href="../../d7/db3/class_f_android_platform_memory_1_1_f_platform_virtual_memory_block.html">FAndroidPlatformMemory::FPlatformVirtualMemoryBlock</a></div><div class="ttdef"><b>定义</b> AndroidPlatformMemory.h:38</div></div>
+<div class="ttc" id="aclass_f_android_platform_memory_1_1_f_platform_virtual_memory_block_html_ab098c15019f9058286d178922e1f958b"><div class="ttname"><a href="../../d7/db3/class_f_android_platform_memory_1_1_f_platform_virtual_memory_block.html#ab098c15019f9058286d178922e1f958b">FAndroidPlatformMemory::FPlatformVirtualMemoryBlock::Commit</a></div><div class="ttdeci">void Commit(size_t InOffset, size_t InSize)</div><div class="ttdef"><b>定义</b> AndroidPlatformMemory.cpp:646</div></div>
+<div class="ttc" id="aclass_f_virtual_allocator_html_a05855ab9c5f120d7bfe9eefb23acf8ac"><div class="ttname"><a href="../../d5/dce/class_f_virtual_allocator.html#a05855ab9c5f120d7bfe9eefb23acf8ac">FVirtualAllocator::~FVirtualAllocator</a></div><div class="ttdeci">virtual ~FVirtualAllocator()=default</div></div>
+<div class="ttc" id="aclass_f_virtual_allocator_html_a2af10279b46f99ab58cf093ca06a2d42"><div class="ttname"><a href="../../d5/dce/class_f_virtual_allocator.html#a2af10279b46f99ab58cf093ca06a2d42">FVirtualAllocator::AllocateVirtualPages</a></div><div class="ttdeci">void * AllocateVirtualPages(uint32 NumPages, size_t AlignmentForCheck=1)</div><div class="ttdef"><b>定义</b> VirtualAllocator.h:139</div></div>
+<div class="ttc" id="aclass_f_virtual_allocator_html_a3a022a64e2d7ce801ba2ac74347ab701"><div class="ttname"><a href="../../d5/dce/class_f_virtual_allocator.html#a3a022a64e2d7ce801ba2ac74347ab701">FVirtualAllocator::SpaceConsumedPeak</a></div><div class="ttdeci">size_t SpaceConsumedPeak</div><div class="ttdef"><b>定义</b> VirtualAllocator.h:85</div></div>
+<div class="ttc" id="aclass_f_virtual_allocator_html_a6ec77a4efbb0aa8487aef347a41380e9"><div class="ttname"><a href="../../d5/dce/class_f_virtual_allocator.html#a6ec77a4efbb0aa8487aef347a41380e9">FVirtualAllocator::GetPagesForSizeAndAlignment</a></div><div class="ttdeci">uint32 GetPagesForSizeAndAlignment(size_t Size, size_t Alignment=1) const</div><div class="ttdef"><b>定义</b> VirtualAllocator.h:120</div></div>
+<div class="ttc" id="aclass_f_virtual_allocator_html_aa06a18b494b4b5ab9c3c3b317dbbd500"><div class="ttname"><a href="../../d5/dce/class_f_virtual_allocator.html#aa06a18b494b4b5ab9c3c3b317dbbd500">FVirtualAllocator::GetStats</a></div><div class="ttdeci">void GetStats(FVirtualAllocatorStats &amp;OutStats)</div><div class="ttdef"><b>定义</b> VirtualAllocator.h:236</div></div>
+<div class="ttc" id="aclass_f_virtual_allocator_html_aaad3b00fba016eb24d84f7801cf9a285"><div class="ttname"><a href="../../d5/dce/class_f_virtual_allocator.html#aaad3b00fba016eb24d84f7801cf9a285">FVirtualAllocator::FreeVirtual</a></div><div class="ttdeci">void FreeVirtual(void *Ptr, uint32 NumPages)</div><div class="ttdef"><b>定义</b> VirtualAllocator.h:202</div></div>
+<div class="ttc" id="aclass_f_virtual_allocator_html_abaf958914f69c0a3710c0ceec8f23172"><div class="ttname"><a href="../../d5/dce/class_f_virtual_allocator.html#abaf958914f69c0a3710c0ceec8f23172">FVirtualAllocator::AllocNewVM</a></div><div class="ttdeci">virtual uint8 * AllocNewVM(size_t AlignedSize)</div><div class="ttdef"><b>定义</b> VirtualAllocator.h:87</div></div>
+<div class="ttc" id="aclass_f_virtual_allocator_html_abbcb0bb68a21b9f4842eb660055cdbf2"><div class="ttname"><a href="../../d5/dce/class_f_virtual_allocator.html#abbcb0bb68a21b9f4842eb660055cdbf2">FVirtualAllocator::FVirtualAllocator</a></div><div class="ttdeci">FVirtualAllocator(void *InLowAdress, void *InHighAddress, size_t InPageSize, size_t InMaximumAlignment, bool bInBacksMalloc)</div><div class="ttdef"><b>定义</b> VirtualAllocator.h:102</div></div>
+<div class="ttc" id="aclass_f_virtual_allocator_html_ae8683d9bf069c2cb19b0ba9bd596f099"><div class="ttname"><a href="../../d5/dce/class_f_virtual_allocator.html#ae8683d9bf069c2cb19b0ba9bd596f099">FVirtualAllocator::SpaceConsumed</a></div><div class="ttdeci">size_t SpaceConsumed</div><div class="ttdef"><b>定义</b> VirtualAllocator.h:84</div></div>
+<div class="ttc" id="aclass_u_e_1_1_t_unique_lock_html"><div class="ttname"><a href="../../dc/d2c/class_u_e_1_1_t_unique_lock.html">UE::TUniqueLock</a></div><div class="ttdef"><b>定义</b> UniqueLock.h:20</div></div>
+<div class="ttc" id="anamespace_u_e_html_a30602c02de16f3a41a9ee9e8b3c5bde1"><div class="ttname"><a href="../../da/de5/namespace_u_e.html#a30602c02de16f3a41a9ee9e8b3c5bde1">UE::FPlatformRecursiveMutex</a></div><div class="ttdeci">FPThreadsRecursiveMutex FPlatformRecursiveMutex</div><div class="ttdef"><b>定义</b> AndroidPlatformMutex.h:12</div></div>
+<div class="ttc" id="apreprocessor_8c_html_a1134b580f8da4de94ca6b1de4d37975e"><div class="ttname"><a href="../../dd/de9/preprocessor_8c.html#a1134b580f8da4de94ca6b1de4d37975e">uint32</a></div><div class="ttdeci">unsigned int uint32</div><div class="ttdef"><b>定义</b> preprocessor.c:67</div></div>
+<div class="ttc" id="apreprocessor_8c_html_adde6aaee8457bee49c2a92621fe22b79"><div class="ttname"><a href="../../dd/de9/preprocessor_8c.html#adde6aaee8457bee49c2a92621fe22b79">uint8</a></div><div class="ttdeci">unsigned char uint8</div><div class="ttdef"><b>定义</b> preprocessor.c:65</div></div>
+<div class="ttc" id="aradfft_8cpp_html_a353b84469a01fbe28e2db978bdf1fb86"><div class="ttname"><a href="../../df/dd5/radfft_8cpp.html#a353b84469a01fbe28e2db978bdf1fb86">Index</a></div><div class="ttdeci">U16 Index</div><div class="ttdef"><b>定义</b> radfft.cpp:71</div></div>
+<div class="ttc" id="astruct_f_generic_platform_memory_html_ab6edbdb88dc947d2235bf325fc3378f3"><div class="ttname"><a href="../../d2/dac/struct_f_generic_platform_memory.html#ab6edbdb88dc947d2235bf325fc3378f3">FGenericPlatformMemory::OnOutOfMemory</a></div><div class="ttdeci">static CORE_API void OnOutOfMemory(uint64 Size, uint32 Alignment)</div><div class="ttdef"><b>定义</b> GenericPlatformMemory.cpp:247</div></div>
+<div class="ttc" id="astruct_f_math_html"><div class="ttname"><a href="../../d1/d85/struct_f_math.html">FMath</a></div><div class="ttdef"><b>定义</b> UnrealMathUtility.h:270</div></div>
+<div class="ttc" id="astruct_f_virtual_allocator_1_1_f_virtual_allocator_stats_html"><div class="ttname"><a href="../../d0/dc3/struct_f_virtual_allocator_1_1_f_virtual_allocator_stats.html">FVirtualAllocator::FVirtualAllocatorStats</a></div><div class="ttdef"><b>定义</b> VirtualAllocator.h:224</div></div>
+<div class="ttc" id="astruct_f_virtual_allocator_1_1_f_virtual_allocator_stats_html_a0678241a347dae6e3790fa7a485482f8"><div class="ttname"><a href="../../d0/dc3/struct_f_virtual_allocator_1_1_f_virtual_allocator_stats.html#a0678241a347dae6e3790fa7a485482f8">FVirtualAllocator::FVirtualAllocatorStats::FreeListLinks</a></div><div class="ttdeci">size_t FreeListLinks</div><div class="ttdef"><b>定义</b> VirtualAllocator.h:231</div></div>
+<div class="ttc" id="astruct_f_virtual_allocator_1_1_f_virtual_allocator_stats_html_a1f01d48ff275279e457af3a7d883b9ce"><div class="ttname"><a href="../../d0/dc3/struct_f_virtual_allocator_1_1_f_virtual_allocator_stats.html#a1f01d48ff275279e457af3a7d883b9ce">FVirtualAllocator::FVirtualAllocatorStats::VMSpaceTotal</a></div><div class="ttdeci">size_t VMSpaceTotal</div><div class="ttdef"><b>定义</b> VirtualAllocator.h:227</div></div>
+<div class="ttc" id="astruct_f_virtual_allocator_1_1_f_virtual_allocator_stats_html_a33eb58905249d33e6b014b9cdd70ebf7"><div class="ttname"><a href="../../d0/dc3/struct_f_virtual_allocator_1_1_f_virtual_allocator_stats.html#a33eb58905249d33e6b014b9cdd70ebf7">FVirtualAllocator::FVirtualAllocatorStats::VMSpaceConsumed</a></div><div class="ttdeci">size_t VMSpaceConsumed</div><div class="ttdef"><b>定义</b> VirtualAllocator.h:228</div></div>
+<div class="ttc" id="astruct_f_virtual_allocator_1_1_f_virtual_allocator_stats_html_a49127e74fd2305d736299314b31adaa7"><div class="ttname"><a href="../../d0/dc3/struct_f_virtual_allocator_1_1_f_virtual_allocator_stats.html#a49127e74fd2305d736299314b31adaa7">FVirtualAllocator::FVirtualAllocatorStats::VMSpaceConsumedPeak</a></div><div class="ttdeci">size_t VMSpaceConsumedPeak</div><div class="ttdef"><b>定义</b> VirtualAllocator.h:229</div></div>
+<div class="ttc" id="astruct_f_virtual_allocator_1_1_f_virtual_allocator_stats_html_a5c75dc2f50e595a3e36ac371bc376513"><div class="ttname"><a href="../../d0/dc3/struct_f_virtual_allocator_1_1_f_virtual_allocator_stats.html#a5c75dc2f50e595a3e36ac371bc376513">FVirtualAllocator::FVirtualAllocatorStats::PageSize</a></div><div class="ttdeci">size_t PageSize</div><div class="ttdef"><b>定义</b> VirtualAllocator.h:225</div></div>
+<div class="ttc" id="astruct_f_virtual_allocator_1_1_f_virtual_allocator_stats_html_aa7e8ce884dd485366235017cbc35125b"><div class="ttname"><a href="../../d0/dc3/struct_f_virtual_allocator_1_1_f_virtual_allocator_stats.html#aa7e8ce884dd485366235017cbc35125b">FVirtualAllocator::FVirtualAllocatorStats::MaximumAlignment</a></div><div class="ttdeci">size_t MaximumAlignment</div><div class="ttdef"><b>定义</b> VirtualAllocator.h:226</div></div>
+<div class="ttc" id="astruct_f_virtual_allocator_1_1_f_virtual_allocator_stats_html_aee063bc6b076677133d7d26a85935821"><div class="ttname"><a href="../../d0/dc3/struct_f_virtual_allocator_1_1_f_virtual_allocator_stats.html#aee063bc6b076677133d7d26a85935821">FVirtualAllocator::FVirtualAllocatorStats::BlockStats</a></div><div class="ttdeci">FVirtualAllocatorStatsPerBlockSize BlockStats[64]</div><div class="ttdef"><b>定义</b> VirtualAllocator.h:233</div></div>
+<div class="ttc" id="astruct_f_virtual_allocator_1_1_f_virtual_allocator_stats_per_block_size_html"><div class="ttname"><a href="../../d3/de1/struct_f_virtual_allocator_1_1_f_virtual_allocator_stats_per_block_size.html">FVirtualAllocator::FVirtualAllocatorStatsPerBlockSize</a></div><div class="ttdef"><b>定义</b> VirtualAllocator.h:219</div></div>
+<div class="ttc" id="astruct_f_virtual_allocator_1_1_f_virtual_allocator_stats_per_block_size_html_ab6cfe24601c8e970fd47b8c25fdfe239"><div class="ttname"><a href="../../d3/de1/struct_f_virtual_allocator_1_1_f_virtual_allocator_stats_per_block_size.html#ab6cfe24601c8e970fd47b8c25fdfe239">FVirtualAllocator::FVirtualAllocatorStatsPerBlockSize::AllocBlocksSize</a></div><div class="ttdeci">size_t AllocBlocksSize</div><div class="ttdef"><b>定义</b> VirtualAllocator.h:220</div></div>
+<div class="ttc" id="astruct_f_virtual_allocator_1_1_f_virtual_allocator_stats_per_block_size_html_adab5131491b87bfb004c3cb140aa5eb2"><div class="ttname"><a href="../../d3/de1/struct_f_virtual_allocator_1_1_f_virtual_allocator_stats_per_block_size.html#adab5131491b87bfb004c3cb140aa5eb2">FVirtualAllocator::FVirtualAllocatorStatsPerBlockSize::FreeBlocksSize</a></div><div class="ttdeci">size_t FreeBlocksSize</div><div class="ttdef"><b>定义</b> VirtualAllocator.h:221</div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+</div><!-- container -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a href="../../dir_0b6ee6e7e9547e675db4add2e5de97da.html">Engine</a></li><li class="navelem"><a href="../../dir_9579d1ecb2c7bf48cbe1049c41745cb4.html">Source</a></li><li class="navelem"><a href="../../dir_9f04efef762572853abdf73f62bebfcc.html">Runtime</a></li><li class="navelem"><a href="../../dir_3de6fe8d63806cea4bedcdcf5470dc5e.html">Core</a></li><li class="navelem"><a href="../../dir_399a9fb0bb7a487bf3d85aef916cb8c0.html">Public</a></li><li class="navelem"><a href="../../dir_ebcc62541e7e334642f20562267c5076.html">HAL</a></li><li class="navelem"><a href="../../dc/d43/_virtual_allocator_8h.html">VirtualAllocator.h</a></li>
+    <li class="footer">制作者 <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.15.0 </li>
+  </ul>
+</div>
+</body>
+</html>

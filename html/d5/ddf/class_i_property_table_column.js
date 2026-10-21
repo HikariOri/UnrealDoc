@@ -1,0 +1,25 @@
+var class_i_property_table_column =
+[
+    [ "CanSelectCells", "d5/ddf/class_i_property_table_column.html#a4c40094d33e73b11b904b9c2197e4431", null ],
+    [ "CanSortBy", "d5/ddf/class_i_property_table_column.html#a15ed373717f5e45b81be437d3d55abbd", null ],
+    [ "DECLARE_EVENT_OneParam", "d5/ddf/class_i_property_table_column.html#ad730f95e49206200cbffba668f5fcdb7", null ],
+    [ "GetCell", "d5/ddf/class_i_property_table_column.html#aaa761962d8e7122afff8abea86c4d1b0", null ],
+    [ "GetDataSource", "d5/ddf/class_i_property_table_column.html#a391fc0eb06dee9051ac3b9ae5ef7e0dc", null ],
+    [ "GetDisplayName", "d5/ddf/class_i_property_table_column.html#a455147c4cd528d29e74dd2e7aa5606f8", null ],
+    [ "GetId", "d5/ddf/class_i_property_table_column.html#af5931162e381990b3a56842b46993ca5", null ],
+    [ "GetPartialPath", "d5/ddf/class_i_property_table_column.html#a0f2f2df5ac871ac34e599a224bf7c460", null ],
+    [ "GetPropertySorter", "d5/ddf/class_i_property_table_column.html#a55c9f448276d0bb3d886bbdc2dddf0e0", null ],
+    [ "GetSizeMode", "d5/ddf/class_i_property_table_column.html#a8c8052407bdebfcc0f1de94a693f9174", null ],
+    [ "GetTable", "d5/ddf/class_i_property_table_column.html#a539272f696a6de3101349308f6d81961", null ],
+    [ "GetWidth", "d5/ddf/class_i_property_table_column.html#ab432e94248f905d36e9ec33d3ed5a33f", null ],
+    [ "IsFrozen", "d5/ddf/class_i_property_table_column.html#a031a9d447c29499b168ef57526b883f7", null ],
+    [ "IsHidden", "d5/ddf/class_i_property_table_column.html#a8286d6a4e2a9d92baa444467c6dcd2c5", null ],
+    [ "OnFrozenStateChanged", "d5/ddf/class_i_property_table_column.html#ac46389c1a51a72e7b7e3a6c7079e99e6", null ],
+    [ "RemoveCellsForRow", "d5/ddf/class_i_property_table_column.html#a8d6ab9d074729e52219bb65ac4d5d52f", null ],
+    [ "SetFrozen", "d5/ddf/class_i_property_table_column.html#a8d5491bc4ad1844ef53403a2d4366bbb", null ],
+    [ "SetHidden", "d5/ddf/class_i_property_table_column.html#acacea0acb26b90fa31127a24aefb9037", null ],
+    [ "SetSizeMode", "d5/ddf/class_i_property_table_column.html#a02bdc1e4d76a0214a536278b3ffd3213", null ],
+    [ "SetWidth", "d5/ddf/class_i_property_table_column.html#a9d372969c81ae402e1a790836f49e686", null ],
+    [ "Sort", "d5/ddf/class_i_property_table_column.html#ad7e6df2c4054127d8329a824c3f67738", null ],
+    [ "Tick", "d5/ddf/class_i_property_table_column.html#a4d091edb0c237ff98312eb00bfc3b6a6", null ]
+];

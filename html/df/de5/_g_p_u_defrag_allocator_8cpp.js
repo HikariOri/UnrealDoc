@@ -1,0 +1,25 @@
+var _g_p_u_defrag_allocator_8cpp =
+[
+    [ "DEFRAG_CHUNK_COUNTER_MAX", "df/de5/_g_p_u_defrag_allocator_8cpp.html#a05c136fef7c8feb529341c97be7b8db0", null ],
+    [ "DEFRAG_CHUNK_COUNTER_MIN", "df/de5/_g_p_u_defrag_allocator_8cpp.html#a41a94db31e69300a749337a806b987c2", null ],
+    [ "DEFRAG_SMALL_CHUNK_COUNTER_MAX", "df/de5/_g_p_u_defrag_allocator_8cpp.html#a455394eb4424cdb44fe3c11be3b2e633", null ],
+    [ "DEFRAG_SMALL_CHUNK_COUNTER_MIN", "df/de5/_g_p_u_defrag_allocator_8cpp.html#ab483d837ace2f647867911b3a0cd71cf", null ],
+    [ "DEFRAG_SMALL_CHUNK_SIZE", "df/de5/_g_p_u_defrag_allocator_8cpp.html#af67a012eb4e6d554154755ab9b5fb6b7", null ],
+    [ "FGPUDEFRAGALLOCATOR_FMEMORYCHUNK_MAINTAIN_SORT_ORDER", "df/de5/_g_p_u_defrag_allocator_8cpp.html#aa2b63d98225d443aa61490dd305c4fd4", null ],
+    [ "GPU_DEFRAG_SANITYCHECK", "df/de5/_g_p_u_defrag_allocator_8cpp.html#ae5a436c4d25f5ee13061346560835975", null ],
+    [ "PARTIALDEFRAG_TIMELIMIT", "df/de5/_g_p_u_defrag_allocator_8cpp.html#a126a09ffaf59f6005fad8cd4f498f2bc", null ],
+    [ "DECLARE_CYCLE_STAT", "df/de5/_g_p_u_defrag_allocator_8cpp.html#abac13475895c5314e01b2780fa703efb", null ],
+    [ "DECLARE_CYCLE_STAT", "df/de5/_g_p_u_defrag_allocator_8cpp.html#a15a805f44f4055ae63c60acd00f478b9", null ],
+    [ "DECLARE_DWORD_ACCUMULATOR_STAT", "df/de5/_g_p_u_defrag_allocator_8cpp.html#a892edc941be9fa35ad8b0e1f97c9ea67", null ],
+    [ "DECLARE_DWORD_ACCUMULATOR_STAT", "df/de5/_g_p_u_defrag_allocator_8cpp.html#a7cb49181d34a2ffed405a977304b7ae4", null ],
+    [ "DECLARE_DWORD_ACCUMULATOR_STAT", "df/de5/_g_p_u_defrag_allocator_8cpp.html#ad513dd66a21c614907100e70d9d1efdf", null ],
+    [ "DECLARE_DWORD_ACCUMULATOR_STAT", "df/de5/_g_p_u_defrag_allocator_8cpp.html#af26ed5e5d46cc81f1539129923437a51", null ],
+    [ "DECLARE_DWORD_ACCUMULATOR_STAT", "df/de5/_g_p_u_defrag_allocator_8cpp.html#ab244016675b2103fad19603c2d47818f", null ],
+    [ "DECLARE_MEMORY_STAT_POOL", "df/de5/_g_p_u_defrag_allocator_8cpp.html#a716bc240b7d9ad6e3c445b9f9df87e24", null ],
+    [ "DECLARE_MEMORY_STAT_POOL", "df/de5/_g_p_u_defrag_allocator_8cpp.html#a32702fdbbf2b4ed6074e0ddfb6647570", null ],
+    [ "DECLARE_MEMORY_STAT_POOL", "df/de5/_g_p_u_defrag_allocator_8cpp.html#a1d891ec865ca5b5d61be18e0dcaad9b6", null ],
+    [ "DECLARE_MEMORY_STAT_POOL", "df/de5/_g_p_u_defrag_allocator_8cpp.html#a3186e919931af53e7ec9c6d07992f8f9", null ],
+    [ "DECLARE_STATS_GROUP", "df/de5/_g_p_u_defrag_allocator_8cpp.html#a7a097018a532ab30c23df2d0bfed3e3a", null ],
+    [ "FillVizualizeData", "df/de5/_g_p_u_defrag_allocator_8cpp.html#a6be0012ceb158516914ae3fc72e07a12", null ],
+    [ "GBestFitAllocatorFreePointer", "df/de5/_g_p_u_defrag_allocator_8cpp.html#a922d91890c3c126d20509d14acf73085", null ]
+];

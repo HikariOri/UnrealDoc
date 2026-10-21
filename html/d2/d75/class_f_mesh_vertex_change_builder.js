@@ -1,0 +1,28 @@
+var class_f_mesh_vertex_change_builder =
+[
+    [ "FMeshVertexChangeBuilder", "d2/d75/class_f_mesh_vertex_change_builder.html#a5da839c29278827651004321d8def88e", null ],
+    [ "FMeshVertexChangeBuilder", "d2/d75/class_f_mesh_vertex_change_builder.html#a8aa41cf7bede20f1f43d8ce153c3e655", null ],
+    [ "SaveOverlayNormals", "d2/d75/class_f_mesh_vertex_change_builder.html#a32e2c850c750290f321c76e3d03ec648", null ],
+    [ "SaveOverlayNormals", "d2/d75/class_f_mesh_vertex_change_builder.html#aca521040d17bd7758b8ab7fd1f70ce6f", null ],
+    [ "SaveOverlayUVs", "d2/d75/class_f_mesh_vertex_change_builder.html#a5f25a4764a5e4de220bef9b0a6580fc4", null ],
+    [ "SaveOverlayUVs", "d2/d75/class_f_mesh_vertex_change_builder.html#ad3aab947764cddffd0f421bf4c8ba308", null ],
+    [ "SaveVertexFinal", "d2/d75/class_f_mesh_vertex_change_builder.html#a9f6b621cff8182b8e5a777b1709ce582", null ],
+    [ "SaveVertexInitial", "d2/d75/class_f_mesh_vertex_change_builder.html#a69e5f01bb2932d44568f1ff638295149", null ],
+    [ "SaveVertices", "d2/d75/class_f_mesh_vertex_change_builder.html#a38fe18af4711b9da039ae8ae391b90a7", null ],
+    [ "UpdateOverlayNormal", "d2/d75/class_f_mesh_vertex_change_builder.html#a417a33f21d18ab3052d26ed8854f1c75", null ],
+    [ "UpdateOverlayNormalFinal", "d2/d75/class_f_mesh_vertex_change_builder.html#a830507a1e220ab995a1d9cce3968e060", null ],
+    [ "UpdateOverlayUV", "d2/d75/class_f_mesh_vertex_change_builder.html#a316a584b77dfaf2b3fe0954b5d64d5f8", null ],
+    [ "UpdateOverlayUVFinal", "d2/d75/class_f_mesh_vertex_change_builder.html#abdb86921270b2879b7fa891610a84ccb", null ],
+    [ "UpdateVertex", "d2/d75/class_f_mesh_vertex_change_builder.html#a4d57f22096a85a31e02ad081d369b7d8", null ],
+    [ "UpdateVertexColor", "d2/d75/class_f_mesh_vertex_change_builder.html#a70810658250afcd792d2e05cf7bec237", null ],
+    [ "UpdateVertexFinal", "d2/d75/class_f_mesh_vertex_change_builder.html#afc54e58ab891a4433dca5c4225f31c32", null ],
+    [ "bSaveColors", "d2/d75/class_f_mesh_vertex_change_builder.html#ad529cd972d419d493a1456065d71496d", null ],
+    [ "bSaveOverlayNormals", "d2/d75/class_f_mesh_vertex_change_builder.html#a98e366a00645051a42e4e79ae886107a", null ],
+    [ "bSaveOverlayUVs", "d2/d75/class_f_mesh_vertex_change_builder.html#a356bc3426c47c38348a718d7c372347e", null ],
+    [ "bSavePositions", "d2/d75/class_f_mesh_vertex_change_builder.html#a3cd2779b2d9fa8d53aa15e0dd3c23f47", null ],
+    [ "Change", "d2/d75/class_f_mesh_vertex_change_builder.html#af77753db2e2ee4ece3eb56b137df5539", null ],
+    [ "OnNewVertexSaved", "d2/d75/class_f_mesh_vertex_change_builder.html#ace3b9a0ef712a5176cf0fa6513a5251d", null ],
+    [ "SavedNormalElements", "d2/d75/class_f_mesh_vertex_change_builder.html#a3992a93ae48552487728e38b3fd49a9c", null ],
+    [ "SavedUVElements", "d2/d75/class_f_mesh_vertex_change_builder.html#a7f118facc8028329f0469f4e6c36d4ee", null ],
+    [ "SavedVertices", "d2/d75/class_f_mesh_vertex_change_builder.html#a4cae743ed80667fcf66d62d3c0e3bbca", null ]
+];

@@ -1,0 +1,1210 @@
+<!-- HTML header for doxygen 1.15.0-->
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh">
+<head>
+  <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=11" />
+  <meta name="generator" content="Doxygen 1.15.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>UE 5.8.4: Engine/Source/Runtime/Renderer/Private/TranslucentRendering.cpp 文件参考</title>
+  <link rel="icon" href="../../EdIconDefault.bmp" type="image/x-icon" />
+  <link href="../../tabs.css" rel="stylesheet" type="text/css" />
+  <script type="text/javascript" src="../../jquery.js"></script>
+  <script type="text/javascript" src="../../dynsections.js"></script>
+  <link href="../../navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../navtreedata.js"></script>
+<script type="text/javascript" src="../../navtree.js"></script>
+<script type="text/javascript" src="../../cookie.js"></script>
+  <link href="../../search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../search/searchdata.js"></script>
+<script type="text/javascript" src="../../search/search.js"></script>
+  <script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  extensions: ["tex2jax.js"],
+  jax: ["input/TeX","output/HTML-CSS"],
+});
+</script>
+<script type="text/javascript" async="async" src="https://cdn.jsdelivr.net/npm/mathjax@2/MathJax.js"></script>
+  <link href="../../doxygen.css" rel="stylesheet" type="text/css" />
+  <link href="../../doxygen-awesome.css" rel="stylesheet" type="text/css"/>
+<link href="../../doxygen-awesome-sidebar-only.css" rel="stylesheet" type="text/css"/>
+<link href="../../doxygen-awesome-sidebar-only-darkmode-toggle.css" rel="stylesheet" type="text/css"/>
+  <!-- ... other metadata & script includes ... -->
+  <script type="text/javascript" src="../../doxygen-awesome-darkmode-toggle.js"></script>
+  <script type="text/javascript">
+    DoxygenAwesomeDarkModeToggle.title = "Zwischen hellem/dunklem Modus wechseln"
+    DoxygenAwesomeDarkModeToggle.lightModeIcon = '🌞'
+    // icon from https://fonts.google.com/icons
+    DoxygenAwesomeDarkModeToggle.darkModeIcon = `<svg xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 24 24" height="24px" viewBox="0 0 24 24" width="24px" fill="#009793"><g><rect fill="none" height="24" width="24"/></g><g><g><path d="M8.1,14.15C9.77,14.63,11,16.17,11,18c0,0.68-0.19,1.31-0.48,1.87c0.48,0.09,0.97,0.14,1.48,0.14 c1.48,0,2.9-0.41,4.13-1.15c-2.62-0.92-5.23-2.82-6.8-5.86C7.74,9.94,7.78,7.09,8.29,4.9c-2.57,1.33-4.3,4.01-4.3,7.1c0,0,0,0,0,0 c0.01,0,0.01,0,0.02,0C5.66,12,7.18,12.83,8.1,14.15z" opacity=".3"/><path d="M19.78,17.51c-2.47,0-6.57-1.33-8.68-5.43C8.77,7.57,10.6,3.6,11.63,2.01C6.27,2.2,1.98,6.59,1.98,12 c0,0.14,0.02,0.28,0.02,0.42C2.61,12.16,3.28,12,3.98,12c0,0,0,0,0,0c0-3.09,1.73-5.77,4.3-7.1C7.78,7.09,7.74,9.94,9.32,13 c1.57,3.04,4.18,4.95,6.8,5.86c-1.23,0.74-2.65,1.15-4.13,1.15c-0.5,0-1-0.05-1.48-0.14c-0.37,0.7-0.94,1.27-1.64,1.64 c0.98,0.32,2.03,0.5,3.11,0.5c3.5,0,6.58-1.8,8.37-4.52C20.18,17.5,19.98,17.51,19.78,17.51z"/><path d="M7,16l-0.18,0C6.4,14.84,5.3,14,4,14c-1.66,0-3,1.34-3,3s1.34,3,3,3c0.62,0,2.49,0,3,0c1.1,0,2-0.9,2-2 C9,16.9,8.1,16,7,16z"/></g></g></svg>`
+    DoxygenAwesomeDarkModeToggle.init()
+  </script>
+  <script type="text/javascript" src="../../doxygen-awesome-fragment-copy-button.js"></script>
+  <script type="text/javascript">
+    DoxygenAwesomeFragmentCopyButton.title = "In die Zwischenablage kopieren"
+    // DoxygenAwesomeFragmentCopyButton.copyIcon = `<svg ...>`
+    // DoxygenAwesomeFragmentCopyButton.successIcon = `<svg ...>`
+    DoxygenAwesomeFragmentCopyButton.init()
+  </script>
+  <script type="text/javascript" src="../../doxygen-awesome-paragraph-link.js"></script>
+  <script type="text/javascript">
+    DoxygenAwesomeParagraphLink.title = "Abschnitt verknüpfen"
+    DoxygenAwesomeParagraphLink.icon = "¶"
+    DoxygenAwesomeParagraphLink.init()
+  </script>
+  <script type="text/javascript" src="../../doxygen-awesome-interactive-toc.js"></script>
+  <script type="text/javascript">
+    DoxygenAwesomeInteractiveToc.topOffset = 45
+    DoxygenAwesomeInteractiveToc.hideMobileMenu = false
+    DoxygenAwesomeInteractiveToc.init()
+  </script>
+</head>
+<body>
+    <div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+      <div id="titlearea">
+        <table cellspacing="0" cellpadding="0">
+          <tbody>
+            <tr id="projectrow">
+              <td id="projectlogo"><img alt="Logo" src="../../EdIconDefault.bmp"  /></td>
+              <td id="projectalign">
+                <div id="projectname">UE 5.8.4
+                </div>
+                <div id="projectbrief">Unreal Engine</div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <!-- end header part -->
+<!-- 制作者 Doxygen 1.15.0 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "../../search/",'.html');
+</script>
+<script type="text/javascript">
+$(function() { codefold.init(); });
+</script>
+<script type="text/javascript" src="../../menudata.js"></script>
+<script type="text/javascript" src="../../menu.js"></script>
+<script type="text/javascript">
+$(function() {
+  initMenu('../../',true,false,'search.php','搜索',true);
+  $(function() { init_search(); });
+});
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(function(){initNavTree('d5/d80/_translucent_rendering_8cpp.html','../../',''); });
+</script>
+<div id="container">
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">载入中...</div>
+<div class="SRStatus" id="Searching">搜索中...</div>
+<div class="SRStatus" id="NoMatches">未找到</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">TranslucentRendering.cpp 文件参考</div></div>
+</div><!--header-->
+<div class="contents">
+<div class="textblock"><code>#include &quot;<a class="el" href="../../d6/d2f/_translucent_rendering_8h_source.html">TranslucentRendering.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../dc/d5e/_core_minimal_8h_source.html">CoreMinimal.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d3/dc8/_base_pass_rendering_8h_source.html">BasePassRendering.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../da/de8/_batched_elements_8h_source.html">BatchedElements.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../de/dec/_blue_noise_8h_source.html">BlueNoise.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../dd/d92/_array_view_8h_source.html">Containers/ArrayView.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../df/d65/_static_array_8h_source.html">Containers/StaticArray.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d8/df3/_data_driven_shader_platform_info_8h_source.html">DataDrivenShaderPlatformInfo.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../db/d71/_deferred_shading_renderer_8h_source.html">DeferredShadingRenderer.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d7/d9b/_deferred_shading_renderer_types_8h_source.html">DeferredShadingRendererTypes.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../dd/d4e/_dynamic_render_scaling_8h_source.html">DynamicRenderScaling.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d4/d2c/_dynamic_resolution_state_8h_source.html">DynamicResolutionState.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../db/dd8/_engine_types_8h_source.html">Engine/EngineTypes.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d3/dd4/_front_layer_translucency_8h_source.html">FrontLayerTranslucency.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../dd/d5a/_global_shader_8h_source.html">GlobalShader.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../db/d0c/_hair_strands_composition_8h_source.html">HairStrands/HairStrandsComposition.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../df/da4/_hair_strands_utils_8h_source.html">HairStrands/HairStrandsUtils.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d4/dd9/_i_console_manager_8h_source.html">HAL/IConsoleManager.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d7/d35/_heterogeneous_volumes_8h_source.html">HeterogeneousVolumes/HeterogeneousVolumes.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../db/d2f/_h_z_b_8h_source.html">HZB.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../de/d8a/_instance_culling_context_8h_source.html">InstanceCulling/InstanceCullingContext.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../df/dd7/_instance_culling_manager_8h_source.html">InstanceCulling/InstanceCullingManager.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../da/dac/_light_scene_info_8h_source.html">LightSceneInfo.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../da/d08/_light_scene_proxy_8h_source.html">LightSceneProxy.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d7/dcd/_log_macros_8h_source.html">Logging/LogMacros.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../dd/dae/_lumen_translucency_volume_lighting_8h_source.html">Lumen/LumenTranslucencyVolumeLighting.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../de/daf/_ray_traced_translucency_8h_source.html">Lumen/RayTracedTranslucency.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d4/d05/_mesh_batch_8h_source.html">MeshBatch.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d2/d08/_mesh_draw_commands_8h_source.html">MeshDrawCommands.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../db/dbe/_mesh_pass_processor_8h_source.html">MeshPassProcessor.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d3/d4c/_mesh_pass_processor_8inl_source.html">MeshPassProcessor.inl</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../db/dca/_large_world_coordinates_8h_source.html">Misc/LargeWorldCoordinates.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../de/d7c/_multi_g_p_u_8h_source.html">MultiGPU.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d1/dc7/_nanite_translucency_8h_source.html">Nanite/NaniteTranslucency.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../de/d67/_o_i_t_8h_source.html">OIT/OIT.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../dd/d6d/_o_i_t_parameters_8h_source.html">OIT/OITParameters.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d2/d93/_pixel_shader_utils_8h_source.html">PixelShaderUtils.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d2/da1/_lens_distortion_8h_source.html">PostProcess/LensDistortion.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d3/d93/_temporal_a_a_8h_source.html">PostProcess/TemporalAA.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../db/ded/_raytracing_options_8h_source.html">RayTracing/RaytracingOptions.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../dd/da6/_renderer_interface_8h_source.html">RendererInterface.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d8/db3/_render_graph_builder_8h_source.html">RenderGraphBuilder.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d5/d32/_render_graph_utils_8h_source.html">RenderGraphUtils.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d5/d98/_nanite_streaming_manager_8h_source.html">Rendering/NaniteStreamingManager.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d5/dfb/_r_h_i_8h_source.html">RHI.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../da/db9/_r_h_i_breadcrumbs_8h_source.html">RHIBreadcrumbs.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d1/d1d/_r_h_i_command_list_8h_source.html">RHICommandList.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../db/dec/_r_h_i_resources_8h_source.html">RHIResources.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d8/d3d/_r_h_i_static_states_8h_source.html">RHIStaticStates.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d0/d94/_scene_interface_8h_source.html">SceneInterface.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../df/d35/_scene_management_8h_source.html">SceneManagement.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d5/dbc/_scene_private_8h_source.html">ScenePrivate.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d6/dda/_scene_rendering_8h_source.html">SceneRendering.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d8/d26/_scene_render_target_parameters_8h_source.html">SceneRenderTargetParameters.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d4/dba/_scene_textures_8h_source.html">SceneTextures.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d9/d75/_scene_textures_config_8h_source.html">SceneTexturesConfig.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d5/d3b/_scene_utils_8h_source.html">SceneUtils.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../dc/d7a/_scene_view_8h_source.html">SceneView.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d7/d17/_screen_pass_8h_source.html">ScreenPass.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../df/d95/_screen_rendering_8h_source.html">ScreenRendering.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d8/d34/_shader_8h_source.html">Shader.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d9/d2c/_shader_parameter_macros_8h_source.html">ShaderParameterMacros.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../de/d64/_shader_parameter_struct_8h_source.html">ShaderParameterStruct.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../db/d35/_show_flags_8h_source.html">ShowFlags.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d3/d48/_stats_8h_source.html">Stats/Stats.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d1/df1/_substrate_8h_source.html">Substrate/Substrate.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d0/d2a/_system_textures_8h_source.html">SystemTextures.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d7/dcd/_translucency_pass_8h_source.html">TranslucencyPass.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d3/d97/_translucent_lighting_8h_source.html">TranslucentLighting.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../df/d03/_translucent_pass_resource_8h_source.html">TranslucentPassResource.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../db/d56/_variable_rate_shading_image_manager_8h_source.html">VariableRateShadingImageManager.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../db/de1/_virtual_shadow_map_array_8h_source.html">VirtualShadowMaps/VirtualShadowMapArray.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d5/d99/_volumetric_cloud_rendering_8h_source.html">VolumetricCloudRendering.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d3/d72/_volumetric_render_target_8h_source.html">VolumetricRenderTarget.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d0/d63/_volumetric_render_target_view_state_data_8h_source.html">VolumetricRenderTargetViewStateData.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../dc/dc6/_scene_view_state_8h_source.html">SceneViewState.h</a>&quot;</code><br />
+</div><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-nested-classes" class="groupheader"><a id="nested-classes" name="nested-classes"></a>
+类</h2></td></tr>
+<tr class="memitem:FCopySceneColorPS" id="r_FCopySceneColorPS"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/d05/class_f_copy_scene_color_p_s.html">FCopySceneColorPS</a></td></tr>
+<tr class="memitem:FCopyBackgroundVisibilityPS" id="r_FCopyBackgroundVisibilityPS"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d61/class_f_copy_background_visibility_p_s.html">FCopyBackgroundVisibilityPS</a></td></tr>
+<tr class="memitem:FComposeSeparateTranslucencyPS" id="r_FComposeSeparateTranslucencyPS"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/d8d/class_f_compose_separate_translucency_p_s.html">FComposeSeparateTranslucencyPS</a></td></tr>
+<tr class="memitem:FTranslucencyUpsampleResponsiveAAPS" id="r_FTranslucencyUpsampleResponsiveAAPS"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/d3b/class_f_translucency_upsample_responsive_a_a_p_s.html">FTranslucencyUpsampleResponsiveAAPS</a></td></tr>
+<tr class="memitem:FComposeHoldoutWithCoveragePS" id="r_FComposeHoldoutWithCoveragePS"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d4e/class_f_compose_holdout_with_coverage_p_s.html">FComposeHoldoutWithCoveragePS</a></td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-func-members" class="groupheader"><a id="func-members" name="func-members"></a>
+函数</h2></td></tr>
+<tr class="memitem:a1b5da477d74d90a3387babe3009c304b" id="r_a1b5da477d74d90a3387babe3009c304b"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a1b5da477d74d90a3387babe3009c304b">DECLARE_CYCLE_STAT</a> (<a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;TranslucencyTimestampQueryFence Wait&quot;), STAT_TranslucencyTimestampQueryFence_Wait, STATGROUP_SceneRendering)</td></tr>
+<tr class="memitem:a15b9a611bda4e960586cf1c377502895" id="r_a15b9a611bda4e960586cf1c377502895"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a15b9a611bda4e960586cf1c377502895">DECLARE_CYCLE_STAT</a> (<a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;TranslucencyTimestampQuery Wait&quot;), STAT_TranslucencyTimestampQuery_Wait, STATGROUP_SceneRendering)</td></tr>
+<tr class="memitem:adb3ba884b978c0013e44a85c46205ae0" id="r_adb3ba884b978c0013e44a85c46205ae0"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#adb3ba884b978c0013e44a85c46205ae0">DECLARE_FLOAT_COUNTER_STAT</a> (<a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;Translucency GPU Time (MS)&quot;), STAT_TranslucencyGPU, STATGROUP_SceneRendering)</td></tr>
+<tr class="memitem:aab4b4293eb0254f7320fd02aa29e2ea6" id="r_aab4b4293eb0254f7320fd02aa29e2ea6"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aab4b4293eb0254f7320fd02aa29e2ea6">DEFINE_GPU_DRAWCALL_STAT</a> (Translucency)</td></tr>
+<tr class="memitem:aed08b2f9302631d4e1434c58fd45c075" id="r_aed08b2f9302631d4e1434c58fd45c075"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aed08b2f9302631d4e1434c58fd45c075">ShouldRenderVolumetricCloud</a> (const <a class="el" href="../../d4/dfa/class_f_scene.html">FScene</a> *Scene, const <a class="el" href="../../d4/dac/struct_f_engine_show_flags.html">FEngineShowFlags</a> &amp;EngineShowFlags)</td></tr>
+<tr class="memitem:aacf49961748ef22b438cbba788fb3df7" id="r_aacf49961748ef22b438cbba788fb3df7"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aacf49961748ef22b438cbba788fb3df7">IsVSMTranslucentHighQualityEnabled</a> ()</td></tr>
+<tr class="memitem:a1ddc9f1aac75d06161e3173014ad946b" id="r_a1ddc9f1aac75d06161e3173014ad946b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../de/d27/struct_dynamic_render_scaling_1_1_f_heuristic_settings.html">DynamicRenderScaling::FHeuristicSettings</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a1ddc9f1aac75d06161e3173014ad946b">GetDynamicTranslucencyResolutionSettings</a> ()</td></tr>
+<tr class="memitem:a6c956ef9784ce348097a3b5b3f20141a" id="r_a6c956ef9784ce348097a3b5b3f20141a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d2/d1b/class_dynamic_render_scaling_1_1_f_budget.html">DynamicRenderScaling::FBudget</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6c956ef9784ce348097a3b5b3f20141a">GDynamicTranslucencyResolution</a> (<a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;DynamicTranslucencyResolution&quot;), &amp;<a class="el" href="#a1ddc9f1aac75d06161e3173014ad946b">GetDynamicTranslucencyResolutionSettings</a>)</td></tr>
+<tr class="memitem:aa686ee63d560df2a911cffac1e756458" id="r_aa686ee63d560df2a911cffac1e756458"><td class="memItemLeft" align="right" valign="top">const TCHAR *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa686ee63d560df2a911cffac1e756458">TranslucencyPassToString</a> (<a class="el" href="../../d0/d2e/namespace_e_translucency_pass.html#af872fc629ddab2c3af68359c0077563d">ETranslucencyPass::Type</a> TranslucencyPass)</td></tr>
+<tr class="memitem:a96a91da9b24259e0a621246920dbd447" id="r_a96a91da9b24259e0a621246920dbd447"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d1/d67/namespace_e_mesh_pass.html#a500f45051893a7062c598b29423766a3">EMeshPass::Type</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a96a91da9b24259e0a621246920dbd447">TranslucencyPassToMeshPass</a> (<a class="el" href="../../d0/d2e/namespace_e_translucency_pass.html#af872fc629ddab2c3af68359c0077563d">ETranslucencyPass::Type</a> TranslucencyPass)</td></tr>
+<tr class="memitem:a0ce0d2d0f9f03566e79d0e86447a249a" id="r_a0ce0d2d0f9f03566e79d0e86447a249a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d7/dcd/_translucency_pass_8h.html#a85029fdba88b1114ca9f9245b04a87f9">ETranslucencyView</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a0ce0d2d0f9f03566e79d0e86447a249a">GetTranslucencyView</a> (const <a class="el" href="../../dd/d2b/class_f_view_info.html">FViewInfo</a> &amp;View)</td></tr>
+<tr class="memitem:a751011799e14e091cd3b508e968f418e" id="r_a751011799e14e091cd3b508e968f418e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d7/dcd/_translucency_pass_8h.html#a85029fdba88b1114ca9f9245b04a87f9">ETranslucencyView</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a751011799e14e091cd3b508e968f418e">GetTranslucencyViews</a> (<a class="el" href="../../d2/ddb/class_t_array_view.html">TArrayView</a>&lt; const <a class="el" href="../../dd/d2b/class_f_view_info.html">FViewInfo</a> &gt; Views)</td></tr>
+<tr class="memitem:a622f156ccc91f699fa1fdba2f5d427f4" id="r_a622f156ccc91f699fa1fdba2f5d427f4"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a622f156ccc91f699fa1fdba2f5d427f4">IsSeparateTranslucencyEnabled</a> (<a class="el" href="../../d0/d2e/namespace_e_translucency_pass.html#af872fc629ddab2c3af68359c0077563d">ETranslucencyPass::Type</a> TranslucencyPass, <a class="el" href="../../df/d2a/_s_anim_notify_shared_8h.html#ac7c94e837fed3f8e4bb3dd94d7bd2ecf">float</a> DownsampleScale)</td></tr>
+<tr class="memitem:a8b29cbc258ecedeca302fc9d1f92297e" id="r_a8b29cbc258ecedeca302fc9d1f92297e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d3/dc3/struct_f_separate_translucency_dimensions.html">FSeparateTranslucencyDimensions</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8b29cbc258ecedeca302fc9d1f92297e">UpdateSeparateTranslucencyDimensions</a> (const <a class="el" href="../../d9/d6f/class_f_scene_renderer.html">FSceneRenderer</a> &amp;SceneRenderer)</td></tr>
+<tr class="memitem:a5b15a883f9e90899127e926e92218a73" id="r_a5b15a883f9e90899127e926e92218a73"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5b15a883f9e90899127e926e92218a73">IMPLEMENT_GLOBAL_SHADER</a> (<a class="el" href="../../d9/d05/class_f_copy_scene_color_p_s.html">FCopySceneColorPS</a>, &quot;/Engine/<a class="el" href="../../d9/db1/namespace_private.html">Private</a>/TranslucentLightingShaders.usf&quot;, &quot;CopySceneColorMain&quot;, <a class="el" href="../../da/dca/_r_h_i_definitions_8h.html#a0a3cc83cb6ebc79b66b43fae3ffee64eaf50bfe1c5c23e92a75ba64d89bcd3bfa">SF_Pixel</a>)</td></tr>
+<tr class="memitem:abaa72678a1faa876d96bbbf4c6d994c0" id="r_abaa72678a1faa876d96bbbf4c6d994c0"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d6/d6d/_canvas_types_8h.html#aea265cf57883ec58a09111d4a17b8448">FRDGTextureRef</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#abaa72678a1faa876d96bbbf4c6d994c0">AddCopySceneColorPass</a> (<a class="el" href="../../d3/d85/class_f_r_d_g_builder.html">FRDGBuilder</a> &amp;GraphBuilder, <a class="el" href="../../d2/ddb/class_t_array_view.html">TArrayView</a>&lt; const <a class="el" href="../../dd/d2b/class_f_view_info.html">FViewInfo</a> &gt; Views, <a class="el" href="../../d3/d13/struct_f_r_d_g_texture_m_s_a_a.html">FRDGTextureMSAA</a> SceneColor, <a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a> WithAlpha, <a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a> bSkipIfUnderwater, <a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a> bEncodeSceneColorCopy)</td></tr>
+<tr class="memitem:a8e27054403e351e4e2603101249c672c" id="r_a8e27054403e351e4e2603101249c672c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../df/d63/_typed_element_query_capabilities_8inl.html#a72343342ce64c0755563ee6c5e27868d">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8e27054403e351e4e2603101249c672c">AddTranslucentHoldoutToSceneColorAlphaPass</a> (<a class="el" href="../../d3/d85/class_f_r_d_g_builder.html">FRDGBuilder</a> &amp;GraphBuilder, const <a class="el" href="../../dd/d2b/class_f_view_info.html">FViewInfo</a> &amp;View, <a class="el" href="../../d6/d6d/_canvas_types_8h.html#aea265cf57883ec58a09111d4a17b8448">FRDGTextureRef</a> SceneColorTexture, <a class="el" href="../../d6/d6d/_canvas_types_8h.html#aea265cf57883ec58a09111d4a17b8448">FRDGTextureRef</a> SceneDepthTexture, <a class="el" href="../../d5/d03/struct_f_translucency_pass_resources.html">FTranslucencyPassResources</a> &amp;TranslucencyPassResources)</td></tr>
+<tr class="memitem:a4d623176244102d761600eaecec16062" id="r_a4d623176244102d761600eaecec16062"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4d623176244102d761600eaecec16062">IMPLEMENT_GLOBAL_SHADER</a> (<a class="el" href="../../df/d61/class_f_copy_background_visibility_p_s.html">FCopyBackgroundVisibilityPS</a>, &quot;/Engine/<a class="el" href="../../d9/db1/namespace_private.html">Private</a>/ComposeSeparateTranslucency.usf&quot;, &quot;CopyBackgroundVisibilityPS&quot;, <a class="el" href="../../da/dca/_r_h_i_definitions_8h.html#a0a3cc83cb6ebc79b66b43fae3ffee64eaf50bfe1c5c23e92a75ba64d89bcd3bfa">SF_Pixel</a>)</td></tr>
+<tr class="memitem:abdca16419273b46aaaff6e0aefb8f788" id="r_abdca16419273b46aaaff6e0aefb8f788"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#abdca16419273b46aaaff6e0aefb8f788">IMPLEMENT_GLOBAL_SHADER</a> (<a class="el" href="../../de/d8d/class_f_compose_separate_translucency_p_s.html">FComposeSeparateTranslucencyPS</a>, &quot;/Engine/<a class="el" href="../../d9/db1/namespace_private.html">Private</a>/ComposeSeparateTranslucency.usf&quot;, &quot;MainPS&quot;, <a class="el" href="../../da/dca/_r_h_i_definitions_8h.html#a0a3cc83cb6ebc79b66b43fae3ffee64eaf50bfe1c5c23e92a75ba64d89bcd3bfa">SF_Pixel</a>)</td></tr>
+<tr class="memitem:a4fc4a131b6639cfd7f6aeeba58903b4d" id="r_a4fc4a131b6639cfd7f6aeeba58903b4d"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4fc4a131b6639cfd7f6aeeba58903b4d">IMPLEMENT_GLOBAL_SHADER</a> (<a class="el" href="../../d4/d4e/class_f_compose_holdout_with_coverage_p_s.html">FComposeHoldoutWithCoveragePS</a>, &quot;/Engine/<a class="el" href="../../d9/db1/namespace_private.html">Private</a>/ComposeSeparateTranslucency.usf&quot;, &quot;ComposeHoldoutWithCoveragePS&quot;, <a class="el" href="../../da/dca/_r_h_i_definitions_8h.html#a0a3cc83cb6ebc79b66b43fae3ffee64eaf50bfe1c5c23e92a75ba64d89bcd3bfa">SF_Pixel</a>)</td></tr>
+<tr class="memitem:ab04f43c2cb3afdde8cd444f17afba0fd" id="r_ab04f43c2cb3afdde8cd444f17afba0fd"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab04f43c2cb3afdde8cd444f17afba0fd">IMPLEMENT_GLOBAL_SHADER</a> (<a class="el" href="../../dd/d3b/class_f_translucency_upsample_responsive_a_a_p_s.html">FTranslucencyUpsampleResponsiveAAPS</a>, &quot;/Engine/<a class="el" href="../../d9/db1/namespace_private.html">Private</a>/TranslucencyUpsampling.usf&quot;, &quot;UpsampleResponsiveAAPS&quot;, <a class="el" href="../../da/dca/_r_h_i_definitions_8h.html#a0a3cc83cb6ebc79b66b43fae3ffee64eaf50bfe1c5c23e92a75ba64d89bcd3bfa">SF_Pixel</a>)</td></tr>
+<tr class="memitem:a172f08fc6b086539d2455a0ae5b24310" id="r_a172f08fc6b086539d2455a0ae5b24310"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../df/d63/_typed_element_query_capabilities_8inl.html#a72343342ce64c0755563ee6c5e27868d">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a172f08fc6b086539d2455a0ae5b24310">AddTranslucentHoldoutWithCoverageToSceneColorAlphaPass</a> (<a class="el" href="../../d3/d85/class_f_r_d_g_builder.html">FRDGBuilder</a> &amp;GraphBuilder, const <a class="el" href="../../dd/d2b/class_f_view_info.html">FViewInfo</a> &amp;View, <a class="el" href="../../d6/d6d/_canvas_types_8h.html#aea265cf57883ec58a09111d4a17b8448">FRDGTextureRef</a> SceneColorTexture, <a class="el" href="../../d6/d6d/_canvas_types_8h.html#aea265cf57883ec58a09111d4a17b8448">FRDGTextureRef</a> SceneDepthTexture, <a class="el" href="../../d5/d03/struct_f_translucency_pass_resources.html">FTranslucencyPassResources</a> &amp;TranslucencyPassResources)</td></tr>
+<tr class="memitem:a56b812ada4aa22a3f368bf0cf0145462" id="r_a56b812ada4aa22a3f368bf0cf0145462"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../df/d63/_typed_element_query_capabilities_8inl.html#a72343342ce64c0755563ee6c5e27868d">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a56b812ada4aa22a3f368bf0cf0145462">SetupPostMotionBlurTranslucencyViewParameters</a> (const <a class="el" href="../../dd/d2b/class_f_view_info.html">FViewInfo</a> &amp;View, FViewUniformShaderParameters &amp;Parameters)</td></tr>
+<tr class="memitem:aa7d85aeabb49fa464b57147e5393b7b8" id="r_aa7d85aeabb49fa464b57147e5393b7b8"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="../../d9/d87/struct_f_r_d_g_texture_desc.html">FRDGTextureDesc</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa7d85aeabb49fa464b57147e5393b7b8">GetPostDOFTranslucentTextureDesc</a> (<a class="el" href="../../d0/d2e/namespace_e_translucency_pass.html#af872fc629ddab2c3af68359c0077563d">ETranslucencyPass::Type</a> TranslucencyPass, const <a class="el" href="../../d3/dc3/struct_f_separate_translucency_dimensions.html">FSeparateTranslucencyDimensions</a> &amp;SeparateTranslucencyDimensions, <a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a> bIsModulate, <a class="el" href="../../de/d49/_r_h_i_shader_platform_8h.html#a424c00593a28eb7ade584eea91161acd">EShaderPlatform</a> ShaderPlatform)</td></tr>
+<tr class="memitem:a8c746afe8157be39d9c8a165090bf344" id="r_a8c746afe8157be39d9c8a165090bf344"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d3/d13/struct_f_r_d_g_texture_m_s_a_a.html">FRDGTextureMSAA</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8c746afe8157be39d9c8a165090bf344">CreatePostDOFTranslucentTexture</a> (<a class="el" href="../../d3/d85/class_f_r_d_g_builder.html">FRDGBuilder</a> &amp;GraphBuilder, <a class="el" href="../../d0/d2e/namespace_e_translucency_pass.html#af872fc629ddab2c3af68359c0077563d">ETranslucencyPass::Type</a> TranslucencyPass, const <a class="el" href="../../d3/dc3/struct_f_separate_translucency_dimensions.html">FSeparateTranslucencyDimensions</a> &amp;SeparateTranslucencyDimensions, <a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a> bIsModulate, <a class="el" href="../../de/d49/_r_h_i_shader_platform_8h.html#a424c00593a28eb7ade584eea91161acd">EShaderPlatform</a> ShaderPlatform)</td></tr>
+<tr class="memitem:aaeee852ca3a5c83c9eb88cd6f8e768d8" id="r_aaeee852ca3a5c83c9eb88cd6f8e768d8"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d6/d2f/_translucent_rendering_8h.html#a08d7cc73b81676c0bf93d56521a13467">ETranslucentHoldoutCompositionType</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aaeee852ca3a5c83c9eb88cd6f8e768d8">GetTranslucentHoldoutComposition</a> ()</td></tr>
+<tr class="memitem:a7afb36377d81b8d54187794e0a49d525" id="r_a7afb36377d81b8d54187794e0a49d525"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../df/d63/_typed_element_query_capabilities_8inl.html#a72343342ce64c0755563ee6c5e27868d">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7afb36377d81b8d54187794e0a49d525">SetupDownsampledTranslucencyViewParameters</a> (const <a class="el" href="../../dd/d2b/class_f_view_info.html">FViewInfo</a> &amp;View, <a class="el" href="../../d0/df6/_math_fwd_8h.html#af6853de5e4fcb2bad3bd5fdd2e50bffd">FIntPoint</a> TextureExtent, <a class="el" href="../../d0/df6/_math_fwd_8h.html#a0fb396f1ac08e81082181174c7bff43a">FIntRect</a> ViewRect, <a class="el" href="../../d0/d2e/namespace_e_translucency_pass.html#af872fc629ddab2c3af68359c0077563d">ETranslucencyPass::Type</a> TranslucencyPass, FViewUniformShaderParameters &amp;DownsampledTranslucencyViewParameters)</td></tr>
+<tr class="memitem:a44d69b3a79bee65b5abcf4b34dfb2e84" id="r_a44d69b3a79bee65b5abcf4b34dfb2e84"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d2/d51/_render_graph_fwd_8h.html#ab926b0657e138258b3e140cc660c1545">TRDGUniformBufferRef</a>&lt; FTranslucentBasePassUniformParameters &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a44d69b3a79bee65b5abcf4b34dfb2e84">CreateTranslucentBasePassUniformBuffer</a> (<a class="el" href="../../d3/d85/class_f_r_d_g_builder.html">FRDGBuilder</a> &amp;GraphBuilder, const <a class="el" href="../../d4/dfa/class_f_scene.html">FScene</a> *Scene, const <a class="el" href="../../dd/d2b/class_f_view_info.html">FViewInfo</a> &amp;View, const <a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a8dbb3cd84ca9fd010dadfc3815eefa5d">int32</a> ViewIndex, const <a class="el" href="../../d7/d42/struct_f_translucency_lighting_volume_textures.html">FTranslucencyLightingVolumeTextures</a> &amp;TranslucencyLightingVolumeTextures, <a class="el" href="../../d6/d6d/_canvas_types_8h.html#aea265cf57883ec58a09111d4a17b8448">FRDGTextureRef</a> SceneColorCopyTexture, const <a class="el" href="../../d8/d26/_scene_render_target_parameters_8h.html#a449182c7694c0de5ee25717bf279f12b">ESceneTextureSetupMode</a> SceneTextureSetupMode, <a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a> bLumenGIEnabled, const <a class="el" href="../../da/d61/struct_f_o_i_t_data.html">FOITData</a> &amp;OITData, const <a class="el" href="../../d2/ddb/class_t_array_view.html">TArrayView</a>&lt; <a class="el" href="../../de/dbb/struct_nanite_1_1_f_raster_results.html">Nanite::FRasterResults</a> &gt; &amp;NaniteRasterResults, <a class="el" href="../../d0/d2e/namespace_e_translucency_pass.html#af872fc629ddab2c3af68359c0077563d">ETranslucencyPass::Type</a> TranslucencyPass)</td></tr>
+<tr class="memitem:adf598bd3eeb743c117279e7c22f110ac" id="r_adf598bd3eeb743c117279e7c22f110ac"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d2/d51/_render_graph_fwd_8h.html#ab926b0657e138258b3e140cc660c1545">TRDGUniformBufferRef</a>&lt; FTranslucentBasePassUniformParameters &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#adf598bd3eeb743c117279e7c22f110ac">CreateTranslucentBasePassUniformBuffer</a> (<a class="el" href="../../d3/d85/class_f_r_d_g_builder.html">FRDGBuilder</a> &amp;GraphBuilder, const <a class="el" href="../../d4/dfa/class_f_scene.html">FScene</a> *Scene, const <a class="el" href="../../dd/d2b/class_f_view_info.html">FViewInfo</a> &amp;View, const <a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a8dbb3cd84ca9fd010dadfc3815eefa5d">int32</a> ViewIndex, const <a class="el" href="../../d7/d42/struct_f_translucency_lighting_volume_textures.html">FTranslucencyLightingVolumeTextures</a> &amp;TranslucencyLightingVolumeTextures, <a class="el" href="../../d6/d6d/_canvas_types_8h.html#aea265cf57883ec58a09111d4a17b8448">FRDGTextureRef</a> SceneColorCopyTexture, const <a class="el" href="../../d8/d26/_scene_render_target_parameters_8h.html#a449182c7694c0de5ee25717bf279f12b">ESceneTextureSetupMode</a> SceneTextureSetupMode, <a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a> bLumenGIEnabled, const <a class="el" href="../../d2/ddb/class_t_array_view.html">TArrayView</a>&lt; <a class="el" href="../../de/dbb/struct_nanite_1_1_f_raster_results.html">Nanite::FRasterResults</a> &gt; &amp;NaniteRasterResults, <a class="el" href="../../d0/d2e/namespace_e_translucency_pass.html#af872fc629ddab2c3af68359c0077563d">ETranslucencyPass::Type</a> TranslucencyPass)</td></tr>
+<tr class="memitem:aa645b86f51a42c5b800ebdf1fa892db2" id="r_aa645b86f51a42c5b800ebdf1fa892db2"><td class="memItemLeft" align="right" valign="top">FViewShaderParameters&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa645b86f51a42c5b800ebdf1fa892db2">GetSeparateTranslucencyViewParameters</a> (const <a class="el" href="../../dd/d2b/class_f_view_info.html">FViewInfo</a> &amp;View, const <a class="el" href="../../d3/dc3/struct_f_separate_translucency_dimensions.html">FSeparateTranslucencyDimensions</a> &amp;SeparateTranslucencyDimensions, <a class="el" href="../../d0/d2e/namespace_e_translucency_pass.html#af872fc629ddab2c3af68359c0077563d">ETranslucencyPass::Type</a> TranslucencyPass)</td></tr>
+<tr class="memitem:a7bd965edb2a5cf611ec38d224306974f" id="r_a7bd965edb2a5cf611ec38d224306974f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7bd965edb2a5cf611ec38d224306974f">IsStandardTranslucencyPassSeparated</a> ()</td></tr>
+<tr class="memitem:a8df889411ef66612ee6f5a4cf47147ee" id="r_a8df889411ef66612ee6f5a4cf47147ee"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8df889411ef66612ee6f5a4cf47147ee">ShouldDrawInTranslucentBasePass</a> (const <a class="el" href="../../dc/d8e/class_f_material.html">FMaterial</a> &amp;Material, <a class="el" href="../../d0/d2e/namespace_e_translucency_pass.html#af872fc629ddab2c3af68359c0077563d">ETranslucencyPass::Type</a> TranslucencyPass, <a class="el" href="../../df/d2a/_s_anim_notify_shared_8h.html#ac7c94e837fed3f8e4bb3dd94d7bd2ecf">float</a> AutoBeforeDOFTranslucencyBoundary)</td></tr>
+<tr class="memitem:a279680fb2c1c86e45e2e874bee54fe22" id="r_a279680fb2c1c86e45e2e874bee54fe22"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d0/d7f/class_f_r_h_i_blend_state.html">FRHIBlendState</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a279680fb2c1c86e45e2e874bee54fe22">GetTranslucentBlendState</a> (const <a class="el" href="../../dc/d8e/class_f_material.html">FMaterial</a> &amp;Material, <a class="el" href="../../d0/d2e/namespace_e_translucency_pass.html#af872fc629ddab2c3af68359c0077563d">ETranslucencyPass::Type</a> InTranslucencyPassType)</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-var-members" class="groupheader"><a id="var-members" name="var-members"></a>
+变量</h2></td></tr>
+<tr class="memitem:ac0b294fd0fff422d4e436d49bcb3a341" id="r_ac0b294fd0fff422d4e436d49bcb3a341"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a8dbb3cd84ca9fd010dadfc3815eefa5d">int32</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac0b294fd0fff422d4e436d49bcb3a341">GSeparateTranslucencyUpsampleMode</a> = 1</td></tr>
+</table>
+<a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">函数说明</h2>
+<a id="abaa72678a1faa876d96bbbf4c6d994c0" name="abaa72678a1faa876d96bbbf4c6d994c0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abaa72678a1faa876d96bbbf4c6d994c0">&#9670;&#160;</a></span>AddCopySceneColorPass()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d6/d6d/_canvas_types_8h.html#aea265cf57883ec58a09111d4a17b8448">FRDGTextureRef</a> AddCopySceneColorPass </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d3/d85/class_f_r_d_g_builder.html">FRDGBuilder</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>GraphBuilder</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d2/ddb/class_t_array_view.html">TArrayView</a>&lt; const <a class="el" href="../../dd/d2b/class_f_view_info.html">FViewInfo</a> &gt;</td>          <td class="paramname"><span class="paramname"><em>Views</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d3/d13/struct_f_r_d_g_texture_m_s_a_a.html">FRDGTextureMSAA</a></td>          <td class="paramname"><span class="paramname"><em>SceneColor</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a></td>          <td class="paramname"><span class="paramname"><em>WithAlpha</em></span><span class="paramdefsep"> = </span><span class="paramdefval"><a class="el" href="../../d3/df7/radaudio__common_8h.html#ade27a78a51a66a5cfb6f09cf36bcfde9ae9de385ef6fe9bf3360d1038396b884c">false</a></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a></td>          <td class="paramname"><span class="paramname"><em>bSkipIfUnderwater</em></span><span class="paramdefsep"> = </span><span class="paramdefval"><a class="el" href="../../d3/df7/radaudio__common_8h.html#ade27a78a51a66a5cfb6f09cf36bcfde9a08f175a5505a10b9ed657defeb050e4b">true</a></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a></td>          <td class="paramname"><span class="paramname"><em>bEncodeSceneColorCopy</em></span><span class="paramdefsep"> = </span><span class="paramdefval"><a class="el" href="../../d3/df7/radaudio__common_8h.html#ade27a78a51a66a5cfb6f09cf36bcfde9a08f175a5505a10b9ed657defeb050e4b">true</a></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Add Copy SceneColor Pass. </p>
+
+</div>
+</div>
+<a id="a8e27054403e351e4e2603101249c672c" name="a8e27054403e351e4e2603101249c672c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8e27054403e351e4e2603101249c672c">&#9670;&#160;</a></span>AddTranslucentHoldoutToSceneColorAlphaPass()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../df/d63/_typed_element_query_capabilities_8inl.html#a72343342ce64c0755563ee6c5e27868d">void</a> AddTranslucentHoldoutToSceneColorAlphaPass </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d3/d85/class_f_r_d_g_builder.html">FRDGBuilder</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>GraphBuilder</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="../../dd/d2b/class_f_view_info.html">FViewInfo</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>View</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d6/d6d/_canvas_types_8h.html#aea265cf57883ec58a09111d4a17b8448">FRDGTextureRef</a></td>          <td class="paramname"><span class="paramname"><em>SceneColorTexture</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d6/d6d/_canvas_types_8h.html#aea265cf57883ec58a09111d4a17b8448">FRDGTextureRef</a></td>          <td class="paramname"><span class="paramname"><em>SceneDepthTexture</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d5/d03/struct_f_translucency_pass_resources.html">FTranslucencyPassResources</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>TranslucencyPassResources</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Add pass to compose the translucent-holdout texture's accumulated background visibility into scene-color alpha. Scene-color alpha is replaced unconditionally. </p>
+
+</div>
+</div>
+<a id="a172f08fc6b086539d2455a0ae5b24310" name="a172f08fc6b086539d2455a0ae5b24310"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a172f08fc6b086539d2455a0ae5b24310">&#9670;&#160;</a></span>AddTranslucentHoldoutWithCoverageToSceneColorAlphaPass()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../df/d63/_typed_element_query_capabilities_8inl.html#a72343342ce64c0755563ee6c5e27868d">void</a> AddTranslucentHoldoutWithCoverageToSceneColorAlphaPass </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d3/d85/class_f_r_d_g_builder.html">FRDGBuilder</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>GraphBuilder</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="../../dd/d2b/class_f_view_info.html">FViewInfo</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>View</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d6/d6d/_canvas_types_8h.html#aea265cf57883ec58a09111d4a17b8448">FRDGTextureRef</a></td>          <td class="paramname"><span class="paramname"><em>SceneColorTexture</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d6/d6d/_canvas_types_8h.html#aea265cf57883ec58a09111d4a17b8448">FRDGTextureRef</a></td>          <td class="paramname"><span class="paramname"><em>SceneDepthTexture</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d5/d03/struct_f_translucency_pass_resources.html">FTranslucencyPassResources</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>TranslucencyPassResources</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Variant of AddTranslucentHoldoutToSceneColorAlphaPass that preserves scene-color alpha at pixels where no translucent-holdout primitive contributed (path throughput == 1) and replaces it with the accumulated background visibility everywhere else. </p>
+
+</div>
+</div>
+<a id="a8c746afe8157be39d9c8a165090bf344" name="a8c746afe8157be39d9c8a165090bf344"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8c746afe8157be39d9c8a165090bf344">&#9670;&#160;</a></span>CreatePostDOFTranslucentTexture()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d3/d13/struct_f_r_d_g_texture_m_s_a_a.html">FRDGTextureMSAA</a> CreatePostDOFTranslucentTexture </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d3/d85/class_f_r_d_g_builder.html">FRDGBuilder</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>GraphBuilder</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d0/d2e/namespace_e_translucency_pass.html#af872fc629ddab2c3af68359c0077563d">ETranslucencyPass::Type</a></td>          <td class="paramname"><span class="paramname"><em>TranslucencyPass</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="../../d3/dc3/struct_f_separate_translucency_dimensions.html">FSeparateTranslucencyDimensions</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>SeparateTranslucencyDimensions</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a></td>          <td class="paramname"><span class="paramname"><em>bIsModulate</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../de/d49/_r_h_i_shader_platform_8h.html#a424c00593a28eb7ade584eea91161acd">EShaderPlatform</a></td>          <td class="paramname"><span class="paramname"><em>ShaderPlatform</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Shared function used to create Post DOF translucent textures </p>
+
+</div>
+</div>
+<a id="a44d69b3a79bee65b5abcf4b34dfb2e84" name="a44d69b3a79bee65b5abcf4b34dfb2e84"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a44d69b3a79bee65b5abcf4b34dfb2e84">&#9670;&#160;</a></span>CreateTranslucentBasePassUniformBuffer() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d2/d51/_render_graph_fwd_8h.html#ab926b0657e138258b3e140cc660c1545">TRDGUniformBufferRef</a>&lt; FTranslucentBasePassUniformParameters &gt; CreateTranslucentBasePassUniformBuffer </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d3/d85/class_f_r_d_g_builder.html">FRDGBuilder</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>GraphBuilder</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="../../d4/dfa/class_f_scene.html">FScene</a> *</td>          <td class="paramname"><span class="paramname"><em>Scene</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="../../dd/d2b/class_f_view_info.html">FViewInfo</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>View</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a8dbb3cd84ca9fd010dadfc3815eefa5d">int32</a></td>          <td class="paramname"><span class="paramname"><em>ViewIndex</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="../../d7/d42/struct_f_translucency_lighting_volume_textures.html">FTranslucencyLightingVolumeTextures</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>TranslucencyLightingVolumeTextures</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d6/d6d/_canvas_types_8h.html#aea265cf57883ec58a09111d4a17b8448">FRDGTextureRef</a></td>          <td class="paramname"><span class="paramname"><em>SceneColorCopyTexture</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="../../d8/d26/_scene_render_target_parameters_8h.html#a449182c7694c0de5ee25717bf279f12b">ESceneTextureSetupMode</a></td>          <td class="paramname"><span class="paramname"><em>SceneTextureSetupMode</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a></td>          <td class="paramname"><span class="paramname"><em>bLumenGIEnabled</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="../../da/d61/struct_f_o_i_t_data.html">FOITData</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>OITData</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="../../d2/ddb/class_t_array_view.html">TArrayView</a>&lt; <a class="el" href="../../de/dbb/struct_nanite_1_1_f_raster_results.html">Nanite::FRasterResults</a> &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>NaniteRasterResults</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d0/d2e/namespace_e_translucency_pass.html#af872fc629ddab2c3af68359c0077563d">ETranslucencyPass::Type</a></td>          <td class="paramname"><span class="paramname"><em>TranslucencyPass</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="adf598bd3eeb743c117279e7c22f110ac" name="adf598bd3eeb743c117279e7c22f110ac"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adf598bd3eeb743c117279e7c22f110ac">&#9670;&#160;</a></span>CreateTranslucentBasePassUniformBuffer() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d2/d51/_render_graph_fwd_8h.html#ab926b0657e138258b3e140cc660c1545">TRDGUniformBufferRef</a>&lt; FTranslucentBasePassUniformParameters &gt; CreateTranslucentBasePassUniformBuffer </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d3/d85/class_f_r_d_g_builder.html">FRDGBuilder</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>GraphBuilder</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="../../d4/dfa/class_f_scene.html">FScene</a> *</td>          <td class="paramname"><span class="paramname"><em>Scene</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="../../dd/d2b/class_f_view_info.html">FViewInfo</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>View</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a8dbb3cd84ca9fd010dadfc3815eefa5d">int32</a></td>          <td class="paramname"><span class="paramname"><em>ViewIndex</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="../../d7/d42/struct_f_translucency_lighting_volume_textures.html">FTranslucencyLightingVolumeTextures</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>TranslucencyLightingVolumeTextures</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d6/d6d/_canvas_types_8h.html#aea265cf57883ec58a09111d4a17b8448">FRDGTextureRef</a></td>          <td class="paramname"><span class="paramname"><em>SceneColorCopyTexture</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="../../d8/d26/_scene_render_target_parameters_8h.html#a449182c7694c0de5ee25717bf279f12b">ESceneTextureSetupMode</a></td>          <td class="paramname"><span class="paramname"><em>SceneTextureSetupMode</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a></td>          <td class="paramname"><span class="paramname"><em>bLumenGIEnabled</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="../../d2/ddb/class_t_array_view.html">TArrayView</a>&lt; <a class="el" href="../../de/dbb/struct_nanite_1_1_f_raster_results.html">Nanite::FRasterResults</a> &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>NaniteRasterResults</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d0/d2e/namespace_e_translucency_pass.html#af872fc629ddab2c3af68359c0077563d">ETranslucencyPass::Type</a></td>          <td class="paramname"><span class="paramname"><em>TranslucencyPass</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a15b9a611bda4e960586cf1c377502895" name="a15b9a611bda4e960586cf1c377502895"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a15b9a611bda4e960586cf1c377502895">&#9670;&#160;</a></span>DECLARE_CYCLE_STAT() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">DECLARE_CYCLE_STAT </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;TranslucencyTimestampQuery Wait&quot;)</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">STAT_TranslucencyTimestampQuery_Wait</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">STATGROUP_SceneRendering</td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a1b5da477d74d90a3387babe3009c304b" name="a1b5da477d74d90a3387babe3009c304b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1b5da477d74d90a3387babe3009c304b">&#9670;&#160;</a></span>DECLARE_CYCLE_STAT() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">DECLARE_CYCLE_STAT </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;TranslucencyTimestampQueryFence Wait&quot;)</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">STAT_TranslucencyTimestampQueryFence_Wait</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">STATGROUP_SceneRendering</td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="adb3ba884b978c0013e44a85c46205ae0" name="adb3ba884b978c0013e44a85c46205ae0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adb3ba884b978c0013e44a85c46205ae0">&#9670;&#160;</a></span>DECLARE_FLOAT_COUNTER_STAT()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">DECLARE_FLOAT_COUNTER_STAT </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;Translucency GPU Time (MS)&quot;)</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">STAT_TranslucencyGPU</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">STATGROUP_SceneRendering</td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aab4b4293eb0254f7320fd02aa29e2ea6" name="aab4b4293eb0254f7320fd02aa29e2ea6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aab4b4293eb0254f7320fd02aa29e2ea6">&#9670;&#160;</a></span>DEFINE_GPU_DRAWCALL_STAT()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">DEFINE_GPU_DRAWCALL_STAT </td>
+          <td>(</td>
+          <td class="paramtype">Translucency</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a6c956ef9784ce348097a3b5b3f20141a" name="a6c956ef9784ce348097a3b5b3f20141a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6c956ef9784ce348097a3b5b3f20141a">&#9670;&#160;</a></span>GDynamicTranslucencyResolution()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d2/d1b/class_dynamic_render_scaling_1_1_f_budget.html">DynamicRenderScaling::FBudget</a> GDynamicTranslucencyResolution </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;DynamicTranslucencyResolution&quot;)</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&amp;</td>          <td class="paramname"><span class="paramname"><em>GetDynamicTranslucencyResolutionSettings</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a1ddc9f1aac75d06161e3173014ad946b" name="a1ddc9f1aac75d06161e3173014ad946b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1ddc9f1aac75d06161e3173014ad946b">&#9670;&#160;</a></span>GetDynamicTranslucencyResolutionSettings()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../de/d27/struct_dynamic_render_scaling_1_1_f_heuristic_settings.html">DynamicRenderScaling::FHeuristicSettings</a> GetDynamicTranslucencyResolutionSettings </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aa7d85aeabb49fa464b57147e5393b7b8" name="aa7d85aeabb49fa464b57147e5393b7b8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa7d85aeabb49fa464b57147e5393b7b8">&#9670;&#160;</a></span>GetPostDOFTranslucentTextureDesc()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const <a class="el" href="../../d9/d87/struct_f_r_d_g_texture_desc.html">FRDGTextureDesc</a> GetPostDOFTranslucentTextureDesc </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d0/d2e/namespace_e_translucency_pass.html#af872fc629ddab2c3af68359c0077563d">ETranslucencyPass::Type</a></td>          <td class="paramname"><span class="paramname"><em>TranslucencyPass</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="../../d3/dc3/struct_f_separate_translucency_dimensions.html">FSeparateTranslucencyDimensions</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>SeparateTranslucencyDimensions</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a></td>          <td class="paramname"><span class="paramname"><em>bIsModulate</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../de/d49/_r_h_i_shader_platform_8h.html#a424c00593a28eb7ade584eea91161acd">EShaderPlatform</a></td>          <td class="paramname"><span class="paramname"><em>ShaderPlatform</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Shared function to get the post DOF texture pixel format and creation flags </p>
+
+</div>
+</div>
+<a id="aa645b86f51a42c5b800ebdf1fa892db2" name="aa645b86f51a42c5b800ebdf1fa892db2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa645b86f51a42c5b800ebdf1fa892db2">&#9670;&#160;</a></span>GetSeparateTranslucencyViewParameters()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">FViewShaderParameters GetSeparateTranslucencyViewParameters </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="../../dd/d2b/class_f_view_info.html">FViewInfo</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>View</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="../../d3/dc3/struct_f_separate_translucency_dimensions.html">FSeparateTranslucencyDimensions</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>SeparateTranslucencyDimensions</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d0/d2e/namespace_e_translucency_pass.html#af872fc629ddab2c3af68359c0077563d">ETranslucencyPass::Type</a></td>          <td class="paramname"><span class="paramname"><em>TranslucencyPass</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a0ce0d2d0f9f03566e79d0e86447a249a" name="a0ce0d2d0f9f03566e79d0e86447a249a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0ce0d2d0f9f03566e79d0e86447a249a">&#9670;&#160;</a></span>GetTranslucencyView()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d7/dcd/_translucency_pass_8h.html#a85029fdba88b1114ca9f9245b04a87f9">ETranslucencyView</a> GetTranslucencyView </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="../../dd/d2b/class_f_view_info.html">FViewInfo</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>View</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Returns the translucency views to render for the requested view. </p>
+
+</div>
+</div>
+<a id="a751011799e14e091cd3b508e968f418e" name="a751011799e14e091cd3b508e968f418e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a751011799e14e091cd3b508e968f418e">&#9670;&#160;</a></span>GetTranslucencyViews()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d7/dcd/_translucency_pass_8h.html#a85029fdba88b1114ca9f9245b04a87f9">ETranslucencyView</a> GetTranslucencyViews </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d2/ddb/class_t_array_view.html">TArrayView</a>&lt; const <a class="el" href="../../dd/d2b/class_f_view_info.html">FViewInfo</a> &gt;</td>          <td class="paramname"><span class="paramname"><em>Views</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Returns the union of all translucency views to render. </p>
+
+</div>
+</div>
+<a id="a279680fb2c1c86e45e2e874bee54fe22" name="a279680fb2c1c86e45e2e874bee54fe22"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a279680fb2c1c86e45e2e874bee54fe22">&#9670;&#160;</a></span>GetTranslucentBlendState()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d0/d7f/class_f_r_h_i_blend_state.html">FRHIBlendState</a> * GetTranslucentBlendState </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="../../dc/d8e/class_f_material.html">FMaterial</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>Material</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d0/d2e/namespace_e_translucency_pass.html#af872fc629ddab2c3af68359c0077563d">ETranslucencyPass::Type</a></td>          <td class="paramname"><span class="paramname"><em>InTranslucencyPassType</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aaeee852ca3a5c83c9eb88cd6f8e768d8" name="aaeee852ca3a5c83c9eb88cd6f8e768d8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aaeee852ca3a5c83c9eb88cd6f8e768d8">&#9670;&#160;</a></span>GetTranslucentHoldoutComposition()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d6/d2f/_translucent_rendering_8h.html#a08d7cc73b81676c0bf93d56521a13467">ETranslucentHoldoutCompositionType</a> GetTranslucentHoldoutComposition </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Get the location of the translucent holdout composition into scene color alpha. </p>
+
+</div>
+</div>
+<a id="a4fc4a131b6639cfd7f6aeeba58903b4d" name="a4fc4a131b6639cfd7f6aeeba58903b4d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4fc4a131b6639cfd7f6aeeba58903b4d">&#9670;&#160;</a></span>IMPLEMENT_GLOBAL_SHADER() <span class="overload">[1/5]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">IMPLEMENT_GLOBAL_SHADER </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d4/d4e/class_f_compose_holdout_with_coverage_p_s.html">FComposeHoldoutWithCoveragePS</a></td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&quot;/Engine/<a class="el" href="../../d9/db1/namespace_private.html">Private</a>/ComposeSeparateTranslucency.usf&quot;</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&quot;ComposeHoldoutWithCoveragePS&quot;</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../da/dca/_r_h_i_definitions_8h.html#a0a3cc83cb6ebc79b66b43fae3ffee64eaf50bfe1c5c23e92a75ba64d89bcd3bfa">SF_Pixel</a></td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="abdca16419273b46aaaff6e0aefb8f788" name="abdca16419273b46aaaff6e0aefb8f788"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abdca16419273b46aaaff6e0aefb8f788">&#9670;&#160;</a></span>IMPLEMENT_GLOBAL_SHADER() <span class="overload">[2/5]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">IMPLEMENT_GLOBAL_SHADER </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../de/d8d/class_f_compose_separate_translucency_p_s.html">FComposeSeparateTranslucencyPS</a></td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&quot;/Engine/<a class="el" href="../../d9/db1/namespace_private.html">Private</a>/ComposeSeparateTranslucency.usf&quot;</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&quot;MainPS&quot;</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../da/dca/_r_h_i_definitions_8h.html#a0a3cc83cb6ebc79b66b43fae3ffee64eaf50bfe1c5c23e92a75ba64d89bcd3bfa">SF_Pixel</a></td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a4d623176244102d761600eaecec16062" name="a4d623176244102d761600eaecec16062"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4d623176244102d761600eaecec16062">&#9670;&#160;</a></span>IMPLEMENT_GLOBAL_SHADER() <span class="overload">[3/5]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">IMPLEMENT_GLOBAL_SHADER </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../df/d61/class_f_copy_background_visibility_p_s.html">FCopyBackgroundVisibilityPS</a></td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&quot;/Engine/<a class="el" href="../../d9/db1/namespace_private.html">Private</a>/ComposeSeparateTranslucency.usf&quot;</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&quot;CopyBackgroundVisibilityPS&quot;</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../da/dca/_r_h_i_definitions_8h.html#a0a3cc83cb6ebc79b66b43fae3ffee64eaf50bfe1c5c23e92a75ba64d89bcd3bfa">SF_Pixel</a></td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a5b15a883f9e90899127e926e92218a73" name="a5b15a883f9e90899127e926e92218a73"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5b15a883f9e90899127e926e92218a73">&#9670;&#160;</a></span>IMPLEMENT_GLOBAL_SHADER() <span class="overload">[4/5]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">IMPLEMENT_GLOBAL_SHADER </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d9/d05/class_f_copy_scene_color_p_s.html">FCopySceneColorPS</a></td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&quot;/Engine/<a class="el" href="../../d9/db1/namespace_private.html">Private</a>/TranslucentLightingShaders.usf&quot;</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&quot;CopySceneColorMain&quot;</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../da/dca/_r_h_i_definitions_8h.html#a0a3cc83cb6ebc79b66b43fae3ffee64eaf50bfe1c5c23e92a75ba64d89bcd3bfa">SF_Pixel</a></td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ab04f43c2cb3afdde8cd444f17afba0fd" name="ab04f43c2cb3afdde8cd444f17afba0fd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab04f43c2cb3afdde8cd444f17afba0fd">&#9670;&#160;</a></span>IMPLEMENT_GLOBAL_SHADER() <span class="overload">[5/5]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">IMPLEMENT_GLOBAL_SHADER </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../dd/d3b/class_f_translucency_upsample_responsive_a_a_p_s.html">FTranslucencyUpsampleResponsiveAAPS</a></td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&quot;/Engine/<a class="el" href="../../d9/db1/namespace_private.html">Private</a>/TranslucencyUpsampling.usf&quot;</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&quot;UpsampleResponsiveAAPS&quot;</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../da/dca/_r_h_i_definitions_8h.html#a0a3cc83cb6ebc79b66b43fae3ffee64eaf50bfe1c5c23e92a75ba64d89bcd3bfa">SF_Pixel</a></td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a622f156ccc91f699fa1fdba2f5d427f4" name="a622f156ccc91f699fa1fdba2f5d427f4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a622f156ccc91f699fa1fdba2f5d427f4">&#9670;&#160;</a></span>IsSeparateTranslucencyEnabled()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a> IsSeparateTranslucencyEnabled </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d0/d2e/namespace_e_translucency_pass.html#af872fc629ddab2c3af68359c0077563d">ETranslucencyPass::Type</a></td>          <td class="paramname"><span class="paramname"><em>TranslucencyPass</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../df/d2a/_s_anim_notify_shared_8h.html#ac7c94e837fed3f8e4bb3dd94d7bd2ecf">float</a></td>          <td class="paramname"><span class="paramname"><em>DownsampleScale</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Check if separate translucency pass is needed for given pass and downsample scale </p>
+
+</div>
+</div>
+<a id="a7bd965edb2a5cf611ec38d224306974f" name="a7bd965edb2a5cf611ec38d224306974f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7bd965edb2a5cf611ec38d224306974f">&#9670;&#160;</a></span>IsStandardTranslucencyPassSeparated()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a> IsStandardTranslucencyPassSeparated </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aacf49961748ef22b438cbba788fb3df7" name="aacf49961748ef22b438cbba788fb3df7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aacf49961748ef22b438cbba788fb3df7">&#9670;&#160;</a></span>IsVSMTranslucentHighQualityEnabled()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a> IsVSMTranslucentHighQualityEnabled </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a7afb36377d81b8d54187794e0a49d525" name="a7afb36377d81b8d54187794e0a49d525"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7afb36377d81b8d54187794e0a49d525">&#9670;&#160;</a></span>SetupDownsampledTranslucencyViewParameters()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../df/d63/_typed_element_query_capabilities_8inl.html#a72343342ce64c0755563ee6c5e27868d">void</a> SetupDownsampledTranslucencyViewParameters </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="../../dd/d2b/class_f_view_info.html">FViewInfo</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>View</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d0/df6/_math_fwd_8h.html#af6853de5e4fcb2bad3bd5fdd2e50bffd">FIntPoint</a></td>          <td class="paramname"><span class="paramname"><em>TextureExtent</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d0/df6/_math_fwd_8h.html#a0fb396f1ac08e81082181174c7bff43a">FIntRect</a></td>          <td class="paramname"><span class="paramname"><em>ViewRect</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d0/d2e/namespace_e_translucency_pass.html#af872fc629ddab2c3af68359c0077563d">ETranslucencyPass::Type</a></td>          <td class="paramname"><span class="paramname"><em>TranslucencyPass</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">FViewUniformShaderParameters &amp;</td>          <td class="paramname"><span class="paramname"><em>DownsampledTranslucencyViewParameters</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a56b812ada4aa22a3f368bf0cf0145462" name="a56b812ada4aa22a3f368bf0cf0145462"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a56b812ada4aa22a3f368bf0cf0145462">&#9670;&#160;</a></span>SetupPostMotionBlurTranslucencyViewParameters()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../df/d63/_typed_element_query_capabilities_8inl.html#a72343342ce64c0755563ee6c5e27868d">void</a> SetupPostMotionBlurTranslucencyViewParameters </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="../../dd/d2b/class_f_view_info.html">FViewInfo</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>View</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">FViewUniformShaderParameters &amp;</td>          <td class="paramname"><span class="paramname"><em>Parameters</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a8df889411ef66612ee6f5a4cf47147ee" name="a8df889411ef66612ee6f5a4cf47147ee"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8df889411ef66612ee6f5a4cf47147ee">&#9670;&#160;</a></span>ShouldDrawInTranslucentBasePass()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a> ShouldDrawInTranslucentBasePass </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="../../dc/d8e/class_f_material.html">FMaterial</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>Material</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d0/d2e/namespace_e_translucency_pass.html#af872fc629ddab2c3af68359c0077563d">ETranslucencyPass::Type</a></td>          <td class="paramname"><span class="paramname"><em>TranslucencyPass</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../df/d2a/_s_anim_notify_shared_8h.html#ac7c94e837fed3f8e4bb3dd94d7bd2ecf">float</a></td>          <td class="paramname"><span class="paramname"><em>AutoBeforeDOFTranslucencyBoundary</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aed08b2f9302631d4e1434c58fd45c075" name="aed08b2f9302631d4e1434c58fd45c075"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aed08b2f9302631d4e1434c58fd45c075">&#9670;&#160;</a></span>ShouldRenderVolumetricCloud()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a> ShouldRenderVolumetricCloud </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="../../d4/dfa/class_f_scene.html">FScene</a> *</td>          <td class="paramname"><span class="paramname"><em>Scene</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="../../d4/dac/struct_f_engine_show_flags.html">FEngineShowFlags</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>EngineShowFlags</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a96a91da9b24259e0a621246920dbd447" name="a96a91da9b24259e0a621246920dbd447"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a96a91da9b24259e0a621246920dbd447">&#9670;&#160;</a></span>TranslucencyPassToMeshPass()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d1/d67/namespace_e_mesh_pass.html#a500f45051893a7062c598b29423766a3">EMeshPass::Type</a> TranslucencyPassToMeshPass </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d0/d2e/namespace_e_translucency_pass.html#af872fc629ddab2c3af68359c0077563d">ETranslucencyPass::Type</a></td>          <td class="paramname"><span class="paramname"><em>TranslucencyPass</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Converts the translucency pass into the respective mesh pass. </p>
+
+</div>
+</div>
+<a id="aa686ee63d560df2a911cffac1e756458" name="aa686ee63d560df2a911cffac1e756458"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa686ee63d560df2a911cffac1e756458">&#9670;&#160;</a></span>TranslucencyPassToString()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const TCHAR * TranslucencyPassToString </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d0/d2e/namespace_e_translucency_pass.html#af872fc629ddab2c3af68359c0077563d">ETranslucencyPass::Type</a></td>          <td class="paramname"><span class="paramname"><em>TranslucencyPass</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Converts the translucency pass into a string name. </p>
+
+</div>
+</div>
+<a id="a8b29cbc258ecedeca302fc9d1f92297e" name="a8b29cbc258ecedeca302fc9d1f92297e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8b29cbc258ecedeca302fc9d1f92297e">&#9670;&#160;</a></span>UpdateSeparateTranslucencyDimensions()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d3/dc3/struct_f_separate_translucency_dimensions.html">FSeparateTranslucencyDimensions</a> UpdateSeparateTranslucencyDimensions </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="../../d9/d6f/class_f_scene_renderer.html">FSceneRenderer</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>SceneRenderer</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Computes the translucency dimensions. </p>
+
+</div>
+</div>
+<a name="doc-var-members" id="doc-var-members"></a><h2 id="header-doc-var-members" class="groupheader">变量说明</h2>
+<a id="ac0b294fd0fff422d4e436d49bcb3a341" name="ac0b294fd0fff422d4e436d49bcb3a341"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac0b294fd0fff422d4e436d49bcb3a341">&#9670;&#160;</a></span>GSeparateTranslucencyUpsampleMode</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a8dbb3cd84ca9fd010dadfc3815eefa5d">int32</a> GSeparateTranslucencyUpsampleMode = 1</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<div id="page-nav" class="page-nav-panel">
+<div id="page-nav-resize-handle"></div>
+<div id="page-nav-tree">
+<div id="page-nav-contents">
+</div><!-- page-nav-contents -->
+</div><!-- page-nav-tree -->
+</div><!-- page-nav -->
+</div><!-- container -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a href="../../dir_0b6ee6e7e9547e675db4add2e5de97da.html">Engine</a></li><li class="navelem"><a href="../../dir_9579d1ecb2c7bf48cbe1049c41745cb4.html">Source</a></li><li class="navelem"><a href="../../dir_9f04efef762572853abdf73f62bebfcc.html">Runtime</a></li><li class="navelem"><a href="../../dir_5ed6327f04b0f38d3f6fe5caa38b0445.html">Renderer</a></li><li class="navelem"><a href="../../dir_e317dc6f09036e33460f39c550131623.html">Private</a></li><li class="navelem"><a href="../../d5/d80/_translucent_rendering_8cpp.html">TranslucentRendering.cpp</a></li>
+    <li class="footer">制作者 <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.15.0 </li>
+  </ul>
+</div>
+</body>
+</html>

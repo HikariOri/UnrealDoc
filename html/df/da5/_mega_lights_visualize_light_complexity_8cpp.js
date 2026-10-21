@@ -1,0 +1,26 @@
+var _mega_lights_visualize_light_complexity_8cpp =
+[
+    [ "FMegaLightsDebugCS", "d2/da7/class_f_mega_lights_debug_c_s.html", null ],
+    [ "FMegaLightsSortLightsForDisplayCS", "db/d0a/class_f_mega_lights_sort_lights_for_display_c_s.html", null ],
+    [ "FMegaLightsIntersectDisplayedLightsCS", "dd/d45/class_f_mega_lights_intersect_displayed_lights_c_s.html", null ],
+    [ "FMegaLightsDisplayLightsCS", "d9/da2/class_f_mega_lights_display_lights_c_s.html", null ],
+    [ "FMegaLightsEstimateLightSamplingCostCS", "d8/d26/class_f_mega_lights_estimate_light_sampling_cost_c_s.html", null ],
+    [ "FMegaLightsPostProcessVisualizePS", "df/d92/class_f_mega_lights_post_process_visualize_p_s.html", null ],
+    [ "MegaLights::GetDebugTileClassificationMode", "d8/d01/namespace_mega_lights.html#a74cb0f9fd0313577b054d34439257f8a", null ],
+    [ "MegaLights::GetVisualizeLightComplexityTarget", "d8/d01/namespace_mega_lights.html#a1d80c75c47067efad7d905674b44df0a", null ],
+    [ "IMPLEMENT_GLOBAL_SHADER", "df/da5/_mega_lights_visualize_light_complexity_8cpp.html#a4427e36480cb0ab163ee7a81e2033dda", null ],
+    [ "IMPLEMENT_GLOBAL_SHADER", "df/da5/_mega_lights_visualize_light_complexity_8cpp.html#a1a39a767f10794ffa3623c2c75b26a33", null ],
+    [ "IMPLEMENT_GLOBAL_SHADER", "df/da5/_mega_lights_visualize_light_complexity_8cpp.html#aa3ed4ac2328bd0b1aeed5e76372fc4de", null ],
+    [ "IMPLEMENT_GLOBAL_SHADER", "df/da5/_mega_lights_visualize_light_complexity_8cpp.html#aea29761a37788e70deedc59e14daad4e", null ],
+    [ "IMPLEMENT_GLOBAL_SHADER", "df/da5/_mega_lights_visualize_light_complexity_8cpp.html#a68d5efd900375bdd9cc3c30eb7b0963f", null ],
+    [ "IMPLEMENT_GLOBAL_SHADER", "df/da5/_mega_lights_visualize_light_complexity_8cpp.html#a2b16934d8a1345655c9ff055645d249e", null ],
+    [ "MegaLights::IsUsingLightNames", "d8/d01/namespace_mega_lights.html#a3d5484bfe3c5619bad9877b09412acdb", null ],
+    [ "MegaLights::IsVisualizeLightComplexityFrozen", "d8/d01/namespace_mega_lights.html#a2325cc94bdf7e69c372f97b75e92f1c1", null ],
+    [ "MegaLights::ShouldAddVisualizeLightComplexityPostProcessingPass", "d8/d01/namespace_mega_lights.html#abaabbd18d2d5d6b81bc8b233f7d046e8", null ],
+    [ "MegaLights::ShouldShowLightSamplingCostHeatmap", "d8/d01/namespace_mega_lights.html#a4b556192e82deb47eec914dbc2ec5b6d", null ],
+    [ "MegaLightsLightComplexity::GeneralPurposeFeedbackDwords", "d8/dc1/namespace_mega_lights_light_complexity.html#a0530bcfd05a9c647b8e8466aa2daaf39", null ],
+    [ "MegaLightsLightComplexity::GeneralPurposeStateDwords", "d8/dc1/namespace_mega_lights_light_complexity.html#a297798e999f233b1e5bb1234d1c25ec7", null ],
+    [ "MegaLightsLightComplexity::GlobalFrozenDataDwords", "d8/dc1/namespace_mega_lights_light_complexity.html#aff22311cd09612142eefef956f3f9e14", null ],
+    [ "GMegaLightsVisualizeLightComplexityDump", "df/da5/_mega_lights_visualize_light_complexity_8cpp.html#a3ba123ad955d6bfa472d43f9e71f2cdf", null ],
+    [ "MegaLightsLightComplexity::LightFrozenDataExceptNameDwords", "d8/dc1/namespace_mega_lights_light_complexity.html#a0132e9cdabf2dcd6c658728c8684c188", null ]
+];

@@ -1,0 +1,56 @@
+var namespace_f_oodle_data_compression =
+[
+    [ "OodleScratchBuffers", "d1/d58/struct_f_oodle_data_compression_1_1_oodle_scratch_buffers.html", "d1/d58/struct_f_oodle_data_compression_1_1_oodle_scratch_buffers" ],
+    [ "ECompressionCommonUsage", "da/ddf/namespace_f_oodle_data_compression.html#ad318dc4eba06853e02f8a4efb482a985", [
+      [ "Default", "da/ddf/namespace_f_oodle_data_compression.html#ad318dc4eba06853e02f8a4efb482a985a7a1920d61156abc05a60135aefe8bc67", null ],
+      [ "FastRealtimeEncode", "da/ddf/namespace_f_oodle_data_compression.html#ad318dc4eba06853e02f8a4efb482a985a00250dfc85fca8fa7d795460b74cf34c", null ],
+      [ "SlowerSmallerEncode", "da/ddf/namespace_f_oodle_data_compression.html#ad318dc4eba06853e02f8a4efb482a985a730cb2e10f2f1c5ac3a4baaf2b28d416", null ],
+      [ "SlowestOfflineDistributionEncode", "da/ddf/namespace_f_oodle_data_compression.html#ad318dc4eba06853e02f8a4efb482a985a190007772d645d811ab4787b8499a039", null ]
+    ] ],
+    [ "ECompressionLevel", "da/ddf/namespace_f_oodle_data_compression.html#ac98ad31f760f4d727b82cf71a4231eaa", [
+      [ "HyperFast4", "da/ddf/namespace_f_oodle_data_compression.html#ac98ad31f760f4d727b82cf71a4231eaaa6bea92bfb70398d3c1cad6b7ac8a9dad", null ],
+      [ "HyperFast3", "da/ddf/namespace_f_oodle_data_compression.html#ac98ad31f760f4d727b82cf71a4231eaaa4939d9d8ad7ef5a2db3d25187f934f87", null ],
+      [ "HyperFast2", "da/ddf/namespace_f_oodle_data_compression.html#ac98ad31f760f4d727b82cf71a4231eaaafc4b98cd6ba185ca07893b0d9470bf0f", null ],
+      [ "HyperFast1", "da/ddf/namespace_f_oodle_data_compression.html#ac98ad31f760f4d727b82cf71a4231eaaa32f8290dfe595fdb036382d228a7e4b5", null ],
+      [ "None", "da/ddf/namespace_f_oodle_data_compression.html#ac98ad31f760f4d727b82cf71a4231eaaa6adf97f83acf6453d4a6a4b1070f3754", null ],
+      [ "SuperFast", "da/ddf/namespace_f_oodle_data_compression.html#ac98ad31f760f4d727b82cf71a4231eaaa4140a6a9047f86082259bc7d925d3db0", null ],
+      [ "VeryFast", "da/ddf/namespace_f_oodle_data_compression.html#ac98ad31f760f4d727b82cf71a4231eaaac3f886add2c17b5e2a344c3848e41a55", null ],
+      [ "Fast", "da/ddf/namespace_f_oodle_data_compression.html#ac98ad31f760f4d727b82cf71a4231eaaae16b5b7f26f54214445cbe38d72c2828", null ],
+      [ "Normal", "da/ddf/namespace_f_oodle_data_compression.html#ac98ad31f760f4d727b82cf71a4231eaaa960b44c579bc2f6818d2daaf9e4c16f0", null ],
+      [ "Optimal1", "da/ddf/namespace_f_oodle_data_compression.html#ac98ad31f760f4d727b82cf71a4231eaaaedf1aafb394085643231af42deed2cf6", null ],
+      [ "Optimal2", "da/ddf/namespace_f_oodle_data_compression.html#ac98ad31f760f4d727b82cf71a4231eaaa4c3600428f02e4846879785014ee5e1d", null ],
+      [ "Optimal3", "da/ddf/namespace_f_oodle_data_compression.html#ac98ad31f760f4d727b82cf71a4231eaaa5e3b2b62e9c62df67e90e0ff0689a5f6", null ],
+      [ "Optimal4", "da/ddf/namespace_f_oodle_data_compression.html#ac98ad31f760f4d727b82cf71a4231eaaa1e6818421d596f92531e8e0970851aae", null ],
+      [ "Optimal5", "da/ddf/namespace_f_oodle_data_compression.html#ac98ad31f760f4d727b82cf71a4231eaaa5590a359e848ea27be28e840dcd4ef76", null ]
+    ] ],
+    [ "ECompressor", "da/ddf/namespace_f_oodle_data_compression.html#a73852def4ee63e6652ab87ee66cabf9b", [
+      [ "NotSet", "da/ddf/namespace_f_oodle_data_compression.html#a73852def4ee63e6652ab87ee66cabf9bafaf396cbd83927b72a84d2616fac76ff", null ],
+      [ "Selkie", "da/ddf/namespace_f_oodle_data_compression.html#a73852def4ee63e6652ab87ee66cabf9ba9edf4d5767cde73336fe962e777eaa69", null ],
+      [ "Mermaid", "da/ddf/namespace_f_oodle_data_compression.html#a73852def4ee63e6652ab87ee66cabf9baee9b155b26d2df2a2c103fae24e71222", null ],
+      [ "Kraken", "da/ddf/namespace_f_oodle_data_compression.html#a73852def4ee63e6652ab87ee66cabf9ba049a956dfeb0eb2e19c417a1dde4d680", null ],
+      [ "Leviathan", "da/ddf/namespace_f_oodle_data_compression.html#a73852def4ee63e6652ab87ee66cabf9baa91aae52cff9ef65932db06b150ffd47", null ]
+    ] ],
+    [ "Compress", "da/ddf/namespace_f_oodle_data_compression.html#a4b68d301b60110c1875ca8e815ab3cbd", null ],
+    [ "CompressedBufferSizeNeeded", "da/ddf/namespace_f_oodle_data_compression.html#a0b03d279ba4aaf56d3b31c1829b6b95f", null ],
+    [ "CompressionFormatInitOnFirstUseFromLock", "da/ddf/namespace_f_oodle_data_compression.html#aef3a0287513fc4c2c6e3f48eee7e01a2", null ],
+    [ "CompressParallel", "da/ddf/namespace_f_oodle_data_compression.html#aff85465fc8a954f471873e0854952579", null ],
+    [ "CompressParallel", "da/ddf/namespace_f_oodle_data_compression.html#ace74a1982c7ac7796e1f3fceec08f40c", null ],
+    [ "CompressParallelSub", "da/ddf/namespace_f_oodle_data_compression.html#a2032e53605997e966e9fe566bbd185c8", null ],
+    [ "Decompress", "da/ddf/namespace_f_oodle_data_compression.html#a07095d520abfb6f59a1abbdbf6d80f8b", null ],
+    [ "DecompressParallel", "da/ddf/namespace_f_oodle_data_compression.html#ab3615571acc865cb2e3372149499b571", null ],
+    [ "ECompressionLevelFromString", "da/ddf/namespace_f_oodle_data_compression.html#ade8c4ff1a3b940e4aa7d2b2c7b55f3cb", null ],
+    [ "ECompressionLevelFromValue", "da/ddf/namespace_f_oodle_data_compression.html#a5d72191a04be81d894b2cb1bcbc73f12", null ],
+    [ "ECompressionLevelToString", "da/ddf/namespace_f_oodle_data_compression.html#ac078fbdc27ae3ffce3ba59bcb9a83143", null ],
+    [ "ECompressionLevelToString", "da/ddf/namespace_f_oodle_data_compression.html#a8d7420fb8a3d5686c277dbe1785b6bf4", null ],
+    [ "ECompressorFromString", "da/ddf/namespace_f_oodle_data_compression.html#abfd90f32095a2860f82ff6d5bc5d1274", null ],
+    [ "ECompressorFromString", "da/ddf/namespace_f_oodle_data_compression.html#aec19eef80cac78808a0d29d1082abaaa", null ],
+    [ "ECompressorToString", "da/ddf/namespace_f_oodle_data_compression.html#a8f42f57742a2a7aad488d0539f17922b", null ],
+    [ "ECompressorToString", "da/ddf/namespace_f_oodle_data_compression.html#a354357310150e088d08a4245008abfc3", null ],
+    [ "GetCommonUsageFromLegacyCompressionFlags", "da/ddf/namespace_f_oodle_data_compression.html#af2bbcec169e94d9a65c8b30522de39b3", null ],
+    [ "GetCompressorAndLevelForCommonUsage", "da/ddf/namespace_f_oodle_data_compression.html#a289526d1ac308033afbd5674fd5709b1", null ],
+    [ "GetMaximumCompressedSize", "da/ddf/namespace_f_oodle_data_compression.html#a5574382020f193773ca6128107a5dcc4", null ],
+    [ "StartupPreInit", "da/ddf/namespace_f_oodle_data_compression.html#a1b495410fbf0e5aa6a1b6bf9fde1d6a0", null ],
+    [ "Compressor", "da/ddf/namespace_f_oodle_data_compression.html#af7bbc4385edb17d84814d4c428c84e2e", null ],
+    [ "Level", "da/ddf/namespace_f_oodle_data_compression.html#a66a901666cb9fa7a7e6a748fd489227f", null ],
+    [ "Name", "da/ddf/namespace_f_oodle_data_compression.html#a834a62832d2ef23608a112e8f87ff2d5", null ]
+];

@@ -1,0 +1,26 @@
+var class_i_async_read_request =
+[
+    [ "IAsyncReadRequest", "d7/d50/class_i_async_read_request.html#a61b8da8d36664bde585910d5a11f33eb", null ],
+    [ "~IAsyncReadRequest", "d7/d50/class_i_async_read_request.html#a2504cb39175c2427970028906bae9e6e", null ],
+    [ "Cancel", "d7/d50/class_i_async_read_request.html#a86e9b3e97e32e5b4f545b771c83dc271", null ],
+    [ "CancelImpl", "d7/d50/class_i_async_read_request.html#ab31420cf912d8ff73253c0d3bd7f0175", null ],
+    [ "EnsureCompletion", "d7/d50/class_i_async_read_request.html#acfd3530e5ec7620d1c2422d11f9cfaab", null ],
+    [ "GetReadResults", "d7/d50/class_i_async_read_request.html#acb27ab66d2c26a35d69fa2fa5868d368", null ],
+    [ "GetSizeResults", "d7/d50/class_i_async_read_request.html#a92efcc7ad0dd04dceb599502bbe0f36c", null ],
+    [ "PollCompletion", "d7/d50/class_i_async_read_request.html#a612660717b620ec82606e632031b28c3", null ],
+    [ "ReleaseMemoryOwnershipImpl", "d7/d50/class_i_async_read_request.html#a61512657beade66270ab069ba85f1188", null ],
+    [ "SetAllComplete", "d7/d50/class_i_async_read_request.html#a7b199d3739529a721a2d144cde2b940b", null ],
+    [ "SetComplete", "d7/d50/class_i_async_read_request.html#ad99a18bb41c2958093b1b96e86695f4e", null ],
+    [ "SetDataComplete", "d7/d50/class_i_async_read_request.html#a7b51251eb986efa99798e96dc23e1a82", null ],
+    [ "WaitCompletion", "d7/d50/class_i_async_read_request.html#ad63400455b24a192b1ef508f35aecc11", null ],
+    [ "WaitCompletionImpl", "d7/d50/class_i_async_read_request.html#a83d73dde56d3cc2924606fc371d08e63", null ],
+    [ "bCanceled", "d7/d50/class_i_async_read_request.html#a45cc00e08c1168644de86c8ded9e5b1e", null ],
+    [ "bCompleteAndCallbackCalled", "d7/d50/class_i_async_read_request.html#a867c9af26b270f3b69db2f2da3d61c69", null ],
+    [ "bCompleteSync", "d7/d50/class_i_async_read_request.html#abb33e76112a6246bdc59036e6e8b8f4e", null ],
+    [ "bDataIsReady", "d7/d50/class_i_async_read_request.html#a093b18f29fff4c4b918a128e1571d338", null ],
+    [ "bSizeRequest", "d7/d50/class_i_async_read_request.html#ac980ed86bb983132c693a63849a44b54", null ],
+    [ "bUserSuppliedMemory", "d7/d50/class_i_async_read_request.html#a6334a48ac60803bd21990d532fcb675c", null ],
+    [ "Callback", "d7/d50/class_i_async_read_request.html#aec52132b10a005cff95cfb9ff75a5535", null ],
+    [ "Memory", "d7/d50/class_i_async_read_request.html#a94cfc85194e56689534a26b747655399", null ],
+    [ "Size", "d7/d50/class_i_async_read_request.html#a892c521d24f43e8ccb353f3fa95c40d7", null ]
+];

@@ -1,0 +1,25 @@
+var struct_f_oodle_texture_v_table =
+[
+    [ "FOodleTextureVTable", "d1/dd1/struct_f_oodle_texture_v_table.html#ad0e86b327c3c5a73c360f18b66f4b5b5", null ],
+    [ "~FOodleTextureVTable", "d1/dd1/struct_f_oodle_texture_v_table.html#aa19ed1232088dfde3ead92ab31e6655b", null ],
+    [ "Init", "d1/dd1/struct_f_oodle_texture_v_table.html#a72cbc0793d70dece5404a631055cb47d", null ],
+    [ "TryLoad", "d1/dd1/struct_f_oodle_texture_v_table.html#a7d753a15479e3710287152bcaf5fd3bd", null ],
+    [ "DynamicLibLoadLock", "d1/dd1/struct_f_oodle_texture_v_table.html#a7fe10d99083ceb0560dc7bb04d246261", null ],
+    [ "fp_OodleTex_BC_BytesPerBlock", "d1/dd1/struct_f_oodle_texture_v_table.html#aab4cc64bc9f6a41e9140d599a525b743", null ],
+    [ "fp_OodleTex_BC_GetName", "d1/dd1/struct_f_oodle_texture_v_table.html#a2c9751b2cdffe44f18bc6b9438493cc3", null ],
+    [ "fp_OodleTex_DecodeBCN_LinearSurfaces", "d1/dd1/struct_f_oodle_texture_v_table.html#a5638ab65e4dbc847365edbb3ae0e9cc8", null ],
+    [ "fp_OodleTex_EncodeBCN_RDO_Ex", "d1/dd1/struct_f_oodle_texture_v_table.html#a6e233bb57a5a8a2c60b125e9a34018ed", null ],
+    [ "fp_OodleTex_Err_GetName", "d1/dd1/struct_f_oodle_texture_v_table.html#a52fdfc1f58c5fd3e7671df13dd843446", null ],
+    [ "fp_OodleTex_PixelFormat_BytesPerPixel", "d1/dd1/struct_f_oodle_texture_v_table.html#a372649d7c7303f9d36e4026fa41f64e1", null ],
+    [ "fp_OodleTex_PixelFormat_GetName", "d1/dd1/struct_f_oodle_texture_v_table.html#a77e9ef9ec039c603a6ba1599c7c0bda4", null ],
+    [ "fp_OodleTex_Plugins_SetAllocators", "d1/dd1/struct_f_oodle_texture_v_table.html#a923e227b595afa306428ee1350c197af", null ],
+    [ "fp_OodleTex_Plugins_SetAssertion", "d1/dd1/struct_f_oodle_texture_v_table.html#a94d41e4c90fa5254f8921b8275ed1349", null ],
+    [ "fp_OodleTex_Plugins_SetCancelRequested", "d1/dd1/struct_f_oodle_texture_v_table.html#a92c05c997583833921948a96825c956d", null ],
+    [ "fp_OodleTex_Plugins_SetJobSystemAndCount", "d1/dd1/struct_f_oodle_texture_v_table.html#afb59ff9d40c0c6828d89b1fa2ba25fda", null ],
+    [ "fp_OodleTex_Plugins_SetPrintf", "d1/dd1/struct_f_oodle_texture_v_table.html#a708691395db24f3d0add7c734636845a", null ],
+    [ "fp_OodleTex_RDO_UniversalTiling_GetName", "d1/dd1/struct_f_oodle_texture_v_table.html#a20667b48c93620f547ff4631c4418be0", null ],
+    [ "LoadedDynamicLib", "d1/dd1/struct_f_oodle_texture_v_table.html#a3bf516d0f10a5dba3aa15c4ad95e31dc", null ],
+    [ "LoadResult", "d1/dd1/struct_f_oodle_texture_v_table.html#ace53bdf8ff508b09d9854c9900693e58", null ],
+    [ "Version", "d1/dd1/struct_f_oodle_texture_v_table.html#a57867784f6477ebe2b0f91f254f40a7c", null ],
+    [ "VersionString", "d1/dd1/struct_f_oodle_texture_v_table.html#aae2d11d770ed24b31009e15a2de7743b", null ]
+];

@@ -1,0 +1,27 @@
+var struct_f_r_p_c_do_s_state =
+[
+    [ "~FRPCDoSState", "df/d24/struct_f_r_p_c_do_s_state.html#ada00609a954e7b4cecb87c595508ce4b", null ],
+    [ "ApplyImpliedValues", "df/d24/struct_f_r_p_c_do_s_state.html#ae1a72dfdcd49f496b1c1a46ce19e9c84", null ],
+    [ "HasHitQuota_Count", "df/d24/struct_f_r_p_c_do_s_state.html#af1eace8727deb309be96deb7e7c80bd7", null ],
+    [ "HasHitQuota_Time", "df/d24/struct_f_r_p_c_do_s_state.html#a4901f4453f9f49ebc3aa08edac5d5079", null ],
+    [ "AutoEscalateTime", "df/d24/struct_f_r_p_c_do_s_state.html#aa846e1a539888d91ba3198fd729b216d", null ],
+    [ "bKickPlayer", "df/d24/struct_f_r_p_c_do_s_state.html#a7ef058609607cb6e6e158848d18bb7d1", null ],
+    [ "bLogEscalate", "df/d24/struct_f_r_p_c_do_s_state.html#a08be58780581f0e08538eef90bfda316", null ],
+    [ "bSendEscalateAnalytics", "df/d24/struct_f_r_p_c_do_s_state.html#a0294fb00b72742b82bcd95ee53679eab", null ],
+    [ "bTrackRecentRPCs", "df/d24/struct_f_r_p_c_do_s_state.html#a369d3a574565c0cf99c52fec7421b092", null ],
+    [ "CooloffTime", "df/d24/struct_f_r_p_c_do_s_state.html#a2b056451d918b0490bac5e913c19a198", null ],
+    [ "EscalateQuotaRPCsPerFrame", "df/d24/struct_f_r_p_c_do_s_state.html#a6ccbfd32b2a662cbf0b0a3c6373c03ea", null ],
+    [ "EscalateQuotaRPCsPerPeriod", "df/d24/struct_f_r_p_c_do_s_state.html#a022ac91a23adb72f923da2e85b88bb04", null ],
+    [ "EscalateQuotaTimePeriod", "df/d24/struct_f_r_p_c_do_s_state.html#af77afa783ed5ae814dee68804ef0ba35", null ],
+    [ "EscalateTimeQuotaMSPerFrame", "df/d24/struct_f_r_p_c_do_s_state.html#ada63ca8d9224f793eba7ccdbaf223ae5", null ],
+    [ "EscalateTimeQuotaMSPerPeriod", "df/d24/struct_f_r_p_c_do_s_state.html#a01bdf8bfdf64c171f32f8af81546b51b", null ],
+    [ "EscalateTimeQuotaSecsPerFrame", "df/d24/struct_f_r_p_c_do_s_state.html#a038d08c83731d25251e06c6117776d35", null ],
+    [ "EscalateTimeQuotaSecsPerPeriod", "df/d24/struct_f_r_p_c_do_s_state.html#a272472031b9ca88fb2feeb5ebd8b2f07", null ],
+    [ "EscalationCountTolerance", "df/d24/struct_f_r_p_c_do_s_state.html#a3e3f7c499bfb02b06456ddc3f50ad8fa", null ],
+    [ "EscalationTimeToleranceMS", "df/d24/struct_f_r_p_c_do_s_state.html#ae56c01bcbe48cb83086fe1345ea1018e", null ],
+    [ "EscalationTimeToleranceSeconds", "df/d24/struct_f_r_p_c_do_s_state.html#a2a74b1815c624b35909b4932ba7bdedc", null ],
+    [ "RPCRepeatLimitMSPerPeriod", "df/d24/struct_f_r_p_c_do_s_state.html#a219be7c5b70b4500b79bbdbe68af350a", null ],
+    [ "RPCRepeatLimitPerPeriod", "df/d24/struct_f_r_p_c_do_s_state.html#ab3e89f42425b6e0ad2b462b1f8fa13ed", null ],
+    [ "RPCRepeatLimitSecsPerPeriod", "df/d24/struct_f_r_p_c_do_s_state.html#ac71f47f3c7f7bcac9756faec58e0632b", null ],
+    [ "RPCRepeatLimitTimePeriod", "df/d24/struct_f_r_p_c_do_s_state.html#a1ddd915120bec72204271ab113136d2c", null ]
+];

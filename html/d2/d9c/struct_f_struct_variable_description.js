@@ -1,0 +1,28 @@
+var struct_f_struct_variable_description =
+[
+    [ "FStructVariableDescription", "d2/d9c/struct_f_struct_variable_description.html#a05d69166492f922215ed1a339b03075a", null ],
+    [ "HasSameType", "d2/d9c/struct_f_struct_variable_description.html#af3a08eaf47e03653c113c481bc8047d2", null ],
+    [ "PostSerialize", "d2/d9c/struct_f_struct_variable_description.html#a42e3786f0c1d24d3de0136d2f4188fce", null ],
+    [ "SetPinType", "d2/d9c/struct_f_struct_variable_description.html#aad501679081a8af5bb291c0d15a8f573", null ],
+    [ "ToPinType", "d2/d9c/struct_f_struct_variable_description.html#ad366570167a05fda2c3a3c26fbf30341", null ],
+    [ "bDontEditOnInstance", "d2/d9c/struct_f_struct_variable_description.html#a9cf2815dfb90ef0f7d08b7dbbfe54443", null ],
+    [ "bEnable3dWidget", "d2/d9c/struct_f_struct_variable_description.html#a50d36829bba8198baafbd4e0897a2c69", null ],
+    [ "bEnableMultiLineText", "d2/d9c/struct_f_struct_variable_description.html#a0f0bbe54715e69f9765270ccfd6a34b4", null ],
+    [ "bEnableSaveGame", "d2/d9c/struct_f_struct_variable_description.html#ae574704b1dff81dcaae19394f8c875a1", null ],
+    [ "bInvalidMember", "d2/d9c/struct_f_struct_variable_description.html#a08a1f637de7d05dfdfb70ebbfc479ef8", null ],
+    [ "bIsArray_DEPRECATED", "d2/d9c/struct_f_struct_variable_description.html#acd32fdf5d5f9774767b10b9d34007f69", null ],
+    [ "bIsMap_DEPRECATED", "d2/d9c/struct_f_struct_variable_description.html#a8261e7dbb3594721fcfcf18d8c004faf", null ],
+    [ "bIsSet_DEPRECATED", "d2/d9c/struct_f_struct_variable_description.html#a6506dec605740f2b9d55e5001432d184", null ],
+    [ "Category", "d2/d9c/struct_f_struct_variable_description.html#a86217c70a13c8927fd70a2d7febf3f32", null ],
+    [ "ContainerType", "d2/d9c/struct_f_struct_variable_description.html#a88f6e4da1d3252809d42f3f1aedf778d", null ],
+    [ "CurrentDefaultValue", "d2/d9c/struct_f_struct_variable_description.html#a1d8dd5e88c1a9776b6ec6f0dffb6e46c", null ],
+    [ "DefaultValue", "d2/d9c/struct_f_struct_variable_description.html#a23038615802f21955d26fd8f03cb64f5", null ],
+    [ "FriendlyName", "d2/d9c/struct_f_struct_variable_description.html#a70e3ec2432626e2564fb855b621c554f", null ],
+    [ "MetaData", "d2/d9c/struct_f_struct_variable_description.html#a99559158d9737efedcd3cbfabf343b19", null ],
+    [ "PinValueType", "d2/d9c/struct_f_struct_variable_description.html#ad4faf9e8e1927ad828e0567e0c103a73", null ],
+    [ "SubCategory", "d2/d9c/struct_f_struct_variable_description.html#a61401cc58157aec6cfe4725dbfb01f87", null ],
+    [ "SubCategoryObject", "d2/d9c/struct_f_struct_variable_description.html#a853021c26c90fb64131e476c51a12e3a", null ],
+    [ "ToolTip", "d2/d9c/struct_f_struct_variable_description.html#acb43ea0b9dd2c8a77286a0d23062bfb2", null ],
+    [ "VarGuid", "d2/d9c/struct_f_struct_variable_description.html#ae9945230cf19d3abcc99a6abae11c3ec", null ],
+    [ "VarName", "d2/d9c/struct_f_struct_variable_description.html#aed7364e48c3bc03b1083abee5e172d0c", null ]
+];

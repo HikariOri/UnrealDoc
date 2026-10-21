@@ -1,0 +1,389 @@
+<!-- HTML header for doxygen 1.15.0-->
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh">
+<head>
+  <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=11" />
+  <meta name="generator" content="Doxygen 1.15.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>UE 5.8.4: Engine/Source/Runtime/Apple/MetalRHI/Private/MetalProfiler.h 源文件</title>
+  <link rel="icon" href="../../EdIconDefault.bmp" type="image/x-icon" />
+  <link href="../../tabs.css" rel="stylesheet" type="text/css" />
+  <script type="text/javascript" src="../../jquery.js"></script>
+  <script type="text/javascript" src="../../dynsections.js"></script>
+  <link href="../../navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../navtreedata.js"></script>
+<script type="text/javascript" src="../../navtree.js"></script>
+<script type="text/javascript" src="../../cookie.js"></script>
+  <link href="../../search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../search/searchdata.js"></script>
+<script type="text/javascript" src="../../search/search.js"></script>
+  <link href="../../doxygen.css" rel="stylesheet" type="text/css" />
+  <link href="../../doxygen-awesome.css" rel="stylesheet" type="text/css"/>
+<link href="../../doxygen-awesome-sidebar-only.css" rel="stylesheet" type="text/css"/>
+<link href="../../doxygen-awesome-sidebar-only-darkmode-toggle.css" rel="stylesheet" type="text/css"/>
+  <!-- ... other metadata & script includes ... -->
+  <script type="text/javascript" src="../../doxygen-awesome-darkmode-toggle.js"></script>
+  <script type="text/javascript">
+    DoxygenAwesomeDarkModeToggle.title = "Zwischen hellem/dunklem Modus wechseln"
+    DoxygenAwesomeDarkModeToggle.lightModeIcon = '🌞'
+    // icon from https://fonts.google.com/icons
+    DoxygenAwesomeDarkModeToggle.darkModeIcon = `<svg xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 24 24" height="24px" viewBox="0 0 24 24" width="24px" fill="#009793"><g><rect fill="none" height="24" width="24"/></g><g><g><path d="M8.1,14.15C9.77,14.63,11,16.17,11,18c0,0.68-0.19,1.31-0.48,1.87c0.48,0.09,0.97,0.14,1.48,0.14 c1.48,0,2.9-0.41,4.13-1.15c-2.62-0.92-5.23-2.82-6.8-5.86C7.74,9.94,7.78,7.09,8.29,4.9c-2.57,1.33-4.3,4.01-4.3,7.1c0,0,0,0,0,0 c0.01,0,0.01,0,0.02,0C5.66,12,7.18,12.83,8.1,14.15z" opacity=".3"/><path d="M19.78,17.51c-2.47,0-6.57-1.33-8.68-5.43C8.77,7.57,10.6,3.6,11.63,2.01C6.27,2.2,1.98,6.59,1.98,12 c0,0.14,0.02,0.28,0.02,0.42C2.61,12.16,3.28,12,3.98,12c0,0,0,0,0,0c0-3.09,1.73-5.77,4.3-7.1C7.78,7.09,7.74,9.94,9.32,13 c1.57,3.04,4.18,4.95,6.8,5.86c-1.23,0.74-2.65,1.15-4.13,1.15c-0.5,0-1-0.05-1.48-0.14c-0.37,0.7-0.94,1.27-1.64,1.64 c0.98,0.32,2.03,0.5,3.11,0.5c3.5,0,6.58-1.8,8.37-4.52C20.18,17.5,19.98,17.51,19.78,17.51z"/><path d="M7,16l-0.18,0C6.4,14.84,5.3,14,4,14c-1.66,0-3,1.34-3,3s1.34,3,3,3c0.62,0,2.49,0,3,0c1.1,0,2-0.9,2-2 C9,16.9,8.1,16,7,16z"/></g></g></svg>`
+    DoxygenAwesomeDarkModeToggle.init()
+  </script>
+  <script type="text/javascript" src="../../doxygen-awesome-fragment-copy-button.js"></script>
+  <script type="text/javascript">
+    DoxygenAwesomeFragmentCopyButton.title = "In die Zwischenablage kopieren"
+    // DoxygenAwesomeFragmentCopyButton.copyIcon = `<svg ...>`
+    // DoxygenAwesomeFragmentCopyButton.successIcon = `<svg ...>`
+    DoxygenAwesomeFragmentCopyButton.init()
+  </script>
+  <script type="text/javascript" src="../../doxygen-awesome-paragraph-link.js"></script>
+  <script type="text/javascript">
+    DoxygenAwesomeParagraphLink.title = "Abschnitt verknüpfen"
+    DoxygenAwesomeParagraphLink.icon = "¶"
+    DoxygenAwesomeParagraphLink.init()
+  </script>
+  <script type="text/javascript" src="../../doxygen-awesome-interactive-toc.js"></script>
+  <script type="text/javascript">
+    DoxygenAwesomeInteractiveToc.topOffset = 45
+    DoxygenAwesomeInteractiveToc.hideMobileMenu = false
+    DoxygenAwesomeInteractiveToc.init()
+  </script>
+</head>
+<body>
+    <div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+      <div id="titlearea">
+        <table cellspacing="0" cellpadding="0">
+          <tbody>
+            <tr id="projectrow">
+              <td id="projectlogo"><img alt="Logo" src="../../EdIconDefault.bmp"  /></td>
+              <td id="projectalign">
+                <div id="projectname">UE 5.8.4
+                </div>
+                <div id="projectbrief">Unreal Engine</div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <!-- end header part -->
+<!-- 制作者 Doxygen 1.15.0 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "../../search/",'.html');
+</script>
+<script type="text/javascript">
+$(function() { codefold.init(); });
+</script>
+<script type="text/javascript" src="../../menudata.js"></script>
+<script type="text/javascript" src="../../menu.js"></script>
+<script type="text/javascript">
+$(function() {
+  initMenu('../../',true,false,'search.php','搜索',true);
+  $(function() { init_search(); });
+});
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(function(){initNavTree('d1/dd9/_metal_profiler_8h_source.html','../../',''); });
+</script>
+<div id="container">
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">载入中...</div>
+<div class="SRStatus" id="Searching">搜索中...</div>
+<div class="SRStatus" id="NoMatches">未找到</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">MetalProfiler.h</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="../../d1/dd9/_metal_profiler_8h.html">浏览该文件的文档.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="comment">// Copyright Epic Games, Inc. All Rights Reserved.</span></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span> </div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="preprocessor">#pragma once</span></div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span> </div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="preprocessor">#include &quot;<a class="code" href="../../d8/df1/_metal_r_h_i_private_8h.html">MetalRHIPrivate.h</a>&quot;</span></div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="preprocessor">#include &quot;<a class="code" href="../../d2/dcd/_metal_counter_sampler_8h.html">MetalCounterSampler.h</a>&quot;</span></div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="preprocessor">#include &quot;<a class="code" href="../../df/ddd/_g_p_u_profiler_8h.html">GPUProfiler.h</a>&quot;</span></div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="preprocessor">#include &quot;<a class="code" href="../../da/db9/_r_h_i_breadcrumbs_8h.html">RHIBreadcrumbs.h</a>&quot;</span></div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="preprocessor">#include &quot;<a class="code" href="../../d3/d13/_ref_counting_8h.html">Templates/RefCounting.h</a>&quot;</span></div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span> </div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno"><a class="line" href="../../d1/dd9/_metal_profiler_8h.html#a83a199d4ae17a57dfbc392c2c0b79a49">   11</a></span><a class="code hl_define" href="../../d6/d40/_delegate_combinations_8h.html#a74b6271cb85a7fa325e5fa753fcf79c5">DECLARE_DELEGATE_OneParam</a>(FMetalCommandBufferCompletionHandler, MTL::CommandBuffer*);</div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span> </div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="comment">// Stats</span></div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno"><a class="line" href="../../d1/dd9/_metal_profiler_8h.html#a084c74c5657d83c41ee7504f6776e419">   14</a></span><a class="code hl_define" href="../../d3/d48/_stats_8h.html#a3494f939a33bca697e021a19374b81ac">DECLARE_CYCLE_STAT_EXTERN</a>(<a class="code hl_define" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(<span class="stringliteral">&quot;MakeDrawable time&quot;</span>),STAT_MetalMakeDrawableTime,STATGROUP_MetalRHI, );</div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno"><a class="line" href="../../d1/dd9/_metal_profiler_8h.html#ace4ddeb2e235c774db5f86a103ca2957">   15</a></span><a class="code hl_define" href="../../d3/d48/_stats_8h.html#a3494f939a33bca697e021a19374b81ac">DECLARE_CYCLE_STAT_EXTERN</a>(<a class="code hl_define" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(<span class="stringliteral">&quot;Draw call time&quot;</span>),STAT_MetalDrawCallTime,STATGROUP_MetalRHI, );</div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno"><a class="line" href="../../d1/dd9/_metal_profiler_8h.html#a36e4075b178dbafd710e7570bf473952">   16</a></span><a class="code hl_define" href="../../d3/d48/_stats_8h.html#a3494f939a33bca697e021a19374b81ac">DECLARE_CYCLE_STAT_EXTERN</a>(<a class="code hl_define" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(<span class="stringliteral">&quot;PrepareDraw time&quot;</span>),STAT_MetalPrepareDrawTime,STATGROUP_MetalRHI, );</div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno"><a class="line" href="../../d1/dd9/_metal_profiler_8h.html#ab575ea049d1e7abfcce2db7aac859aab">   17</a></span><a class="code hl_define" href="../../d3/d48/_stats_8h.html#a3494f939a33bca697e021a19374b81ac">DECLARE_CYCLE_STAT_EXTERN</a>(<a class="code hl_define" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(<span class="stringliteral">&quot;SwitchToNone time&quot;</span>),STAT_MetalSwitchToNoneTime,STATGROUP_MetalRHI, );</div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno"><a class="line" href="../../d1/dd9/_metal_profiler_8h.html#a4867fbd86a48e316a8f1148ac1f26cdf">   18</a></span><a class="code hl_define" href="../../d3/d48/_stats_8h.html#a3494f939a33bca697e021a19374b81ac">DECLARE_CYCLE_STAT_EXTERN</a>(<a class="code hl_define" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(<span class="stringliteral">&quot;SwitchToRender time&quot;</span>),STAT_MetalSwitchToRenderTime,STATGROUP_MetalRHI, );</div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno"><a class="line" href="../../d1/dd9/_metal_profiler_8h.html#a2d14ffe833e904fe31eb22ab45f3b129">   19</a></span><a class="code hl_define" href="../../d3/d48/_stats_8h.html#a3494f939a33bca697e021a19374b81ac">DECLARE_CYCLE_STAT_EXTERN</a>(<a class="code hl_define" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(<span class="stringliteral">&quot;SwitchToCompute time&quot;</span>),STAT_MetalSwitchToComputeTime,STATGROUP_MetalRHI, );</div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno"><a class="line" href="../../d1/dd9/_metal_profiler_8h.html#ad49fa933ef6464100509cdc632dc4aa8">   20</a></span><a class="code hl_define" href="../../d3/d48/_stats_8h.html#a3494f939a33bca697e021a19374b81ac">DECLARE_CYCLE_STAT_EXTERN</a>(<a class="code hl_define" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(<span class="stringliteral">&quot;SwitchToBlit time&quot;</span>),STAT_MetalSwitchToBlitTime,STATGROUP_MetalRHI, );</div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno"><a class="line" href="../../d1/dd9/_metal_profiler_8h.html#ab3d43a878648284a16e19987a38d0ea4">   21</a></span><a class="code hl_define" href="../../d3/d48/_stats_8h.html#a3494f939a33bca697e021a19374b81ac">DECLARE_CYCLE_STAT_EXTERN</a>(<a class="code hl_define" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(<span class="stringliteral">&quot;PrepareToRender time&quot;</span>),STAT_MetalPrepareToRenderTime,STATGROUP_MetalRHI, );</div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno"><a class="line" href="../../d1/dd9/_metal_profiler_8h.html#a7e9444687ee335f4f965bdbf363ee02a">   22</a></span><a class="code hl_define" href="../../d3/d48/_stats_8h.html#a3494f939a33bca697e021a19374b81ac">DECLARE_CYCLE_STAT_EXTERN</a>(<a class="code hl_define" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(<span class="stringliteral">&quot;PrepareToDispatch time&quot;</span>),STAT_MetalPrepareToDispatchTime,STATGROUP_MetalRHI, );</div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno"><a class="line" href="../../d1/dd9/_metal_profiler_8h.html#a4c41276fd5e41b1b19715e924c153d89">   23</a></span><a class="code hl_define" href="../../d3/d48/_stats_8h.html#a3494f939a33bca697e021a19374b81ac">DECLARE_CYCLE_STAT_EXTERN</a>(<a class="code hl_define" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(<span class="stringliteral">&quot;CommitRenderResourceTables time&quot;</span>),STAT_MetalCommitRenderResourceTablesTime,STATGROUP_MetalRHI, );</div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno"><a class="line" href="../../d1/dd9/_metal_profiler_8h.html#a7e986e4fe87f3c445edd56e260d913d4">   24</a></span><a class="code hl_define" href="../../d3/d48/_stats_8h.html#a3494f939a33bca697e021a19374b81ac">DECLARE_CYCLE_STAT_EXTERN</a>(<a class="code hl_define" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(<span class="stringliteral">&quot;SetRenderState time&quot;</span>),STAT_MetalSetRenderStateTime,STATGROUP_MetalRHI, );</div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno"><a class="line" href="../../d1/dd9/_metal_profiler_8h.html#a6299c39e457a212a333a07f322a11020">   25</a></span><a class="code hl_define" href="../../d3/d48/_stats_8h.html#a3494f939a33bca697e021a19374b81ac">DECLARE_CYCLE_STAT_EXTERN</a>(<a class="code hl_define" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(<span class="stringliteral">&quot;SetRenderPipelineState time&quot;</span>),STAT_MetalSetRenderPipelineStateTime,STATGROUP_MetalRHI, );</div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno"><a class="line" href="../../d1/dd9/_metal_profiler_8h.html#a83d7a482c5331ea02b4bdbf7a76a9766">   26</a></span><a class="code hl_define" href="../../d3/d48/_stats_8h.html#a3494f939a33bca697e021a19374b81ac">DECLARE_CYCLE_STAT_EXTERN</a>(<a class="code hl_define" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(<span class="stringliteral">&quot;PipelineState time&quot;</span>),STAT_MetalPipelineStateTime,STATGROUP_MetalRHI, );</div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno"><a class="line" href="../../d1/dd9/_metal_profiler_8h.html#ae703cd78697e9fa1e591c66afdd903d9">   27</a></span><a class="code hl_define" href="../../d3/d48/_stats_8h.html#a3494f939a33bca697e021a19374b81ac">DECLARE_CYCLE_STAT_EXTERN</a>(<a class="code hl_define" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(<span class="stringliteral">&quot;Buffer Page-Off time&quot;</span>), STAT_MetalBufferPageOffTime, STATGROUP_MetalRHI, );</div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno"><a class="line" href="../../d1/dd9/_metal_profiler_8h.html#af98047ec0042716d9716e685bd94698e">   28</a></span><a class="code hl_define" href="../../d3/d48/_stats_8h.html#a3494f939a33bca697e021a19374b81ac">DECLARE_CYCLE_STAT_EXTERN</a>(<a class="code hl_define" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(<span class="stringliteral">&quot;Texture Page-Off time&quot;</span>), STAT_MetalTexturePageOffTime, STATGROUP_MetalRHI, );</div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span> </div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno"><a class="line" href="../../d1/dd9/_metal_profiler_8h.html#a558d66eca02809bd8955e50fd438d93e">   30</a></span><a class="code hl_define" href="../../d3/d48/_stats_8h.html#a6fad5619add89ed8c1ca894358cbe5e9">DECLARE_DWORD_COUNTER_STAT_EXTERN</a>(<a class="code hl_define" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(<span class="stringliteral">&quot;Uniform Memory Allocated Per-Frame&quot;</span>), STAT_MetalUniformMemAlloc, STATGROUP_MetalRHI, );</div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno"><a class="line" href="../../d1/dd9/_metal_profiler_8h.html#a2cb8b7e77b5b5028aa350cf3dff317a7">   31</a></span><a class="code hl_define" href="../../d3/d48/_stats_8h.html#a6fad5619add89ed8c1ca894358cbe5e9">DECLARE_DWORD_COUNTER_STAT_EXTERN</a>(<a class="code hl_define" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(<span class="stringliteral">&quot;Uniform Memory Freed Per-Frame&quot;</span>), STAT_MetalUniformMemFreed, STATGROUP_MetalRHI, );</div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno"><a class="line" href="../../d1/dd9/_metal_profiler_8h.html#a8b211bf4d2d77497575321f02c0518d1">   32</a></span><a class="code hl_define" href="../../d3/d48/_stats_8h.html#a6fad5619add89ed8c1ca894358cbe5e9">DECLARE_DWORD_COUNTER_STAT_EXTERN</a>(<a class="code hl_define" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(<span class="stringliteral">&quot;Vertex Memory Allocated Per-Frame&quot;</span>), STAT_MetalVertexMemAlloc, STATGROUP_MetalRHI, );</div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno"><a class="line" href="../../d1/dd9/_metal_profiler_8h.html#aec24b72b378f3c3fc3f8c24f3d1f6baa">   33</a></span><a class="code hl_define" href="../../d3/d48/_stats_8h.html#a6fad5619add89ed8c1ca894358cbe5e9">DECLARE_DWORD_COUNTER_STAT_EXTERN</a>(<a class="code hl_define" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(<span class="stringliteral">&quot;Vertex Memory Freed Per-Frame&quot;</span>), STAT_MetalVertexMemFreed, STATGROUP_MetalRHI, );</div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno"><a class="line" href="../../d1/dd9/_metal_profiler_8h.html#ae63e51bed0ebebe0c94901af96ba8d72">   34</a></span><a class="code hl_define" href="../../d3/d48/_stats_8h.html#a6fad5619add89ed8c1ca894358cbe5e9">DECLARE_DWORD_COUNTER_STAT_EXTERN</a>(<a class="code hl_define" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(<span class="stringliteral">&quot;Index Memory Allocated Per-Frame&quot;</span>), STAT_MetalIndexMemAlloc, STATGROUP_MetalRHI, );</div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno"><a class="line" href="../../d1/dd9/_metal_profiler_8h.html#a12ea0fc345882e95697a406646bb3922">   35</a></span><a class="code hl_define" href="../../d3/d48/_stats_8h.html#a6fad5619add89ed8c1ca894358cbe5e9">DECLARE_DWORD_COUNTER_STAT_EXTERN</a>(<a class="code hl_define" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(<span class="stringliteral">&quot;Index Memory Freed Per-Frame&quot;</span>), STAT_MetalIndexMemFreed, STATGROUP_MetalRHI, );</div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno"><a class="line" href="../../d1/dd9/_metal_profiler_8h.html#ae053401c55947e5c152fed636f7d4c61">   36</a></span><a class="code hl_define" href="../../d3/d48/_stats_8h.html#a6fad5619add89ed8c1ca894358cbe5e9">DECLARE_DWORD_COUNTER_STAT_EXTERN</a>(<a class="code hl_define" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(<span class="stringliteral">&quot;Texture Memory Updated Per-Frame&quot;</span>), STAT_MetalTextureMemUpdate, STATGROUP_MetalRHI, );</div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno"><a class="line" href="../../d1/dd9/_metal_profiler_8h.html#a31d7b6fcd37d3fe0e2ae7b536334e6c7">   37</a></span><a class="code hl_define" href="../../d3/d48/_stats_8h.html#afa7682aa3f046162e078933f835251dd">DECLARE_MEMORY_STAT_EXTERN</a>(<a class="code hl_define" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(<span class="stringliteral">&quot;Buffer Memory&quot;</span>), STAT_MetalBufferMemory, STATGROUP_MetalRHI, );</div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno"><a class="line" href="../../d1/dd9/_metal_profiler_8h.html#a2a463fb0e7961a13e34e5d002fe59560">   38</a></span><a class="code hl_define" href="../../d3/d48/_stats_8h.html#afa7682aa3f046162e078933f835251dd">DECLARE_MEMORY_STAT_EXTERN</a>(<a class="code hl_define" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(<span class="stringliteral">&quot;Texture Memory&quot;</span>), STAT_MetalTextureMemory, STATGROUP_MetalRHI, );</div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno"><a class="line" href="../../d1/dd9/_metal_profiler_8h.html#a07142a60de43ddf131b40bdbeb70d3eb">   39</a></span><a class="code hl_define" href="../../d3/d48/_stats_8h.html#afa7682aa3f046162e078933f835251dd">DECLARE_MEMORY_STAT_EXTERN</a>(<a class="code hl_define" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(<span class="stringliteral">&quot;Heap Memory&quot;</span>), STAT_MetalHeapMemory, STATGROUP_MetalRHI, );</div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno"><a class="line" href="../../d1/dd9/_metal_profiler_8h.html#ac02f526803c9d16984676de94b18a414">   40</a></span><a class="code hl_define" href="../../d3/d48/_stats_8h.html#afa7682aa3f046162e078933f835251dd">DECLARE_MEMORY_STAT_EXTERN</a>(<a class="code hl_define" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(<span class="stringliteral">&quot;Unused Buffer Memory&quot;</span>), STAT_MetalBufferUnusedMemory, STATGROUP_MetalRHI, );</div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno"><a class="line" href="../../d1/dd9/_metal_profiler_8h.html#aa026b9c576e84761ed2ee72c307624b3">   41</a></span><a class="code hl_define" href="../../d3/d48/_stats_8h.html#afa7682aa3f046162e078933f835251dd">DECLARE_MEMORY_STAT_EXTERN</a>(<a class="code hl_define" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(<span class="stringliteral">&quot;Unused Texture Memory&quot;</span>), STAT_MetalTextureUnusedMemory, STATGROUP_MetalRHI, );</div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span> </div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno"><a class="line" href="../../d1/dd9/_metal_profiler_8h.html#a46802382af8bbd73ee7faeced7aee238">   43</a></span><a class="code hl_define" href="../../d3/d48/_stats_8h.html#afa7682aa3f046162e078933f835251dd">DECLARE_MEMORY_STAT_EXTERN</a>(<a class="code hl_define" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(<span class="stringliteral">&quot;Uniform Memory In Flight&quot;</span>), STAT_MetalUniformMemoryInFlight, STATGROUP_MetalRHI, );</div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno"><a class="line" href="../../d1/dd9/_metal_profiler_8h.html#abbcd71364ff715d74a735616b0de452c">   44</a></span><a class="code hl_define" href="../../d3/d48/_stats_8h.html#afa7682aa3f046162e078933f835251dd">DECLARE_MEMORY_STAT_EXTERN</a>(<a class="code hl_define" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(<span class="stringliteral">&quot;Allocated Uniform Pool Memory&quot;</span>), STAT_MetalUniformAllocatedMemory, STATGROUP_MetalRHI, );</div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno"><a class="line" href="../../d1/dd9/_metal_profiler_8h.html#a953a31b777f74329ded787b331f4f5ef">   45</a></span><a class="code hl_define" href="../../d3/d48/_stats_8h.html#afa7682aa3f046162e078933f835251dd">DECLARE_MEMORY_STAT_EXTERN</a>(<a class="code hl_define" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(<span class="stringliteral">&quot;Uniform Memory Per Frame&quot;</span>), STAT_MetalUniformBytesPerFrame, STATGROUP_MetalRHI, );</div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span> </div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno"><a class="line" href="../../d1/dd9/_metal_profiler_8h.html#a9845926f876bcc59b2a493e8ef6ff389">   47</a></span><a class="code hl_define" href="../../d3/d48/_stats_8h.html#afa7682aa3f046162e078933f835251dd">DECLARE_MEMORY_STAT_EXTERN</a>(<a class="code hl_define" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(<span class="stringliteral">&quot;Allocated Frame Temp Memory&quot;</span>), STAT_MetalTempAllocatorAllocatedMemory, STATGROUP_MetalRHI, );</div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span> </div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno"><a class="line" href="../../d1/dd9/_metal_profiler_8h.html#a4f5b5716a4e33f6bbad482dc2c5d28e4">   49</a></span><a class="code hl_define" href="../../d3/d48/_stats_8h.html#ab0e48b4d74b79d1e6a0528cfa90d3f06">DECLARE_DWORD_ACCUMULATOR_STAT_EXTERN</a>(<a class="code hl_define" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(<span class="stringliteral">&quot;Buffer Count&quot;</span>), STAT_MetalBufferCount, STATGROUP_MetalRHI, );</div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno"><a class="line" href="../../d1/dd9/_metal_profiler_8h.html#acd35bc283fe58c2b00a319834f6f0e4f">   50</a></span><a class="code hl_define" href="../../d3/d48/_stats_8h.html#ab0e48b4d74b79d1e6a0528cfa90d3f06">DECLARE_DWORD_ACCUMULATOR_STAT_EXTERN</a>(<a class="code hl_define" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(<span class="stringliteral">&quot;Texture Count&quot;</span>), STAT_MetalTextureCount, STATGROUP_MetalRHI, );</div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno"><a class="line" href="../../d1/dd9/_metal_profiler_8h.html#abfa87ac3948a1986725f277334d32126">   51</a></span><a class="code hl_define" href="../../d3/d48/_stats_8h.html#ab0e48b4d74b79d1e6a0528cfa90d3f06">DECLARE_DWORD_ACCUMULATOR_STAT_EXTERN</a>(<a class="code hl_define" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(<span class="stringliteral">&quot;Heap Count&quot;</span>), STAT_MetalHeapCount, STATGROUP_MetalRHI, );</div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno"><a class="line" href="../../d1/dd9/_metal_profiler_8h.html#a73401235755f0660d8ec9ba6a0e3163f">   52</a></span><a class="code hl_define" href="../../d3/d48/_stats_8h.html#ab0e48b4d74b79d1e6a0528cfa90d3f06">DECLARE_DWORD_ACCUMULATOR_STAT_EXTERN</a>(<a class="code hl_define" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(<span class="stringliteral">&quot;Fence Count&quot;</span>), STAT_MetalFenceCount, STATGROUP_MetalRHI, );</div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span> </div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno"><a class="line" href="../../d1/dd9/_metal_profiler_8h.html#a407e7d7f36bf2b678ba9a670634b6fc3">   54</a></span><a class="code hl_define" href="../../d3/d48/_stats_8h.html#a3494f939a33bca697e021a19374b81ac">DECLARE_CYCLE_STAT_EXTERN</a>(<a class="code hl_define" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(<span class="stringliteral">&quot;Texture Page-On time&quot;</span>), STAT_MetalTexturePageOnTime, STATGROUP_MetalRHI, );</div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno"><a class="line" href="../../d1/dd9/_metal_profiler_8h.html#a4244e62cba7fa6ca45f38e17b07ed4cf">   55</a></span><a class="code hl_define" href="../../d3/d48/_stats_8h.html#a3494f939a33bca697e021a19374b81ac">DECLARE_CYCLE_STAT_EXTERN</a>(<a class="code hl_define" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(<span class="stringliteral">&quot;CustomPresent time&quot;</span>), STAT_MetalCustomPresentTime, STATGROUP_MetalRHI, );</div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span> </div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno"><a class="line" href="../../d1/dd9/_metal_profiler_8h.html#a8871f0b3b7d851062e3468c2b3846032">   57</a></span><a class="code hl_define" href="../../d3/d48/_stats_8h.html#a6fad5619add89ed8c1ca894358cbe5e9">DECLARE_DWORD_COUNTER_STAT_EXTERN</a>(<a class="code hl_define" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(<span class="stringliteral">&quot;Number Command Buffers Created Per-Frame&quot;</span>), STAT_MetalCommandBufferCreatedPerFrame, STATGROUP_MetalRHI, );</div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno"><a class="line" href="../../d1/dd9/_metal_profiler_8h.html#ab99970671f70c62788997ad566f086f3">   58</a></span><a class="code hl_define" href="../../d3/d48/_stats_8h.html#a6fad5619add89ed8c1ca894358cbe5e9">DECLARE_DWORD_COUNTER_STAT_EXTERN</a>(<a class="code hl_define" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(<span class="stringliteral">&quot;Number Command Buffers Committed Per-Frame&quot;</span>), STAT_MetalCommandBufferCommittedPerFrame, STATGROUP_MetalRHI, );</div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span> </div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span><span class="keyword">class </span><a class="code hl_class" href="../../d6/df9/class_f_metal_r_h_i_command_context.html">FMetalRHICommandContext</a>;</div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span><span class="keyword">class </span><a class="code hl_class" href="../../d3/d0e/class_f_metal_sync_point.html">FMetalSyncPoint</a>;</div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span> </div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span><span class="preprocessor">#if WITH_RHI_BREADCRUMBS</span></div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span> </div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span><span class="keyword">enum class</span> EMetalBreadcrumbTrackerType : <a class="code hl_typedef" href="../../dd/de9/preprocessor_8c.html#adde6aaee8457bee49c2a92621fe22b79">uint8</a></div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span>{</div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>    <a class="code hl_enumvalue" href="../../d6/d06/_functional_test_8h.html#abbedc1c19b8320b5bb491c0d123e19aea4bbb8f967da6d1a610596d7257179c2b">Invalid</a> = 0, <span class="comment">// sentinel: a default-constructed tracker asserts in the resolver</span></div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>    <a class="code hl_enumvalue" href="../../d6/d04/_audio_mixer_source_manager_8h.html#a3e2913b31bf054f92fc9e671328d35f5a1a06729125544cab7cee73195fc044f0">Begin</a>,</div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>    <a class="code hl_enumvalue" href="../../d8/d0f/_dataflow_asset_path_nodes_8h.html#aaa631380b8afbe3b7368ca47e1db053ca87557f11575c0ad78e4e28abedc13b6e">End</a>,</div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>    Encode,</div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>};</div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span> </div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span><span class="keyword">class </span><a class="code hl_class" href="../../dd/d55/class_f_metal_command_buffer.html">FMetalCommandBuffer</a>;</div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span> </div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span><span class="keyword">struct </span>FMetalBreadcrumbInstance : <span class="keyword">public</span> <a class="code hl_class" href="../../dc/dba/class_f_ref_counted_object.html">FRefCountedObject</a></div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>{</div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span>    FRHIBreadcrumbNode* <a class="code hl_enumvalue" href="../../dc/d14/_find_in_b_t_8h.html#aff1b3ad900d1554d1fb2a16fb8fe860aa6c3a6944a808a7c0bbb6788dbec54a9f">Node</a> = <span class="keyword">nullptr</span>;</div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>    <span class="keywordtype">bool</span> bWithinRenderPass = <span class="keyword">false</span>;</div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>    <span class="keywordtype">bool</span> bTopResolved = <span class="keyword">false</span>;</div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>    uint64_t* TimestampTOP = <span class="keyword">nullptr</span>;</div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>    uint64_t* TimestampBOP = <span class="keyword">nullptr</span>;</div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span>    TArray&lt;FMetalCounterSamplePtr&gt; Samples;</div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span>    FMetalCommandBuffer* BeginCmdBuffer = <span class="keyword">nullptr</span>;</div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span>};</div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span> </div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span><span class="keyword">struct </span>FMetalBreadcrumbTrackerObject</div>
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span>{</div>
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span>    EMetalBreadcrumbTrackerType <a class="code hl_enumeration" href="../../d9/d10/namespace_e_test_task_message.html#a43749cd8e98c6ad4ce4d3b1f128933e2">Type</a> = EMetalBreadcrumbTrackerType::Invalid;</div>
+<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span>    FMetalCommandBuffer* CmdBuffer = <span class="keyword">nullptr</span>;</div>
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span>    <a class="code hl_typedef" href="../../d2/dcd/_metal_counter_sampler_8h.html#a21d4dbddb036b78a63356907ca1a450f">FMetalCounterSamplePtr</a> CounterSample;</div>
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span>    TRefCountPtr&lt;FMetalBreadcrumbInstance&gt; <a class="code hl_enumvalue" href="../../d9/d15/_session_browser_tree_items_8h.html#a715b5da241ff3f6b4bf2954e0f43e25ead9a17c1c9e8ef6866e4dbeef41c741b2">Instance</a>;   <span class="comment">// null for Encode</span></div>
+<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span>};</div>
+<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span> </div>
+<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span><span class="keyword">class </span>FMetalBreadcrumbProfiler</div>
+<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span>{</div>
+<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span>    <span class="keyword">inline</span> <span class="keyword">static</span> FMetalBreadcrumbProfiler* GetInstance()</div>
+<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span>    {</div>
+<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span>        <span class="keywordflow">if</span>(!<a class="code hl_enumvalue" href="../../d9/d15/_session_browser_tree_items_8h.html#a715b5da241ff3f6b4bf2954e0f43e25ead9a17c1c9e8ef6866e4dbeef41c741b2">Instance</a>)</div>
+<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span>        {</div>
+<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span>            <a class="code hl_enumvalue" href="../../d9/d15/_session_browser_tree_items_8h.html#a715b5da241ff3f6b4bf2954e0f43e25ead9a17c1c9e8ef6866e4dbeef41c741b2">Instance</a> = <span class="keyword">new</span> FMetalBreadcrumbProfiler;</div>
+<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span>        }</div>
+<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span>        <span class="keywordflow">return</span> <a class="code hl_enumvalue" href="../../d9/d15/_session_browser_tree_items_8h.html#a715b5da241ff3f6b4bf2954e0f43e25ead9a17c1c9e8ef6866e4dbeef41c741b2">Instance</a>;</div>
+<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span>    }</div>
+<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span> </div>
+<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span>    ~FMetalBreadcrumbProfiler()</div>
+<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span>    {</div>
+<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span>    }</div>
+<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span> </div>
+<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span>    <span class="keyword">inline</span> TRefCountPtr&lt;FMetalBreadcrumbInstance&gt; GetBreadcrumbEvent(FRHIBreadcrumbNode* <a class="code hl_enumvalue" href="../../dc/d14/_find_in_b_t_8h.html#aff1b3ad900d1554d1fb2a16fb8fe860aa6c3a6944a808a7c0bbb6788dbec54a9f">Node</a>, <span class="keywordtype">bool</span> bWithinRenderPass)</div>
+<div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span>    {</div>
+<div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span>        FScopeLock <a class="code hl_variable" href="../../d9/db1/_unversioned_property_serialization_8cpp.html#aa6a5f618e102b90dfb31e5b43751501f">Lock</a>(&amp;Mutex);</div>
+<div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span>        TRefCountPtr&lt;FMetalBreadcrumbInstance&gt;&amp; InstanceRef = CreatedBreadcrumbs.FindOrAdd(<a class="code hl_enumvalue" href="../../dc/d14/_find_in_b_t_8h.html#aff1b3ad900d1554d1fb2a16fb8fe860aa6c3a6944a808a7c0bbb6788dbec54a9f">Node</a>);</div>
+<div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span>        <span class="keywordflow">if</span> (!InstanceRef.<a class="code hl_function" href="../../d7/d10/class_t_ref_count_ptr.html#a962c09720d726605903861b34e5c193b">IsValid</a>())</div>
+<div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span>        {</div>
+<div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span>            InstanceRef = <span class="keyword">new</span> FMetalBreadcrumbInstance;</div>
+<div class="line"><a id="l00117" name="l00117"></a><span class="lineno">  117</span>            InstanceRef-&gt;Node = <a class="code hl_enumvalue" href="../../dc/d14/_find_in_b_t_8h.html#aff1b3ad900d1554d1fb2a16fb8fe860aa6c3a6944a808a7c0bbb6788dbec54a9f">Node</a>;</div>
+<div class="line"><a id="l00118" name="l00118"></a><span class="lineno">  118</span>        }</div>
+<div class="line"><a id="l00119" name="l00119"></a><span class="lineno">  119</span>        InstanceRef-&gt;bWithinRenderPass |= bWithinRenderPass;</div>
+<div class="line"><a id="l00120" name="l00120"></a><span class="lineno">  120</span>        <span class="keywordflow">return</span> InstanceRef;</div>
+<div class="line"><a id="l00121" name="l00121"></a><span class="lineno">  121</span>    }</div>
+<div class="line"><a id="l00122" name="l00122"></a><span class="lineno">  122</span> </div>
+<div class="line"><a id="l00123" name="l00123"></a><span class="lineno">  123</span>    <span class="keyword">inline</span> <span class="keywordtype">void</span> AddSample(<a class="code hl_typedef" href="../../d2/dcd/_metal_counter_sampler_8h.html#a21d4dbddb036b78a63356907ca1a450f">FMetalCounterSamplePtr</a> Sample)</div>
+<div class="line"><a id="l00124" name="l00124"></a><span class="lineno">  124</span>    {</div>
+<div class="line"><a id="l00125" name="l00125"></a><span class="lineno">  125</span>        <span class="keywordflow">for</span> (<span class="keyword">const</span> TRefCountPtr&lt;FMetalBreadcrumbInstance&gt;&amp; ActiveInstance : ActiveBreadcrumbs)</div>
+<div class="line"><a id="l00126" name="l00126"></a><span class="lineno">  126</span>        {</div>
+<div class="line"><a id="l00127" name="l00127"></a><span class="lineno">  127</span>            ActiveInstance-&gt;Samples.Add(Sample);</div>
+<div class="line"><a id="l00128" name="l00128"></a><span class="lineno">  128</span>        }</div>
+<div class="line"><a id="l00129" name="l00129"></a><span class="lineno">  129</span>    }</div>
+<div class="line"><a id="l00130" name="l00130"></a><span class="lineno">  130</span> </div>
+<div class="line"><a id="l00131" name="l00131"></a><span class="lineno">  131</span>    <span class="keyword">inline</span> <span class="keywordtype">void</span> OnBreadcrumbBegin(FMetalBreadcrumbInstance* InInstance)</div>
+<div class="line"><a id="l00132" name="l00132"></a><span class="lineno">  132</span>    {</div>
+<div class="line"><a id="l00133" name="l00133"></a><span class="lineno">  133</span>        ActiveBreadcrumbs.Add(InInstance);</div>
+<div class="line"><a id="l00134" name="l00134"></a><span class="lineno">  134</span>    }</div>
+<div class="line"><a id="l00135" name="l00135"></a><span class="lineno">  135</span> </div>
+<div class="line"><a id="l00136" name="l00136"></a><span class="lineno">  136</span>    <span class="keyword">inline</span> <span class="keywordtype">void</span> ResolveTopForCmdBuffer(FMetalCommandBuffer* CmdBuffer)</div>
+<div class="line"><a id="l00137" name="l00137"></a><span class="lineno">  137</span>    {</div>
+<div class="line"><a id="l00138" name="l00138"></a><span class="lineno">  138</span>        <span class="keywordflow">for</span> (<span class="keyword">const</span> TRefCountPtr&lt;FMetalBreadcrumbInstance&gt;&amp; ActiveInstance : ActiveBreadcrumbs)</div>
+<div class="line"><a id="l00139" name="l00139"></a><span class="lineno">  139</span>        {</div>
+<div class="line"><a id="l00140" name="l00140"></a><span class="lineno">  140</span>            <span class="keywordflow">if</span> (ActiveInstance-&gt;BeginCmdBuffer != CmdBuffer || ActiveInstance-&gt;bTopResolved)</div>
+<div class="line"><a id="l00141" name="l00141"></a><span class="lineno">  141</span>            {</div>
+<div class="line"><a id="l00142" name="l00142"></a><span class="lineno">  142</span>                <span class="keywordflow">continue</span>;</div>
+<div class="line"><a id="l00143" name="l00143"></a><span class="lineno">  143</span>            }</div>
+<div class="line"><a id="l00144" name="l00144"></a><span class="lineno">  144</span> </div>
+<div class="line"><a id="l00145" name="l00145"></a><span class="lineno">  145</span>            <span class="keywordflow">if</span> (uint64_t* Start = ActiveInstance-&gt;TimestampTOP)</div>
+<div class="line"><a id="l00146" name="l00146"></a><span class="lineno">  146</span>            {</div>
+<div class="line"><a id="l00147" name="l00147"></a><span class="lineno">  147</span>                <span class="keywordflow">if</span> (ActiveInstance-&gt;bWithinRenderPass || ActiveInstance-&gt;Samples.Num() == 0)</div>
+<div class="line"><a id="l00148" name="l00148"></a><span class="lineno">  148</span>                {</div>
+<div class="line"><a id="l00149" name="l00149"></a><span class="lineno">  149</span>                    *<a class="code hl_enumvalue" href="../../d9/d69/namespace_e_notify_state_handle_hit.html#ac6db8802b417440177c93eab96966dc1a54c8468c00a6a206255922c4a8ad24dd">Start</a> = 0;</div>
+<div class="line"><a id="l00150" name="l00150"></a><span class="lineno">  150</span>                }</div>
+<div class="line"><a id="l00151" name="l00151"></a><span class="lineno">  151</span>                <span class="keywordflow">else</span></div>
+<div class="line"><a id="l00152" name="l00152"></a><span class="lineno">  152</span>                {</div>
+<div class="line"><a id="l00153" name="l00153"></a><span class="lineno">  153</span>                    uint64_t MinStart = 0;</div>
+<div class="line"><a id="l00154" name="l00154"></a><span class="lineno">  154</span>                    <span class="keywordflow">for</span> (<span class="keyword">const</span> <a class="code hl_typedef" href="../../d2/dcd/_metal_counter_sampler_8h.html#a21d4dbddb036b78a63356907ca1a450f">FMetalCounterSamplePtr</a>&amp; Sample : ActiveInstance-&gt;Samples)</div>
+<div class="line"><a id="l00155" name="l00155"></a><span class="lineno">  155</span>                    {</div>
+<div class="line"><a id="l00156" name="l00156"></a><span class="lineno">  156</span>                        uint64_t <a class="code hl_enumvalue" href="../../d0/df4/namespace_u_e_1_1_insights.html#a377b3a269fa1fc67956095b0544e994ea9429cf948975e96f8df3da04a7189808">StartTime</a>, <a class="code hl_enumvalue" href="../../d0/df4/namespace_u_e_1_1_insights.html#a377b3a269fa1fc67956095b0544e994ea534f5583e720dccc1ff54730f7cbb759">EndTime</a>;</div>
+<div class="line"><a id="l00157" name="l00157"></a><span class="lineno">  157</span>                        <a class="code hl_function" href="../../da/db6/namespace_field_1_1_perlin_noise.html#a00f50abef87a5b45ef115809d6b63010">Sample</a>-&gt;ResolveStageCounters(StartTime, EndTime);</div>
+<div class="line"><a id="l00158" name="l00158"></a><span class="lineno">  158</span> </div>
+<div class="line"><a id="l00159" name="l00159"></a><span class="lineno">  159</span>                        MinStart = MinStart &gt; 0 ? FMath::Min(StartTime, MinStart) : <a class="code hl_enumvalue" href="../../d0/df4/namespace_u_e_1_1_insights.html#a377b3a269fa1fc67956095b0544e994ea9429cf948975e96f8df3da04a7189808">StartTime</a>;</div>
+<div class="line"><a id="l00160" name="l00160"></a><span class="lineno">  160</span>                    }</div>
+<div class="line"><a id="l00161" name="l00161"></a><span class="lineno">  161</span>                    *<a class="code hl_enumvalue" href="../../d9/d69/namespace_e_notify_state_handle_hit.html#ac6db8802b417440177c93eab96966dc1a54c8468c00a6a206255922c4a8ad24dd">Start</a> = MinStart;</div>
+<div class="line"><a id="l00162" name="l00162"></a><span class="lineno">  162</span>                }</div>
+<div class="line"><a id="l00163" name="l00163"></a><span class="lineno">  163</span>            }</div>
+<div class="line"><a id="l00164" name="l00164"></a><span class="lineno">  164</span>            ActiveInstance-&gt;bTopResolved = <span class="keyword">true</span>;</div>
+<div class="line"><a id="l00165" name="l00165"></a><span class="lineno">  165</span>        }</div>
+<div class="line"><a id="l00166" name="l00166"></a><span class="lineno">  166</span>    }</div>
+<div class="line"><a id="l00167" name="l00167"></a><span class="lineno">  167</span> </div>
+<div class="line"><a id="l00168" name="l00168"></a><span class="lineno">  168</span>    <span class="keyword">inline</span> <span class="keywordtype">void</span> OnBreadcrumbEnd(FMetalBreadcrumbInstance* InInstance)</div>
+<div class="line"><a id="l00169" name="l00169"></a><span class="lineno">  169</span>    {</div>
+<div class="line"><a id="l00170" name="l00170"></a><span class="lineno">  170</span>        uint64_t* <a class="code hl_enumvalue" href="../../d9/d69/namespace_e_notify_state_handle_hit.html#ac6db8802b417440177c93eab96966dc1a54c8468c00a6a206255922c4a8ad24dd">Start</a> = InInstance-&gt;bTopResolved ? nullptr : InInstance-&gt;TimestampTOP;</div>
+<div class="line"><a id="l00171" name="l00171"></a><span class="lineno">  171</span>        uint64_t* <a class="code hl_enumvalue" href="../../d8/d0f/_dataflow_asset_path_nodes_8h.html#aaa631380b8afbe3b7368ca47e1db053ca87557f11575c0ad78e4e28abedc13b6e">End</a>   = InInstance-&gt;TimestampBOP;</div>
+<div class="line"><a id="l00172" name="l00172"></a><span class="lineno">  172</span> </div>
+<div class="line"><a id="l00173" name="l00173"></a><span class="lineno">  173</span>        <span class="keywordflow">if</span> (InInstance-&gt;bWithinRenderPass || InInstance-&gt;Samples.Num() == 0)</div>
+<div class="line"><a id="l00174" name="l00174"></a><span class="lineno">  174</span>        {</div>
+<div class="line"><a id="l00175" name="l00175"></a><span class="lineno">  175</span>            <span class="keywordflow">if</span> (Start) </div>
+<div class="line"><a id="l00176" name="l00176"></a><span class="lineno">  176</span>            { </div>
+<div class="line"><a id="l00177" name="l00177"></a><span class="lineno">  177</span>                *<a class="code hl_enumvalue" href="../../d9/d69/namespace_e_notify_state_handle_hit.html#ac6db8802b417440177c93eab96966dc1a54c8468c00a6a206255922c4a8ad24dd">Start</a> = 0; </div>
+<div class="line"><a id="l00178" name="l00178"></a><span class="lineno">  178</span>            } </div>
+<div class="line"><a id="l00179" name="l00179"></a><span class="lineno">  179</span>            <span class="keywordflow">if</span> (<a class="code hl_enumvalue" href="../../d8/d0f/_dataflow_asset_path_nodes_8h.html#aaa631380b8afbe3b7368ca47e1db053ca87557f11575c0ad78e4e28abedc13b6e">End</a>)</div>
+<div class="line"><a id="l00180" name="l00180"></a><span class="lineno">  180</span>            {</div>
+<div class="line"><a id="l00181" name="l00181"></a><span class="lineno">  181</span>                *<a class="code hl_enumvalue" href="../../d8/d0f/_dataflow_asset_path_nodes_8h.html#aaa631380b8afbe3b7368ca47e1db053ca87557f11575c0ad78e4e28abedc13b6e">End</a> = 0;</div>
+<div class="line"><a id="l00182" name="l00182"></a><span class="lineno">  182</span>            }</div>
+<div class="line"><a id="l00183" name="l00183"></a><span class="lineno">  183</span>        }</div>
+<div class="line"><a id="l00184" name="l00184"></a><span class="lineno">  184</span>        <span class="keywordflow">else</span></div>
+<div class="line"><a id="l00185" name="l00185"></a><span class="lineno">  185</span>        {</div>
+<div class="line"><a id="l00186" name="l00186"></a><span class="lineno">  186</span>            <span class="keywordflow">for</span> (<span class="keyword">const</span> <a class="code hl_typedef" href="../../d2/dcd/_metal_counter_sampler_8h.html#a21d4dbddb036b78a63356907ca1a450f">FMetalCounterSamplePtr</a>&amp; Sample : InInstance-&gt;Samples)</div>
+<div class="line"><a id="l00187" name="l00187"></a><span class="lineno">  187</span>            {</div>
+<div class="line"><a id="l00188" name="l00188"></a><span class="lineno">  188</span>                uint64_t <a class="code hl_enumvalue" href="../../d0/df4/namespace_u_e_1_1_insights.html#a377b3a269fa1fc67956095b0544e994ea9429cf948975e96f8df3da04a7189808">StartTime</a>, <a class="code hl_enumvalue" href="../../d0/df4/namespace_u_e_1_1_insights.html#a377b3a269fa1fc67956095b0544e994ea534f5583e720dccc1ff54730f7cbb759">EndTime</a>;</div>
+<div class="line"><a id="l00189" name="l00189"></a><span class="lineno">  189</span>                <a class="code hl_function" href="../../da/db6/namespace_field_1_1_perlin_noise.html#a00f50abef87a5b45ef115809d6b63010">Sample</a>-&gt;ResolveStageCounters(StartTime, EndTime);</div>
+<div class="line"><a id="l00190" name="l00190"></a><span class="lineno">  190</span>                <span class="keywordflow">if</span> (Start) </div>
+<div class="line"><a id="l00191" name="l00191"></a><span class="lineno">  191</span>                { </div>
+<div class="line"><a id="l00192" name="l00192"></a><span class="lineno">  192</span>                    *<a class="code hl_enumvalue" href="../../d9/d69/namespace_e_notify_state_handle_hit.html#ac6db8802b417440177c93eab96966dc1a54c8468c00a6a206255922c4a8ad24dd">Start</a> = *<a class="code hl_enumvalue" href="../../d9/d69/namespace_e_notify_state_handle_hit.html#ac6db8802b417440177c93eab96966dc1a54c8468c00a6a206255922c4a8ad24dd">Start</a> &gt; 0 ? FMath::Min(StartTime, *Start) : <a class="code hl_enumvalue" href="../../d0/df4/namespace_u_e_1_1_insights.html#a377b3a269fa1fc67956095b0544e994ea9429cf948975e96f8df3da04a7189808">StartTime</a>;</div>
+<div class="line"><a id="l00193" name="l00193"></a><span class="lineno">  193</span>                }</div>
+<div class="line"><a id="l00194" name="l00194"></a><span class="lineno">  194</span>                <span class="keywordflow">if</span> (<a class="code hl_enumvalue" href="../../d8/d0f/_dataflow_asset_path_nodes_8h.html#aaa631380b8afbe3b7368ca47e1db053ca87557f11575c0ad78e4e28abedc13b6e">End</a>)</div>
+<div class="line"><a id="l00195" name="l00195"></a><span class="lineno">  195</span>                { </div>
+<div class="line"><a id="l00196" name="l00196"></a><span class="lineno">  196</span>                    *<a class="code hl_enumvalue" href="../../d8/d0f/_dataflow_asset_path_nodes_8h.html#aaa631380b8afbe3b7368ca47e1db053ca87557f11575c0ad78e4e28abedc13b6e">End</a> = *<a class="code hl_enumvalue" href="../../d8/d0f/_dataflow_asset_path_nodes_8h.html#aaa631380b8afbe3b7368ca47e1db053ca87557f11575c0ad78e4e28abedc13b6e">End</a> &gt; 0 ? FMath::Max(EndTime, *<a class="code hl_enumvalue" href="../../d8/d0f/_dataflow_asset_path_nodes_8h.html#aaa631380b8afbe3b7368ca47e1db053ca87557f11575c0ad78e4e28abedc13b6e">End</a>) : <a class="code hl_enumvalue" href="../../d0/df4/namespace_u_e_1_1_insights.html#a377b3a269fa1fc67956095b0544e994ea534f5583e720dccc1ff54730f7cbb759">EndTime</a>;</div>
+<div class="line"><a id="l00197" name="l00197"></a><span class="lineno">  197</span>                }</div>
+<div class="line"><a id="l00198" name="l00198"></a><span class="lineno">  198</span>            }</div>
+<div class="line"><a id="l00199" name="l00199"></a><span class="lineno">  199</span>        }</div>
+<div class="line"><a id="l00200" name="l00200"></a><span class="lineno">  200</span>        InInstance-&gt;bTopResolved = <span class="keyword">true</span>;</div>
+<div class="line"><a id="l00201" name="l00201"></a><span class="lineno">  201</span> </div>
+<div class="line"><a id="l00202" name="l00202"></a><span class="lineno">  202</span>        ActiveBreadcrumbs.Remove(InInstance);</div>
+<div class="line"><a id="l00203" name="l00203"></a><span class="lineno">  203</span>        CreatedBreadcrumbs.Remove(InInstance-&gt;Node);</div>
+<div class="line"><a id="l00204" name="l00204"></a><span class="lineno">  204</span>    }</div>
+<div class="line"><a id="l00205" name="l00205"></a><span class="lineno">  205</span> </div>
+<div class="line"><a id="l00206" name="l00206"></a><span class="lineno">  206</span>    <span class="comment">// Resolves all the breadcrumbs added to the command buffer</span></div>
+<div class="line"><a id="l00207" name="l00207"></a><span class="lineno">  207</span>    <span class="keywordtype">void</span> ResolveBreadcrumbTrackerStream(FMetalCommandBuffer* CmdBuffer);</div>
+<div class="line"><a id="l00208" name="l00208"></a><span class="lineno">  208</span> </div>
+<div class="line"><a id="l00209" name="l00209"></a><span class="lineno">  209</span><span class="keyword">private</span>:</div>
+<div class="line"><a id="l00210" name="l00210"></a><span class="lineno">  210</span>    TArray&lt;TRefCountPtr&lt;FMetalBreadcrumbInstance&gt;&gt; ActiveBreadcrumbs;</div>
+<div class="line"><a id="l00211" name="l00211"></a><span class="lineno">  211</span> </div>
+<div class="line"><a id="l00212" name="l00212"></a><span class="lineno">  212</span>    TMap&lt;FRHIBreadcrumbNode*, TRefCountPtr&lt;FMetalBreadcrumbInstance&gt;&gt; CreatedBreadcrumbs;</div>
+<div class="line"><a id="l00213" name="l00213"></a><span class="lineno">  213</span> </div>
+<div class="line"><a id="l00214" name="l00214"></a><span class="lineno">  214</span>    <span class="keyword">static</span> FMetalBreadcrumbProfiler* <a class="code hl_enumvalue" href="../../d9/d15/_session_browser_tree_items_8h.html#a715b5da241ff3f6b4bf2954e0f43e25ead9a17c1c9e8ef6866e4dbeef41c741b2">Instance</a>;</div>
+<div class="line"><a id="l00215" name="l00215"></a><span class="lineno">  215</span>    <a class="code hl_typedef" href="../../df/d05/_critical_section_8h.html#a3493a225a68d4748d7b1c85e8ae9d0b5">FCriticalSection</a> <a class="code hl_variable" href="../../d9/dfe/namespace_mesh_paint_virtual_texture.html#a0eb2380415dc409a16822be12d8ea00d">Mutex</a>;</div>
+<div class="line"><a id="l00216" name="l00216"></a><span class="lineno">  216</span>};</div>
+<div class="line"><a id="l00217" name="l00217"></a><span class="lineno">  217</span> </div>
+<div class="line"><a id="l00218" name="l00218"></a><span class="lineno">  218</span><span class="preprocessor">#endif</span></div>
+<div class="ttc" id="a_audio_mixer_source_manager_8h_html_a3e2913b31bf054f92fc9e671328d35f5a1a06729125544cab7cee73195fc044f0"><div class="ttname"><a href="../../d6/d04/_audio_mixer_source_manager_8h.html#a3e2913b31bf054f92fc9e671328d35f5a1a06729125544cab7cee73195fc044f0">ESourceManagerRenderThreadPhase::Begin</a></div><div class="ttdeci">@ Begin</div><div class="ttdef"><b>定义</b> AudioMixerSourceManager.h:56</div></div>
+<div class="ttc" id="a_core_2_public_2_h_a_l_2_platform_8h_html_a2978f60d40d64f3605b5a99f66f292a9"><div class="ttname"><a href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a></div><div class="ttdeci">#define TEXT(x)</div><div class="ttdef"><b>定义</b> Platform.h:1332</div></div>
+<div class="ttc" id="a_critical_section_8h_html_a3493a225a68d4748d7b1c85e8ae9d0b5"><div class="ttname"><a href="../../df/d05/_critical_section_8h.html#a3493a225a68d4748d7b1c85e8ae9d0b5">FCriticalSection</a></div><div class="ttdeci">UE::FPlatformRecursiveMutex FCriticalSection</div><div class="ttdef"><b>定义</b> CriticalSection.h:53</div></div>
+<div class="ttc" id="a_dataflow_asset_path_nodes_8h_html_aaa631380b8afbe3b7368ca47e1db053ca87557f11575c0ad78e4e28abedc13b6e"><div class="ttname"><a href="../../d8/d0f/_dataflow_asset_path_nodes_8h.html#aaa631380b8afbe3b7368ca47e1db053ca87557f11575c0ad78e4e28abedc13b6e">EDataflowPathReplaceMethod::End</a></div><div class="ttdeci">@ End</div><div class="ttdef"><b>定义</b> DataflowAssetPathNodes.h:46</div></div>
+<div class="ttc" id="a_delegate_combinations_8h_html_a74b6271cb85a7fa325e5fa753fcf79c5"><div class="ttname"><a href="../../d6/d40/_delegate_combinations_8h.html#a74b6271cb85a7fa325e5fa753fcf79c5">DECLARE_DELEGATE_OneParam</a></div><div class="ttdeci">#define DECLARE_DELEGATE_OneParam(DelegateName, Param1Type)</div><div class="ttdef"><b>定义</b> DelegateCombinations.h:48</div></div>
+<div class="ttc" id="a_find_in_b_t_8h_html_aff1b3ad900d1554d1fb2a16fb8fe860aa6c3a6944a808a7c0bbb6788dbec54a9f"><div class="ttname"><a href="../../dc/d14/_find_in_b_t_8h.html#aff1b3ad900d1554d1fb2a16fb8fe860aa6c3a6944a808a7c0bbb6788dbec54a9f">EFindInBTSearchType::Node</a></div><div class="ttdeci">@ Node</div><div class="ttdef"><b>定义</b> FindInBT.h:35</div></div>
+<div class="ttc" id="a_functional_test_8h_html_abbedc1c19b8320b5bb491c0d123e19aea4bbb8f967da6d1a610596d7257179c2b"><div class="ttname"><a href="../../d6/d06/_functional_test_8h.html#abbedc1c19b8320b5bb491c0d123e19aea4bbb8f967da6d1a610596d7257179c2b">EFunctionalTestResult::Invalid</a></div><div class="ttdeci">@ Invalid</div><div class="ttdef"><b>定义</b> FunctionalTest.h:203</div></div>
+<div class="ttc" id="a_g_p_u_profiler_8h_html"><div class="ttname"><a href="../../df/ddd/_g_p_u_profiler_8h.html">GPUProfiler.h</a></div></div>
+<div class="ttc" id="a_metal_counter_sampler_8h_html"><div class="ttname"><a href="../../d2/dcd/_metal_counter_sampler_8h.html">MetalCounterSampler.h</a></div></div>
+<div class="ttc" id="a_metal_counter_sampler_8h_html_a21d4dbddb036b78a63356907ca1a450f"><div class="ttname"><a href="../../d2/dcd/_metal_counter_sampler_8h.html#a21d4dbddb036b78a63356907ca1a450f">FMetalCounterSamplePtr</a></div><div class="ttdeci">TSharedPtr&lt; FMetalCounterSample &gt; FMetalCounterSamplePtr</div><div class="ttdef"><b>定义</b> MetalCounterSampler.h:62</div></div>
+<div class="ttc" id="a_metal_r_h_i_private_8h_html"><div class="ttname"><a href="../../d8/df1/_metal_r_h_i_private_8h.html">MetalRHIPrivate.h</a></div></div>
+<div class="ttc" id="a_r_h_i_breadcrumbs_8h_html"><div class="ttname"><a href="../../da/db9/_r_h_i_breadcrumbs_8h.html">RHIBreadcrumbs.h</a></div></div>
+<div class="ttc" id="a_ref_counting_8h_html"><div class="ttname"><a href="../../d3/d13/_ref_counting_8h.html">RefCounting.h</a></div></div>
+<div class="ttc" id="a_session_browser_tree_items_8h_html_a715b5da241ff3f6b4bf2954e0f43e25ead9a17c1c9e8ef6866e4dbeef41c741b2"><div class="ttname"><a href="../../d9/d15/_session_browser_tree_items_8h.html#a715b5da241ff3f6b4bf2954e0f43e25ead9a17c1c9e8ef6866e4dbeef41c741b2">ESessionBrowserTreeNodeType::Instance</a></div><div class="ttdeci">@ Instance</div><div class="ttdef"><b>定义</b> SessionBrowserTreeItems.h:12</div></div>
+<div class="ttc" id="a_stats_8h_html_a3494f939a33bca697e021a19374b81ac"><div class="ttname"><a href="../../d3/d48/_stats_8h.html#a3494f939a33bca697e021a19374b81ac">DECLARE_CYCLE_STAT_EXTERN</a></div><div class="ttdeci">#define DECLARE_CYCLE_STAT_EXTERN(CounterName, StatId, GroupId, API)</div><div class="ttdef"><b>定义</b> Stats.h:663</div></div>
+<div class="ttc" id="a_stats_8h_html_a6fad5619add89ed8c1ca894358cbe5e9"><div class="ttname"><a href="../../d3/d48/_stats_8h.html#a6fad5619add89ed8c1ca894358cbe5e9">DECLARE_DWORD_COUNTER_STAT_EXTERN</a></div><div class="ttdeci">#define DECLARE_DWORD_COUNTER_STAT_EXTERN(CounterName, StatId, GroupId, API)</div><div class="ttdef"><b>定义</b> Stats.h:666</div></div>
+<div class="ttc" id="a_stats_8h_html_ab0e48b4d74b79d1e6a0528cfa90d3f06"><div class="ttname"><a href="../../d3/d48/_stats_8h.html#ab0e48b4d74b79d1e6a0528cfa90d3f06">DECLARE_DWORD_ACCUMULATOR_STAT_EXTERN</a></div><div class="ttdeci">#define DECLARE_DWORD_ACCUMULATOR_STAT_EXTERN(CounterName, StatId, GroupId, API)</div><div class="ttdef"><b>定义</b> Stats.h:668</div></div>
+<div class="ttc" id="a_stats_8h_html_afa7682aa3f046162e078933f835251dd"><div class="ttname"><a href="../../d3/d48/_stats_8h.html#afa7682aa3f046162e078933f835251dd">DECLARE_MEMORY_STAT_EXTERN</a></div><div class="ttdeci">#define DECLARE_MEMORY_STAT_EXTERN(CounterName, StatId, GroupId, API)</div><div class="ttdef"><b>定义</b> Stats.h:671</div></div>
+<div class="ttc" id="a_unversioned_property_serialization_8cpp_html_aa6a5f618e102b90dfb31e5b43751501f"><div class="ttname"><a href="../../d9/db1/_unversioned_property_serialization_8cpp.html#aa6a5f618e102b90dfb31e5b43751501f">Lock</a></div><div class="ttdeci">FRWLock Lock</div><div class="ttdef"><b>定义</b> UnversionedPropertySerialization.cpp:939</div></div>
+<div class="ttc" id="aclass_f_metal_command_buffer_html"><div class="ttname"><a href="../../dd/d55/class_f_metal_command_buffer.html">FMetalCommandBuffer</a></div><div class="ttdef"><b>定义</b> MetalCommandBuffer.h:13</div></div>
+<div class="ttc" id="aclass_f_metal_r_h_i_command_context_html"><div class="ttname"><a href="../../d6/df9/class_f_metal_r_h_i_command_context.html">FMetalRHICommandContext</a></div><div class="ttdef"><b>定义</b> MetalRHIContext.h:45</div></div>
+<div class="ttc" id="aclass_f_metal_sync_point_html"><div class="ttname"><a href="../../d3/d0e/class_f_metal_sync_point.html">FMetalSyncPoint</a></div><div class="ttdef"><b>定义</b> MetalSubmission.h:64</div></div>
+<div class="ttc" id="aclass_f_ref_counted_object_html"><div class="ttname"><a href="../../dc/dba/class_f_ref_counted_object.html">FRefCountedObject</a></div><div class="ttdef"><b>定义</b> RefCounting.h:119</div></div>
+<div class="ttc" id="aclass_t_ref_count_ptr_html_a962c09720d726605903861b34e5c193b"><div class="ttname"><a href="../../d7/d10/class_t_ref_count_ptr.html#a962c09720d726605903861b34e5c193b">TRefCountPtr::IsValid</a></div><div class="ttdeci">UE_FORCEINLINE_HINT bool IsValid() const</div><div class="ttdef"><b>定义</b> RefCounting.h:430</div></div>
+<div class="ttc" id="anamespace_e_notify_state_handle_hit_html_ac6db8802b417440177c93eab96966dc1a54c8468c00a6a206255922c4a8ad24dd"><div class="ttname"><a href="../../d9/d69/namespace_e_notify_state_handle_hit.html#ac6db8802b417440177c93eab96966dc1a54c8468c00a6a206255922c4a8ad24dd">ENotifyStateHandleHit::Start</a></div><div class="ttdeci">@ Start</div><div class="ttdef"><b>定义</b> SAnimNotifyShared.h:20</div></div>
+<div class="ttc" id="anamespace_e_test_task_message_html_a43749cd8e98c6ad4ce4d3b1f128933e2"><div class="ttname"><a href="../../d9/d10/namespace_e_test_task_message.html#a43749cd8e98c6ad4ce4d3b1f128933e2">ETestTaskMessage::Type</a></div><div class="ttdeci">Type</div><div class="ttdef"><b>定义</b> MockGameplayTasks.h:19</div></div>
+<div class="ttc" id="anamespace_field_1_1_perlin_noise_html_a00f50abef87a5b45ef115809d6b63010"><div class="ttname"><a href="../../da/db6/namespace_field_1_1_perlin_noise.html#a00f50abef87a5b45ef115809d6b63010">Field::PerlinNoise::Sample</a></div><div class="ttdeci">void Sample(float *Dst, float X, float Y, float Z)</div><div class="ttdef"><b>定义</b> FieldSystemNoiseAlgo.cpp:59</div></div>
+<div class="ttc" id="anamespace_mesh_paint_virtual_texture_html_a0eb2380415dc409a16822be12d8ea00d"><div class="ttname"><a href="../../d9/dfe/namespace_mesh_paint_virtual_texture.html#a0eb2380415dc409a16822be12d8ea00d">MeshPaintVirtualTexture::Mutex</a></div><div class="ttdeci">UE::FRecursiveMutex Mutex</div><div class="ttdef"><b>定义</b> MeshPaintVirtualTexture.cpp:162</div></div>
+<div class="ttc" id="anamespace_u_e_1_1_insights_html_a377b3a269fa1fc67956095b0544e994ea534f5583e720dccc1ff54730f7cbb759"><div class="ttname"><a href="../../d0/df4/namespace_u_e_1_1_insights.html#a377b3a269fa1fc67956095b0544e994ea534f5583e720dccc1ff54730f7cbb759">UE::Insights::EFilterField::EndTime</a></div><div class="ttdeci">@ EndTime</div><div class="ttdef"><b>定义</b> Filters.h:74</div></div>
+<div class="ttc" id="anamespace_u_e_1_1_insights_html_a377b3a269fa1fc67956095b0544e994ea9429cf948975e96f8df3da04a7189808"><div class="ttname"><a href="../../d0/df4/namespace_u_e_1_1_insights.html#a377b3a269fa1fc67956095b0544e994ea9429cf948975e96f8df3da04a7189808">UE::Insights::EFilterField::StartTime</a></div><div class="ttdeci">@ StartTime</div><div class="ttdef"><b>定义</b> Filters.h:73</div></div>
+<div class="ttc" id="apreprocessor_8c_html_adde6aaee8457bee49c2a92621fe22b79"><div class="ttname"><a href="../../dd/de9/preprocessor_8c.html#adde6aaee8457bee49c2a92621fe22b79">uint8</a></div><div class="ttdeci">unsigned char uint8</div><div class="ttdef"><b>定义</b> preprocessor.c:65</div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+</div><!-- container -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a href="../../dir_0b6ee6e7e9547e675db4add2e5de97da.html">Engine</a></li><li class="navelem"><a href="../../dir_9579d1ecb2c7bf48cbe1049c41745cb4.html">Source</a></li><li class="navelem"><a href="../../dir_9f04efef762572853abdf73f62bebfcc.html">Runtime</a></li><li class="navelem"><a href="../../dir_05d919978e5b7878b3818d860fb97d16.html">Apple</a></li><li class="navelem"><a href="../../dir_9501e3cb84f3296a7a7a0837517b721e.html">MetalRHI</a></li><li class="navelem"><a href="../../dir_b549f56f8019ad8496b256d8421f4b3b.html">Private</a></li><li class="navelem"><a href="../../d1/dd9/_metal_profiler_8h.html">MetalProfiler.h</a></li>
+    <li class="footer">制作者 <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.15.0 </li>
+  </ul>
+</div>
+</body>
+</html>

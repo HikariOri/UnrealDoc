@@ -1,0 +1,1800 @@
+<!-- HTML header for doxygen 1.15.0-->
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh">
+<head>
+  <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=11" />
+  <meta name="generator" content="Doxygen 1.15.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>UE 5.8.4: Engine/Source/Runtime/CoreUObject/Private/UObject/UObjectHash.cpp 文件参考</title>
+  <link rel="icon" href="../../EdIconDefault.bmp" type="image/x-icon" />
+  <link href="../../tabs.css" rel="stylesheet" type="text/css" />
+  <script type="text/javascript" src="../../jquery.js"></script>
+  <script type="text/javascript" src="../../dynsections.js"></script>
+  <link href="../../navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../navtreedata.js"></script>
+<script type="text/javascript" src="../../navtree.js"></script>
+<script type="text/javascript" src="../../cookie.js"></script>
+  <link href="../../search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../search/searchdata.js"></script>
+<script type="text/javascript" src="../../search/search.js"></script>
+  <script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  extensions: ["tex2jax.js"],
+  jax: ["input/TeX","output/HTML-CSS"],
+});
+</script>
+<script type="text/javascript" async="async" src="https://cdn.jsdelivr.net/npm/mathjax@2/MathJax.js"></script>
+  <link href="../../doxygen.css" rel="stylesheet" type="text/css" />
+  <link href="../../doxygen-awesome.css" rel="stylesheet" type="text/css"/>
+<link href="../../doxygen-awesome-sidebar-only.css" rel="stylesheet" type="text/css"/>
+<link href="../../doxygen-awesome-sidebar-only-darkmode-toggle.css" rel="stylesheet" type="text/css"/>
+  <!-- ... other metadata & script includes ... -->
+  <script type="text/javascript" src="../../doxygen-awesome-darkmode-toggle.js"></script>
+  <script type="text/javascript">
+    DoxygenAwesomeDarkModeToggle.title = "Zwischen hellem/dunklem Modus wechseln"
+    DoxygenAwesomeDarkModeToggle.lightModeIcon = '🌞'
+    // icon from https://fonts.google.com/icons
+    DoxygenAwesomeDarkModeToggle.darkModeIcon = `<svg xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 24 24" height="24px" viewBox="0 0 24 24" width="24px" fill="#009793"><g><rect fill="none" height="24" width="24"/></g><g><g><path d="M8.1,14.15C9.77,14.63,11,16.17,11,18c0,0.68-0.19,1.31-0.48,1.87c0.48,0.09,0.97,0.14,1.48,0.14 c1.48,0,2.9-0.41,4.13-1.15c-2.62-0.92-5.23-2.82-6.8-5.86C7.74,9.94,7.78,7.09,8.29,4.9c-2.57,1.33-4.3,4.01-4.3,7.1c0,0,0,0,0,0 c0.01,0,0.01,0,0.02,0C5.66,12,7.18,12.83,8.1,14.15z" opacity=".3"/><path d="M19.78,17.51c-2.47,0-6.57-1.33-8.68-5.43C8.77,7.57,10.6,3.6,11.63,2.01C6.27,2.2,1.98,6.59,1.98,12 c0,0.14,0.02,0.28,0.02,0.42C2.61,12.16,3.28,12,3.98,12c0,0,0,0,0,0c0-3.09,1.73-5.77,4.3-7.1C7.78,7.09,7.74,9.94,9.32,13 c1.57,3.04,4.18,4.95,6.8,5.86c-1.23,0.74-2.65,1.15-4.13,1.15c-0.5,0-1-0.05-1.48-0.14c-0.37,0.7-0.94,1.27-1.64,1.64 c0.98,0.32,2.03,0.5,3.11,0.5c3.5,0,6.58-1.8,8.37-4.52C20.18,17.5,19.98,17.51,19.78,17.51z"/><path d="M7,16l-0.18,0C6.4,14.84,5.3,14,4,14c-1.66,0-3,1.34-3,3s1.34,3,3,3c0.62,0,2.49,0,3,0c1.1,0,2-0.9,2-2 C9,16.9,8.1,16,7,16z"/></g></g></svg>`
+    DoxygenAwesomeDarkModeToggle.init()
+  </script>
+  <script type="text/javascript" src="../../doxygen-awesome-fragment-copy-button.js"></script>
+  <script type="text/javascript">
+    DoxygenAwesomeFragmentCopyButton.title = "In die Zwischenablage kopieren"
+    // DoxygenAwesomeFragmentCopyButton.copyIcon = `<svg ...>`
+    // DoxygenAwesomeFragmentCopyButton.successIcon = `<svg ...>`
+    DoxygenAwesomeFragmentCopyButton.init()
+  </script>
+  <script type="text/javascript" src="../../doxygen-awesome-paragraph-link.js"></script>
+  <script type="text/javascript">
+    DoxygenAwesomeParagraphLink.title = "Abschnitt verknüpfen"
+    DoxygenAwesomeParagraphLink.icon = "¶"
+    DoxygenAwesomeParagraphLink.init()
+  </script>
+  <script type="text/javascript" src="../../doxygen-awesome-interactive-toc.js"></script>
+  <script type="text/javascript">
+    DoxygenAwesomeInteractiveToc.topOffset = 45
+    DoxygenAwesomeInteractiveToc.hideMobileMenu = false
+    DoxygenAwesomeInteractiveToc.init()
+  </script>
+</head>
+<body>
+    <div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+      <div id="titlearea">
+        <table cellspacing="0" cellpadding="0">
+          <tbody>
+            <tr id="projectrow">
+              <td id="projectlogo"><img alt="Logo" src="../../EdIconDefault.bmp"  /></td>
+              <td id="projectalign">
+                <div id="projectname">UE 5.8.4
+                </div>
+                <div id="projectbrief">Unreal Engine</div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <!-- end header part -->
+<!-- 制作者 Doxygen 1.15.0 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "../../search/",'.html');
+</script>
+<script type="text/javascript">
+$(function() { codefold.init(); });
+</script>
+<script type="text/javascript" src="../../menudata.js"></script>
+<script type="text/javascript" src="../../menu.js"></script>
+<script type="text/javascript">
+$(function() {
+  initMenu('../../',true,false,'search.php','搜索',true);
+  $(function() { init_search(); });
+});
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(function(){initNavTree('d4/de9/_u_object_hash_8cpp.html','../../',''); });
+</script>
+<div id="container">
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">载入中...</div>
+<div class="SRStatus" id="Searching">搜索中...</div>
+<div class="SRStatus" id="NoMatches">未找到</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">UObjectHash.cpp 文件参考</div></div>
+</div><!--header-->
+<div class="contents">
+<div class="textblock"><code>#include &quot;<a class="el" href="../../dc/d50/_u_object_hash_8h_source.html">UObject/UObjectHash.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../db/d60/_compact_set_8h_source.html">Containers/CompactSet.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d9/dc8/_low_level_mem_tracker_8h_source.html">HAL/LowLevelMemTracker.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d4/d75/_assertion_macros_8h_source.html">Misc/AssertionMacros.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../df/d0a/_transactionally_safe_critical_section_8h_source.html">Misc/TransactionallySafeCriticalSection.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../de/d5d/_class_8h_source.html">UObject/Class.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d7/d91/_garbage_collection_globals_8h_source.html">UObject/GarbageCollectionGlobals.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d9/d40/_package_8h_source.html">UObject/Package.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../dc/df2/_remote_object_private_8h_source.html">UObject/RemoteObjectPrivate.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d7/d6a/_object_handle_private_8h_source.html">UObject/ObjectHandlePrivate.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../de/d1c/_u_object_iterator_8h_source.html">UObject/UObjectIterator.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d2/d57/_object_visibility_8h_source.html">UObject/ObjectVisibility.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../dd/de8/_casts_8h_source.html">Templates/Casts.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../dc/d3d/_ascii_set_8h_source.html">Misc/AsciiSet.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../de/dd3/_package_name_8h_source.html">Misc/PackageName.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d3/d90/_core_2_public_2_async_2_parallel_for_8h_source.html">Async/ParallelFor.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d4/dd9/_i_console_manager_8h_source.html">HAL/IConsoleManager.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d6/dab/_low_level_mem_stats_8h_source.html">HAL/LowLevelMemStats.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../de/d21/_metadata_trace_8h_source.html">ProfilingDebugging/MetadataTrace.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../da/d83/_auto_r_t_f_m_8h_source.html">AutoRTFM.h</a>&quot;</code><br />
+<code>#include &lt;atomic&gt;</code><br />
+</div><div class="textblock"><div class="dynheader">
+UObjectHash.cpp 的引用(Include)关系图:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d8/da3/_u_object_hash_8cpp__incl.svg" width="4260" height="806"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+</div><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-nested-classes" class="groupheader"><a id="nested-classes" name="nested-classes"></a>
+类</h2></td></tr>
+<tr class="memitem:FSetHashBucket" id="r_FSetHashBucket"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d8/d9d/struct_f_set_hash_bucket.html">FSetHashBucket</a></td></tr>
+<tr class="memitem:FArrayHashBucket" id="r_FArrayHashBucket"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/d50/struct_f_array_hash_bucket.html">FArrayHashBucket</a></td></tr>
+<tr class="memitem:FArrayHashBucket_3A_3AFObjectsArray" id="r_FArrayHashBucket_3A_3AFObjectsArray"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/d29/struct_f_array_hash_bucket_1_1_f_objects_array.html">FArrayHashBucket::FObjectsArray</a></td></tr>
+<tr class="memitem:THashBucketIterator_3C_20T_20_3E" id="r_THashBucketIterator_3C_20T_20_3E"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/d9e/struct_t_hash_bucket_iterator.html">THashBucketIterator&lt; T &gt;</a></td></tr>
+<tr class="memitem:TBucketMap_3C_20T_2C_20K_20_3E" id="r_TBucketMap_3C_20T_2C_20K_20_3E"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d2/d74/class_t_bucket_map.html">TBucketMap&lt; T, K &gt;</a></td></tr>
+<tr class="memitem:TBucketMapLock_3C_20T_20_3E" id="r_TBucketMapLock_3C_20T_20_3E"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/d19/struct_t_bucket_map_lock.html">TBucketMapLock&lt; T &gt;</a></td></tr>
+<tr class="memitem:FUObjectHashTables" id="r_FUObjectHashTables"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/d06/class_f_u_object_hash_tables.html">FUObjectHashTables</a></td></tr>
+<tr class="memitem:FHashTableLock" id="r_FHashTableLock"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d2/d07/class_f_hash_table_lock.html">FHashTableLock</a></td></tr>
+<tr class="memitem:FObjectSearchPath" id="r_FObjectSearchPath"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/dc5/struct_f_object_search_path.html">FObjectSearchPath</a></td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-define-members" class="groupheader"><a id="define-members" name="define-members"></a>
+宏定义</h2></td></tr>
+<tr class="memitem:a6ba2d1fc8000c921e195f32cb96419bd" id="r_a6ba2d1fc8000c921e195f32cb96419bd"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6ba2d1fc8000c921e195f32cb96419bd">UE_UOBJECT_HASH_USES_ARRAYS</a>&#160;&#160;&#160;0</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-typedef-members" class="groupheader"><a id="typedef-members" name="typedef-members"></a>
+类型定义</h2></td></tr>
+<tr class="memitem:a85af4b91be66eb1657c086223c812162" id="r_a85af4b91be66eb1657c086223c812162"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a85af4b91be66eb1657c086223c812162">FHashBucketIterator</a> = <a class="el" href="../../da/d9e/struct_t_hash_bucket_iterator.html">THashBucketIterator</a>&lt;<a class="el" href="../../d8/d9d/struct_f_set_hash_bucket.html">FSetHashBucket</a>&gt;</td></tr>
+<tr class="memitem:a907984eef33c5d4f3d2f2761dc0ab0e1" id="r_a907984eef33c5d4f3d2f2761dc0ab0e1"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a907984eef33c5d4f3d2f2761dc0ab0e1">FHashBucket</a> = <a class="el" href="../../d8/d9d/struct_f_set_hash_bucket.html">FSetHashBucket</a></td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-func-members" class="groupheader"><a id="func-members" name="func-members"></a>
+函数</h2></td></tr>
+<tr class="memitem:a6ab0fb4529833186d791b87bb4982dc7" id="r_a6ab0fb4529833186d791b87bb4982dc7"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6ab0fb4529833186d791b87bb4982dc7">DEFINE_LOG_CATEGORY_STATIC</a> (LogUObjectHash, Log, <a class="el" href="../../db/da0/_hair_strands_composition_8cpp.html#a01ae254fc9c19378956c218ed4e9c32da54991d225c58ce0af43461d4e9a82312">All</a>)</td></tr>
+<tr class="memitem:a6253fd9b76d33b76a2a64b05d93b76dc" id="r_a6253fd9b76d33b76a2a64b05d93b76dc"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6253fd9b76d33b76a2a64b05d93b76dc">DECLARE_CYCLE_STAT</a> (<a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;GetObjectsOfClass&quot;), STAT_Hash_GetObjectsOfClass, STATGROUP_UObjectHash)</td></tr>
+<tr class="memitem:aaa15f55ecbd62a060ce0843c8dc776a0" id="r_aaa15f55ecbd62a060ce0843c8dc776a0"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aaa15f55ecbd62a060ce0843c8dc776a0">DECLARE_CYCLE_STAT</a> (<a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;HashObject&quot;), STAT_Hash_HashObject, STATGROUP_UObjectHash)</td></tr>
+<tr class="memitem:ab59a9683026cdf34701d56295e1c2cb4" id="r_ab59a9683026cdf34701d56295e1c2cb4"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab59a9683026cdf34701d56295e1c2cb4">DECLARE_CYCLE_STAT</a> (<a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;UnhashObject&quot;), STAT_Hash_UnhashObject, STATGROUP_UObjectHash)</td></tr>
+<tr class="memitem:a3198bf5f662169c6397bfc7af7dddbfd" id="r_a3198bf5f662169c6397bfc7af7dddbfd"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a3198bf5f662169c6397bfc7af7dddbfd">DEFINE_STAT</a> (STAT_Hash_NumObjects)</td></tr>
+<tr class="memitem:a16c6b482a257e53f53dd3a93e492d4e2" id="r_a16c6b482a257e53f53dd3a93e492d4e2"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a16c6b482a257e53f53dd3a93e492d4e2">LLM_DEFINE_TAG</a> (UObjectHash, <a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;UObject hashtables&quot;))</td></tr>
+<tr class="memitem:a3c2047ce2f58a87147f21911952e0d42" id="r_a3c2047ce2f58a87147f21911952e0d42"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d7/d0b/class_u_object.html">UObject</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a3c2047ce2f58a87147f21911952e0d42">StaticFindObjectFastExplicitThreadSafe</a> (<a class="el" href="../../da/d06/class_f_u_object_hash_tables.html">FUObjectHashTables</a> &amp;ThreadHash, const <a class="el" href="../../dd/d50/class_u_class.html">UClass</a> *ObjectClass, <a class="el" href="../../d5/dd5/class_f_name.html">FName</a> ObjectName, const <a class="el" href="../../d2/d8e/_s_anim_notify_panel_8h.html#a7483aa7f043c623f8990a95320be654d">FString</a> &amp;ObjectPathName, <a class="el" href="../../de/d13/_find_object_flags_8h.html#a7cbdc1d48419c9c34ae81f693fba71c7">EFindObjectFlags</a> Flags, <a class="el" href="../../d5/d1e/_object_macros_8h.html#a1508ac1247bcd79c4921cf8497e72c79">EObjectFlags</a> ExcludeFlags)</td></tr>
+<tr class="memitem:a84c1e074b5bd3b589365607facb3a4b1" id="r_a84c1e074b5bd3b589365607facb3a4b1"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d7/d0b/class_u_object.html">UObject</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a84c1e074b5bd3b589365607facb3a4b1">StaticFindObjectFastExplicit</a> (const <a class="el" href="../../dd/d50/class_u_class.html">UClass</a> *ObjectClass, <a class="el" href="../../d5/dd5/class_f_name.html">FName</a> ObjectName, const <a class="el" href="../../d2/d8e/_s_anim_notify_panel_8h.html#a7483aa7f043c623f8990a95320be654d">FString</a> &amp;ObjectPathName, <a class="el" href="../../de/d13/_find_object_flags_8h.html#a7cbdc1d48419c9c34ae81f693fba71c7">EFindObjectFlags</a> Flags, <a class="el" href="../../d5/d1e/_object_macros_8h.html#a1508ac1247bcd79c4921cf8497e72c79">EObjectFlags</a> ExcludeFlags)</td></tr>
+<tr class="memitem:ae9add70b26aeb4fe55cfed0f1b328857" id="r_ae9add70b26aeb4fe55cfed0f1b328857"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d7/d0b/class_u_object.html">UObject</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae9add70b26aeb4fe55cfed0f1b328857">StaticFindObjectInPackageInternal</a> (<a class="el" href="../../da/d06/class_f_u_object_hash_tables.html">FUObjectHashTables</a> &amp;ThreadHash, const <a class="el" href="../../dd/d50/class_u_class.html">UClass</a> *ObjectClass, const <a class="el" href="../../d4/d0b/class_u_package.html">UPackage</a> *ObjectPackage, <a class="el" href="../../d5/dd5/class_f_name.html">FName</a> ObjectName, <a class="el" href="../../de/d13/_find_object_flags_8h.html#a7cbdc1d48419c9c34ae81f693fba71c7">EFindObjectFlags</a> Flags, <a class="el" href="../../d5/d1e/_object_macros_8h.html#a1508ac1247bcd79c4921cf8497e72c79">EObjectFlags</a> ExcludeFlags, <a class="el" href="../../d5/d1e/_object_macros_8h.html#a32adc8d048f1f80636236fed99a262ab">EInternalObjectFlags</a> ExclusiveInternalFlags)</td></tr>
+<tr class="memitem:a6ec8e98c10af9ea8f39ffb01a1030f63" id="r_a6ec8e98c10af9ea8f39ffb01a1030f63"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d7/d0b/class_u_object.html">UObject</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6ec8e98c10af9ea8f39ffb01a1030f63">StaticFindObjectFastInternalThreadSafe</a> (<a class="el" href="../../da/d06/class_f_u_object_hash_tables.html">FUObjectHashTables</a> &amp;ThreadHash, const <a class="el" href="../../dd/d50/class_u_class.html">UClass</a> *ObjectClass, const <a class="el" href="../../d7/d0b/class_u_object.html">UObject</a> *ObjectOuter, <a class="el" href="../../d5/dd5/class_f_name.html">FName</a> ObjectName, <a class="el" href="../../de/d13/_find_object_flags_8h.html#a7cbdc1d48419c9c34ae81f693fba71c7">EFindObjectFlags</a> Flags, <a class="el" href="../../d5/d1e/_object_macros_8h.html#a1508ac1247bcd79c4921cf8497e72c79">EObjectFlags</a> ExcludeFlags, <a class="el" href="../../d5/d1e/_object_macros_8h.html#a32adc8d048f1f80636236fed99a262ab">EInternalObjectFlags</a> ExclusiveInternalFlags)</td></tr>
+<tr class="memitem:adfa9c1e36d79395a316bdb39734fc4e8" id="r_adfa9c1e36d79395a316bdb39734fc4e8"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d7/d0b/class_u_object.html">UObject</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#adfa9c1e36d79395a316bdb39734fc4e8">StaticFindObjectFastInternal</a> (const <a class="el" href="../../dd/d50/class_u_class.html">UClass</a> *ObjectClass, const <a class="el" href="../../d7/d0b/class_u_object.html">UObject</a> *ObjectPackage, <a class="el" href="../../d5/dd5/class_f_name.html">FName</a> ObjectName, <a class="el" href="../../de/d13/_find_object_flags_8h.html#a7cbdc1d48419c9c34ae81f693fba71c7">EFindObjectFlags</a> Flags, <a class="el" href="../../d5/d1e/_object_macros_8h.html#a1508ac1247bcd79c4921cf8497e72c79">EObjectFlags</a> ExcludeFlags, <a class="el" href="../../d5/d1e/_object_macros_8h.html#a32adc8d048f1f80636236fed99a262ab">EInternalObjectFlags</a> ExclusiveInternalFlags)</td></tr>
+<tr class="memitem:a330a927aafd2b339a6a5b535c4e4408d" id="r_a330a927aafd2b339a6a5b535c4e4408d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a330a927aafd2b339a6a5b535c4e4408d">DoesObjectPossiblyExist</a> (const <a class="el" href="../../d7/d0b/class_u_object.html">UObject</a> *InOuter, <a class="el" href="../../d5/dd5/class_f_name.html">FName</a> ObjectName)</td></tr>
+<tr class="memitem:a0bf988727716724330401ea836796704" id="r_a0bf988727716724330401ea836796704"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a0bf988727716724330401ea836796704">StaticFindAllObjectsFastInternal</a> (<a class="el" href="../../d6/db1/class_t_array.html">TArray</a>&lt; <a class="el" href="../../d7/d0b/class_u_object.html">UObject</a> * &gt; &amp;OutFoundObjects, const <a class="el" href="../../dd/d50/class_u_class.html">UClass</a> *ObjectClass, <a class="el" href="../../d5/dd5/class_f_name.html">FName</a> ObjectName, <a class="el" href="../../de/d13/_find_object_flags_8h.html#a7cbdc1d48419c9c34ae81f693fba71c7">EFindObjectFlags</a> Flags, <a class="el" href="../../d5/d1e/_object_macros_8h.html#a1508ac1247bcd79c4921cf8497e72c79">EObjectFlags</a> ExcludeFlags, <a class="el" href="../../d5/d1e/_object_macros_8h.html#a32adc8d048f1f80636236fed99a262ab">EInternalObjectFlags</a> ExclusiveInternalFlags)</td></tr>
+<tr class="memitem:aaa1bb24a4693cfccb8caaba800ba11a7" id="r_aaa1bb24a4693cfccb8caaba800ba11a7"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d7/d0b/class_u_object.html">UObject</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aaa1bb24a4693cfccb8caaba800ba11a7">StaticFindFirstObjectFastInternal</a> (const <a class="el" href="../../dd/d50/class_u_class.html">UClass</a> *ObjectClass, <a class="el" href="../../d5/dd5/class_f_name.html">FName</a> ObjectName, <a class="el" href="../../de/d13/_find_object_flags_8h.html#a7cbdc1d48419c9c34ae81f693fba71c7">EFindObjectFlags</a> Flags, <a class="el" href="../../d5/d1e/_object_macros_8h.html#a1508ac1247bcd79c4921cf8497e72c79">EObjectFlags</a> ExcludeFlags, <a class="el" href="../../d5/d1e/_object_macros_8h.html#a32adc8d048f1f80636236fed99a262ab">EInternalObjectFlags</a> ExclusiveInternalFlags)</td></tr>
+<tr class="memitem:ad1b70bd584e8c6ac45fe77940923311f" id="r_ad1b70bd584e8c6ac45fe77940923311f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d7/d0b/class_u_object.html">UObject</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad1b70bd584e8c6ac45fe77940923311f">StaticFindObjectFastInternalThreadSafe</a> (<a class="el" href="../../da/d06/class_f_u_object_hash_tables.html">FUObjectHashTables</a> &amp;ThreadHash, <a class="el" href="../../da/d34/struct_f_remote_object_id.html">FRemoteObjectId</a> RemoteId, <a class="el" href="../../d5/d1e/_object_macros_8h.html#a1508ac1247bcd79c4921cf8497e72c79">EObjectFlags</a> InExclusiveFlags, <a class="el" href="../../d5/d1e/_object_macros_8h.html#a32adc8d048f1f80636236fed99a262ab">EInternalObjectFlags</a> InExlusiveInternalFlags)</td></tr>
+<tr class="memitem:a5c409fe1d379a29848fb0c7238891428" id="r_a5c409fe1d379a29848fb0c7238891428"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d7/d0b/class_u_object.html">UObject</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5c409fe1d379a29848fb0c7238891428">StaticFindObjectFastInternal</a> (<a class="el" href="../../da/d34/struct_f_remote_object_id.html">FRemoteObjectId</a> RemoteId, <a class="el" href="../../d5/d1e/_object_macros_8h.html#a1508ac1247bcd79c4921cf8497e72c79">EObjectFlags</a> InExclusiveFlags, <a class="el" href="../../d5/d1e/_object_macros_8h.html#a32adc8d048f1f80636236fed99a262ab">EInternalObjectFlags</a> InExlusiveInternalFlags)</td></tr>
+<tr class="memitem:acbba8af6b63ecb1263ecc2ba3e1c27b7" id="r_acbba8af6b63ecb1263ecc2ba3e1c27b7"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d0/d76/_android_platform_8h.html#a724fb9f82013c782db5c3c12ea36aac8">FORCEINLINE</a> <a class="el" href="../../df/d63/_typed_element_query_capabilities_8inl.html#a72343342ce64c0755563ee6c5e27868d">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#acbba8af6b63ecb1263ecc2ba3e1c27b7">AddToClassMap</a> (<a class="el" href="../../da/d06/class_f_u_object_hash_tables.html">FUObjectHashTables</a> &amp;ThreadHash, <a class="el" href="../../d2/dcc/class_u_object_base.html">UObjectBase</a> *<a class="el" href="../../d3/d19/_navigation_system_types_8h.html#afd9654171435c563939671aa701df70d">Object</a>)</td></tr>
+<tr class="memitem:ac853b39ac5123777986bf000f52dc771" id="r_ac853b39ac5123777986bf000f52dc771"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d0/d76/_android_platform_8h.html#a724fb9f82013c782db5c3c12ea36aac8">FORCEINLINE</a> <a class="el" href="../../df/d63/_typed_element_query_capabilities_8inl.html#a72343342ce64c0755563ee6c5e27868d">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac853b39ac5123777986bf000f52dc771">RemoveFromClassMap</a> (<a class="el" href="../../da/d06/class_f_u_object_hash_tables.html">FUObjectHashTables</a> &amp;ThreadHash, <a class="el" href="../../d2/dcc/class_u_object_base.html">UObjectBase</a> *<a class="el" href="../../d3/d19/_navigation_system_types_8h.html#afd9654171435c563939671aa701df70d">Object</a>)</td></tr>
+<tr class="memitem:ac4d420903ce05bffe5dcc894babfeab0" id="r_ac4d420903ce05bffe5dcc894babfeab0"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../df/d63/_typed_element_query_capabilities_8inl.html#a72343342ce64c0755563ee6c5e27868d">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac4d420903ce05bffe5dcc894babfeab0">ShrinkUObjectHashTables</a> ()</td></tr>
+<tr class="memitem:ab102ce928118353f2d35108975373df1" id="r_ab102ce928118353f2d35108975373df1"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../dd/de9/preprocessor_8c.html#abc0f5bc07737e498f287334775dff2b6">uint64</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab102ce928118353f2d35108975373df1">GetRegisteredClassesVersionNumber</a> ()</td></tr>
+<tr class="memitem:aec69a5a3cb8f5cdb02bb81b5de6f12cf" id="r_aec69a5a3cb8f5cdb02bb81b5de6f12cf"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../dd/de9/preprocessor_8c.html#abc0f5bc07737e498f287334775dff2b6">uint64</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aec69a5a3cb8f5cdb02bb81b5de6f12cf">GetRegisteredNativeClassesVersionNumber</a> ()</td></tr>
+<tr class="memitem:abc7eec4911f9fde53ca4e06bf4f0c488" id="r_abc7eec4911f9fde53ca4e06bf4f0c488"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../df/d63/_typed_element_query_capabilities_8inl.html#a72343342ce64c0755563ee6c5e27868d">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#abc7eec4911f9fde53ca4e06bf4f0c488">GetObjectsWithOuter</a> (const class <a class="el" href="../../d2/dcc/class_u_object_base.html">UObjectBase</a> *Outer, <a class="el" href="../../d6/db1/class_t_array.html">TArray</a>&lt; <a class="el" href="../../d7/d0b/class_u_object.html">UObject</a> * &gt; &amp;Results, <a class="el" href="../../de/d13/_find_object_flags_8h.html#ade1c9d66392120688c2bb9ade3da3511">EGetObjectsFlags</a> Flags, <a class="el" href="../../d5/d1e/_object_macros_8h.html#a1508ac1247bcd79c4921cf8497e72c79">EObjectFlags</a> ExclusionFlags, <a class="el" href="../../d5/d1e/_object_macros_8h.html#a32adc8d048f1f80636236fed99a262ab">EInternalObjectFlags</a> ExclusionInternalFlags)</td></tr>
+<tr class="memitem:a8deaa0587b03644b40447eb45e36a619" id="r_a8deaa0587b03644b40447eb45e36a619"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../df/d63/_typed_element_query_capabilities_8inl.html#a72343342ce64c0755563ee6c5e27868d">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8deaa0587b03644b40447eb45e36a619">ForEachObjectWithOuterBreakable</a> (const class <a class="el" href="../../d2/dcc/class_u_object_base.html">UObjectBase</a> *Outer, <a class="el" href="../../d8/d95/class_t_function_ref.html">TFunctionRef</a>&lt; <a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a>(<a class="el" href="../../d7/d0b/class_u_object.html">UObject</a> *)&gt; Operation, <a class="el" href="../../de/d13/_find_object_flags_8h.html#ade1c9d66392120688c2bb9ade3da3511">EGetObjectsFlags</a> Flags, <a class="el" href="../../d5/d1e/_object_macros_8h.html#a1508ac1247bcd79c4921cf8497e72c79">EObjectFlags</a> ExclusionFlags, <a class="el" href="../../d5/d1e/_object_macros_8h.html#a32adc8d048f1f80636236fed99a262ab">EInternalObjectFlags</a> ExclusionInternalFlags)</td></tr>
+<tr class="memitem:acfd189965c10c0ceaf3c193f90cfeb8d" id="r_acfd189965c10c0ceaf3c193f90cfeb8d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d2/dcc/class_u_object_base.html">UObjectBase</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#acfd189965c10c0ceaf3c193f90cfeb8d">FindObjectWithOuter</a> (const class <a class="el" href="../../d2/dcc/class_u_object_base.html">UObjectBase</a> *Outer, const class <a class="el" href="../../dd/d50/class_u_class.html">UClass</a> *ClassToLookFor, <a class="el" href="../../d5/dd5/class_f_name.html">FName</a> NameToLookFor)</td></tr>
+<tr class="memitem:aceeaf6d765e8e11c96a0eccfeb5c71c8" id="r_aceeaf6d765e8e11c96a0eccfeb5c71c8"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../df/d63/_typed_element_query_capabilities_8inl.html#a72343342ce64c0755563ee6c5e27868d">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aceeaf6d765e8e11c96a0eccfeb5c71c8">GetObjectsWithPackage</a> (const class <a class="el" href="../../d4/d0b/class_u_package.html">UPackage</a> *Package, <a class="el" href="../../d6/db1/class_t_array.html">TArray</a>&lt; <a class="el" href="../../d7/d0b/class_u_object.html">UObject</a> * &gt; &amp;Results, <a class="el" href="../../de/d13/_find_object_flags_8h.html#ade1c9d66392120688c2bb9ade3da3511">EGetObjectsFlags</a> Flags, <a class="el" href="../../d5/d1e/_object_macros_8h.html#a1508ac1247bcd79c4921cf8497e72c79">EObjectFlags</a> ExclusionFlags, <a class="el" href="../../d5/d1e/_object_macros_8h.html#a32adc8d048f1f80636236fed99a262ab">EInternalObjectFlags</a> ExclusionInternalFlags)</td></tr>
+<tr class="memitem:a9b221e890f421ce70f283652ec5256f7" id="r_a9b221e890f421ce70f283652ec5256f7"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../df/d63/_typed_element_query_capabilities_8inl.html#a72343342ce64c0755563ee6c5e27868d">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9b221e890f421ce70f283652ec5256f7">ForEachObjectWithPackage</a> (const class <a class="el" href="../../d4/d0b/class_u_package.html">UPackage</a> *Package, <a class="el" href="../../d8/d95/class_t_function_ref.html">TFunctionRef</a>&lt; <a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a>(<a class="el" href="../../d7/d0b/class_u_object.html">UObject</a> *)&gt; Operation, <a class="el" href="../../de/d13/_find_object_flags_8h.html#ade1c9d66392120688c2bb9ade3da3511">EGetObjectsFlags</a> Flags, <a class="el" href="../../d5/d1e/_object_macros_8h.html#a1508ac1247bcd79c4921cf8497e72c79">EObjectFlags</a> ExclusionFlags, <a class="el" href="../../d5/d1e/_object_macros_8h.html#a32adc8d048f1f80636236fed99a262ab">EInternalObjectFlags</a> ExclusionInternalFlags)</td></tr>
+<tr class="memitem:a7c8a82bbf72a155f2a8e851e06d8200e" id="r_a7c8a82bbf72a155f2a8e851e06d8200e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../df/d63/_typed_element_query_capabilities_8inl.html#a72343342ce64c0755563ee6c5e27868d">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7c8a82bbf72a155f2a8e851e06d8200e">GetObjectsOfClass</a> (const <a class="el" href="../../dd/d50/class_u_class.html">UClass</a> *ClassToLookFor, <a class="el" href="../../d6/db1/class_t_array.html">TArray</a>&lt; <a class="el" href="../../d7/d0b/class_u_object.html">UObject</a> * &gt; &amp;Results, <a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a> bIncludeDerivedClasses, <a class="el" href="../../d5/d1e/_object_macros_8h.html#a1508ac1247bcd79c4921cf8497e72c79">EObjectFlags</a> ExclusionFlags, <a class="el" href="../../d5/d1e/_object_macros_8h.html#a32adc8d048f1f80636236fed99a262ab">EInternalObjectFlags</a> ExclusionInternalFlags)</td></tr>
+<tr class="memitem:a4ce3ac0ebff70da1174b7d92022d4f49" id="r_a4ce3ac0ebff70da1174b7d92022d4f49"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d0/d76/_android_platform_8h.html#a724fb9f82013c782db5c3c12ea36aac8">FORCEINLINE</a> <a class="el" href="../../df/d63/_typed_element_query_capabilities_8inl.html#a72343342ce64c0755563ee6c5e27868d">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4ce3ac0ebff70da1174b7d92022d4f49">ForEachObjectOfClasses_Implementation</a> (<a class="el" href="../../da/d06/class_f_u_object_hash_tables.html">FUObjectHashTables</a> &amp;ThreadHash, <a class="el" href="../../d2/ddb/class_t_array_view.html">TArrayView</a>&lt; const <a class="el" href="../../dd/d50/class_u_class.html">UClass</a> *const &gt; ClassesToLookFor, <a class="el" href="../../d8/d95/class_t_function_ref.html">TFunctionRef</a>&lt; <a class="el" href="../../df/d63/_typed_element_query_capabilities_8inl.html#a72343342ce64c0755563ee6c5e27868d">void</a>(<a class="el" href="../../d7/d0b/class_u_object.html">UObject</a> *)&gt; Operation, <a class="el" href="../../d5/d1e/_object_macros_8h.html#a1508ac1247bcd79c4921cf8497e72c79">EObjectFlags</a> ExcludeFlags, <a class="el" href="../../d5/d1e/_object_macros_8h.html#a32adc8d048f1f80636236fed99a262ab">EInternalObjectFlags</a> ExclusionInternalFlags)</td></tr>
+<tr class="memitem:a680d1d184b96e1f97deb290c62759063" id="r_a680d1d184b96e1f97deb290c62759063"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../df/d63/_typed_element_query_capabilities_8inl.html#a72343342ce64c0755563ee6c5e27868d">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a680d1d184b96e1f97deb290c62759063">ForEachObjectOfClass</a> (const <a class="el" href="../../dd/d50/class_u_class.html">UClass</a> *ClassToLookFor, <a class="el" href="../../d8/d95/class_t_function_ref.html">TFunctionRef</a>&lt; <a class="el" href="../../df/d63/_typed_element_query_capabilities_8inl.html#a72343342ce64c0755563ee6c5e27868d">void</a>(<a class="el" href="../../d7/d0b/class_u_object.html">UObject</a> *)&gt; Operation, <a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a> bIncludeDerivedClasses, <a class="el" href="../../d5/d1e/_object_macros_8h.html#a1508ac1247bcd79c4921cf8497e72c79">EObjectFlags</a> ExclusionFlags, <a class="el" href="../../d5/d1e/_object_macros_8h.html#a32adc8d048f1f80636236fed99a262ab">EInternalObjectFlags</a> ExclusionInternalFlags)</td></tr>
+<tr class="memitem:a2ba8b795fd32261f39384bae9b71d9a4" id="r_a2ba8b795fd32261f39384bae9b71d9a4"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../df/d63/_typed_element_query_capabilities_8inl.html#a72343342ce64c0755563ee6c5e27868d">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2ba8b795fd32261f39384bae9b71d9a4">ForEachObjectOfClasses</a> (<a class="el" href="../../d2/ddb/class_t_array_view.html">TArrayView</a>&lt; const <a class="el" href="../../dd/d50/class_u_class.html">UClass</a> *const &gt; ClassesToLookFor, <a class="el" href="../../d8/d95/class_t_function_ref.html">TFunctionRef</a>&lt; <a class="el" href="../../df/d63/_typed_element_query_capabilities_8inl.html#a72343342ce64c0755563ee6c5e27868d">void</a>(<a class="el" href="../../d7/d0b/class_u_object.html">UObject</a> *)&gt; Operation, <a class="el" href="../../d5/d1e/_object_macros_8h.html#a1508ac1247bcd79c4921cf8497e72c79">EObjectFlags</a> ExcludeFlags, <a class="el" href="../../d5/d1e/_object_macros_8h.html#a32adc8d048f1f80636236fed99a262ab">EInternalObjectFlags</a> ExclusionInternalFlags)</td></tr>
+<tr class="memitem:a1bcd96b1762343247cdbbe3af9c045f0" id="r_a1bcd96b1762343247cdbbe3af9c045f0"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../df/d63/_typed_element_query_capabilities_8inl.html#a72343342ce64c0755563ee6c5e27868d">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a1bcd96b1762343247cdbbe3af9c045f0">GetDerivedClasses</a> (const <a class="el" href="../../dd/d50/class_u_class.html">UClass</a> *ClassToLookFor, <a class="el" href="../../d6/db1/class_t_array.html">TArray</a>&lt; <a class="el" href="../../dd/d50/class_u_class.html">UClass</a> * &gt; &amp;Results, <a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a> bRecursive)</td></tr>
+<tr class="memitem:a327425d05ba5c94424ff743aed0de72a" id="r_a327425d05ba5c94424ff743aed0de72a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../da/d41/class_t_map.html">TMap</a>&lt; <a class="el" href="../../dd/d50/class_u_class.html">UClass</a> *, TSet&lt; <a class="el" href="../../dd/d50/class_u_class.html">UClass</a> * &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a327425d05ba5c94424ff743aed0de72a">GetAllDerivedClasses</a> ()</td></tr>
+<tr class="memitem:a1c5679328662aa3b0072c0d5648011f8" id="r_a1c5679328662aa3b0072c0d5648011f8"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a1c5679328662aa3b0072c0d5648011f8">ClassHasInstancesAsyncLoading</a> (const <a class="el" href="../../dd/d50/class_u_class.html">UClass</a> *ClassToLookFor)</td></tr>
+<tr class="memitem:a8f00b81540ef1155e7585fa6f37bddf3" id="r_a8f00b81540ef1155e7585fa6f37bddf3"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../dc/dc2/_auto_r_t_f_m_2_public_2_auto_r_t_f_m_2_defines_8h.html#a15ec6188c6bbd351bb331ff0f5708364">UE_AUTORTFM_NOAUTORTFM</a> <a class="el" href="../../df/d63/_typed_element_query_capabilities_8inl.html#a72343342ce64c0755563ee6c5e27868d">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8f00b81540ef1155e7585fa6f37bddf3">HashObject</a> (<a class="el" href="../../d2/dcc/class_u_object_base.html">UObjectBase</a> *<a class="el" href="../../d3/d19/_navigation_system_types_8h.html#afd9654171435c563939671aa701df70d">Object</a>)</td></tr>
+<tr class="memitem:a82d3de6e8d346c2e95640eeb55b2dd3a" id="r_a82d3de6e8d346c2e95640eeb55b2dd3a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../dc/dc2/_auto_r_t_f_m_2_public_2_auto_r_t_f_m_2_defines_8h.html#a15ec6188c6bbd351bb331ff0f5708364">UE_AUTORTFM_NOAUTORTFM</a> <a class="el" href="../../df/d63/_typed_element_query_capabilities_8inl.html#a72343342ce64c0755563ee6c5e27868d">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a82d3de6e8d346c2e95640eeb55b2dd3a">UnhashObject</a> (<a class="el" href="../../d2/dcc/class_u_object_base.html">UObjectBase</a> *<a class="el" href="../../d3/d19/_navigation_system_types_8h.html#afd9654171435c563939671aa701df70d">Object</a>)</td></tr>
+<tr class="memitem:a86a495631430721182ddb77b6ec4d8f9" id="r_a86a495631430721182ddb77b6ec4d8f9"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../df/d63/_typed_element_query_capabilities_8inl.html#a72343342ce64c0755563ee6c5e27868d">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a86a495631430721182ddb77b6ec4d8f9">HashObjectExternalPackage</a> (<a class="el" href="../../d2/dcc/class_u_object_base.html">UObjectBase</a> *<a class="el" href="../../d3/d19/_navigation_system_types_8h.html#afd9654171435c563939671aa701df70d">Object</a>, <a class="el" href="../../d4/d0b/class_u_package.html">UPackage</a> *Package)</td></tr>
+<tr class="memitem:a2876d0bc9118bf976554731cc175eb73" id="r_a2876d0bc9118bf976554731cc175eb73"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../df/d63/_typed_element_query_capabilities_8inl.html#a72343342ce64c0755563ee6c5e27868d">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2876d0bc9118bf976554731cc175eb73">UnhashObjectExternalPackage</a> (class <a class="el" href="../../d2/dcc/class_u_object_base.html">UObjectBase</a> *<a class="el" href="../../d3/d19/_navigation_system_types_8h.html#afd9654171435c563939671aa701df70d">Object</a>)</td></tr>
+<tr class="memitem:a9e18b1c22367e606d4816573e8943f80" id="r_a9e18b1c22367e606d4816573e8943f80"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d4/d0b/class_u_package.html">UPackage</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9e18b1c22367e606d4816573e8943f80">GetObjectExternalPackageThreadSafe</a> (const <a class="el" href="../../d2/dcc/class_u_object_base.html">UObjectBase</a> *<a class="el" href="../../d3/d19/_navigation_system_types_8h.html#afd9654171435c563939671aa701df70d">Object</a>)</td></tr>
+<tr class="memitem:adb321347db74e7d843727360e6e1b978" id="r_adb321347db74e7d843727360e6e1b978"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d4/d0b/class_u_package.html">UPackage</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#adb321347db74e7d843727360e6e1b978">GetObjectExternalPackageInternal</a> (const <a class="el" href="../../d2/dcc/class_u_object_base.html">UObjectBase</a> *<a class="el" href="../../d3/d19/_navigation_system_types_8h.html#afd9654171435c563939671aa701df70d">Object</a>)</td></tr>
+<tr class="memitem:ad7b24798151f2a5507f1912dcf5b2288" id="r_ad7b24798151f2a5507f1912dcf5b2288"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../df/d63/_typed_element_query_capabilities_8inl.html#a72343342ce64c0755563ee6c5e27868d">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad7b24798151f2a5507f1912dcf5b2288">LockUObjectHashTables</a> ()</td></tr>
+<tr class="memitem:af98768940b7fb8b39dd3ae017122b78c" id="r_af98768940b7fb8b39dd3ae017122b78c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../df/d63/_typed_element_query_capabilities_8inl.html#a72343342ce64c0755563ee6c5e27868d">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af98768940b7fb8b39dd3ae017122b78c">UnlockUObjectHashTables</a> ()</td></tr>
+<tr class="memitem:a75a1e8ba5f251f19b49de5bf7ac71050" id="r_a75a1e8ba5f251f19b49de5bf7ac71050"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../df/d63/_typed_element_query_capabilities_8inl.html#a72343342ce64c0755563ee6c5e27868d">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a75a1e8ba5f251f19b49de5bf7ac71050">LogHashStatisticsInternal</a> (TMultiMap&lt; <a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a8dbb3cd84ca9fd010dadfc3815eefa5d">int32</a>, <a class="el" href="../../dd/de9/preprocessor_8c.html#a1134b580f8da4de94ca6b1de4d37975e">uint32</a> &gt; &amp;Hash, <a class="el" href="../../d8/d21/class_f_output_device.html">FOutputDevice</a> &amp;Ar, const <a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a> bShowHashBucketCollisionInfo)</td></tr>
+<tr class="memitem:a9b777935c9766b710e9ca5211592cffd" id="r_a9b777935c9766b710e9ca5211592cffd"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../df/d63/_typed_element_query_capabilities_8inl.html#a72343342ce64c0755563ee6c5e27868d">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9b777935c9766b710e9ca5211592cffd">LogHashStatisticsInternal</a> (<a class="el" href="../../d2/d74/class_t_bucket_map.html">TBucketMap</a>&lt; <a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a8dbb3cd84ca9fd010dadfc3815eefa5d">int32</a> &gt; &amp;Hash, <a class="el" href="../../d8/d21/class_f_output_device.html">FOutputDevice</a> &amp;Ar, const <a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a> bShowHashBucketCollisionInfo)</td></tr>
+<tr class="memitem:a426c2b952e998be1270f913fee648687" id="r_a426c2b952e998be1270f913fee648687"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../df/d63/_typed_element_query_capabilities_8inl.html#a72343342ce64c0755563ee6c5e27868d">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a426c2b952e998be1270f913fee648687">LogHashStatistics</a> (<a class="el" href="../../d8/d21/class_f_output_device.html">FOutputDevice</a> &amp;Ar, const <a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a> bShowHashBucketCollisionInfo)</td></tr>
+<tr class="memitem:ae01b54a874ff6170e0bc9847fe500e17" id="r_ae01b54a874ff6170e0bc9847fe500e17"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../df/d63/_typed_element_query_capabilities_8inl.html#a72343342ce64c0755563ee6c5e27868d">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae01b54a874ff6170e0bc9847fe500e17">LogHashOuterStatistics</a> (<a class="el" href="../../d8/d21/class_f_output_device.html">FOutputDevice</a> &amp;Ar, const <a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a> bShowHashBucketCollisionInfo)</td></tr>
+<tr class="memitem:aeacce1d9effc2822c9b5c0fe78c99929" id="r_aeacce1d9effc2822c9b5c0fe78c99929"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../df/d63/_typed_element_query_capabilities_8inl.html#a72343342ce64c0755563ee6c5e27868d">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aeacce1d9effc2822c9b5c0fe78c99929">LogHashMemoryOverheadStatistics</a> (<a class="el" href="../../d8/d21/class_f_output_device.html">FOutputDevice</a> &amp;Ar, const <a class="el" href="../../dc/d50/_u_object_hash_8h.html#acca1e664c2bd994addae4776f55dc99f">EObjectMemoryOverheadOptions</a> InOptions)</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-var-members" class="groupheader"><a id="var-members" name="var-members"></a>
+变量</h2></td></tr>
+<tr class="memitem:a2288da7ae0b3e1dcdfc70f628ebaf352" id="r_a2288da7ae0b3e1dcdfc70f628ebaf352"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../dd/d64/class_f_u_object_array.html">FUObjectArray</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2288da7ae0b3e1dcdfc70f628ebaf352">GUObjectArray</a></td></tr>
+<tr class="memitem:a2fbeb3afb11f2c4616acca09565f13d8" id="r_a2fbeb3afb11f2c4616acca09565f13d8"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2fbeb3afb11f2c4616acca09565f13d8">GAllowGetObjectsReturnUnreachableObjects</a> = <a class="el" href="../../d3/df7/radaudio__common_8h.html#ade27a78a51a66a5cfb6f09cf36bcfde9ae9de385ef6fe9bf3360d1038396b884c">false</a></td></tr>
+</table>
+<a name="doc-define-members" id="doc-define-members"></a><h2 id="header-doc-define-members" class="groupheader">宏定义说明</h2>
+<a id="a6ba2d1fc8000c921e195f32cb96419bd" name="a6ba2d1fc8000c921e195f32cb96419bd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6ba2d1fc8000c921e195f32cb96419bd">&#9670;&#160;</a></span>UE_UOBJECT_HASH_USES_ARRAYS</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define UE_UOBJECT_HASH_USES_ARRAYS&#160;&#160;&#160;0</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a name="doc-typedef-members" id="doc-typedef-members"></a><h2 id="header-doc-typedef-members" class="groupheader">类型定义说明</h2>
+<a id="a907984eef33c5d4f3d2f2761dc0ab0e1" name="a907984eef33c5d4f3d2f2761dc0ab0e1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a907984eef33c5d4f3d2f2761dc0ab0e1">&#9670;&#160;</a></span>FHashBucket</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">using <a class="el" href="#a907984eef33c5d4f3d2f2761dc0ab0e1">FHashBucket</a> = <a class="el" href="../../d8/d9d/struct_f_set_hash_bucket.html">FSetHashBucket</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a85af4b91be66eb1657c086223c812162" name="a85af4b91be66eb1657c086223c812162"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a85af4b91be66eb1657c086223c812162">&#9670;&#160;</a></span>FHashBucketIterator</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">using <a class="el" href="#a85af4b91be66eb1657c086223c812162">FHashBucketIterator</a> = <a class="el" href="../../da/d9e/struct_t_hash_bucket_iterator.html">THashBucketIterator</a>&lt;<a class="el" href="../../d8/d9d/struct_f_set_hash_bucket.html">FSetHashBucket</a>&gt;</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">函数说明</h2>
+<a id="acbba8af6b63ecb1263ecc2ba3e1c27b7" name="acbba8af6b63ecb1263ecc2ba3e1c27b7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acbba8af6b63ecb1263ecc2ba3e1c27b7">&#9670;&#160;</a></span>AddToClassMap()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d0/d76/_android_platform_8h.html#a724fb9f82013c782db5c3c12ea36aac8">FORCEINLINE</a> <a class="el" href="../../df/d63/_typed_element_query_capabilities_8inl.html#a72343342ce64c0755563ee6c5e27868d">void</a> AddToClassMap </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../da/d06/class_f_u_object_hash_tables.html">FUObjectHashTables</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>ThreadHash</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d2/dcc/class_u_object_base.html">UObjectBase</a> *</td>          <td class="paramname"><span class="paramname"><em>Object</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a1c5679328662aa3b0072c0d5648011f8" name="a1c5679328662aa3b0072c0d5648011f8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1c5679328662aa3b0072c0d5648011f8">&#9670;&#160;</a></span>ClassHasInstancesAsyncLoading()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a> ClassHasInstancesAsyncLoading </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="../../dd/d50/class_u_class.html">UClass</a> *</td>          <td class="paramname"><span class="paramname"><em>ClassToLookFor</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Returns true if any instances of the class in question are currently being async loaded.</p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">ClassToLookFor</td><td>The class in question </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>True if there are any instances of the class being async loaded - includes instances based on derived classes. Otherwise, false </dd></dl>
+
+</div>
+</div>
+<a id="a6253fd9b76d33b76a2a64b05d93b76dc" name="a6253fd9b76d33b76a2a64b05d93b76dc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6253fd9b76d33b76a2a64b05d93b76dc">&#9670;&#160;</a></span>DECLARE_CYCLE_STAT() <span class="overload">[1/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">DECLARE_CYCLE_STAT </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;GetObjectsOfClass&quot;)</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">STAT_Hash_GetObjectsOfClass</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">STATGROUP_UObjectHash</td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aaa15f55ecbd62a060ce0843c8dc776a0" name="aaa15f55ecbd62a060ce0843c8dc776a0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aaa15f55ecbd62a060ce0843c8dc776a0">&#9670;&#160;</a></span>DECLARE_CYCLE_STAT() <span class="overload">[2/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">DECLARE_CYCLE_STAT </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;HashObject&quot;)</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">STAT_Hash_HashObject</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">STATGROUP_UObjectHash</td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ab59a9683026cdf34701d56295e1c2cb4" name="ab59a9683026cdf34701d56295e1c2cb4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab59a9683026cdf34701d56295e1c2cb4">&#9670;&#160;</a></span>DECLARE_CYCLE_STAT() <span class="overload">[3/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">DECLARE_CYCLE_STAT </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;UnhashObject&quot;)</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">STAT_Hash_UnhashObject</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">STATGROUP_UObjectHash</td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a6ab0fb4529833186d791b87bb4982dc7" name="a6ab0fb4529833186d791b87bb4982dc7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6ab0fb4529833186d791b87bb4982dc7">&#9670;&#160;</a></span>DEFINE_LOG_CATEGORY_STATIC()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">DEFINE_LOG_CATEGORY_STATIC </td>
+          <td>(</td>
+          <td class="paramtype">LogUObjectHash</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Log</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../db/da0/_hair_strands_composition_8cpp.html#a01ae254fc9c19378956c218ed4e9c32da54991d225c58ce0af43461d4e9a82312">All</a></td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a3198bf5f662169c6397bfc7af7dddbfd" name="a3198bf5f662169c6397bfc7af7dddbfd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3198bf5f662169c6397bfc7af7dddbfd">&#9670;&#160;</a></span>DEFINE_STAT()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">DEFINE_STAT </td>
+          <td>(</td>
+          <td class="paramtype">STAT_Hash_NumObjects</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a330a927aafd2b339a6a5b535c4e4408d" name="a330a927aafd2b339a6a5b535c4e4408d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a330a927aafd2b339a6a5b535c4e4408d">&#9670;&#160;</a></span>DoesObjectPossiblyExist()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a> DoesObjectPossiblyExist </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="../../d7/d0b/class_u_object.html">UObject</a> *</td>          <td class="paramname"><span class="paramname"><em>InOuter</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d5/dd5/class_f_name.html">FName</a></td>          <td class="paramname"><span class="paramname"><em>ObjectName</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Approximate version of StaticFindObjectFastInternal that may return a false positive - i.e. the object does not exist but the function returns true. Will not return a false negative - i.e. if the object does exist, this function must return true</p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">InOuter</td><td>The direct outer to search within. Must be non-null. </td></tr>
+    <tr><td class="paramname">ObjectName</td><td>The object name to search for. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>Returns a true if the object may possibly exist, false if it definitely does not exist. </dd></dl>
+
+</div>
+</div>
+<a id="acfd189965c10c0ceaf3c193f90cfeb8d" name="acfd189965c10c0ceaf3c193f90cfeb8d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acfd189965c10c0ceaf3c193f90cfeb8d">&#9670;&#160;</a></span>FindObjectWithOuter()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d2/dcc/class_u_object_base.html">UObjectBase</a> * FindObjectWithOuter </td>
+          <td>(</td>
+          <td class="paramtype">const class <a class="el" href="../../d2/dcc/class_u_object_base.html">UObjectBase</a> *</td>          <td class="paramname"><span class="paramname"><em>Outer</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const class <a class="el" href="../../dd/d50/class_u_class.html">UClass</a> *</td>          <td class="paramname"><span class="paramname"><em>ClassToLookFor</em></span><span class="paramdefsep"> = </span><span class="paramdefval">nullptr</span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d5/dd5/class_f_name.html">FName</a></td>          <td class="paramname"><span class="paramname"><em>NameToLookFor</em></span><span class="paramdefsep"> = </span><span class="paramdefval">NAME_None</span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Find an objects with a given name and or class within an outer</p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">Outer</td><td>Outer to search for </td></tr>
+    <tr><td class="paramname">ClassToLookFor</td><td>if NULL, ignore this parameter, otherwise require the returned object have this class </td></tr>
+    <tr><td class="paramname">NameToLookFor</td><td>if NAME_None, ignore this parameter, otherwise require the returned object have this name </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a680d1d184b96e1f97deb290c62759063" name="a680d1d184b96e1f97deb290c62759063"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a680d1d184b96e1f97deb290c62759063">&#9670;&#160;</a></span>ForEachObjectOfClass()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../df/d63/_typed_element_query_capabilities_8inl.html#a72343342ce64c0755563ee6c5e27868d">void</a> ForEachObjectOfClass </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="../../dd/d50/class_u_class.html">UClass</a> *</td>          <td class="paramname"><span class="paramname"><em>ClassToLookFor</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d8/d95/class_t_function_ref.html">TFunctionRef</a>&lt; <a class="el" href="../../df/d63/_typed_element_query_capabilities_8inl.html#a72343342ce64c0755563ee6c5e27868d">void</a>(<a class="el" href="../../d7/d0b/class_u_object.html">UObject</a> *)&gt;</td>          <td class="paramname"><span class="paramname"><em>Operation</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a></td>          <td class="paramname"><span class="paramname"><em>bIncludeDerivedClasses</em></span><span class="paramdefsep"> = </span><span class="paramdefval"><a class="el" href="../../d3/df7/radaudio__common_8h.html#ade27a78a51a66a5cfb6f09cf36bcfde9a08f175a5505a10b9ed657defeb050e4b">true</a></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d5/d1e/_object_macros_8h.html#a1508ac1247bcd79c4921cf8497e72c79">EObjectFlags</a></td>          <td class="paramname"><span class="paramname"><em>ExcludeFlags</em></span><span class="paramdefsep"> = </span><span class="paramdefval"><a class="el" href="../../d5/d1e/_object_macros_8h.html#a1508ac1247bcd79c4921cf8497e72c79a15467a47b38ad8da98d7b94be31fb2ad">RF_ClassDefaultObject</a></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d5/d1e/_object_macros_8h.html#a32adc8d048f1f80636236fed99a262ab">EInternalObjectFlags</a></td>          <td class="paramname"><span class="paramname"><em>ExclusionInternalFlags</em></span><span class="paramdefsep"> = </span><span class="paramdefval"><a class="el" href="../../d5/d1e/_object_macros_8h.html#a32adc8d048f1f80636236fed99a262aba6adf97f83acf6453d4a6a4b1070f3754">EInternalObjectFlags::None</a></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Performs an operation on all objects of the provided class Note that the operation must not modify <a class="el" href="../../d7/d0b/class_u_object.html">UObject</a> hash maps so it can not create, rename or destroy UObjects.</p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">Outer</td><td><a class="el" href="../../d7/d0b/class_u_object.html">UObject</a> class to loop over instances of </td></tr>
+    <tr><td class="paramname">Operation</td><td>Function to be called for each object </td></tr>
+    <tr><td class="paramname">bIncludeDerivedClasses</td><td>If true, the results will include objects of child classes as well. </td></tr>
+    <tr><td class="paramname">AdditionalExcludeFlags</td><td>Objects with any of these flags will be excluded from the results. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a2ba8b795fd32261f39384bae9b71d9a4" name="a2ba8b795fd32261f39384bae9b71d9a4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2ba8b795fd32261f39384bae9b71d9a4">&#9670;&#160;</a></span>ForEachObjectOfClasses()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../df/d63/_typed_element_query_capabilities_8inl.html#a72343342ce64c0755563ee6c5e27868d">void</a> ForEachObjectOfClasses </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d2/ddb/class_t_array_view.html">TArrayView</a>&lt; const <a class="el" href="../../dd/d50/class_u_class.html">UClass</a> *const &gt;</td>          <td class="paramname"><span class="paramname"><em>ClassesToLookFor</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d8/d95/class_t_function_ref.html">TFunctionRef</a>&lt; <a class="el" href="../../df/d63/_typed_element_query_capabilities_8inl.html#a72343342ce64c0755563ee6c5e27868d">void</a>(<a class="el" href="../../d7/d0b/class_u_object.html">UObject</a> *)&gt;</td>          <td class="paramname"><span class="paramname"><em>Operation</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d5/d1e/_object_macros_8h.html#a1508ac1247bcd79c4921cf8497e72c79">EObjectFlags</a></td>          <td class="paramname"><span class="paramname"><em>ExcludeFlags</em></span><span class="paramdefsep"> = </span><span class="paramdefval"><a class="el" href="../../d5/d1e/_object_macros_8h.html#a1508ac1247bcd79c4921cf8497e72c79a15467a47b38ad8da98d7b94be31fb2ad">RF_ClassDefaultObject</a></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d5/d1e/_object_macros_8h.html#a32adc8d048f1f80636236fed99a262ab">EInternalObjectFlags</a></td>          <td class="paramname"><span class="paramname"><em>ExclusionInternalFlags</em></span><span class="paramdefsep"> = </span><span class="paramdefval"><a class="el" href="../../d5/d1e/_object_macros_8h.html#a32adc8d048f1f80636236fed99a262aba6adf97f83acf6453d4a6a4b1070f3754">EInternalObjectFlags::None</a></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Performs an operation on all objects of the provided classes Note that the operation must not modify <a class="el" href="../../d7/d0b/class_u_object.html">UObject</a> hash maps so it can not create, rename or destroy UObjects.</p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">Classes</td><td><a class="el" href="../../d7/d0b/class_u_object.html">UObject</a> Classes to loop over instances of </td></tr>
+    <tr><td class="paramname">Operation</td><td>Function to be called for each object </td></tr>
+    <tr><td class="paramname">bIncludeDerivedClasses</td><td>If true, the results will include objects of child classes as well. </td></tr>
+    <tr><td class="paramname">AdditionalExcludeFlags</td><td>Objects with any of these flags will be excluded from the results. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a4ce3ac0ebff70da1174b7d92022d4f49" name="a4ce3ac0ebff70da1174b7d92022d4f49"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4ce3ac0ebff70da1174b7d92022d4f49">&#9670;&#160;</a></span>ForEachObjectOfClasses_Implementation()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d0/d76/_android_platform_8h.html#a724fb9f82013c782db5c3c12ea36aac8">FORCEINLINE</a> <a class="el" href="../../df/d63/_typed_element_query_capabilities_8inl.html#a72343342ce64c0755563ee6c5e27868d">void</a> ForEachObjectOfClasses_Implementation </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../da/d06/class_f_u_object_hash_tables.html">FUObjectHashTables</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>ThreadHash</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d2/ddb/class_t_array_view.html">TArrayView</a>&lt; const <a class="el" href="../../dd/d50/class_u_class.html">UClass</a> *const &gt;</td>          <td class="paramname"><span class="paramname"><em>ClassesToLookFor</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d8/d95/class_t_function_ref.html">TFunctionRef</a>&lt; <a class="el" href="../../df/d63/_typed_element_query_capabilities_8inl.html#a72343342ce64c0755563ee6c5e27868d">void</a>(<a class="el" href="../../d7/d0b/class_u_object.html">UObject</a> *)&gt;</td>          <td class="paramname"><span class="paramname"><em>Operation</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d5/d1e/_object_macros_8h.html#a1508ac1247bcd79c4921cf8497e72c79">EObjectFlags</a></td>          <td class="paramname"><span class="paramname"><em>ExcludeFlags</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d5/d1e/_object_macros_8h.html#a32adc8d048f1f80636236fed99a262ab">EInternalObjectFlags</a></td>          <td class="paramname"><span class="paramname"><em>ExclusionInternalFlags</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a8deaa0587b03644b40447eb45e36a619" name="a8deaa0587b03644b40447eb45e36a619"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8deaa0587b03644b40447eb45e36a619">&#9670;&#160;</a></span>ForEachObjectWithOuterBreakable()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../df/d63/_typed_element_query_capabilities_8inl.html#a72343342ce64c0755563ee6c5e27868d">void</a> ForEachObjectWithOuterBreakable </td>
+          <td>(</td>
+          <td class="paramtype">const class <a class="el" href="../../d2/dcc/class_u_object_base.html">UObjectBase</a> *</td>          <td class="paramname"><span class="paramname"><em>Outer</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d8/d95/class_t_function_ref.html">TFunctionRef</a>&lt; <a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a>(<a class="el" href="../../d7/d0b/class_u_object.html">UObject</a> *)&gt;</td>          <td class="paramname"><span class="paramname"><em>Operation</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../de/d13/_find_object_flags_8h.html#ade1c9d66392120688c2bb9ade3da3511">EGetObjectsFlags</a></td>          <td class="paramname"><span class="paramname"><em>Flags</em></span><span class="paramdefsep"> = </span><span class="paramdefval"><a class="el" href="../../de/d13/_find_object_flags_8h.html#ade1c9d66392120688c2bb9ade3da3511a175b0568eb009dc218bf429761e8b23b">EGetObjectsFlags::IncludeNestedObjects</a></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d5/d1e/_object_macros_8h.html#a1508ac1247bcd79c4921cf8497e72c79">EObjectFlags</a></td>          <td class="paramname"><span class="paramname"><em>ExclusionFlags</em></span><span class="paramdefsep"> = </span><span class="paramdefval"><a class="el" href="../../d5/d1e/_object_macros_8h.html#a1508ac1247bcd79c4921cf8497e72c79a14c96b9fc50739cf04faf2ba66d7eb72">RF_NoFlags</a></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d5/d1e/_object_macros_8h.html#a32adc8d048f1f80636236fed99a262ab">EInternalObjectFlags</a></td>          <td class="paramname"><span class="paramname"><em>ExclusionInternalFlags</em></span><span class="paramdefsep"> = </span><span class="paramdefval"><a class="el" href="../../d5/d1e/_object_macros_8h.html#a32adc8d048f1f80636236fed99a262aba6adf97f83acf6453d4a6a4b1070f3754">EInternalObjectFlags::None</a></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Performs an operation on objects with a given outer, with the possibility to break iteration Note that the operation must not modify the <a class="el" href="../../d7/d0b/class_u_object.html">UObject</a> hash maps so it can not create, rename or destroy UObjects.</p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">Outer</td><td>Outer to search for </td></tr>
+    <tr><td class="paramname">Operation</td><td>Function to be called for each object, returning if we want to continue iteration or not </td></tr>
+    <tr><td class="paramname">Flags</td><td>Additional flags, see <a class="el" href="../../de/d13/_find_object_flags_8h.html#ade1c9d66392120688c2bb9ade3da3511">EGetObjectsFlags</a> </td></tr>
+    <tr><td class="paramname">ExclusionFlags</td><td>Specifies flags to use as a filter for which objects to return </td></tr>
+    <tr><td class="paramname">ExclusiveInternalFlags</td><td>Specifies internal flags to use as a filter for which objects to return </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a9b221e890f421ce70f283652ec5256f7" name="a9b221e890f421ce70f283652ec5256f7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9b221e890f421ce70f283652ec5256f7">&#9670;&#160;</a></span>ForEachObjectWithPackage()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../df/d63/_typed_element_query_capabilities_8inl.html#a72343342ce64c0755563ee6c5e27868d">void</a> ForEachObjectWithPackage </td>
+          <td>(</td>
+          <td class="paramtype">const class <a class="el" href="../../d4/d0b/class_u_package.html">UPackage</a> *</td>          <td class="paramname"><span class="paramname"><em>Outer</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d8/d95/class_t_function_ref.html">TFunctionRef</a>&lt; <a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a>(<a class="el" href="../../d7/d0b/class_u_object.html">UObject</a> *)&gt;</td>          <td class="paramname"><span class="paramname"><em>Operation</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../de/d13/_find_object_flags_8h.html#ade1c9d66392120688c2bb9ade3da3511">EGetObjectsFlags</a></td>          <td class="paramname"><span class="paramname"><em>Flags</em></span><span class="paramdefsep"> = </span><span class="paramdefval"><a class="el" href="../../de/d13/_find_object_flags_8h.html#ade1c9d66392120688c2bb9ade3da3511a175b0568eb009dc218bf429761e8b23b">EGetObjectsFlags::IncludeNestedObjects</a></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d5/d1e/_object_macros_8h.html#a1508ac1247bcd79c4921cf8497e72c79">EObjectFlags</a></td>          <td class="paramname"><span class="paramname"><em>ExclusionFlags</em></span><span class="paramdefsep"> = </span><span class="paramdefval"><a class="el" href="../../d5/d1e/_object_macros_8h.html#a1508ac1247bcd79c4921cf8497e72c79a14c96b9fc50739cf04faf2ba66d7eb72">RF_NoFlags</a></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d5/d1e/_object_macros_8h.html#a32adc8d048f1f80636236fed99a262ab">EInternalObjectFlags</a></td>          <td class="paramname"><span class="paramname"><em>ExclusionInternalFlags</em></span><span class="paramdefsep"> = </span><span class="paramdefval"><a class="el" href="../../d5/d1e/_object_macros_8h.html#a32adc8d048f1f80636236fed99a262aba6adf97f83acf6453d4a6a4b1070f3754">EInternalObjectFlags::None</a></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Performs an operation on all objects found within a given package Note that the operation must not modify <a class="el" href="../../d7/d0b/class_u_object.html">UObject</a> hash maps so it can not create, rename or destroy UObjects.</p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">Package</td><td>Package to iterate into </td></tr>
+    <tr><td class="paramname">Operation</td><td>Function to be called for each object, return false to break out of the iteration </td></tr>
+    <tr><td class="paramname">Flags</td><td>Additional flags, see <a class="el" href="../../de/d13/_find_object_flags_8h.html#ade1c9d66392120688c2bb9ade3da3511">EGetObjectsFlags</a> </td></tr>
+    <tr><td class="paramname">ExclusionFlags</td><td>Specifies flags to use as a filter for which objects to return </td></tr>
+    <tr><td class="paramname">ExclusiveInternalFlags</td><td>Specifies internal flags to use as a filter for which objects to return </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a327425d05ba5c94424ff743aed0de72a" name="a327425d05ba5c94424ff743aed0de72a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a327425d05ba5c94424ff743aed0de72a">&#9670;&#160;</a></span>GetAllDerivedClasses()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../da/d41/class_t_map.html">TMap</a>&lt; <a class="el" href="../../dd/d50/class_u_class.html">UClass</a> *, TSet&lt; <a class="el" href="../../dd/d50/class_u_class.html">UClass</a> * &gt; &gt; GetAllDerivedClasses </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Get all base classes and their direct subclasses </p>
+
+</div>
+</div>
+<a id="a1bcd96b1762343247cdbbe3af9c045f0" name="a1bcd96b1762343247cdbbe3af9c045f0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1bcd96b1762343247cdbbe3af9c045f0">&#9670;&#160;</a></span>GetDerivedClasses()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../df/d63/_typed_element_query_capabilities_8inl.html#a72343342ce64c0755563ee6c5e27868d">void</a> GetDerivedClasses </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="../../dd/d50/class_u_class.html">UClass</a> *</td>          <td class="paramname"><span class="paramname"><em>ClassToLookFor</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d6/db1/class_t_array.html">TArray</a>&lt; <a class="el" href="../../dd/d50/class_u_class.html">UClass</a> * &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>Results</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a></td>          <td class="paramname"><span class="paramname"><em>bRecursive</em></span><span class="paramdefsep"> = </span><span class="paramdefval"><a class="el" href="../../d3/df7/radaudio__common_8h.html#ade27a78a51a66a5cfb6f09cf36bcfde9a08f175a5505a10b9ed657defeb050e4b">true</a></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Returns an array of classes that were derived from the specified class.</p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">ClassToLookFor</td><td>The parent class of the classes to return. </td></tr>
+    <tr><td class="paramname">Results</td><td>An output list of child classes of the specified parent class. </td></tr>
+    <tr><td class="paramname">bRecursive</td><td>If true, the results will include children of the children classes, recursively. Otherwise, only direct decedents will be included. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="adb321347db74e7d843727360e6e1b978" name="adb321347db74e7d843727360e6e1b978"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adb321347db74e7d843727360e6e1b978">&#9670;&#160;</a></span>GetObjectExternalPackageInternal()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d4/d0b/class_u_package.html">UPackage</a> * GetObjectExternalPackageInternal </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="../../d2/dcc/class_u_object_base.html">UObjectBase</a> *</td>          <td class="paramname"><span class="paramname"><em>Object</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a9e18b1c22367e606d4816573e8943f80" name="a9e18b1c22367e606d4816573e8943f80"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9e18b1c22367e606d4816573e8943f80">&#9670;&#160;</a></span>GetObjectExternalPackageThreadSafe()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d4/d0b/class_u_package.html">UPackage</a> * GetObjectExternalPackageThreadSafe </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="../../d2/dcc/class_u_object_base.html">UObjectBase</a> *</td>          <td class="paramname"><span class="paramname"><em>Object</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a7c8a82bbf72a155f2a8e851e06d8200e" name="a7c8a82bbf72a155f2a8e851e06d8200e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7c8a82bbf72a155f2a8e851e06d8200e">&#9670;&#160;</a></span>GetObjectsOfClass()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../df/d63/_typed_element_query_capabilities_8inl.html#a72343342ce64c0755563ee6c5e27868d">void</a> GetObjectsOfClass </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="../../dd/d50/class_u_class.html">UClass</a> *</td>          <td class="paramname"><span class="paramname"><em>ClassToLookFor</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d6/db1/class_t_array.html">TArray</a>&lt; <a class="el" href="../../d7/d0b/class_u_object.html">UObject</a> * &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>Results</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a></td>          <td class="paramname"><span class="paramname"><em>bIncludeDerivedClasses</em></span><span class="paramdefsep"> = </span><span class="paramdefval"><a class="el" href="../../d3/df7/radaudio__common_8h.html#ade27a78a51a66a5cfb6f09cf36bcfde9a08f175a5505a10b9ed657defeb050e4b">true</a></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d5/d1e/_object_macros_8h.html#a1508ac1247bcd79c4921cf8497e72c79">EObjectFlags</a></td>          <td class="paramname"><span class="paramname"><em>ExcludeFlags</em></span><span class="paramdefsep"> = </span><span class="paramdefval"><a class="el" href="../../d5/d1e/_object_macros_8h.html#a1508ac1247bcd79c4921cf8497e72c79a15467a47b38ad8da98d7b94be31fb2ad">RF_ClassDefaultObject</a></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d5/d1e/_object_macros_8h.html#a32adc8d048f1f80636236fed99a262ab">EInternalObjectFlags</a></td>          <td class="paramname"><span class="paramname"><em>ExclusionInternalFlags</em></span><span class="paramdefsep"> = </span><span class="paramdefval"><a class="el" href="../../d5/d1e/_object_macros_8h.html#a32adc8d048f1f80636236fed99a262aba6adf97f83acf6453d4a6a4b1070f3754">EInternalObjectFlags::None</a></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Returns an array of objects of a specific class. Optionally, results can include objects of derived classes as well.</p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">ClassToLookFor</td><td>Class of the objects to return. </td></tr>
+    <tr><td class="paramname">Results</td><td>An output list of objects of the specified class. </td></tr>
+    <tr><td class="paramname">bIncludeDerivedClasses</td><td>If true, the results will include objects of child classes as well. </td></tr>
+    <tr><td class="paramname">AdditionalExcludeFlags</td><td>Objects with any of these flags will be excluded from the results. </td></tr>
+    <tr><td class="paramname">ExclusiveInternalFlags</td><td>Specifies internal flags to use as a filter for which objects to return </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="abc7eec4911f9fde53ca4e06bf4f0c488" name="abc7eec4911f9fde53ca4e06bf4f0c488"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abc7eec4911f9fde53ca4e06bf4f0c488">&#9670;&#160;</a></span>GetObjectsWithOuter()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../df/d63/_typed_element_query_capabilities_8inl.html#a72343342ce64c0755563ee6c5e27868d">void</a> GetObjectsWithOuter </td>
+          <td>(</td>
+          <td class="paramtype">const class <a class="el" href="../../d2/dcc/class_u_object_base.html">UObjectBase</a> *</td>          <td class="paramname"><span class="paramname"><em>Outer</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d6/db1/class_t_array.html">TArray</a>&lt; <a class="el" href="../../d7/d0b/class_u_object.html">UObject</a> * &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>Results</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../de/d13/_find_object_flags_8h.html#ade1c9d66392120688c2bb9ade3da3511">EGetObjectsFlags</a></td>          <td class="paramname"><span class="paramname"><em>Flags</em></span><span class="paramdefsep"> = </span><span class="paramdefval"><a class="el" href="../../de/d13/_find_object_flags_8h.html#ade1c9d66392120688c2bb9ade3da3511a175b0568eb009dc218bf429761e8b23b">EGetObjectsFlags::IncludeNestedObjects</a></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d5/d1e/_object_macros_8h.html#a1508ac1247bcd79c4921cf8497e72c79">EObjectFlags</a></td>          <td class="paramname"><span class="paramname"><em>ExclusionFlags</em></span><span class="paramdefsep"> = </span><span class="paramdefval"><a class="el" href="../../d5/d1e/_object_macros_8h.html#a1508ac1247bcd79c4921cf8497e72c79a14c96b9fc50739cf04faf2ba66d7eb72">RF_NoFlags</a></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d5/d1e/_object_macros_8h.html#a32adc8d048f1f80636236fed99a262ab">EInternalObjectFlags</a></td>          <td class="paramname"><span class="paramname"><em>ExclusionInternalFlags</em></span><span class="paramdefsep"> = </span><span class="paramdefval"><a class="el" href="../../d5/d1e/_object_macros_8h.html#a32adc8d048f1f80636236fed99a262aba6adf97f83acf6453d4a6a4b1070f3754">EInternalObjectFlags::None</a></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Return all objects with a given outer</p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">Outer</td><td>Outer to search for </td></tr>
+    <tr><td class="paramname">Results</td><td>Returned results </td></tr>
+    <tr><td class="paramname">Flags</td><td>Additional flags, see <a class="el" href="../../de/d13/_find_object_flags_8h.html#ade1c9d66392120688c2bb9ade3da3511">EGetObjectsFlags</a> </td></tr>
+    <tr><td class="paramname">ExclusionFlags</td><td>Specifies flags to use as a filter for which objects to return </td></tr>
+    <tr><td class="paramname">ExclusiveInternalFlags</td><td>Specifies internal flags to use as a filter for which objects to return </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="aceeaf6d765e8e11c96a0eccfeb5c71c8" name="aceeaf6d765e8e11c96a0eccfeb5c71c8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aceeaf6d765e8e11c96a0eccfeb5c71c8">&#9670;&#160;</a></span>GetObjectsWithPackage()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../df/d63/_typed_element_query_capabilities_8inl.html#a72343342ce64c0755563ee6c5e27868d">void</a> GetObjectsWithPackage </td>
+          <td>(</td>
+          <td class="paramtype">const class <a class="el" href="../../d4/d0b/class_u_package.html">UPackage</a> *</td>          <td class="paramname"><span class="paramname"><em>Outer</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d6/db1/class_t_array.html">TArray</a>&lt; <a class="el" href="../../d7/d0b/class_u_object.html">UObject</a> * &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>Results</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../de/d13/_find_object_flags_8h.html#ade1c9d66392120688c2bb9ade3da3511">EGetObjectsFlags</a></td>          <td class="paramname"><span class="paramname"><em>Flags</em></span><span class="paramdefsep"> = </span><span class="paramdefval"><a class="el" href="../../de/d13/_find_object_flags_8h.html#ade1c9d66392120688c2bb9ade3da3511a175b0568eb009dc218bf429761e8b23b">EGetObjectsFlags::IncludeNestedObjects</a></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d5/d1e/_object_macros_8h.html#a1508ac1247bcd79c4921cf8497e72c79">EObjectFlags</a></td>          <td class="paramname"><span class="paramname"><em>ExclusionFlags</em></span><span class="paramdefsep"> = </span><span class="paramdefval"><a class="el" href="../../d5/d1e/_object_macros_8h.html#a1508ac1247bcd79c4921cf8497e72c79a14c96b9fc50739cf04faf2ba66d7eb72">RF_NoFlags</a></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d5/d1e/_object_macros_8h.html#a32adc8d048f1f80636236fed99a262ab">EInternalObjectFlags</a></td>          <td class="paramname"><span class="paramname"><em>ExclusionInternalFlags</em></span><span class="paramdefsep"> = </span><span class="paramdefval"><a class="el" href="../../d5/d1e/_object_macros_8h.html#a32adc8d048f1f80636236fed99a262aba6adf97f83acf6453d4a6a4b1070f3754">EInternalObjectFlags::None</a></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Returns an array of all objects found within a given package</p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">Package</td><td>Package to search into </td></tr>
+    <tr><td class="paramname">Results</td><td>Array to put the results </td></tr>
+    <tr><td class="paramname">Flags</td><td>Additional flags, see <a class="el" href="../../de/d13/_find_object_flags_8h.html#ade1c9d66392120688c2bb9ade3da3511">EGetObjectsFlags</a> </td></tr>
+    <tr><td class="paramname">ExclusionFlags</td><td>Specifies flags to use as a filter for which objects to return </td></tr>
+    <tr><td class="paramname">ExclusiveInternalFlags</td><td>Specifies internal flags to use as a filter for which objects to return </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ab102ce928118353f2d35108975373df1" name="ab102ce928118353f2d35108975373df1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab102ce928118353f2d35108975373df1">&#9670;&#160;</a></span>GetRegisteredClassesVersionNumber()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../dd/de9/preprocessor_8c.html#abc0f5bc07737e498f287334775dff2b6">uint64</a> GetRegisteredClassesVersionNumber </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Get a version number representing the current state of registered classes.</p>
+<p>Can be stored and then compared to invalidate external caching of classes hierarchy whenever it changes. </p>
+
+</div>
+</div>
+<a id="aec69a5a3cb8f5cdb02bb81b5de6f12cf" name="aec69a5a3cb8f5cdb02bb81b5de6f12cf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aec69a5a3cb8f5cdb02bb81b5de6f12cf">&#9670;&#160;</a></span>GetRegisteredNativeClassesVersionNumber()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../dd/de9/preprocessor_8c.html#abc0f5bc07737e498f287334775dff2b6">uint64</a> GetRegisteredNativeClassesVersionNumber </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Get a version number representing the current state of registered native classes.</p>
+<p>Can be stored and then compared to invalidate external caching of native classes hierarchy whenever it changes. </p>
+
+</div>
+</div>
+<a id="a8f00b81540ef1155e7585fa6f37bddf3" name="a8f00b81540ef1155e7585fa6f37bddf3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8f00b81540ef1155e7585fa6f37bddf3">&#9670;&#160;</a></span>HashObject()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../dc/dc2/_auto_r_t_f_m_2_public_2_auto_r_t_f_m_2_defines_8h.html#a15ec6188c6bbd351bb331ff0f5708364">UE_AUTORTFM_NOAUTORTFM</a> <a class="el" href="../../df/d63/_typed_element_query_capabilities_8inl.html#a72343342ce64c0755563ee6c5e27868d">void</a> HashObject </td>
+          <td>(</td>
+          <td class="paramtype">class <a class="el" href="../../d2/dcc/class_u_object_base.html">UObjectBase</a> *</td>          <td class="paramname"><span class="paramname"><em>Object</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Add an object to the name hash tables</p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">Object</td><td>Object to add to the hash tables </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a86a495631430721182ddb77b6ec4d8f9" name="a86a495631430721182ddb77b6ec4d8f9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a86a495631430721182ddb77b6ec4d8f9">&#9670;&#160;</a></span>HashObjectExternalPackage()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../df/d63/_typed_element_query_capabilities_8inl.html#a72343342ce64c0755563ee6c5e27868d">void</a> HashObjectExternalPackage </td>
+          <td>(</td>
+          <td class="paramtype">class <a class="el" href="../../d2/dcc/class_u_object_base.html">UObjectBase</a> *</td>          <td class="paramname"><span class="paramname"><em>Object</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">class <a class="el" href="../../d4/d0b/class_u_package.html">UPackage</a> *</td>          <td class="paramname"><span class="paramname"><em>Package</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Assign an external package directly to an object in the hash tables </p><dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">Object</td><td>Object to assign a package to </td></tr>
+    <tr><td class="paramname">Package</td><td>Package to assign, null will call UnhashObjectExternalPackage </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a16c6b482a257e53f53dd3a93e492d4e2" name="a16c6b482a257e53f53dd3a93e492d4e2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a16c6b482a257e53f53dd3a93e492d4e2">&#9670;&#160;</a></span>LLM_DEFINE_TAG()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">LLM_DEFINE_TAG </td>
+          <td>(</td>
+          <td class="paramtype">UObjectHash</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;UObject hashtables&quot;)</td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ad7b24798151f2a5507f1912dcf5b2288" name="ad7b24798151f2a5507f1912dcf5b2288"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad7b24798151f2a5507f1912dcf5b2288">&#9670;&#160;</a></span>LockUObjectHashTables()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../df/d63/_typed_element_query_capabilities_8inl.html#a72343342ce64c0755563ee6c5e27868d">void</a> LockUObjectHashTables </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Prevents any other threads from finding/adding UObjects (e.g. while GC is running) </p>
+
+</div>
+</div>
+<a id="aeacce1d9effc2822c9b5c0fe78c99929" name="aeacce1d9effc2822c9b5c0fe78c99929"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aeacce1d9effc2822c9b5c0fe78c99929">&#9670;&#160;</a></span>LogHashMemoryOverheadStatistics()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../df/d63/_typed_element_query_capabilities_8inl.html#a72343342ce64c0755563ee6c5e27868d">void</a> LogHashMemoryOverheadStatistics </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d8/d21/class_f_output_device.html">FOutputDevice</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>Ar</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="../../dc/d50/_u_object_hash_8h.html#acca1e664c2bd994addae4776f55dc99f">EObjectMemoryOverheadOptions</a></td>          <td class="paramname"><span class="paramname"><em>InOptions</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Logs out information about the total object hash memory usage for debug purposes</p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">Ar</td><td>the archive to write the log data to </td></tr>
+    <tr><td class="paramname">InOptions</td><td>Logging options </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ae01b54a874ff6170e0bc9847fe500e17" name="ae01b54a874ff6170e0bc9847fe500e17"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae01b54a874ff6170e0bc9847fe500e17">&#9670;&#160;</a></span>LogHashOuterStatistics()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../df/d63/_typed_element_query_capabilities_8inl.html#a72343342ce64c0755563ee6c5e27868d">void</a> LogHashOuterStatistics </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d8/d21/class_f_output_device.html">FOutputDevice</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>Ar</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a></td>          <td class="paramname"><span class="paramname"><em>bShowHashBucketCollisionInfo</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Logs out information about the outer object hash for debug purposes</p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">Ar</td><td>the archive to write the log data to </td></tr>
+    <tr><td class="paramname">bShowHashBucketCollisionInfo</td><td>whether to log each bucket's collision count </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a426c2b952e998be1270f913fee648687" name="a426c2b952e998be1270f913fee648687"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a426c2b952e998be1270f913fee648687">&#9670;&#160;</a></span>LogHashStatistics()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../df/d63/_typed_element_query_capabilities_8inl.html#a72343342ce64c0755563ee6c5e27868d">void</a> LogHashStatistics </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d8/d21/class_f_output_device.html">FOutputDevice</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>Ar</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a></td>          <td class="paramname"><span class="paramname"><em>bShowHashBucketCollisionInfo</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Logs out information about the object hash for debug purposes</p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">Ar</td><td>the archive to write the log data to </td></tr>
+    <tr><td class="paramname">bShowHashBucketCollisionInfo</td><td>whether to log each bucket's collision count </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a9b777935c9766b710e9ca5211592cffd" name="a9b777935c9766b710e9ca5211592cffd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9b777935c9766b710e9ca5211592cffd">&#9670;&#160;</a></span>LogHashStatisticsInternal() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../df/d63/_typed_element_query_capabilities_8inl.html#a72343342ce64c0755563ee6c5e27868d">void</a> LogHashStatisticsInternal </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d2/d74/class_t_bucket_map.html">TBucketMap</a>&lt; <a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a8dbb3cd84ca9fd010dadfc3815eefa5d">int32</a> &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>Hash</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d8/d21/class_f_output_device.html">FOutputDevice</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>Ar</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a></td>          <td class="paramname"><span class="paramname"><em>bShowHashBucketCollisionInfo</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a75a1e8ba5f251f19b49de5bf7ac71050" name="a75a1e8ba5f251f19b49de5bf7ac71050"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a75a1e8ba5f251f19b49de5bf7ac71050">&#9670;&#160;</a></span>LogHashStatisticsInternal() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../df/d63/_typed_element_query_capabilities_8inl.html#a72343342ce64c0755563ee6c5e27868d">void</a> LogHashStatisticsInternal </td>
+          <td>(</td>
+          <td class="paramtype">TMultiMap&lt; <a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a8dbb3cd84ca9fd010dadfc3815eefa5d">int32</a>, <a class="el" href="../../dd/de9/preprocessor_8c.html#a1134b580f8da4de94ca6b1de4d37975e">uint32</a> &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>Hash</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d8/d21/class_f_output_device.html">FOutputDevice</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>Ar</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a></td>          <td class="paramname"><span class="paramname"><em>bShowHashBucketCollisionInfo</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ac853b39ac5123777986bf000f52dc771" name="ac853b39ac5123777986bf000f52dc771"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac853b39ac5123777986bf000f52dc771">&#9670;&#160;</a></span>RemoveFromClassMap()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d0/d76/_android_platform_8h.html#a724fb9f82013c782db5c3c12ea36aac8">FORCEINLINE</a> <a class="el" href="../../df/d63/_typed_element_query_capabilities_8inl.html#a72343342ce64c0755563ee6c5e27868d">void</a> RemoveFromClassMap </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../da/d06/class_f_u_object_hash_tables.html">FUObjectHashTables</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>ThreadHash</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d2/dcc/class_u_object_base.html">UObjectBase</a> *</td>          <td class="paramname"><span class="paramname"><em>Object</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ac4d420903ce05bffe5dcc894babfeab0" name="ac4d420903ce05bffe5dcc894babfeab0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac4d420903ce05bffe5dcc894babfeab0">&#9670;&#160;</a></span>ShrinkUObjectHashTables()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../df/d63/_typed_element_query_capabilities_8inl.html#a72343342ce64c0755563ee6c5e27868d">void</a> ShrinkUObjectHashTables </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Shrink the <a class="el" href="../../d7/d0b/class_u_object.html">UObject</a> hash tables </p>
+
+</div>
+</div>
+<a id="a0bf988727716724330401ea836796704" name="a0bf988727716724330401ea836796704"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0bf988727716724330401ea836796704">&#9670;&#160;</a></span>StaticFindAllObjectsFastInternal()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a> StaticFindAllObjectsFastInternal </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d6/db1/class_t_array.html">TArray</a>&lt; <a class="el" href="../../d7/d0b/class_u_object.html">UObject</a> * &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>OutFoundObjects</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="../../dd/d50/class_u_class.html">UClass</a> *</td>          <td class="paramname"><span class="paramname"><em>ObjectClass</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d5/dd5/class_f_name.html">FName</a></td>          <td class="paramname"><span class="paramname"><em>ObjectName</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../de/d13/_find_object_flags_8h.html#a7cbdc1d48419c9c34ae81f693fba71c7">EFindObjectFlags</a></td>          <td class="paramname"><span class="paramname"><em>Flags</em></span><span class="paramdefsep"> = </span><span class="paramdefval"><a class="el" href="../../de/d13/_find_object_flags_8h.html#a7cbdc1d48419c9c34ae81f693fba71c7a6adf97f83acf6453d4a6a4b1070f3754">EFindObjectFlags::None</a></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d5/d1e/_object_macros_8h.html#a1508ac1247bcd79c4921cf8497e72c79">EObjectFlags</a></td>          <td class="paramname"><span class="paramname"><em>ExcludeFlags</em></span><span class="paramdefsep"> = </span><span class="paramdefval"><a class="el" href="../../d5/d1e/_object_macros_8h.html#a1508ac1247bcd79c4921cf8497e72c79a14c96b9fc50739cf04faf2ba66d7eb72">RF_NoFlags</a></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d5/d1e/_object_macros_8h.html#a32adc8d048f1f80636236fed99a262ab">EInternalObjectFlags</a></td>          <td class="paramname"><span class="paramname"><em>ExclusiveInternalFlags</em></span><span class="paramdefsep"> = </span><span class="paramdefval"><a class="el" href="../../d5/d1e/_object_macros_8h.html#a32adc8d048f1f80636236fed99a262aba6adf97f83acf6453d4a6a4b1070f3754">EInternalObjectFlags::None</a></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p><a class="el" href="../../d9/db1/namespace_private.html">Private</a> internal version of StaticFindAllObjectsFast that allows using 0 exclusion flags.</p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">OutFoundObjects</td><td>Array of objects matching the specified search parameters </td></tr>
+    <tr><td class="paramname">ObjectClass</td><td>The to be found object's class </td></tr>
+    <tr><td class="paramname">ObjectName</td><td>The to be found object's name </td></tr>
+    <tr><td class="paramname">bExactClass</td><td>Whether to require an exact match with the passed in class </td></tr>
+    <tr><td class="paramname">ExcludeFlags</td><td>Ignores objects that contain any of the specified exclusive flags </td></tr>
+    <tr><td class="paramname">ExclusiveInternalFlags</td><td>Ignores objects that contain any of the specified internal exclusive flags </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>Returns true if any objects were found, false otherwise </dd></dl>
+<p>If a class was specified, check that the object is of the correct class</p>
+<p>Include (or not) pending kill objects</p>
+<p>Ensure that the partial path provided matches the object found</p>
+
+</div>
+</div>
+<a id="aaa1bb24a4693cfccb8caaba800ba11a7" name="aaa1bb24a4693cfccb8caaba800ba11a7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aaa1bb24a4693cfccb8caaba800ba11a7">&#9670;&#160;</a></span>StaticFindFirstObjectFastInternal()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d7/d0b/class_u_object.html">UObject</a> * StaticFindFirstObjectFastInternal </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="../../dd/d50/class_u_class.html">UClass</a> *</td>          <td class="paramname"><span class="paramname"><em>ObjectClass</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d5/dd5/class_f_name.html">FName</a></td>          <td class="paramname"><span class="paramname"><em>ObjectName</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../de/d13/_find_object_flags_8h.html#a7cbdc1d48419c9c34ae81f693fba71c7">EFindObjectFlags</a></td>          <td class="paramname"><span class="paramname"><em>Flags</em></span><span class="paramdefsep"> = </span><span class="paramdefval"><a class="el" href="../../de/d13/_find_object_flags_8h.html#a7cbdc1d48419c9c34ae81f693fba71c7a6adf97f83acf6453d4a6a4b1070f3754">EFindObjectFlags::None</a></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d5/d1e/_object_macros_8h.html#a1508ac1247bcd79c4921cf8497e72c79">EObjectFlags</a></td>          <td class="paramname"><span class="paramname"><em>ExcludeFlag</em></span><span class="paramdefsep"> = </span><span class="paramdefval"><a class="el" href="../../d5/d1e/_object_macros_8h.html#a1508ac1247bcd79c4921cf8497e72c79a14c96b9fc50739cf04faf2ba66d7eb72">RF_NoFlags</a></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d5/d1e/_object_macros_8h.html#a32adc8d048f1f80636236fed99a262ab">EInternalObjectFlags</a></td>          <td class="paramname"><span class="paramname"><em>ExclusiveInternalFlags</em></span><span class="paramdefsep"> = </span><span class="paramdefval"><a class="el" href="../../d5/d1e/_object_macros_8h.html#a32adc8d048f1f80636236fed99a262aba6adf97f83acf6453d4a6a4b1070f3754">EInternalObjectFlags::None</a></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p><a class="el" href="../../d9/db1/namespace_private.html">Private</a> internal version of StaticFindFirstObject that allows using 0 exclusion flags.</p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">ObjectClass</td><td>The to be found object's class </td></tr>
+    <tr><td class="paramname">ObjectName</td><td>The to be found object's name </td></tr>
+    <tr><td class="paramname">bExactClass</td><td>Whether to require an exact match with the passed in class </td></tr>
+    <tr><td class="paramname">ExcludeFlag</td><td>Ignores objects that contain any of the specified exclusive flags </td></tr>
+    <tr><td class="paramname">ExclusiveInternalFlags</td><td>Ignores objects that contain any of the specified internal exclusive flags </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>Returns first object with the specified name and class, null if not found </dd></dl>
+<p>If a class was specified, check that the object is of the correct class</p>
+<p>Include (or not) pending kill objects</p>
+<p>Ensure that the partial path provided matches the object found</p>
+
+</div>
+</div>
+<a id="a84c1e074b5bd3b589365607facb3a4b1" name="a84c1e074b5bd3b589365607facb3a4b1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a84c1e074b5bd3b589365607facb3a4b1">&#9670;&#160;</a></span>StaticFindObjectFastExplicit()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d7/d0b/class_u_object.html">UObject</a> * StaticFindObjectFastExplicit </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="../../dd/d50/class_u_class.html">UClass</a> *</td>          <td class="paramname"><span class="paramname"><em>ObjectClass</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d5/dd5/class_f_name.html">FName</a></td>          <td class="paramname"><span class="paramname"><em>ObjectName</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="../../d2/d8e/_s_anim_notify_panel_8h.html#a7483aa7f043c623f8990a95320be654d">FString</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>ObjectPathName</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../de/d13/_find_object_flags_8h.html#a7cbdc1d48419c9c34ae81f693fba71c7">EFindObjectFlags</a></td>          <td class="paramname"><span class="paramname"><em>Flags</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d5/d1e/_object_macros_8h.html#a1508ac1247bcd79c4921cf8497e72c79">EObjectFlags</a></td>          <td class="paramname"><span class="paramname"><em>ExcludeFlags</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Variation of StaticFindObjectFast that uses explicit path.</p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">ObjectClass</td><td>The to be found object's class </td></tr>
+    <tr><td class="paramname">ObjectName</td><td>The to be found object's class </td></tr>
+    <tr><td class="paramname">ObjectPathName</td><td>Full path name for the object to search for </td></tr>
+    <tr><td class="paramname">ExactClass</td><td>Whether to require an exact match with the passed in class </td></tr>
+    <tr><td class="paramname">ExclusiveFlags</td><td>Ignores objects that contain any of the specified exclusive flags </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>Returns a pointer to the found object or nullptr if none could be found </dd></dl>
+
+</div>
+</div>
+<a id="a3c2047ce2f58a87147f21911952e0d42" name="a3c2047ce2f58a87147f21911952e0d42"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3c2047ce2f58a87147f21911952e0d42">&#9670;&#160;</a></span>StaticFindObjectFastExplicitThreadSafe()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d7/d0b/class_u_object.html">UObject</a> * StaticFindObjectFastExplicitThreadSafe </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../da/d06/class_f_u_object_hash_tables.html">FUObjectHashTables</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>ThreadHash</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="../../dd/d50/class_u_class.html">UClass</a> *</td>          <td class="paramname"><span class="paramname"><em>ObjectClass</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d5/dd5/class_f_name.html">FName</a></td>          <td class="paramname"><span class="paramname"><em>ObjectName</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="../../d2/d8e/_s_anim_notify_panel_8h.html#a7483aa7f043c623f8990a95320be654d">FString</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>ObjectPathName</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../de/d13/_find_object_flags_8h.html#a7cbdc1d48419c9c34ae81f693fba71c7">EFindObjectFlags</a></td>          <td class="paramname"><span class="paramname"><em>Flags</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d5/d1e/_object_macros_8h.html#a1508ac1247bcd79c4921cf8497e72c79">EObjectFlags</a></td>          <td class="paramname"><span class="paramname"><em>ExcludeFlags</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>If a class was specified, check that the object is of the correct class</p>
+<p>Finally check the explicit path</p>
+
+</div>
+</div>
+<a id="adfa9c1e36d79395a316bdb39734fc4e8" name="adfa9c1e36d79395a316bdb39734fc4e8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adfa9c1e36d79395a316bdb39734fc4e8">&#9670;&#160;</a></span>StaticFindObjectFastInternal() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d7/d0b/class_u_object.html">UObject</a> * StaticFindObjectFastInternal </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="../../dd/d50/class_u_class.html">UClass</a> *</td>          <td class="paramname"><span class="paramname"><em>Class</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="../../d7/d0b/class_u_object.html">UObject</a> *</td>          <td class="paramname"><span class="paramname"><em>InOuter</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d5/dd5/class_f_name.html">FName</a></td>          <td class="paramname"><span class="paramname"><em>InName</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../de/d13/_find_object_flags_8h.html#a7cbdc1d48419c9c34ae81f693fba71c7">EFindObjectFlags</a></td>          <td class="paramname"><span class="paramname"><em>Flags</em></span><span class="paramdefsep"> = </span><span class="paramdefval"><a class="el" href="../../de/d13/_find_object_flags_8h.html#a7cbdc1d48419c9c34ae81f693fba71c7a6adf97f83acf6453d4a6a4b1070f3754">EFindObjectFlags::None</a></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d5/d1e/_object_macros_8h.html#a1508ac1247bcd79c4921cf8497e72c79">EObjectFlags</a></td>          <td class="paramname"><span class="paramname"><em>ExclusiveFlags</em></span><span class="paramdefsep"> = </span><span class="paramdefval"><a class="el" href="../../d5/d1e/_object_macros_8h.html#a1508ac1247bcd79c4921cf8497e72c79a14c96b9fc50739cf04faf2ba66d7eb72">RF_NoFlags</a></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d5/d1e/_object_macros_8h.html#a32adc8d048f1f80636236fed99a262ab">EInternalObjectFlags</a></td>          <td class="paramname"><span class="paramname"><em>ExclusiveInternalFlags</em></span><span class="paramdefsep"> = </span><span class="paramdefval"><a class="el" href="../../d5/d1e/_object_macros_8h.html#a32adc8d048f1f80636236fed99a262aba6adf97f83acf6453d4a6a4b1070f3754">EInternalObjectFlags::None</a></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p><a class="el" href="../../d9/db1/namespace_private.html">Private</a> internal version of StaticFindObjectFast that allows using 0 exclusion flags.</p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">Class</td><td>The to be found object's class </td></tr>
+    <tr><td class="paramname">InOuter</td><td>The to be found object's outer </td></tr>
+    <tr><td class="paramname">InName</td><td>The to be found object's class </td></tr>
+    <tr><td class="paramname">ExactClass</td><td>Whether to require an exact match with the passed in class </td></tr>
+    <tr><td class="paramname">ExclusiveFlags</td><td>Ignores objects that contain any of the specified exclusive flags </td></tr>
+    <tr><td class="paramname">ExclusiveInternalFlags</td><td>Ignores objects that contain any of the specified internal exclusive flags </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>Returns a pointer to the found object or NULL if none could be found </dd></dl>
+
+</div>
+</div>
+<a id="a5c409fe1d379a29848fb0c7238891428" name="a5c409fe1d379a29848fb0c7238891428"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5c409fe1d379a29848fb0c7238891428">&#9670;&#160;</a></span>StaticFindObjectFastInternal() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d7/d0b/class_u_object.html">UObject</a> * StaticFindObjectFastInternal </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../da/d34/struct_f_remote_object_id.html">FRemoteObjectId</a></td>          <td class="paramname"><span class="paramname"><em>RemoteId</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d5/d1e/_object_macros_8h.html#a1508ac1247bcd79c4921cf8497e72c79">EObjectFlags</a></td>          <td class="paramname"><span class="paramname"><em>InExclusiveFlags</em></span><span class="paramdefsep"> = </span><span class="paramdefval"><a class="el" href="../../d5/d1e/_object_macros_8h.html#a1508ac1247bcd79c4921cf8497e72c79a14c96b9fc50739cf04faf2ba66d7eb72">RF_NoFlags</a></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d5/d1e/_object_macros_8h.html#a32adc8d048f1f80636236fed99a262ab">EInternalObjectFlags</a></td>          <td class="paramname"><span class="paramname"><em>InExlusiveInternalFlags</em></span><span class="paramdefsep"> = </span><span class="paramdefval"><a class="el" href="../../d5/d1e/_object_macros_8h.html#a32adc8d048f1f80636236fed99a262aba6adf97f83acf6453d4a6a4b1070f3754">EInternalObjectFlags::None</a></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Variation of StaticFindObjectFastInternal that uses remote id.</p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">RemoteId</td><td>The to be found object's remote id </td></tr>
+    <tr><td class="paramname">InExclusiveFlags</td><td>Ignores objects that contain any of the specified exclusive flags </td></tr>
+    <tr><td class="paramname">InExlusiveInternalFlags</td><td>Ignores objects that contain any of the specified internal exclusive flags </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>Returns a pointer to the found object or NULL if none could be found </dd></dl>
+
+</div>
+</div>
+<a id="a6ec8e98c10af9ea8f39ffb01a1030f63" name="a6ec8e98c10af9ea8f39ffb01a1030f63"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6ec8e98c10af9ea8f39ffb01a1030f63">&#9670;&#160;</a></span>StaticFindObjectFastInternalThreadSafe() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d7/d0b/class_u_object.html">UObject</a> * StaticFindObjectFastInternalThreadSafe </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../da/d06/class_f_u_object_hash_tables.html">FUObjectHashTables</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>ThreadHash</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="../../dd/d50/class_u_class.html">UClass</a> *</td>          <td class="paramname"><span class="paramname"><em>ObjectClass</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="../../d7/d0b/class_u_object.html">UObject</a> *</td>          <td class="paramname"><span class="paramname"><em>ObjectOuter</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d5/dd5/class_f_name.html">FName</a></td>          <td class="paramname"><span class="paramname"><em>ObjectName</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../de/d13/_find_object_flags_8h.html#a7cbdc1d48419c9c34ae81f693fba71c7">EFindObjectFlags</a></td>          <td class="paramname"><span class="paramname"><em>Flags</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d5/d1e/_object_macros_8h.html#a1508ac1247bcd79c4921cf8497e72c79">EObjectFlags</a></td>          <td class="paramname"><span class="paramname"><em>ExcludeFlags</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d5/d1e/_object_macros_8h.html#a32adc8d048f1f80636236fed99a262ab">EInternalObjectFlags</a></td>          <td class="paramname"><span class="paramname"><em>ExclusiveInternalFlags</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>If a class was specified, check that the object is of the correct class</p>
+<p>Include (or not) pending kill objects</p>
+<p>If a class was specified, check that the object is of the correct class</p>
+<p>Include (or not) pending kill objects</p>
+<p>Ensure that the partial path provided matches the object found</p>
+
+</div>
+</div>
+<a id="ad1b70bd584e8c6ac45fe77940923311f" name="ad1b70bd584e8c6ac45fe77940923311f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad1b70bd584e8c6ac45fe77940923311f">&#9670;&#160;</a></span>StaticFindObjectFastInternalThreadSafe() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d7/d0b/class_u_object.html">UObject</a> * StaticFindObjectFastInternalThreadSafe </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../da/d06/class_f_u_object_hash_tables.html">FUObjectHashTables</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>ThreadHash</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../da/d34/struct_f_remote_object_id.html">FRemoteObjectId</a></td>          <td class="paramname"><span class="paramname"><em>RemoteId</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d5/d1e/_object_macros_8h.html#a1508ac1247bcd79c4921cf8497e72c79">EObjectFlags</a></td>          <td class="paramname"><span class="paramname"><em>InExclusiveFlags</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d5/d1e/_object_macros_8h.html#a32adc8d048f1f80636236fed99a262ab">EInternalObjectFlags</a></td>          <td class="paramname"><span class="paramname"><em>InExlusiveInternalFlags</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ae9add70b26aeb4fe55cfed0f1b328857" name="ae9add70b26aeb4fe55cfed0f1b328857"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae9add70b26aeb4fe55cfed0f1b328857">&#9670;&#160;</a></span>StaticFindObjectInPackageInternal()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d7/d0b/class_u_object.html">UObject</a> * StaticFindObjectInPackageInternal </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../da/d06/class_f_u_object_hash_tables.html">FUObjectHashTables</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>ThreadHash</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="../../dd/d50/class_u_class.html">UClass</a> *</td>          <td class="paramname"><span class="paramname"><em>ObjectClass</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="../../d4/d0b/class_u_package.html">UPackage</a> *</td>          <td class="paramname"><span class="paramname"><em>ObjectPackage</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d5/dd5/class_f_name.html">FName</a></td>          <td class="paramname"><span class="paramname"><em>ObjectName</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../de/d13/_find_object_flags_8h.html#a7cbdc1d48419c9c34ae81f693fba71c7">EFindObjectFlags</a></td>          <td class="paramname"><span class="paramname"><em>Flags</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d5/d1e/_object_macros_8h.html#a1508ac1247bcd79c4921cf8497e72c79">EObjectFlags</a></td>          <td class="paramname"><span class="paramname"><em>ExcludeFlags</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d5/d1e/_object_macros_8h.html#a32adc8d048f1f80636236fed99a262ab">EInternalObjectFlags</a></td>          <td class="paramname"><span class="paramname"><em>ExclusiveInternalFlags</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Do not return ourselves (Packages currently have themselves as their package. )</p>
+<p>If a class was specified, check that the object is of the correct class</p>
+<p>Include (or not) pending kill objects</p>
+
+</div>
+</div>
+<a id="a82d3de6e8d346c2e95640eeb55b2dd3a" name="a82d3de6e8d346c2e95640eeb55b2dd3a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a82d3de6e8d346c2e95640eeb55b2dd3a">&#9670;&#160;</a></span>UnhashObject()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../dc/dc2/_auto_r_t_f_m_2_public_2_auto_r_t_f_m_2_defines_8h.html#a15ec6188c6bbd351bb331ff0f5708364">UE_AUTORTFM_NOAUTORTFM</a> <a class="el" href="../../df/d63/_typed_element_query_capabilities_8inl.html#a72343342ce64c0755563ee6c5e27868d">void</a> UnhashObject </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d2/dcc/class_u_object_base.html">UObjectBase</a> *</td>          <td class="paramname"><span class="paramname"><em>Object</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Remove an object to the name hash tables</p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">Object</td><td>Object to remove from the hash tables </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a2876d0bc9118bf976554731cc175eb73" name="a2876d0bc9118bf976554731cc175eb73"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2876d0bc9118bf976554731cc175eb73">&#9670;&#160;</a></span>UnhashObjectExternalPackage()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../df/d63/_typed_element_query_capabilities_8inl.html#a72343342ce64c0755563ee6c5e27868d">void</a> UnhashObjectExternalPackage </td>
+          <td>(</td>
+          <td class="paramtype">class <a class="el" href="../../d2/dcc/class_u_object_base.html">UObjectBase</a> *</td>          <td class="paramname"><span class="paramname"><em>Object</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Assign an external package directly to an object in the hash tables </p><dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">Object</td><td>Object to unassign a package from </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="af98768940b7fb8b39dd3ae017122b78c" name="af98768940b7fb8b39dd3ae017122b78c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af98768940b7fb8b39dd3ae017122b78c">&#9670;&#160;</a></span>UnlockUObjectHashTables()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../df/d63/_typed_element_query_capabilities_8inl.html#a72343342ce64c0755563ee6c5e27868d">void</a> UnlockUObjectHashTables </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Releases <a class="el" href="../../d7/d0b/class_u_object.html">UObject</a> hash tables lock (e.g. after GC has finished running) </p>
+
+</div>
+</div>
+<a name="doc-var-members" id="doc-var-members"></a><h2 id="header-doc-var-members" class="groupheader">变量说明</h2>
+<a id="a2fbeb3afb11f2c4616acca09565f13d8" name="a2fbeb3afb11f2c4616acca09565f13d8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2fbeb3afb11f2c4616acca09565f13d8">&#9670;&#160;</a></span>GAllowGetObjectsReturnUnreachableObjects</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a> GAllowGetObjectsReturnUnreachableObjects = <a class="el" href="../../d3/df7/radaudio__common_8h.html#ade27a78a51a66a5cfb6f09cf36bcfde9ae9de385ef6fe9bf3360d1038396b884c">false</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a2288da7ae0b3e1dcdfc70f628ebaf352" name="a2288da7ae0b3e1dcdfc70f628ebaf352"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2288da7ae0b3e1dcdfc70f628ebaf352">&#9670;&#160;</a></span>GUObjectArray</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../dd/d64/class_f_u_object_array.html">FUObjectArray</a> GUObjectArray</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Global <a class="el" href="../../d7/d0b/class_u_object.html">UObject</a> allocator </p>
+
+</div>
+</div>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<div id="page-nav" class="page-nav-panel">
+<div id="page-nav-resize-handle"></div>
+<div id="page-nav-tree">
+<div id="page-nav-contents">
+</div><!-- page-nav-contents -->
+</div><!-- page-nav-tree -->
+</div><!-- page-nav -->
+</div><!-- container -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a href="../../dir_0b6ee6e7e9547e675db4add2e5de97da.html">Engine</a></li><li class="navelem"><a href="../../dir_9579d1ecb2c7bf48cbe1049c41745cb4.html">Source</a></li><li class="navelem"><a href="../../dir_9f04efef762572853abdf73f62bebfcc.html">Runtime</a></li><li class="navelem"><a href="../../dir_87835aaea0d77a2a55fd49991cde0b5e.html">CoreUObject</a></li><li class="navelem"><a href="../../dir_8d13800183e64c83edfc0c4ca47054bf.html">Private</a></li><li class="navelem"><a href="../../dir_5bb6f74bfabf28434eeab32b256fbc86.html">UObject</a></li><li class="navelem"><a href="../../d4/de9/_u_object_hash_8cpp.html">UObjectHash.cpp</a></li>
+    <li class="footer">制作者 <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.15.0 </li>
+  </ul>
+</div>
+</body>
+</html>

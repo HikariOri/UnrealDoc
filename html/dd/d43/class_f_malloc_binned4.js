@@ -1,0 +1,37 @@
+var class_f_malloc_binned4 =
+[
+    [ "FPoolInfo", "d1/def/struct_f_malloc_binned4_1_1_f_pool_info.html", "d1/def/struct_f_malloc_binned4_1_1_f_pool_info" ],
+    [ "FPoolTable", "d0/d4f/struct_f_malloc_binned4_1_1_f_pool_table.html", "d0/d4f/struct_f_malloc_binned4_1_1_f_pool_table" ],
+    [ "Private", "d8/d32/struct_f_malloc_binned4_1_1_private.html", null ],
+    [ "EBlockCanary", "dd/d43/class_f_malloc_binned4.html#ac30c65fcc43ef55857343ed1ad66270a", [
+      [ "Zero", "dd/d43/class_f_malloc_binned4.html#ac30c65fcc43ef55857343ed1ad66270aad7ed4ee1df437474d005188535f74875", null ],
+      [ "Value", "dd/d43/class_f_malloc_binned4.html#ac30c65fcc43ef55857343ed1ad66270aa689202409e48743b914713f96d93947c", null ]
+    ] ],
+    [ "FMallocBinned4", "dd/d43/class_f_malloc_binned4.html#aa770e8d2e549d9b96385e1d0dfd8c8b6", null ],
+    [ "~FMallocBinned4", "dd/d43/class_f_malloc_binned4.html#a3c14f8738dded100bca070344cfc09ca", null ],
+    [ "CanaryFail", "dd/d43/class_f_malloc_binned4.html#a8afc3ab6df99c95ffea624187baa4861", null ],
+    [ "CanaryTest", "dd/d43/class_f_malloc_binned4.html#a82170966f4d235349eb8c05267eb0c36", null ],
+    [ "DumpAllocatorStats", "dd/d43/class_f_malloc_binned4.html#a4c63f8db29e7515bf0d5f1415099adcd", null ],
+    [ "FlushCurrentThreadCacheInternal", "dd/d43/class_f_malloc_binned4.html#a0de66689ce608029c60dd4c87c2c3f4c", null ],
+    [ "Free", "dd/d43/class_f_malloc_binned4.html#aab00c1d5b19f439e69bd5a3ef006ce3d", null ],
+    [ "FreeBundles", "dd/d43/class_f_malloc_binned4.html#a854340b6e3a50064e903d745914119c4", null ],
+    [ "GetAllocationSize", "dd/d43/class_f_malloc_binned4.html#a092d972d8c69ddccdf45419bbad5c04e", null ],
+    [ "GetDescriptiveName", "dd/d43/class_f_malloc_binned4.html#a6a4230fe55a59ec8a0bb13c3e527c4cd", null ],
+    [ "GetImmediatelyFreeableCachedMemorySize", "dd/d43/class_f_malloc_binned4.html#ab4c79b8fcf12477e333318e53307bd99", null ],
+    [ "GetSmallAllocationSize", "dd/d43/class_f_malloc_binned4.html#a36d676d3e369dcfc980172e70d0dcbb0", null ],
+    [ "GetTotalFreeCachedMemorySize", "dd/d43/class_f_malloc_binned4.html#a99bcb4c91737959d5c4ed6e94786e0ef", null ],
+    [ "IsInternallyThreadSafe", "dd/d43/class_f_malloc_binned4.html#a6d55235248a08dacb4760922eb888ce0", null ],
+    [ "Malloc", "dd/d43/class_f_malloc_binned4.html#a68c8a20330d9e56b7376a4fd01e79d7b", null ],
+    [ "MallocExternalLarge", "dd/d43/class_f_malloc_binned4.html#a31684e558891220e3c10dc6f4a299fa4", null ],
+    [ "MallocExternalSmall", "dd/d43/class_f_malloc_binned4.html#aff1404e29f30ba5cace5229660f14f00", null ],
+    [ "OnMallocInitialized", "dd/d43/class_f_malloc_binned4.html#adc8de8ac7ff9d4649234a0de98f9d76c", null ],
+    [ "OnPostFork", "dd/d43/class_f_malloc_binned4.html#a32719cbb10231db3596a76a21659f8b7", null ],
+    [ "OnPreFork", "dd/d43/class_f_malloc_binned4.html#adcfd8c7662b79f0d62ce15a2bc503a1b", null ],
+    [ "PoolIndexToBinSize", "dd/d43/class_f_malloc_binned4.html#a4be4a88ac50b8562e9f963e85de28f77", null ],
+    [ "QuantizeSize", "dd/d43/class_f_malloc_binned4.html#a96a5482f377fa44c6a40fecaff038ea5", null ],
+    [ "Realloc", "dd/d43/class_f_malloc_binned4.html#af8abeab00dc3c24a00bbb1a10e35eda3", null ],
+    [ "Trim", "dd/d43/class_f_malloc_binned4.html#a284016a39b1b26ecd65d644b04055062", null ],
+    [ "UpdateStats", "dd/d43/class_f_malloc_binned4.html#a82428422e68746f42bf768705ec32f47", null ],
+    [ "ValidateHeap", "dd/d43/class_f_malloc_binned4.html#a7d4f675f9d5434452c0fa56b48352434", null ],
+    [ "SmallPoolTables", "dd/d43/class_f_malloc_binned4.html#ade14c22091234ac347dbd60cd4d864d3", null ]
+];

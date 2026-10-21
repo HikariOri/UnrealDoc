@@ -1,0 +1,4 @@
+var struct_u_e_1_1_geometry_1_1_spline_1_1_math_1_1_t_tangent_ops_3_01_u_e_1_1_math_1_1_t_quat_3_01_scalar_01_4_01_4 =
+[
+    [ "Quat", "d9/da1/struct_u_e_1_1_geometry_1_1_spline_1_1_math_1_1_t_tangent_ops_3_01_u_e_1_1_math_1_1_t_quat_3_01_scalar_01_4_01_4.html#a60266ca58577b0195cf495c593e89297", null ]
+];

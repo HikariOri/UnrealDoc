@@ -1,0 +1,27 @@
+var class_u_movie_scene_custom_primitive_data_track =
+[
+    [ "UMovieSceneCustomPrimitiveDataTrack", "dd/d3b/class_u_movie_scene_custom_primitive_data_track.html#af0486813435f54e591a7f55a98c5a9df", null ],
+    [ "AddColorParameterKey", "dd/d3b/class_u_movie_scene_custom_primitive_data_track.html#ae08d032fe4f092ffd08a1c8a0dd5f6aa", null ],
+    [ "AddColorParameterKey", "dd/d3b/class_u_movie_scene_custom_primitive_data_track.html#a7f53764c6b736ddab37237c333090c5f", null ],
+    [ "AddScalarParameterKey", "dd/d3b/class_u_movie_scene_custom_primitive_data_track.html#a8230c2de374dce83804b805893001f96", null ],
+    [ "AddScalarParameterKey", "dd/d3b/class_u_movie_scene_custom_primitive_data_track.html#a052992394ea27ab0c1c2467f3bda228e", null ],
+    [ "AddSection", "dd/d3b/class_u_movie_scene_custom_primitive_data_track.html#a3c0c65f9998f7e73a44c44356b065450", null ],
+    [ "AddVector2DParameterKey", "dd/d3b/class_u_movie_scene_custom_primitive_data_track.html#ac3aae6fb065134ed8ce1198139e244cd", null ],
+    [ "AddVector2DParameterKey", "dd/d3b/class_u_movie_scene_custom_primitive_data_track.html#ad840fa098abae0aaedb74f78806c9e1c", null ],
+    [ "AddVectorParameterKey", "dd/d3b/class_u_movie_scene_custom_primitive_data_track.html#aa4b330b2bb6c5503c9fa4a409ee44b91", null ],
+    [ "AddVectorParameterKey", "dd/d3b/class_u_movie_scene_custom_primitive_data_track.html#a2dd065e33309c34a58935f3a1df33f57", null ],
+    [ "CreateNewSection", "dd/d3b/class_u_movie_scene_custom_primitive_data_track.html#a0bbf8aac22387ebd63de45445167d583", null ],
+    [ "ExtendEntityImpl", "dd/d3b/class_u_movie_scene_custom_primitive_data_track.html#aae5e8da366853248ab989ec62cabce31", null ],
+    [ "GetAllSections", "dd/d3b/class_u_movie_scene_custom_primitive_data_track.html#a22e7744fb5666e8d7531bc47735e4c63", null ],
+    [ "GetSectionToKey", "dd/d3b/class_u_movie_scene_custom_primitive_data_track.html#a4195a7bf31221f15aa697675dcb66dc8", null ],
+    [ "HasSection", "dd/d3b/class_u_movie_scene_custom_primitive_data_track.html#a3db975dd6e0176fcc6b70b61187fef4e", null ],
+    [ "ImportEntityImpl", "dd/d3b/class_u_movie_scene_custom_primitive_data_track.html#abc937d13fcf5f1044da9d34aab08cb2b", null ],
+    [ "IsEmpty", "dd/d3b/class_u_movie_scene_custom_primitive_data_track.html#aa2e85e3c329c834d4949e40c89d67b84", null ],
+    [ "PopulateEvaluationFieldImpl", "dd/d3b/class_u_movie_scene_custom_primitive_data_track.html#aa784e9e36ad334f3a7edad40ed701bec", null ],
+    [ "RemoveAllAnimationData", "dd/d3b/class_u_movie_scene_custom_primitive_data_track.html#a36ed2f390083b83b2fafba1b8e52afbb", null ],
+    [ "RemoveSection", "dd/d3b/class_u_movie_scene_custom_primitive_data_track.html#a436f1ab67e53619136a646b775735730", null ],
+    [ "RemoveSectionAt", "dd/d3b/class_u_movie_scene_custom_primitive_data_track.html#a203ad37d29afde787fbf108170899f32", null ],
+    [ "SetSectionToKey", "dd/d3b/class_u_movie_scene_custom_primitive_data_track.html#acaca85c6dce1217597c2cd3efe122a91", null ],
+    [ "SupportsMultipleRows", "dd/d3b/class_u_movie_scene_custom_primitive_data_track.html#a1283c145eb1b6f97564b2f1d2fb250fb", null ],
+    [ "SupportsType", "dd/d3b/class_u_movie_scene_custom_primitive_data_track.html#a5002193ffc85112f3ecfb604ac65cda9", null ]
+];

@@ -1,0 +1,1666 @@
+<!-- HTML header for doxygen 1.15.0-->
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh">
+<head>
+  <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=11" />
+  <meta name="generator" content="Doxygen 1.15.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>UE 5.8.4: Engine/Source/Runtime/Renderer/Private/VolumetricFog.cpp 文件参考</title>
+  <link rel="icon" href="../../EdIconDefault.bmp" type="image/x-icon" />
+  <link href="../../tabs.css" rel="stylesheet" type="text/css" />
+  <script type="text/javascript" src="../../jquery.js"></script>
+  <script type="text/javascript" src="../../dynsections.js"></script>
+  <link href="../../navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../navtreedata.js"></script>
+<script type="text/javascript" src="../../navtree.js"></script>
+<script type="text/javascript" src="../../cookie.js"></script>
+  <link href="../../search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../search/searchdata.js"></script>
+<script type="text/javascript" src="../../search/search.js"></script>
+  <script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  extensions: ["tex2jax.js"],
+  jax: ["input/TeX","output/HTML-CSS"],
+});
+</script>
+<script type="text/javascript" async="async" src="https://cdn.jsdelivr.net/npm/mathjax@2/MathJax.js"></script>
+  <link href="../../doxygen.css" rel="stylesheet" type="text/css" />
+  <link href="../../doxygen-awesome.css" rel="stylesheet" type="text/css"/>
+<link href="../../doxygen-awesome-sidebar-only.css" rel="stylesheet" type="text/css"/>
+<link href="../../doxygen-awesome-sidebar-only-darkmode-toggle.css" rel="stylesheet" type="text/css"/>
+  <!-- ... other metadata & script includes ... -->
+  <script type="text/javascript" src="../../doxygen-awesome-darkmode-toggle.js"></script>
+  <script type="text/javascript">
+    DoxygenAwesomeDarkModeToggle.title = "Zwischen hellem/dunklem Modus wechseln"
+    DoxygenAwesomeDarkModeToggle.lightModeIcon = '🌞'
+    // icon from https://fonts.google.com/icons
+    DoxygenAwesomeDarkModeToggle.darkModeIcon = `<svg xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 24 24" height="24px" viewBox="0 0 24 24" width="24px" fill="#009793"><g><rect fill="none" height="24" width="24"/></g><g><g><path d="M8.1,14.15C9.77,14.63,11,16.17,11,18c0,0.68-0.19,1.31-0.48,1.87c0.48,0.09,0.97,0.14,1.48,0.14 c1.48,0,2.9-0.41,4.13-1.15c-2.62-0.92-5.23-2.82-6.8-5.86C7.74,9.94,7.78,7.09,8.29,4.9c-2.57,1.33-4.3,4.01-4.3,7.1c0,0,0,0,0,0 c0.01,0,0.01,0,0.02,0C5.66,12,7.18,12.83,8.1,14.15z" opacity=".3"/><path d="M19.78,17.51c-2.47,0-6.57-1.33-8.68-5.43C8.77,7.57,10.6,3.6,11.63,2.01C6.27,2.2,1.98,6.59,1.98,12 c0,0.14,0.02,0.28,0.02,0.42C2.61,12.16,3.28,12,3.98,12c0,0,0,0,0,0c0-3.09,1.73-5.77,4.3-7.1C7.78,7.09,7.74,9.94,9.32,13 c1.57,3.04,4.18,4.95,6.8,5.86c-1.23,0.74-2.65,1.15-4.13,1.15c-0.5,0-1-0.05-1.48-0.14c-0.37,0.7-0.94,1.27-1.64,1.64 c0.98,0.32,2.03,0.5,3.11,0.5c3.5,0,6.58-1.8,8.37-4.52C20.18,17.5,19.98,17.51,19.78,17.51z"/><path d="M7,16l-0.18,0C6.4,14.84,5.3,14,4,14c-1.66,0-3,1.34-3,3s1.34,3,3,3c0.62,0,2.49,0,3,0c1.1,0,2-0.9,2-2 C9,16.9,8.1,16,7,16z"/></g></g></svg>`
+    DoxygenAwesomeDarkModeToggle.init()
+  </script>
+  <script type="text/javascript" src="../../doxygen-awesome-fragment-copy-button.js"></script>
+  <script type="text/javascript">
+    DoxygenAwesomeFragmentCopyButton.title = "In die Zwischenablage kopieren"
+    // DoxygenAwesomeFragmentCopyButton.copyIcon = `<svg ...>`
+    // DoxygenAwesomeFragmentCopyButton.successIcon = `<svg ...>`
+    DoxygenAwesomeFragmentCopyButton.init()
+  </script>
+  <script type="text/javascript" src="../../doxygen-awesome-paragraph-link.js"></script>
+  <script type="text/javascript">
+    DoxygenAwesomeParagraphLink.title = "Abschnitt verknüpfen"
+    DoxygenAwesomeParagraphLink.icon = "¶"
+    DoxygenAwesomeParagraphLink.init()
+  </script>
+  <script type="text/javascript" src="../../doxygen-awesome-interactive-toc.js"></script>
+  <script type="text/javascript">
+    DoxygenAwesomeInteractiveToc.topOffset = 45
+    DoxygenAwesomeInteractiveToc.hideMobileMenu = false
+    DoxygenAwesomeInteractiveToc.init()
+  </script>
+</head>
+<body>
+    <div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+      <div id="titlearea">
+        <table cellspacing="0" cellpadding="0">
+          <tbody>
+            <tr id="projectrow">
+              <td id="projectlogo"><img alt="Logo" src="../../EdIconDefault.bmp"  /></td>
+              <td id="projectalign">
+                <div id="projectname">UE 5.8.4
+                </div>
+                <div id="projectbrief">Unreal Engine</div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <!-- end header part -->
+<!-- 制作者 Doxygen 1.15.0 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "../../search/",'.html');
+</script>
+<script type="text/javascript">
+$(function() { codefold.init(); });
+</script>
+<script type="text/javascript" src="../../menudata.js"></script>
+<script type="text/javascript" src="../../menu.js"></script>
+<script type="text/javascript">
+$(function() {
+  initMenu('../../',true,false,'search.php','搜索',true);
+  $(function() { init_search(); });
+});
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(function(){initNavTree('db/dd0/_volumetric_fog_8cpp.html','../../',''); });
+</script>
+<div id="container">
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">载入中...</div>
+<div class="SRStatus" id="Searching">搜索中...</div>
+<div class="SRStatus" id="NoMatches">未找到</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">VolumetricFog.cpp 文件参考</div></div>
+</div><!--header-->
+<div class="contents">
+<div class="textblock"><code>#include &quot;<a class="el" href="../../d9/d9d/_volumetric_fog_8h_source.html">VolumetricFog.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../dc/d5e/_core_minimal_8h_source.html">CoreMinimal.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d3/dc8/_base_pass_rendering_8h_source.html">BasePassRendering.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d6/d6d/_canvas_types_8h_source.html">CanvasTypes.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d2/da3/_light_component_8h_source.html">Components/LightComponent.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../dd/d92/_array_view_8h_source.html">Containers/ArrayView.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../df/d65/_static_array_8h_source.html">Containers/StaticArray.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d8/df3/_data_driven_shader_platform_info_8h_source.html">DataDrivenShaderPlatformInfo.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d2/d75/_decal_rendering_shared_8h_source.html">DecalRenderingShared.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../db/d71/_deferred_shading_renderer_8h_source.html">DeferredShadingRenderer.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../da/d72/_distance_field_ambient_occlusion_8h_source.html">DistanceFieldAmbientOcclusion.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../da/dd9/_distance_field_lighting_shared_8h_source.html">DistanceFieldLightingShared.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d8/db0/_dynamic_r_h_i_8h_source.html">DynamicRHI.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../db/d47/_concurrent_linear_allocator_8h_source.html">Experimental/ConcurrentLinearAllocator.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../da/d3c/_extensible_uniform_buffer_8h_source.html">ExtensibleUniformBuffer.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d7/dad/_fog_rendering_8h_source.html">FogRendering.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d9/d63/_froxel_grid_utils_8h_source.html">Froxel/FroxelGridUtils.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../db/dc1/_generate_conservative_depth_buffer_8h_source.html">GenerateConservativeDepthBuffer.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d6/d0b/_generic_platform_math_8h_source.html">GenericPlatform/GenericPlatformMath.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d9/df1/_global_distance_field_8h_source.html">GlobalDistanceField.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d7/dd1/_global_distance_field_parameters_8h_source.html">GlobalDistanceFieldParameters.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../dd/d5a/_global_shader_8h_source.html">GlobalShader.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d4/dd9/_i_console_manager_8h_source.html">HAL/IConsoleManager.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d1/d96/_light_function_atlas_8h_source.html">LightFunctionAtlas.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d0/da7/_light_rendering_8h_source.html">LightRendering.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../da/dac/_light_scene_info_8h_source.html">LightSceneInfo.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../da/d08/_light_scene_proxy_8h_source.html">LightSceneProxy.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../da/d95/_local_fog_volume_rendering_8h_source.html">LocalFogVolumeRendering.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d7/dcd/_log_macros_8h_source.html">Logging/LogMacros.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../dd/dae/_lumen_translucency_volume_lighting_8h_source.html">Lumen/LumenTranslucencyVolumeLighting.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d9/df8/_color_8h_source.html">Math/Color.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../dd/d96/_halton_8h_source.html">Math/Halton.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d0/df6/_math_fwd_8h_source.html">Math/MathFwd.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../df/dd7/_core_2_public_2_math_2_sphere_8h_source.html">Math/Sphere.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d7/dbc/_mesh_material_shader_8h_source.html">MeshMaterialShader.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../db/dca/_large_world_coordinates_8h_source.html">Misc/LargeWorldCoordinates.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../de/d7c/_multi_g_p_u_8h_source.html">MultiGPU.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../dd/dcc/_nanite_ray_tracing_8h_source.html">Nanite/NaniteRayTracing.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../df/db5/_pipeline_state_cache_8h_source.html">PipelineStateCache.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../df/d7e/_cpu_profiler_trace_8h_source.html">ProfilingDebugging/CpuProfilerTrace.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d3/df9/_p_s_o_precache_8h_source.html">PSOPrecache.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../de/ddb/_ray_tracing_scene_8h_source.html">RayTracing/RayTracingScene.h</a>&quot;</code><br />
+<code>#include &quot;RayTracingPayloadType.h&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d1/dd8/_ray_tracing_shader_binding_layout_8h_source.html">RayTracingShaderBindingLayout.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../dd/da6/_renderer_interface_8h_source.html">RendererInterface.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d1/da9/_log_renderer_8h_source.html">LogRenderer.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d8/db3/_render_graph_builder_8h_source.html">RenderGraphBuilder.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d5/d32/_render_graph_utils_8h_source.html">RenderGraphUtils.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d5/d7b/_render_resource_8h_source.html">RenderResource.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../de/d01/_render_utils_8h_source.html">RenderUtils.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d5/dfb/_r_h_i_8h_source.html">RHI.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../da/db9/_r_h_i_breadcrumbs_8h_source.html">RHIBreadcrumbs.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d2/de3/_r_h_i_buffer_initializer_8h_source.html">RHIBufferInitializer.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d1/d1d/_r_h_i_command_list_8h_source.html">RHICommandList.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../db/dec/_r_h_i_resources_8h_source.html">RHIResources.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../dd/da2/_r_h_i_resource_utils_8h_source.html">RHIResourceUtils.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../de/d30/_r_h_i_shader_parameters_8h_source.html">RHIShaderParameters.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d8/d3d/_r_h_i_static_states_8h_source.html">RHIStaticStates.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../dc/d17/_scene_core_8h_source.html">SceneCore.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d5/dbc/_scene_private_8h_source.html">ScenePrivate.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d5/d09/_sky_light_scene_proxy_8h_source.html">SceneProxies/SkyLightSceneProxy.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../de/de5/_scene_renderer_interface_8h_source.html">SceneRendererInterface.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d6/dda/_scene_rendering_8h_source.html">SceneRendering.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d8/d26/_scene_render_target_parameters_8h_source.html">SceneRenderTargetParameters.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d4/dba/_scene_textures_8h_source.html">SceneTextures.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d9/d75/_scene_textures_config_8h_source.html">SceneTexturesConfig.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d7/d51/_scene_types_8h_source.html">SceneTypes.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../dc/d7a/_scene_view_8h_source.html">SceneView.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../df/d95/_screen_rendering_8h_source.html">ScreenRendering.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d8/d34/_shader_8h_source.html">Shader.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d9/d2c/_shader_parameter_macros_8h_source.html">ShaderParameterMacros.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../de/d64/_shader_parameter_struct_8h_source.html">ShaderParameterStruct.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d6/d82/_shader_parameter_utils_8h_source.html">ShaderParameterUtils.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d1/d43/_shadow_rendering_8h_source.html">ShadowRendering.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../db/d35/_show_flags_8h_source.html">ShowFlags.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d3/d48/_stats_8h_source.html">Stats/Stats.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d0/d2a/_system_textures_8h_source.html">SystemTextures.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../db/de1/_virtual_shadow_map_array_8h_source.html">VirtualShadowMaps/VirtualShadowMapArray.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d5/dc3/_volume_lighting_8h_source.html">VolumeLighting.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d2/d81/_volume_rendering_8h_source.html">VolumeRendering.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d5/d99/_volumetric_cloud_rendering_8h_source.html">VolumetricCloudRendering.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../dc/d4f/_volumetric_fog_shared_8h_source.html">VolumetricFogShared.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../dc/dc6/_scene_view_state_8h_source.html">SceneViewState.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../db/d62/_p_s_o_precache_validation_8h_source.html">PSOPrecacheValidation.h</a>&quot;</code><br />
+</div><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-nested-classes" class="groupheader"><a id="nested-classes" name="nested-classes"></a>
+类</h2></td></tr>
+<tr class="memitem:FVolumetricFogMaterialSetupCS" id="r_FVolumetricFogMaterialSetupCS"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d8/d31/class_f_volumetric_fog_material_setup_c_s.html">FVolumetricFogMaterialSetupCS</a></td></tr>
+<tr class="memitem:FWriteToBoundingSphereVS" id="r_FWriteToBoundingSphereVS"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/db2/class_f_write_to_bounding_sphere_v_s.html">FWriteToBoundingSphereVS</a></td></tr>
+<tr class="memitem:FInjectShadowedLocalLightPS" id="r_FInjectShadowedLocalLightPS"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d38/class_f_inject_shadowed_local_light_p_s.html">FInjectShadowedLocalLightPS</a></td></tr>
+<tr class="memitem:FCircleRasterizeVertexBuffer" id="r_FCircleRasterizeVertexBuffer"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/d74/class_f_circle_rasterize_vertex_buffer.html">FCircleRasterizeVertexBuffer</a></td></tr>
+<tr class="memitem:FCircleRasterizeIndexBuffer" id="r_FCircleRasterizeIndexBuffer"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d2/d4f/class_f_circle_rasterize_index_buffer.html">FCircleRasterizeIndexBuffer</a></td></tr>
+<tr class="memitem:FVolumetricFogLightScatteringCS" id="r_FVolumetricFogLightScatteringCS"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d9c/class_f_volumetric_fog_light_scattering_c_s.html">FVolumetricFogLightScatteringCS</a></td></tr>
+<tr class="memitem:FVolumetricFogFinalIntegrationCS" id="r_FVolumetricFogFinalIntegrationCS"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/dba/class_f_volumetric_fog_final_integration_c_s.html">FVolumetricFogFinalIntegrationCS</a></td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-func-members" class="groupheader"><a id="func-members" name="func-members"></a>
+函数</h2></td></tr>
+<tr class="memitem:a41483e68554fdeaa805d20878ec73725" id="r_a41483e68554fdeaa805d20878ec73725"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d2/d79/class_f_auto_console_variable_ref.html">FAutoConsoleVariableRef</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a41483e68554fdeaa805d20878ec73725">CVarVolumetricFog</a> (<a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;r.VolumetricFog&quot;), <a class="el" href="#ae5df5798dbeae75ecbb76f95387450ba">GVolumetricFog</a>, <a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;Whether to allow the volumetric fog feature.&quot;), <a class="el" href="../../d4/dd9/_i_console_manager_8h.html#a7f594f23c2b2c5687f1a502ebb3ba105a5fb4e7a0526f4a0c350d71e18956527c">ECVF_Scalability</a>|<a class="el" href="../../d4/dd9/_i_console_manager_8h.html#a7f594f23c2b2c5687f1a502ebb3ba105a774ea60f41417af093a7ca56c4204a70">ECVF_RenderThreadSafe</a>)</td></tr>
+<tr class="memitem:a0d7744c8d7043b3498bab1962dd2249b" id="r_a0d7744c8d7043b3498bab1962dd2249b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d2/d79/class_f_auto_console_variable_ref.html">FAutoConsoleVariableRef</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a0d7744c8d7043b3498bab1962dd2249b">CVarVolumetricFogInjectShadowedLightsSeparately</a> (<a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;r.VolumetricFog.InjectShadowedLightsSeparately&quot;), <a class="el" href="#aa95e33aa791ae5d8ff79dff362b552ed">GVolumetricFogInjectShadowedLightsSeparately</a>, <a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;Whether to allow the volumetric fog feature.&quot;), <a class="el" href="../../d4/dd9/_i_console_manager_8h.html#a7f594f23c2b2c5687f1a502ebb3ba105a5fb4e7a0526f4a0c350d71e18956527c">ECVF_Scalability</a>|<a class="el" href="../../d4/dd9/_i_console_manager_8h.html#a7f594f23c2b2c5687f1a502ebb3ba105a774ea60f41417af093a7ca56c4204a70">ECVF_RenderThreadSafe</a>)</td></tr>
+<tr class="memitem:a9c134e3d9e56ed7499674c0a860ed15c" id="r_a9c134e3d9e56ed7499674c0a860ed15c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d2/d79/class_f_auto_console_variable_ref.html">FAutoConsoleVariableRef</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9c134e3d9e56ed7499674c0a860ed15c">CVarVolumetricFogDepthDistributionScale</a> (<a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;r.VolumetricFog.DepthDistributionScale&quot;), <a class="el" href="#a290eb98b705177e793720110068d6050">GVolumetricFogDepthDistributionScale</a>, <a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;Scales the slice depth distribution.&quot;), <a class="el" href="../../d4/dd9/_i_console_manager_8h.html#a7f594f23c2b2c5687f1a502ebb3ba105a5fb4e7a0526f4a0c350d71e18956527c">ECVF_Scalability</a>|<a class="el" href="../../d4/dd9/_i_console_manager_8h.html#a7f594f23c2b2c5687f1a502ebb3ba105a774ea60f41417af093a7ca56c4204a70">ECVF_RenderThreadSafe</a>)</td></tr>
+<tr class="memitem:a2c8dc5111ed85bded1b05e05561d92d3" id="r_a2c8dc5111ed85bded1b05e05561d92d3"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d2/d79/class_f_auto_console_variable_ref.html">FAutoConsoleVariableRef</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2c8dc5111ed85bded1b05e05561d92d3">CVarVolumetricFogGridPixelSize</a> (<a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;r.VolumetricFog.GridPixelSize&quot;), <a class="el" href="#aeffdd646e1c99902e62cf2193305cebd">GVolumetricFogGridPixelSize</a>, <a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;XY <a class="el" href="../../d0/de4/_sequence_history_8h.html#a41f48316f09703e0b7cd9ac6b643e9c8">Size</a> of a cell in the voxel grid, in pixels.&quot;), <a class="el" href="../../d4/dd9/_i_console_manager_8h.html#a7f594f23c2b2c5687f1a502ebb3ba105a5fb4e7a0526f4a0c350d71e18956527c">ECVF_Scalability</a>|<a class="el" href="../../d4/dd9/_i_console_manager_8h.html#a7f594f23c2b2c5687f1a502ebb3ba105a774ea60f41417af093a7ca56c4204a70">ECVF_RenderThreadSafe</a>)</td></tr>
+<tr class="memitem:a63bde5b64fa57121814c4c80488636a5" id="r_a63bde5b64fa57121814c4c80488636a5"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d2/d79/class_f_auto_console_variable_ref.html">FAutoConsoleVariableRef</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a63bde5b64fa57121814c4c80488636a5">CVarVolumetricFogGridSizeZ</a> (<a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;r.VolumetricFog.GridSizeZ&quot;), <a class="el" href="#ae3d78299b47c586a55cd304df931e9c2">GVolumetricFogGridSizeZ</a>, <a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;How many Volumetric Fog cells to use in z.&quot;), <a class="el" href="../../d4/dd9/_i_console_manager_8h.html#a7f594f23c2b2c5687f1a502ebb3ba105a5fb4e7a0526f4a0c350d71e18956527c">ECVF_Scalability</a>|<a class="el" href="../../d4/dd9/_i_console_manager_8h.html#a7f594f23c2b2c5687f1a502ebb3ba105a774ea60f41417af093a7ca56c4204a70">ECVF_RenderThreadSafe</a>)</td></tr>
+<tr class="memitem:acf9428669afd5b43736862ee4df3c359" id="r_acf9428669afd5b43736862ee4df3c359"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d2/d79/class_f_auto_console_variable_ref.html">FAutoConsoleVariableRef</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#acf9428669afd5b43736862ee4df3c359">CVarVolumetricFogTemporalReprojection</a> (<a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;r.VolumetricFog.TemporalReprojection&quot;), <a class="el" href="#a528aa86cb0685edba5a82ef76f2b9148">GVolumetricFogTemporalReprojection</a>, <a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;Whether to use temporal reprojection on volumetric fog.&quot;), <a class="el" href="../../d4/dd9/_i_console_manager_8h.html#a7f594f23c2b2c5687f1a502ebb3ba105a5fb4e7a0526f4a0c350d71e18956527c">ECVF_Scalability</a>|<a class="el" href="../../d4/dd9/_i_console_manager_8h.html#a7f594f23c2b2c5687f1a502ebb3ba105a774ea60f41417af093a7ca56c4204a70">ECVF_RenderThreadSafe</a>)</td></tr>
+<tr class="memitem:ab75da9b0a259014ffa3a786effa0fd7f" id="r_ab75da9b0a259014ffa3a786effa0fd7f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d2/d79/class_f_auto_console_variable_ref.html">FAutoConsoleVariableRef</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab75da9b0a259014ffa3a786effa0fd7f">CVarVolumetricFogJitter</a> (<a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;r.VolumetricFog.Jitter&quot;), <a class="el" href="#a64851a7b450253ff7d8839c5696f7f5c">GVolumetricFogJitter</a>, <a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;Whether to apply jitter to each frame's volumetric fog computation, achieving temporal super sampling.&quot;), <a class="el" href="../../d4/dd9/_i_console_manager_8h.html#a7f594f23c2b2c5687f1a502ebb3ba105a5fb4e7a0526f4a0c350d71e18956527c">ECVF_Scalability</a>|<a class="el" href="../../d4/dd9/_i_console_manager_8h.html#a7f594f23c2b2c5687f1a502ebb3ba105a774ea60f41417af093a7ca56c4204a70">ECVF_RenderThreadSafe</a>)</td></tr>
+<tr class="memitem:a37ba65d7bba68a9eeca859023c24099e" id="r_a37ba65d7bba68a9eeca859023c24099e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d2/d79/class_f_auto_console_variable_ref.html">FAutoConsoleVariableRef</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a37ba65d7bba68a9eeca859023c24099e">CVarVolumetricFogHistoryWeight</a> (<a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;r.VolumetricFog.HistoryWeight&quot;), <a class="el" href="#a5e0ff0dd4f768b6af6678be89c2d3e20">GVolumetricFogHistoryWeight</a>, <a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;How much the history value should be weighted each frame.  This is a tradeoff between visible jittering and responsiveness.&quot;), <a class="el" href="../../d4/dd9/_i_console_manager_8h.html#a7f594f23c2b2c5687f1a502ebb3ba105a5fb4e7a0526f4a0c350d71e18956527c">ECVF_Scalability</a>|<a class="el" href="../../d4/dd9/_i_console_manager_8h.html#a7f594f23c2b2c5687f1a502ebb3ba105a774ea60f41417af093a7ca56c4204a70">ECVF_RenderThreadSafe</a>)</td></tr>
+<tr class="memitem:a920cf70b6f13c0155095a661ef7823a2" id="r_a920cf70b6f13c0155095a661ef7823a2"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d2/d79/class_f_auto_console_variable_ref.html">FAutoConsoleVariableRef</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a920cf70b6f13c0155095a661ef7823a2">CVarVolumetricFogHistoryMissSupersampleCount</a> (<a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;r.VolumetricFog.HistoryMissSupersampleCount&quot;), <a class="el" href="#a1950058a86e7097afe7a470a1c10adce">GVolumetricFogHistoryMissSupersampleCount</a>, <a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;This reduces noise when panning or on camera cuts, but introduces a variable cost to volumetric fog computation.  <a class="el" href="../../d7/d4b/_android_input_interface_8h.html#a6ab52c477d6bebd13efdd10042ddca51ac9ceaeea41ae06d1a39c3322c762ec71">Valid</a> range [1, 16].&quot;), ECVF_Scalability|<a class="el" href="../../d4/dd9/_i_console_manager_8h.html#a7f594f23c2b2c5687f1a502ebb3ba105a774ea60f41417af093a7ca56c4204a70">ECVF_RenderThreadSafe</a>)</td></tr>
+<tr class="memitem:af49b24a34b0cde42ddc881541f8c374c" id="r_af49b24a34b0cde42ddc881541f8c374c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d2/d79/class_f_auto_console_variable_ref.html">FAutoConsoleVariableRef</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af49b24a34b0cde42ddc881541f8c374c">CVarInverseSquaredLightDistanceBiasScale</a> (<a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;r.VolumetricFog.InverseSquaredLightDistanceBiasScale&quot;), <a class="el" href="#a74a75a767820c13b7fa99b9d4e39686e">GInverseSquaredLightDistanceBiasScale</a>, <a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;Scales the amount added to the inverse squared falloff denominator.  This effectively removes the spike from inverse squared falloff that causes extreme aliasing.&quot;), <a class="el" href="../../d4/dd9/_i_console_manager_8h.html#a7f594f23c2b2c5687f1a502ebb3ba105a5fb4e7a0526f4a0c350d71e18956527c">ECVF_Scalability</a>|<a class="el" href="../../d4/dd9/_i_console_manager_8h.html#a7f594f23c2b2c5687f1a502ebb3ba105a774ea60f41417af093a7ca56c4204a70">ECVF_RenderThreadSafe</a>)</td></tr>
+<tr class="memitem:a0d123d89379c76441c9ecea446353e31" id="r_a0d123d89379c76441c9ecea446353e31"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d2/d79/class_f_auto_console_variable_ref.html">FAutoConsoleVariableRef</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a0d123d89379c76441c9ecea446353e31">CVarVolumetricFogEmissive</a> (<a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;r.VolumetricFog.Emissive&quot;), <a class="el" href="#af05dad29c37f133f5ff6ba4653d061d6">GVolumetricFogEmissive</a>, <a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;Whether to allow the volumetric fog emissive component.&quot;), <a class="el" href="../../d4/dd9/_i_console_manager_8h.html#a7f594f23c2b2c5687f1a502ebb3ba105a5fb4e7a0526f4a0c350d71e18956527c">ECVF_Scalability</a>|<a class="el" href="../../d4/dd9/_i_console_manager_8h.html#a7f594f23c2b2c5687f1a502ebb3ba105a774ea60f41417af093a7ca56c4204a70">ECVF_RenderThreadSafe</a>)</td></tr>
+<tr class="memitem:a152c2d7aaf2db7f28f998c826c7471e9" id="r_a152c2d7aaf2db7f28f998c826c7471e9"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d2/d79/class_f_auto_console_variable_ref.html">FAutoConsoleVariableRef</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a152c2d7aaf2db7f28f998c826c7471e9">CVarVolumetricFogConservativeDepth</a> (<a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;r.VolumetricFog.ConservativeDepth&quot;), <a class="el" href="#a7b220d03d03c31a6e383030d847b3d06">GVolumetricFogConservativeDepth</a>, <a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;[Experimental] Whether to allow the volumetric to use conservative depth to accelerate computations.&quot;), <a class="el" href="../../d4/dd9/_i_console_manager_8h.html#a7f594f23c2b2c5687f1a502ebb3ba105a5fb4e7a0526f4a0c350d71e18956527c">ECVF_Scalability</a>|<a class="el" href="../../d4/dd9/_i_console_manager_8h.html#a7f594f23c2b2c5687f1a502ebb3ba105a774ea60f41417af093a7ca56c4204a70">ECVF_RenderThreadSafe</a>)</td></tr>
+<tr class="memitem:a562a75b35928871271e558144912bba1" id="r_a562a75b35928871271e558144912bba1"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d2/d79/class_f_auto_console_variable_ref.html">FAutoConsoleVariableRef</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a562a75b35928871271e558144912bba1">CVarVolumetricInjectRaytracedLights</a> (<a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;r.VolumetricFog.InjectRaytracedLights&quot;), <a class="el" href="#aacb4c0a5d1fe6f2dcce70490900a636d">GVolumetricFogInjectRaytracedLights</a>, <a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;Whether lights with ray traced shadows are injected into volumetric fog&quot;), <a class="el" href="../../d4/dd9/_i_console_manager_8h.html#a7f594f23c2b2c5687f1a502ebb3ba105a5fb4e7a0526f4a0c350d71e18956527c">ECVF_Scalability</a>|<a class="el" href="../../d4/dd9/_i_console_manager_8h.html#a7f594f23c2b2c5687f1a502ebb3ba105a774ea60f41417af093a7ca56c4204a70">ECVF_RenderThreadSafe</a>)</td></tr>
+<tr class="memitem:acf9710950dea8a3c37c03fa5e826d96b" id="r_acf9710950dea8a3c37c03fa5e826d96b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d2/d79/class_f_auto_console_variable_ref.html">FAutoConsoleVariableRef</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#acf9710950dea8a3c37c03fa5e826d96b">CVarLightScatteringSampleJitterMultiplier</a> (<a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;r.VolumetricFog.LightScatteringSampleJitterMultiplier&quot;), <a class="el" href="#aefc0bb7b36188794a30350d4ebbcff3f">GLightScatteringSampleJitterMultiplier</a>, <a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;Multiplier <a class="el" href="../../d3/db8/binka__ue__decode__test_8cpp.html#ac1ee511585a5c7a2d58c146185895b72">for</a> random offset value used to jitter each world sample position when generating the 3D fog volume. Enable/disable with r.VolumetricFog.Jitter&quot;), <a class="el" href="../../d4/dd9/_i_console_manager_8h.html#a7f594f23c2b2c5687f1a502ebb3ba105a774ea60f41417af093a7ca56c4204a70">ECVF_RenderThreadSafe</a>|<a class="el" href="../../d4/dd9/_i_console_manager_8h.html#a7f594f23c2b2c5687f1a502ebb3ba105a5fb4e7a0526f4a0c350d71e18956527c">ECVF_Scalability</a>)</td></tr>
+<tr class="memitem:ada7b066b9fd88f36af78f28d53625275" id="r_ada7b066b9fd88f36af78f28d53625275"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a8dbb3cd84ca9fd010dadfc3815eefa5d">int32</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ada7b066b9fd88f36af78f28d53625275">GetVolumetricFogGridPixelSize</a> ()</td></tr>
+<tr class="memitem:a6b925656994846867dcc75b563d2c467" id="r_a6b925656994846867dcc75b563d2c467"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6b925656994846867dcc75b563d2c467">IMPLEMENT_GLOBAL_SHADER_PARAMETER_STRUCT</a> (FVolumetricFogGlobalData, &quot;VolumetricFog&quot;)</td></tr>
+<tr class="memitem:aaa367a6f0ed03d3435da8226c7230aa1" id="r_aaa367a6f0ed03d3435da8226c7230aa1"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aaa367a6f0ed03d3435da8226c7230aa1">DECLARE_GPU_STAT</a> (VolumetricFog)</td></tr>
+<tr class="memitem:ac5e2ffa75f896fdd6b023f395ac3e772" id="r_ac5e2ffa75f896fdd6b023f395ac3e772"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d0/df6/_math_fwd_8h.html#a4778ceda3f595c7a5f2b088a866a8bf2">FVector3f</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac5e2ffa75f896fdd6b023f395ac3e772">VolumetricFogTemporalRandom</a> (<a class="el" href="../../dd/de9/preprocessor_8c.html#a1134b580f8da4de94ca6b1de4d37975e">uint32</a> FrameNumber)</td></tr>
+<tr class="memitem:a9b36ef9dd53ad1835f5c1123f72ec811" id="r_a9b36ef9dd53ad1835f5c1123f72ec811"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../df/d2a/_s_anim_notify_shared_8h.html#ac7c94e837fed3f8e4bb3dd94d7bd2ecf">float</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9b36ef9dd53ad1835f5c1123f72ec811">GetVolumetricFogLightSoftFading</a> ()</td></tr>
+<tr class="memitem:afee655616cf5222f49fcb06beee48e0c" id="r_afee655616cf5222f49fcb06beee48e0c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../df/d63/_typed_element_query_capabilities_8inl.html#a72343342ce64c0755563ee6c5e27868d">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#afee655616cf5222f49fcb06beee48e0c">SetupVolumetricFogIntegrationParameters</a> (FVolumetricFogIntegrationParameters &amp;Out, <a class="el" href="../../dd/d2b/class_f_view_info.html">FViewInfo</a> &amp;View, const <a class="el" href="../../db/dd5/struct_f_volumetric_fog_integration_parameter_data.html">FVolumetricFogIntegrationParameterData</a> &amp;IntegrationData)</td></tr>
+<tr class="memitem:af50acfaf5a653aab0ec05a141ead582e" id="r_af50acfaf5a653aab0ec05a141ead582e"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af50acfaf5a653aab0ec05a141ead582e">IMPLEMENT_GLOBAL_SHADER</a> (<a class="el" href="../../d8/d31/class_f_volumetric_fog_material_setup_c_s.html">FVolumetricFogMaterialSetupCS</a>, &quot;/Engine/<a class="el" href="../../d9/db1/namespace_private.html">Private</a>/VolumetricFog.usf&quot;, &quot;MaterialSetupCS&quot;, <a class="el" href="../../da/dca/_r_h_i_definitions_8h.html#a0a3cc83cb6ebc79b66b43fae3ffee64ea2a84a18d7ac3d1fac11e3153f0abf73b">SF_Compute</a>)</td></tr>
+<tr class="memitem:a91ef9f60881b38c5029ce416a54ad411" id="r_a91ef9f60881b38c5029ce416a54ad411"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a91ef9f60881b38c5029ce416a54ad411">IMPLEMENT_GLOBAL_SHADER</a> (<a class="el" href="../../d5/db2/class_f_write_to_bounding_sphere_v_s.html">FWriteToBoundingSphereVS</a>, &quot;/Engine/<a class="el" href="../../d9/db1/namespace_private.html">Private</a>/VolumetricFog.usf&quot;, &quot;WriteToBoundingSphereVS&quot;, <a class="el" href="../../da/dca/_r_h_i_definitions_8h.html#a0a3cc83cb6ebc79b66b43fae3ffee64ea57b843d1079d918ef496ded337a171d2">SF_Vertex</a>)</td></tr>
+<tr class="memitem:ae07bf69d0017147dfac1e94d13d72bd0" id="r_ae07bf69d0017147dfac1e94d13d72bd0"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae07bf69d0017147dfac1e94d13d72bd0">IMPLEMENT_GLOBAL_SHADER</a> (<a class="el" href="../../d4/d38/class_f_inject_shadowed_local_light_p_s.html">FInjectShadowedLocalLightPS</a>, &quot;/Engine/<a class="el" href="../../d9/db1/namespace_private.html">Private</a>/VolumetricFog.usf&quot;, &quot;InjectShadowedLocalLightPS&quot;, <a class="el" href="../../da/dca/_r_h_i_definitions_8h.html#a0a3cc83cb6ebc79b66b43fae3ffee64eaf50bfe1c5c23e92a75ba64d89bcd3bfa">SF_Pixel</a>)</td></tr>
+<tr class="memitem:a7b52cfcb799db05c29dc2f6589b5b3dc" id="r_a7b52cfcb799db05c29dc2f6589b5b3dc"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="../../d6/def/class_f_projected_shadow_info.html">FProjectedShadowInfo</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7b52cfcb799db05c29dc2f6589b5b3dc">GetShadowForInjectionIntoVolumetricFog</a> (const <a class="el" href="../../db/d93/class_f_visible_light_info.html">FVisibleLightInfo</a> &amp;VisibleLightInfo)</td></tr>
+<tr class="memitem:a3d4c88cef72ad8e0e740c9907fbdb1f3" id="r_a3d4c88cef72ad8e0e740c9907fbdb1f3"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a3d4c88cef72ad8e0e740c9907fbdb1f3">LightHasRayTracedShadows</a> (const <a class="el" href="../../df/d16/class_f_light_scene_info.html">FLightSceneInfo</a> *LightSceneInfo, const <a class="el" href="../../d1/d57/class_f_scene_view_family.html">FSceneViewFamily</a> &amp;ViewFamily)</td></tr>
+<tr class="memitem:a5e705a9918fd593e111d53422c03aa19" id="r_a5e705a9918fd593e111d53422c03aa19"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5e705a9918fd593e111d53422c03aa19">LightNeedsSeparateInjectionIntoVolumetricFogForOpaqueShadow</a> (const <a class="el" href="../../dd/d2b/class_f_view_info.html">FViewInfo</a> &amp;View, const <a class="el" href="../../df/d16/class_f_light_scene_info.html">FLightSceneInfo</a> *LightSceneInfo, const <a class="el" href="../../db/d93/class_f_visible_light_info.html">FVisibleLightInfo</a> &amp;VisibleLightInfo, const <a class="el" href="../../d4/dfa/class_f_scene.html">FScene</a> &amp;InScene)</td></tr>
+<tr class="memitem:ac1b256b6bcaabe436991c02ebaa8f05d" id="r_ac1b256b6bcaabe436991c02ebaa8f05d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../df/d63/_typed_element_query_capabilities_8inl.html#a72343342ce64c0755563ee6c5e27868d">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac1b256b6bcaabe436991c02ebaa8f05d">VolumetricFogOnRenderBegin</a> (<a class="el" href="../../d4/dfa/class_f_scene.html">FScene</a> &amp;Scene, <a class="el" href="../../d6/db1/class_t_array.html">TArray</a>&lt; <a class="el" href="../../dd/d2b/class_f_view_info.html">FViewInfo</a> &gt; &amp;Views)</td></tr>
+<tr class="memitem:af8d1a353c885500ec17e57a1369ec331" id="r_af8d1a353c885500ec17e57a1369ec331"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d0/df6/_math_fwd_8h.html#af6853de5e4fcb2bad3bd5fdd2e50bffd">FIntPoint</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af8d1a353c885500ec17e57a1369ec331">CalculateVolumetricFogBoundsForLight</a> (const <a class="el" href="../../d0/df6/_math_fwd_8h.html#a874bfd2b2f1402de001accc5f481ed73">FSphere</a> &amp;LightBounds, const <a class="el" href="../../dd/d2b/class_f_view_info.html">FViewInfo</a> &amp;View, <a class="el" href="../../d0/df6/_math_fwd_8h.html#ac900284388a4a5ca150dbd45a0347fe6">FIntVector</a> VolumetricFogGridSize, <a class="el" href="../../d0/df6/_math_fwd_8h.html#adda141358ecae99df7ba663b9e637078">FVector</a> GridZParams)</td></tr>
+<tr class="memitem:acba39c4ddd6f99717738ffe236ebfdda" id="r_acba39c4ddd6f99717738ffe236ebfdda"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../df/d63/_typed_element_query_capabilities_8inl.html#a72343342ce64c0755563ee6c5e27868d">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#acba39c4ddd6f99717738ffe236ebfdda">SetupInjectShadowedLocalLightPSO</a> (<a class="el" href="../../d0/d98/class_f_r_h_i_vertex_shader.html">FRHIVertexShader</a> *VertexShader, <a class="el" href="../../d6/d35/class_f_r_h_i_geometry_shader.html">FRHIGeometryShader</a> *GeometryShader, <a class="el" href="../../d4/d06/class_f_r_h_i_pixel_shader.html">FRHIPixelShader</a> *PixelShader, <a class="el" href="../../d2/d2e/class_f_graphics_pipeline_state_initializer.html">FGraphicsPipelineStateInitializer</a> &amp;GraphicsPSOInit)</td></tr>
+<tr class="memitem:a2b190896689d6a016992a7daadf77c85" id="r_a2b190896689d6a016992a7daadf77c85"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2b190896689d6a016992a7daadf77c85">IMPLEMENT_GLOBAL_SHADER_PARAMETER_STRUCT</a> (FLumenTranslucencyLightingUniforms, &quot;LumenGIVolumeStruct&quot;)</td></tr>
+<tr class="memitem:a59b1c6f62dc5bc6c63420fb22b258cf7" id="r_a59b1c6f62dc5bc6c63420fb22b258cf7"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a59b1c6f62dc5bc6c63420fb22b258cf7">IMPLEMENT_GLOBAL_SHADER</a> (<a class="el" href="../../d6/d9c/class_f_volumetric_fog_light_scattering_c_s.html">FVolumetricFogLightScatteringCS</a>, &quot;/Engine/<a class="el" href="../../d9/db1/namespace_private.html">Private</a>/VolumetricFog.usf&quot;, &quot;LightScatteringCS&quot;, <a class="el" href="../../da/dca/_r_h_i_definitions_8h.html#a0a3cc83cb6ebc79b66b43fae3ffee64ea2a84a18d7ac3d1fac11e3153f0abf73b">SF_Compute</a>)</td></tr>
+<tr class="memitem:a0e002a19fb833263a1d7a39b354bb429" id="r_a0e002a19fb833263a1d7a39b354bb429"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a0e002a19fb833263a1d7a39b354bb429">IMPLEMENT_GLOBAL_SHADER</a> (<a class="el" href="../../df/dba/class_f_volumetric_fog_final_integration_c_s.html">FVolumetricFogFinalIntegrationCS</a>, &quot;/Engine/<a class="el" href="../../d9/db1/namespace_private.html">Private</a>/VolumetricFog.usf&quot;, &quot;FinalIntegrationCS&quot;, <a class="el" href="../../da/dca/_r_h_i_definitions_8h.html#a0a3cc83cb6ebc79b66b43fae3ffee64ea2a84a18d7ac3d1fac11e3153f0abf73b">SF_Compute</a>)</td></tr>
+<tr class="memitem:a2ac9d0fea105b6dc5f766b4253c5391a" id="r_a2ac9d0fea105b6dc5f766b4253c5391a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2ac9d0fea105b6dc5f766b4253c5391a">ShouldRenderVolumetricFog</a> (const <a class="el" href="../../d4/dfa/class_f_scene.html">FScene</a> *Scene, const <a class="el" href="../../d1/d57/class_f_scene_view_family.html">FSceneViewFamily</a> &amp;ViewFamily)</td></tr>
+<tr class="memitem:a9ea62c313bf4b41bd6f53aaad68f802a" id="r_a9ea62c313bf4b41bd6f53aaad68f802a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d0/df6/_math_fwd_8h.html#adda141358ecae99df7ba663b9e637078">FVector</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9ea62c313bf4b41bd6f53aaad68f802a">GetVolumetricFogGridZParams</a> (<a class="el" href="../../df/d2a/_s_anim_notify_shared_8h.html#ac7c94e837fed3f8e4bb3dd94d7bd2ecf">float</a> VolumetricFogStartDistance, <a class="el" href="../../df/d2a/_s_anim_notify_shared_8h.html#ac7c94e837fed3f8e4bb3dd94d7bd2ecf">float</a> NearPlane, <a class="el" href="../../df/d2a/_s_anim_notify_shared_8h.html#ac7c94e837fed3f8e4bb3dd94d7bd2ecf">float</a> FarPlane, <a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a8dbb3cd84ca9fd010dadfc3815eefa5d">int32</a> GridSizeZ)</td></tr>
+<tr class="memitem:a24ecd9ce3638ca6043eca4fb07618a0d" id="r_a24ecd9ce3638ca6043eca4fb07618a0d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d0/df6/_math_fwd_8h.html#ac900284388a4a5ca150dbd45a0347fe6">FIntVector</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a24ecd9ce3638ca6043eca4fb07618a0d">GetVolumetricFogResourceGridSize</a> (const <a class="el" href="../../dd/d2b/class_f_view_info.html">FViewInfo</a> &amp;View, <a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a8dbb3cd84ca9fd010dadfc3815eefa5d">int32</a> &amp;OutVolumetricFogGridPixelSize)</td></tr>
+<tr class="memitem:aa593bdf54055fe9199aa57486af58a99" id="r_aa593bdf54055fe9199aa57486af58a99"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d0/df6/_math_fwd_8h.html#ac900284388a4a5ca150dbd45a0347fe6">FIntVector</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa593bdf54055fe9199aa57486af58a99">GetVolumetricFogViewGridSize</a> (const <a class="el" href="../../dd/d2b/class_f_view_info.html">FViewInfo</a> &amp;View, <a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a8dbb3cd84ca9fd010dadfc3815eefa5d">int32</a> &amp;OutVolumetricFogGridPixelSize)</td></tr>
+<tr class="memitem:a5af92ee4f5d41bca59d601dcbae68d89" id="r_a5af92ee4f5d41bca59d601dcbae68d89"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d0/df6/_math_fwd_8h.html#a2c5d5b1ab0233a3fda21e6e610f88bb4">FVector2f</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5af92ee4f5d41bca59d601dcbae68d89">GetVolumetricFogFroxelToScreenSVPosRatio</a> (const <a class="el" href="../../dd/d2b/class_f_view_info.html">FViewInfo</a> &amp;View)</td></tr>
+<tr class="memitem:ac68c37277cc5b5da8f5d4995cc81f13b" id="r_ac68c37277cc5b5da8f5d4995cc81f13b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d9/d87/struct_f_r_d_g_texture_desc.html">FRDGTextureDesc</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac68c37277cc5b5da8f5d4995cc81f13b">GetVolumetricFogRDGTextureDesc</a> (const <a class="el" href="../../d0/df6/_math_fwd_8h.html#ac900284388a4a5ca150dbd45a0347fe6">FIntVector</a> &amp;VolumetricFogResourceGridSize)</td></tr>
+<tr class="memitem:acfaf2e1d82e049189dbf0b1f98bedc38" id="r_acfaf2e1d82e049189dbf0b1f98bedc38"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../df/d63/_typed_element_query_capabilities_8inl.html#a72343342ce64c0755563ee6c5e27868d">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#acfaf2e1d82e049189dbf0b1f98bedc38">SetupVolumetricFogGlobalData</a> (const <a class="el" href="../../dd/d2b/class_f_view_info.html">FViewInfo</a> &amp;View, FVolumetricFogGlobalData &amp;Parameters)</td></tr>
+<tr class="memitem:a94ae582361eca0a95c0935bd002848db" id="r_a94ae582361eca0a95c0935bd002848db"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../df/d63/_typed_element_query_capabilities_8inl.html#a72343342ce64c0755563ee6c5e27868d">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a94ae582361eca0a95c0935bd002848db">VolumetricFogGlobalPSOCollector</a> (const <a class="el" href="../../dc/db5/struct_f_scene_textures_config.html">FSceneTexturesConfig</a> &amp;SceneTexturesConfig, <a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a8dbb3cd84ca9fd010dadfc3815eefa5d">int32</a> GlobalPSOCollectorIndex, <a class="el" href="../../d6/db1/class_t_array.html">TArray</a>&lt; <a class="el" href="../../dd/dd8/struct_f_p_s_o_precache_data.html">FPSOPrecacheData</a> &gt; &amp;PSOInitializers)</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-var-members" class="groupheader"><a id="var-members" name="var-members"></a>
+变量</h2></td></tr>
+<tr class="memitem:ae5df5798dbeae75ecbb76f95387450ba" id="r_ae5df5798dbeae75ecbb76f95387450ba"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a8dbb3cd84ca9fd010dadfc3815eefa5d">int32</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae5df5798dbeae75ecbb76f95387450ba">GVolumetricFog</a> = 1</td></tr>
+<tr class="memitem:aa95e33aa791ae5d8ff79dff362b552ed" id="r_aa95e33aa791ae5d8ff79dff362b552ed"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a8dbb3cd84ca9fd010dadfc3815eefa5d">int32</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa95e33aa791ae5d8ff79dff362b552ed">GVolumetricFogInjectShadowedLightsSeparately</a> = 1</td></tr>
+<tr class="memitem:a290eb98b705177e793720110068d6050" id="r_a290eb98b705177e793720110068d6050"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../df/d2a/_s_anim_notify_shared_8h.html#ac7c94e837fed3f8e4bb3dd94d7bd2ecf">float</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a290eb98b705177e793720110068d6050">GVolumetricFogDepthDistributionScale</a> = 32.0f</td></tr>
+<tr class="memitem:aeffdd646e1c99902e62cf2193305cebd" id="r_aeffdd646e1c99902e62cf2193305cebd"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a8dbb3cd84ca9fd010dadfc3815eefa5d">int32</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aeffdd646e1c99902e62cf2193305cebd">GVolumetricFogGridPixelSize</a> = 16</td></tr>
+<tr class="memitem:ae3d78299b47c586a55cd304df931e9c2" id="r_ae3d78299b47c586a55cd304df931e9c2"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a8dbb3cd84ca9fd010dadfc3815eefa5d">int32</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae3d78299b47c586a55cd304df931e9c2">GVolumetricFogGridSizeZ</a> = 64</td></tr>
+<tr class="memitem:a528aa86cb0685edba5a82ef76f2b9148" id="r_a528aa86cb0685edba5a82ef76f2b9148"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a8dbb3cd84ca9fd010dadfc3815eefa5d">int32</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a528aa86cb0685edba5a82ef76f2b9148">GVolumetricFogTemporalReprojection</a> = 1</td></tr>
+<tr class="memitem:a64851a7b450253ff7d8839c5696f7f5c" id="r_a64851a7b450253ff7d8839c5696f7f5c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a8dbb3cd84ca9fd010dadfc3815eefa5d">int32</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a64851a7b450253ff7d8839c5696f7f5c">GVolumetricFogJitter</a> = 1</td></tr>
+<tr class="memitem:a5e0ff0dd4f768b6af6678be89c2d3e20" id="r_a5e0ff0dd4f768b6af6678be89c2d3e20"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../df/d2a/_s_anim_notify_shared_8h.html#ac7c94e837fed3f8e4bb3dd94d7bd2ecf">float</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5e0ff0dd4f768b6af6678be89c2d3e20">GVolumetricFogHistoryWeight</a> = .9f</td></tr>
+<tr class="memitem:a1950058a86e7097afe7a470a1c10adce" id="r_a1950058a86e7097afe7a470a1c10adce"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a8dbb3cd84ca9fd010dadfc3815eefa5d">int32</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a1950058a86e7097afe7a470a1c10adce">GVolumetricFogHistoryMissSupersampleCount</a> = 4</td></tr>
+<tr class="memitem:a74a75a767820c13b7fa99b9d4e39686e" id="r_a74a75a767820c13b7fa99b9d4e39686e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../df/d2a/_s_anim_notify_shared_8h.html#ac7c94e837fed3f8e4bb3dd94d7bd2ecf">float</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a74a75a767820c13b7fa99b9d4e39686e">GInverseSquaredLightDistanceBiasScale</a> = 1.0f</td></tr>
+<tr class="memitem:af05dad29c37f133f5ff6ba4653d061d6" id="r_af05dad29c37f133f5ff6ba4653d061d6"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a8dbb3cd84ca9fd010dadfc3815eefa5d">int32</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af05dad29c37f133f5ff6ba4653d061d6">GVolumetricFogEmissive</a> = 1</td></tr>
+<tr class="memitem:a6573eaaea09b7f962941f7d12309c881" id="r_a6573eaaea09b7f962941f7d12309c881"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a8dbb3cd84ca9fd010dadfc3815eefa5d">int32</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6573eaaea09b7f962941f7d12309c881">GVolumetricFogRectLightTexture</a> = 0</td></tr>
+<tr class="memitem:aa538ea1a98a87bd021e32bd7fe358292" id="r_aa538ea1a98a87bd021e32bd7fe358292"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d2/d79/class_f_auto_console_variable_ref.html">FAutoConsoleVariableRef</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa538ea1a98a87bd021e32bd7fe358292">CVarVolumetricRectLightTexture</a> (<a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;r.VolumetricFog.RectLightTexture&quot;), <a class="el" href="#a6573eaaea09b7f962941f7d12309c881">GVolumetricFogRectLightTexture</a>, <a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;Whether to allow the volumetric fog to use rect light <a class="el" href="../../d4/dc6/_trace_log_2_private_2_trace_2_l_z4_2lz4_8h.html#a0211201f992ec3f0b641c9ceff5f837a">source</a> texture.&quot;), <a class="el" href="../../d4/dd9/_i_console_manager_8h.html#a7f594f23c2b2c5687f1a502ebb3ba105a774ea60f41417af093a7ca56c4204a70">ECVF_RenderThreadSafe</a>)</td></tr>
+<tr class="memitem:a7b220d03d03c31a6e383030d847b3d06" id="r_a7b220d03d03c31a6e383030d847b3d06"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a8dbb3cd84ca9fd010dadfc3815eefa5d">int32</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7b220d03d03c31a6e383030d847b3d06">GVolumetricFogConservativeDepth</a> = 1</td></tr>
+<tr class="memitem:aacb4c0a5d1fe6f2dcce70490900a636d" id="r_aacb4c0a5d1fe6f2dcce70490900a636d"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aacb4c0a5d1fe6f2dcce70490900a636d">GVolumetricFogInjectRaytracedLights</a> = 0</td></tr>
+<tr class="memitem:aefc0bb7b36188794a30350d4ebbcff3f" id="r_aefc0bb7b36188794a30350d4ebbcff3f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../df/d2a/_s_anim_notify_shared_8h.html#ac7c94e837fed3f8e4bb3dd94d7bd2ecf">float</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aefc0bb7b36188794a30350d4ebbcff3f">GLightScatteringSampleJitterMultiplier</a> = 0</td></tr>
+<tr class="memitem:a349b079e2b3fe3246cff46ab2b30b831" id="r_a349b079e2b3fe3246cff46ab2b30b831"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../da/dee/class_t_global_resource.html">TGlobalResource</a>&lt; <a class="el" href="../../de/d74/class_f_circle_rasterize_vertex_buffer.html">FCircleRasterizeVertexBuffer</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a349b079e2b3fe3246cff46ab2b30b831">GCircleRasterizeVertexBuffer</a></td></tr>
+<tr class="memitem:a3984a22940fe1bcdb1d002357f978cc0" id="r_a3984a22940fe1bcdb1d002357f978cc0"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../da/dee/class_t_global_resource.html">TGlobalResource</a>&lt; <a class="el" href="../../d2/d4f/class_f_circle_rasterize_index_buffer.html">FCircleRasterizeIndexBuffer</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a3984a22940fe1bcdb1d002357f978cc0">GCircleRasterizeIndexBuffer</a></td></tr>
+<tr class="memitem:accaf373ccf54379d68ed60cfe5bdd431" id="r_accaf373ccf54379d68ed60cfe5bdd431"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../dd/de9/preprocessor_8c.html#a1134b580f8da4de94ca6b1de4d37975e">uint32</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#accaf373ccf54379d68ed60cfe5bdd431">VolumetricFogIntegrationGroupSize</a> = 8</td></tr>
+<tr class="memitem:a8e86336e16cb08d8982cd597d37bc831" id="r_a8e86336e16cb08d8982cd597d37bc831"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d6/d7b/class_f_register_global_p_s_o_collector_function.html">FRegisterGlobalPSOCollectorFunction</a> RegisterVolumetricFogGlobalPSOCollector &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8e86336e16cb08d8982cd597d37bc831">VolumetricFogGlobalPSOCollector</a></td></tr>
+</table>
+<a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">函数说明</h2>
+<a id="af8d1a353c885500ec17e57a1369ec331" name="af8d1a353c885500ec17e57a1369ec331"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af8d1a353c885500ec17e57a1369ec331">&#9670;&#160;</a></span>CalculateVolumetricFogBoundsForLight()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d0/df6/_math_fwd_8h.html#af6853de5e4fcb2bad3bd5fdd2e50bffd">FIntPoint</a> CalculateVolumetricFogBoundsForLight </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="../../d0/df6/_math_fwd_8h.html#a874bfd2b2f1402de001accc5f481ed73">FSphere</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>LightBounds</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="../../dd/d2b/class_f_view_info.html">FViewInfo</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>View</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d0/df6/_math_fwd_8h.html#ac900284388a4a5ca150dbd45a0347fe6">FIntVector</a></td>          <td class="paramname"><span class="paramname"><em>VolumetricFogGridSize</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d0/df6/_math_fwd_8h.html#adda141358ecae99df7ba663b9e637078">FVector</a></td>          <td class="paramname"><span class="paramname"><em>GridZParams</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="af49b24a34b0cde42ddc881541f8c374c" name="af49b24a34b0cde42ddc881541f8c374c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af49b24a34b0cde42ddc881541f8c374c">&#9670;&#160;</a></span>CVarInverseSquaredLightDistanceBiasScale()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d2/d79/class_f_auto_console_variable_ref.html">FAutoConsoleVariableRef</a> CVarInverseSquaredLightDistanceBiasScale </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;r.VolumetricFog.InverseSquaredLightDistanceBiasScale&quot;)</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="#a74a75a767820c13b7fa99b9d4e39686e">GInverseSquaredLightDistanceBiasScale</a></td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;Scales the amount added to the inverse squared falloff denominator.  This effectively removes the spike from inverse squared falloff that causes extreme aliasing.&quot;)</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d4/dd9/_i_console_manager_8h.html#a7f594f23c2b2c5687f1a502ebb3ba105a5fb4e7a0526f4a0c350d71e18956527c">ECVF_Scalability</a>|</td>          <td class="paramname"><span class="paramname"><em>ECVF_RenderThreadSafe</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="acf9710950dea8a3c37c03fa5e826d96b" name="acf9710950dea8a3c37c03fa5e826d96b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acf9710950dea8a3c37c03fa5e826d96b">&#9670;&#160;</a></span>CVarLightScatteringSampleJitterMultiplier()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d2/d79/class_f_auto_console_variable_ref.html">FAutoConsoleVariableRef</a> CVarLightScatteringSampleJitterMultiplier </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;r.VolumetricFog.LightScatteringSampleJitterMultiplier&quot;)</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="#aefc0bb7b36188794a30350d4ebbcff3f">GLightScatteringSampleJitterMultiplier</a></td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;Multiplier <a class="el" href="../../d3/db8/binka__ue__decode__test_8cpp.html#ac1ee511585a5c7a2d58c146185895b72">for</a> random offset value used to jitter each world sample position when generating the 3D fog volume. Enable/disable with r.VolumetricFog.Jitter&quot;)</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d4/dd9/_i_console_manager_8h.html#a7f594f23c2b2c5687f1a502ebb3ba105a774ea60f41417af093a7ca56c4204a70">ECVF_RenderThreadSafe</a>|</td>          <td class="paramname"><span class="paramname"><em>ECVF_Scalability</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a41483e68554fdeaa805d20878ec73725" name="a41483e68554fdeaa805d20878ec73725"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a41483e68554fdeaa805d20878ec73725">&#9670;&#160;</a></span>CVarVolumetricFog()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d2/d79/class_f_auto_console_variable_ref.html">FAutoConsoleVariableRef</a> CVarVolumetricFog </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;r.VolumetricFog&quot;)</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="#ae5df5798dbeae75ecbb76f95387450ba">GVolumetricFog</a></td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;Whether to allow the volumetric fog feature.&quot;)</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d4/dd9/_i_console_manager_8h.html#a7f594f23c2b2c5687f1a502ebb3ba105a5fb4e7a0526f4a0c350d71e18956527c">ECVF_Scalability</a>|</td>          <td class="paramname"><span class="paramname"><em>ECVF_RenderThreadSafe</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a152c2d7aaf2db7f28f998c826c7471e9" name="a152c2d7aaf2db7f28f998c826c7471e9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a152c2d7aaf2db7f28f998c826c7471e9">&#9670;&#160;</a></span>CVarVolumetricFogConservativeDepth()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d2/d79/class_f_auto_console_variable_ref.html">FAutoConsoleVariableRef</a> CVarVolumetricFogConservativeDepth </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;r.VolumetricFog.ConservativeDepth&quot;)</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="#a7b220d03d03c31a6e383030d847b3d06">GVolumetricFogConservativeDepth</a></td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;[Experimental] Whether to allow the volumetric to use conservative depth to accelerate computations.&quot;)</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d4/dd9/_i_console_manager_8h.html#a7f594f23c2b2c5687f1a502ebb3ba105a5fb4e7a0526f4a0c350d71e18956527c">ECVF_Scalability</a>|</td>          <td class="paramname"><span class="paramname"><em>ECVF_RenderThreadSafe</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a9c134e3d9e56ed7499674c0a860ed15c" name="a9c134e3d9e56ed7499674c0a860ed15c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9c134e3d9e56ed7499674c0a860ed15c">&#9670;&#160;</a></span>CVarVolumetricFogDepthDistributionScale()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d2/d79/class_f_auto_console_variable_ref.html">FAutoConsoleVariableRef</a> CVarVolumetricFogDepthDistributionScale </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;r.VolumetricFog.DepthDistributionScale&quot;)</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="#a290eb98b705177e793720110068d6050">GVolumetricFogDepthDistributionScale</a></td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;Scales the slice depth distribution.&quot;)</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d4/dd9/_i_console_manager_8h.html#a7f594f23c2b2c5687f1a502ebb3ba105a5fb4e7a0526f4a0c350d71e18956527c">ECVF_Scalability</a>|</td>          <td class="paramname"><span class="paramname"><em>ECVF_RenderThreadSafe</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a0d123d89379c76441c9ecea446353e31" name="a0d123d89379c76441c9ecea446353e31"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0d123d89379c76441c9ecea446353e31">&#9670;&#160;</a></span>CVarVolumetricFogEmissive()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d2/d79/class_f_auto_console_variable_ref.html">FAutoConsoleVariableRef</a> CVarVolumetricFogEmissive </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;r.VolumetricFog.Emissive&quot;)</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="#af05dad29c37f133f5ff6ba4653d061d6">GVolumetricFogEmissive</a></td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;Whether to allow the volumetric fog emissive component.&quot;)</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d4/dd9/_i_console_manager_8h.html#a7f594f23c2b2c5687f1a502ebb3ba105a5fb4e7a0526f4a0c350d71e18956527c">ECVF_Scalability</a>|</td>          <td class="paramname"><span class="paramname"><em>ECVF_RenderThreadSafe</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a2c8dc5111ed85bded1b05e05561d92d3" name="a2c8dc5111ed85bded1b05e05561d92d3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2c8dc5111ed85bded1b05e05561d92d3">&#9670;&#160;</a></span>CVarVolumetricFogGridPixelSize()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d2/d79/class_f_auto_console_variable_ref.html">FAutoConsoleVariableRef</a> CVarVolumetricFogGridPixelSize </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;r.VolumetricFog.GridPixelSize&quot;)</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="#aeffdd646e1c99902e62cf2193305cebd">GVolumetricFogGridPixelSize</a></td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;XY <a class="el" href="../../d0/de4/_sequence_history_8h.html#a41f48316f09703e0b7cd9ac6b643e9c8">Size</a> of a cell in the voxel grid, in pixels.&quot;)</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d4/dd9/_i_console_manager_8h.html#a7f594f23c2b2c5687f1a502ebb3ba105a5fb4e7a0526f4a0c350d71e18956527c">ECVF_Scalability</a>|</td>          <td class="paramname"><span class="paramname"><em>ECVF_RenderThreadSafe</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a63bde5b64fa57121814c4c80488636a5" name="a63bde5b64fa57121814c4c80488636a5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a63bde5b64fa57121814c4c80488636a5">&#9670;&#160;</a></span>CVarVolumetricFogGridSizeZ()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d2/d79/class_f_auto_console_variable_ref.html">FAutoConsoleVariableRef</a> CVarVolumetricFogGridSizeZ </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;r.VolumetricFog.GridSizeZ&quot;)</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="#ae3d78299b47c586a55cd304df931e9c2">GVolumetricFogGridSizeZ</a></td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;How many Volumetric Fog cells to use in z.&quot;)</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d4/dd9/_i_console_manager_8h.html#a7f594f23c2b2c5687f1a502ebb3ba105a5fb4e7a0526f4a0c350d71e18956527c">ECVF_Scalability</a>|</td>          <td class="paramname"><span class="paramname"><em>ECVF_RenderThreadSafe</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a920cf70b6f13c0155095a661ef7823a2" name="a920cf70b6f13c0155095a661ef7823a2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a920cf70b6f13c0155095a661ef7823a2">&#9670;&#160;</a></span>CVarVolumetricFogHistoryMissSupersampleCount()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d2/d79/class_f_auto_console_variable_ref.html">FAutoConsoleVariableRef</a> CVarVolumetricFogHistoryMissSupersampleCount </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;r.VolumetricFog.HistoryMissSupersampleCount&quot;)</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="#a1950058a86e7097afe7a470a1c10adce">GVolumetricFogHistoryMissSupersampleCount</a></td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;This reduces noise when panning or on camera cuts, but introduces a variable cost to volumetric fog computation.  <a class="el" href="../../d7/d4b/_android_input_interface_8h.html#a6ab52c477d6bebd13efdd10042ddca51ac9ceaeea41ae06d1a39c3322c762ec71">Valid</a> range [1, 16].&quot;)</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d4/dd9/_i_console_manager_8h.html#a7f594f23c2b2c5687f1a502ebb3ba105a5fb4e7a0526f4a0c350d71e18956527c">ECVF_Scalability</a>|</td>          <td class="paramname"><span class="paramname"><em>ECVF_RenderThreadSafe</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a37ba65d7bba68a9eeca859023c24099e" name="a37ba65d7bba68a9eeca859023c24099e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a37ba65d7bba68a9eeca859023c24099e">&#9670;&#160;</a></span>CVarVolumetricFogHistoryWeight()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d2/d79/class_f_auto_console_variable_ref.html">FAutoConsoleVariableRef</a> CVarVolumetricFogHistoryWeight </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;r.VolumetricFog.HistoryWeight&quot;)</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="#a5e0ff0dd4f768b6af6678be89c2d3e20">GVolumetricFogHistoryWeight</a></td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;How much the history value should be weighted each frame.  This is a tradeoff between visible jittering and responsiveness.&quot;)</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d4/dd9/_i_console_manager_8h.html#a7f594f23c2b2c5687f1a502ebb3ba105a5fb4e7a0526f4a0c350d71e18956527c">ECVF_Scalability</a>|</td>          <td class="paramname"><span class="paramname"><em>ECVF_RenderThreadSafe</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a0d7744c8d7043b3498bab1962dd2249b" name="a0d7744c8d7043b3498bab1962dd2249b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0d7744c8d7043b3498bab1962dd2249b">&#9670;&#160;</a></span>CVarVolumetricFogInjectShadowedLightsSeparately()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d2/d79/class_f_auto_console_variable_ref.html">FAutoConsoleVariableRef</a> CVarVolumetricFogInjectShadowedLightsSeparately </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;r.VolumetricFog.InjectShadowedLightsSeparately&quot;)</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="#aa95e33aa791ae5d8ff79dff362b552ed">GVolumetricFogInjectShadowedLightsSeparately</a></td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;Whether to allow the volumetric fog feature.&quot;)</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d4/dd9/_i_console_manager_8h.html#a7f594f23c2b2c5687f1a502ebb3ba105a5fb4e7a0526f4a0c350d71e18956527c">ECVF_Scalability</a>|</td>          <td class="paramname"><span class="paramname"><em>ECVF_RenderThreadSafe</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ab75da9b0a259014ffa3a786effa0fd7f" name="ab75da9b0a259014ffa3a786effa0fd7f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab75da9b0a259014ffa3a786effa0fd7f">&#9670;&#160;</a></span>CVarVolumetricFogJitter()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d2/d79/class_f_auto_console_variable_ref.html">FAutoConsoleVariableRef</a> CVarVolumetricFogJitter </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;r.VolumetricFog.Jitter&quot;)</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="#a64851a7b450253ff7d8839c5696f7f5c">GVolumetricFogJitter</a></td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;Whether to apply jitter to each frame's volumetric fog computation, achieving temporal super sampling.&quot;)</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d4/dd9/_i_console_manager_8h.html#a7f594f23c2b2c5687f1a502ebb3ba105a5fb4e7a0526f4a0c350d71e18956527c">ECVF_Scalability</a>|</td>          <td class="paramname"><span class="paramname"><em>ECVF_RenderThreadSafe</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="acf9428669afd5b43736862ee4df3c359" name="acf9428669afd5b43736862ee4df3c359"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acf9428669afd5b43736862ee4df3c359">&#9670;&#160;</a></span>CVarVolumetricFogTemporalReprojection()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d2/d79/class_f_auto_console_variable_ref.html">FAutoConsoleVariableRef</a> CVarVolumetricFogTemporalReprojection </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;r.VolumetricFog.TemporalReprojection&quot;)</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="#a528aa86cb0685edba5a82ef76f2b9148">GVolumetricFogTemporalReprojection</a></td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;Whether to use temporal reprojection on volumetric fog.&quot;)</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d4/dd9/_i_console_manager_8h.html#a7f594f23c2b2c5687f1a502ebb3ba105a5fb4e7a0526f4a0c350d71e18956527c">ECVF_Scalability</a>|</td>          <td class="paramname"><span class="paramname"><em>ECVF_RenderThreadSafe</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a562a75b35928871271e558144912bba1" name="a562a75b35928871271e558144912bba1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a562a75b35928871271e558144912bba1">&#9670;&#160;</a></span>CVarVolumetricInjectRaytracedLights()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d2/d79/class_f_auto_console_variable_ref.html">FAutoConsoleVariableRef</a> CVarVolumetricInjectRaytracedLights </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;r.VolumetricFog.InjectRaytracedLights&quot;)</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="#aacb4c0a5d1fe6f2dcce70490900a636d">GVolumetricFogInjectRaytracedLights</a></td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;Whether lights with ray traced shadows are injected into volumetric fog&quot;)</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d4/dd9/_i_console_manager_8h.html#a7f594f23c2b2c5687f1a502ebb3ba105a5fb4e7a0526f4a0c350d71e18956527c">ECVF_Scalability</a>|</td>          <td class="paramname"><span class="paramname"><em>ECVF_RenderThreadSafe</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aaa367a6f0ed03d3435da8226c7230aa1" name="aaa367a6f0ed03d3435da8226c7230aa1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aaa367a6f0ed03d3435da8226c7230aa1">&#9670;&#160;</a></span>DECLARE_GPU_STAT()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">DECLARE_GPU_STAT </td>
+          <td>(</td>
+          <td class="paramtype">VolumetricFog</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a7b52cfcb799db05c29dc2f6589b5b3dc" name="a7b52cfcb799db05c29dc2f6589b5b3dc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7b52cfcb799db05c29dc2f6589b5b3dc">&#9670;&#160;</a></span>GetShadowForInjectionIntoVolumetricFog()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const <a class="el" href="../../d6/def/class_f_projected_shadow_info.html">FProjectedShadowInfo</a> * GetShadowForInjectionIntoVolumetricFog </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="../../db/d93/class_f_visible_light_info.html">FVisibleLightInfo</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>VisibleLightInfo</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a5af92ee4f5d41bca59d601dcbae68d89" name="a5af92ee4f5d41bca59d601dcbae68d89"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5af92ee4f5d41bca59d601dcbae68d89">&#9670;&#160;</a></span>GetVolumetricFogFroxelToScreenSVPosRatio()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d0/df6/_math_fwd_8h.html#a2c5d5b1ab0233a3fda21e6e610f88bb4">FVector2f</a> GetVolumetricFogFroxelToScreenSVPosRatio </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="../../dd/d2b/class_f_view_info.html">FViewInfo</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>View</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ada7b066b9fd88f36af78f28d53625275" name="ada7b066b9fd88f36af78f28d53625275"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ada7b066b9fd88f36af78f28d53625275">&#9670;&#160;</a></span>GetVolumetricFogGridPixelSize()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a8dbb3cd84ca9fd010dadfc3815eefa5d">int32</a> GetVolumetricFogGridPixelSize </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a9ea62c313bf4b41bd6f53aaad68f802a" name="a9ea62c313bf4b41bd6f53aaad68f802a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9ea62c313bf4b41bd6f53aaad68f802a">&#9670;&#160;</a></span>GetVolumetricFogGridZParams()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d0/df6/_math_fwd_8h.html#adda141358ecae99df7ba663b9e637078">FVector</a> GetVolumetricFogGridZParams </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../df/d2a/_s_anim_notify_shared_8h.html#ac7c94e837fed3f8e4bb3dd94d7bd2ecf">float</a></td>          <td class="paramname"><span class="paramname"><em>VolumetricFogStartDistance</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../df/d2a/_s_anim_notify_shared_8h.html#ac7c94e837fed3f8e4bb3dd94d7bd2ecf">float</a></td>          <td class="paramname"><span class="paramname"><em>NearPlane</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../df/d2a/_s_anim_notify_shared_8h.html#ac7c94e837fed3f8e4bb3dd94d7bd2ecf">float</a></td>          <td class="paramname"><span class="paramname"><em>FarPlane</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a8dbb3cd84ca9fd010dadfc3815eefa5d">int32</a></td>          <td class="paramname"><span class="paramname"><em>GridSizeZ</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a9b36ef9dd53ad1835f5c1123f72ec811" name="a9b36ef9dd53ad1835f5c1123f72ec811"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9b36ef9dd53ad1835f5c1123f72ec811">&#9670;&#160;</a></span>GetVolumetricFogLightSoftFading()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../df/d2a/_s_anim_notify_shared_8h.html#ac7c94e837fed3f8e4bb3dd94d7bd2ecf">float</a> GetVolumetricFogLightSoftFading </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ac68c37277cc5b5da8f5d4995cc81f13b" name="ac68c37277cc5b5da8f5d4995cc81f13b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac68c37277cc5b5da8f5d4995cc81f13b">&#9670;&#160;</a></span>GetVolumetricFogRDGTextureDesc()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d9/d87/struct_f_r_d_g_texture_desc.html">FRDGTextureDesc</a> GetVolumetricFogRDGTextureDesc </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="../../d0/df6/_math_fwd_8h.html#ac900284388a4a5ca150dbd45a0347fe6">FIntVector</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>VolumetricFogResourceGridSize</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a24ecd9ce3638ca6043eca4fb07618a0d" name="a24ecd9ce3638ca6043eca4fb07618a0d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a24ecd9ce3638ca6043eca4fb07618a0d">&#9670;&#160;</a></span>GetVolumetricFogResourceGridSize()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d0/df6/_math_fwd_8h.html#ac900284388a4a5ca150dbd45a0347fe6">FIntVector</a> GetVolumetricFogResourceGridSize </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="../../dd/d2b/class_f_view_info.html">FViewInfo</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>View</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a8dbb3cd84ca9fd010dadfc3815eefa5d">int32</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>OutVolumetricFogGridPixelSize</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aa593bdf54055fe9199aa57486af58a99" name="aa593bdf54055fe9199aa57486af58a99"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa593bdf54055fe9199aa57486af58a99">&#9670;&#160;</a></span>GetVolumetricFogViewGridSize()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d0/df6/_math_fwd_8h.html#ac900284388a4a5ca150dbd45a0347fe6">FIntVector</a> GetVolumetricFogViewGridSize </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="../../dd/d2b/class_f_view_info.html">FViewInfo</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>View</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a8dbb3cd84ca9fd010dadfc3815eefa5d">int32</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>OutVolumetricFogGridPixelSize</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ae07bf69d0017147dfac1e94d13d72bd0" name="ae07bf69d0017147dfac1e94d13d72bd0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae07bf69d0017147dfac1e94d13d72bd0">&#9670;&#160;</a></span>IMPLEMENT_GLOBAL_SHADER() <span class="overload">[1/5]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">IMPLEMENT_GLOBAL_SHADER </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d4/d38/class_f_inject_shadowed_local_light_p_s.html">FInjectShadowedLocalLightPS</a></td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&quot;/Engine/<a class="el" href="../../d9/db1/namespace_private.html">Private</a>/VolumetricFog.usf&quot;</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&quot;InjectShadowedLocalLightPS&quot;</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../da/dca/_r_h_i_definitions_8h.html#a0a3cc83cb6ebc79b66b43fae3ffee64eaf50bfe1c5c23e92a75ba64d89bcd3bfa">SF_Pixel</a></td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a0e002a19fb833263a1d7a39b354bb429" name="a0e002a19fb833263a1d7a39b354bb429"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0e002a19fb833263a1d7a39b354bb429">&#9670;&#160;</a></span>IMPLEMENT_GLOBAL_SHADER() <span class="overload">[2/5]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">IMPLEMENT_GLOBAL_SHADER </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../df/dba/class_f_volumetric_fog_final_integration_c_s.html">FVolumetricFogFinalIntegrationCS</a></td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&quot;/Engine/<a class="el" href="../../d9/db1/namespace_private.html">Private</a>/VolumetricFog.usf&quot;</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&quot;FinalIntegrationCS&quot;</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../da/dca/_r_h_i_definitions_8h.html#a0a3cc83cb6ebc79b66b43fae3ffee64ea2a84a18d7ac3d1fac11e3153f0abf73b">SF_Compute</a></td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a59b1c6f62dc5bc6c63420fb22b258cf7" name="a59b1c6f62dc5bc6c63420fb22b258cf7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a59b1c6f62dc5bc6c63420fb22b258cf7">&#9670;&#160;</a></span>IMPLEMENT_GLOBAL_SHADER() <span class="overload">[3/5]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">IMPLEMENT_GLOBAL_SHADER </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d6/d9c/class_f_volumetric_fog_light_scattering_c_s.html">FVolumetricFogLightScatteringCS</a></td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&quot;/Engine/<a class="el" href="../../d9/db1/namespace_private.html">Private</a>/VolumetricFog.usf&quot;</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&quot;LightScatteringCS&quot;</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../da/dca/_r_h_i_definitions_8h.html#a0a3cc83cb6ebc79b66b43fae3ffee64ea2a84a18d7ac3d1fac11e3153f0abf73b">SF_Compute</a></td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="af50acfaf5a653aab0ec05a141ead582e" name="af50acfaf5a653aab0ec05a141ead582e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af50acfaf5a653aab0ec05a141ead582e">&#9670;&#160;</a></span>IMPLEMENT_GLOBAL_SHADER() <span class="overload">[4/5]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">IMPLEMENT_GLOBAL_SHADER </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d8/d31/class_f_volumetric_fog_material_setup_c_s.html">FVolumetricFogMaterialSetupCS</a></td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&quot;/Engine/<a class="el" href="../../d9/db1/namespace_private.html">Private</a>/VolumetricFog.usf&quot;</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&quot;MaterialSetupCS&quot;</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../da/dca/_r_h_i_definitions_8h.html#a0a3cc83cb6ebc79b66b43fae3ffee64ea2a84a18d7ac3d1fac11e3153f0abf73b">SF_Compute</a></td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a91ef9f60881b38c5029ce416a54ad411" name="a91ef9f60881b38c5029ce416a54ad411"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a91ef9f60881b38c5029ce416a54ad411">&#9670;&#160;</a></span>IMPLEMENT_GLOBAL_SHADER() <span class="overload">[5/5]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">IMPLEMENT_GLOBAL_SHADER </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d5/db2/class_f_write_to_bounding_sphere_v_s.html">FWriteToBoundingSphereVS</a></td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&quot;/Engine/<a class="el" href="../../d9/db1/namespace_private.html">Private</a>/VolumetricFog.usf&quot;</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&quot;WriteToBoundingSphereVS&quot;</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../da/dca/_r_h_i_definitions_8h.html#a0a3cc83cb6ebc79b66b43fae3ffee64ea57b843d1079d918ef496ded337a171d2">SF_Vertex</a></td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a2b190896689d6a016992a7daadf77c85" name="a2b190896689d6a016992a7daadf77c85"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2b190896689d6a016992a7daadf77c85">&#9670;&#160;</a></span>IMPLEMENT_GLOBAL_SHADER_PARAMETER_STRUCT() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../de/da9/namespace_light_function_atlas.html#a371e6d7351a2eaa905b941dd2272d536">IMPLEMENT_GLOBAL_SHADER_PARAMETER_STRUCT</a> </td>
+          <td>(</td>
+          <td class="paramtype">FLumenTranslucencyLightingUniforms</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&quot;LumenGIVolumeStruct&quot;</td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a6b925656994846867dcc75b563d2c467" name="a6b925656994846867dcc75b563d2c467"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6b925656994846867dcc75b563d2c467">&#9670;&#160;</a></span>IMPLEMENT_GLOBAL_SHADER_PARAMETER_STRUCT() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../de/da9/namespace_light_function_atlas.html#a371e6d7351a2eaa905b941dd2272d536">IMPLEMENT_GLOBAL_SHADER_PARAMETER_STRUCT</a> </td>
+          <td>(</td>
+          <td class="paramtype">FVolumetricFogGlobalData</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&quot;VolumetricFog&quot;</td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a3d4c88cef72ad8e0e740c9907fbdb1f3" name="a3d4c88cef72ad8e0e740c9907fbdb1f3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3d4c88cef72ad8e0e740c9907fbdb1f3">&#9670;&#160;</a></span>LightHasRayTracedShadows()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a> LightHasRayTracedShadows </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="../../df/d16/class_f_light_scene_info.html">FLightSceneInfo</a> *</td>          <td class="paramname"><span class="paramname"><em>LightSceneInfo</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="../../d1/d57/class_f_scene_view_family.html">FSceneViewFamily</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>ViewFamily</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a5e705a9918fd593e111d53422c03aa19" name="a5e705a9918fd593e111d53422c03aa19"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5e705a9918fd593e111d53422c03aa19">&#9670;&#160;</a></span>LightNeedsSeparateInjectionIntoVolumetricFogForOpaqueShadow()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a> LightNeedsSeparateInjectionIntoVolumetricFogForOpaqueShadow </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="../../dd/d2b/class_f_view_info.html">FViewInfo</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>View</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="../../df/d16/class_f_light_scene_info.html">FLightSceneInfo</a> *</td>          <td class="paramname"><span class="paramname"><em>LightSceneInfo</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="../../db/d93/class_f_visible_light_info.html">FVisibleLightInfo</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>VisibleLightInfo</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="../../d4/dfa/class_f_scene.html">FScene</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>InScene</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="acba39c4ddd6f99717738ffe236ebfdda" name="acba39c4ddd6f99717738ffe236ebfdda"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acba39c4ddd6f99717738ffe236ebfdda">&#9670;&#160;</a></span>SetupInjectShadowedLocalLightPSO()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../df/d63/_typed_element_query_capabilities_8inl.html#a72343342ce64c0755563ee6c5e27868d">void</a> SetupInjectShadowedLocalLightPSO </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d0/d98/class_f_r_h_i_vertex_shader.html">FRHIVertexShader</a> *</td>          <td class="paramname"><span class="paramname"><em>VertexShader</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d6/d35/class_f_r_h_i_geometry_shader.html">FRHIGeometryShader</a> *</td>          <td class="paramname"><span class="paramname"><em>GeometryShader</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d4/d06/class_f_r_h_i_pixel_shader.html">FRHIPixelShader</a> *</td>          <td class="paramname"><span class="paramname"><em>PixelShader</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d2/d2e/class_f_graphics_pipeline_state_initializer.html">FGraphicsPipelineStateInitializer</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>GraphicsPSOInit</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="acfaf2e1d82e049189dbf0b1f98bedc38" name="acfaf2e1d82e049189dbf0b1f98bedc38"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acfaf2e1d82e049189dbf0b1f98bedc38">&#9670;&#160;</a></span>SetupVolumetricFogGlobalData()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../df/d63/_typed_element_query_capabilities_8inl.html#a72343342ce64c0755563ee6c5e27868d">void</a> SetupVolumetricFogGlobalData </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="../../dd/d2b/class_f_view_info.html">FViewInfo</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>View</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">FVolumetricFogGlobalData &amp;</td>          <td class="paramname"><span class="paramname"><em>Parameters</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="afee655616cf5222f49fcb06beee48e0c" name="afee655616cf5222f49fcb06beee48e0c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afee655616cf5222f49fcb06beee48e0c">&#9670;&#160;</a></span>SetupVolumetricFogIntegrationParameters()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../df/d63/_typed_element_query_capabilities_8inl.html#a72343342ce64c0755563ee6c5e27868d">void</a> SetupVolumetricFogIntegrationParameters </td>
+          <td>(</td>
+          <td class="paramtype">FVolumetricFogIntegrationParameters &amp;</td>          <td class="paramname"><span class="paramname"><em>Out</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../dd/d2b/class_f_view_info.html">FViewInfo</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>View</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="../../db/dd5/struct_f_volumetric_fog_integration_parameter_data.html">FVolumetricFogIntegrationParameterData</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>IntegrationData</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a2ac9d0fea105b6dc5f766b4253c5391a" name="a2ac9d0fea105b6dc5f766b4253c5391a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2ac9d0fea105b6dc5f766b4253c5391a">&#9670;&#160;</a></span>ShouldRenderVolumetricFog()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a> ShouldRenderVolumetricFog </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="../../d4/dfa/class_f_scene.html">FScene</a> *</td>          <td class="paramname"><span class="paramname"><em>Scene</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="../../d1/d57/class_f_scene_view_family.html">FSceneViewFamily</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>ViewFamily</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a94ae582361eca0a95c0935bd002848db" name="a94ae582361eca0a95c0935bd002848db"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a94ae582361eca0a95c0935bd002848db">&#9670;&#160;</a></span>VolumetricFogGlobalPSOCollector()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../df/d63/_typed_element_query_capabilities_8inl.html#a72343342ce64c0755563ee6c5e27868d">void</a> VolumetricFogGlobalPSOCollector </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="../../dc/db5/struct_f_scene_textures_config.html">FSceneTexturesConfig</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>SceneTexturesConfig</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a8dbb3cd84ca9fd010dadfc3815eefa5d">int32</a></td>          <td class="paramname"><span class="paramname"><em>GlobalPSOCollectorIndex</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d6/db1/class_t_array.html">TArray</a>&lt; <a class="el" href="../../dd/dd8/struct_f_p_s_o_precache_data.html">FPSOPrecacheData</a> &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>PSOInitializers</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ac1b256b6bcaabe436991c02ebaa8f05d" name="ac1b256b6bcaabe436991c02ebaa8f05d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac1b256b6bcaabe436991c02ebaa8f05d">&#9670;&#160;</a></span>VolumetricFogOnRenderBegin()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../df/d63/_typed_element_query_capabilities_8inl.html#a72343342ce64c0755563ee6c5e27868d">void</a> VolumetricFogOnRenderBegin </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d4/dfa/class_f_scene.html">FScene</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>Scene</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d6/db1/class_t_array.html">TArray</a>&lt; <a class="el" href="../../dd/d2b/class_f_view_info.html">FViewInfo</a> &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>Views</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ac5e2ffa75f896fdd6b023f395ac3e772" name="ac5e2ffa75f896fdd6b023f395ac3e772"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac5e2ffa75f896fdd6b023f395ac3e772">&#9670;&#160;</a></span>VolumetricFogTemporalRandom()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d0/df6/_math_fwd_8h.html#a4778ceda3f595c7a5f2b088a866a8bf2">FVector3f</a> VolumetricFogTemporalRandom </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../dd/de9/preprocessor_8c.html#a1134b580f8da4de94ca6b1de4d37975e">uint32</a></td>          <td class="paramname"><span class="paramname"><em>FrameNumber</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a name="doc-var-members" id="doc-var-members"></a><h2 id="header-doc-var-members" class="groupheader">变量说明</h2>
+<a id="aa538ea1a98a87bd021e32bd7fe358292" name="aa538ea1a98a87bd021e32bd7fe358292"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa538ea1a98a87bd021e32bd7fe358292">&#9670;&#160;</a></span>CVarVolumetricRectLightTexture</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d2/d79/class_f_auto_console_variable_ref.html">FAutoConsoleVariableRef</a> CVarVolumetricRectLightTexture(<a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;r.VolumetricFog.RectLightTexture&quot;), <a class="el" href="#a6573eaaea09b7f962941f7d12309c881">GVolumetricFogRectLightTexture</a>, <a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;Whether to allow the volumetric fog to use rect light <a class="el" href="../../d4/dc6/_trace_log_2_private_2_trace_2_l_z4_2lz4_8h.html#a0211201f992ec3f0b641c9ceff5f837a">source</a> texture.&quot;), <a class="el" href="../../d4/dd9/_i_console_manager_8h.html#a7f594f23c2b2c5687f1a502ebb3ba105a774ea60f41417af093a7ca56c4204a70">ECVF_RenderThreadSafe</a>) </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;r.VolumetricFog.RectLightTexture&quot;)</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="#a6573eaaea09b7f962941f7d12309c881">GVolumetricFogRectLightTexture</a></td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;Whether to allow the volumetric fog to use rect light <a class="el" href="../../d4/dc6/_trace_log_2_private_2_trace_2_l_z4_2lz4_8h.html#a0211201f992ec3f0b641c9ceff5f837a">source</a> texture.&quot;)</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d4/dd9/_i_console_manager_8h.html#a7f594f23c2b2c5687f1a502ebb3ba105a774ea60f41417af093a7ca56c4204a70">ECVF_RenderThreadSafe</a></td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a3984a22940fe1bcdb1d002357f978cc0" name="a3984a22940fe1bcdb1d002357f978cc0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3984a22940fe1bcdb1d002357f978cc0">&#9670;&#160;</a></span>GCircleRasterizeIndexBuffer</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../da/dee/class_t_global_resource.html">TGlobalResource</a>&lt;<a class="el" href="../../d2/d4f/class_f_circle_rasterize_index_buffer.html">FCircleRasterizeIndexBuffer</a>&gt; GCircleRasterizeIndexBuffer</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a349b079e2b3fe3246cff46ab2b30b831" name="a349b079e2b3fe3246cff46ab2b30b831"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a349b079e2b3fe3246cff46ab2b30b831">&#9670;&#160;</a></span>GCircleRasterizeVertexBuffer</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../da/dee/class_t_global_resource.html">TGlobalResource</a>&lt;<a class="el" href="../../de/d74/class_f_circle_rasterize_vertex_buffer.html">FCircleRasterizeVertexBuffer</a>&gt; GCircleRasterizeVertexBuffer</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a74a75a767820c13b7fa99b9d4e39686e" name="a74a75a767820c13b7fa99b9d4e39686e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a74a75a767820c13b7fa99b9d4e39686e">&#9670;&#160;</a></span>GInverseSquaredLightDistanceBiasScale</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../df/d2a/_s_anim_notify_shared_8h.html#ac7c94e837fed3f8e4bb3dd94d7bd2ecf">float</a> GInverseSquaredLightDistanceBiasScale = 1.0f</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aefc0bb7b36188794a30350d4ebbcff3f" name="aefc0bb7b36188794a30350d4ebbcff3f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aefc0bb7b36188794a30350d4ebbcff3f">&#9670;&#160;</a></span>GLightScatteringSampleJitterMultiplier</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../df/d2a/_s_anim_notify_shared_8h.html#ac7c94e837fed3f8e4bb3dd94d7bd2ecf">float</a> GLightScatteringSampleJitterMultiplier = 0</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ae5df5798dbeae75ecbb76f95387450ba" name="ae5df5798dbeae75ecbb76f95387450ba"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae5df5798dbeae75ecbb76f95387450ba">&#9670;&#160;</a></span>GVolumetricFog</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a8dbb3cd84ca9fd010dadfc3815eefa5d">int32</a> GVolumetricFog = 1</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a7b220d03d03c31a6e383030d847b3d06" name="a7b220d03d03c31a6e383030d847b3d06"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7b220d03d03c31a6e383030d847b3d06">&#9670;&#160;</a></span>GVolumetricFogConservativeDepth</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a8dbb3cd84ca9fd010dadfc3815eefa5d">int32</a> GVolumetricFogConservativeDepth = 1</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a290eb98b705177e793720110068d6050" name="a290eb98b705177e793720110068d6050"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a290eb98b705177e793720110068d6050">&#9670;&#160;</a></span>GVolumetricFogDepthDistributionScale</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../df/d2a/_s_anim_notify_shared_8h.html#ac7c94e837fed3f8e4bb3dd94d7bd2ecf">float</a> GVolumetricFogDepthDistributionScale = 32.0f</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="af05dad29c37f133f5ff6ba4653d061d6" name="af05dad29c37f133f5ff6ba4653d061d6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af05dad29c37f133f5ff6ba4653d061d6">&#9670;&#160;</a></span>GVolumetricFogEmissive</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a8dbb3cd84ca9fd010dadfc3815eefa5d">int32</a> GVolumetricFogEmissive = 1</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aeffdd646e1c99902e62cf2193305cebd" name="aeffdd646e1c99902e62cf2193305cebd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aeffdd646e1c99902e62cf2193305cebd">&#9670;&#160;</a></span>GVolumetricFogGridPixelSize</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a8dbb3cd84ca9fd010dadfc3815eefa5d">int32</a> GVolumetricFogGridPixelSize = 16</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ae3d78299b47c586a55cd304df931e9c2" name="ae3d78299b47c586a55cd304df931e9c2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae3d78299b47c586a55cd304df931e9c2">&#9670;&#160;</a></span>GVolumetricFogGridSizeZ</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a8dbb3cd84ca9fd010dadfc3815eefa5d">int32</a> GVolumetricFogGridSizeZ = 64</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a1950058a86e7097afe7a470a1c10adce" name="a1950058a86e7097afe7a470a1c10adce"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1950058a86e7097afe7a470a1c10adce">&#9670;&#160;</a></span>GVolumetricFogHistoryMissSupersampleCount</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a8dbb3cd84ca9fd010dadfc3815eefa5d">int32</a> GVolumetricFogHistoryMissSupersampleCount = 4</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a5e0ff0dd4f768b6af6678be89c2d3e20" name="a5e0ff0dd4f768b6af6678be89c2d3e20"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5e0ff0dd4f768b6af6678be89c2d3e20">&#9670;&#160;</a></span>GVolumetricFogHistoryWeight</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../df/d2a/_s_anim_notify_shared_8h.html#ac7c94e837fed3f8e4bb3dd94d7bd2ecf">float</a> GVolumetricFogHistoryWeight = .9f</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aacb4c0a5d1fe6f2dcce70490900a636d" name="aacb4c0a5d1fe6f2dcce70490900a636d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aacb4c0a5d1fe6f2dcce70490900a636d">&#9670;&#160;</a></span>GVolumetricFogInjectRaytracedLights</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int GVolumetricFogInjectRaytracedLights = 0</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aa95e33aa791ae5d8ff79dff362b552ed" name="aa95e33aa791ae5d8ff79dff362b552ed"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa95e33aa791ae5d8ff79dff362b552ed">&#9670;&#160;</a></span>GVolumetricFogInjectShadowedLightsSeparately</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a8dbb3cd84ca9fd010dadfc3815eefa5d">int32</a> GVolumetricFogInjectShadowedLightsSeparately = 1</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a64851a7b450253ff7d8839c5696f7f5c" name="a64851a7b450253ff7d8839c5696f7f5c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a64851a7b450253ff7d8839c5696f7f5c">&#9670;&#160;</a></span>GVolumetricFogJitter</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a8dbb3cd84ca9fd010dadfc3815eefa5d">int32</a> GVolumetricFogJitter = 1</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a6573eaaea09b7f962941f7d12309c881" name="a6573eaaea09b7f962941f7d12309c881"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6573eaaea09b7f962941f7d12309c881">&#9670;&#160;</a></span>GVolumetricFogRectLightTexture</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a8dbb3cd84ca9fd010dadfc3815eefa5d">int32</a> GVolumetricFogRectLightTexture = 0</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a528aa86cb0685edba5a82ef76f2b9148" name="a528aa86cb0685edba5a82ef76f2b9148"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a528aa86cb0685edba5a82ef76f2b9148">&#9670;&#160;</a></span>GVolumetricFogTemporalReprojection</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a8dbb3cd84ca9fd010dadfc3815eefa5d">int32</a> GVolumetricFogTemporalReprojection = 1</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a8e86336e16cb08d8982cd597d37bc831" name="a8e86336e16cb08d8982cd597d37bc831"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8e86336e16cb08d8982cd597d37bc831">&#9670;&#160;</a></span>VolumetricFogGlobalPSOCollector</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d6/d7b/class_f_register_global_p_s_o_collector_function.html">FRegisterGlobalPSOCollectorFunction</a> RegisterVolumetricFogGlobalPSOCollector&amp; VolumetricFogGlobalPSOCollector</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="accaf373ccf54379d68ed60cfe5bdd431" name="accaf373ccf54379d68ed60cfe5bdd431"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#accaf373ccf54379d68ed60cfe5bdd431">&#9670;&#160;</a></span>VolumetricFogIntegrationGroupSize</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../dd/de9/preprocessor_8c.html#a1134b580f8da4de94ca6b1de4d37975e">uint32</a> VolumetricFogIntegrationGroupSize = 8</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<div id="page-nav" class="page-nav-panel">
+<div id="page-nav-resize-handle"></div>
+<div id="page-nav-tree">
+<div id="page-nav-contents">
+</div><!-- page-nav-contents -->
+</div><!-- page-nav-tree -->
+</div><!-- page-nav -->
+</div><!-- container -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a href="../../dir_0b6ee6e7e9547e675db4add2e5de97da.html">Engine</a></li><li class="navelem"><a href="../../dir_9579d1ecb2c7bf48cbe1049c41745cb4.html">Source</a></li><li class="navelem"><a href="../../dir_9f04efef762572853abdf73f62bebfcc.html">Runtime</a></li><li class="navelem"><a href="../../dir_5ed6327f04b0f38d3f6fe5caa38b0445.html">Renderer</a></li><li class="navelem"><a href="../../dir_e317dc6f09036e33460f39c550131623.html">Private</a></li><li class="navelem"><a href="../../db/dd0/_volumetric_fog_8cpp.html">VolumetricFog.cpp</a></li>
+    <li class="footer">制作者 <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.15.0 </li>
+  </ul>
+</div>
+</body>
+</html>

@@ -1,0 +1,26 @@
+var class_i_xmpp_connection =
+[
+    [ "~IXmppConnection", "de/de7/class_i_xmpp_connection.html#a8951b4db497772609bc80d9d60023862", null ],
+    [ "DECLARE_MULTICAST_DELEGATE_OneParam", "de/de7/class_i_xmpp_connection.html#a463a2ee9828205ead16538beb9d054dd", null ],
+    [ "DECLARE_MULTICAST_DELEGATE_OneParam", "de/de7/class_i_xmpp_connection.html#adddf22d0d58259682373d0c4d1ed198b", null ],
+    [ "DECLARE_MULTICAST_DELEGATE_ThreeParams", "de/de7/class_i_xmpp_connection.html#ad112eb3e42c64baee1642fa739864375", null ],
+    [ "DECLARE_MULTICAST_DELEGATE_ThreeParams", "de/de7/class_i_xmpp_connection.html#ab589d92c3a2285705c9b3f847db79e11", null ],
+    [ "DECLARE_MULTICAST_DELEGATE_TwoParams", "de/de7/class_i_xmpp_connection.html#a4811880c1a293b7961b70b41487a989f", null ],
+    [ "DumpState", "de/de7/class_i_xmpp_connection.html#afc3c1b0608c6c306ff4988552fdc5e7c", null ],
+    [ "GetLoginStatus", "de/de7/class_i_xmpp_connection.html#aab053859e42e9518295444ad47d658f5", null ],
+    [ "GetServer", "de/de7/class_i_xmpp_connection.html#ae0cd2ec51b415d062887ec4e2c583286", null ],
+    [ "GetUserJid", "de/de7/class_i_xmpp_connection.html#ae172008d76af94adfa492ebe2388ec85", null ],
+    [ "Login", "de/de7/class_i_xmpp_connection.html#accb93a5d52225e2c6c6bca99807baca9", null ],
+    [ "Logout", "de/de7/class_i_xmpp_connection.html#a06c9efc3fefbac388010f1552fca5168", null ],
+    [ "Messages", "de/de7/class_i_xmpp_connection.html#ab39e4d2b62896bb5e7922fa510adfcba", null ],
+    [ "MultiUserChat", "de/de7/class_i_xmpp_connection.html#a176ae3be834eb3ff3111bec72300ab71", null ],
+    [ "OnLoginChanged", "de/de7/class_i_xmpp_connection.html#aa89cb8c9e0a42330d81d3d7493ba696e", null ],
+    [ "OnLoginComplete", "de/de7/class_i_xmpp_connection.html#a69d1b5470f82c474c14f125617446876", null ],
+    [ "OnLogoutComplete", "de/de7/class_i_xmpp_connection.html#a3b0502f928418ca266393b5d4d9d447a", null ],
+    [ "OnStanzaReceived", "de/de7/class_i_xmpp_connection.html#aedbafa2475a8f0a4bdc21e6130b2409d", null ],
+    [ "OnStanzaSent", "de/de7/class_i_xmpp_connection.html#a9f1d45fb3c24f6023f71f035caaa723d", null ],
+    [ "Presence", "de/de7/class_i_xmpp_connection.html#a0bd243047c4a9db79f729203fccc0775", null ],
+    [ "PrivateChat", "de/de7/class_i_xmpp_connection.html#a7e95845bdaff7782c669bc5ffc2c836c", null ],
+    [ "PubSub", "de/de7/class_i_xmpp_connection.html#a634ba37ca35cb7f665ae37932f4fff89", null ],
+    [ "SetServer", "de/de7/class_i_xmpp_connection.html#a07f8d39abfcb55d710bf24ce16803c1e", null ]
+];

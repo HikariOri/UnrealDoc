@@ -1,0 +1,27 @@
+var class_i_plugin =
+[
+    [ "~IPlugin", "d4/d21/class_i_plugin.html#a47e41e0790e8da744a21e4fdc28afba3", null ],
+    [ "CanContainContent", "d4/d21/class_i_plugin.html#a6feb83c24a8e830f2cf96abf255603c5", null ],
+    [ "CanContainVerse", "d4/d21/class_i_plugin.html#a16527df462fff16b949ba4ad0d6b3c1a", null ],
+    [ "GetBaseDir", "d4/d21/class_i_plugin.html#a34a7e3fe22cf168c06774fee0ab20f28", null ],
+    [ "GetContentDir", "d4/d21/class_i_plugin.html#a32d57066b58f69775b3a4ebebe26ba37", null ],
+    [ "GetDeprecatedEngineVersion", "d4/d21/class_i_plugin.html#a910e00f3b2a534df77144b45745c835a", null ],
+    [ "GetDescriptor", "d4/d21/class_i_plugin.html#a7a910d55945774f47859ae3493e5da1a", null ],
+    [ "GetDescriptorFileName", "d4/d21/class_i_plugin.html#aa0096c0ccff5860364193eb6ee7802d7", null ],
+    [ "GetExtensionBaseDirs", "d4/d21/class_i_plugin.html#a96f7b489a571675e7cf2454cca0d4bbd", null ],
+    [ "GetFriendlyName", "d4/d21/class_i_plugin.html#a4d21f71a0d92252f66e57376714cc1b5", null ],
+    [ "GetLoadedFrom", "d4/d21/class_i_plugin.html#a8be5885099aab492588ac9578845e317", null ],
+    [ "GetMountedAssetPath", "d4/d21/class_i_plugin.html#a7a26d83895fe35612ad74c049f72b554", null ],
+    [ "GetName", "d4/d21/class_i_plugin.html#a891523a4fb1bab93d274162edaa10170", null ],
+    [ "GetType", "d4/d21/class_i_plugin.html#a44bffbe4ad795724324cd07bdac33184", null ],
+    [ "GetVersePath", "d4/d21/class_i_plugin.html#ac81fef1d426854f8ffefaa1cbe2134de", null ],
+    [ "GetVerseVersion", "d4/d21/class_i_plugin.html#a8df63d48c5a6ad85b0bc41cb57b42faf", null ],
+    [ "IsEnabled", "d4/d21/class_i_plugin.html#ad820126fe2961b0e79528c0d89d8ba09", null ],
+    [ "IsEnabledByDefault", "d4/d21/class_i_plugin.html#a844a602378e40d65aa09309933f9ba0f", null ],
+    [ "IsHidden", "d4/d21/class_i_plugin.html#a63d4231b82e76a13a316d55bd9b7595d", null ],
+    [ "IsMounted", "d4/d21/class_i_plugin.html#af241734375ba7fe719cf42c9ad6266e6", null ],
+    [ "IsRootPlugin", "d4/d21/class_i_plugin.html#ae871c62e45f644a7ef8cdd4315659355", null ],
+    [ "IsSceneGraphAnimationEnabled", "d4/d21/class_i_plugin.html#a1c7dd74e9d307fc9bc4683943b209084", null ],
+    [ "IsSceneGraphEnabled", "d4/d21/class_i_plugin.html#a8964d58f9257a88fc6199ea3ead21d4c", null ],
+    [ "UpdateDescriptor", "d4/d21/class_i_plugin.html#a0de355f445f2b3dc7ad7857d5ed80187", null ]
+];

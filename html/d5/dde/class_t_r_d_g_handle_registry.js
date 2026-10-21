@@ -1,0 +1,25 @@
+var class_t_r_d_g_handle_registry =
+[
+    [ "HandleType", "d5/dde/class_t_r_d_g_handle_registry.html#a5856824d0e6a9f8f80a4600e9a470005", null ],
+    [ "IndexType", "d5/dde/class_t_r_d_g_handle_registry.html#a6799f7c8af6bc60a866411f2c344b5ec", null ],
+    [ "ObjectType", "d5/dde/class_t_r_d_g_handle_registry.html#a510a1b8d0159b588900779d575d123f8", null ],
+    [ "TRDGHandleRegistry", "d5/dde/class_t_r_d_g_handle_registry.html#acf48620105f0fcc40183d0aa7791de7b", null ],
+    [ "TRDGHandleRegistry", "d5/dde/class_t_r_d_g_handle_registry.html#a29fbdddd738232700b594bcffa16ee79", null ],
+    [ "TRDGHandleRegistry", "d5/dde/class_t_r_d_g_handle_registry.html#a2ab8079a8a7dcf2894aee638a8b07704", null ],
+    [ "~TRDGHandleRegistry", "d5/dde/class_t_r_d_g_handle_registry.html#a0d37149cdc652e9a85fa6098591861a6", null ],
+    [ "Allocate", "d5/dde/class_t_r_d_g_handle_registry.html#ad615f81cd31dfd9297bc3c49d215bfdf", null ],
+    [ "Begin", "d5/dde/class_t_r_d_g_handle_registry.html#a140855a6163a9d797db3cbc4902cc623", null ],
+    [ "Clear", "d5/dde/class_t_r_d_g_handle_registry.html#afb199ee82f7c65e8fdc83927d1de16bf", null ],
+    [ "End", "d5/dde/class_t_r_d_g_handle_registry.html#a3c5bc404df09ca3c4384042b082b5056", null ],
+    [ "Enumerate", "d5/dde/class_t_r_d_g_handle_registry.html#a2df4a3003e86879b1aa2d09667311480", null ],
+    [ "Enumerate", "d5/dde/class_t_r_d_g_handle_registry.html#ac8d625bfbaf6036aba7843625b20b455", null ],
+    [ "Get", "d5/dde/class_t_r_d_g_handle_registry.html#a607de5b76393af68d3cf2425d05bb3f5", null ],
+    [ "Get", "d5/dde/class_t_r_d_g_handle_registry.html#aea100bb4e16ebfcb97a07053d82657ff", null ],
+    [ "Insert", "d5/dde/class_t_r_d_g_handle_registry.html#ae1536b93d46b43762e1ce0875245b55a", null ],
+    [ "Last", "d5/dde/class_t_r_d_g_handle_registry.html#a44168e7e049b03cc412e131e6186bad7", null ],
+    [ "Num", "d5/dde/class_t_r_d_g_handle_registry.html#a9dd6cc4429ccdcfc896895d24edb1f55", null ],
+    [ "operator=", "d5/dde/class_t_r_d_g_handle_registry.html#adc2efea87172ac5606296feb440bb2a7", null ],
+    [ "operator=", "d5/dde/class_t_r_d_g_handle_registry.html#a80c0b15164e33637ca10c3a466231d19", null ],
+    [ "operator[]", "d5/dde/class_t_r_d_g_handle_registry.html#a310d53b413355d3be1b4a8526e89b05f", null ],
+    [ "operator[]", "d5/dde/class_t_r_d_g_handle_registry.html#af6ceaee0e43e6db850c6108ed6562191", null ]
+];

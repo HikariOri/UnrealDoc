@@ -1,0 +1,1619 @@
+<!-- HTML header for doxygen 1.15.0-->
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh">
+<head>
+  <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=11" />
+  <meta name="generator" content="Doxygen 1.15.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>UE 5.8.4: Engine/Source/Runtime/Engine/Private/LevelTick.cpp 文件参考</title>
+  <link rel="icon" href="../../EdIconDefault.bmp" type="image/x-icon" />
+  <link href="../../tabs.css" rel="stylesheet" type="text/css" />
+  <script type="text/javascript" src="../../jquery.js"></script>
+  <script type="text/javascript" src="../../dynsections.js"></script>
+  <link href="../../navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../navtreedata.js"></script>
+<script type="text/javascript" src="../../navtree.js"></script>
+<script type="text/javascript" src="../../cookie.js"></script>
+  <link href="../../search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../search/searchdata.js"></script>
+<script type="text/javascript" src="../../search/search.js"></script>
+  <script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  extensions: ["tex2jax.js"],
+  jax: ["input/TeX","output/HTML-CSS"],
+});
+</script>
+<script type="text/javascript" async="async" src="https://cdn.jsdelivr.net/npm/mathjax@2/MathJax.js"></script>
+  <link href="../../doxygen.css" rel="stylesheet" type="text/css" />
+  <link href="../../doxygen-awesome.css" rel="stylesheet" type="text/css"/>
+<link href="../../doxygen-awesome-sidebar-only.css" rel="stylesheet" type="text/css"/>
+<link href="../../doxygen-awesome-sidebar-only-darkmode-toggle.css" rel="stylesheet" type="text/css"/>
+  <!-- ... other metadata & script includes ... -->
+  <script type="text/javascript" src="../../doxygen-awesome-darkmode-toggle.js"></script>
+  <script type="text/javascript">
+    DoxygenAwesomeDarkModeToggle.title = "Zwischen hellem/dunklem Modus wechseln"
+    DoxygenAwesomeDarkModeToggle.lightModeIcon = '🌞'
+    // icon from https://fonts.google.com/icons
+    DoxygenAwesomeDarkModeToggle.darkModeIcon = `<svg xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 24 24" height="24px" viewBox="0 0 24 24" width="24px" fill="#009793"><g><rect fill="none" height="24" width="24"/></g><g><g><path d="M8.1,14.15C9.77,14.63,11,16.17,11,18c0,0.68-0.19,1.31-0.48,1.87c0.48,0.09,0.97,0.14,1.48,0.14 c1.48,0,2.9-0.41,4.13-1.15c-2.62-0.92-5.23-2.82-6.8-5.86C7.74,9.94,7.78,7.09,8.29,4.9c-2.57,1.33-4.3,4.01-4.3,7.1c0,0,0,0,0,0 c0.01,0,0.01,0,0.02,0C5.66,12,7.18,12.83,8.1,14.15z" opacity=".3"/><path d="M19.78,17.51c-2.47,0-6.57-1.33-8.68-5.43C8.77,7.57,10.6,3.6,11.63,2.01C6.27,2.2,1.98,6.59,1.98,12 c0,0.14,0.02,0.28,0.02,0.42C2.61,12.16,3.28,12,3.98,12c0,0,0,0,0,0c0-3.09,1.73-5.77,4.3-7.1C7.78,7.09,7.74,9.94,9.32,13 c1.57,3.04,4.18,4.95,6.8,5.86c-1.23,0.74-2.65,1.15-4.13,1.15c-0.5,0-1-0.05-1.48-0.14c-0.37,0.7-0.94,1.27-1.64,1.64 c0.98,0.32,2.03,0.5,3.11,0.5c3.5,0,6.58-1.8,8.37-4.52C20.18,17.5,19.98,17.51,19.78,17.51z"/><path d="M7,16l-0.18,0C6.4,14.84,5.3,14,4,14c-1.66,0-3,1.34-3,3s1.34,3,3,3c0.62,0,2.49,0,3,0c1.1,0,2-0.9,2-2 C9,16.9,8.1,16,7,16z"/></g></g></svg>`
+    DoxygenAwesomeDarkModeToggle.init()
+  </script>
+  <script type="text/javascript" src="../../doxygen-awesome-fragment-copy-button.js"></script>
+  <script type="text/javascript">
+    DoxygenAwesomeFragmentCopyButton.title = "In die Zwischenablage kopieren"
+    // DoxygenAwesomeFragmentCopyButton.copyIcon = `<svg ...>`
+    // DoxygenAwesomeFragmentCopyButton.successIcon = `<svg ...>`
+    DoxygenAwesomeFragmentCopyButton.init()
+  </script>
+  <script type="text/javascript" src="../../doxygen-awesome-paragraph-link.js"></script>
+  <script type="text/javascript">
+    DoxygenAwesomeParagraphLink.title = "Abschnitt verknüpfen"
+    DoxygenAwesomeParagraphLink.icon = "¶"
+    DoxygenAwesomeParagraphLink.init()
+  </script>
+  <script type="text/javascript" src="../../doxygen-awesome-interactive-toc.js"></script>
+  <script type="text/javascript">
+    DoxygenAwesomeInteractiveToc.topOffset = 45
+    DoxygenAwesomeInteractiveToc.hideMobileMenu = false
+    DoxygenAwesomeInteractiveToc.init()
+  </script>
+</head>
+<body>
+    <div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+      <div id="titlearea">
+        <table cellspacing="0" cellpadding="0">
+          <tbody>
+            <tr id="projectrow">
+              <td id="projectlogo"><img alt="Logo" src="../../EdIconDefault.bmp"  /></td>
+              <td id="projectalign">
+                <div id="projectname">UE 5.8.4
+                </div>
+                <div id="projectbrief">Unreal Engine</div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <!-- end header part -->
+<!-- 制作者 Doxygen 1.15.0 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "../../search/",'.html');
+</script>
+<script type="text/javascript">
+$(function() { codefold.init(); });
+</script>
+<script type="text/javascript" src="../../menudata.js"></script>
+<script type="text/javascript" src="../../menu.js"></script>
+<script type="text/javascript">
+$(function() {
+  initMenu('../../',true,false,'search.php','搜索',true);
+  $(function() { init_search(); });
+});
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(function(){initNavTree('d4/d87/_level_tick_8cpp.html','../../',''); });
+</script>
+<div id="container">
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">载入中...</div>
+<div class="SRStatus" id="Searching">搜索中...</div>
+<div class="SRStatus" id="NoMatches">未找到</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">LevelTick.cpp 文件参考</div></div>
+</div><!--header-->
+<div class="contents">
+<div class="textblock"><code>#include &quot;<a class="el" href="../../d2/d4b/_level_8h_source.html">Engine/Level.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d3/d90/_core_2_public_2_async_2_parallel_for_8h_source.html">Async/ParallelFor.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d6/d57/_time_guard_8h_source.html">Misc/TimeGuard.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d0/d1a/_world_settings_8h_source.html">GameFramework/WorldSettings.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d5/d7e/_state_stream_manager_8h_source.html">StateStreamManager.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d2/d62/_u_object_stats_8h_source.html">UObject/UObjectStats.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../dc/d86/_engine_stats_8h_source.html">EngineStats.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d2/d2e/_rendering_thread_8h_source.html">RenderingThread.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d2/d86/_material_parameter_collection_instance_8h_source.html">Materials/MaterialParameterCollectionInstance.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d0/da5/_level_streaming_profiling_subsystem_8h_source.html">ProfilingDebugging/LevelStreamingProfilingSubsystem.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d3/d23/_navigation_system_base_8h_source.html">AI/NavigationSystemBase.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d9/dbc/_player_controller_8h_source.html">GameFramework/PlayerController.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../dd/d0b/_particle_helper_8h_source.html">ParticleHelper.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d2/dc5/_level_streaming_8h_source.html">Engine/LevelStreaming.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d0/d06/_net_connection_8h_source.html">Engine/NetConnection.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d0/d94/_scene_interface_8h_source.html">SceneInterface.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d6/d57/_unreal_engine_8h_source.html">UnrealEngine.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../dd/db3/_level_streaming_g_c_helper_8h_source.html">Engine/LevelStreamingGCHelper.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d1/d63/_level_streaming_volume_8h_source.html">Engine/LevelStreamingVolume.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d3/dd3/_i_x_r_tracking_system_8h_source.html">IXRTrackingSystem.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d0/dea/_camera_photography_8h_source.html">Camera/CameraPhotography.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../db/db5/_runtime_2_core_u_object_2_public_2_u_object_2stack_8h_source.html">UObject/Stack.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../df/d59/_collision_analyzer_capture_8h_source.html">PhysicsEngine/CollisionAnalyzerCapture.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d1/d39/_render_command_pipes_8h_source.html">Rendering/RenderCommandPipes.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../dc/d6d/_thread_idle_stats_8h_source.html">Stats/ThreadIdleStats.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../da/dab/_skeletal_mesh_updater_8h_source.html">SkeletalMeshUpdater.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d5/dbc/_realtime_g_p_u_profiler_8h_source.html">ProfilingDebugging/RealtimeGPUProfiler.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../df/dbb/_i_media_module_8h_source.html">IMediaModule.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d7/dd1/_module_manager_8h_source.html">Modules/ModuleManager.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../dd/d45/_f_x_system_8h_source.html">FXSystem.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../de/d66/_tick_task_manager_interface_8h_source.html">TickTaskManagerInterface.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d8/daf/_core_settings_8h_source.html">Engine/CoreSettings.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d1/d70/_in_game_performance_tracker_8h_source.html">InGamePerformanceTracker.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d5/d4c/_texture_streaming_helpers_8h_source.html">Streaming/TextureStreamingHelpers.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d6/ddf/_g_p_u_skin_cache_8h_source.html">GPUSkinCache.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../da/d15/_compute_worker_interface_8h_source.html">ComputeWorkerInterface.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d8/db3/_render_graph_builder_8h_source.html">RenderGraphBuilder.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d4/d53/_static_mesh_resources_8h_source.html">StaticMeshResources.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d0/d41/_timer_manager_8h_source.html">TimerManager.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../dd/d88/_spawn_actor_timer_8h_source.html">GameFramework/SpawnActorTimer.h</a>&quot;</code><br />
+</div><div class="textblock"><div class="dynheader">
+LevelTick.cpp 的引用(Include)关系图:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d4/d63/_level_tick_8cpp__incl.svg" width="5880" height="384"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+</div><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-nested-classes" class="groupheader"><a id="nested-classes" name="nested-classes"></a>
+类</h2></td></tr>
+<tr class="memitem:FVisibleLevelStreamingSettings" id="r_FVisibleLevelStreamingSettings"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/dd3/class_f_visible_level_streaming_settings.html">FVisibleLevelStreamingSettings</a></td></tr>
+<tr class="memitem:FMarkComponentEndOfFrameUpdateState" id="r_FMarkComponentEndOfFrameUpdateState"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/d8e/struct_f_mark_component_end_of_frame_update_state.html">FMarkComponentEndOfFrameUpdateState</a></td></tr>
+<tr class="memitem:UWorld_3A_3AFEndOfFrameUpdateContext" id="r_UWorld_3A_3AFEndOfFrameUpdateContext"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/d2a/struct_u_world_1_1_f_end_of_frame_update_context.html">UWorld::FEndOfFrameUpdateContext</a></td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-namespaces" class="groupheader"><a id="namespaces" name="namespaces"></a>
+命名空间</h2></td></tr>
+<tr class="memitem:EComponentMarkedForEndOfFrameUpdateState" id="r_EComponentMarkedForEndOfFrameUpdateState"><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d3d/namespace_e_component_marked_for_end_of_frame_update_state.html">EComponentMarkedForEndOfFrameUpdateState</a></td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-define-members" class="groupheader"><a id="define-members" name="define-members"></a>
+宏定义</h2></td></tr>
+<tr class="memitem:af8b6c63b40afcba4bb1763f2e2e631eb" id="r_af8b6c63b40afcba4bb1763f2e2e631eb"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af8b6c63b40afcba4bb1763f2e2e631eb">LOG_DETAILED_DUMPSTATS</a>&#160;&#160;&#160;0</td></tr>
+<tr class="memitem:ab856b6f12399ac9d30c98f9c18617b72" id="r_ab856b6f12399ac9d30c98f9c18617b72"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab856b6f12399ac9d30c98f9c18617b72">LOG_DETAILED_PATHFINDING_STATS</a>&#160;&#160;&#160;0</td></tr>
+<tr class="memitem:a92fb501e0178ff851c6095b117336c8a" id="r_a92fb501e0178ff851c6095b117336c8a"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a92fb501e0178ff851c6095b117336c8a">UE_END_OF_FRAME_UPDATE_REGION</a>&#160;&#160;&#160;<a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;EndOfFrameUpdates&quot;)</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-enum-members" class="groupheader"><a id="enum-members" name="enum-members"></a>
+枚举</h2></td></tr>
+<tr class="memitem:a4ff4aeea15799c6aaa2116c9c3e10d60" id="r_a4ff4aeea15799c6aaa2116c9c3e10d60"><td class="memItemLeft" align="right" valign="top">enum class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4ff4aeea15799c6aaa2116c9c3e10d60">EComponentEndOfFrameUpdateMode</a> : uint8 { <a class="el" href="#a4ff4aeea15799c6aaa2116c9c3e10d60aa2c1e52d2452aef2cdeb636922067ef0">GameThread</a>
+, <a class="el" href="#a4ff4aeea15799c6aaa2116c9c3e10d60a98402eecfbcefc336954458a01752131">Parallel</a>
+, <a class="el" href="#a4ff4aeea15799c6aaa2116c9c3e10d60a24aa4117da86c41684ad25742832dfa6">Async</a>
+ }</td></tr>
+<tr class="memitem:acf7ba20f3a2d0a1df79faa29f452b729" id="r_acf7ba20f3a2d0a1df79faa29f452b729"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d3d/namespace_e_component_marked_for_end_of_frame_update_state.html#acf7ba20f3a2d0a1df79faa29f452b729">EComponentMarkedForEndOfFrameUpdateState::Type</a> { <a class="el" href="../../df/d3d/namespace_e_component_marked_for_end_of_frame_update_state.html#acf7ba20f3a2d0a1df79faa29f452b729a0b3f78ee3b2f3a358c658ec717920d1d">EComponentMarkedForEndOfFrameUpdateState::Unmarked</a>
+, <a class="el" href="../../df/d3d/namespace_e_component_marked_for_end_of_frame_update_state.html#acf7ba20f3a2d0a1df79faa29f452b729a30cfbb18deb1cc8195a070658ff68559">EComponentMarkedForEndOfFrameUpdateState::Marked</a>
+, <a class="el" href="../../df/d3d/namespace_e_component_marked_for_end_of_frame_update_state.html#acf7ba20f3a2d0a1df79faa29f452b729ab1b61b5d9cebfe59de4d428fa48a4046">EComponentMarkedForEndOfFrameUpdateState::MarkedForGameThread</a>
+ }</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-func-members" class="groupheader"><a id="func-members" name="func-members"></a>
+函数</h2></td></tr>
+<tr class="memitem:a33ad8fa09292c434a8998d01f615c9ff" id="r_a33ad8fa09292c434a8998d01f615c9ff"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a33ad8fa09292c434a8998d01f615c9ff">CSV_DECLARE_CATEGORY_MODULE_EXTERN</a> (CORE_API, Basic)</td></tr>
+<tr class="memitem:a586b6ba9f8f9ff2bde66df62a7f9aa6c" id="r_a586b6ba9f8f9ff2bde66df62a7f9aa6c"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a586b6ba9f8f9ff2bde66df62a7f9aa6c">CSV_DEFINE_CATEGORY_MODULE</a> (ENGINE_API, Ticks, <a class="el" href="../../d3/df7/radaudio__common_8h.html#ade27a78a51a66a5cfb6f09cf36bcfde9a08f175a5505a10b9ed657defeb050e4b">true</a>)</td></tr>
+<tr class="memitem:aeae83ccaaee41f35a28cfdae53b86e11" id="r_aeae83ccaaee41f35a28cfdae53b86e11"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aeae83ccaaee41f35a28cfdae53b86e11">CSV_DEFINE_CATEGORY_MODULE</a> (ENGINE_API, ActorCount, <a class="el" href="../../d3/df7/radaudio__common_8h.html#ade27a78a51a66a5cfb6f09cf36bcfde9a08f175a5505a10b9ed657defeb050e4b">true</a>)</td></tr>
+<tr class="memitem:ae46338574ab12ba70dc3406084eff30b" id="r_ae46338574ab12ba70dc3406084eff30b"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae46338574ab12ba70dc3406084eff30b">DEFINE_STAT</a> (STAT_AsyncWorkWaitTime)</td></tr>
+<tr class="memitem:a894cab06f3d65ad925819d032cbef99d" id="r_a894cab06f3d65ad925819d032cbef99d"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a894cab06f3d65ad925819d032cbef99d">DEFINE_STAT</a> (STAT_PhysicsTime)</td></tr>
+<tr class="memitem:a22ab0002430607464802ca48cb314f05" id="r_a22ab0002430607464802ca48cb314f05"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a22ab0002430607464802ca48cb314f05">DEFINE_STAT</a> (STAT_SpawnActorTime)</td></tr>
+<tr class="memitem:a80dff56ce335183611225045b3fd8ada" id="r_a80dff56ce335183611225045b3fd8ada"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a80dff56ce335183611225045b3fd8ada">DEFINE_STAT</a> (STAT_ActorBeginPlay)</td></tr>
+<tr class="memitem:a9cec2058346dba66e9483fc6525355be" id="r_a9cec2058346dba66e9483fc6525355be"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9cec2058346dba66e9483fc6525355be">DEFINE_STAT</a> (STAT_GCSweepTime)</td></tr>
+<tr class="memitem:a6ef0897987a908a5e4179b5196c66e52" id="r_a6ef0897987a908a5e4179b5196c66e52"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6ef0897987a908a5e4179b5196c66e52">DEFINE_STAT</a> (STAT_GCMarkTime)</td></tr>
+<tr class="memitem:a982458f613eaa9dafdccee1a9bc22d37" id="r_a982458f613eaa9dafdccee1a9bc22d37"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a982458f613eaa9dafdccee1a9bc22d37">DEFINE_STAT</a> (STAT_TeleportToTime)</td></tr>
+<tr class="memitem:a336641718f36d677220a3c794c4f9c6a" id="r_a336641718f36d677220a3c794c4f9c6a"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a336641718f36d677220a3c794c4f9c6a">DEFINE_STAT</a> (STAT_MoveComponentTime)</td></tr>
+<tr class="memitem:a5d6056b012c33d77d9cc57708793312a" id="r_a5d6056b012c33d77d9cc57708793312a"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5d6056b012c33d77d9cc57708793312a">DEFINE_STAT</a> (STAT_MoveComponentSceneComponentTime)</td></tr>
+<tr class="memitem:a9c2fd966f553da43ec3cc74ed39af666" id="r_a9c2fd966f553da43ec3cc74ed39af666"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9c2fd966f553da43ec3cc74ed39af666">DEFINE_STAT</a> (STAT_UpdateOverlaps)</td></tr>
+<tr class="memitem:a29e21be9ed93e98c4cb78a501ee78ebf" id="r_a29e21be9ed93e98c4cb78a501ee78ebf"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a29e21be9ed93e98c4cb78a501ee78ebf">DEFINE_STAT</a> (STAT_PerformOverlapQuery)</td></tr>
+<tr class="memitem:af11b08eaf2cf0be6371f498e148ae6a4" id="r_af11b08eaf2cf0be6371f498e148ae6a4"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af11b08eaf2cf0be6371f498e148ae6a4">DEFINE_STAT</a> (STAT_UpdatePhysicsVolume)</td></tr>
+<tr class="memitem:a87069a6453541f989aa09f622cd2a254" id="r_a87069a6453541f989aa09f622cd2a254"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a87069a6453541f989aa09f622cd2a254">DEFINE_STAT</a> (STAT_EndScopedMovementUpdate)</td></tr>
+<tr class="memitem:a3263aa20ce68696b3e554d8c47165a57" id="r_a3263aa20ce68696b3e554d8c47165a57"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a3263aa20ce68696b3e554d8c47165a57">DEFINE_STAT</a> (STAT_PostTickComponentLW)</td></tr>
+<tr class="memitem:ae2196c30df53596c4b000d6a8d77cc9f" id="r_ae2196c30df53596c4b000d6a8d77cc9f"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae2196c30df53596c4b000d6a8d77cc9f">DEFINE_STAT</a> (STAT_PostTickComponentRecreate)</td></tr>
+<tr class="memitem:a03344f124792ede63a5775d79293af8a" id="r_a03344f124792ede63a5775d79293af8a"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a03344f124792ede63a5775d79293af8a">DEFINE_STAT</a> (STAT_PostTickComponentUpdate)</td></tr>
+<tr class="memitem:affe6f77a66f45a9e5b2b885a6923f418" id="r_affe6f77a66f45a9e5b2b885a6923f418"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#affe6f77a66f45a9e5b2b885a6923f418">DEFINE_STAT</a> (STAT_PostTickComponentUpdateWait)</td></tr>
+<tr class="memitem:ad96f87c48d33501e265e2f40c328b325" id="r_ad96f87c48d33501e265e2f40c328b325"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad96f87c48d33501e265e2f40c328b325">DECLARE_CYCLE_STAT</a> (<a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;OnEndOfFrameUpdateDuringTick&quot;), STAT_OnEndOfFrameUpdateDuringTick, STATGROUP_Game)</td></tr>
+<tr class="memitem:ac786eddfcc5679ebd87287e30a65dc86" id="r_ac786eddfcc5679ebd87287e30a65dc86"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac786eddfcc5679ebd87287e30a65dc86">TRACE_DECLARE_INT_COUNTER</a> (UObjectCount, <a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;UObject Count&quot;))</td></tr>
+<tr class="memitem:ad357cae97fbbf97ed5632c76ace5c60c" id="r_ad357cae97fbbf97ed5632c76ace5c60c"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad357cae97fbbf97ed5632c76ace5c60c">DEFINE_STAT</a> (STAT_TickTime)</td></tr>
+<tr class="memitem:af60ba6da5b975495feeac003cf7e6047" id="r_af60ba6da5b975495feeac003cf7e6047"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af60ba6da5b975495feeac003cf7e6047">DEFINE_STAT</a> (STAT_WorldTickTime)</td></tr>
+<tr class="memitem:a02216efb7c5e47199e2ab94cda6b80b0" id="r_a02216efb7c5e47199e2ab94cda6b80b0"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a02216efb7c5e47199e2ab94cda6b80b0">DEFINE_STAT</a> (STAT_UpdateCameraTime)</td></tr>
+<tr class="memitem:aaff0088022dd1710743b7856ba41db60" id="r_aaff0088022dd1710743b7856ba41db60"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aaff0088022dd1710743b7856ba41db60">DEFINE_STAT</a> (STAT_CharacterMovement)</td></tr>
+<tr class="memitem:acbf0f76a3f06248560949870525f284e" id="r_acbf0f76a3f06248560949870525f284e"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#acbf0f76a3f06248560949870525f284e">DEFINE_STAT</a> (STAT_PlayerControllerTick)</td></tr>
+<tr class="memitem:a71b2c89b76ac24e50a97d19fe1d8c024" id="r_a71b2c89b76ac24e50a97d19fe1d8c024"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a71b2c89b76ac24e50a97d19fe1d8c024">DEFINE_STAT</a> (STAT_VolumeStreamingTickTime)</td></tr>
+<tr class="memitem:ab8a4209501c0bb362a9d826ec145e451" id="r_ab8a4209501c0bb362a9d826ec145e451"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab8a4209501c0bb362a9d826ec145e451">DEFINE_STAT</a> (STAT_VolumeStreamingChecks)</td></tr>
+<tr class="memitem:aecc4000c20a4154527e93d4b397be1c0" id="r_aecc4000c20a4154527e93d4b397be1c0"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aecc4000c20a4154527e93d4b397be1c0">DEFINE_STAT</a> (STAT_NetWorldTickTime)</td></tr>
+<tr class="memitem:a121bc837486802da902e88ce2960ee5a" id="r_a121bc837486802da902e88ce2960ee5a"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a121bc837486802da902e88ce2960ee5a">DEFINE_STAT</a> (STAT_NavWorldTickTime)</td></tr>
+<tr class="memitem:aaf38f62b50ea0d544221d08a1b14e26e" id="r_aaf38f62b50ea0d544221d08a1b14e26e"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aaf38f62b50ea0d544221d08a1b14e26e">DEFINE_STAT</a> (STAT_ResetAsyncTraceTickTime)</td></tr>
+<tr class="memitem:a21077c5d889165d07a9b7dc315c70a01" id="r_a21077c5d889165d07a9b7dc315c70a01"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a21077c5d889165d07a9b7dc315c70a01">DEFINE_STAT</a> (STAT_TickableTickTime)</td></tr>
+<tr class="memitem:a6efa2ba2240f0747cee3f97cfd0126d8" id="r_a6efa2ba2240f0747cee3f97cfd0126d8"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6efa2ba2240f0747cee3f97cfd0126d8">DEFINE_STAT</a> (STAT_RuntimeMovieSceneTickTime)</td></tr>
+<tr class="memitem:a30b8946e8b2a6195771d8e93f7669450" id="r_a30b8946e8b2a6195771d8e93f7669450"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a30b8946e8b2a6195771d8e93f7669450">DEFINE_STAT</a> (STAT_FinishAsyncTraceTickTime)</td></tr>
+<tr class="memitem:ab4db4b7d4bd1f09316131bc080e9a546" id="r_ab4db4b7d4bd1f09316131bc080e9a546"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab4db4b7d4bd1f09316131bc080e9a546">DEFINE_STAT</a> (STAT_NetBroadcastTickTime)</td></tr>
+<tr class="memitem:a4a90c1edc3649afcf0df96a8e4f30a0e" id="r_a4a90c1edc3649afcf0df96a8e4f30a0e"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4a90c1edc3649afcf0df96a8e4f30a0e">DEFINE_STAT</a> (STAT_NetServerRepActorsTime)</td></tr>
+<tr class="memitem:a92a226d2f025c66cb4c56b1215256802" id="r_a92a226d2f025c66cb4c56b1215256802"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a92a226d2f025c66cb4c56b1215256802">DEFINE_STAT</a> (STAT_NetServerGatherPrioritizeRepActorsTime)</td></tr>
+<tr class="memitem:aeb2d35b15515079a3fb1b1ab4c95a347" id="r_aeb2d35b15515079a3fb1b1ab4c95a347"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aeb2d35b15515079a3fb1b1ab4c95a347">DEFINE_STAT</a> (STAT_NetConsiderActorsTime)</td></tr>
+<tr class="memitem:aa166d3421ab354652bb60265d8ef559b" id="r_aa166d3421ab354652bb60265d8ef559b"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa166d3421ab354652bb60265d8ef559b">DEFINE_STAT</a> (STAT_NetUpdateUnmappedObjectsTime)</td></tr>
+<tr class="memitem:a6a7de239772b1144fae5d4369990f8a1" id="r_a6a7de239772b1144fae5d4369990f8a1"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6a7de239772b1144fae5d4369990f8a1">DEFINE_STAT</a> (STAT_NetInitialDormantCheckTime)</td></tr>
+<tr class="memitem:a48ef3a83a8748a4dcc815334b9101a2b" id="r_a48ef3a83a8748a4dcc815334b9101a2b"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a48ef3a83a8748a4dcc815334b9101a2b">DEFINE_STAT</a> (STAT_NetPrioritizeActorsTime)</td></tr>
+<tr class="memitem:a005da6d58e36cd3bd0024cf4609fc432" id="r_a005da6d58e36cd3bd0024cf4609fc432"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a005da6d58e36cd3bd0024cf4609fc432">DEFINE_STAT</a> (STAT_NetReplicateActorTime)</td></tr>
+<tr class="memitem:ad34cfb430f9d31a7e6bbcbd05b57ba4a" id="r_ad34cfb430f9d31a7e6bbcbd05b57ba4a"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad34cfb430f9d31a7e6bbcbd05b57ba4a">DEFINE_STAT</a> (STAT_NetReplicateDynamicPropTime)</td></tr>
+<tr class="memitem:a8a8507574e4e7c6a1fa6346bbb0f6f3c" id="r_a8a8507574e4e7c6a1fa6346bbb0f6f3c"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8a8507574e4e7c6a1fa6346bbb0f6f3c">DEFINE_STAT</a> (STAT_NetReplicateDynamicPropCompareTime)</td></tr>
+<tr class="memitem:a3e4d868a2227d61a3a0d61e9b5ca3143" id="r_a3e4d868a2227d61a3a0d61e9b5ca3143"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a3e4d868a2227d61a3a0d61e9b5ca3143">DEFINE_STAT</a> (STAT_NetReplicateDynamicPropSendTime)</td></tr>
+<tr class="memitem:a8466082c66a172ba5906de3ffecb7a92" id="r_a8466082c66a172ba5906de3ffecb7a92"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8466082c66a172ba5906de3ffecb7a92">DEFINE_STAT</a> (STAT_NetReplicateDynamicPropSendBackCompatTime)</td></tr>
+<tr class="memitem:a357e529cf383dc6bf69232a8885aa270" id="r_a357e529cf383dc6bf69232a8885aa270"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a357e529cf383dc6bf69232a8885aa270">DEFINE_STAT</a> (STAT_NetSkippedDynamicProps)</td></tr>
+<tr class="memitem:a2ab82facd4c0a164d1cd73f2116069fb" id="r_a2ab82facd4c0a164d1cd73f2116069fb"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2ab82facd4c0a164d1cd73f2116069fb">DEFINE_STAT</a> (STAT_NetSerializeItemDeltaTime)</td></tr>
+<tr class="memitem:aac5d66d619c8f26e1c8228401036098e" id="r_aac5d66d619c8f26e1c8228401036098e"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aac5d66d619c8f26e1c8228401036098e">DEFINE_STAT</a> (STAT_NetUpdateGuidToReplicatorMap)</td></tr>
+<tr class="memitem:a6908977f7498d97aafb1c374cf9b7fd6" id="r_a6908977f7498d97aafb1c374cf9b7fd6"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6908977f7498d97aafb1c374cf9b7fd6">DEFINE_STAT</a> (STAT_NetReplicateStaticPropTime)</td></tr>
+<tr class="memitem:a78f6532b7f1a793db8626c556c67b3d8" id="r_a78f6532b7f1a793db8626c556c67b3d8"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a78f6532b7f1a793db8626c556c67b3d8">DEFINE_STAT</a> (STAT_NetBroadcastPostTickTime)</td></tr>
+<tr class="memitem:a88c31d4c54383b8d33b2ed0c1ff2d395" id="r_a88c31d4c54383b8d33b2ed0c1ff2d395"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a88c31d4c54383b8d33b2ed0c1ff2d395">DEFINE_STAT</a> (STAT_NetRebuildConditionalTime)</td></tr>
+<tr class="memitem:a240793a652ecd7cf9967b710cc7554c4" id="r_a240793a652ecd7cf9967b710cc7554c4"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a240793a652ecd7cf9967b710cc7554c4">DEFINE_STAT</a> (STAT_PackageMap_SerializeObjectTime)</td></tr>
+<tr class="memitem:a203ea250c3d630114f2001b7d013dffd" id="r_a203ea250c3d630114f2001b7d013dffd"><td class="memItemLeft" align="right" valign="top"><a class="el" href="#a4ff4aeea15799c6aaa2116c9c3e10d60">EComponentEndOfFrameUpdateMode</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a203ea250c3d630114f2001b7d013dffd">GetComponentEndOfFrameUpdateMode</a> (const <a class="el" href="../../de/d4d/class_u_world.html">UWorld</a> *World)</td></tr>
+<tr class="memitem:a96b8c2699ca34a17a7e7ce4418d1490e" id="r_a96b8c2699ca34a17a7e7ce4418d1490e"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a96b8c2699ca34a17a7e7ce4418d1490e">DECLARE_GPU_STAT</a> (EndOfFrameUpdates)</td></tr>
+<tr class="memitem:ad48a3ec093dd83aab78b98c1f1b191ab" id="r_ad48a3ec093dd83aab78b98c1f1b191ab"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad48a3ec093dd83aab78b98c1f1b191ab">DECLARE_GPU_STAT</a> (GPUSkinCacheRayTracingGeometry)</td></tr>
+<tr class="memitem:a7d1ad8fb2eabe15e868ddc144462f053" id="r_a7d1ad8fb2eabe15e868ddc144462f053"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7d1ad8fb2eabe15e868ddc144462f053">DECLARE_CYCLE_STAT</a> (<a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;TG_PrePhysics&quot;), STAT_TG_PrePhysics, STATGROUP_TickGroups)</td></tr>
+<tr class="memitem:a780e910811a42e96de9d60e22d6291da" id="r_a780e910811a42e96de9d60e22d6291da"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a780e910811a42e96de9d60e22d6291da">DECLARE_CYCLE_STAT</a> (<a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;TG_StartPhysics&quot;), STAT_TG_StartPhysics, STATGROUP_TickGroups)</td></tr>
+<tr class="memitem:ac0ca7cb1af9e19752ccb3e969d832992" id="r_ac0ca7cb1af9e19752ccb3e969d832992"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac0ca7cb1af9e19752ccb3e969d832992">DECLARE_CYCLE_STAT</a> (<a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;Start TG_DuringPhysics&quot;), STAT_TG_DuringPhysics, STATGROUP_TickGroups)</td></tr>
+<tr class="memitem:a913243609d04301178c6de1f25598b73" id="r_a913243609d04301178c6de1f25598b73"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a913243609d04301178c6de1f25598b73">DECLARE_CYCLE_STAT</a> (<a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;TG_EndPhysics&quot;), STAT_TG_EndPhysics, STATGROUP_TickGroups)</td></tr>
+<tr class="memitem:a4a391e2e8308d4ae5cb7f62df1f45b82" id="r_a4a391e2e8308d4ae5cb7f62df1f45b82"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4a391e2e8308d4ae5cb7f62df1f45b82">DECLARE_CYCLE_STAT</a> (<a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;TG_PostPhysics&quot;), STAT_TG_PostPhysics, STATGROUP_TickGroups)</td></tr>
+<tr class="memitem:a11017083cab616927d2a9fccc4628190" id="r_a11017083cab616927d2a9fccc4628190"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a11017083cab616927d2a9fccc4628190">DECLARE_CYCLE_STAT</a> (<a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;TG_PostUpdateWork&quot;), STAT_TG_PostUpdateWork, STATGROUP_TickGroups)</td></tr>
+<tr class="memitem:a720043f30e14e31843049c24d4efed27" id="r_a720043f30e14e31843049c24d4efed27"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a720043f30e14e31843049c24d4efed27">DECLARE_CYCLE_STAT</a> (<a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;TG_LastDemotable&quot;), STAT_TG_LastDemotable, STATGROUP_TickGroups)</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-var-members" class="groupheader"><a id="var-members" name="var-members"></a>
+变量</h2></td></tr>
+<tr class="memitem:a5c232ab1772ee14808cf98d7ae3f66ab" id="r_a5c232ab1772ee14808cf98d7ae3f66ab"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5c232ab1772ee14808cf98d7ae3f66ab">GLogDetailedDumpStats</a> = <a class="el" href="../../d3/df7/radaudio__common_8h.html#ade27a78a51a66a5cfb6f09cf36bcfde9a08f175a5505a10b9ed657defeb050e4b">true</a></td></tr>
+<tr class="memitem:a0c8b8d6d1b9f48e44337b47fbcba9eb5" id="r_a0c8b8d6d1b9f48e44337b47fbcba9eb5"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a0c8b8d6d1b9f48e44337b47fbcba9eb5">GShouldLogOutAFrameOfMoveComponent</a></td></tr>
+<tr class="memitem:a91877474c1148952c0dd62180516997a" id="r_a91877474c1148952c0dd62180516997a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a91877474c1148952c0dd62180516997a">GShouldLogOutAFrameOfSetBodyTransform</a></td></tr>
+</table>
+<a name="doc-define-members" id="doc-define-members"></a><h2 id="header-doc-define-members" class="groupheader">宏定义说明</h2>
+<a id="af8b6c63b40afcba4bb1763f2e2e631eb" name="af8b6c63b40afcba4bb1763f2e2e631eb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af8b6c63b40afcba4bb1763f2e2e631eb">&#9670;&#160;</a></span>LOG_DETAILED_DUMPSTATS</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define LOG_DETAILED_DUMPSTATS&#160;&#160;&#160;0</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ab856b6f12399ac9d30c98f9c18617b72" name="ab856b6f12399ac9d30c98f9c18617b72"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab856b6f12399ac9d30c98f9c18617b72">&#9670;&#160;</a></span>LOG_DETAILED_PATHFINDING_STATS</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define LOG_DETAILED_PATHFINDING_STATS&#160;&#160;&#160;0</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a92fb501e0178ff851c6095b117336c8a" name="a92fb501e0178ff851c6095b117336c8a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a92fb501e0178ff851c6095b117336c8a">&#9670;&#160;</a></span>UE_END_OF_FRAME_UPDATE_REGION</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define UE_END_OF_FRAME_UPDATE_REGION&#160;&#160;&#160;<a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;EndOfFrameUpdates&quot;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a name="doc-enum-members" id="doc-enum-members"></a><h2 id="header-doc-enum-members" class="groupheader">枚举类型说明</h2>
+<a id="a4ff4aeea15799c6aaa2116c9c3e10d60" name="a4ff4aeea15799c6aaa2116c9c3e10d60"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4ff4aeea15799c6aaa2116c9c3e10d60">&#9670;&#160;</a></span>EComponentEndOfFrameUpdateMode</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum class <a class="el" href="#a4ff4aeea15799c6aaa2116c9c3e10d60">EComponentEndOfFrameUpdateMode</a> : <a class="el" href="../../dd/de9/preprocessor_8c.html#adde6aaee8457bee49c2a92621fe22b79">uint8</a></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel strong">strong</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<table class="fieldtable">
+<tr><th colspan="2">枚举值</th></tr><tr><td class="fieldname"><a id="a4ff4aeea15799c6aaa2116c9c3e10d60aa2c1e52d2452aef2cdeb636922067ef0" name="a4ff4aeea15799c6aaa2116c9c3e10d60aa2c1e52d2452aef2cdeb636922067ef0"></a>GameThread&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a4ff4aeea15799c6aaa2116c9c3e10d60a98402eecfbcefc336954458a01752131" name="a4ff4aeea15799c6aaa2116c9c3e10d60a98402eecfbcefc336954458a01752131"></a>Parallel&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a4ff4aeea15799c6aaa2116c9c3e10d60a24aa4117da86c41684ad25742832dfa6" name="a4ff4aeea15799c6aaa2116c9c3e10d60a24aa4117da86c41684ad25742832dfa6"></a>Async&#160;</td><td class="fielddoc"></td></tr>
+</table>
+
+</div>
+</div>
+<a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">函数说明</h2>
+<a id="a33ad8fa09292c434a8998d01f615c9ff" name="a33ad8fa09292c434a8998d01f615c9ff"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a33ad8fa09292c434a8998d01f615c9ff">&#9670;&#160;</a></span>CSV_DECLARE_CATEGORY_MODULE_EXTERN()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">CSV_DECLARE_CATEGORY_MODULE_EXTERN </td>
+          <td>(</td>
+          <td class="paramtype">CORE_API</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Basic</td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aeae83ccaaee41f35a28cfdae53b86e11" name="aeae83ccaaee41f35a28cfdae53b86e11"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aeae83ccaaee41f35a28cfdae53b86e11">&#9670;&#160;</a></span>CSV_DEFINE_CATEGORY_MODULE() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">CSV_DEFINE_CATEGORY_MODULE </td>
+          <td>(</td>
+          <td class="paramtype">ENGINE_API</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">ActorCount</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d3/df7/radaudio__common_8h.html#ade27a78a51a66a5cfb6f09cf36bcfde9a08f175a5505a10b9ed657defeb050e4b">true</a></td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a586b6ba9f8f9ff2bde66df62a7f9aa6c" name="a586b6ba9f8f9ff2bde66df62a7f9aa6c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a586b6ba9f8f9ff2bde66df62a7f9aa6c">&#9670;&#160;</a></span>CSV_DEFINE_CATEGORY_MODULE() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">CSV_DEFINE_CATEGORY_MODULE </td>
+          <td>(</td>
+          <td class="paramtype">ENGINE_API</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Ticks</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d3/df7/radaudio__common_8h.html#ade27a78a51a66a5cfb6f09cf36bcfde9a08f175a5505a10b9ed657defeb050e4b">true</a></td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ad96f87c48d33501e265e2f40c328b325" name="ad96f87c48d33501e265e2f40c328b325"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad96f87c48d33501e265e2f40c328b325">&#9670;&#160;</a></span>DECLARE_CYCLE_STAT() <span class="overload">[1/8]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">DECLARE_CYCLE_STAT </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;OnEndOfFrameUpdateDuringTick&quot;)</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">STAT_OnEndOfFrameUpdateDuringTick</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">STATGROUP_Game</td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ac0ca7cb1af9e19752ccb3e969d832992" name="ac0ca7cb1af9e19752ccb3e969d832992"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac0ca7cb1af9e19752ccb3e969d832992">&#9670;&#160;</a></span>DECLARE_CYCLE_STAT() <span class="overload">[2/8]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">DECLARE_CYCLE_STAT </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;Start TG_DuringPhysics&quot;)</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">STAT_TG_DuringPhysics</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">STATGROUP_TickGroups</td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a913243609d04301178c6de1f25598b73" name="a913243609d04301178c6de1f25598b73"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a913243609d04301178c6de1f25598b73">&#9670;&#160;</a></span>DECLARE_CYCLE_STAT() <span class="overload">[3/8]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">DECLARE_CYCLE_STAT </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;TG_EndPhysics&quot;)</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">STAT_TG_EndPhysics</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">STATGROUP_TickGroups</td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a720043f30e14e31843049c24d4efed27" name="a720043f30e14e31843049c24d4efed27"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a720043f30e14e31843049c24d4efed27">&#9670;&#160;</a></span>DECLARE_CYCLE_STAT() <span class="overload">[4/8]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">DECLARE_CYCLE_STAT </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;TG_LastDemotable&quot;)</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">STAT_TG_LastDemotable</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">STATGROUP_TickGroups</td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a4a391e2e8308d4ae5cb7f62df1f45b82" name="a4a391e2e8308d4ae5cb7f62df1f45b82"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4a391e2e8308d4ae5cb7f62df1f45b82">&#9670;&#160;</a></span>DECLARE_CYCLE_STAT() <span class="overload">[5/8]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">DECLARE_CYCLE_STAT </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;TG_PostPhysics&quot;)</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">STAT_TG_PostPhysics</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">STATGROUP_TickGroups</td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a11017083cab616927d2a9fccc4628190" name="a11017083cab616927d2a9fccc4628190"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a11017083cab616927d2a9fccc4628190">&#9670;&#160;</a></span>DECLARE_CYCLE_STAT() <span class="overload">[6/8]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">DECLARE_CYCLE_STAT </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;TG_PostUpdateWork&quot;)</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">STAT_TG_PostUpdateWork</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">STATGROUP_TickGroups</td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a7d1ad8fb2eabe15e868ddc144462f053" name="a7d1ad8fb2eabe15e868ddc144462f053"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7d1ad8fb2eabe15e868ddc144462f053">&#9670;&#160;</a></span>DECLARE_CYCLE_STAT() <span class="overload">[7/8]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">DECLARE_CYCLE_STAT </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;TG_PrePhysics&quot;)</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">STAT_TG_PrePhysics</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">STATGROUP_TickGroups</td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a780e910811a42e96de9d60e22d6291da" name="a780e910811a42e96de9d60e22d6291da"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a780e910811a42e96de9d60e22d6291da">&#9670;&#160;</a></span>DECLARE_CYCLE_STAT() <span class="overload">[8/8]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">DECLARE_CYCLE_STAT </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;TG_StartPhysics&quot;)</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">STAT_TG_StartPhysics</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">STATGROUP_TickGroups</td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a96b8c2699ca34a17a7e7ce4418d1490e" name="a96b8c2699ca34a17a7e7ce4418d1490e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a96b8c2699ca34a17a7e7ce4418d1490e">&#9670;&#160;</a></span>DECLARE_GPU_STAT() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">DECLARE_GPU_STAT </td>
+          <td>(</td>
+          <td class="paramtype">EndOfFrameUpdates</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ad48a3ec093dd83aab78b98c1f1b191ab" name="ad48a3ec093dd83aab78b98c1f1b191ab"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad48a3ec093dd83aab78b98c1f1b191ab">&#9670;&#160;</a></span>DECLARE_GPU_STAT() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">DECLARE_GPU_STAT </td>
+          <td>(</td>
+          <td class="paramtype">GPUSkinCacheRayTracingGeometry</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a80dff56ce335183611225045b3fd8ada" name="a80dff56ce335183611225045b3fd8ada"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a80dff56ce335183611225045b3fd8ada">&#9670;&#160;</a></span>DEFINE_STAT() <span class="overload">[1/49]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">DEFINE_STAT </td>
+          <td>(</td>
+          <td class="paramtype">STAT_ActorBeginPlay</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ae46338574ab12ba70dc3406084eff30b" name="ae46338574ab12ba70dc3406084eff30b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae46338574ab12ba70dc3406084eff30b">&#9670;&#160;</a></span>DEFINE_STAT() <span class="overload">[2/49]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">DEFINE_STAT </td>
+          <td>(</td>
+          <td class="paramtype">STAT_AsyncWorkWaitTime</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Game stats </p>
+
+</div>
+</div>
+<a id="aaff0088022dd1710743b7856ba41db60" name="aaff0088022dd1710743b7856ba41db60"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aaff0088022dd1710743b7856ba41db60">&#9670;&#160;</a></span>DEFINE_STAT() <span class="overload">[3/49]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">DEFINE_STAT </td>
+          <td>(</td>
+          <td class="paramtype">STAT_CharacterMovement</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a87069a6453541f989aa09f622cd2a254" name="a87069a6453541f989aa09f622cd2a254"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a87069a6453541f989aa09f622cd2a254">&#9670;&#160;</a></span>DEFINE_STAT() <span class="overload">[4/49]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">DEFINE_STAT </td>
+          <td>(</td>
+          <td class="paramtype">STAT_EndScopedMovementUpdate</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a30b8946e8b2a6195771d8e93f7669450" name="a30b8946e8b2a6195771d8e93f7669450"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a30b8946e8b2a6195771d8e93f7669450">&#9670;&#160;</a></span>DEFINE_STAT() <span class="overload">[5/49]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">DEFINE_STAT </td>
+          <td>(</td>
+          <td class="paramtype">STAT_FinishAsyncTraceTickTime</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a6ef0897987a908a5e4179b5196c66e52" name="a6ef0897987a908a5e4179b5196c66e52"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6ef0897987a908a5e4179b5196c66e52">&#9670;&#160;</a></span>DEFINE_STAT() <span class="overload">[6/49]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">DEFINE_STAT </td>
+          <td>(</td>
+          <td class="paramtype">STAT_GCMarkTime</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a9cec2058346dba66e9483fc6525355be" name="a9cec2058346dba66e9483fc6525355be"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9cec2058346dba66e9483fc6525355be">&#9670;&#160;</a></span>DEFINE_STAT() <span class="overload">[7/49]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">DEFINE_STAT </td>
+          <td>(</td>
+          <td class="paramtype">STAT_GCSweepTime</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a5d6056b012c33d77d9cc57708793312a" name="a5d6056b012c33d77d9cc57708793312a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5d6056b012c33d77d9cc57708793312a">&#9670;&#160;</a></span>DEFINE_STAT() <span class="overload">[8/49]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">DEFINE_STAT </td>
+          <td>(</td>
+          <td class="paramtype">STAT_MoveComponentSceneComponentTime</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a336641718f36d677220a3c794c4f9c6a" name="a336641718f36d677220a3c794c4f9c6a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a336641718f36d677220a3c794c4f9c6a">&#9670;&#160;</a></span>DEFINE_STAT() <span class="overload">[9/49]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">DEFINE_STAT </td>
+          <td>(</td>
+          <td class="paramtype">STAT_MoveComponentTime</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a121bc837486802da902e88ce2960ee5a" name="a121bc837486802da902e88ce2960ee5a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a121bc837486802da902e88ce2960ee5a">&#9670;&#160;</a></span>DEFINE_STAT() <span class="overload">[10/49]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">DEFINE_STAT </td>
+          <td>(</td>
+          <td class="paramtype">STAT_NavWorldTickTime</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a78f6532b7f1a793db8626c556c67b3d8" name="a78f6532b7f1a793db8626c556c67b3d8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a78f6532b7f1a793db8626c556c67b3d8">&#9670;&#160;</a></span>DEFINE_STAT() <span class="overload">[11/49]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">DEFINE_STAT </td>
+          <td>(</td>
+          <td class="paramtype">STAT_NetBroadcastPostTickTime</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ab4db4b7d4bd1f09316131bc080e9a546" name="ab4db4b7d4bd1f09316131bc080e9a546"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab4db4b7d4bd1f09316131bc080e9a546">&#9670;&#160;</a></span>DEFINE_STAT() <span class="overload">[12/49]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">DEFINE_STAT </td>
+          <td>(</td>
+          <td class="paramtype">STAT_NetBroadcastTickTime</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aeb2d35b15515079a3fb1b1ab4c95a347" name="aeb2d35b15515079a3fb1b1ab4c95a347"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aeb2d35b15515079a3fb1b1ab4c95a347">&#9670;&#160;</a></span>DEFINE_STAT() <span class="overload">[13/49]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">DEFINE_STAT </td>
+          <td>(</td>
+          <td class="paramtype">STAT_NetConsiderActorsTime</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a6a7de239772b1144fae5d4369990f8a1" name="a6a7de239772b1144fae5d4369990f8a1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6a7de239772b1144fae5d4369990f8a1">&#9670;&#160;</a></span>DEFINE_STAT() <span class="overload">[14/49]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">DEFINE_STAT </td>
+          <td>(</td>
+          <td class="paramtype">STAT_NetInitialDormantCheckTime</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a48ef3a83a8748a4dcc815334b9101a2b" name="a48ef3a83a8748a4dcc815334b9101a2b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a48ef3a83a8748a4dcc815334b9101a2b">&#9670;&#160;</a></span>DEFINE_STAT() <span class="overload">[15/49]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">DEFINE_STAT </td>
+          <td>(</td>
+          <td class="paramtype">STAT_NetPrioritizeActorsTime</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a88c31d4c54383b8d33b2ed0c1ff2d395" name="a88c31d4c54383b8d33b2ed0c1ff2d395"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a88c31d4c54383b8d33b2ed0c1ff2d395">&#9670;&#160;</a></span>DEFINE_STAT() <span class="overload">[16/49]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">DEFINE_STAT </td>
+          <td>(</td>
+          <td class="paramtype">STAT_NetRebuildConditionalTime</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a005da6d58e36cd3bd0024cf4609fc432" name="a005da6d58e36cd3bd0024cf4609fc432"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a005da6d58e36cd3bd0024cf4609fc432">&#9670;&#160;</a></span>DEFINE_STAT() <span class="overload">[17/49]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">DEFINE_STAT </td>
+          <td>(</td>
+          <td class="paramtype">STAT_NetReplicateActorTime</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a8a8507574e4e7c6a1fa6346bbb0f6f3c" name="a8a8507574e4e7c6a1fa6346bbb0f6f3c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8a8507574e4e7c6a1fa6346bbb0f6f3c">&#9670;&#160;</a></span>DEFINE_STAT() <span class="overload">[18/49]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">DEFINE_STAT </td>
+          <td>(</td>
+          <td class="paramtype">STAT_NetReplicateDynamicPropCompareTime</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a8466082c66a172ba5906de3ffecb7a92" name="a8466082c66a172ba5906de3ffecb7a92"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8466082c66a172ba5906de3ffecb7a92">&#9670;&#160;</a></span>DEFINE_STAT() <span class="overload">[19/49]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">DEFINE_STAT </td>
+          <td>(</td>
+          <td class="paramtype">STAT_NetReplicateDynamicPropSendBackCompatTime</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a3e4d868a2227d61a3a0d61e9b5ca3143" name="a3e4d868a2227d61a3a0d61e9b5ca3143"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3e4d868a2227d61a3a0d61e9b5ca3143">&#9670;&#160;</a></span>DEFINE_STAT() <span class="overload">[20/49]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">DEFINE_STAT </td>
+          <td>(</td>
+          <td class="paramtype">STAT_NetReplicateDynamicPropSendTime</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ad34cfb430f9d31a7e6bbcbd05b57ba4a" name="ad34cfb430f9d31a7e6bbcbd05b57ba4a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad34cfb430f9d31a7e6bbcbd05b57ba4a">&#9670;&#160;</a></span>DEFINE_STAT() <span class="overload">[21/49]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">DEFINE_STAT </td>
+          <td>(</td>
+          <td class="paramtype">STAT_NetReplicateDynamicPropTime</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a6908977f7498d97aafb1c374cf9b7fd6" name="a6908977f7498d97aafb1c374cf9b7fd6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6908977f7498d97aafb1c374cf9b7fd6">&#9670;&#160;</a></span>DEFINE_STAT() <span class="overload">[22/49]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">DEFINE_STAT </td>
+          <td>(</td>
+          <td class="paramtype">STAT_NetReplicateStaticPropTime</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a2ab82facd4c0a164d1cd73f2116069fb" name="a2ab82facd4c0a164d1cd73f2116069fb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2ab82facd4c0a164d1cd73f2116069fb">&#9670;&#160;</a></span>DEFINE_STAT() <span class="overload">[23/49]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">DEFINE_STAT </td>
+          <td>(</td>
+          <td class="paramtype">STAT_NetSerializeItemDeltaTime</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a92a226d2f025c66cb4c56b1215256802" name="a92a226d2f025c66cb4c56b1215256802"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a92a226d2f025c66cb4c56b1215256802">&#9670;&#160;</a></span>DEFINE_STAT() <span class="overload">[24/49]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">DEFINE_STAT </td>
+          <td>(</td>
+          <td class="paramtype">STAT_NetServerGatherPrioritizeRepActorsTime</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a4a90c1edc3649afcf0df96a8e4f30a0e" name="a4a90c1edc3649afcf0df96a8e4f30a0e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4a90c1edc3649afcf0df96a8e4f30a0e">&#9670;&#160;</a></span>DEFINE_STAT() <span class="overload">[25/49]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">DEFINE_STAT </td>
+          <td>(</td>
+          <td class="paramtype">STAT_NetServerRepActorsTime</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a357e529cf383dc6bf69232a8885aa270" name="a357e529cf383dc6bf69232a8885aa270"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a357e529cf383dc6bf69232a8885aa270">&#9670;&#160;</a></span>DEFINE_STAT() <span class="overload">[26/49]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">DEFINE_STAT </td>
+          <td>(</td>
+          <td class="paramtype">STAT_NetSkippedDynamicProps</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aac5d66d619c8f26e1c8228401036098e" name="aac5d66d619c8f26e1c8228401036098e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aac5d66d619c8f26e1c8228401036098e">&#9670;&#160;</a></span>DEFINE_STAT() <span class="overload">[27/49]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">DEFINE_STAT </td>
+          <td>(</td>
+          <td class="paramtype">STAT_NetUpdateGuidToReplicatorMap</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aa166d3421ab354652bb60265d8ef559b" name="aa166d3421ab354652bb60265d8ef559b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa166d3421ab354652bb60265d8ef559b">&#9670;&#160;</a></span>DEFINE_STAT() <span class="overload">[28/49]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">DEFINE_STAT </td>
+          <td>(</td>
+          <td class="paramtype">STAT_NetUpdateUnmappedObjectsTime</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aecc4000c20a4154527e93d4b397be1c0" name="aecc4000c20a4154527e93d4b397be1c0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aecc4000c20a4154527e93d4b397be1c0">&#9670;&#160;</a></span>DEFINE_STAT() <span class="overload">[29/49]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">DEFINE_STAT </td>
+          <td>(</td>
+          <td class="paramtype">STAT_NetWorldTickTime</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a240793a652ecd7cf9967b710cc7554c4" name="a240793a652ecd7cf9967b710cc7554c4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a240793a652ecd7cf9967b710cc7554c4">&#9670;&#160;</a></span>DEFINE_STAT() <span class="overload">[30/49]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">DEFINE_STAT </td>
+          <td>(</td>
+          <td class="paramtype">STAT_PackageMap_SerializeObjectTime</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a29e21be9ed93e98c4cb78a501ee78ebf" name="a29e21be9ed93e98c4cb78a501ee78ebf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a29e21be9ed93e98c4cb78a501ee78ebf">&#9670;&#160;</a></span>DEFINE_STAT() <span class="overload">[31/49]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">DEFINE_STAT </td>
+          <td>(</td>
+          <td class="paramtype">STAT_PerformOverlapQuery</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a894cab06f3d65ad925819d032cbef99d" name="a894cab06f3d65ad925819d032cbef99d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a894cab06f3d65ad925819d032cbef99d">&#9670;&#160;</a></span>DEFINE_STAT() <span class="overload">[32/49]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">DEFINE_STAT </td>
+          <td>(</td>
+          <td class="paramtype">STAT_PhysicsTime</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="acbf0f76a3f06248560949870525f284e" name="acbf0f76a3f06248560949870525f284e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acbf0f76a3f06248560949870525f284e">&#9670;&#160;</a></span>DEFINE_STAT() <span class="overload">[33/49]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">DEFINE_STAT </td>
+          <td>(</td>
+          <td class="paramtype">STAT_PlayerControllerTick</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a3263aa20ce68696b3e554d8c47165a57" name="a3263aa20ce68696b3e554d8c47165a57"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3263aa20ce68696b3e554d8c47165a57">&#9670;&#160;</a></span>DEFINE_STAT() <span class="overload">[34/49]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">DEFINE_STAT </td>
+          <td>(</td>
+          <td class="paramtype">STAT_PostTickComponentLW</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ae2196c30df53596c4b000d6a8d77cc9f" name="ae2196c30df53596c4b000d6a8d77cc9f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae2196c30df53596c4b000d6a8d77cc9f">&#9670;&#160;</a></span>DEFINE_STAT() <span class="overload">[35/49]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">DEFINE_STAT </td>
+          <td>(</td>
+          <td class="paramtype">STAT_PostTickComponentRecreate</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a03344f124792ede63a5775d79293af8a" name="a03344f124792ede63a5775d79293af8a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a03344f124792ede63a5775d79293af8a">&#9670;&#160;</a></span>DEFINE_STAT() <span class="overload">[36/49]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">DEFINE_STAT </td>
+          <td>(</td>
+          <td class="paramtype">STAT_PostTickComponentUpdate</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="affe6f77a66f45a9e5b2b885a6923f418" name="affe6f77a66f45a9e5b2b885a6923f418"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#affe6f77a66f45a9e5b2b885a6923f418">&#9670;&#160;</a></span>DEFINE_STAT() <span class="overload">[37/49]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">DEFINE_STAT </td>
+          <td>(</td>
+          <td class="paramtype">STAT_PostTickComponentUpdateWait</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aaf38f62b50ea0d544221d08a1b14e26e" name="aaf38f62b50ea0d544221d08a1b14e26e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aaf38f62b50ea0d544221d08a1b14e26e">&#9670;&#160;</a></span>DEFINE_STAT() <span class="overload">[38/49]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">DEFINE_STAT </td>
+          <td>(</td>
+          <td class="paramtype">STAT_ResetAsyncTraceTickTime</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a6efa2ba2240f0747cee3f97cfd0126d8" name="a6efa2ba2240f0747cee3f97cfd0126d8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6efa2ba2240f0747cee3f97cfd0126d8">&#9670;&#160;</a></span>DEFINE_STAT() <span class="overload">[39/49]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">DEFINE_STAT </td>
+          <td>(</td>
+          <td class="paramtype">STAT_RuntimeMovieSceneTickTime</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a22ab0002430607464802ca48cb314f05" name="a22ab0002430607464802ca48cb314f05"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a22ab0002430607464802ca48cb314f05">&#9670;&#160;</a></span>DEFINE_STAT() <span class="overload">[40/49]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">DEFINE_STAT </td>
+          <td>(</td>
+          <td class="paramtype">STAT_SpawnActorTime</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a982458f613eaa9dafdccee1a9bc22d37" name="a982458f613eaa9dafdccee1a9bc22d37"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a982458f613eaa9dafdccee1a9bc22d37">&#9670;&#160;</a></span>DEFINE_STAT() <span class="overload">[41/49]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">DEFINE_STAT </td>
+          <td>(</td>
+          <td class="paramtype">STAT_TeleportToTime</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a21077c5d889165d07a9b7dc315c70a01" name="a21077c5d889165d07a9b7dc315c70a01"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a21077c5d889165d07a9b7dc315c70a01">&#9670;&#160;</a></span>DEFINE_STAT() <span class="overload">[42/49]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">DEFINE_STAT </td>
+          <td>(</td>
+          <td class="paramtype">STAT_TickableTickTime</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ad357cae97fbbf97ed5632c76ace5c60c" name="ad357cae97fbbf97ed5632c76ace5c60c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad357cae97fbbf97ed5632c76ace5c60c">&#9670;&#160;</a></span>DEFINE_STAT() <span class="overload">[43/49]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">DEFINE_STAT </td>
+          <td>(</td>
+          <td class="paramtype">STAT_TickTime</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a02216efb7c5e47199e2ab94cda6b80b0" name="a02216efb7c5e47199e2ab94cda6b80b0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a02216efb7c5e47199e2ab94cda6b80b0">&#9670;&#160;</a></span>DEFINE_STAT() <span class="overload">[44/49]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">DEFINE_STAT </td>
+          <td>(</td>
+          <td class="paramtype">STAT_UpdateCameraTime</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a9c2fd966f553da43ec3cc74ed39af666" name="a9c2fd966f553da43ec3cc74ed39af666"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9c2fd966f553da43ec3cc74ed39af666">&#9670;&#160;</a></span>DEFINE_STAT() <span class="overload">[45/49]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">DEFINE_STAT </td>
+          <td>(</td>
+          <td class="paramtype">STAT_UpdateOverlaps</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="af11b08eaf2cf0be6371f498e148ae6a4" name="af11b08eaf2cf0be6371f498e148ae6a4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af11b08eaf2cf0be6371f498e148ae6a4">&#9670;&#160;</a></span>DEFINE_STAT() <span class="overload">[46/49]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">DEFINE_STAT </td>
+          <td>(</td>
+          <td class="paramtype">STAT_UpdatePhysicsVolume</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ab8a4209501c0bb362a9d826ec145e451" name="ab8a4209501c0bb362a9d826ec145e451"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab8a4209501c0bb362a9d826ec145e451">&#9670;&#160;</a></span>DEFINE_STAT() <span class="overload">[47/49]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">DEFINE_STAT </td>
+          <td>(</td>
+          <td class="paramtype">STAT_VolumeStreamingChecks</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a71b2c89b76ac24e50a97d19fe1d8c024" name="a71b2c89b76ac24e50a97d19fe1d8c024"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a71b2c89b76ac24e50a97d19fe1d8c024">&#9670;&#160;</a></span>DEFINE_STAT() <span class="overload">[48/49]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">DEFINE_STAT </td>
+          <td>(</td>
+          <td class="paramtype">STAT_VolumeStreamingTickTime</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="af60ba6da5b975495feeac003cf7e6047" name="af60ba6da5b975495feeac003cf7e6047"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af60ba6da5b975495feeac003cf7e6047">&#9670;&#160;</a></span>DEFINE_STAT() <span class="overload">[49/49]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">DEFINE_STAT </td>
+          <td>(</td>
+          <td class="paramtype">STAT_WorldTickTime</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a203ea250c3d630114f2001b7d013dffd" name="a203ea250c3d630114f2001b7d013dffd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a203ea250c3d630114f2001b7d013dffd">&#9670;&#160;</a></span>GetComponentEndOfFrameUpdateMode()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="#a4ff4aeea15799c6aaa2116c9c3e10d60">EComponentEndOfFrameUpdateMode</a> GetComponentEndOfFrameUpdateMode </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="../../de/d4d/class_u_world.html">UWorld</a> *</td>          <td class="paramname"><span class="paramname"><em>World</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ac786eddfcc5679ebd87287e30a65dc86" name="ac786eddfcc5679ebd87287e30a65dc86"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac786eddfcc5679ebd87287e30a65dc86">&#9670;&#160;</a></span>TRACE_DECLARE_INT_COUNTER()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">TRACE_DECLARE_INT_COUNTER </td>
+          <td>(</td>
+          <td class="paramtype">UObjectCount</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;UObject Count&quot;)</td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a name="doc-var-members" id="doc-var-members"></a><h2 id="header-doc-var-members" class="groupheader">变量说明</h2>
+<a id="a5c232ab1772ee14808cf98d7ae3f66ab" name="a5c232ab1772ee14808cf98d7ae3f66ab"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5c232ab1772ee14808cf98d7ae3f66ab">&#9670;&#160;</a></span>GLogDetailedDumpStats</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a> GLogDetailedDumpStats = <a class="el" href="../../d3/df7/radaudio__common_8h.html#ade27a78a51a66a5cfb6f09cf36bcfde9a08f175a5505a10b9ed657defeb050e4b">true</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Global boolean to toggle the log of detailed tick stats. Needs LOG_DETAILED_DUMPSTATS to be 1 </p>
+
+</div>
+</div>
+<a id="a0c8b8d6d1b9f48e44337b47fbcba9eb5" name="a0c8b8d6d1b9f48e44337b47fbcba9eb5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0c8b8d6d1b9f48e44337b47fbcba9eb5">&#9670;&#160;</a></span>GShouldLogOutAFrameOfMoveComponent</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a> GShouldLogOutAFrameOfMoveComponent</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel extern">extern</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a91877474c1148952c0dd62180516997a" name="a91877474c1148952c0dd62180516997a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a91877474c1148952c0dd62180516997a">&#9670;&#160;</a></span>GShouldLogOutAFrameOfSetBodyTransform</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a> GShouldLogOutAFrameOfSetBodyTransform</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel extern">extern</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<div id="page-nav" class="page-nav-panel">
+<div id="page-nav-resize-handle"></div>
+<div id="page-nav-tree">
+<div id="page-nav-contents">
+</div><!-- page-nav-contents -->
+</div><!-- page-nav-tree -->
+</div><!-- page-nav -->
+</div><!-- container -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a href="../../dir_0b6ee6e7e9547e675db4add2e5de97da.html">Engine</a></li><li class="navelem"><a href="../../dir_9579d1ecb2c7bf48cbe1049c41745cb4.html">Source</a></li><li class="navelem"><a href="../../dir_9f04efef762572853abdf73f62bebfcc.html">Runtime</a></li><li class="navelem"><a href="../../dir_750344885b5b0dabc1066bd532c992d7.html">Engine</a></li><li class="navelem"><a href="../../dir_0f80cfe80f66a90345f34a7a0d31ead6.html">Private</a></li><li class="navelem"><a href="../../d4/d87/_level_tick_8cpp.html">LevelTick.cpp</a></li>
+    <li class="footer">制作者 <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.15.0 </li>
+  </ul>
+</div>
+</body>
+</html>

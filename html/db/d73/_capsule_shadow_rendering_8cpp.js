@@ -1,0 +1,58 @@
+var _capsule_shadow_rendering_8cpp =
+[
+    [ "FComputeLightDirectionFromVolumetricLightmapCS", "d6/d82/class_f_compute_light_direction_from_volumetric_lightmap_c_s.html", "d6/d82/class_f_compute_light_direction_from_volumetric_lightmap_c_s" ],
+    [ "FCapsuleShadowingCS", "db/d81/class_f_capsule_shadowing_c_s.html", "db/d81/class_f_capsule_shadowing_c_s" ],
+    [ "FCapsuleShadowingUpsampleVS", "dc/dfc/class_f_capsule_shadowing_upsample_v_s.html", null ],
+    [ "FCapsuleShadowingUpsamplePS", "dc/d41/class_f_capsule_shadowing_upsample_p_s.html", "dc/d41/class_f_capsule_shadowing_upsample_p_s" ],
+    [ "IndirectCapsuleShadowsResources", "d6/d77/struct_indirect_capsule_shadows_resources.html", "d6/d77/struct_indirect_capsule_shadows_resources" ],
+    [ "ECapsuleShadowingType", "db/d73/_capsule_shadow_rendering_8cpp.html#a1e08d28fa223e5af051d76d21f425f38", [
+      [ "DirectionalLightTiledCulling", "db/d73/_capsule_shadow_rendering_8cpp.html#a1e08d28fa223e5af051d76d21f425f38ab7238b07f0ea9c3c714310dcf3b31395", null ],
+      [ "PointLightTiledCulling", "db/d73/_capsule_shadow_rendering_8cpp.html#a1e08d28fa223e5af051d76d21f425f38af5b78f80d2c503b12992747341c3dcbf", null ],
+      [ "IndirectTiledCulling", "db/d73/_capsule_shadow_rendering_8cpp.html#a1e08d28fa223e5af051d76d21f425f38a2816d2ce36cb69d865ca088b66f72539", null ],
+      [ "MovableSkylightTiledCulling", "db/d73/_capsule_shadow_rendering_8cpp.html#a1e08d28fa223e5af051d76d21f425f38aef3ea3c152fd0a22dc9616c921e2e530", null ],
+      [ "MovableSkylightTiledCullingGatherFromReceiverBentNormal", "db/d73/_capsule_shadow_rendering_8cpp.html#a1e08d28fa223e5af051d76d21f425f38a1329d940f3a684bb393abff970e07e70", null ],
+      [ "MAX", "db/d73/_capsule_shadow_rendering_8cpp.html#a1e08d28fa223e5af051d76d21f425f38a26a4b44a837bf97b972628509912b4a5", null ]
+    ] ],
+    [ "EIndirectShadowingPrimitiveTypes", "db/d73/_capsule_shadow_rendering_8cpp.html#a38112c567f9856b16569d4ff954260bc", [
+      [ "CapsuleShapes", "db/d73/_capsule_shadow_rendering_8cpp.html#a38112c567f9856b16569d4ff954260bcaf1e886db25a444d48d5219073865d6e1", null ],
+      [ "MeshDistanceFields", "db/d73/_capsule_shadow_rendering_8cpp.html#a38112c567f9856b16569d4ff954260bca3958f2e551448ec86af69ceef52c7692", null ],
+      [ "CapsuleShapesAndMeshDistanceFields", "db/d73/_capsule_shadow_rendering_8cpp.html#a38112c567f9856b16569d4ff954260bcab6c43be858235001c03f6e8e2960c552", null ],
+      [ "MAX", "db/d73/_capsule_shadow_rendering_8cpp.html#a38112c567f9856b16569d4ff954260bca26a4b44a837bf97b972628509912b4a5", null ]
+    ] ],
+    [ "ELightSourceMode", "db/d73/_capsule_shadow_rendering_8cpp.html#afa3663c0c93905edae7b252db50244b1", [
+      [ "Punctual", "db/d73/_capsule_shadow_rendering_8cpp.html#afa3663c0c93905edae7b252db50244b1a6cee593f0a29dd198f6ae5a38c4cd0ac", null ],
+      [ "FromCapsule", "db/d73/_capsule_shadow_rendering_8cpp.html#afa3663c0c93905edae7b252db50244b1adecd9db2c38328e056e8b671a5487035", null ],
+      [ "FromReceiver", "db/d73/_capsule_shadow_rendering_8cpp.html#afa3663c0c93905edae7b252db50244b1a2c695b73a61b534aeb6d652276e73aff", null ]
+    ] ],
+    [ "CVarCapsuleDirectShadows", "db/d73/_capsule_shadow_rendering_8cpp.html#a41a25a01dd0d7267a87975c96c80cc9d", null ],
+    [ "CVarCapsuleIndirectConeAngle", "db/d73/_capsule_shadow_rendering_8cpp.html#ae2102cdeb550bcd9d3850086620f8862", null ],
+    [ "CVarCapsuleIndirectShadows", "db/d73/_capsule_shadow_rendering_8cpp.html#a513eedfbe76bcd236efda010044a789e", null ],
+    [ "CVarCapsuleMaxDirectOcclusionDistance", "db/d73/_capsule_shadow_rendering_8cpp.html#aba36636b056e012151c61cd23cd2e4f8", null ],
+    [ "CVarCapsuleMaxIndirectOcclusionDistance", "db/d73/_capsule_shadow_rendering_8cpp.html#ad1be037c6dbf53ba94f2495dd03d6c44", null ],
+    [ "CVarCapsuleMinSkyAngle", "db/d73/_capsule_shadow_rendering_8cpp.html#acf968125660c9bf379ac0ab9d34ef1c3", null ],
+    [ "CVarCapsuleShadowFadeAngleFromVertical", "db/d73/_capsule_shadow_rendering_8cpp.html#aa716ad5caac22bf0d6c983259dd895dd", null ],
+    [ "CVarCapsuleShadows", "db/d73/_capsule_shadow_rendering_8cpp.html#a8d6dd10b1cbb1eeeb7b290395ad6c6f4", null ],
+    [ "CVarCapsuleShadowsFullResolution", "db/d73/_capsule_shadow_rendering_8cpp.html#a1178bbf09df4a636945a0f2856a8ea09", null ],
+    [ "CVarCapsuleSkyAngleScale", "db/d73/_capsule_shadow_rendering_8cpp.html#a980f16306794047aae5c7256ee14f2de", null ],
+    [ "DECLARE_GPU_STAT_NAMED", "db/d73/_capsule_shadow_rendering_8cpp.html#aeccb8a7aa2582e7abee9087da37506a5", null ],
+    [ "GetBufferSizeForCapsuleShadows", "db/d73/_capsule_shadow_rendering_8cpp.html#a70c66e7ffc3fe522ffc68e50a5e37c9b", null ],
+    [ "GetCapsuleShadowDownsampleFactor", "db/d73/_capsule_shadow_rendering_8cpp.html#ab66a1ca49e606f3cd212edf89ac842e5", null ],
+    [ "IMPLEMENT_GLOBAL_SHADER", "db/d73/_capsule_shadow_rendering_8cpp.html#ae98256f22edbd0dcbc84a4f7f5c4f761", null ],
+    [ "IMPLEMENT_GLOBAL_SHADER", "db/d73/_capsule_shadow_rendering_8cpp.html#afb95782df819b2d9025d29a107eaee20", null ],
+    [ "IMPLEMENT_GLOBAL_SHADER", "db/d73/_capsule_shadow_rendering_8cpp.html#a0587fef585bd7581186c2d37fb2c8fea", null ],
+    [ "IMPLEMENT_GLOBAL_SHADER", "db/d73/_capsule_shadow_rendering_8cpp.html#a521e06c655c18986b6f2a125b9ff6da4", null ],
+    [ "SetupCapsuleShadowingParameters", "db/d73/_capsule_shadow_rendering_8cpp.html#ad182b3dfaed659bf5f16b1cc1c817a6f", null ],
+    [ "ShouldPrepareForDFInsetIndirectShadow", "db/d73/_capsule_shadow_rendering_8cpp.html#a70e756f169561b361ec1b5f6801d240a", null ],
+    [ "GCapsuleDirectShadows", "db/d73/_capsule_shadow_rendering_8cpp.html#afd99819edac89abbdc448c37f3656534", null ],
+    [ "GCapsuleIndirectConeAngle", "db/d73/_capsule_shadow_rendering_8cpp.html#ae6b9dc2dfafc889b7ece2b4f6a200814", null ],
+    [ "GCapsuleIndirectShadows", "db/d73/_capsule_shadow_rendering_8cpp.html#aa22d95532af6370cf80add7dbedac37d", null ],
+    [ "GCapsuleMaxDirectOcclusionDistance", "db/d73/_capsule_shadow_rendering_8cpp.html#a1112db8769415d18093e7a18c5629a5e", null ],
+    [ "GCapsuleMaxIndirectOcclusionDistance", "db/d73/_capsule_shadow_rendering_8cpp.html#af85a295999a64bc45b986679fa788609", null ],
+    [ "GCapsuleMinSkyAngle", "db/d73/_capsule_shadow_rendering_8cpp.html#a4ecf8591a924bf828cf61319f5fa0857", null ],
+    [ "GCapsuleShadowFadeAngleFromVertical", "db/d73/_capsule_shadow_rendering_8cpp.html#a9c9fb81fbe1f00d2849112b906596856", null ],
+    [ "GCapsuleShadows", "db/d73/_capsule_shadow_rendering_8cpp.html#a8538ec967e603aa07ddf35badeb5d6cc", null ],
+    [ "GCapsuleShadowsFullResolution", "db/d73/_capsule_shadow_rendering_8cpp.html#ac7c3688d34899e19b1c02c05b1a6094a", null ],
+    [ "GCapsuleSkyAngleScale", "db/d73/_capsule_shadow_rendering_8cpp.html#a06e5c62ea81e8dbb4e91b6e3d5f41f42", null ],
+    [ "GComputeLightDirectionFromVolumetricLightmapGroupSize", "db/d73/_capsule_shadow_rendering_8cpp.html#aefee951f799aeef7f3d96583c2300e8e", null ],
+    [ "GShadowShapeTileSize", "db/d73/_capsule_shadow_rendering_8cpp.html#aa95bbf336ef2ff43923ddec2967e6ed2", null ]
+];

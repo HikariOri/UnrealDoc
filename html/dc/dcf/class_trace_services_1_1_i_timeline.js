@@ -1,0 +1,28 @@
+var class_trace_services_1_1_i_timeline =
+[
+    [ "FTimelineEventInfo", "d5/dbf/struct_trace_services_1_1_i_timeline_1_1_f_timeline_event_info.html", "d5/dbf/struct_trace_services_1_1_i_timeline_1_1_f_timeline_event_info" ],
+    [ "EnumerateAsyncParams", "db/d7d/struct_trace_services_1_1_i_timeline_1_1_enumerate_async_params.html", "db/d7d/struct_trace_services_1_1_i_timeline_1_1_enumerate_async_params" ],
+    [ "AsyncEventCallback", "dc/dcf/class_trace_services_1_1_i_timeline.html#a8f2a56fe6c70ec78a67bb389487f08b5", null ],
+    [ "AsyncEventRangeCallback", "dc/dcf/class_trace_services_1_1_i_timeline.html#a55a2da643ae9e5e1eb511d82716a060e", null ],
+    [ "EventCallback", "dc/dcf/class_trace_services_1_1_i_timeline.html#a314e3e0f71971e57f6bb284776e797c7", null ],
+    [ "EventRangeCallback", "dc/dcf/class_trace_services_1_1_i_timeline.html#a31da1b7c8dc364b68fd071c6166a4648", null ],
+    [ "EventType", "dc/dcf/class_trace_services_1_1_i_timeline.html#a16483f41a7d1344f0863dc6cf73bd334", null ],
+    [ "TaskInfoCallback", "dc/dcf/class_trace_services_1_1_i_timeline.html#a7c7ae9f715c512353c61f7d86411c34b", null ],
+    [ "~ITimeline", "dc/dcf/class_trace_services_1_1_i_timeline.html#a20c691f5b4e1a5308498962cf7947de4", null ],
+    [ "EnumerateEvents", "dc/dcf/class_trace_services_1_1_i_timeline.html#af4ce0465bdc00e986543f68a1bcfe273", null ],
+    [ "EnumerateEvents", "dc/dcf/class_trace_services_1_1_i_timeline.html#a79a81bbc7ac8d0f61e3ae4ce2b2a5357", null ],
+    [ "EnumerateEventsBackwards", "dc/dcf/class_trace_services_1_1_i_timeline.html#aa1bbddf6adf5cb8b916c89e82901e5a5", null ],
+    [ "EnumerateEventsBackwards", "dc/dcf/class_trace_services_1_1_i_timeline.html#acd4e4d28dd67d0e223c94b1b35d8edcf", null ],
+    [ "EnumerateEventsBackwardsDownSampled", "dc/dcf/class_trace_services_1_1_i_timeline.html#a15c1004e6965a6506c6bbb299146af1f", null ],
+    [ "EnumerateEventsBackwardsDownSampled", "dc/dcf/class_trace_services_1_1_i_timeline.html#a81223e065d5e11e192f919ecf5c2da98", null ],
+    [ "EnumerateEventsDownSampled", "dc/dcf/class_trace_services_1_1_i_timeline.html#a08c3d44af067c181b451130719252465", null ],
+    [ "EnumerateEventsDownSampled", "dc/dcf/class_trace_services_1_1_i_timeline.html#ae1f579ca9d1b9ade9a31ba993a47261c", null ],
+    [ "EnumerateEventsDownSampledAsync", "dc/dcf/class_trace_services_1_1_i_timeline.html#a9c1a2d7e54a995b3bb22e6313af91f28", null ],
+    [ "GetDepthAt", "dc/dcf/class_trace_services_1_1_i_timeline.html#abd7274bb430a3f29207f727ffdc86f12", null ],
+    [ "GetEndTime", "dc/dcf/class_trace_services_1_1_i_timeline.html#a9b0c3e0c34f9c74dd677e95f8c95e6f1", null ],
+    [ "GetEvent", "dc/dcf/class_trace_services_1_1_i_timeline.html#a749c4aebd97e5b73b3ab7a8a09b1be53", null ],
+    [ "GetEventCount", "dc/dcf/class_trace_services_1_1_i_timeline.html#af44e11923c6cfeca070f369d878e8458", null ],
+    [ "GetEventInfo", "dc/dcf/class_trace_services_1_1_i_timeline.html#a2c725055dec6fea2ca25dbe13451c469", null ],
+    [ "GetModCount", "dc/dcf/class_trace_services_1_1_i_timeline.html#a1c8af2fba40fab5fbfbd481106ec4c06", null ],
+    [ "GetStartTime", "dc/dcf/class_trace_services_1_1_i_timeline.html#a254f4a30cc25c40aac7d1fe10d3841a6", null ]
+];

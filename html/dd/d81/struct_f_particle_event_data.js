@@ -1,0 +1,10 @@
+var struct_f_particle_event_data =
+[
+    [ "FParticleEventData", "dd/d81/struct_f_particle_event_data.html#ab5c530a9ccccb9044a6ecf8e17749d06", null ],
+    [ "EmitterTime", "dd/d81/struct_f_particle_event_data.html#a54fe1ed39373458eb90d9b3fbe4c790f", null ],
+    [ "EventData", "dd/d81/struct_f_particle_event_data.html#ad30bd612c8b90d95db65e236717cdf5e", null ],
+    [ "EventName", "dd/d81/struct_f_particle_event_data.html#ad519614dfe02ad11ead6404a9fae8b54", null ],
+    [ "Location", "dd/d81/struct_f_particle_event_data.html#a457aba6859b82e02cc469ffe4f3cab8b", null ],
+    [ "Type", "dd/d81/struct_f_particle_event_data.html#ac8c5abceb59b3c2f43af7cadea11472c", null ],
+    [ "Velocity", "dd/d81/struct_f_particle_event_data.html#a22bcfc1b4804680715d0b0b069414678", null ]
+];

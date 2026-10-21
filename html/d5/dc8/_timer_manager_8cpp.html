@@ -1,0 +1,450 @@
+<!-- HTML header for doxygen 1.15.0-->
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh">
+<head>
+  <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=11" />
+  <meta name="generator" content="Doxygen 1.15.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>UE 5.8.4: Engine/Source/Runtime/Engine/Private/TimerManager.cpp 文件参考</title>
+  <link rel="icon" href="../../EdIconDefault.bmp" type="image/x-icon" />
+  <link href="../../tabs.css" rel="stylesheet" type="text/css" />
+  <script type="text/javascript" src="../../jquery.js"></script>
+  <script type="text/javascript" src="../../dynsections.js"></script>
+  <link href="../../navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../navtreedata.js"></script>
+<script type="text/javascript" src="../../navtree.js"></script>
+<script type="text/javascript" src="../../cookie.js"></script>
+  <link href="../../search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../search/searchdata.js"></script>
+<script type="text/javascript" src="../../search/search.js"></script>
+  <script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  extensions: ["tex2jax.js"],
+  jax: ["input/TeX","output/HTML-CSS"],
+});
+</script>
+<script type="text/javascript" async="async" src="https://cdn.jsdelivr.net/npm/mathjax@2/MathJax.js"></script>
+  <link href="../../doxygen.css" rel="stylesheet" type="text/css" />
+  <link href="../../doxygen-awesome.css" rel="stylesheet" type="text/css"/>
+<link href="../../doxygen-awesome-sidebar-only.css" rel="stylesheet" type="text/css"/>
+<link href="../../doxygen-awesome-sidebar-only-darkmode-toggle.css" rel="stylesheet" type="text/css"/>
+  <!-- ... other metadata & script includes ... -->
+  <script type="text/javascript" src="../../doxygen-awesome-darkmode-toggle.js"></script>
+  <script type="text/javascript">
+    DoxygenAwesomeDarkModeToggle.title = "Zwischen hellem/dunklem Modus wechseln"
+    DoxygenAwesomeDarkModeToggle.lightModeIcon = '🌞'
+    // icon from https://fonts.google.com/icons
+    DoxygenAwesomeDarkModeToggle.darkModeIcon = `<svg xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 24 24" height="24px" viewBox="0 0 24 24" width="24px" fill="#009793"><g><rect fill="none" height="24" width="24"/></g><g><g><path d="M8.1,14.15C9.77,14.63,11,16.17,11,18c0,0.68-0.19,1.31-0.48,1.87c0.48,0.09,0.97,0.14,1.48,0.14 c1.48,0,2.9-0.41,4.13-1.15c-2.62-0.92-5.23-2.82-6.8-5.86C7.74,9.94,7.78,7.09,8.29,4.9c-2.57,1.33-4.3,4.01-4.3,7.1c0,0,0,0,0,0 c0.01,0,0.01,0,0.02,0C5.66,12,7.18,12.83,8.1,14.15z" opacity=".3"/><path d="M19.78,17.51c-2.47,0-6.57-1.33-8.68-5.43C8.77,7.57,10.6,3.6,11.63,2.01C6.27,2.2,1.98,6.59,1.98,12 c0,0.14,0.02,0.28,0.02,0.42C2.61,12.16,3.28,12,3.98,12c0,0,0,0,0,0c0-3.09,1.73-5.77,4.3-7.1C7.78,7.09,7.74,9.94,9.32,13 c1.57,3.04,4.18,4.95,6.8,5.86c-1.23,0.74-2.65,1.15-4.13,1.15c-0.5,0-1-0.05-1.48-0.14c-0.37,0.7-0.94,1.27-1.64,1.64 c0.98,0.32,2.03,0.5,3.11,0.5c3.5,0,6.58-1.8,8.37-4.52C20.18,17.5,19.98,17.51,19.78,17.51z"/><path d="M7,16l-0.18,0C6.4,14.84,5.3,14,4,14c-1.66,0-3,1.34-3,3s1.34,3,3,3c0.62,0,2.49,0,3,0c1.1,0,2-0.9,2-2 C9,16.9,8.1,16,7,16z"/></g></g></svg>`
+    DoxygenAwesomeDarkModeToggle.init()
+  </script>
+  <script type="text/javascript" src="../../doxygen-awesome-fragment-copy-button.js"></script>
+  <script type="text/javascript">
+    DoxygenAwesomeFragmentCopyButton.title = "In die Zwischenablage kopieren"
+    // DoxygenAwesomeFragmentCopyButton.copyIcon = `<svg ...>`
+    // DoxygenAwesomeFragmentCopyButton.successIcon = `<svg ...>`
+    DoxygenAwesomeFragmentCopyButton.init()
+  </script>
+  <script type="text/javascript" src="../../doxygen-awesome-paragraph-link.js"></script>
+  <script type="text/javascript">
+    DoxygenAwesomeParagraphLink.title = "Abschnitt verknüpfen"
+    DoxygenAwesomeParagraphLink.icon = "¶"
+    DoxygenAwesomeParagraphLink.init()
+  </script>
+  <script type="text/javascript" src="../../doxygen-awesome-interactive-toc.js"></script>
+  <script type="text/javascript">
+    DoxygenAwesomeInteractiveToc.topOffset = 45
+    DoxygenAwesomeInteractiveToc.hideMobileMenu = false
+    DoxygenAwesomeInteractiveToc.init()
+  </script>
+</head>
+<body>
+    <div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+      <div id="titlearea">
+        <table cellspacing="0" cellpadding="0">
+          <tbody>
+            <tr id="projectrow">
+              <td id="projectlogo"><img alt="Logo" src="../../EdIconDefault.bmp"  /></td>
+              <td id="projectalign">
+                <div id="projectname">UE 5.8.4
+                </div>
+                <div id="projectbrief">Unreal Engine</div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <!-- end header part -->
+<!-- 制作者 Doxygen 1.15.0 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "../../search/",'.html');
+</script>
+<script type="text/javascript">
+$(function() { codefold.init(); });
+</script>
+<script type="text/javascript" src="../../menudata.js"></script>
+<script type="text/javascript" src="../../menu.js"></script>
+<script type="text/javascript">
+$(function() {
+  initMenu('../../',true,false,'search.php','搜索',true);
+  $(function() { init_search(); });
+});
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(function(){initNavTree('d5/dc8/_timer_manager_8cpp.html','../../',''); });
+</script>
+<div id="container">
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">载入中...</div>
+<div class="SRStatus" id="Searching">搜索中...</div>
+<div class="SRStatus" id="NoMatches">未找到</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">TimerManager.cpp 文件参考</div></div>
+</div><!--header-->
+<div class="contents">
+<div class="textblock"><code>#include &quot;<a class="el" href="../../d0/d41/_timer_manager_8h_source.html">TimerManager.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../da/d83/_auto_r_t_f_m_8h_source.html">AutoRTFM.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../da/dba/_string_conv_8h_source.html">Containers/StringConv.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d3/df5/_game_instance_8h_source.html">Engine/GameInstance.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../db/d91/_timer_handle_8h_source.html">Engine/TimerHandle.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d7/dd1/_module_manager_8h_source.html">Modules/ModuleManager.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../db/d8e/_log_scoped_category_and_verbosity_override_8h_source.html">Logging/LogScopedCategoryAndVerbosityOverride.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d4/d75/_assertion_macros_8h_source.html">Misc/AssertionMacros.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../dc/d17/_core_delegates_8h_source.html">Misc/CoreDelegates.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d9/d58/_string_output_device_8h_source.html">Misc/StringOutputDevice.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../df/dc1/_csv_profiler_8h_source.html">ProfilingDebugging/CsvProfiler.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d7/d10/_stats_trace_8h_source.html">Stats/StatsTrace.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d2/dd1/_unreal_template_8h_source.html">Templates/UnrealTemplate.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d6/d57/_unreal_engine_8h_source.html">UnrealEngine.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d6/d57/_time_guard_8h_source.html">Misc/TimeGuard.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d2/db2/_platform_stack_walk_8h_source.html">HAL/PlatformStackWalk.h</a>&quot;</code><br />
+</div><div class="textblock"><div class="dynheader">
+TimerManager.cpp 的引用(Include)关系图:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d3/df3/_timer_manager_8cpp__incl.svg" width="4170" height="806"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+</div><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-nested-classes" class="groupheader"><a id="nested-classes" name="nested-classes"></a>
+类</h2></td></tr>
+<tr class="memitem:FTimerHeapOrder" id="r_FTimerHeapOrder"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/da0/struct_f_timer_heap_order.html">FTimerHeapOrder</a></td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-define-members" class="groupheader"><a id="define-members" name="define-members"></a>
+宏定义</h2></td></tr>
+<tr class="memitem:a853cb7c61fed9a8858581cef2cc5829d" id="r_a853cb7c61fed9a8858581cef2cc5829d"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a853cb7c61fed9a8858581cef2cc5829d">UE_ENABLE_DUMPALLTIMERLOGSTHRESHOLD</a>&#160;&#160;&#160;!<a class="el" href="../../d9/d44/_build_8h.html#a796000190ea8de579099b3a030b7d992">UE_BUILD_SHIPPING</a></td></tr>
+<tr class="memitem:a23fe370328041599950cbc24cd5ce72d" id="r_a23fe370328041599950cbc24cd5ce72d"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a23fe370328041599950cbc24cd5ce72d">UE_TIMER_MANAGER_ENABLE_VERBOSE_LOGGING</a>&#160;&#160;&#160;0</td></tr>
+<tr class="memitem:a1345aa49ee8fc2e54537292d814e5c86" id="r_a1345aa49ee8fc2e54537292d814e5c86"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a1345aa49ee8fc2e54537292d814e5c86">UE_TIMER_MANAGER_DEBUG_LOG</a>(MSG, ...)</td></tr>
+<tr class="memitem:a8e885e54c93f24ed2a5d53ab89c675dc" id="r_a8e885e54c93f24ed2a5d53ab89c675dc"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8e885e54c93f24ed2a5d53ab89c675dc">UE_TIMER_MANAGER_DEBUG_SCOPE</a>(MSG, ...)</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-func-members" class="groupheader"><a id="func-members" name="func-members"></a>
+函数</h2></td></tr>
+<tr class="memitem:afcb6e548b4ff9a9c8829dbe4f5d1c58d" id="r_afcb6e548b4ff9a9c8829dbe4f5d1c58d"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#afcb6e548b4ff9a9c8829dbe4f5d1c58d">DECLARE_CYCLE_STAT</a> (<a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;SetTimer&quot;), STAT_SetTimer, STATGROUP_Engine)</td></tr>
+<tr class="memitem:a8b5b0e884cb24a9fcbe56be9ffd29045" id="r_a8b5b0e884cb24a9fcbe56be9ffd29045"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8b5b0e884cb24a9fcbe56be9ffd29045">DECLARE_CYCLE_STAT</a> (<a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;SetTimeForNextTick&quot;), STAT_SetTimerForNextTick, STATGROUP_Engine)</td></tr>
+<tr class="memitem:aeb53e2b8030e9154d60c786d543ed736" id="r_aeb53e2b8030e9154d60c786d543ed736"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aeb53e2b8030e9154d60c786d543ed736">DECLARE_CYCLE_STAT</a> (<a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;ClearTimer&quot;), STAT_ClearTimer, STATGROUP_Engine)</td></tr>
+<tr class="memitem:af7bef2fb0b9a0f8d17ca7e5070d8dbb2" id="r_af7bef2fb0b9a0f8d17ca7e5070d8dbb2"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af7bef2fb0b9a0f8d17ca7e5070d8dbb2">DECLARE_CYCLE_STAT</a> (<a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;ClearAllTimers&quot;), STAT_ClearAllTimers, STATGROUP_Engine)</td></tr>
+<tr class="memitem:a33ad8fa09292c434a8998d01f615c9ff" id="r_a33ad8fa09292c434a8998d01f615c9ff"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a33ad8fa09292c434a8998d01f615c9ff">CSV_DECLARE_CATEGORY_MODULE_EXTERN</a> (CORE_API, Basic)</td></tr>
+<tr class="memitem:a35522ef619cc9b1fd5d80297a2f66efa" id="r_a35522ef619cc9b1fd5d80297a2f66efa"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a35522ef619cc9b1fd5d80297a2f66efa">DECLARE_DWORD_COUNTER_STAT</a> (<a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;TimerManager Heap Size&quot;), STAT_NumHeapEntries, STATGROUP_Game)</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-var-members" class="groupheader"><a id="var-members" name="var-members"></a>
+变量</h2></td></tr>
+<tr class="memitem:a9d8d72c41a38239a1e4527e0cffd9e0d" id="r_a9d8d72c41a38239a1e4527e0cffd9e0d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d5/d1c/class_f_auto_console_command_with_world.html">FAutoConsoleCommandWithWorld</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9d8d72c41a38239a1e4527e0cffd9e0d">ListTimersConsoleCommand</a> (<a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;ListTimers&quot;), <a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;&quot;), FConsoleCommandWithWorldDelegate::CreateStatic(OnListTimers))</td></tr>
+</table>
+<a name="doc-define-members" id="doc-define-members"></a><h2 id="header-doc-define-members" class="groupheader">宏定义说明</h2>
+<a id="a853cb7c61fed9a8858581cef2cc5829d" name="a853cb7c61fed9a8858581cef2cc5829d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a853cb7c61fed9a8858581cef2cc5829d">&#9670;&#160;</a></span>UE_ENABLE_DUMPALLTIMERLOGSTHRESHOLD</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define UE_ENABLE_DUMPALLTIMERLOGSTHRESHOLD&#160;&#160;&#160;!<a class="el" href="../../d9/d44/_build_8h.html#a796000190ea8de579099b3a030b7d992">UE_BUILD_SHIPPING</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a1345aa49ee8fc2e54537292d814e5c86" name="a1345aa49ee8fc2e54537292d814e5c86"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1345aa49ee8fc2e54537292d814e5c86">&#9670;&#160;</a></span>UE_TIMER_MANAGER_DEBUG_LOG</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define UE_TIMER_MANAGER_DEBUG_LOG</td>
+          <td>(</td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>MSG</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em></em></span>...&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a8e885e54c93f24ed2a5d53ab89c675dc" name="a8e885e54c93f24ed2a5d53ab89c675dc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8e885e54c93f24ed2a5d53ab89c675dc">&#9670;&#160;</a></span>UE_TIMER_MANAGER_DEBUG_SCOPE</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define UE_TIMER_MANAGER_DEBUG_SCOPE</td>
+          <td>(</td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>MSG</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em></em></span>...&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a23fe370328041599950cbc24cd5ce72d" name="a23fe370328041599950cbc24cd5ce72d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a23fe370328041599950cbc24cd5ce72d">&#9670;&#160;</a></span>UE_TIMER_MANAGER_ENABLE_VERBOSE_LOGGING</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define UE_TIMER_MANAGER_ENABLE_VERBOSE_LOGGING&#160;&#160;&#160;0</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">函数说明</h2>
+<a id="a33ad8fa09292c434a8998d01f615c9ff" name="a33ad8fa09292c434a8998d01f615c9ff"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a33ad8fa09292c434a8998d01f615c9ff">&#9670;&#160;</a></span>CSV_DECLARE_CATEGORY_MODULE_EXTERN()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">CSV_DECLARE_CATEGORY_MODULE_EXTERN </td>
+          <td>(</td>
+          <td class="paramtype">CORE_API</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Basic</td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="af7bef2fb0b9a0f8d17ca7e5070d8dbb2" name="af7bef2fb0b9a0f8d17ca7e5070d8dbb2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af7bef2fb0b9a0f8d17ca7e5070d8dbb2">&#9670;&#160;</a></span>DECLARE_CYCLE_STAT() <span class="overload">[1/4]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">DECLARE_CYCLE_STAT </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;ClearAllTimers&quot;)</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">STAT_ClearAllTimers</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">STATGROUP_Engine</td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aeb53e2b8030e9154d60c786d543ed736" name="aeb53e2b8030e9154d60c786d543ed736"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aeb53e2b8030e9154d60c786d543ed736">&#9670;&#160;</a></span>DECLARE_CYCLE_STAT() <span class="overload">[2/4]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">DECLARE_CYCLE_STAT </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;ClearTimer&quot;)</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">STAT_ClearTimer</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">STATGROUP_Engine</td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a8b5b0e884cb24a9fcbe56be9ffd29045" name="a8b5b0e884cb24a9fcbe56be9ffd29045"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8b5b0e884cb24a9fcbe56be9ffd29045">&#9670;&#160;</a></span>DECLARE_CYCLE_STAT() <span class="overload">[3/4]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">DECLARE_CYCLE_STAT </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;SetTimeForNextTick&quot;)</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">STAT_SetTimerForNextTick</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">STATGROUP_Engine</td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="afcb6e548b4ff9a9c8829dbe4f5d1c58d" name="afcb6e548b4ff9a9c8829dbe4f5d1c58d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afcb6e548b4ff9a9c8829dbe4f5d1c58d">&#9670;&#160;</a></span>DECLARE_CYCLE_STAT() <span class="overload">[4/4]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">DECLARE_CYCLE_STAT </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;SetTimer&quot;)</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">STAT_SetTimer</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">STATGROUP_Engine</td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a35522ef619cc9b1fd5d80297a2f66efa" name="a35522ef619cc9b1fd5d80297a2f66efa"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a35522ef619cc9b1fd5d80297a2f66efa">&#9670;&#160;</a></span>DECLARE_DWORD_COUNTER_STAT()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">DECLARE_DWORD_COUNTER_STAT </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;TimerManager Heap Size&quot;)</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">STAT_NumHeapEntries</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">STATGROUP_Game</td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a name="doc-var-members" id="doc-var-members"></a><h2 id="header-doc-var-members" class="groupheader">变量说明</h2>
+<a id="a9d8d72c41a38239a1e4527e0cffd9e0d" name="a9d8d72c41a38239a1e4527e0cffd9e0d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9d8d72c41a38239a1e4527e0cffd9e0d">&#9670;&#160;</a></span>ListTimersConsoleCommand</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d5/d1c/class_f_auto_console_command_with_world.html">FAutoConsoleCommandWithWorld</a> ListTimersConsoleCommand(<a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;ListTimers&quot;), <a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;&quot;), FConsoleCommandWithWorldDelegate::CreateStatic(OnListTimers)) </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;ListTimers&quot;)</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;&quot;)</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">FConsoleCommandWithWorldDelegate::CreateStatic(OnListTimers)</td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<div id="page-nav" class="page-nav-panel">
+<div id="page-nav-resize-handle"></div>
+<div id="page-nav-tree">
+<div id="page-nav-contents">
+</div><!-- page-nav-contents -->
+</div><!-- page-nav-tree -->
+</div><!-- page-nav -->
+</div><!-- container -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a href="../../dir_0b6ee6e7e9547e675db4add2e5de97da.html">Engine</a></li><li class="navelem"><a href="../../dir_9579d1ecb2c7bf48cbe1049c41745cb4.html">Source</a></li><li class="navelem"><a href="../../dir_9f04efef762572853abdf73f62bebfcc.html">Runtime</a></li><li class="navelem"><a href="../../dir_750344885b5b0dabc1066bd532c992d7.html">Engine</a></li><li class="navelem"><a href="../../dir_0f80cfe80f66a90345f34a7a0d31ead6.html">Private</a></li><li class="navelem"><a href="../../d5/dc8/_timer_manager_8cpp.html">TimerManager.cpp</a></li>
+    <li class="footer">制作者 <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.15.0 </li>
+  </ul>
+</div>
+</body>
+</html>

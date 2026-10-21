@@ -1,0 +1,28 @@
+var class_u_e_1_1_c_a_d_kernel_1_1_f_c_a_d_kernel_archive =
+[
+    [ "FCADKernelArchive", "de/dda/class_u_e_1_1_c_a_d_kernel_1_1_f_c_a_d_kernel_archive.html#ae80b6e58135b3df1b3d96b909a6e3a75", null ],
+    [ "FCADKernelArchive", "de/dda/class_u_e_1_1_c_a_d_kernel_1_1_f_c_a_d_kernel_archive.html#a1bfd0a9586265912f4b7facba466c396", null ],
+    [ "FCADKernelArchive", "de/dda/class_u_e_1_1_c_a_d_kernel_1_1_f_c_a_d_kernel_archive.html#af82bf92f8ab788719f5bdb7d357838f7", null ],
+    [ "FCADKernelArchive", "de/dda/class_u_e_1_1_c_a_d_kernel_1_1_f_c_a_d_kernel_archive.html#a8639684a3658b6186d9256114f6624b2", null ],
+    [ "AddEntityFromArchive", "de/dda/class_u_e_1_1_c_a_d_kernel_1_1_f_c_a_d_kernel_archive.html#a31641598c7f2bf407da55ac7921b6053", null ],
+    [ "AddEntityFromArchive", "de/dda/class_u_e_1_1_c_a_d_kernel_1_1_f_c_a_d_kernel_archive.html#aa7c3af0ad0658121f95f97b8d6f992b0", null ],
+    [ "AddEntityToSave", "de/dda/class_u_e_1_1_c_a_d_kernel_1_1_f_c_a_d_kernel_archive.html#a912a98dcdbe84449bb788ba7a242d25e", null ],
+    [ "Close", "de/dda/class_u_e_1_1_c_a_d_kernel_1_1_f_c_a_d_kernel_archive.html#a32d625a2cb37c30692e7c40b2aa89d6d", null ],
+    [ "IsLoading", "de/dda/class_u_e_1_1_c_a_d_kernel_1_1_f_c_a_d_kernel_archive.html#a55734a797899185404bceddf42a24c2e", null ],
+    [ "IsSaving", "de/dda/class_u_e_1_1_c_a_d_kernel_1_1_f_c_a_d_kernel_archive.html#a88702c8fea1d5cff53681d33cf9203c6", null ],
+    [ "operator<<", "de/dda/class_u_e_1_1_c_a_d_kernel_1_1_f_c_a_d_kernel_archive.html#af7bfd1c87aafafe99509e4b2c8c8ffcb", null ],
+    [ "Serialize", "de/dda/class_u_e_1_1_c_a_d_kernel_1_1_f_c_a_d_kernel_archive.html#a5ca136bb2d8337cdf00725768bf97047", null ],
+    [ "Serialize", "de/dda/class_u_e_1_1_c_a_d_kernel_1_1_f_c_a_d_kernel_archive.html#a0bb5cb20bbc57452bfcf6530353232a7", null ],
+    [ "Serialize", "de/dda/class_u_e_1_1_c_a_d_kernel_1_1_f_c_a_d_kernel_archive.html#a70aa1f7b512c3305baf0daaa233acc06", null ],
+    [ "SetReferencedEntityOrAddToWaitingList", "de/dda/class_u_e_1_1_c_a_d_kernel_1_1_f_c_a_d_kernel_archive.html#a49b65429eafe144b342fb327dd093d15", null ],
+    [ "SetReferencedEntityOrAddToWaitingList", "de/dda/class_u_e_1_1_c_a_d_kernel_1_1_f_c_a_d_kernel_archive.html#ab3ea30f2ba45d0d8aaa4bbf71c427329", null ],
+    [ "SetReferencedEntityOrAddToWaitingList", "de/dda/class_u_e_1_1_c_a_d_kernel_1_1_f_c_a_d_kernel_archive.html#a39cd206cce09eddb95c346e19750a984", null ],
+    [ "Tell", "de/dda/class_u_e_1_1_c_a_d_kernel_1_1_f_c_a_d_kernel_archive.html#a49a8764dff8fc0db0dd141f908627538", null ],
+    [ "TotalSize", "de/dda/class_u_e_1_1_c_a_d_kernel_1_1_f_c_a_d_kernel_archive.html#a34d1b44ebd65767c08e51dc8b09e781b", null ],
+    [ "Archive", "de/dda/class_u_e_1_1_c_a_d_kernel_1_1_f_c_a_d_kernel_archive.html#a77e781506ee097e6a7e8c97e8de7e44b", null ],
+    [ "ArchiveModel", "de/dda/class_u_e_1_1_c_a_d_kernel_1_1_f_c_a_d_kernel_archive.html#ace797fc67e7388d4b5119403591e2877", null ],
+    [ "ArchivePtr", "de/dda/class_u_e_1_1_c_a_d_kernel_1_1_f_c_a_d_kernel_archive.html#a8e3e4ae2017e14c5f03c90fbddd7b392", null ],
+    [ "MemoryArchive", "de/dda/class_u_e_1_1_c_a_d_kernel_1_1_f_c_a_d_kernel_archive.html#a4681cddbea7d7e3f1912c3f7165d93cf", null ],
+    [ "MemoryReader", "de/dda/class_u_e_1_1_c_a_d_kernel_1_1_f_c_a_d_kernel_archive.html#a25d9b15175d998bd9d0783041107512e", null ],
+    [ "Session", "de/dda/class_u_e_1_1_c_a_d_kernel_1_1_f_c_a_d_kernel_archive.html#a774af5fc3bd7c6c15582598b21553078", null ]
+];

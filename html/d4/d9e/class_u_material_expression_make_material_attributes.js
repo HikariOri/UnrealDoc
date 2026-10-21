@@ -1,0 +1,25 @@
+var class_u_material_expression_make_material_attributes =
+[
+    [ "GetExpressionInput", "d4/d9e/class_u_material_expression_make_material_attributes.html#a14a40bc46c7535fa1286f418b018f70f", null ],
+    [ "Serialize", "d4/d9e/class_u_material_expression_make_material_attributes.html#a8044369b76456af20870506487ae54b8", null ],
+    [ "AmbientOcclusion", "d4/d9e/class_u_material_expression_make_material_attributes.html#af45c93b5208a9d4a09eb95a67413e0f2", null ],
+    [ "Anisotropy", "d4/d9e/class_u_material_expression_make_material_attributes.html#a89031de1c2b85c151d3b397717a81a18", null ],
+    [ "BaseColor", "d4/d9e/class_u_material_expression_make_material_attributes.html#ae6e8c544f5886925e30f5cde9296131c", null ],
+    [ "ClearCoat", "d4/d9e/class_u_material_expression_make_material_attributes.html#a8ae93170664f530820c8fe629d9ae3ac", null ],
+    [ "ClearCoatRoughness", "d4/d9e/class_u_material_expression_make_material_attributes.html#aef3ee903e5b9253b2405b28bedebc1ca", null ],
+    [ "CustomizedUVs", "d4/d9e/class_u_material_expression_make_material_attributes.html#a5ec125c89d3cdf8bfa87835bbd783cde", null ],
+    [ "Displacement", "d4/d9e/class_u_material_expression_make_material_attributes.html#a05aed6bd55ed8d340b59b5a22f3b1e8a", null ],
+    [ "EmissiveColor", "d4/d9e/class_u_material_expression_make_material_attributes.html#ae37a466933f08138b6798473644fe104", null ],
+    [ "Metallic", "d4/d9e/class_u_material_expression_make_material_attributes.html#ad11e20b0d59ae7460b513e1a2fb811a0", null ],
+    [ "Normal", "d4/d9e/class_u_material_expression_make_material_attributes.html#a12f0764b10093760e57edb26e5c6133d", null ],
+    [ "Opacity", "d4/d9e/class_u_material_expression_make_material_attributes.html#a4df0f4cf066432f33a8e5ed1417ec108", null ],
+    [ "OpacityMask", "d4/d9e/class_u_material_expression_make_material_attributes.html#aa9c8794d96b11ccb042f35f8108c3e90", null ],
+    [ "PixelDepthOffset", "d4/d9e/class_u_material_expression_make_material_attributes.html#a6a369eadd634a079d01b8fa0388ef639", null ],
+    [ "Refraction", "d4/d9e/class_u_material_expression_make_material_attributes.html#aeb6fba0f940d2685482a58dc5883db3f", null ],
+    [ "Roughness", "d4/d9e/class_u_material_expression_make_material_attributes.html#a09eb228a1329120b1edb83d1467d6a9b", null ],
+    [ "ShadingModel", "d4/d9e/class_u_material_expression_make_material_attributes.html#aec05e3cccf18260540fc6036c382294e", null ],
+    [ "Specular", "d4/d9e/class_u_material_expression_make_material_attributes.html#a42b37359e15ce7a8e95096c1629bb0b2", null ],
+    [ "SubsurfaceColor", "d4/d9e/class_u_material_expression_make_material_attributes.html#ac64342e8fb1932bcbae39560164b9c46", null ],
+    [ "Tangent", "d4/d9e/class_u_material_expression_make_material_attributes.html#a8e96242d2722b37e9dd24a233026fe4f", null ],
+    [ "WorldPositionOffset", "d4/d9e/class_u_material_expression_make_material_attributes.html#a5f8404041e68264c5ce7734f7a6ae3b4", null ]
+];

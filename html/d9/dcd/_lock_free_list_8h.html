@@ -1,0 +1,803 @@
+<!-- HTML header for doxygen 1.15.0-->
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh">
+<head>
+  <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=11" />
+  <meta name="generator" content="Doxygen 1.15.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>UE 5.8.4: Engine/Source/Runtime/Core/Public/Containers/LockFreeList.h 文件参考</title>
+  <link rel="icon" href="../../EdIconDefault.bmp" type="image/x-icon" />
+  <link href="../../tabs.css" rel="stylesheet" type="text/css" />
+  <script type="text/javascript" src="../../jquery.js"></script>
+  <script type="text/javascript" src="../../dynsections.js"></script>
+  <link href="../../navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../navtreedata.js"></script>
+<script type="text/javascript" src="../../navtree.js"></script>
+<script type="text/javascript" src="../../cookie.js"></script>
+  <link href="../../search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../search/searchdata.js"></script>
+<script type="text/javascript" src="../../search/search.js"></script>
+  <script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  extensions: ["tex2jax.js"],
+  jax: ["input/TeX","output/HTML-CSS"],
+});
+</script>
+<script type="text/javascript" async="async" src="https://cdn.jsdelivr.net/npm/mathjax@2/MathJax.js"></script>
+  <link href="../../doxygen.css" rel="stylesheet" type="text/css" />
+  <link href="../../doxygen-awesome.css" rel="stylesheet" type="text/css"/>
+<link href="../../doxygen-awesome-sidebar-only.css" rel="stylesheet" type="text/css"/>
+<link href="../../doxygen-awesome-sidebar-only-darkmode-toggle.css" rel="stylesheet" type="text/css"/>
+  <!-- ... other metadata & script includes ... -->
+  <script type="text/javascript" src="../../doxygen-awesome-darkmode-toggle.js"></script>
+  <script type="text/javascript">
+    DoxygenAwesomeDarkModeToggle.title = "Zwischen hellem/dunklem Modus wechseln"
+    DoxygenAwesomeDarkModeToggle.lightModeIcon = '🌞'
+    // icon from https://fonts.google.com/icons
+    DoxygenAwesomeDarkModeToggle.darkModeIcon = `<svg xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 24 24" height="24px" viewBox="0 0 24 24" width="24px" fill="#009793"><g><rect fill="none" height="24" width="24"/></g><g><g><path d="M8.1,14.15C9.77,14.63,11,16.17,11,18c0,0.68-0.19,1.31-0.48,1.87c0.48,0.09,0.97,0.14,1.48,0.14 c1.48,0,2.9-0.41,4.13-1.15c-2.62-0.92-5.23-2.82-6.8-5.86C7.74,9.94,7.78,7.09,8.29,4.9c-2.57,1.33-4.3,4.01-4.3,7.1c0,0,0,0,0,0 c0.01,0,0.01,0,0.02,0C5.66,12,7.18,12.83,8.1,14.15z" opacity=".3"/><path d="M19.78,17.51c-2.47,0-6.57-1.33-8.68-5.43C8.77,7.57,10.6,3.6,11.63,2.01C6.27,2.2,1.98,6.59,1.98,12 c0,0.14,0.02,0.28,0.02,0.42C2.61,12.16,3.28,12,3.98,12c0,0,0,0,0,0c0-3.09,1.73-5.77,4.3-7.1C7.78,7.09,7.74,9.94,9.32,13 c1.57,3.04,4.18,4.95,6.8,5.86c-1.23,0.74-2.65,1.15-4.13,1.15c-0.5,0-1-0.05-1.48-0.14c-0.37,0.7-0.94,1.27-1.64,1.64 c0.98,0.32,2.03,0.5,3.11,0.5c3.5,0,6.58-1.8,8.37-4.52C20.18,17.5,19.98,17.51,19.78,17.51z"/><path d="M7,16l-0.18,0C6.4,14.84,5.3,14,4,14c-1.66,0-3,1.34-3,3s1.34,3,3,3c0.62,0,2.49,0,3,0c1.1,0,2-0.9,2-2 C9,16.9,8.1,16,7,16z"/></g></g></svg>`
+    DoxygenAwesomeDarkModeToggle.init()
+  </script>
+  <script type="text/javascript" src="../../doxygen-awesome-fragment-copy-button.js"></script>
+  <script type="text/javascript">
+    DoxygenAwesomeFragmentCopyButton.title = "In die Zwischenablage kopieren"
+    // DoxygenAwesomeFragmentCopyButton.copyIcon = `<svg ...>`
+    // DoxygenAwesomeFragmentCopyButton.successIcon = `<svg ...>`
+    DoxygenAwesomeFragmentCopyButton.init()
+  </script>
+  <script type="text/javascript" src="../../doxygen-awesome-paragraph-link.js"></script>
+  <script type="text/javascript">
+    DoxygenAwesomeParagraphLink.title = "Abschnitt verknüpfen"
+    DoxygenAwesomeParagraphLink.icon = "¶"
+    DoxygenAwesomeParagraphLink.init()
+  </script>
+  <script type="text/javascript" src="../../doxygen-awesome-interactive-toc.js"></script>
+  <script type="text/javascript">
+    DoxygenAwesomeInteractiveToc.topOffset = 45
+    DoxygenAwesomeInteractiveToc.hideMobileMenu = false
+    DoxygenAwesomeInteractiveToc.init()
+  </script>
+</head>
+<body>
+    <div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+      <div id="titlearea">
+        <table cellspacing="0" cellpadding="0">
+          <tbody>
+            <tr id="projectrow">
+              <td id="projectlogo"><img alt="Logo" src="../../EdIconDefault.bmp"  /></td>
+              <td id="projectalign">
+                <div id="projectname">UE 5.8.4
+                </div>
+                <div id="projectbrief">Unreal Engine</div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <!-- end header part -->
+<!-- 制作者 Doxygen 1.15.0 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "../../search/",'.html');
+</script>
+<script type="text/javascript">
+$(function() { codefold.init(); });
+</script>
+<script type="text/javascript" src="../../menudata.js"></script>
+<script type="text/javascript" src="../../menu.js"></script>
+<script type="text/javascript">
+$(function() {
+  initMenu('../../',true,false,'search.php','搜索',true);
+  $(function() { init_search(); });
+});
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(function(){initNavTree('d9/dcd/_lock_free_list_8h.html','../../',''); });
+</script>
+<div id="container">
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">载入中...</div>
+<div class="SRStatus" id="Searching">搜索中...</div>
+<div class="SRStatus" id="NoMatches">未找到</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">LockFreeList.h 文件参考</div></div>
+</div><!--header-->
+<div class="contents">
+<div class="textblock"><code>#include &quot;Containers/Array.h&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../da/d60/_containers_fwd_8h_source.html">Containers/ContainersFwd.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../db/d21/_core_globals_8h_source.html">CoreGlobals.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../db/d04/_core_types_8h_source.html">CoreTypes.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../de/d93/_platform_atomics_8h_source.html">HAL/PlatformAtomics.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d2/da9/_platform_process_8h_source.html">HAL/PlatformProcess.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d0/d14/_thread_safe_counter_8h_source.html">HAL/ThreadSafeCounter.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d7/dcd/_log_macros_8h_source.html">Logging/LogMacros.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d4/d75/_assertion_macros_8h_source.html">Misc/AssertionMacros.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d4/d16/_noop_counter_8h_source.html">Misc/NoopCounter.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d4/d2d/_alignment_templates_8h_source.html">Templates/AlignmentTemplates.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../da/da2/_core_2_public_2_templates_2_function_8h_source.html">Templates/Function.h</a>&quot;</code><br />
+<code>#include &lt;atomic&gt;</code><br />
+</div><div class="textblock"><div class="dynheader">
+LockFreeList.h 的引用(Include)关系图:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../da/d8e/_lock_free_list_8h__incl.svg" width="3956" height="1136"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+</div><div class="textblock"><div class="dynheader">
+此图展示该文件被哪些文件直接或间接地引用了:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../dd/da5/_lock_free_list_8h__dep__incl.svg" width="6570" height="528"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+</div>
+<p><a href="../../d9/dcd/_lock_free_list_8h_source.html">浏览该文件的源代码.</a></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-nested-classes" class="groupheader"><a id="nested-classes" name="nested-classes"></a>
+类</h2></td></tr>
+<tr class="memitem:TLockFreeAllocOnceIndexedAllocator_3C_20T_2C_20MaxTotalItems_2C_20ItemsPerPage_20_3E" id="r_TLockFreeAllocOnceIndexedAllocator_3C_20T_2C_20MaxTotalItems_2C_20ItemsPerPage_20_3E"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/dd3/class_t_lock_free_alloc_once_indexed_allocator.html">TLockFreeAllocOnceIndexedAllocator&lt; T, MaxTotalItems, ItemsPerPage &gt;</a></td></tr>
+<tr class="memitem:FIndexedPointer" id="r_FIndexedPointer"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d3c/struct_f_indexed_pointer.html">FIndexedPointer</a></td></tr>
+<tr class="memitem:FIndexedLockFreeLink" id="r_FIndexedLockFreeLink"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/d74/struct_f_indexed_lock_free_link.html">FIndexedLockFreeLink</a></td></tr>
+<tr class="memitem:FLockFreeLinkPolicy" id="r_FLockFreeLinkPolicy"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/dcd/struct_f_lock_free_link_policy.html">FLockFreeLinkPolicy</a></td></tr>
+<tr class="memitem:FLockFreePointerListLIFORoot_3C_20TPaddingForCacheContention_2C_20TABAInc_20_3E" id="r_FLockFreePointerListLIFORoot_3C_20TPaddingForCacheContention_2C_20TABAInc_20_3E"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/de0/class_f_lock_free_pointer_list_l_i_f_o_root.html">FLockFreePointerListLIFORoot&lt; TPaddingForCacheContention, TABAInc &gt;</a></td></tr>
+<tr class="memitem:FLockFreePointerListLIFOBase_3C_20T_2C_20TPaddingForCacheContention_2C_20TABAInc_20_3E" id="r_FLockFreePointerListLIFOBase_3C_20T_2C_20TPaddingForCacheContention_2C_20TABAInc_20_3E"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/d2f/class_f_lock_free_pointer_list_l_i_f_o_base.html">FLockFreePointerListLIFOBase&lt; T, TPaddingForCacheContention, TABAInc &gt;</a></td></tr>
+<tr class="memitem:FLockFreePointerFIFOBase_3C_20T_2C_20TPaddingForCacheContention_2C_20TABAInc_20_3E" id="r_FLockFreePointerFIFOBase_3C_20T_2C_20TPaddingForCacheContention_2C_20TABAInc_20_3E"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d99/class_f_lock_free_pointer_f_i_f_o_base.html">FLockFreePointerFIFOBase&lt; T, TPaddingForCacheContention, TABAInc &gt;</a></td></tr>
+<tr class="memitem:FStallingTaskQueue_3C_20T_2C_20TPaddingForCacheContention_2C_20NumPriorities_20_3E" id="r_FStallingTaskQueue_3C_20T_2C_20TPaddingForCacheContention_2C_20NumPriorities_20_3E"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d2/d8e/class_f_stalling_task_queue.html">FStallingTaskQueue&lt; T, TPaddingForCacheContention, NumPriorities &gt;</a></td></tr>
+<tr class="memitem:TLockFreePointerListLIFOPad_3C_20T_2C_20TPaddingForCacheContention_20_3E" id="r_TLockFreePointerListLIFOPad_3C_20T_2C_20TPaddingForCacheContention_20_3E"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/d80/class_t_lock_free_pointer_list_l_i_f_o_pad.html">TLockFreePointerListLIFOPad&lt; T, TPaddingForCacheContention &gt;</a></td></tr>
+<tr class="memitem:TLockFreePointerListLIFO_3C_20T_20_3E" id="r_TLockFreePointerListLIFO_3C_20T_20_3E"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/df6/class_t_lock_free_pointer_list_l_i_f_o.html">TLockFreePointerListLIFO&lt; T &gt;</a></td></tr>
+<tr class="memitem:TLockFreePointerListUnordered_3C_20T_2C_20TPaddingForCacheContention_20_3E" id="r_TLockFreePointerListUnordered_3C_20T_2C_20TPaddingForCacheContention_20_3E"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d04/class_t_lock_free_pointer_list_unordered.html">TLockFreePointerListUnordered&lt; T, TPaddingForCacheContention &gt;</a></td></tr>
+<tr class="memitem:TLockFreePointerListFIFO_3C_20T_2C_20TPaddingForCacheContention_20_3E" id="r_TLockFreePointerListFIFO_3C_20T_2C_20TPaddingForCacheContention_20_3E"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d52/class_t_lock_free_pointer_list_f_i_f_o.html">TLockFreePointerListFIFO&lt; T, TPaddingForCacheContention &gt;</a></td></tr>
+<tr class="memitem:TClosableLockFreePointerListUnorderedSingleConsumer_3C_20T_2C_20TPaddingForCacheContention_20_3E" id="r_TClosableLockFreePointerListUnorderedSingleConsumer_3C_20T_2C_20TPaddingForCacheContention_20_3E"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/d25/class_t_closable_lock_free_pointer_list_unordered_single_consumer.html">TClosableLockFreePointerListUnorderedSingleConsumer&lt; T, TPaddingForCacheContention &gt;</a></td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-define-members" class="groupheader"><a id="define-members" name="define-members"></a>
+宏定义</h2></td></tr>
+<tr class="memitem:aa3cbe76f6b4917d03bd1102db3217ed7" id="r_aa3cbe76f6b4917d03bd1102db3217ed7"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa3cbe76f6b4917d03bd1102db3217ed7">checkLockFreePointerList</a>&#160;&#160;&#160;<a class="el" href="../../d4/d75/_assertion_macros_8h.html#a12ff33b2f8cbad5116bd85ca93de5cb2">checkSlow</a></td></tr>
+<tr class="memitem:a44249cbea90b2ee1f792d85534a36fd4" id="r_a44249cbea90b2ee1f792d85534a36fd4"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a44249cbea90b2ee1f792d85534a36fd4">MAX_LOCK_FREE_LINKS_AS_BITS</a>&#160;&#160;&#160;(26)</td></tr>
+<tr class="memitem:a39765fa3b994fdc670871908584add49" id="r_a39765fa3b994fdc670871908584add49"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a39765fa3b994fdc670871908584add49">MAX_LOCK_FREE_LINKS</a>&#160;&#160;&#160;(1 &lt;&lt; 26)</td></tr>
+<tr class="memitem:a38e988ae8c511c96f642438fb4b85cab" id="r_a38e988ae8c511c96f642438fb4b85cab"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a38e988ae8c511c96f642438fb4b85cab">MAX_TagBitsValue</a>&#160;&#160;&#160;(<a class="el" href="../../dd/de9/preprocessor_8c.html#abc0f5bc07737e498f287334775dff2b6">uint64</a>(1) &lt;&lt; (64 - <a class="el" href="#a44249cbea90b2ee1f792d85534a36fd4">MAX_LOCK_FREE_LINKS_AS_BITS</a>))</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-func-members" class="groupheader"><a id="func-members" name="func-members"></a>
+函数</h2></td></tr>
+<tr class="memitem:a4a79fb7a291e6aab26aa6eb0d98b467f" id="r_a4a79fb7a291e6aab26aa6eb0d98b467f"><td class="memItemLeft" align="right" valign="top">CORE_API&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4a79fb7a291e6aab26aa6eb0d98b467f">DECLARE_LOG_CATEGORY_EXTERN</a> (LogLockFreeList, Log, <a class="el" href="../../db/da0/_hair_strands_composition_8cpp.html#a01ae254fc9c19378956c218ed4e9c32da54991d225c58ce0af43461d4e9a82312">All</a>)</td></tr>
+<tr class="memitem:ab0584e61751faad3fb07d2306615c211" id="r_ab0584e61751faad3fb07d2306615c211"><td class="memItemLeft" align="right" valign="top">CORE_API <a class="el" href="../../df/d63/_typed_element_query_capabilities_8inl.html#a72343342ce64c0755563ee6c5e27868d">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab0584e61751faad3fb07d2306615c211">DoTestCriticalStall</a> ()</td></tr>
+<tr class="memitem:af08ad35c9d4a4e33a44f92b0a4f8c8a7" id="r_af08ad35c9d4a4e33a44f92b0a4f8c8a7"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../df/d63/_typed_element_query_capabilities_8inl.html#a72343342ce64c0755563ee6c5e27868d">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af08ad35c9d4a4e33a44f92b0a4f8c8a7">TestCriticalStall</a> ()</td></tr>
+<tr class="memitem:a35d839dac0219c8a20bcf15b35dd7baa" id="r_a35d839dac0219c8a20bcf15b35dd7baa"><td class="memItemLeft" align="right" valign="top">CORE_API <a class="el" href="../../df/d63/_typed_element_query_capabilities_8inl.html#a72343342ce64c0755563ee6c5e27868d">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a35d839dac0219c8a20bcf15b35dd7baa">LockFreeTagCounterHasOverflowed</a> ()</td></tr>
+<tr class="memitem:a5eecca5252ba390214deee5656070354" id="r_a5eecca5252ba390214deee5656070354"><td class="memItemLeft" align="right" valign="top">CORE_API <a class="el" href="../../df/d63/_typed_element_query_capabilities_8inl.html#a72343342ce64c0755563ee6c5e27868d">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5eecca5252ba390214deee5656070354">LockFreeLinksExhausted</a> (<a class="el" href="../../dd/de9/preprocessor_8c.html#a1134b580f8da4de94ca6b1de4d37975e">uint32</a> TotalNum)</td></tr>
+<tr class="memitem:a009728adfe109c3e819dc5a5c8a35a22" id="r_a009728adfe109c3e819dc5a5c8a35a22"><td class="memItemLeft" align="right" valign="top">CORE_API <a class="el" href="../../df/d63/_typed_element_query_capabilities_8inl.html#a72343342ce64c0755563ee6c5e27868d">void</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a009728adfe109c3e819dc5a5c8a35a22">LockFreeAllocLinks</a> (<a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2c46f1fb01e11216aa2c983307deafb4">SIZE_T</a> AllocSize)</td></tr>
+<tr class="memitem:ae8427e5d82caa67e5a2d7f756961b2d6" id="r_ae8427e5d82caa67e5a2d7f756961b2d6"><td class="memItemLeft" align="right" valign="top">CORE_API <a class="el" href="../../df/d63/_typed_element_query_capabilities_8inl.html#a72343342ce64c0755563ee6c5e27868d">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae8427e5d82caa67e5a2d7f756961b2d6">LockFreeFreeLinks</a> (<a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2c46f1fb01e11216aa2c983307deafb4">SIZE_T</a> AllocSize, <a class="el" href="../../df/d63/_typed_element_query_capabilities_8inl.html#a72343342ce64c0755563ee6c5e27868d">void</a> *Ptr)</td></tr>
+<tr class="memitem:aa0fa356300104c5801cb2bcb533826fb" id="r_aa0fa356300104c5801cb2bcb533826fb"><td class="memItemLeft" align="right" valign="top">struct <a class="el" href="../../d4/d3c/struct_f_indexed_pointer.html">FIndexedPointer</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa0fa356300104c5801cb2bcb533826fb">GCC_ALIGN</a> (8)</td></tr>
+<tr class="memitem:aa047b58bcb6849c4d471a2ce95fc901e" id="r_aa047b58bcb6849c4d471a2ce95fc901e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../df/d63/_typed_element_query_capabilities_8inl.html#a72343342ce64c0755563ee6c5e27868d">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa047b58bcb6849c4d471a2ce95fc901e">Init</a> ()</td></tr>
+<tr class="memitem:a33ff26d719b3a204a549f96cca2d7345" id="r_a33ff26d719b3a204a549f96cca2d7345"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../df/d63/_typed_element_query_capabilities_8inl.html#a72343342ce64c0755563ee6c5e27868d">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a33ff26d719b3a204a549f96cca2d7345">SetAll</a> (<a class="el" href="../../dd/de9/preprocessor_8c.html#a1134b580f8da4de94ca6b1de4d37975e">uint32</a> Ptr, <a class="el" href="../../dd/de9/preprocessor_8c.html#abc0f5bc07737e498f287334775dff2b6">uint64</a> CounterAndState)</td></tr>
+<tr class="memitem:a103fadf5afd4a3462b822129a77a348a" id="r_a103fadf5afd4a3462b822129a77a348a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#aad3dc78eb1cb784a98c961907b03c1ad">UE_FORCEINLINE_HINT</a> <a class="el" href="../../dd/de9/preprocessor_8c.html#a1134b580f8da4de94ca6b1de4d37975e">uint32</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a103fadf5afd4a3462b822129a77a348a">GetPtr</a> () const</td></tr>
+<tr class="memitem:a7e2467cb23dd4ef29c3bfd58bc5e1224" id="r_a7e2467cb23dd4ef29c3bfd58bc5e1224"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#aad3dc78eb1cb784a98c961907b03c1ad">UE_FORCEINLINE_HINT</a> <a class="el" href="../../df/d63/_typed_element_query_capabilities_8inl.html#a72343342ce64c0755563ee6c5e27868d">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7e2467cb23dd4ef29c3bfd58bc5e1224">SetPtr</a> (<a class="el" href="../../dd/de9/preprocessor_8c.html#a1134b580f8da4de94ca6b1de4d37975e">uint32</a> To)</td></tr>
+<tr class="memitem:a16d07a48a24a8286c4a517b9ed22502b" id="r_a16d07a48a24a8286c4a517b9ed22502b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#aad3dc78eb1cb784a98c961907b03c1ad">UE_FORCEINLINE_HINT</a> <a class="el" href="../../dd/de9/preprocessor_8c.html#abc0f5bc07737e498f287334775dff2b6">uint64</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a16d07a48a24a8286c4a517b9ed22502b">GetCounterAndState</a> () const</td></tr>
+<tr class="memitem:a50de84812f0098ca564548c4a987ff51" id="r_a50de84812f0098ca564548c4a987ff51"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#aad3dc78eb1cb784a98c961907b03c1ad">UE_FORCEINLINE_HINT</a> <a class="el" href="../../df/d63/_typed_element_query_capabilities_8inl.html#a72343342ce64c0755563ee6c5e27868d">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a50de84812f0098ca564548c4a987ff51">SetCounterAndState</a> (<a class="el" href="../../dd/de9/preprocessor_8c.html#abc0f5bc07737e498f287334775dff2b6">uint64</a> To)</td></tr>
+<tr class="memitem:a6b001e79560674f8b5c7d10355c84380" id="r_a6b001e79560674f8b5c7d10355c84380"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../df/d63/_typed_element_query_capabilities_8inl.html#a72343342ce64c0755563ee6c5e27868d">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6b001e79560674f8b5c7d10355c84380">AdvanceCounterAndState</a> (const <a class="el" href="../../d4/d3c/struct_f_indexed_pointer.html">FIndexedPointer</a> &amp;From, <a class="el" href="../../dd/de9/preprocessor_8c.html#abc0f5bc07737e498f287334775dff2b6">uint64</a> TABAInc)</td></tr>
+<tr class="memitem:a71327f91beaa09390e7edcac0c11bc2a" id="r_a71327f91beaa09390e7edcac0c11bc2a"><td class="memTemplParams" colspan="2">template&lt;<a class="el" href="../../dd/de9/preprocessor_8c.html#abc0f5bc07737e498f287334775dff2b6">uint64</a> TABAInc&gt; </td></tr>
+<tr class="memitem:a71327f91beaa09390e7edcac0c11bc2a template"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#aad3dc78eb1cb784a98c961907b03c1ad">UE_FORCEINLINE_HINT</a> <a class="el" href="../../dd/de9/preprocessor_8c.html#abc0f5bc07737e498f287334775dff2b6">uint64</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a71327f91beaa09390e7edcac0c11bc2a">GetState</a> () const</td></tr>
+<tr class="memitem:a8cd7faf7ff7e86b0093b2bfd39ec23ea" id="r_a8cd7faf7ff7e86b0093b2bfd39ec23ea"><td class="memTemplParams" colspan="2">template&lt;<a class="el" href="../../dd/de9/preprocessor_8c.html#abc0f5bc07737e498f287334775dff2b6">uint64</a> TABAInc&gt; </td></tr>
+<tr class="memitem:a8cd7faf7ff7e86b0093b2bfd39ec23ea template"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../df/d63/_typed_element_query_capabilities_8inl.html#a72343342ce64c0755563ee6c5e27868d">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8cd7faf7ff7e86b0093b2bfd39ec23ea">SetState</a> (<a class="el" href="../../dd/de9/preprocessor_8c.html#abc0f5bc07737e498f287334775dff2b6">uint64</a> Value)</td></tr>
+<tr class="memitem:a515ec68740ca7157099ef6f2d191916c" id="r_a515ec68740ca7157099ef6f2d191916c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../df/d63/_typed_element_query_capabilities_8inl.html#a72343342ce64c0755563ee6c5e27868d">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a515ec68740ca7157099ef6f2d191916c">AtomicRead</a> (const <a class="el" href="../../d4/d3c/struct_f_indexed_pointer.html">FIndexedPointer</a> &amp;Other)</td></tr>
+<tr class="memitem:a167117197479e713be66b4aef39ddbc7" id="r_a167117197479e713be66b4aef39ddbc7"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a167117197479e713be66b4aef39ddbc7">InterlockedCompareExchange</a> (const <a class="el" href="../../d4/d3c/struct_f_indexed_pointer.html">FIndexedPointer</a> &amp;<a class="el" href="../../d2/dd1/_unreal_template_8h.html#a7573a5b89f67d386dbbbed7ba5ee6492">Exchange</a>, const <a class="el" href="../../d4/d3c/struct_f_indexed_pointer.html">FIndexedPointer</a> &amp;Comparand)</td></tr>
+<tr class="memitem:ab170dc050c48fb98f6c601a22ea60b13" id="r_ab170dc050c48fb98f6c601a22ea60b13"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#aad3dc78eb1cb784a98c961907b03c1ad">UE_FORCEINLINE_HINT</a> <a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab170dc050c48fb98f6c601a22ea60b13">operator==</a> (const <a class="el" href="../../d4/d3c/struct_f_indexed_pointer.html">FIndexedPointer</a> &amp;Other) const</td></tr>
+<tr class="memitem:ab793193c11ccd02781a6e1676776a3f6" id="r_ab793193c11ccd02781a6e1676776a3f6"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#aad3dc78eb1cb784a98c961907b03c1ad">UE_FORCEINLINE_HINT</a> <a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab793193c11ccd02781a6e1676776a3f6">operator!=</a> (const <a class="el" href="../../d4/d3c/struct_f_indexed_pointer.html">FIndexedPointer</a> &amp;Other) const</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-var-members" class="groupheader"><a id="var-members" name="var-members"></a>
+变量</h2></td></tr>
+<tr class="memitem:a6e65e6e42106b8792099a293e54d94b2" id="r_a6e65e6e42106b8792099a293e54d94b2"><td class="memItemLeft" align="right" valign="top">CORE_API <a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a8dbb3cd84ca9fd010dadfc3815eefa5d">int32</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6e65e6e42106b8792099a293e54d94b2">GTestCriticalStalls</a></td></tr>
+<tr class="memitem:a7c90136014ce3ebaba259a51b180890c" id="r_a7c90136014ce3ebaba259a51b180890c"><td class="memItemLeft" align="right" valign="top">struct <a class="el" href="../../de/d74/struct_f_indexed_lock_free_link.html">FIndexedLockFreeLink</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7c90136014ce3ebaba259a51b180890c">GCC_ALIGN</a></td></tr>
+</table>
+<a name="doc-define-members" id="doc-define-members"></a><h2 id="header-doc-define-members" class="groupheader">宏定义说明</h2>
+<a id="aa3cbe76f6b4917d03bd1102db3217ed7" name="aa3cbe76f6b4917d03bd1102db3217ed7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa3cbe76f6b4917d03bd1102db3217ed7">&#9670;&#160;</a></span>checkLockFreePointerList</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define checkLockFreePointerList&#160;&#160;&#160;<a class="el" href="../../d4/d75/_assertion_macros_8h.html#a12ff33b2f8cbad5116bd85ca93de5cb2">checkSlow</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a39765fa3b994fdc670871908584add49" name="a39765fa3b994fdc670871908584add49"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a39765fa3b994fdc670871908584add49">&#9670;&#160;</a></span>MAX_LOCK_FREE_LINKS</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define MAX_LOCK_FREE_LINKS&#160;&#160;&#160;(1 &lt;&lt; 26)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a44249cbea90b2ee1f792d85534a36fd4" name="a44249cbea90b2ee1f792d85534a36fd4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a44249cbea90b2ee1f792d85534a36fd4">&#9670;&#160;</a></span>MAX_LOCK_FREE_LINKS_AS_BITS</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define MAX_LOCK_FREE_LINKS_AS_BITS&#160;&#160;&#160;(26)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a38e988ae8c511c96f642438fb4b85cab" name="a38e988ae8c511c96f642438fb4b85cab"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a38e988ae8c511c96f642438fb4b85cab">&#9670;&#160;</a></span>MAX_TagBitsValue</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define MAX_TagBitsValue&#160;&#160;&#160;(<a class="el" href="../../dd/de9/preprocessor_8c.html#abc0f5bc07737e498f287334775dff2b6">uint64</a>(1) &lt;&lt; (64 - <a class="el" href="#a44249cbea90b2ee1f792d85534a36fd4">MAX_LOCK_FREE_LINKS_AS_BITS</a>))</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">函数说明</h2>
+<a id="a6b001e79560674f8b5c7d10355c84380" name="a6b001e79560674f8b5c7d10355c84380"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6b001e79560674f8b5c7d10355c84380">&#9670;&#160;</a></span>AdvanceCounterAndState()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../df/d63/_typed_element_query_capabilities_8inl.html#a72343342ce64c0755563ee6c5e27868d">void</a> GCC_ALIGN::AdvanceCounterAndState </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="../../d4/d3c/struct_f_indexed_pointer.html">FIndexedPointer</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>From</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../dd/de9/preprocessor_8c.html#abc0f5bc07737e498f287334775dff2b6">uint64</a></td>          <td class="paramname"><span class="paramname"><em>TABAInc</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a515ec68740ca7157099ef6f2d191916c" name="a515ec68740ca7157099ef6f2d191916c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a515ec68740ca7157099ef6f2d191916c">&#9670;&#160;</a></span>AtomicRead()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../df/d63/_typed_element_query_capabilities_8inl.html#a72343342ce64c0755563ee6c5e27868d">void</a> GCC_ALIGN::AtomicRead </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="../../d4/d3c/struct_f_indexed_pointer.html">FIndexedPointer</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>Other</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a4a79fb7a291e6aab26aa6eb0d98b467f" name="a4a79fb7a291e6aab26aa6eb0d98b467f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4a79fb7a291e6aab26aa6eb0d98b467f">&#9670;&#160;</a></span>DECLARE_LOG_CATEGORY_EXTERN()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">CORE_API DECLARE_LOG_CATEGORY_EXTERN </td>
+          <td>(</td>
+          <td class="paramtype">LogLockFreeList</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Log</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../db/da0/_hair_strands_composition_8cpp.html#a01ae254fc9c19378956c218ed4e9c32da54991d225c58ce0af43461d4e9a82312">All</a></td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ab0584e61751faad3fb07d2306615c211" name="ab0584e61751faad3fb07d2306615c211"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab0584e61751faad3fb07d2306615c211">&#9670;&#160;</a></span>DoTestCriticalStall()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">CORE_API <a class="el" href="../../df/d63/_typed_element_query_capabilities_8inl.html#a72343342ce64c0755563ee6c5e27868d">void</a> DoTestCriticalStall </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aa0fa356300104c5801cb2bcb533826fb" name="aa0fa356300104c5801cb2bcb533826fb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa0fa356300104c5801cb2bcb533826fb">&#9670;&#160;</a></span>GCC_ALIGN()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">struct <a class="el" href="../../d4/d3c/struct_f_indexed_pointer.html">FIndexedPointer</a> GCC_ALIGN </td>
+          <td>(</td>
+          <td class="paramtype">8</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a16d07a48a24a8286c4a517b9ed22502b" name="a16d07a48a24a8286c4a517b9ed22502b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a16d07a48a24a8286c4a517b9ed22502b">&#9670;&#160;</a></span>GetCounterAndState()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#aad3dc78eb1cb784a98c961907b03c1ad">UE_FORCEINLINE_HINT</a> <a class="el" href="../../dd/de9/preprocessor_8c.html#abc0f5bc07737e498f287334775dff2b6">uint64</a> GCC_ALIGN::GetCounterAndState </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel nodiscard">nodiscard</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a103fadf5afd4a3462b822129a77a348a" name="a103fadf5afd4a3462b822129a77a348a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a103fadf5afd4a3462b822129a77a348a">&#9670;&#160;</a></span>GetPtr()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#aad3dc78eb1cb784a98c961907b03c1ad">UE_FORCEINLINE_HINT</a> <a class="el" href="../../dd/de9/preprocessor_8c.html#a1134b580f8da4de94ca6b1de4d37975e">uint32</a> GCC_ALIGN::GetPtr </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel nodiscard">nodiscard</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a71327f91beaa09390e7edcac0c11bc2a" name="a71327f91beaa09390e7edcac0c11bc2a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a71327f91beaa09390e7edcac0c11bc2a">&#9670;&#160;</a></span>GetState()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;<a class="el" href="../../dd/de9/preprocessor_8c.html#abc0f5bc07737e498f287334775dff2b6">uint64</a> TABAInc&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#aad3dc78eb1cb784a98c961907b03c1ad">UE_FORCEINLINE_HINT</a> <a class="el" href="../../dd/de9/preprocessor_8c.html#abc0f5bc07737e498f287334775dff2b6">uint64</a> GCC_ALIGN::GetState </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel nodiscard">nodiscard</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aa047b58bcb6849c4d471a2ce95fc901e" name="aa047b58bcb6849c4d471a2ce95fc901e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa047b58bcb6849c4d471a2ce95fc901e">&#9670;&#160;</a></span>Init()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../df/d63/_typed_element_query_capabilities_8inl.html#a72343342ce64c0755563ee6c5e27868d">void</a> GCC_ALIGN::Init </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a167117197479e713be66b4aef39ddbc7" name="a167117197479e713be66b4aef39ddbc7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a167117197479e713be66b4aef39ddbc7">&#9670;&#160;</a></span>InterlockedCompareExchange()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a> GCC_ALIGN::InterlockedCompareExchange </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="../../d4/d3c/struct_f_indexed_pointer.html">FIndexedPointer</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>Exchange</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="../../d4/d3c/struct_f_indexed_pointer.html">FIndexedPointer</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>Comparand</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a009728adfe109c3e819dc5a5c8a35a22" name="a009728adfe109c3e819dc5a5c8a35a22"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a009728adfe109c3e819dc5a5c8a35a22">&#9670;&#160;</a></span>LockFreeAllocLinks()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">CORE_API <a class="el" href="../../df/d63/_typed_element_query_capabilities_8inl.html#a72343342ce64c0755563ee6c5e27868d">void</a> * LockFreeAllocLinks </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2c46f1fb01e11216aa2c983307deafb4">SIZE_T</a></td>          <td class="paramname"><span class="paramname"><em>AllocSize</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ae8427e5d82caa67e5a2d7f756961b2d6" name="ae8427e5d82caa67e5a2d7f756961b2d6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae8427e5d82caa67e5a2d7f756961b2d6">&#9670;&#160;</a></span>LockFreeFreeLinks()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">CORE_API <a class="el" href="../../df/d63/_typed_element_query_capabilities_8inl.html#a72343342ce64c0755563ee6c5e27868d">void</a> LockFreeFreeLinks </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2c46f1fb01e11216aa2c983307deafb4">SIZE_T</a></td>          <td class="paramname"><span class="paramname"><em>AllocSize</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../df/d63/_typed_element_query_capabilities_8inl.html#a72343342ce64c0755563ee6c5e27868d">void</a> *</td>          <td class="paramname"><span class="paramname"><em>Ptr</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a5eecca5252ba390214deee5656070354" name="a5eecca5252ba390214deee5656070354"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5eecca5252ba390214deee5656070354">&#9670;&#160;</a></span>LockFreeLinksExhausted()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">CORE_API <a class="el" href="../../df/d63/_typed_element_query_capabilities_8inl.html#a72343342ce64c0755563ee6c5e27868d">void</a> LockFreeLinksExhausted </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../dd/de9/preprocessor_8c.html#a1134b580f8da4de94ca6b1de4d37975e">uint32</a></td>          <td class="paramname"><span class="paramname"><em>TotalNum</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a35d839dac0219c8a20bcf15b35dd7baa" name="a35d839dac0219c8a20bcf15b35dd7baa"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a35d839dac0219c8a20bcf15b35dd7baa">&#9670;&#160;</a></span>LockFreeTagCounterHasOverflowed()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">CORE_API <a class="el" href="../../df/d63/_typed_element_query_capabilities_8inl.html#a72343342ce64c0755563ee6c5e27868d">void</a> LockFreeTagCounterHasOverflowed </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ab793193c11ccd02781a6e1676776a3f6" name="ab793193c11ccd02781a6e1676776a3f6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab793193c11ccd02781a6e1676776a3f6">&#9670;&#160;</a></span>operator!=()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#aad3dc78eb1cb784a98c961907b03c1ad">UE_FORCEINLINE_HINT</a> <a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a> <a class="el" href="../../dd/d85/_actor_component_8h.html#a32cf089fbcc328130e6377fbf77b4f63">GCC_ALIGN::operator!</a>= </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="../../d4/d3c/struct_f_indexed_pointer.html">FIndexedPointer</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>Other</em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel nodiscard">nodiscard</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ab170dc050c48fb98f6c601a22ea60b13" name="ab170dc050c48fb98f6c601a22ea60b13"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab170dc050c48fb98f6c601a22ea60b13">&#9670;&#160;</a></span>operator==()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#aad3dc78eb1cb784a98c961907b03c1ad">UE_FORCEINLINE_HINT</a> <a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a> GCC_ALIGN::operator== </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="../../d4/d3c/struct_f_indexed_pointer.html">FIndexedPointer</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>Other</em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel nodiscard">nodiscard</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a33ff26d719b3a204a549f96cca2d7345" name="a33ff26d719b3a204a549f96cca2d7345"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a33ff26d719b3a204a549f96cca2d7345">&#9670;&#160;</a></span>SetAll()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../df/d63/_typed_element_query_capabilities_8inl.html#a72343342ce64c0755563ee6c5e27868d">void</a> GCC_ALIGN::SetAll </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../dd/de9/preprocessor_8c.html#a1134b580f8da4de94ca6b1de4d37975e">uint32</a></td>          <td class="paramname"><span class="paramname"><em>Ptr</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../dd/de9/preprocessor_8c.html#abc0f5bc07737e498f287334775dff2b6">uint64</a></td>          <td class="paramname"><span class="paramname"><em>CounterAndState</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a50de84812f0098ca564548c4a987ff51" name="a50de84812f0098ca564548c4a987ff51"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a50de84812f0098ca564548c4a987ff51">&#9670;&#160;</a></span>SetCounterAndState()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#aad3dc78eb1cb784a98c961907b03c1ad">UE_FORCEINLINE_HINT</a> <a class="el" href="../../df/d63/_typed_element_query_capabilities_8inl.html#a72343342ce64c0755563ee6c5e27868d">void</a> GCC_ALIGN::SetCounterAndState </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../dd/de9/preprocessor_8c.html#abc0f5bc07737e498f287334775dff2b6">uint64</a></td>          <td class="paramname"><span class="paramname"><em>To</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a7e2467cb23dd4ef29c3bfd58bc5e1224" name="a7e2467cb23dd4ef29c3bfd58bc5e1224"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7e2467cb23dd4ef29c3bfd58bc5e1224">&#9670;&#160;</a></span>SetPtr()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#aad3dc78eb1cb784a98c961907b03c1ad">UE_FORCEINLINE_HINT</a> <a class="el" href="../../df/d63/_typed_element_query_capabilities_8inl.html#a72343342ce64c0755563ee6c5e27868d">void</a> GCC_ALIGN::SetPtr </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../dd/de9/preprocessor_8c.html#a1134b580f8da4de94ca6b1de4d37975e">uint32</a></td>          <td class="paramname"><span class="paramname"><em>To</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a8cd7faf7ff7e86b0093b2bfd39ec23ea" name="a8cd7faf7ff7e86b0093b2bfd39ec23ea"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8cd7faf7ff7e86b0093b2bfd39ec23ea">&#9670;&#160;</a></span>SetState()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;<a class="el" href="../../dd/de9/preprocessor_8c.html#abc0f5bc07737e498f287334775dff2b6">uint64</a> TABAInc&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../df/d63/_typed_element_query_capabilities_8inl.html#a72343342ce64c0755563ee6c5e27868d">void</a> GCC_ALIGN::SetState </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../dd/de9/preprocessor_8c.html#abc0f5bc07737e498f287334775dff2b6">uint64</a></td>          <td class="paramname"><span class="paramname"><em>Value</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="af08ad35c9d4a4e33a44f92b0a4f8c8a7" name="af08ad35c9d4a4e33a44f92b0a4f8c8a7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af08ad35c9d4a4e33a44f92b0a4f8c8a7">&#9670;&#160;</a></span>TestCriticalStall()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../df/d63/_typed_element_query_capabilities_8inl.html#a72343342ce64c0755563ee6c5e27868d">void</a> TestCriticalStall </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a name="doc-var-members" id="doc-var-members"></a><h2 id="header-doc-var-members" class="groupheader">变量说明</h2>
+<a id="a7c90136014ce3ebaba259a51b180890c" name="a7c90136014ce3ebaba259a51b180890c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7c90136014ce3ebaba259a51b180890c">&#9670;&#160;</a></span>GCC_ALIGN</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">struct <a class="el" href="../../de/d74/struct_f_indexed_lock_free_link.html">FIndexedLockFreeLink</a> GCC_ALIGN</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a6e65e6e42106b8792099a293e54d94b2" name="a6e65e6e42106b8792099a293e54d94b2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6e65e6e42106b8792099a293e54d94b2">&#9670;&#160;</a></span>GTestCriticalStalls</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">CORE_API <a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a8dbb3cd84ca9fd010dadfc3815eefa5d">int32</a> GTestCriticalStalls</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel extern">extern</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<div id="page-nav" class="page-nav-panel">
+<div id="page-nav-resize-handle"></div>
+<div id="page-nav-tree">
+<div id="page-nav-contents">
+</div><!-- page-nav-contents -->
+</div><!-- page-nav-tree -->
+</div><!-- page-nav -->
+</div><!-- container -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a href="../../dir_0b6ee6e7e9547e675db4add2e5de97da.html">Engine</a></li><li class="navelem"><a href="../../dir_9579d1ecb2c7bf48cbe1049c41745cb4.html">Source</a></li><li class="navelem"><a href="../../dir_9f04efef762572853abdf73f62bebfcc.html">Runtime</a></li><li class="navelem"><a href="../../dir_3de6fe8d63806cea4bedcdcf5470dc5e.html">Core</a></li><li class="navelem"><a href="../../dir_399a9fb0bb7a487bf3d85aef916cb8c0.html">Public</a></li><li class="navelem"><a href="../../dir_27ee5cc5f2e17bd29134a86e244ce91b.html">Containers</a></li><li class="navelem"><a href="../../d9/dcd/_lock_free_list_8h.html">LockFreeList.h</a></li>
+    <li class="footer">制作者 <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.15.0 </li>
+  </ul>
+</div>
+</body>
+</html>

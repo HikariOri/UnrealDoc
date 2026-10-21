@@ -1,0 +1,320 @@
+<!-- HTML header for doxygen 1.15.0-->
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh">
+<head>
+  <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=11" />
+  <meta name="generator" content="Doxygen 1.15.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>UE 5.8.4: Engine/Source/Developer/TraceServices/Private/Model/LoadTimeProfilerPrivate.h 源文件</title>
+  <link rel="icon" href="../../EdIconDefault.bmp" type="image/x-icon" />
+  <link href="../../tabs.css" rel="stylesheet" type="text/css" />
+  <script type="text/javascript" src="../../jquery.js"></script>
+  <script type="text/javascript" src="../../dynsections.js"></script>
+  <link href="../../navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../navtreedata.js"></script>
+<script type="text/javascript" src="../../navtree.js"></script>
+<script type="text/javascript" src="../../cookie.js"></script>
+  <link href="../../search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../search/searchdata.js"></script>
+<script type="text/javascript" src="../../search/search.js"></script>
+  <link href="../../doxygen.css" rel="stylesheet" type="text/css" />
+  <link href="../../doxygen-awesome.css" rel="stylesheet" type="text/css"/>
+<link href="../../doxygen-awesome-sidebar-only.css" rel="stylesheet" type="text/css"/>
+<link href="../../doxygen-awesome-sidebar-only-darkmode-toggle.css" rel="stylesheet" type="text/css"/>
+  <!-- ... other metadata & script includes ... -->
+  <script type="text/javascript" src="../../doxygen-awesome-darkmode-toggle.js"></script>
+  <script type="text/javascript">
+    DoxygenAwesomeDarkModeToggle.title = "Zwischen hellem/dunklem Modus wechseln"
+    DoxygenAwesomeDarkModeToggle.lightModeIcon = '🌞'
+    // icon from https://fonts.google.com/icons
+    DoxygenAwesomeDarkModeToggle.darkModeIcon = `<svg xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 24 24" height="24px" viewBox="0 0 24 24" width="24px" fill="#009793"><g><rect fill="none" height="24" width="24"/></g><g><g><path d="M8.1,14.15C9.77,14.63,11,16.17,11,18c0,0.68-0.19,1.31-0.48,1.87c0.48,0.09,0.97,0.14,1.48,0.14 c1.48,0,2.9-0.41,4.13-1.15c-2.62-0.92-5.23-2.82-6.8-5.86C7.74,9.94,7.78,7.09,8.29,4.9c-2.57,1.33-4.3,4.01-4.3,7.1c0,0,0,0,0,0 c0.01,0,0.01,0,0.02,0C5.66,12,7.18,12.83,8.1,14.15z" opacity=".3"/><path d="M19.78,17.51c-2.47,0-6.57-1.33-8.68-5.43C8.77,7.57,10.6,3.6,11.63,2.01C6.27,2.2,1.98,6.59,1.98,12 c0,0.14,0.02,0.28,0.02,0.42C2.61,12.16,3.28,12,3.98,12c0,0,0,0,0,0c0-3.09,1.73-5.77,4.3-7.1C7.78,7.09,7.74,9.94,9.32,13 c1.57,3.04,4.18,4.95,6.8,5.86c-1.23,0.74-2.65,1.15-4.13,1.15c-0.5,0-1-0.05-1.48-0.14c-0.37,0.7-0.94,1.27-1.64,1.64 c0.98,0.32,2.03,0.5,3.11,0.5c3.5,0,6.58-1.8,8.37-4.52C20.18,17.5,19.98,17.51,19.78,17.51z"/><path d="M7,16l-0.18,0C6.4,14.84,5.3,14,4,14c-1.66,0-3,1.34-3,3s1.34,3,3,3c0.62,0,2.49,0,3,0c1.1,0,2-0.9,2-2 C9,16.9,8.1,16,7,16z"/></g></g></svg>`
+    DoxygenAwesomeDarkModeToggle.init()
+  </script>
+  <script type="text/javascript" src="../../doxygen-awesome-fragment-copy-button.js"></script>
+  <script type="text/javascript">
+    DoxygenAwesomeFragmentCopyButton.title = "In die Zwischenablage kopieren"
+    // DoxygenAwesomeFragmentCopyButton.copyIcon = `<svg ...>`
+    // DoxygenAwesomeFragmentCopyButton.successIcon = `<svg ...>`
+    DoxygenAwesomeFragmentCopyButton.init()
+  </script>
+  <script type="text/javascript" src="../../doxygen-awesome-paragraph-link.js"></script>
+  <script type="text/javascript">
+    DoxygenAwesomeParagraphLink.title = "Abschnitt verknüpfen"
+    DoxygenAwesomeParagraphLink.icon = "¶"
+    DoxygenAwesomeParagraphLink.init()
+  </script>
+  <script type="text/javascript" src="../../doxygen-awesome-interactive-toc.js"></script>
+  <script type="text/javascript">
+    DoxygenAwesomeInteractiveToc.topOffset = 45
+    DoxygenAwesomeInteractiveToc.hideMobileMenu = false
+    DoxygenAwesomeInteractiveToc.init()
+  </script>
+</head>
+<body>
+    <div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+      <div id="titlearea">
+        <table cellspacing="0" cellpadding="0">
+          <tbody>
+            <tr id="projectrow">
+              <td id="projectlogo"><img alt="Logo" src="../../EdIconDefault.bmp"  /></td>
+              <td id="projectalign">
+                <div id="projectname">UE 5.8.4
+                </div>
+                <div id="projectbrief">Unreal Engine</div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <!-- end header part -->
+<!-- 制作者 Doxygen 1.15.0 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "../../search/",'.html');
+</script>
+<script type="text/javascript">
+$(function() { codefold.init(); });
+</script>
+<script type="text/javascript" src="../../menudata.js"></script>
+<script type="text/javascript" src="../../menu.js"></script>
+<script type="text/javascript">
+$(function() {
+  initMenu('../../',true,false,'search.php','搜索',true);
+  $(function() { init_search(); });
+});
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(function(){initNavTree('d5/ddd/_load_time_profiler_private_8h_source.html','../../',''); });
+</script>
+<div id="container">
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">载入中...</div>
+<div class="SRStatus" id="Searching">搜索中...</div>
+<div class="SRStatus" id="NoMatches">未找到</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">LoadTimeProfilerPrivate.h</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="../../d5/ddd/_load_time_profiler_private_8h.html">浏览该文件的文档.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="comment">// Copyright Epic Games, Inc. All Rights Reserved.</span></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span> </div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="preprocessor">#pragma once</span></div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span> </div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="preprocessor">#include &quot;<a class="code" href="../../db/d97/_counters_8h.html">TraceServices/Model/Counters.h</a>&quot;</span></div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="preprocessor">#include &quot;<a class="code" href="../../d3/d36/_load_time_profiler_8h.html">TraceServices/Model/LoadTimeProfiler.h</a>&quot;</span></div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="preprocessor">#include &quot;<a class="code" href="../../d9/d2d/_slab_allocator_8h.html">TraceServices/Containers/SlabAllocator.h</a>&quot;</span></div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="preprocessor">#include &quot;<a class="code" href="../../d8/d73/_developer_2_trace_services_2_public_2_common_2_paged_array_8h.html">Common/PagedArray.h</a>&quot;</span></div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="preprocessor">#include &quot;<a class="code" href="../../da/da9/_string_store_8h.html">Common/StringStore.h</a>&quot;</span></div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="preprocessor">#include &quot;<a class="code" href="../../da/d58/_monotonic_timeline_8h.html">Model/MonotonicTimeline.h</a>&quot;</span></div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="preprocessor">#include &quot;<a class="code" href="../../d5/dd2/_private_2_model_2_tables_8h.html">Model/Tables.h</a>&quot;</span></div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span> </div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="keyword">namespace </span><a class="code hl_namespace" href="../../d6/df9/namespace_trace_services.html">TraceServices</a></div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span>{</div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span> </div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span><span class="keyword">class </span><a class="code hl_class" href="../../d0/d82/class_trace_services_1_1_f_analysis_session_lock.html">FAnalysisSessionLock</a>;</div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span> </div>
+<div class="foldopen" id="foldopen00018" data-start="{" data-end="};">
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno"><a class="line" href="../../d8/d03/class_trace_services_1_1_f_load_time_profiler_provider.html">   18</a></span><span class="keyword">class </span><a class="code hl_function" href="../../d8/d03/class_trace_services_1_1_f_load_time_profiler_provider.html#a97cf87c3e5ada3c4185e101dd1b4e0a0">FLoadTimeProfilerProvider</a></div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>    : <span class="keyword">public</span> <a class="code hl_class" href="../../d8/db0/class_trace_services_1_1_i_load_time_profiler_provider.html">ILoadTimeProfilerProvider</a></div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>{</div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno"><a class="line" href="../../d8/d03/class_trace_services_1_1_f_load_time_profiler_provider.html#a7525d2bf020e4207c78ea069f2f2a003">   22</a></span>    <span class="keyword">typedef</span> <a class="code hl_class" href="../../d1/db1/class_trace_services_1_1_t_monotonic_timeline.html">TMonotonicTimeline&lt;FLoadTimeProfilerCpuEvent&gt;</a> <a class="code hl_typedef" href="../../d8/d03/class_trace_services_1_1_f_load_time_profiler_provider.html#a7525d2bf020e4207c78ea069f2f2a003">CpuTimelineInternal</a>;</div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span> </div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>    <span class="keyword">explicit</span> <a class="code hl_function" href="../../d8/d03/class_trace_services_1_1_f_load_time_profiler_provider.html#a97cf87c3e5ada3c4185e101dd1b4e0a0">FLoadTimeProfilerProvider</a>(<a class="code hl_class" href="../../d1/d45/class_trace_services_1_1_i_analysis_session.html">IAnalysisSession</a>&amp; Session, <a class="code hl_class" href="../../d4/d0a/class_trace_services_1_1_i_editable_counter_provider.html">IEditableCounterProvider</a>&amp; EditableCounterProvider);</div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno"><a class="line" href="../../d8/d03/class_trace_services_1_1_f_load_time_profiler_provider.html#a293650777f7107ce4902146477ddd873">   25</a></span>    <span class="keyword">virtual</span> <a class="code hl_function" href="../../d8/d03/class_trace_services_1_1_f_load_time_profiler_provider.html#a293650777f7107ce4902146477ddd873">~FLoadTimeProfilerProvider</a>() = <span class="keywordflow">default</span>;</div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span> </div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno"><a class="line" href="../../d8/d03/class_trace_services_1_1_f_load_time_profiler_provider.html#a592ed2b697114ef9fd2c03a8f186a8ad">   27</a></span>    <span class="keyword">virtual</span> <a class="code hl_typedef" href="../../dd/de9/preprocessor_8c.html#a1134b580f8da4de94ca6b1de4d37975e">uint32</a> <a class="code hl_function" href="../../d8/d03/class_trace_services_1_1_f_load_time_profiler_provider.html#a592ed2b697114ef9fd2c03a8f186a8ad">GetTimelineCount</a>()<span class="keyword"> const override </span>{ <span class="keywordflow">return</span> CpuTimelines.Num(); }</div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>    <span class="keyword">virtual</span> <span class="keywordtype">bool</span> <a class="code hl_function" href="../../d8/d03/class_trace_services_1_1_f_load_time_profiler_provider.html#afbdf0c3fff45c30e26877376452c9a8f">GetCpuThreadTimelineIndex</a>(<a class="code hl_typedef" href="../../dd/de9/preprocessor_8c.html#a1134b580f8da4de94ca6b1de4d37975e">uint32</a> ThreadId, <a class="code hl_typedef" href="../../dd/de9/preprocessor_8c.html#a1134b580f8da4de94ca6b1de4d37975e">uint32</a>&amp; OutTimelineIndex) <span class="keyword">const override</span>;</div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>    <span class="keyword">virtual</span> <span class="keywordtype">bool</span> <a class="code hl_function" href="../../d8/d03/class_trace_services_1_1_f_load_time_profiler_provider.html#acea6db6c428755653fd122f1040f3b4f">ReadTimeline</a>(<a class="code hl_typedef" href="../../dd/de9/preprocessor_8c.html#a1134b580f8da4de94ca6b1de4d37975e">uint32</a> <a class="code hl_typedef" href="../../df/dd5/radfft_8cpp.html#a353b84469a01fbe28e2db978bdf1fb86">Index</a>, <a class="code hl_class" href="../../d8/d95/class_t_function_ref.html">TFunctionRef</a>&lt;<span class="keywordtype">void</span>(<span class="keyword">const</span> <a class="code hl_typedef" href="../../d8/db0/class_trace_services_1_1_i_load_time_profiler_provider.html#ae67748faeadb3f940ec9b21c3e339b1a">CpuTimeline</a>&amp;)&gt; Callback) <span class="keyword">const override</span>;</div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>    <span class="keyword">virtual</span> <a class="code hl_class" href="../../d2/dd5/class_trace_services_1_1_i_table.html">ITable&lt;FLoadTimeProfilerAggregatedStats&gt;</a>* <a class="code hl_function" href="../../d8/d03/class_trace_services_1_1_f_load_time_profiler_provider.html#ac59b7466f327dd2db885202fadc629cd">CreateEventAggregation</a>(<span class="keywordtype">double</span> IntervalStart, <span class="keywordtype">double</span> IntervalEnd) <span class="keyword">const override</span>;</div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>    <span class="keyword">virtual</span> <a class="code hl_class" href="../../d2/dd5/class_trace_services_1_1_i_table.html">ITable&lt;FLoadTimeProfilerAggregatedStats&gt;</a>* <a class="code hl_function" href="../../d8/d03/class_trace_services_1_1_f_load_time_profiler_provider.html#aed82cebaa8ec4c501c11119ed9928e72">CreateObjectTypeAggregation</a>(<span class="keywordtype">double</span> IntervalStart, <span class="keywordtype">double</span> IntervalEnd) <span class="keyword">const override</span>;</div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>    <span class="keyword">virtual</span> <a class="code hl_class" href="../../d2/dd5/class_trace_services_1_1_i_table.html">ITable&lt;FPackagesTableRow&gt;</a>* <a class="code hl_function" href="../../d8/d03/class_trace_services_1_1_f_load_time_profiler_provider.html#a8fbfea25bf142842494e40cef2a0f9ee">CreatePackageDetailsTable</a>(<span class="keywordtype">double</span> IntervalStart, <span class="keywordtype">double</span> IntervalEnd) <span class="keyword">const override</span>;</div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>    <span class="keyword">virtual</span> <a class="code hl_class" href="../../d2/dd5/class_trace_services_1_1_i_table.html">ITable&lt;FExportsTableRow&gt;</a>* <a class="code hl_function" href="../../d8/d03/class_trace_services_1_1_f_load_time_profiler_provider.html#a1784631505942f40e0f1a08743ebd47d">CreateExportDetailsTable</a>(<span class="keywordtype">double</span> IntervalStart, <span class="keywordtype">double</span> IntervalEnd) <span class="keyword">const override</span>;</div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>    <span class="keyword">virtual</span> <a class="code hl_class" href="../../d2/dd5/class_trace_services_1_1_i_table.html">ITable&lt;FRequestsTableRow&gt;</a>* <a class="code hl_function" href="../../d8/d03/class_trace_services_1_1_f_load_time_profiler_provider.html#abb85b196be3390c51a5644fe23c595f1">CreateRequestsTable</a>(<span class="keywordtype">double</span> IntervalStart, <span class="keywordtype">double</span> IntervalEnd) <span class="keyword">const override</span>;</div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno"><a class="line" href="../../d8/d03/class_trace_services_1_1_f_load_time_profiler_provider.html#a5d0fe2cb88f4c0dbf45ca5fc2ff80314">   35</a></span>    <span class="keyword">virtual</span> <span class="keyword">const</span> <a class="code hl_class" href="../../d2/dd5/class_trace_services_1_1_i_table.html">ITable&lt;FLoadRequest&gt;</a>&amp; <a class="code hl_function" href="../../d8/d03/class_trace_services_1_1_f_load_time_profiler_provider.html#a5d0fe2cb88f4c0dbf45ca5fc2ff80314">GetRequestsTable</a>()<span class="keyword"> const override </span>{ <span class="keywordflow">return</span> RequestsTable; }</div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>    <span class="keyword">const</span> <a class="code hl_struct" href="../../d3/dad/struct_trace_services_1_1_f_class_info.html">FClassInfo</a>&amp; <a class="code hl_function" href="../../d8/d03/class_trace_services_1_1_f_load_time_profiler_provider.html#af0db9610b21a0864866f0edda14fa75a">AddClassInfo</a>(<span class="keyword">const</span> TCHAR* <a class="code hl_enumvalue" href="../../d9/deb/_class_viewer_module_8h.html#a8df3300e55a1396d9f37e569d39d29d0a068de71fcceedb22e62be37be1fb74bd">ClassName</a>);</div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>    <a class="code hl_struct" href="../../d6/d8a/struct_trace_services_1_1_f_load_request.html">FLoadRequest</a>&amp; <a class="code hl_function" href="../../d8/d03/class_trace_services_1_1_f_load_time_profiler_provider.html#ac0c2431ab0a4654b67b0f0d98be3fb81">CreateRequest</a>();</div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>    <a class="code hl_struct" href="../../d1/d8b/struct_trace_services_1_1_f_package_info.html">FPackageInfo</a>&amp; <a class="code hl_function" href="../../d8/d03/class_trace_services_1_1_f_load_time_profiler_provider.html#af6bb5aec95f2d94db3bfcafec5352ff9">CreatePackage</a>();</div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>    <a class="code hl_struct" href="../../d2/d13/struct_trace_services_1_1_f_package_export_info.html">FPackageExportInfo</a>&amp; <a class="code hl_function" href="../../d8/d03/class_trace_services_1_1_f_load_time_profiler_provider.html#a3a3303a674489f377617f1da1f911418">CreateExport</a>();</div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>    <a class="code hl_typedef" href="../../d8/d03/class_trace_services_1_1_f_load_time_profiler_provider.html#a7525d2bf020e4207c78ea069f2f2a003">CpuTimelineInternal</a>&amp; <a class="code hl_function" href="../../d8/d03/class_trace_services_1_1_f_load_time_profiler_provider.html#aa5f3456e6a166e7345c7ce0ab43f9de9">EditCpuTimeline</a>(<a class="code hl_typedef" href="../../dd/de9/preprocessor_8c.html#a1134b580f8da4de94ca6b1de4d37975e">uint32</a> ThreadId);</div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>    <a class="code hl_typedef" href="../../dd/de9/preprocessor_8c.html#abc0f5bc07737e498f287334775dff2b6">uint64</a> <a class="code hl_function" href="../../d8/d03/class_trace_services_1_1_f_load_time_profiler_provider.html#ac6b7fa7656fb58ca02f452a9416bf284">BeginIoDispatcherBatch</a>(<a class="code hl_typedef" href="../../dd/de9/preprocessor_8c.html#abc0f5bc07737e498f287334775dff2b6">uint64</a> BatchId, <span class="keywordtype">double</span> <a class="code hl_enumvalue" href="../../d0/d08/_motion_trail_options_8h.html#a0bb31d39f09af5eb8c24a97c724bdb98aa76d4ef5f3f6a672bbfab2865563e530">Time</a>);</div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="../../d8/d03/class_trace_services_1_1_f_load_time_profiler_provider.html#a337dfd67255c53e33feef726782bd388">EndIoDispatcherBatch</a>(<a class="code hl_typedef" href="../../dd/de9/preprocessor_8c.html#abc0f5bc07737e498f287334775dff2b6">uint64</a> BatchHandle, <span class="keywordtype">double</span> <a class="code hl_enumvalue" href="../../d0/d08/_motion_trail_options_8h.html#a0bb31d39f09af5eb8c24a97c724bdb98aa76d4ef5f3f6a672bbfab2865563e530">Time</a>, <a class="code hl_typedef" href="../../dd/de9/preprocessor_8c.html#abc0f5bc07737e498f287334775dff2b6">uint64</a> TotalSize);</div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span> </div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span><span class="keyword">private</span>:</div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>    <span class="keyword">struct </span>FLoaderFrame;</div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span> </div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>    <span class="keyword">static</span> <a class="code hl_typedef" href="../../dd/de9/preprocessor_8c.html#abc0f5bc07737e498f287334775dff2b6">uint64</a> PackageSizeSum(<span class="keyword">const</span> <a class="code hl_struct" href="../../d6/d8a/struct_trace_services_1_1_f_load_request.html">FLoadRequest</a>&amp; Row);</div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>    <span class="keywordtype">void</span> CreateCounters();</div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>    <span class="keywordtype">void</span> DistributeBytesAcrossFrames(<a class="code hl_typedef" href="../../dd/de9/preprocessor_8c.html#abc0f5bc07737e498f287334775dff2b6">uint64</a> ByteCount, <span class="keywordtype">double</span> StartTime, <span class="keywordtype">double</span> EndTime, <a class="code hl_typedef" href="../../dd/de9/preprocessor_8c.html#abc0f5bc07737e498f287334775dff2b6">uint64</a> FLoaderFrame::* FrameVariable);</div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span> </div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>    <span class="keyword">static</span> <span class="keyword">constexpr</span> <span class="keywordtype">double</span> LoaderFrameLength = 1.0 / 60.0;</div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span> </div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>    <span class="keyword">struct </span>FPackageLoad</div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>    {</div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>        <span class="keyword">const</span> <a class="code hl_struct" href="../../d1/d8b/struct_trace_services_1_1_f_package_info.html">FPackageInfo</a>* Package = <span class="keyword">nullptr</span>;</div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>        <span class="keywordtype">double</span> StartTime = 0.0;</div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>        <span class="keywordtype">double</span> EndTime = 0.0;</div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>    };</div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span> </div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>    <span class="keyword">struct </span>FIoDispatcherBatch</div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>    {</div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>        <span class="keywordtype">double</span> StartTime = 0.0;</div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>        <span class="keywordtype">double</span> EndTime = 0.0;</div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>        <a class="code hl_typedef" href="../../dd/de9/preprocessor_8c.html#abc0f5bc07737e498f287334775dff2b6">uint64</a> TotalSize = 0;</div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>    };</div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span> </div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>    <span class="keyword">struct </span>FLoaderFrame</div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>    {</div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>        <a class="code hl_typedef" href="../../dd/de9/preprocessor_8c.html#abc0f5bc07737e498f287334775dff2b6">uint64</a> IoDispatcherReadBytes = 0;</div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>        <a class="code hl_typedef" href="../../dd/de9/preprocessor_8c.html#abc0f5bc07737e498f287334775dff2b6">uint64</a> HeaderLoadedBytes = 0;</div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>        <a class="code hl_typedef" href="../../dd/de9/preprocessor_8c.html#abc0f5bc07737e498f287334775dff2b6">uint64</a> ExportLoadedBytes = 0;</div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>    };</div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span> </div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>    <span class="keyword">class </span>FLoaderFrameCounter</div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>        : <span class="keyword">public</span> ICounter</div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>    {</div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span>    <span class="keyword">public</span>:</div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>        <span class="keyword">enum</span> ELoaderFrameCounterType</div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>        {</div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>            LoaderFrameCounterType_IoDispatcherThroughput,</div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>            LoaderFrameCounterType_LoaderThroughput,</div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span>            LoaderFrameCounterType_Count</div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span>        };</div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span> </div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span>        FLoaderFrameCounter(ELoaderFrameCounterType Type, <span class="keyword">const</span> TPagedArray&lt;FLoaderFrame&gt;&amp; Frames);</div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span>        <span class="keyword">virtual</span> ~FLoaderFrameCounter() = <span class="keywordflow">default</span>;</div>
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span> </div>
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span>        <span class="keyword">virtual</span> <span class="keyword">const</span> <a class="code hl_typedef" href="../../d4/d83/namespace_cross_compiler.html#ad4d968bae01be345ca4bcc2426796f38">TCHAR</a>* <a class="code hl_function" href="../../d8/d5c/class_trace_services_1_1_i_counter.html#a4aa9f9964a0d49531b8215c7bd84d1f3">GetName</a>() <span class="keyword">const override</span>;</div>
+<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span>        <span class="keyword">virtual</span> <span class="keyword">const</span> <a class="code hl_typedef" href="../../d4/d83/namespace_cross_compiler.html#ad4d968bae01be345ca4bcc2426796f38">TCHAR</a>* <a class="code hl_function" href="../../d8/d5c/class_trace_services_1_1_i_counter.html#a5cca16df6db88730814a196e3f265ef8">GetGroup</a>() <span class="keyword">const override</span>;</div>
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span>        <span class="keyword">virtual</span> <span class="keyword">const</span> <a class="code hl_typedef" href="../../d4/d83/namespace_cross_compiler.html#ad4d968bae01be345ca4bcc2426796f38">TCHAR</a>* <a class="code hl_function" href="../../d8/d5c/class_trace_services_1_1_i_counter.html#ab7fdffedaa32e6d13bcdc8b5e3fa2f12">GetDescription</a>() <span class="keyword">const override</span>;</div>
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span>        <span class="keyword">virtual</span> <span class="keywordtype">bool</span> <a class="code hl_function" href="../../d8/d5c/class_trace_services_1_1_i_counter.html#a4eaea9f4abd1e53ef60e0da852dfd3dc">IsFloatingPoint</a>() <span class="keyword">const override</span>;</div>
+<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span>        <span class="keyword">virtual</span> <a class="code hl_enumeration" href="../../d6/df9/namespace_trace_services.html#a31b9e561a0d95e2d94dc17a8423de464">ECounterDisplayHint</a> <a class="code hl_function" href="../../d8/d5c/class_trace_services_1_1_i_counter.html#ad68f6968bbc3fc943babdda771c58501">GetDisplayHint</a>() <span class="keyword">const override</span>;</div>
+<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span>        <span class="keyword">virtual</span> <span class="keywordtype">void</span> EnumerateValues(<span class="keywordtype">double</span> IntervalStart, <span class="keywordtype">double</span> IntervalEnd, <span class="keywordtype">bool</span> bIncludeExternalBounds, TFunctionRef&lt;<span class="keywordtype">void</span>(<span class="keywordtype">double</span>, <a class="code hl_typedef" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a89241ea7101f26f05a4f1efd6be26b32">int64</a>)&gt; Callback) <span class="keyword">const override</span>;</div>
+<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span>        <span class="keyword">virtual</span> <span class="keywordtype">void</span> EnumerateFloatValues(<span class="keywordtype">double</span> IntervalStart, <span class="keywordtype">double</span> IntervalEnd, <span class="keywordtype">bool</span> bIncludeExternalBounds, TFunctionRef&lt;<span class="keywordtype">void</span>(<span class="keywordtype">double</span>, <span class="keywordtype">double</span>)&gt; Callback) <span class="keyword">const override</span>;</div>
+<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span>        <span class="keyword">virtual</span> <span class="keywordtype">void</span> EnumerateOps(<span class="keywordtype">double</span> IntervalStart, <span class="keywordtype">double</span> IntervalEnd, <span class="keywordtype">bool</span> bIncludeExternalBounds, TFunctionRef&lt;<span class="keywordtype">void</span>(<span class="keywordtype">double</span>, <a class="code hl_enumeration" href="../../d6/df9/namespace_trace_services.html#ad3a22adec95cd7c8290704bc4f315d58">ECounterOpType</a>, <a class="code hl_typedef" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a89241ea7101f26f05a4f1efd6be26b32">int64</a>)&gt; Callback) <span class="keyword">const override</span>;</div>
+<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span>        <span class="keyword">virtual</span> <span class="keywordtype">void</span> EnumerateFloatOps(<span class="keywordtype">double</span> IntervalStart, <span class="keywordtype">double</span> IntervalEnd, <span class="keywordtype">bool</span> bIncludeExternalBounds, TFunctionRef&lt;<span class="keywordtype">void</span>(<span class="keywordtype">double</span>, <a class="code hl_enumeration" href="../../d6/df9/namespace_trace_services.html#ad3a22adec95cd7c8290704bc4f315d58">ECounterOpType</a>, <span class="keywordtype">double</span>)&gt; Callback) <span class="keyword">const override</span>;</div>
+<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span> </div>
+<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span>    <span class="keyword">private</span>:</div>
+<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span>        <span class="keyword">const</span> TPagedArray&lt;FLoaderFrame&gt;&amp; Frames;</div>
+<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span>        ELoaderFrameCounterType Type;</div>
+<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span>    };</div>
+<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span> </div>
+<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span>    IAnalysisSession&amp; Session;</div>
+<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span>    IEditableCounterProvider&amp; EditableCounterProvider;</div>
+<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span>    TPagedArray&lt;FClassInfo&gt; ClassInfos;</div>
+<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span>    TPagedArray&lt;FLoadRequest&gt; Requests;</div>
+<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span>    TPagedArray&lt;FPackageInfo&gt; Packages;</div>
+<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span>    TPagedArray&lt;FIoDispatcherBatch&gt; IoDispatcherBatches;</div>
+<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span>    TPagedArray&lt;FPackageExportInfo&gt; Exports;</div>
+<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span>    TArray&lt;TSharedRef&lt;CpuTimelineInternal&gt;&gt; CpuTimelines;</div>
+<div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span>    TMap&lt;uint32, uint32&gt; CpuTimelinesThreadMap;</div>
+<div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span>    TTableView&lt;FLoadRequest&gt; RequestsTable;</div>
+<div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span>    TTableLayout&lt;FLoadTimeProfilerAggregatedStats&gt; AggregatedStatsTableLayout;</div>
+<div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span>    TTableLayout&lt;FPackagesTableRow&gt; PackagesTableLayout;</div>
+<div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span>    TTableLayout&lt;FExportsTableRow&gt; ExportsTableLayout;</div>
+<div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span>    TTableLayout&lt;FRequestsTableRow&gt; RequestsTableLayout;</div>
+<div class="line"><a id="l00117" name="l00117"></a><span class="lineno">  117</span>    TPagedArray&lt;FLoaderFrame&gt; Frames;</div>
+<div class="line"><a id="l00118" name="l00118"></a><span class="lineno">  118</span>    <span class="keywordtype">bool</span> bHasCreatedCounters = <span class="keyword">false</span>;</div>
+<div class="line"><a id="l00119" name="l00119"></a><span class="lineno">  119</span>    IEditableCounter* ActiveIoDispatcherBatchesCounter = <span class="keyword">nullptr</span>;</div>
+<div class="line"><a id="l00120" name="l00120"></a><span class="lineno">  120</span>    IEditableCounter* TotalIoDispatcherBytesReadCounter = <span class="keyword">nullptr</span>;</div>
+<div class="line"><a id="l00121" name="l00121"></a><span class="lineno">  121</span>    IEditableCounter* LoadingPackagesCounter = <span class="keyword">nullptr</span>;</div>
+<div class="line"><a id="l00122" name="l00122"></a><span class="lineno">  122</span>    IEditableCounter* TotalLoaderBytesLoadedCounter = <span class="keyword">nullptr</span>;</div>
+<div class="line"><a id="l00123" name="l00123"></a><span class="lineno">  123</span>};</div>
+</div>
+<div class="line"><a id="l00124" name="l00124"></a><span class="lineno">  124</span> </div>
+<div class="line"><a id="l00125" name="l00125"></a><span class="lineno">  125</span>} <span class="comment">// namespace TraceServices</span></div>
+<div class="ttc" id="a_class_viewer_module_8h_html_a8df3300e55a1396d9f37e569d39d29d0a068de71fcceedb22e62be37be1fb74bd"><div class="ttname"><a href="../../d9/deb/_class_viewer_module_8h.html#a8df3300e55a1396d9f37e569d39d29d0a068de71fcceedb22e62be37be1fb74bd">EClassViewerNameTypeToDisplay::ClassName</a></div><div class="ttdeci">@ ClassName</div><div class="ttdef"><b>定义</b> ClassViewerModule.h:63</div></div>
+<div class="ttc" id="a_core_2_public_2_h_a_l_2_platform_8h_html_a89241ea7101f26f05a4f1efd6be26b32"><div class="ttname"><a href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a89241ea7101f26f05a4f1efd6be26b32">int64</a></div><div class="ttdeci">FPlatformTypes::int64 int64</div><div class="ttdoc">A 64-bit signed integer.</div><div class="ttdef"><b>定义</b> Platform.h:1192</div></div>
+<div class="ttc" id="a_counters_8h_html"><div class="ttname"><a href="../../db/d97/_counters_8h.html">Counters.h</a></div></div>
+<div class="ttc" id="a_developer_2_trace_services_2_public_2_common_2_paged_array_8h_html"><div class="ttname"><a href="../../d8/d73/_developer_2_trace_services_2_public_2_common_2_paged_array_8h.html">PagedArray.h</a></div></div>
+<div class="ttc" id="a_load_time_profiler_8h_html"><div class="ttname"><a href="../../d3/d36/_load_time_profiler_8h.html">LoadTimeProfiler.h</a></div></div>
+<div class="ttc" id="a_monotonic_timeline_8h_html"><div class="ttname"><a href="../../da/d58/_monotonic_timeline_8h.html">MonotonicTimeline.h</a></div></div>
+<div class="ttc" id="a_motion_trail_options_8h_html_a0bb31d39f09af5eb8c24a97c724bdb98aa76d4ef5f3f6a672bbfab2865563e530"><div class="ttname"><a href="../../d0/d08/_motion_trail_options_8h.html#a0bb31d39f09af5eb8c24a97c724bdb98aa76d4ef5f3f6a672bbfab2865563e530">EMotionTrailTrailStyle::Time</a></div><div class="ttdeci">@ Time</div><div class="ttdef"><b>定义</b> MotionTrailOptions.h:24</div></div>
+<div class="ttc" id="a_private_2_model_2_tables_8h_html"><div class="ttname"><a href="../../d5/dd2/_private_2_model_2_tables_8h.html">Tables.h</a></div></div>
+<div class="ttc" id="a_slab_allocator_8h_html"><div class="ttname"><a href="../../d9/d2d/_slab_allocator_8h.html">SlabAllocator.h</a></div></div>
+<div class="ttc" id="a_string_store_8h_html"><div class="ttname"><a href="../../da/da9/_string_store_8h.html">StringStore.h</a></div></div>
+<div class="ttc" id="aclass_t_function_ref_html"><div class="ttname"><a href="../../d8/d95/class_t_function_ref.html">TFunctionRef</a></div><div class="ttdef"><b>定义</b> DerivedDataBuildFunctionRegistry.h:8</div></div>
+<div class="ttc" id="aclass_trace_services_1_1_f_analysis_session_lock_html"><div class="ttname"><a href="../../d0/d82/class_trace_services_1_1_f_analysis_session_lock.html">TraceServices::FAnalysisSessionLock</a></div><div class="ttdef"><b>定义</b> AnalysisServicePrivate.h:23</div></div>
+<div class="ttc" id="aclass_trace_services_1_1_f_load_time_profiler_provider_html_a1784631505942f40e0f1a08743ebd47d"><div class="ttname"><a href="../../d8/d03/class_trace_services_1_1_f_load_time_profiler_provider.html#a1784631505942f40e0f1a08743ebd47d">TraceServices::FLoadTimeProfilerProvider::CreateExportDetailsTable</a></div><div class="ttdeci">virtual ITable&lt; FExportsTableRow &gt; * CreateExportDetailsTable(double IntervalStart, double IntervalEnd) const override</div><div class="ttdef"><b>定义</b> LoadTimeProfiler.cpp:438</div></div>
+<div class="ttc" id="aclass_trace_services_1_1_f_load_time_profiler_provider_html_a293650777f7107ce4902146477ddd873"><div class="ttname"><a href="../../d8/d03/class_trace_services_1_1_f_load_time_profiler_provider.html#a293650777f7107ce4902146477ddd873">TraceServices::FLoadTimeProfilerProvider::~FLoadTimeProfilerProvider</a></div><div class="ttdeci">virtual ~FLoadTimeProfilerProvider()=default</div></div>
+<div class="ttc" id="aclass_trace_services_1_1_f_load_time_profiler_provider_html_a337dfd67255c53e33feef726782bd388"><div class="ttname"><a href="../../d8/d03/class_trace_services_1_1_f_load_time_profiler_provider.html#a337dfd67255c53e33feef726782bd388">TraceServices::FLoadTimeProfilerProvider::EndIoDispatcherBatch</a></div><div class="ttdeci">void EndIoDispatcherBatch(uint64 BatchHandle, double Time, uint64 TotalSize)</div><div class="ttdef"><b>定义</b> LoadTimeProfiler.cpp:638</div></div>
+<div class="ttc" id="aclass_trace_services_1_1_f_load_time_profiler_provider_html_a3a3303a674489f377617f1da1f911418"><div class="ttname"><a href="../../d8/d03/class_trace_services_1_1_f_load_time_profiler_provider.html#a3a3303a674489f377617f1da1f911418">TraceServices::FLoadTimeProfilerProvider::CreateExport</a></div><div class="ttdeci">FPackageExportInfo &amp; CreateExport()</div><div class="ttdef"><b>定义</b> LoadTimeProfiler.cpp:654</div></div>
+<div class="ttc" id="aclass_trace_services_1_1_f_load_time_profiler_provider_html_a592ed2b697114ef9fd2c03a8f186a8ad"><div class="ttname"><a href="../../d8/d03/class_trace_services_1_1_f_load_time_profiler_provider.html#a592ed2b697114ef9fd2c03a8f186a8ad">TraceServices::FLoadTimeProfilerProvider::GetTimelineCount</a></div><div class="ttdeci">virtual uint32 GetTimelineCount() const override</div><div class="ttdef"><b>定义</b> LoadTimeProfilerPrivate.h:27</div></div>
+<div class="ttc" id="aclass_trace_services_1_1_f_load_time_profiler_provider_html_a5d0fe2cb88f4c0dbf45ca5fc2ff80314"><div class="ttname"><a href="../../d8/d03/class_trace_services_1_1_f_load_time_profiler_provider.html#a5d0fe2cb88f4c0dbf45ca5fc2ff80314">TraceServices::FLoadTimeProfilerProvider::GetRequestsTable</a></div><div class="ttdeci">virtual const ITable&lt; FLoadRequest &gt; &amp; GetRequestsTable() const override</div><div class="ttdef"><b>定义</b> LoadTimeProfilerPrivate.h:35</div></div>
+<div class="ttc" id="aclass_trace_services_1_1_f_load_time_profiler_provider_html_a7525d2bf020e4207c78ea069f2f2a003"><div class="ttname"><a href="../../d8/d03/class_trace_services_1_1_f_load_time_profiler_provider.html#a7525d2bf020e4207c78ea069f2f2a003">TraceServices::FLoadTimeProfilerProvider::CpuTimelineInternal</a></div><div class="ttdeci">TMonotonicTimeline&lt; FLoadTimeProfilerCpuEvent &gt; CpuTimelineInternal</div><div class="ttdef"><b>定义</b> LoadTimeProfilerPrivate.h:22</div></div>
+<div class="ttc" id="aclass_trace_services_1_1_f_load_time_profiler_provider_html_a8fbfea25bf142842494e40cef2a0f9ee"><div class="ttname"><a href="../../d8/d03/class_trace_services_1_1_f_load_time_profiler_provider.html#a8fbfea25bf142842494e40cef2a0f9ee">TraceServices::FLoadTimeProfilerProvider::CreatePackageDetailsTable</a></div><div class="ttdeci">virtual ITable&lt; FPackagesTableRow &gt; * CreatePackageDetailsTable(double IntervalStart, double IntervalEnd) const override</div><div class="ttdef"><b>定义</b> LoadTimeProfiler.cpp:332</div></div>
+<div class="ttc" id="aclass_trace_services_1_1_f_load_time_profiler_provider_html_a97cf87c3e5ada3c4185e101dd1b4e0a0"><div class="ttname"><a href="../../d8/d03/class_trace_services_1_1_f_load_time_profiler_provider.html#a97cf87c3e5ada3c4185e101dd1b4e0a0">TraceServices::FLoadTimeProfilerProvider::FLoadTimeProfilerProvider</a></div><div class="ttdeci">FLoadTimeProfilerProvider(IAnalysisSession &amp;Session, IEditableCounterProvider &amp;EditableCounterProvider)</div><div class="ttdef"><b>定义</b> LoadTimeProfiler.cpp:106</div></div>
+<div class="ttc" id="aclass_trace_services_1_1_f_load_time_profiler_provider_html_aa5f3456e6a166e7345c7ce0ab43f9de9"><div class="ttname"><a href="../../d8/d03/class_trace_services_1_1_f_load_time_profiler_provider.html#aa5f3456e6a166e7345c7ce0ab43f9de9">TraceServices::FLoadTimeProfilerProvider::EditCpuTimeline</a></div><div class="ttdeci">CpuTimelineInternal &amp; EditCpuTimeline(uint32 ThreadId)</div><div class="ttdef"><b>定义</b> LoadTimeProfiler.cpp:664</div></div>
+<div class="ttc" id="aclass_trace_services_1_1_f_load_time_profiler_provider_html_abb85b196be3390c51a5644fe23c595f1"><div class="ttname"><a href="../../d8/d03/class_trace_services_1_1_f_load_time_profiler_provider.html#abb85b196be3390c51a5644fe23c595f1">TraceServices::FLoadTimeProfilerProvider::CreateRequestsTable</a></div><div class="ttdeci">virtual ITable&lt; FRequestsTableRow &gt; * CreateRequestsTable(double IntervalStart, double IntervalEnd) const override</div><div class="ttdef"><b>定义</b> LoadTimeProfiler.cpp:522</div></div>
+<div class="ttc" id="aclass_trace_services_1_1_f_load_time_profiler_provider_html_ac0c2431ab0a4654b67b0f0d98be3fb81"><div class="ttname"><a href="../../d8/d03/class_trace_services_1_1_f_load_time_profiler_provider.html#ac0c2431ab0a4654b67b0f0d98be3fb81">TraceServices::FLoadTimeProfilerProvider::CreateRequest</a></div><div class="ttdeci">FLoadRequest &amp; CreateRequest()</div><div class="ttdef"><b>定义</b> LoadTimeProfiler.cpp:551</div></div>
+<div class="ttc" id="aclass_trace_services_1_1_f_load_time_profiler_provider_html_ac59b7466f327dd2db885202fadc629cd"><div class="ttname"><a href="../../d8/d03/class_trace_services_1_1_f_load_time_profiler_provider.html#ac59b7466f327dd2db885202fadc629cd">TraceServices::FLoadTimeProfilerProvider::CreateEventAggregation</a></div><div class="ttdeci">virtual ITable&lt; FLoadTimeProfilerAggregatedStats &gt; * CreateEventAggregation(double IntervalStart, double IntervalEnd) const override</div><div class="ttdef"><b>定义</b> LoadTimeProfiler.cpp:253</div></div>
+<div class="ttc" id="aclass_trace_services_1_1_f_load_time_profiler_provider_html_ac6b7fa7656fb58ca02f452a9416bf284"><div class="ttname"><a href="../../d8/d03/class_trace_services_1_1_f_load_time_profiler_provider.html#ac6b7fa7656fb58ca02f452a9416bf284">TraceServices::FLoadTimeProfilerProvider::BeginIoDispatcherBatch</a></div><div class="ttdeci">uint64 BeginIoDispatcherBatch(uint64 BatchId, double Time)</div><div class="ttdef"><b>定义</b> LoadTimeProfiler.cpp:622</div></div>
+<div class="ttc" id="aclass_trace_services_1_1_f_load_time_profiler_provider_html_acea6db6c428755653fd122f1040f3b4f"><div class="ttname"><a href="../../d8/d03/class_trace_services_1_1_f_load_time_profiler_provider.html#acea6db6c428755653fd122f1040f3b4f">TraceServices::FLoadTimeProfilerProvider::ReadTimeline</a></div><div class="ttdeci">virtual bool ReadTimeline(uint32 Index, TFunctionRef&lt; void(const CpuTimeline &amp;)&gt; Callback) const override</div><div class="ttdef"><b>定义</b> LoadTimeProfiler.cpp:242</div></div>
+<div class="ttc" id="aclass_trace_services_1_1_f_load_time_profiler_provider_html_aed82cebaa8ec4c501c11119ed9928e72"><div class="ttname"><a href="../../d8/d03/class_trace_services_1_1_f_load_time_profiler_provider.html#aed82cebaa8ec4c501c11119ed9928e72">TraceServices::FLoadTimeProfilerProvider::CreateObjectTypeAggregation</a></div><div class="ttdeci">virtual ITable&lt; FLoadTimeProfilerAggregatedStats &gt; * CreateObjectTypeAggregation(double IntervalStart, double IntervalEnd) const override</div><div class="ttdef"><b>定义</b> LoadTimeProfiler.cpp:293</div></div>
+<div class="ttc" id="aclass_trace_services_1_1_f_load_time_profiler_provider_html_af0db9610b21a0864866f0edda14fa75a"><div class="ttname"><a href="../../d8/d03/class_trace_services_1_1_f_load_time_profiler_provider.html#af0db9610b21a0864866f0edda14fa75a">TraceServices::FLoadTimeProfilerProvider::AddClassInfo</a></div><div class="ttdeci">const FClassInfo &amp; AddClassInfo(const TCHAR *ClassName)</div><div class="ttdef"><b>定义</b> LoadTimeProfiler.cpp:542</div></div>
+<div class="ttc" id="aclass_trace_services_1_1_f_load_time_profiler_provider_html_af6bb5aec95f2d94db3bfcafec5352ff9"><div class="ttname"><a href="../../d8/d03/class_trace_services_1_1_f_load_time_profiler_provider.html#af6bb5aec95f2d94db3bfcafec5352ff9">TraceServices::FLoadTimeProfilerProvider::CreatePackage</a></div><div class="ttdeci">FPackageInfo &amp; CreatePackage()</div><div class="ttdef"><b>定义</b> LoadTimeProfiler.cpp:560</div></div>
+<div class="ttc" id="aclass_trace_services_1_1_f_load_time_profiler_provider_html_afbdf0c3fff45c30e26877376452c9a8f"><div class="ttname"><a href="../../d8/d03/class_trace_services_1_1_f_load_time_profiler_provider.html#afbdf0c3fff45c30e26877376452c9a8f">TraceServices::FLoadTimeProfilerProvider::GetCpuThreadTimelineIndex</a></div><div class="ttdeci">virtual bool GetCpuThreadTimelineIndex(uint32 ThreadId, uint32 &amp;OutTimelineIndex) const override</div><div class="ttdef"><b>定义</b> LoadTimeProfiler.cpp:227</div></div>
+<div class="ttc" id="aclass_trace_services_1_1_i_analysis_session_html"><div class="ttname"><a href="../../d1/d45/class_trace_services_1_1_i_analysis_session.html">TraceServices::IAnalysisSession</a></div><div class="ttdef"><b>定义</b> AnalysisSession.h:74</div></div>
+<div class="ttc" id="aclass_trace_services_1_1_i_counter_html_a4aa9f9964a0d49531b8215c7bd84d1f3"><div class="ttname"><a href="../../d8/d5c/class_trace_services_1_1_i_counter.html#a4aa9f9964a0d49531b8215c7bd84d1f3">TraceServices::ICounter::GetName</a></div><div class="ttdeci">virtual const TCHAR * GetName() const =0</div></div>
+<div class="ttc" id="aclass_trace_services_1_1_i_counter_html_a4eaea9f4abd1e53ef60e0da852dfd3dc"><div class="ttname"><a href="../../d8/d5c/class_trace_services_1_1_i_counter.html#a4eaea9f4abd1e53ef60e0da852dfd3dc">TraceServices::ICounter::IsFloatingPoint</a></div><div class="ttdeci">virtual bool IsFloatingPoint() const =0</div></div>
+<div class="ttc" id="aclass_trace_services_1_1_i_counter_html_a5cca16df6db88730814a196e3f265ef8"><div class="ttname"><a href="../../d8/d5c/class_trace_services_1_1_i_counter.html#a5cca16df6db88730814a196e3f265ef8">TraceServices::ICounter::GetGroup</a></div><div class="ttdeci">virtual const TCHAR * GetGroup() const =0</div></div>
+<div class="ttc" id="aclass_trace_services_1_1_i_counter_html_ab7fdffedaa32e6d13bcdc8b5e3fa2f12"><div class="ttname"><a href="../../d8/d5c/class_trace_services_1_1_i_counter.html#ab7fdffedaa32e6d13bcdc8b5e3fa2f12">TraceServices::ICounter::GetDescription</a></div><div class="ttdeci">virtual const TCHAR * GetDescription() const =0</div></div>
+<div class="ttc" id="aclass_trace_services_1_1_i_counter_html_ad68f6968bbc3fc943babdda771c58501"><div class="ttname"><a href="../../d8/d5c/class_trace_services_1_1_i_counter.html#ad68f6968bbc3fc943babdda771c58501">TraceServices::ICounter::GetDisplayHint</a></div><div class="ttdeci">virtual ECounterDisplayHint GetDisplayHint() const =0</div></div>
+<div class="ttc" id="aclass_trace_services_1_1_i_editable_counter_provider_html"><div class="ttname"><a href="../../d4/d0a/class_trace_services_1_1_i_editable_counter_provider.html">TraceServices::IEditableCounterProvider</a></div><div class="ttdef"><b>定义</b> Counters.h:144</div></div>
+<div class="ttc" id="aclass_trace_services_1_1_i_load_time_profiler_provider_html"><div class="ttname"><a href="../../d8/db0/class_trace_services_1_1_i_load_time_profiler_provider.html">TraceServices::ILoadTimeProfilerProvider</a></div><div class="ttdef"><b>定义</b> LoadTimeProfiler.h:168</div></div>
+<div class="ttc" id="aclass_trace_services_1_1_i_load_time_profiler_provider_html_ae67748faeadb3f940ec9b21c3e339b1a"><div class="ttname"><a href="../../d8/db0/class_trace_services_1_1_i_load_time_profiler_provider.html#ae67748faeadb3f940ec9b21c3e339b1a">TraceServices::ILoadTimeProfilerProvider::CpuTimeline</a></div><div class="ttdeci">ITimeline&lt; FLoadTimeProfilerCpuEvent &gt; CpuTimeline</div><div class="ttdef"><b>定义</b> LoadTimeProfiler.h:170</div></div>
+<div class="ttc" id="aclass_trace_services_1_1_i_table_html"><div class="ttname"><a href="../../d2/dd5/class_trace_services_1_1_i_table.html">TraceServices::ITable</a></div><div class="ttdef"><b>定义</b> Tables.h:71</div></div>
+<div class="ttc" id="aclass_trace_services_1_1_t_monotonic_timeline_html"><div class="ttname"><a href="../../d1/db1/class_trace_services_1_1_t_monotonic_timeline.html">TraceServices::TMonotonicTimeline</a></div><div class="ttdef"><b>定义</b> MonotonicTimeline.h:69</div></div>
+<div class="ttc" id="anamespace_cross_compiler_html_ad4d968bae01be345ca4bcc2426796f38"><div class="ttname"><a href="../../d4/d83/namespace_cross_compiler.html#ad4d968bae01be345ca4bcc2426796f38">CrossCompiler::TCHAR</a></div><div class="ttdeci">FPlatformTypes::TCHAR TCHAR</div><div class="ttdoc">Either ANSICHAR or WIDECHAR, depending on whether the platform supports wide characters or the requir...</div><div class="ttdef"><b>定义</b> HlslLexer.cpp:13</div></div>
+<div class="ttc" id="anamespace_trace_services_html"><div class="ttname"><a href="../../d6/df9/namespace_trace_services.html">TraceServices</a></div><div class="ttdef"><b>定义</b> ContextSwitchesSharedState.h:18</div></div>
+<div class="ttc" id="anamespace_trace_services_html_a31b9e561a0d95e2d94dc17a8423de464"><div class="ttname"><a href="../../d6/df9/namespace_trace_services.html#a31b9e561a0d95e2d94dc17a8423de464">TraceServices::ECounterDisplayHint</a></div><div class="ttdeci">ECounterDisplayHint</div><div class="ttdef"><b>定义</b> Counters.h:14</div></div>
+<div class="ttc" id="anamespace_trace_services_html_ad3a22adec95cd7c8290704bc4f315d58"><div class="ttname"><a href="../../d6/df9/namespace_trace_services.html#ad3a22adec95cd7c8290704bc4f315d58">TraceServices::ECounterOpType</a></div><div class="ttdeci">ECounterOpType</div><div class="ttdef"><b>定义</b> Counters.h:22</div></div>
+<div class="ttc" id="apreprocessor_8c_html_a1134b580f8da4de94ca6b1de4d37975e"><div class="ttname"><a href="../../dd/de9/preprocessor_8c.html#a1134b580f8da4de94ca6b1de4d37975e">uint32</a></div><div class="ttdeci">unsigned int uint32</div><div class="ttdef"><b>定义</b> preprocessor.c:67</div></div>
+<div class="ttc" id="apreprocessor_8c_html_abc0f5bc07737e498f287334775dff2b6"><div class="ttname"><a href="../../dd/de9/preprocessor_8c.html#abc0f5bc07737e498f287334775dff2b6">uint64</a></div><div class="ttdeci">uint64_t uint64</div><div class="ttdef"><b>定义</b> preprocessor.c:75</div></div>
+<div class="ttc" id="aradfft_8cpp_html_a353b84469a01fbe28e2db978bdf1fb86"><div class="ttname"><a href="../../df/dd5/radfft_8cpp.html#a353b84469a01fbe28e2db978bdf1fb86">Index</a></div><div class="ttdeci">U16 Index</div><div class="ttdef"><b>定义</b> radfft.cpp:71</div></div>
+<div class="ttc" id="astruct_trace_services_1_1_f_class_info_html"><div class="ttname"><a href="../../d3/dad/struct_trace_services_1_1_f_class_info.html">TraceServices::FClassInfo</a></div><div class="ttdef"><b>定义</b> LoadTimeProfiler.h:74</div></div>
+<div class="ttc" id="astruct_trace_services_1_1_f_load_request_html"><div class="ttname"><a href="../../d6/d8a/struct_trace_services_1_1_f_load_request.html">TraceServices::FLoadRequest</a></div><div class="ttdef"><b>定义</b> LoadTimeProfiler.h:100</div></div>
+<div class="ttc" id="astruct_trace_services_1_1_f_package_export_info_html"><div class="ttname"><a href="../../d2/d13/struct_trace_services_1_1_f_package_export_info.html">TraceServices::FPackageExportInfo</a></div><div class="ttdef"><b>定义</b> LoadTimeProfiler.h:81</div></div>
+<div class="ttc" id="astruct_trace_services_1_1_f_package_info_html"><div class="ttname"><a href="../../d1/d8b/struct_trace_services_1_1_f_package_info.html">TraceServices::FPackageInfo</a></div><div class="ttdef"><b>定义</b> LoadTimeProfiler.h:89</div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+</div><!-- container -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a href="../../dir_0b6ee6e7e9547e675db4add2e5de97da.html">Engine</a></li><li class="navelem"><a href="../../dir_9579d1ecb2c7bf48cbe1049c41745cb4.html">Source</a></li><li class="navelem"><a href="../../dir_00912ccdaf80818c8f5fb6febb7aeb6c.html">Developer</a></li><li class="navelem"><a href="../../dir_2462975367815968eff0d380371bf536.html">TraceServices</a></li><li class="navelem"><a href="../../dir_4b3fdcdb6cef17a6d2ffa88503ccb7c8.html">Private</a></li><li class="navelem"><a href="../../dir_20b7fefa62eb83726387a168010c3f89.html">Model</a></li><li class="navelem"><a href="../../d5/ddd/_load_time_profiler_private_8h.html">LoadTimeProfilerPrivate.h</a></li>
+    <li class="footer">制作者 <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.15.0 </li>
+  </ul>
+</div>
+</body>
+</html>

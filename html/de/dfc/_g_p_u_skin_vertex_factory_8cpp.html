@@ -1,0 +1,629 @@
+<!-- HTML header for doxygen 1.15.0-->
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh">
+<head>
+  <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=11" />
+  <meta name="generator" content="Doxygen 1.15.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>UE 5.8.4: Engine/Source/Runtime/Engine/Private/GPUSkinVertexFactory.cpp 文件参考</title>
+  <link rel="icon" href="../../EdIconDefault.bmp" type="image/x-icon" />
+  <link href="../../tabs.css" rel="stylesheet" type="text/css" />
+  <script type="text/javascript" src="../../jquery.js"></script>
+  <script type="text/javascript" src="../../dynsections.js"></script>
+  <link href="../../navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../navtreedata.js"></script>
+<script type="text/javascript" src="../../navtree.js"></script>
+<script type="text/javascript" src="../../cookie.js"></script>
+  <link href="../../search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../search/searchdata.js"></script>
+<script type="text/javascript" src="../../search/search.js"></script>
+  <script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  extensions: ["tex2jax.js"],
+  jax: ["input/TeX","output/HTML-CSS"],
+});
+</script>
+<script type="text/javascript" async="async" src="https://cdn.jsdelivr.net/npm/mathjax@2/MathJax.js"></script>
+  <link href="../../doxygen.css" rel="stylesheet" type="text/css" />
+  <link href="../../doxygen-awesome.css" rel="stylesheet" type="text/css"/>
+<link href="../../doxygen-awesome-sidebar-only.css" rel="stylesheet" type="text/css"/>
+<link href="../../doxygen-awesome-sidebar-only-darkmode-toggle.css" rel="stylesheet" type="text/css"/>
+  <!-- ... other metadata & script includes ... -->
+  <script type="text/javascript" src="../../doxygen-awesome-darkmode-toggle.js"></script>
+  <script type="text/javascript">
+    DoxygenAwesomeDarkModeToggle.title = "Zwischen hellem/dunklem Modus wechseln"
+    DoxygenAwesomeDarkModeToggle.lightModeIcon = '🌞'
+    // icon from https://fonts.google.com/icons
+    DoxygenAwesomeDarkModeToggle.darkModeIcon = `<svg xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 24 24" height="24px" viewBox="0 0 24 24" width="24px" fill="#009793"><g><rect fill="none" height="24" width="24"/></g><g><g><path d="M8.1,14.15C9.77,14.63,11,16.17,11,18c0,0.68-0.19,1.31-0.48,1.87c0.48,0.09,0.97,0.14,1.48,0.14 c1.48,0,2.9-0.41,4.13-1.15c-2.62-0.92-5.23-2.82-6.8-5.86C7.74,9.94,7.78,7.09,8.29,4.9c-2.57,1.33-4.3,4.01-4.3,7.1c0,0,0,0,0,0 c0.01,0,0.01,0,0.02,0C5.66,12,7.18,12.83,8.1,14.15z" opacity=".3"/><path d="M19.78,17.51c-2.47,0-6.57-1.33-8.68-5.43C8.77,7.57,10.6,3.6,11.63,2.01C6.27,2.2,1.98,6.59,1.98,12 c0,0.14,0.02,0.28,0.02,0.42C2.61,12.16,3.28,12,3.98,12c0,0,0,0,0,0c0-3.09,1.73-5.77,4.3-7.1C7.78,7.09,7.74,9.94,9.32,13 c1.57,3.04,4.18,4.95,6.8,5.86c-1.23,0.74-2.65,1.15-4.13,1.15c-0.5,0-1-0.05-1.48-0.14c-0.37,0.7-0.94,1.27-1.64,1.64 c0.98,0.32,2.03,0.5,3.11,0.5c3.5,0,6.58-1.8,8.37-4.52C20.18,17.5,19.98,17.51,19.78,17.51z"/><path d="M7,16l-0.18,0C6.4,14.84,5.3,14,4,14c-1.66,0-3,1.34-3,3s1.34,3,3,3c0.62,0,2.49,0,3,0c1.1,0,2-0.9,2-2 C9,16.9,8.1,16,7,16z"/></g></g></svg>`
+    DoxygenAwesomeDarkModeToggle.init()
+  </script>
+  <script type="text/javascript" src="../../doxygen-awesome-fragment-copy-button.js"></script>
+  <script type="text/javascript">
+    DoxygenAwesomeFragmentCopyButton.title = "In die Zwischenablage kopieren"
+    // DoxygenAwesomeFragmentCopyButton.copyIcon = `<svg ...>`
+    // DoxygenAwesomeFragmentCopyButton.successIcon = `<svg ...>`
+    DoxygenAwesomeFragmentCopyButton.init()
+  </script>
+  <script type="text/javascript" src="../../doxygen-awesome-paragraph-link.js"></script>
+  <script type="text/javascript">
+    DoxygenAwesomeParagraphLink.title = "Abschnitt verknüpfen"
+    DoxygenAwesomeParagraphLink.icon = "¶"
+    DoxygenAwesomeParagraphLink.init()
+  </script>
+  <script type="text/javascript" src="../../doxygen-awesome-interactive-toc.js"></script>
+  <script type="text/javascript">
+    DoxygenAwesomeInteractiveToc.topOffset = 45
+    DoxygenAwesomeInteractiveToc.hideMobileMenu = false
+    DoxygenAwesomeInteractiveToc.init()
+  </script>
+</head>
+<body>
+    <div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+      <div id="titlearea">
+        <table cellspacing="0" cellpadding="0">
+          <tbody>
+            <tr id="projectrow">
+              <td id="projectlogo"><img alt="Logo" src="../../EdIconDefault.bmp"  /></td>
+              <td id="projectalign">
+                <div id="projectname">UE 5.8.4
+                </div>
+                <div id="projectbrief">Unreal Engine</div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <!-- end header part -->
+<!-- 制作者 Doxygen 1.15.0 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "../../search/",'.html');
+</script>
+<script type="text/javascript">
+$(function() { codefold.init(); });
+</script>
+<script type="text/javascript" src="../../menudata.js"></script>
+<script type="text/javascript" src="../../menu.js"></script>
+<script type="text/javascript">
+$(function() {
+  initMenu('../../',true,false,'search.php','搜索',true);
+  $(function() { init_search(); });
+});
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(function(){initNavTree('de/dfc/_g_p_u_skin_vertex_factory_8cpp.html','../../',''); });
+</script>
+<div id="container">
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">载入中...</div>
+<div class="SRStatus" id="Searching">搜索中...</div>
+<div class="SRStatus" id="NoMatches">未找到</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">GPUSkinVertexFactory.cpp 文件参考</div></div>
+</div><!--header-->
+<div class="contents">
+<div class="textblock"><code>#include &quot;<a class="el" href="../../d2/d23/_g_p_u_skin_vertex_factory_8h_source.html">GPUSkinVertexFactory.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d2/d92/_mesh_deformer_provider_8h_source.html">Animation/MeshDeformerProvider.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d4/d05/_mesh_batch_8h_source.html">MeshBatch.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d6/ddf/_g_p_u_skin_cache_8h_source.html">GPUSkinCache.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d7/d5a/_mesh_draw_shader_bindings_8h_source.html">MeshDrawShaderBindings.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d7/dbc/_mesh_material_shader_8h_source.html">MeshMaterialShader.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d1/db5/_delayed_auto_register_8h_source.html">Misc/DelayedAutoRegister.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d7/d77/_skeletal_render_g_p_u_skin_8h_source.html">SkeletalRenderGPUSkin.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d3/d2b/_i_target_platform_8h_source.html">Interfaces/ITargetPlatform.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d0/dce/_i_target_platform_manager_module_8h_source.html">Interfaces/ITargetPlatformManagerModule.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../dd/d74/_render_graph_resources_8h_source.html">RenderGraphResources.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../de/d01/_render_utils_8h_source.html">RenderUtils.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d1/d96/_shader_platform_cached_ini_value_8h_source.html">ShaderPlatformCachedIniValue.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../da/d16/_renderer_settings_8h_source.html">Engine/RendererSettings.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d1/d39/_render_command_pipes_8h_source.html">Rendering/RenderCommandPipes.h</a>&quot;</code><br />
+</div><div class="textblock"><div class="dynheader">
+GPUSkinVertexFactory.cpp 的引用(Include)关系图:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d1/d02/_g_p_u_skin_vertex_factory_8cpp__incl.svg" width="3768" height="790"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+</div><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-nested-classes" class="groupheader"><a id="nested-classes" name="nested-classes"></a>
+类</h2></td></tr>
+<tr class="memitem:FNullMorphVertexBuffer" id="r_FNullMorphVertexBuffer"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/da4/class_f_null_morph_vertex_buffer.html">FNullMorphVertexBuffer</a></td></tr>
+<tr class="memitem:FGPUSkinVertexFactoryShaderParameters" id="r_FGPUSkinVertexFactoryShaderParameters"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/dc3/class_f_g_p_u_skin_vertex_factory_shader_parameters.html">FGPUSkinVertexFactoryShaderParameters</a></td></tr>
+<tr class="memitem:TGPUSkinAPEXClothVertexFactoryShaderParameters" id="r_TGPUSkinAPEXClothVertexFactoryShaderParameters"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d76/class_t_g_p_u_skin_a_p_e_x_cloth_vertex_factory_shader_parameters.html">TGPUSkinAPEXClothVertexFactoryShaderParameters</a></td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-define-members" class="groupheader"><a id="define-members" name="define-members"></a>
+宏定义</h2></td></tr>
+<tr class="memitem:a12d4bb5f6f269666c60fff7de5b8d90a" id="r_a12d4bb5f6f269666c60fff7de5b8d90a"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a12d4bb5f6f269666c60fff7de5b8d90a">IMPLEMENT_GPUSKINNING_VERTEX_FACTORY_TYPE_INTERNAL</a>(FactoryClass,  ShaderFilename,  Flags)</td></tr>
+<tr class="memitem:adebdced9d308bfec2254abc1e6cb014b" id="r_adebdced9d308bfec2254abc1e6cb014b"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#adebdced9d308bfec2254abc1e6cb014b">IMPLEMENT_GPUSKINNING_VERTEX_FACTORY_TYPE</a>(FactoryClass,  ShaderFilename,  Flags)</td></tr>
+<tr class="memitem:a82ef55c84674f3a0b28fdd9e57330cd6" id="r_a82ef55c84674f3a0b28fdd9e57330cd6"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a82ef55c84674f3a0b28fdd9e57330cd6">IMPLEMENT_GPUSKINNING_VERTEX_FACTORY_PARAMETER_TYPE</a>(FactoryClass,  Frequency,  ParameterType)</td></tr>
+<tr class="memitem:aee987f0ddd86a350ec9becf30268989e" id="r_aee987f0ddd86a350ec9becf30268989e"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aee987f0ddd86a350ec9becf30268989e">GPU_SKIN_COPY_BONES_ISPC_ENABLED_DEFAULT</a>&#160;&#160;&#160;0</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-func-members" class="groupheader"><a id="func-members" name="func-members"></a>
+函数</h2></td></tr>
+<tr class="memitem:a88a33bc497b0dc127846f8f1eda70927" id="r_a88a33bc497b0dc127846f8f1eda70927"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d5/dc9/_generic_platform_compiler_pre_setup_8h.html#a084b2ccd2e278a5d6b9f0088bd8f1474">PRAGMA_ENABLE_DEPRECATION_WARNINGS</a> <a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a88a33bc497b0dc127846f8f1eda70927">SupportsNoOverwriteBuffers</a> ()</td></tr>
+<tr class="memitem:aba00439c0c747354c0094593d9c5d970" id="r_aba00439c0c747354c0094593d9c5d970"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../df/d63/_typed_element_query_capabilities_8inl.html#a72343342ce64c0755563ee6c5e27868d">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aba00439c0c747354c0094593d9c5d970">GetGPUSkinVertexFactoryCommonShaderParameters</a> (FGPUSkinVertexFactoryCommonShaderParameters &amp;ShaderParameters, const <a class="el" href="../../db/d70/class_f_g_p_u_base_skin_vertex_factory.html">FGPUBaseSkinVertexFactory</a> *VertexFactory, const FSkinningHeader *SkinningHeader, <a class="el" href="../../dd/d14/class_f_r_h_i_shader_resource_view.html">FRHIShaderResourceView</a> *TransformDataBufferSRV)</td></tr>
+<tr class="memitem:a5709167f7f3c98e5fd7d0f75304d8bb0" id="r_a5709167f7f3c98e5fd7d0f75304d8bb0"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5709167f7f3c98e5fd7d0f75304d8bb0">IMPLEMENT_GLOBAL_SHADER_PARAMETER_STRUCT</a> (FGPUSkinAPEXClothVertexFactoryUniformShaderParameters, &quot;GPUSkinAPEXClothVF&quot;)</td></tr>
+<tr class="memitem:a8643310af3b59038578f817b9e7682de" id="r_a8643310af3b59038578f817b9e7682de"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../df/d63/_typed_element_query_capabilities_8inl.html#a72343342ce64c0755563ee6c5e27868d">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8643310af3b59038578f817b9e7682de">GetGPUSkinAPEXClothVertexFactoryUniformShaderParameters</a> (FGPUSkinAPEXClothVertexFactoryUniformShaderParameters &amp;UniformParameters, const <a class="el" href="../../db/d70/class_f_g_p_u_base_skin_vertex_factory.html">FGPUBaseSkinVertexFactory</a> *VertexFactory, const FSkinningHeader *SkinningHeader, <a class="el" href="../../dd/d14/class_f_r_h_i_shader_resource_view.html">FRHIShaderResourceView</a> *TransformDataBufferSRV)</td></tr>
+<tr class="memitem:ace3dcba976438d3018bc65555c17ad9f" id="r_ace3dcba976438d3018bc65555c17ad9f"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ace3dcba976438d3018bc65555c17ad9f">IMPLEMENT_TYPE_LAYOUT</a> (<a class="el" href="../../d7/dc3/class_f_g_p_u_skin_vertex_factory_shader_parameters.html">FGPUSkinVertexFactoryShaderParameters</a>)</td></tr>
+<tr class="memitem:ae3014437e05008040ce0bf3e9b3da8c5" id="r_ae3014437e05008040ce0bf3e9b3da8c5"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae3014437e05008040ce0bf3e9b3da8c5">IMPLEMENT_GPUSKINNING_VERTEX_FACTORY_PARAMETER_TYPE</a> (<a class="el" href="../../df/df4/class_t_g_p_u_skin_vertex_factory.html">TGPUSkinVertexFactory</a>, <a class="el" href="../../da/dca/_r_h_i_definitions_8h.html#a0a3cc83cb6ebc79b66b43fae3ffee64ea57b843d1079d918ef496ded337a171d2">SF_Vertex</a>, <a class="el" href="../../d7/dc3/class_f_g_p_u_skin_vertex_factory_shader_parameters.html">FGPUSkinVertexFactoryShaderParameters</a>)</td></tr>
+<tr class="memitem:ad8d54e8c3891ef2057a36d88572da7a3" id="r_ad8d54e8c3891ef2057a36d88572da7a3"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad8d54e8c3891ef2057a36d88572da7a3">IMPLEMENT_GPUSKINNING_VERTEX_FACTORY_TYPE</a> (<a class="el" href="../../df/df4/class_t_g_p_u_skin_vertex_factory.html">TGPUSkinVertexFactory</a>, &quot;/Engine/<a class="el" href="../../d9/db1/namespace_private.html">Private</a>/GpuSkinVertexFactory.ush&quot;, <a class="el" href="../../d5/d36/_vertex_factory_8h.html#a90ff84cf590831bdd1a9c8cccf4399c5aeb69c6b2df2ded2bb67d7b221c8c2cc2">EVertexFactoryFlags::UsedWithMaterials</a>|<a class="el" href="../../d5/d36/_vertex_factory_8h.html#a90ff84cf590831bdd1a9c8cccf4399c5a4c28412b1100aeb7b1e60371e2c060c2">EVertexFactoryFlags::SupportsDynamicLighting</a>|<a class="el" href="../../d5/d36/_vertex_factory_8h.html#a90ff84cf590831bdd1a9c8cccf4399c5a3cb55ebb1a87832ef147328ffa47fe23">EVertexFactoryFlags::SupportsPSOPrecaching</a>|<a class="el" href="../../d5/d36/_vertex_factory_8h.html#a90ff84cf590831bdd1a9c8cccf4399c5a4c3b7e8b24ea7a25d908e1b5b2dca00e">EVertexFactoryFlags::SupportsCachingMeshDrawCommands</a>|<a class="el" href="../../d5/d36/_vertex_factory_8h.html#a90ff84cf590831bdd1a9c8cccf4399c5ac60c089e2a0d97b82b1b83dcf8cadaa4">EVertexFactoryFlags::SupportsTriangleSorting</a>)</td></tr>
+<tr class="memitem:a7c7f3d5339731efca60973df2c0570f7" id="r_a7c7f3d5339731efca60973df2c0570f7"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7c7f3d5339731efca60973df2c0570f7">IMPLEMENT_TYPE_LAYOUT</a> (<a class="el" href="../../df/d76/class_t_g_p_u_skin_a_p_e_x_cloth_vertex_factory_shader_parameters.html">TGPUSkinAPEXClothVertexFactoryShaderParameters</a>)</td></tr>
+<tr class="memitem:ac33561a4f40bee2f3c8fef2b1641fdf6" id="r_ac33561a4f40bee2f3c8fef2b1641fdf6"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac33561a4f40bee2f3c8fef2b1641fdf6">IMPLEMENT_GPUSKINNING_VERTEX_FACTORY_PARAMETER_TYPE</a> (<a class="el" href="../../d5/dd7/class_t_g_p_u_skin_a_p_e_x_cloth_vertex_factory.html">TGPUSkinAPEXClothVertexFactory</a>, <a class="el" href="../../da/dca/_r_h_i_definitions_8h.html#a0a3cc83cb6ebc79b66b43fae3ffee64ea57b843d1079d918ef496ded337a171d2">SF_Vertex</a>, <a class="el" href="../../df/d76/class_t_g_p_u_skin_a_p_e_x_cloth_vertex_factory_shader_parameters.html">TGPUSkinAPEXClothVertexFactoryShaderParameters</a>)</td></tr>
+<tr class="memitem:a20844c80700ac8120847c8ebf2513446" id="r_a20844c80700ac8120847c8ebf2513446"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a20844c80700ac8120847c8ebf2513446">IMPLEMENT_GPUSKINNING_VERTEX_FACTORY_TYPE</a> (<a class="el" href="../../d5/dd7/class_t_g_p_u_skin_a_p_e_x_cloth_vertex_factory.html">TGPUSkinAPEXClothVertexFactory</a>, &quot;/Engine/<a class="el" href="../../d9/db1/namespace_private.html">Private</a>/GpuSkinVertexFactory.ush&quot;, <a class="el" href="../../d5/d36/_vertex_factory_8h.html#a90ff84cf590831bdd1a9c8cccf4399c5aeb69c6b2df2ded2bb67d7b221c8c2cc2">EVertexFactoryFlags::UsedWithMaterials</a>|<a class="el" href="../../d5/d36/_vertex_factory_8h.html#a90ff84cf590831bdd1a9c8cccf4399c5a4c28412b1100aeb7b1e60371e2c060c2">EVertexFactoryFlags::SupportsDynamicLighting</a>|<a class="el" href="../../d5/d36/_vertex_factory_8h.html#a90ff84cf590831bdd1a9c8cccf4399c5a3cb55ebb1a87832ef147328ffa47fe23">EVertexFactoryFlags::SupportsPSOPrecaching</a>|<a class="el" href="../../d5/d36/_vertex_factory_8h.html#a90ff84cf590831bdd1a9c8cccf4399c5a4c3b7e8b24ea7a25d908e1b5b2dca00e">EVertexFactoryFlags::SupportsCachingMeshDrawCommands</a>)</td></tr>
+<tr class="memitem:abfcae142dc8c906743abf55b9cb2d95d" id="r_abfcae142dc8c906743abf55b9cb2d95d"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#abfcae142dc8c906743abf55b9cb2d95d">IMPLEMENT_GLOBAL_SHADER_PARAMETER_STRUCT</a> (FGPUSkinPassThroughFactoryLooseParameters, &quot;GPUSkinPassThroughVFLooseParameters&quot;)</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-var-members" class="groupheader"><a id="var-members" name="var-members"></a>
+变量</h2></td></tr>
+<tr class="memitem:a4375ac42ee8cfc355041aa2134dc7f70" id="r_a4375ac42ee8cfc355041aa2134dc7f70"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../da/dee/class_t_global_resource.html">TGlobalResource</a>&lt; <a class="el" href="../../d5/da4/class_f_null_morph_vertex_buffer.html">FNullMorphVertexBuffer</a>, <a class="el" href="../../d3/d1d/class_f_render_resource.html#a897ff1740133d6f96d6e76351b921076afb55a965b77791b31ffd2bb548f71080">FRenderResource::EInitPhase::Pre</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4375ac42ee8cfc355041aa2134dc7f70">GNullMorphVertexBuffer</a></td></tr>
+<tr class="memitem:a5091c2966b5c3d2542b17f728d52f1ef" id="r_a5091c2966b5c3d2542b17f728d52f1ef"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../da/dee/class_t_global_resource.html">TGlobalResource</a>&lt; <a class="el" href="../../df/d25/class_f_bone_buffer_pool.html">FBoneBufferPool</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5091c2966b5c3d2542b17f728d52f1ef">GBoneBufferPool</a></td></tr>
+<tr class="memitem:a7bdf6a879de38d5cfee462f247eaa88d" id="r_a7bdf6a879de38d5cfee462f247eaa88d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../da/dee/class_t_global_resource.html">TGlobalResource</a>&lt; <a class="el" href="../../d8/d00/class_f_cloth_buffer_pool.html">FClothBufferPool</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7bdf6a879de38d5cfee462f247eaa88d">GClothBufferPool</a></td></tr>
+</table>
+<a name="doc-define-members" id="doc-define-members"></a><h2 id="header-doc-define-members" class="groupheader">宏定义说明</h2>
+<a id="aee987f0ddd86a350ec9becf30268989e" name="aee987f0ddd86a350ec9becf30268989e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aee987f0ddd86a350ec9becf30268989e">&#9670;&#160;</a></span>GPU_SKIN_COPY_BONES_ISPC_ENABLED_DEFAULT</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define GPU_SKIN_COPY_BONES_ISPC_ENABLED_DEFAULT&#160;&#160;&#160;0</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a82ef55c84674f3a0b28fdd9e57330cd6" name="a82ef55c84674f3a0b28fdd9e57330cd6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a82ef55c84674f3a0b28fdd9e57330cd6">&#9670;&#160;</a></span>IMPLEMENT_GPUSKINNING_VERTEX_FACTORY_PARAMETER_TYPE</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define IMPLEMENT_GPUSKINNING_VERTEX_FACTORY_PARAMETER_TYPE</td>
+          <td>(</td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>FactoryClass</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>Frequency</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>ParameterType</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>值:</b><div class="fragment"><div class="line">    <a class="code hl_define" href="../../d5/d36/_vertex_factory_8h.html#a1df69bfe6344424dfddf7bd3125aa190">IMPLEMENT_VERTEX_FACTORY_PARAMETER_TYPE</a>(FactoryClass&lt;DefaultBoneInfluence&gt;, <a class="code hl_enumvalue" href="../../d6/d3d/_unit_conversion_8h.html#afece06a778c21908864f232441e2925aa7cf395303ce3665a9834721d4b748e4b">Frequency</a>, ParameterType); \</div>
+<div class="line">    IMPLEMENT_VERTEX_FACTORY_PARAMETER_TYPE(FactoryClass&lt;UnlimitedBoneInfluence&gt;, <a class="code hl_enumvalue" href="../../d6/d3d/_unit_conversion_8h.html#afece06a778c21908864f232441e2925aa7cf395303ce3665a9834721d4b748e4b">Frequency</a>, ParameterType)</div>
+<div class="ttc" id="a_unit_conversion_8h_html_afece06a778c21908864f232441e2925aa7cf395303ce3665a9834721d4b748e4b"><div class="ttname"><a href="../../d6/d3d/_unit_conversion_8h.html#afece06a778c21908864f232441e2925aa7cf395303ce3665a9834721d4b748e4b">EUnitType::Frequency</a></div><div class="ttdeci">@ Frequency</div><div class="ttdef"><b>定义</b> UnitConversion.h:107</div></div>
+<div class="ttc" id="a_vertex_factory_8h_html_a1df69bfe6344424dfddf7bd3125aa190"><div class="ttname"><a href="../../d5/d36/_vertex_factory_8h.html#a1df69bfe6344424dfddf7bd3125aa190">IMPLEMENT_VERTEX_FACTORY_PARAMETER_TYPE</a></div><div class="ttdeci">#define IMPLEMENT_VERTEX_FACTORY_PARAMETER_TYPE(FactoryClass, ShaderFrequency, ParameterClass)</div><div class="ttdef"><b>定义</b> VertexFactory.h:217</div></div>
+</div><!-- fragment -->
+</div>
+</div>
+<a id="adebdced9d308bfec2254abc1e6cb014b" name="adebdced9d308bfec2254abc1e6cb014b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adebdced9d308bfec2254abc1e6cb014b">&#9670;&#160;</a></span>IMPLEMENT_GPUSKINNING_VERTEX_FACTORY_TYPE</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define IMPLEMENT_GPUSKINNING_VERTEX_FACTORY_TYPE</td>
+          <td>(</td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>FactoryClass</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>ShaderFilename</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>Flags</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>值:</b><div class="fragment"><div class="line">    <a class="code hl_define" href="#a12d4bb5f6f269666c60fff7de5b8d90a">IMPLEMENT_GPUSKINNING_VERTEX_FACTORY_TYPE_INTERNAL</a>(FactoryClass, ShaderFilename, <a class="code hl_enumvalue" href="../../d5/d1e/_object_macros_8h.html#ab1b4d2b5a96eee3af0fdf40789726115a4ea7801f17a4e5485e8b050c052fb443">Flags</a>) \</div>
+<div class="line">    <span class="keyword">template</span> <span class="keyword">class </span>FactoryClass&lt;DefaultBoneInfluence&gt;;  \</div>
+<div class="line">    <span class="keyword">template</span> <span class="keyword">class </span>FactoryClass&lt;UnlimitedBoneInfluence&gt;;</div>
+<div class="ttc" id="a_g_p_u_skin_vertex_factory_8cpp_html_a12d4bb5f6f269666c60fff7de5b8d90a"><div class="ttname"><a href="#a12d4bb5f6f269666c60fff7de5b8d90a">IMPLEMENT_GPUSKINNING_VERTEX_FACTORY_TYPE_INTERNAL</a></div><div class="ttdeci">#define IMPLEMENT_GPUSKINNING_VERTEX_FACTORY_TYPE_INTERNAL(FactoryClass, ShaderFilename, Flags)</div><div class="ttdef"><b>定义</b> GPUSkinVertexFactory.cpp:78</div></div>
+<div class="ttc" id="a_object_macros_8h_html_ab1b4d2b5a96eee3af0fdf40789726115a4ea7801f17a4e5485e8b050c052fb443"><div class="ttname"><a href="../../d5/d1e/_object_macros_8h.html#ab1b4d2b5a96eee3af0fdf40789726115a4ea7801f17a4e5485e8b050c052fb443">EEnumFlags::Flags</a></div><div class="ttdeci">@ Flags</div><div class="ttdef"><b>定义</b> ObjectMacros.h:723</div></div>
+</div><!-- fragment -->
+</div>
+</div>
+<a id="a12d4bb5f6f269666c60fff7de5b8d90a" name="a12d4bb5f6f269666c60fff7de5b8d90a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a12d4bb5f6f269666c60fff7de5b8d90a">&#9670;&#160;</a></span>IMPLEMENT_GPUSKINNING_VERTEX_FACTORY_TYPE_INTERNAL</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define IMPLEMENT_GPUSKINNING_VERTEX_FACTORY_TYPE_INTERNAL</td>
+          <td>(</td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>FactoryClass</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>ShaderFilename</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>Flags</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>值:</b><div class="fragment"><div class="line">    <span class="keyword">template</span> &lt;GPUSkinBoneInfluenceType BoneInfluenceType&gt; <a class="code hl_class" href="../../d4/da4/class_f_vertex_factory_type.html">FVertexFactoryType</a> FactoryClass&lt;BoneInfluenceType&gt;::StaticType( \</div>
+<div class="line">    BoneInfluenceType == <a class="code hl_enumvalue" href="../../d2/d23/_g_p_u_skin_vertex_factory_8h.html#a0eb7961d00dda78b1a68f522e7910a07a75ac2e3ca5e399c710790a3cafa1fce8">DefaultBoneInfluence</a> ? <a class="code hl_define" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(#FactoryClass) <a class="code hl_define" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(<span class="stringliteral">&quot;Default&quot;</span>) : <a class="code hl_define" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(#FactoryClass) <a class="code hl_define" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(<span class="stringliteral">&quot;Unlimited&quot;</span>), \</div>
+<div class="line">    <a class="code hl_define" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(ShaderFilename), \</div>
+<div class="line">    <a class="code hl_enumvalue" href="../../d5/d1e/_object_macros_8h.html#ab1b4d2b5a96eee3af0fdf40789726115a4ea7801f17a4e5485e8b050c052fb443">Flags</a> | <a class="code hl_enumvalue" href="../../d5/d36/_vertex_factory_8h.html#a90ff84cf590831bdd1a9c8cccf4399c5af539c48fb29362f7bded3df11d3201e5">EVertexFactoryFlags::SupportsPrimitiveIdStream</a>, \</div>
+<div class="line">    <a class="code hl_define" href="../../d5/d36/_vertex_factory_8h.html#a1cd4c752d8caed9d5d3212957571f79a">IMPLEMENT_VERTEX_FACTORY_VTABLE</a>(FactoryClass&lt;BoneInfluenceType&gt;) \</div>
+<div class="line">    ); \</div>
+<div class="line">    <span class="keyword">template</span> &lt;GPUSkinBoneInfluenceType BoneInfluenceType&gt; <span class="keyword">inline</span> <a class="code hl_class" href="../../d4/da4/class_f_vertex_factory_type.html">FVertexFactoryType</a>* FactoryClass&lt;BoneInfluenceType&gt;::GetType()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> &amp;StaticType; }</div>
+<div class="ttc" id="a_core_2_public_2_h_a_l_2_platform_8h_html_a2978f60d40d64f3605b5a99f66f292a9"><div class="ttname"><a href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a></div><div class="ttdeci">#define TEXT(x)</div><div class="ttdef"><b>定义</b> Platform.h:1332</div></div>
+<div class="ttc" id="a_g_p_u_skin_vertex_factory_8h_html_a0eb7961d00dda78b1a68f522e7910a07a75ac2e3ca5e399c710790a3cafa1fce8"><div class="ttname"><a href="../../d2/d23/_g_p_u_skin_vertex_factory_8h.html#a0eb7961d00dda78b1a68f522e7910a07a75ac2e3ca5e399c710790a3cafa1fce8">DefaultBoneInfluence</a></div><div class="ttdeci">@ DefaultBoneInfluence</div><div class="ttdef"><b>定义</b> GPUSkinVertexFactory.h:223</div></div>
+<div class="ttc" id="a_vertex_factory_8h_html_a1cd4c752d8caed9d5d3212957571f79a"><div class="ttname"><a href="../../d5/d36/_vertex_factory_8h.html#a1cd4c752d8caed9d5d3212957571f79a">IMPLEMENT_VERTEX_FACTORY_VTABLE</a></div><div class="ttdeci">#define IMPLEMENT_VERTEX_FACTORY_VTABLE(FactoryClass)</div><div class="ttdef"><b>定义</b> VertexFactory.h:561</div></div>
+<div class="ttc" id="a_vertex_factory_8h_html_a90ff84cf590831bdd1a9c8cccf4399c5af539c48fb29362f7bded3df11d3201e5"><div class="ttname"><a href="../../d5/d36/_vertex_factory_8h.html#a90ff84cf590831bdd1a9c8cccf4399c5af539c48fb29362f7bded3df11d3201e5">EVertexFactoryFlags::SupportsPrimitiveIdStream</a></div><div class="ttdeci">@ SupportsPrimitiveIdStream</div><div class="ttdef"><b>定义</b> VertexFactory.h:144</div></div>
+<div class="ttc" id="aclass_f_vertex_factory_type_html"><div class="ttname"><a href="../../d4/da4/class_f_vertex_factory_type.html">FVertexFactoryType</a></div><div class="ttdef"><b>定义</b> VertexFactory.h:315</div></div>
+</div><!-- fragment -->
+</div>
+</div>
+<a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">函数说明</h2>
+<a id="a8643310af3b59038578f817b9e7682de" name="a8643310af3b59038578f817b9e7682de"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8643310af3b59038578f817b9e7682de">&#9670;&#160;</a></span>GetGPUSkinAPEXClothVertexFactoryUniformShaderParameters()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../df/d63/_typed_element_query_capabilities_8inl.html#a72343342ce64c0755563ee6c5e27868d">void</a> GetGPUSkinAPEXClothVertexFactoryUniformShaderParameters </td>
+          <td>(</td>
+          <td class="paramtype">FGPUSkinAPEXClothVertexFactoryUniformShaderParameters &amp;</td>          <td class="paramname"><span class="paramname"><em>UniformParameters</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="../../db/d70/class_f_g_p_u_base_skin_vertex_factory.html">FGPUBaseSkinVertexFactory</a> *</td>          <td class="paramname"><span class="paramname"><em>VertexFactory</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const FSkinningHeader *</td>          <td class="paramname"><span class="paramname"><em>SkinningHeader</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../dd/d14/class_f_r_h_i_shader_resource_view.html">FRHIShaderResourceView</a> *</td>          <td class="paramname"><span class="paramname"><em>TransformDataBufferSRV</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aba00439c0c747354c0094593d9c5d970" name="aba00439c0c747354c0094593d9c5d970"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aba00439c0c747354c0094593d9c5d970">&#9670;&#160;</a></span>GetGPUSkinVertexFactoryCommonShaderParameters()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../df/d63/_typed_element_query_capabilities_8inl.html#a72343342ce64c0755563ee6c5e27868d">void</a> GetGPUSkinVertexFactoryCommonShaderParameters </td>
+          <td>(</td>
+          <td class="paramtype">FGPUSkinVertexFactoryCommonShaderParameters &amp;</td>          <td class="paramname"><span class="paramname"><em>ShaderParameters</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="../../db/d70/class_f_g_p_u_base_skin_vertex_factory.html">FGPUBaseSkinVertexFactory</a> *</td>          <td class="paramname"><span class="paramname"><em>VertexFactory</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const FSkinningHeader *</td>          <td class="paramname"><span class="paramname"><em>SkinningHeader</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../dd/d14/class_f_r_h_i_shader_resource_view.html">FRHIShaderResourceView</a> *</td>          <td class="paramname"><span class="paramname"><em>TransformDataBufferSRV</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a5709167f7f3c98e5fd7d0f75304d8bb0" name="a5709167f7f3c98e5fd7d0f75304d8bb0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5709167f7f3c98e5fd7d0f75304d8bb0">&#9670;&#160;</a></span>IMPLEMENT_GLOBAL_SHADER_PARAMETER_STRUCT() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">IMPLEMENT_GLOBAL_SHADER_PARAMETER_STRUCT </td>
+          <td>(</td>
+          <td class="paramtype">FGPUSkinAPEXClothVertexFactoryUniformShaderParameters</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&quot;GPUSkinAPEXClothVF&quot;</td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Transform from cloth space (relative to cloth root bone) to local(component) space blend weight between simulated positions and original key-framed animation Scale of the owner actor Vertex buffer from which to read simulated positions of clothing. </p>
+
+</div>
+</div>
+<a id="abfcae142dc8c906743abf55b9cb2d95d" name="abfcae142dc8c906743abf55b9cb2d95d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abfcae142dc8c906743abf55b9cb2d95d">&#9670;&#160;</a></span>IMPLEMENT_GLOBAL_SHADER_PARAMETER_STRUCT() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">IMPLEMENT_GLOBAL_SHADER_PARAMETER_STRUCT </td>
+          <td>(</td>
+          <td class="paramtype">FGPUSkinPassThroughFactoryLooseParameters</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&quot;GPUSkinPassThroughVFLooseParameters&quot;</td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ac33561a4f40bee2f3c8fef2b1641fdf6" name="ac33561a4f40bee2f3c8fef2b1641fdf6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac33561a4f40bee2f3c8fef2b1641fdf6">&#9670;&#160;</a></span>IMPLEMENT_GPUSKINNING_VERTEX_FACTORY_PARAMETER_TYPE() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">IMPLEMENT_GPUSKINNING_VERTEX_FACTORY_PARAMETER_TYPE </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d5/dd7/class_t_g_p_u_skin_a_p_e_x_cloth_vertex_factory.html">TGPUSkinAPEXClothVertexFactory</a></td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../da/dca/_r_h_i_definitions_8h.html#a0a3cc83cb6ebc79b66b43fae3ffee64ea57b843d1079d918ef496ded337a171d2">SF_Vertex</a></td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../df/d76/class_t_g_p_u_skin_a_p_e_x_cloth_vertex_factory_shader_parameters.html">TGPUSkinAPEXClothVertexFactoryShaderParameters</a></td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ae3014437e05008040ce0bf3e9b3da8c5" name="ae3014437e05008040ce0bf3e9b3da8c5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae3014437e05008040ce0bf3e9b3da8c5">&#9670;&#160;</a></span>IMPLEMENT_GPUSKINNING_VERTEX_FACTORY_PARAMETER_TYPE() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">IMPLEMENT_GPUSKINNING_VERTEX_FACTORY_PARAMETER_TYPE </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../df/df4/class_t_g_p_u_skin_vertex_factory.html">TGPUSkinVertexFactory</a></td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../da/dca/_r_h_i_definitions_8h.html#a0a3cc83cb6ebc79b66b43fae3ffee64ea57b843d1079d918ef496ded337a171d2">SF_Vertex</a></td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d7/dc3/class_f_g_p_u_skin_vertex_factory_shader_parameters.html">FGPUSkinVertexFactoryShaderParameters</a></td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a20844c80700ac8120847c8ebf2513446" name="a20844c80700ac8120847c8ebf2513446"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a20844c80700ac8120847c8ebf2513446">&#9670;&#160;</a></span>IMPLEMENT_GPUSKINNING_VERTEX_FACTORY_TYPE() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">IMPLEMENT_GPUSKINNING_VERTEX_FACTORY_TYPE </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d5/dd7/class_t_g_p_u_skin_a_p_e_x_cloth_vertex_factory.html">TGPUSkinAPEXClothVertexFactory</a></td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&quot;/Engine/<a class="el" href="../../d9/db1/namespace_private.html">Private</a>/GpuSkinVertexFactory.ush&quot;</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d5/d36/_vertex_factory_8h.html#a90ff84cf590831bdd1a9c8cccf4399c5aeb69c6b2df2ded2bb67d7b221c8c2cc2">EVertexFactoryFlags::UsedWithMaterials</a>|<a class="el" href="../../d5/d36/_vertex_factory_8h.html#a90ff84cf590831bdd1a9c8cccf4399c5a4c28412b1100aeb7b1e60371e2c060c2">EVertexFactoryFlags::SupportsDynamicLighting</a>|<a class="el" href="../../d5/d36/_vertex_factory_8h.html#a90ff84cf590831bdd1a9c8cccf4399c5a3cb55ebb1a87832ef147328ffa47fe23">EVertexFactoryFlags::SupportsPSOPrecaching</a>|<a class="el" href="../../d5/d36/_vertex_factory_8h.html#a90ff84cf590831bdd1a9c8cccf4399c5a4c3b7e8b24ea7a25d908e1b5b2dca00e">EVertexFactoryFlags::SupportsCachingMeshDrawCommands</a></td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>bind cloth gpu skin vertex factory to its shader file and its shader parameters </p>
+
+</div>
+</div>
+<a id="ad8d54e8c3891ef2057a36d88572da7a3" name="ad8d54e8c3891ef2057a36d88572da7a3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad8d54e8c3891ef2057a36d88572da7a3">&#9670;&#160;</a></span>IMPLEMENT_GPUSKINNING_VERTEX_FACTORY_TYPE() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">IMPLEMENT_GPUSKINNING_VERTEX_FACTORY_TYPE </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../df/df4/class_t_g_p_u_skin_vertex_factory.html">TGPUSkinVertexFactory</a></td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&quot;/Engine/<a class="el" href="../../d9/db1/namespace_private.html">Private</a>/GpuSkinVertexFactory.ush&quot;</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d5/d36/_vertex_factory_8h.html#a90ff84cf590831bdd1a9c8cccf4399c5aeb69c6b2df2ded2bb67d7b221c8c2cc2">EVertexFactoryFlags::UsedWithMaterials</a>|<a class="el" href="../../d5/d36/_vertex_factory_8h.html#a90ff84cf590831bdd1a9c8cccf4399c5a4c28412b1100aeb7b1e60371e2c060c2">EVertexFactoryFlags::SupportsDynamicLighting</a>|<a class="el" href="../../d5/d36/_vertex_factory_8h.html#a90ff84cf590831bdd1a9c8cccf4399c5a3cb55ebb1a87832ef147328ffa47fe23">EVertexFactoryFlags::SupportsPSOPrecaching</a>|<a class="el" href="../../d5/d36/_vertex_factory_8h.html#a90ff84cf590831bdd1a9c8cccf4399c5a4c3b7e8b24ea7a25d908e1b5b2dca00e">EVertexFactoryFlags::SupportsCachingMeshDrawCommands</a>|<a class="el" href="../../d5/d36/_vertex_factory_8h.html#a90ff84cf590831bdd1a9c8cccf4399c5ac60c089e2a0d97b82b1b83dcf8cadaa4">EVertexFactoryFlags::SupportsTriangleSorting</a></td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>bind gpu skin vertex factory to its shader file and its shader parameters </p>
+
+</div>
+</div>
+<a id="ace3dcba976438d3018bc65555c17ad9f" name="ace3dcba976438d3018bc65555c17ad9f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ace3dcba976438d3018bc65555c17ad9f">&#9670;&#160;</a></span>IMPLEMENT_TYPE_LAYOUT() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">IMPLEMENT_TYPE_LAYOUT </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d7/dc3/class_f_g_p_u_skin_vertex_factory_shader_parameters.html">FGPUSkinVertexFactoryShaderParameters</a></td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a7c7f3d5339731efca60973df2c0570f7" name="a7c7f3d5339731efca60973df2c0570f7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7c7f3d5339731efca60973df2c0570f7">&#9670;&#160;</a></span>IMPLEMENT_TYPE_LAYOUT() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">IMPLEMENT_TYPE_LAYOUT </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../df/d76/class_t_g_p_u_skin_a_p_e_x_cloth_vertex_factory_shader_parameters.html">TGPUSkinAPEXClothVertexFactoryShaderParameters</a></td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a88a33bc497b0dc127846f8f1eda70927" name="a88a33bc497b0dc127846f8f1eda70927"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a88a33bc497b0dc127846f8f1eda70927">&#9670;&#160;</a></span>SupportsNoOverwriteBuffers()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d5/dc9/_generic_platform_compiler_pre_setup_8h.html#a084b2ccd2e278a5d6b9f0088bd8f1474">PRAGMA_ENABLE_DEPRECATION_WARNINGS</a> <a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a> SupportsNoOverwriteBuffers </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a name="doc-var-members" id="doc-var-members"></a><h2 id="header-doc-var-members" class="groupheader">变量说明</h2>
+<a id="a5091c2966b5c3d2542b17f728d52f1ef" name="a5091c2966b5c3d2542b17f728d52f1ef"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5091c2966b5c3d2542b17f728d52f1ef">&#9670;&#160;</a></span>GBoneBufferPool</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../da/dee/class_t_global_resource.html">TGlobalResource</a>&lt;<a class="el" href="../../df/d25/class_f_bone_buffer_pool.html">FBoneBufferPool</a>&gt; GBoneBufferPool</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a7bdf6a879de38d5cfee462f247eaa88d" name="a7bdf6a879de38d5cfee462f247eaa88d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7bdf6a879de38d5cfee462f247eaa88d">&#9670;&#160;</a></span>GClothBufferPool</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../da/dee/class_t_global_resource.html">TGlobalResource</a>&lt;<a class="el" href="../../d8/d00/class_f_cloth_buffer_pool.html">FClothBufferPool</a>&gt; GClothBufferPool</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Pool of buffers for clothing simulation data </p>
+
+</div>
+</div>
+<a id="a4375ac42ee8cfc355041aa2134dc7f70" name="a4375ac42ee8cfc355041aa2134dc7f70"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4375ac42ee8cfc355041aa2134dc7f70">&#9670;&#160;</a></span>GNullMorphVertexBuffer</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../da/dee/class_t_global_resource.html">TGlobalResource</a>&lt;<a class="el" href="../../d5/da4/class_f_null_morph_vertex_buffer.html">FNullMorphVertexBuffer</a>, <a class="el" href="../../d3/d1d/class_f_render_resource.html#a897ff1740133d6f96d6e76351b921076afb55a965b77791b31ffd2bb548f71080">FRenderResource::EInitPhase::Pre</a>&gt; GNullMorphVertexBuffer</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<div id="page-nav" class="page-nav-panel">
+<div id="page-nav-resize-handle"></div>
+<div id="page-nav-tree">
+<div id="page-nav-contents">
+</div><!-- page-nav-contents -->
+</div><!-- page-nav-tree -->
+</div><!-- page-nav -->
+</div><!-- container -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a href="../../dir_0b6ee6e7e9547e675db4add2e5de97da.html">Engine</a></li><li class="navelem"><a href="../../dir_9579d1ecb2c7bf48cbe1049c41745cb4.html">Source</a></li><li class="navelem"><a href="../../dir_9f04efef762572853abdf73f62bebfcc.html">Runtime</a></li><li class="navelem"><a href="../../dir_750344885b5b0dabc1066bd532c992d7.html">Engine</a></li><li class="navelem"><a href="../../dir_0f80cfe80f66a90345f34a7a0d31ead6.html">Private</a></li><li class="navelem"><a href="../../de/dfc/_g_p_u_skin_vertex_factory_8cpp.html">GPUSkinVertexFactory.cpp</a></li>
+    <li class="footer">制作者 <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.15.0 </li>
+  </ul>
+</div>
+</body>
+</html>

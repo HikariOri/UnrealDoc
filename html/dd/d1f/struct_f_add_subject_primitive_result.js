@@ -1,0 +1,26 @@
+var struct_f_add_subject_primitive_result =
+[
+    [ "AcceptMDC", "dd/d1f/struct_f_add_subject_primitive_result.html#a1bf434d7fa3d03841ede168e87ebbbea", null ],
+    [ "AcceptMesh", "dd/d1f/struct_f_add_subject_primitive_result.html#a542cf3cae7c693b880521ab9d20e9ef8", null ],
+    [ "GetMDCIndices", "dd/d1f/struct_f_add_subject_primitive_result.html#a30aaece7e6cdcfc895176e800dc43361", null ],
+    [ "GetMeshIndices", "dd/d1f/struct_f_add_subject_primitive_result.html#ae00806356bc0900992f25942fccd48a1", null ],
+    [ "SetLodRange", "dd/d1f/struct_f_add_subject_primitive_result.html#ac5fe0c2e0fe6016c43a9a6fa163587cf", null ],
+    [ "bAddOnRenderThread", "dd/d1f/struct_f_add_subject_primitive_result.html#a7841e0413143799bd0e8276111da09f9", null ],
+    [ "bCopyCachedMeshDrawCommand", "dd/d1f/struct_f_add_subject_primitive_result.html#a0706d49b768b48567f0894396532bc79", null ],
+    [ "bDynamicSubjectPrimitive", "dd/d1f/struct_f_add_subject_primitive_result.html#a433023cb466e90abfa186888e9239318", null ],
+    [ "bFadingIn", "dd/d1f/struct_f_add_subject_primitive_result.html#a10580ed1984ca8c7d5571e56dfe5da5c", null ],
+    [ "bHeterogeneousVolumeSubjectPrimitive", "dd/d1f/struct_f_add_subject_primitive_result.html#ae5b17ca59eb0e1663c7694ddbeb87f49", null ],
+    [ "bIsLodRange", "dd/d1f/struct_f_add_subject_primitive_result.html#a8d98f0397513fdb43d87077c792fba1c", null ],
+    [ "bNeedPrimitiveFadingStateUpdate", "dd/d1f/struct_f_add_subject_primitive_result.html#a3218425fd864d93ae8d475b6ffb5ff82", null ],
+    [ "bNeedUniformBufferUpdate", "dd/d1f/struct_f_add_subject_primitive_result.html#ad0c0381847a35a18c415304dd432b992", null ],
+    [ "bOverflowed", "dd/d1f/struct_f_add_subject_primitive_result.html#ace2bfaf43fa89edb403cce6b984d4f75", null ],
+    [ "bRequestMeshCommandBuild", "dd/d1f/struct_f_add_subject_primitive_result.html#a11b648c6444f8d9bb2405f23afaabf14", null ],
+    [ "bShouldRecordShadowSubjectsForMobile", "dd/d1f/struct_f_add_subject_primitive_result.html#a93c40d1a273d2ea9d764cb3e688ea33f", null ],
+    [ "bTranslucentSubjectPrimitive", "dd/d1f/struct_f_add_subject_primitive_result.html#a3be64b777298b2061a23ce9b5f9a6982", null ],
+    [ "LodRangeMax", "dd/d1f/struct_f_add_subject_primitive_result.html#a7da4d60ded075bce773dc3157f5cc8bb", null ],
+    [ "LodRangeMin", "dd/d1f/struct_f_add_subject_primitive_result.html#ade793594408ef0fa7da1f37c66aaebc9", null ],
+    [ "MDCOrMeshIndices", "dd/d1f/struct_f_add_subject_primitive_result.html#a632bb22ca35fe453eff201f9db384d8a", null ],
+    [ "NumMDCIndices", "dd/d1f/struct_f_add_subject_primitive_result.html#a52e479bba1d281d0ce6a8f52e876f2da", null ],
+    [ "NumMeshIndices", "dd/d1f/struct_f_add_subject_primitive_result.html#af7e85a9ccb6b5604880e2857497541af", null ],
+    [ "Qword", "dd/d1f/struct_f_add_subject_primitive_result.html#aab5edbf5cb48e94f27d8dd56e8880e57", null ]
+];

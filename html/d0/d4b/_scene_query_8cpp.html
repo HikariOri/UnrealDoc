@@ -1,0 +1,1481 @@
+<!-- HTML header for doxygen 1.15.0-->
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh">
+<head>
+  <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=11" />
+  <meta name="generator" content="Doxygen 1.15.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>UE 5.8.4: Engine/Source/Runtime/Engine/Private/Collision/SceneQuery.cpp 文件参考</title>
+  <link rel="icon" href="../../EdIconDefault.bmp" type="image/x-icon" />
+  <link href="../../tabs.css" rel="stylesheet" type="text/css" />
+  <script type="text/javascript" src="../../jquery.js"></script>
+  <script type="text/javascript" src="../../dynsections.js"></script>
+  <link href="../../navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../navtreedata.js"></script>
+<script type="text/javascript" src="../../navtree.js"></script>
+<script type="text/javascript" src="../../cookie.js"></script>
+  <link href="../../search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../search/searchdata.js"></script>
+<script type="text/javascript" src="../../search/search.js"></script>
+  <script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  extensions: ["tex2jax.js"],
+  jax: ["input/TeX","output/HTML-CSS"],
+});
+</script>
+<script type="text/javascript" async="async" src="https://cdn.jsdelivr.net/npm/mathjax@2/MathJax.js"></script>
+  <link href="../../doxygen.css" rel="stylesheet" type="text/css" />
+  <link href="../../doxygen-awesome.css" rel="stylesheet" type="text/css"/>
+<link href="../../doxygen-awesome-sidebar-only.css" rel="stylesheet" type="text/css"/>
+<link href="../../doxygen-awesome-sidebar-only-darkmode-toggle.css" rel="stylesheet" type="text/css"/>
+  <!-- ... other metadata & script includes ... -->
+  <script type="text/javascript" src="../../doxygen-awesome-darkmode-toggle.js"></script>
+  <script type="text/javascript">
+    DoxygenAwesomeDarkModeToggle.title = "Zwischen hellem/dunklem Modus wechseln"
+    DoxygenAwesomeDarkModeToggle.lightModeIcon = '🌞'
+    // icon from https://fonts.google.com/icons
+    DoxygenAwesomeDarkModeToggle.darkModeIcon = `<svg xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 24 24" height="24px" viewBox="0 0 24 24" width="24px" fill="#009793"><g><rect fill="none" height="24" width="24"/></g><g><g><path d="M8.1,14.15C9.77,14.63,11,16.17,11,18c0,0.68-0.19,1.31-0.48,1.87c0.48,0.09,0.97,0.14,1.48,0.14 c1.48,0,2.9-0.41,4.13-1.15c-2.62-0.92-5.23-2.82-6.8-5.86C7.74,9.94,7.78,7.09,8.29,4.9c-2.57,1.33-4.3,4.01-4.3,7.1c0,0,0,0,0,0 c0.01,0,0.01,0,0.02,0C5.66,12,7.18,12.83,8.1,14.15z" opacity=".3"/><path d="M19.78,17.51c-2.47,0-6.57-1.33-8.68-5.43C8.77,7.57,10.6,3.6,11.63,2.01C6.27,2.2,1.98,6.59,1.98,12 c0,0.14,0.02,0.28,0.02,0.42C2.61,12.16,3.28,12,3.98,12c0,0,0,0,0,0c0-3.09,1.73-5.77,4.3-7.1C7.78,7.09,7.74,9.94,9.32,13 c1.57,3.04,4.18,4.95,6.8,5.86c-1.23,0.74-2.65,1.15-4.13,1.15c-0.5,0-1-0.05-1.48-0.14c-0.37,0.7-0.94,1.27-1.64,1.64 c0.98,0.32,2.03,0.5,3.11,0.5c3.5,0,6.58-1.8,8.37-4.52C20.18,17.5,19.98,17.51,19.78,17.51z"/><path d="M7,16l-0.18,0C6.4,14.84,5.3,14,4,14c-1.66,0-3,1.34-3,3s1.34,3,3,3c0.62,0,2.49,0,3,0c1.1,0,2-0.9,2-2 C9,16.9,8.1,16,7,16z"/></g></g></svg>`
+    DoxygenAwesomeDarkModeToggle.init()
+  </script>
+  <script type="text/javascript" src="../../doxygen-awesome-fragment-copy-button.js"></script>
+  <script type="text/javascript">
+    DoxygenAwesomeFragmentCopyButton.title = "In die Zwischenablage kopieren"
+    // DoxygenAwesomeFragmentCopyButton.copyIcon = `<svg ...>`
+    // DoxygenAwesomeFragmentCopyButton.successIcon = `<svg ...>`
+    DoxygenAwesomeFragmentCopyButton.init()
+  </script>
+  <script type="text/javascript" src="../../doxygen-awesome-paragraph-link.js"></script>
+  <script type="text/javascript">
+    DoxygenAwesomeParagraphLink.title = "Abschnitt verknüpfen"
+    DoxygenAwesomeParagraphLink.icon = "¶"
+    DoxygenAwesomeParagraphLink.init()
+  </script>
+  <script type="text/javascript" src="../../doxygen-awesome-interactive-toc.js"></script>
+  <script type="text/javascript">
+    DoxygenAwesomeInteractiveToc.topOffset = 45
+    DoxygenAwesomeInteractiveToc.hideMobileMenu = false
+    DoxygenAwesomeInteractiveToc.init()
+  </script>
+</head>
+<body>
+    <div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+      <div id="titlearea">
+        <table cellspacing="0" cellpadding="0">
+          <tbody>
+            <tr id="projectrow">
+              <td id="projectlogo"><img alt="Logo" src="../../EdIconDefault.bmp"  /></td>
+              <td id="projectalign">
+                <div id="projectname">UE 5.8.4
+                </div>
+                <div id="projectbrief">Unreal Engine</div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <!-- end header part -->
+<!-- 制作者 Doxygen 1.15.0 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "../../search/",'.html');
+</script>
+<script type="text/javascript">
+$(function() { codefold.init(); });
+</script>
+<script type="text/javascript" src="../../menudata.js"></script>
+<script type="text/javascript" src="../../menu.js"></script>
+<script type="text/javascript">
+$(function() {
+  initMenu('../../',true,false,'search.php','搜索',true);
+  $(function() { init_search(); });
+});
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(function(){initNavTree('d0/d4b/_scene_query_8cpp.html','../../',''); });
+</script>
+<div id="container">
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">载入中...</div>
+<div class="SRStatus" id="Searching">搜索中...</div>
+<div class="SRStatus" id="NoMatches">未找到</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">SceneQuery.cpp 文件参考</div></div>
+</div><!--header-->
+<div class="contents">
+<div class="textblock"><code>#include &quot;<a class="el" href="../../d8/d86/_world_8h_source.html">Engine/World.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d8/db5/_overlap_result_8h_source.html">Engine/OverlapResult.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../dd/d0e/_collision_debug_drawing_public_8h_source.html">CollisionDebugDrawingPublic.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d4/dee/_phys_scene___chaos_8h_source.html">Physics/Experimental/PhysScene_Chaos.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d4/d07/_physics_interface_utils_8h_source.html">Physics/PhysicsInterfaceUtils.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../dc/d1d/_physics_query_handler_8h_source.html">Physics/PhysicsQueryHandler.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../da/d5a/_scene_query_data_8h_source.html">Physics/SceneQueryData.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../dd/db6/_collision_conversions_8h_source.html">Collision/CollisionConversions.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../dd/da7/_cluster_union_component_8h_source.html">PhysicsEngine/ClusterUnionComponent.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d3/d4d/_collision_query_filter_callback_8h_source.html">PhysicsEngine/CollisionQueryFilterCallback.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d5/dc3/_external_spatial_acceleration_payload_8h_source.html">PhysicsEngine/ExternalSpatialAccelerationPayload.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d5/db5/_scoped_s_q_hitch_repeater_8h_source.html">PhysicsEngine/ScopedSQHitchRepeater.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d5/da1/_chaos_archive_8h_source.html">Chaos/ChaosArchive.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d0/d30/_memory_reader_8h_source.html">Serialization/MemoryReader.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d9/d4a/_memory_writer_8h_source.html">Serialization/MemoryWriter.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d9/d8c/_collision_debug_drawing_8h_source.html">Collision/CollisionDebugDrawing.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d5/dde/_chaos_v_d_s_q_trace_helper_8h_source.html">ChaosVDSQTraceHelper.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../df/d59/_collision_analyzer_capture_8h_source.html">PhysicsEngine/CollisionAnalyzerCapture.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d6/d47/_chaos_interface_wrapper_8h_source.html">Physics/Experimental/ChaosInterfaceWrapper.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d0/d4e/_p_b_d_rigids_solver_8h_source.html">PBDRigidsSolver.h</a>&quot;</code><br />
+</div><div class="textblock"><div class="dynheader">
+SceneQuery.cpp 的引用(Include)关系图:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../df/d79/_scene_query_8cpp__incl.svg" width="5484" height="731"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+</div><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-nested-classes" class="groupheader"><a id="nested-classes" name="nested-classes"></a>
+类</h2></td></tr>
+<tr class="memitem:FGeomSQAdditionalInputs" id="r_FGeomSQAdditionalInputs"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/d8f/struct_f_geom_s_q_additional_inputs.html">FGeomSQAdditionalInputs</a></td></tr>
+<tr class="memitem:FGeomCollectionSQAdditionalInputs" id="r_FGeomCollectionSQAdditionalInputs"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/d77/struct_f_geom_collection_s_q_additional_inputs.html">FGeomCollectionSQAdditionalInputs</a></td></tr>
+<tr class="memitem:FPhysicsGeometrySQAdditionalInputs" id="r_FPhysicsGeometrySQAdditionalInputs"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/d9e/struct_f_physics_geometry_s_q_additional_inputs.html">FPhysicsGeometrySQAdditionalInputs</a></td></tr>
+<tr class="memitem:FRaycastSQAdditionalInputs" id="r_FRaycastSQAdditionalInputs"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d60/struct_f_raycast_s_q_additional_inputs.html">FRaycastSQAdditionalInputs</a></td></tr>
+<tr class="memitem:TSQTraits_3C_20InHitType_2C_20InGeometryQuery_2C_20InSingleMultiOrTest_20_3E" id="r_TSQTraits_3C_20InHitType_2C_20InGeometryQuery_2C_20InSingleMultiOrTest_20_3E"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/d1c/struct_t_s_q_traits.html">TSQTraits&lt; InHitType, InGeometryQuery, InSingleMultiOrTest &gt;</a></td></tr>
+<tr class="memitem:FClusterUnionHit" id="r_FClusterUnionHit"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/dec/struct_f_cluster_union_hit.html">FClusterUnionHit</a></td></tr>
+<tr class="memitem:FDefaultAccelContainer" id="r_FDefaultAccelContainer"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/d51/struct_f_default_accel_container.html">FDefaultAccelContainer</a></td></tr>
+<tr class="memitem:FOverrideAccelContainer_3C_20AccelType_20_3E" id="r_FOverrideAccelContainer_3C_20AccelType_20_3E"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d2/d71/struct_f_override_accel_container.html">FOverrideAccelContainer&lt; AccelType &gt;</a></td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-namespaces" class="groupheader"><a id="namespaces" name="namespaces"></a>
+命名空间</h2></td></tr>
+<tr class="memitem:Chaos" id="r_Chaos"><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d0f/namespace_chaos.html">Chaos</a></td></tr>
+<tr class="memitem:Chaos_3A_3APrivate" id="r_Chaos_3A_3APrivate"><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/d10/namespace_chaos_1_1_private.html">Chaos::Private</a></td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-define-members" class="groupheader"><a id="define-members" name="define-members"></a>
+宏定义</h2></td></tr>
+<tr class="memitem:acc7df19a5ba89b8d917a7e6d38c7df5d" id="r_acc7df19a5ba89b8d917a7e6d38c7df5d"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#acc7df19a5ba89b8d917a7e6d38c7df5d">DEFINE_GENERIC_GEOM_FOR_ACCEL</a>(TACCEL)</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-typedef-members" class="groupheader"><a id="typedef-members" name="typedef-members"></a>
+类型定义</h2></td></tr>
+<tr class="memitem:aea1dbdc0225934504c98320d4df36ebc" id="r_aea1dbdc0225934504c98320d4df36ebc"><td class="memTemplParams" colspan="2">template&lt;typename GeomType&gt; </td></tr>
+<tr class="memitem:aea1dbdc0225934504c98320d4df36ebc template"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aea1dbdc0225934504c98320d4df36ebc">TGeomSQInputs</a></td></tr>
+<tr class="memitem:a8e85cbf77daa13411ea4bde08a39bb01" id="r_a8e85cbf77daa13411ea4bde08a39bb01"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8e85cbf77daa13411ea4bde08a39bb01">EThreadQueryContext</a> = <a class="el" href="../../d4/d0f/namespace_chaos.html#a282624c5070f036bda7bd82ebf1740a8">Chaos::EThreadQueryContext</a></td></tr>
+<tr class="memitem:ac5f0f8a32e5f770c0ae59860d65edf7e" id="r_ac5f0f8a32e5f770c0ae59860d65edf7e"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac5f0f8a32e5f770c0ae59860d65edf7e">EQueryInfo</a> = <a class="el" href="../../d4/d0f/namespace_chaos.html#ac197df781754860e132c4d692708b580">Chaos::EQueryInfo</a></td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-enum-members" class="groupheader"><a id="enum-members" name="enum-members"></a>
+枚举</h2></td></tr>
+<tr class="memitem:ade75f143524494a0dbf466e96e1384a5" id="r_ade75f143524494a0dbf466e96e1384a5"><td class="memItemLeft" align="right" valign="top">enum class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ade75f143524494a0dbf466e96e1384a5">ESingleMultiOrTest</a> : uint8 { <a class="el" href="#ade75f143524494a0dbf466e96e1384a5a66ba162102bbf6ae31b522aec561735e">Single</a>
+, <a class="el" href="#ade75f143524494a0dbf466e96e1384a5ace7898536dd0e928d1640ee2ad531cc8">Multi</a>
+, <a class="el" href="#ade75f143524494a0dbf466e96e1384a5a0cbc6611f5540bd0809a388dc95a615b">Test</a>
+ }</td></tr>
+<tr class="memitem:aadd2e03766c2a5d8946ba4ee8cb16ad2" id="r_aadd2e03766c2a5d8946ba4ee8cb16ad2"><td class="memItemLeft" align="right" valign="top">enum class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aadd2e03766c2a5d8946ba4ee8cb16ad2">ESweepOrRay</a> : uint8 { <a class="el" href="#aadd2e03766c2a5d8946ba4ee8cb16ad2a117e624bbbd5afc75a3150ba85d3cb93">Raycast</a>
+, <a class="el" href="#aadd2e03766c2a5d8946ba4ee8cb16ad2a8e9014ddfce21beb1b3cd7da888cbdea">Sweep</a>
+ }</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-func-members" class="groupheader"><a id="func-members" name="func-members"></a>
+函数</h2></td></tr>
+<tr class="memitem:a5ba65dfe47b798ffcd4f7af2cf6281c2" id="r_a5ba65dfe47b798ffcd4f7af2cf6281c2"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5ba65dfe47b798ffcd4f7af2cf6281c2">CSV_DEFINE_CATEGORY</a> (SceneQuery, <a class="el" href="../../d3/df7/radaudio__common_8h.html#ade27a78a51a66a5cfb6f09cf36bcfde9ae9de385ef6fe9bf3360d1038396b884c">false</a>)</td></tr>
+<tr class="memitem:a2b0281b0f40574d70ab75b58231be7d2" id="r_a2b0281b0f40574d70ab75b58231be7d2"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2b0281b0f40574d70ab75b58231be7d2">GetIgnoreQueryHandler</a> ()</td></tr>
+<tr class="memitem:a9523de65e1f86a56315c1674f1b1ff25" id="r_a9523de65e1f86a56315c1674f1b1ff25"><td class="memTemplParams" colspan="2">template&lt;typename GeomType&gt; </td></tr>
+<tr class="memitem:a9523de65e1f86a56315c1674f1b1ff25 template"><td class="memItemLeft" align="right" valign="top"><a class="el" href="#aea1dbdc0225934504c98320d4df36ebc">TGeomSQInputs</a>&lt; GeomType &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9523de65e1f86a56315c1674f1b1ff25">GeomToSQInputs</a> (const GeomType &amp;Geom, const <a class="el" href="../../d0/df6/_math_fwd_8h.html#a440e2e6b0f4eca3d0168353ed0cd6fad">FQuat</a> &amp;Rot)</td></tr>
+<tr class="memitem:a42c5d03223a503d7f5e1dc2b27c0cbe1" id="r_a42c5d03223a503d7f5e1dc2b27c0cbe1"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a42c5d03223a503d7f5e1dc2b27c0cbe1">BuildQueryShape</a> (const <a class="el" href="../../d0/d08/struct_f_collision_shape.html">FCollisionShape</a> &amp;CollisionShape, <a class="el" href="../../db/df5/struct_chaos_1_1_f_query_shape.html">Chaos::FQueryShape</a> &amp;OutQueryShape)</td></tr>
+<tr class="memitem:a3214f6fe3bb24c44c2ffcb78c172facf" id="r_a3214f6fe3bb24c44c2ffcb78c172facf"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a3214f6fe3bb24c44c2ffcb78c172facf">BuildQueryShape</a> (const <a class="el" href="../../de/d64/_physics_interface_declares_core_8h.html#aa537124a4c1bcdbceb93c806460a3eb0">FPhysicsGeometryCollection</a> &amp;<a class="el" href="../../d9/dc6/namespace_geometry_collection.html">GeometryCollection</a>, <a class="el" href="../../db/df5/struct_chaos_1_1_f_query_shape.html">Chaos::FQueryShape</a> &amp;OutQueryShape)</td></tr>
+<tr class="memitem:a578e8a0cfa359c42ebe50dd9d02a65be" id="r_a578e8a0cfa359c42ebe50dd9d02a65be"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../df/d63/_typed_element_query_capabilities_8inl.html#a72343342ce64c0755563ee6c5e27868d">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a578e8a0cfa359c42ebe50dd9d02a65be">ConvertToConvex</a> (const <a class="el" href="../../db/df5/struct_chaos_1_1_f_query_shape.html">Chaos::FQueryShape</a> &amp;QueryShape, <a class="el" href="../../d4/d0f/namespace_chaos.html#a27ae8acc91278017a267fe4728db017d">Chaos::FImplicitObjectPtr</a> &amp;OutConvex)</td></tr>
+<tr class="memitem:a4b7f4da0a6bb4d0da3713a4fd96582be" id="r_a4b7f4da0a6bb4d0da3713a4fd96582be"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d4/d0f/namespace_chaos.html#a282624c5070f036bda7bd82ebf1740a8">EThreadQueryContext</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4b7f4da0a6bb4d0da3713a4fd96582be">GetThreadQueryContext</a> (const <a class="el" href="../../d4/d0f/namespace_chaos.html#a9b61beb45f1e7351612c6222c3fddda0">Chaos::FPhysicsSolver</a> &amp;Solver)</td></tr>
+<tr class="memitem:aed8d710dbce068dd7bf4763c785f4c7b" id="r_aed8d710dbce068dd7bf4763c785f4c7b"><td class="memTemplParams" colspan="2">template&lt;typename Traits, typename GeomInputsType, typename AccelContainerType&gt; </td></tr>
+<tr class="memitem:aed8d710dbce068dd7bf4763c785f4c7b template"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aed8d710dbce068dd7bf4763c785f4c7b">TSceneCastCommonImpWithRetryRequest</a> (const <a class="el" href="../../de/d4d/class_u_world.html">UWorld</a> *World, typename Traits::OutHitsType &amp;OutHits, const GeomInputsType &amp;GeomInputs, const <a class="el" href="../../d0/df6/_math_fwd_8h.html#adda141358ecae99df7ba663b9e637078">FVector</a> Start, const <a class="el" href="../../d0/df6/_math_fwd_8h.html#adda141358ecae99df7ba663b9e637078">FVector</a> End, <a class="el" href="../../db/dd8/_engine_types_8h.html#aad19b3d048702469c60fa16d0e5533c8">ECollisionChannel</a> TraceChannel, const struct <a class="el" href="../../d4/d96/struct_f_collision_query_params.html">FCollisionQueryParams</a> &amp;Params, const struct <a class="el" href="../../d4/dc1/struct_f_collision_response_params.html">FCollisionResponseParams</a> &amp;ResponseParams, const struct <a class="el" href="../../d1/d0d/struct_f_collision_object_query_params.html">FCollisionObjectQueryParams</a> &amp;ObjectParams, const AccelContainerType &amp;AccelContainer, <a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a> &amp;bOutRequestRetry, <a class="el" href="../../d4/d96/struct_f_collision_query_params.html">FCollisionQueryParams</a> &amp;OutRetryParams)</td></tr>
+<tr class="memitem:a34f06949ea7854368b55d953309b8981" id="r_a34f06949ea7854368b55d953309b8981"><td class="memTemplParams" colspan="2">template&lt;typename Traits, typename GeomInputsType, typename AccelContainerType&gt; </td></tr>
+<tr class="memitem:a34f06949ea7854368b55d953309b8981 template"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a34f06949ea7854368b55d953309b8981">TSceneCastCommonImp</a> (const <a class="el" href="../../de/d4d/class_u_world.html">UWorld</a> *World, typename Traits::OutHitsType &amp;OutHits, const GeomInputsType &amp;GeomInputs, const <a class="el" href="../../d0/df6/_math_fwd_8h.html#adda141358ecae99df7ba663b9e637078">FVector</a> Start, const <a class="el" href="../../d0/df6/_math_fwd_8h.html#adda141358ecae99df7ba663b9e637078">FVector</a> End, <a class="el" href="../../db/dd8/_engine_types_8h.html#aad19b3d048702469c60fa16d0e5533c8">ECollisionChannel</a> TraceChannel, const struct <a class="el" href="../../d4/d96/struct_f_collision_query_params.html">FCollisionQueryParams</a> &amp;Params, const struct <a class="el" href="../../d4/dc1/struct_f_collision_response_params.html">FCollisionResponseParams</a> &amp;ResponseParams, const struct <a class="el" href="../../d1/d0d/struct_f_collision_object_query_params.html">FCollisionObjectQueryParams</a> &amp;ObjectParams, const AccelContainerType &amp;AccelContainer)</td></tr>
+<tr class="memitem:ae16af9772e44f8e0365f50cfd1d8b542" id="r_ae16af9772e44f8e0365f50cfd1d8b542"><td class="memTemplParams" colspan="2">template&lt;typename HitType, typename PTHitType, <a class="el" href="#aadd2e03766c2a5d8946ba4ee8cb16ad2">ESweepOrRay</a> SweepOrRay, <a class="el" href="#ade75f143524494a0dbf466e96e1384a5">ESingleMultiOrTest</a> SingleMultiOrTest, typename GeomInputsType, typename OutHitsType, typename AccelContainerType&gt; </td></tr>
+<tr class="memitem:ae16af9772e44f8e0365f50cfd1d8b542 template"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae16af9772e44f8e0365f50cfd1d8b542">TraceCommonImp</a> (const <a class="el" href="../../d4/d0f/namespace_chaos.html#a282624c5070f036bda7bd82ebf1740a8">EThreadQueryContext</a> ThreadContext, const <a class="el" href="../../de/d4d/class_u_world.html">UWorld</a> *World, OutHitsType &amp;OutHits, const GeomInputsType &amp;GeomInputs, const <a class="el" href="../../d0/df6/_math_fwd_8h.html#adda141358ecae99df7ba663b9e637078">FVector</a> Start, const <a class="el" href="../../d0/df6/_math_fwd_8h.html#adda141358ecae99df7ba663b9e637078">FVector</a> End, <a class="el" href="../../db/dd8/_engine_types_8h.html#aad19b3d048702469c60fa16d0e5533c8">ECollisionChannel</a> TraceChannel, const struct <a class="el" href="../../d4/d96/struct_f_collision_query_params.html">FCollisionQueryParams</a> &amp;Params, const struct <a class="el" href="../../d4/dc1/struct_f_collision_response_params.html">FCollisionResponseParams</a> &amp;ResponseParams, const struct <a class="el" href="../../d1/d0d/struct_f_collision_object_query_params.html">FCollisionObjectQueryParams</a> &amp;ObjectParams, const AccelContainerType &amp;AccelContainer)</td></tr>
+<tr class="memitem:aa2fecbf5da04097ce76dc3f7b6a24833" id="r_aa2fecbf5da04097ce76dc3f7b6a24833"><td class="memTemplParams" colspan="2">template&lt;<a class="el" href="#aadd2e03766c2a5d8946ba4ee8cb16ad2">ESweepOrRay</a> SweepOrRay, <a class="el" href="#ade75f143524494a0dbf466e96e1384a5">ESingleMultiOrTest</a> SingleMultiOrTest, typename GeomInputsType, typename OutHitsType, typename AccelContainerType&gt; </td></tr>
+<tr class="memitem:aa2fecbf5da04097ce76dc3f7b6a24833 template"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa2fecbf5da04097ce76dc3f7b6a24833">TraceCommonImp</a> (const <a class="el" href="../../d4/d0f/namespace_chaos.html#a282624c5070f036bda7bd82ebf1740a8">EThreadQueryContext</a> ThreadContext, const <a class="el" href="../../de/d4d/class_u_world.html">UWorld</a> *World, OutHitsType &amp;OutHits, const GeomInputsType &amp;GeomInputs, const <a class="el" href="../../d0/df6/_math_fwd_8h.html#adda141358ecae99df7ba663b9e637078">FVector</a> Start, const <a class="el" href="../../d0/df6/_math_fwd_8h.html#adda141358ecae99df7ba663b9e637078">FVector</a> End, <a class="el" href="../../db/dd8/_engine_types_8h.html#aad19b3d048702469c60fa16d0e5533c8">ECollisionChannel</a> TraceChannel, const struct <a class="el" href="../../d4/d96/struct_f_collision_query_params.html">FCollisionQueryParams</a> &amp;Params, const struct <a class="el" href="../../d4/dc1/struct_f_collision_response_params.html">FCollisionResponseParams</a> &amp;ResponseParams, const struct <a class="el" href="../../d1/d0d/struct_f_collision_object_query_params.html">FCollisionObjectQueryParams</a> &amp;ObjectParams, const AccelContainerType &amp;AccelContainer)</td></tr>
+<tr class="memitem:adf04309902a65c605ae1189b564a3170" id="r_adf04309902a65c605ae1189b564a3170"><td class="memTemplParams" colspan="2">template&lt;<a class="el" href="#ade75f143524494a0dbf466e96e1384a5">ESingleMultiOrTest</a> SingleMultiOrTest, typename GeomInputsType, typename OutHitsType&gt; </td></tr>
+<tr class="memitem:adf04309902a65c605ae1189b564a3170 template"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#adf04309902a65c605ae1189b564a3170">RaycastWithQueryHandler</a> (<a class="el" href="../../d4/d3a/class_u_physics_query_handler.html">UPhysicsQueryHandler</a> &amp;QueryHandler, const <a class="el" href="../../d4/d0f/namespace_chaos.html#a282624c5070f036bda7bd82ebf1740a8">EThreadQueryContext</a> ThreadContext, const <a class="el" href="../../de/d4d/class_u_world.html">UWorld</a> *World, OutHitsType &amp;OutHits, const GeomInputsType &amp;GeomInputs, const <a class="el" href="../../d0/df6/_math_fwd_8h.html#adda141358ecae99df7ba663b9e637078">FVector</a> Start, const <a class="el" href="../../d0/df6/_math_fwd_8h.html#adda141358ecae99df7ba663b9e637078">FVector</a> End, const <a class="el" href="../../d5/db4/struct_chaos_1_1_f_common_query_data.html">Chaos::FCommonQueryData</a> &amp;CommonData)</td></tr>
+<tr class="memitem:adaa4537ad5fe2f6276bb61d106981339" id="r_adaa4537ad5fe2f6276bb61d106981339"><td class="memTemplParams" colspan="2">template&lt;<a class="el" href="#ade75f143524494a0dbf466e96e1384a5">ESingleMultiOrTest</a> SingleMultiOrTest, typename OutHitsType&gt; </td></tr>
+<tr class="memitem:adaa4537ad5fe2f6276bb61d106981339 template"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#adaa4537ad5fe2f6276bb61d106981339">SweepWithQueryHandler</a> (<a class="el" href="../../d4/d3a/class_u_physics_query_handler.html">UPhysicsQueryHandler</a> &amp;QueryHandler, const <a class="el" href="../../d4/d0f/namespace_chaos.html#a282624c5070f036bda7bd82ebf1740a8">EThreadQueryContext</a> ThreadContext, const <a class="el" href="../../de/d4d/class_u_world.html">UWorld</a> *World, OutHitsType &amp;OutHits, const <a class="el" href="../../db/df5/struct_chaos_1_1_f_query_shape.html">Chaos::FQueryShape</a> &amp;QueryShape, const <a class="el" href="../../d0/df6/_math_fwd_8h.html#a440e2e6b0f4eca3d0168353ed0cd6fad">FQuat</a> &amp;GeomRot, const <a class="el" href="../../d0/df6/_math_fwd_8h.html#adda141358ecae99df7ba663b9e637078">FVector</a> Start, const <a class="el" href="../../d0/df6/_math_fwd_8h.html#adda141358ecae99df7ba663b9e637078">FVector</a> End, const <a class="el" href="../../d5/db4/struct_chaos_1_1_f_common_query_data.html">Chaos::FCommonQueryData</a> &amp;CommonData)</td></tr>
+<tr class="memitem:a33aba010741d5e5a4f31fa3d087cefc7" id="r_a33aba010741d5e5a4f31fa3d087cefc7"><td class="memTemplParams" colspan="2">template&lt;<a class="el" href="#ade75f143524494a0dbf466e96e1384a5">ESingleMultiOrTest</a> SingleMultiOrTest, typename OutHitsType&gt; </td></tr>
+<tr class="memitem:a33aba010741d5e5a4f31fa3d087cefc7 template"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a33aba010741d5e5a4f31fa3d087cefc7">SweepWithQueryHandler</a> (<a class="el" href="../../d4/d3a/class_u_physics_query_handler.html">UPhysicsQueryHandler</a> &amp;QueryHandler, const <a class="el" href="../../d4/d0f/namespace_chaos.html#a282624c5070f036bda7bd82ebf1740a8">EThreadQueryContext</a> ThreadContext, const <a class="el" href="../../de/d4d/class_u_world.html">UWorld</a> *World, OutHitsType &amp;OutHits, const <a class="el" href="../../d9/d8f/struct_f_geom_s_q_additional_inputs.html">FGeomSQAdditionalInputs</a> &amp;GeomInputs, const <a class="el" href="../../d0/df6/_math_fwd_8h.html#adda141358ecae99df7ba663b9e637078">FVector</a> Start, const <a class="el" href="../../d0/df6/_math_fwd_8h.html#adda141358ecae99df7ba663b9e637078">FVector</a> End, const <a class="el" href="../../d5/db4/struct_chaos_1_1_f_common_query_data.html">Chaos::FCommonQueryData</a> &amp;CommonData)</td></tr>
+<tr class="memitem:ad20b3c08704c47e8a927e0a61fb68264" id="r_ad20b3c08704c47e8a927e0a61fb68264"><td class="memTemplParams" colspan="2">template&lt;<a class="el" href="#ade75f143524494a0dbf466e96e1384a5">ESingleMultiOrTest</a> SingleMultiOrTest, typename OutHitsType&gt; </td></tr>
+<tr class="memitem:ad20b3c08704c47e8a927e0a61fb68264 template"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad20b3c08704c47e8a927e0a61fb68264">SweepWithQueryHandler</a> (<a class="el" href="../../d4/d3a/class_u_physics_query_handler.html">UPhysicsQueryHandler</a> &amp;QueryHandler, const <a class="el" href="../../d4/d0f/namespace_chaos.html#a282624c5070f036bda7bd82ebf1740a8">EThreadQueryContext</a> ThreadContext, const <a class="el" href="../../de/d4d/class_u_world.html">UWorld</a> *World, OutHitsType &amp;OutHits, const <a class="el" href="../../d9/d77/struct_f_geom_collection_s_q_additional_inputs.html">FGeomCollectionSQAdditionalInputs</a> &amp;GeomInputs, const <a class="el" href="../../d0/df6/_math_fwd_8h.html#adda141358ecae99df7ba663b9e637078">FVector</a> Start, const <a class="el" href="../../d0/df6/_math_fwd_8h.html#adda141358ecae99df7ba663b9e637078">FVector</a> End, const <a class="el" href="../../d5/db4/struct_chaos_1_1_f_common_query_data.html">Chaos::FCommonQueryData</a> &amp;CommonData)</td></tr>
+<tr class="memitem:ad353842cd0bfbce5c8b0242e652b371e" id="r_ad353842cd0bfbce5c8b0242e652b371e"><td class="memTemplParams" colspan="2">template&lt;<a class="el" href="#aadd2e03766c2a5d8946ba4ee8cb16ad2">ESweepOrRay</a> SweepOrRay, <a class="el" href="#ade75f143524494a0dbf466e96e1384a5">ESingleMultiOrTest</a> SingleMultiOrTest, typename OutHitsType, typename GeomInputsType, typename AccelContainerType = FDefaultAccelContainer&gt; </td></tr>
+<tr class="memitem:ad353842cd0bfbce5c8b0242e652b371e template"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad353842cd0bfbce5c8b0242e652b371e">TSceneCastCommon</a> (const <a class="el" href="../../de/d4d/class_u_world.html">UWorld</a> *World, OutHitsType &amp;OutHits, const GeomInputsType &amp;GeomInputs, const <a class="el" href="../../d0/df6/_math_fwd_8h.html#adda141358ecae99df7ba663b9e637078">FVector</a> Start, const <a class="el" href="../../d0/df6/_math_fwd_8h.html#adda141358ecae99df7ba663b9e637078">FVector</a> End, <a class="el" href="../../db/dd8/_engine_types_8h.html#aad19b3d048702469c60fa16d0e5533c8">ECollisionChannel</a> TraceChannel, const struct <a class="el" href="../../d4/d96/struct_f_collision_query_params.html">FCollisionQueryParams</a> &amp;Params, const struct <a class="el" href="../../d4/dc1/struct_f_collision_response_params.html">FCollisionResponseParams</a> &amp;ResponseParams, const struct <a class="el" href="../../d1/d0d/struct_f_collision_object_query_params.html">FCollisionObjectQueryParams</a> &amp;ObjectParams, const AccelContainerType &amp;AccelContainer=<a class="el" href="../../dc/d51/struct_f_default_accel_container.html">FDefaultAccelContainer</a>{})</td></tr>
+<tr class="memitem:a6cf5012e7fc1dd5c6dd3ab9241a4ace4" id="r_a6cf5012e7fc1dd5c6dd3ab9241a4ace4"><td class="memTemplParams" colspan="2">template&lt;typename OverlapHitType, <a class="el" href="../../d4/d0f/namespace_chaos.html#ac197df781754860e132c4d692708b580">EQueryInfo</a> InfoType, typename CollisionAnalyzerType, typename AccelContainerType&gt; </td></tr>
+<tr class="memitem:a6cf5012e7fc1dd5c6dd3ab9241a4ace4 template"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6cf5012e7fc1dd5c6dd3ab9241a4ace4">GeomOverlapMultiImp</a> (const <a class="el" href="../../de/d4d/class_u_world.html">UWorld</a> *World, const <a class="el" href="../../de/d64/_physics_interface_declares_core_8h.html#af968e1064e14aca2503ac4a608b63a80">FPhysicsGeometry</a> &amp;Geom, const CollisionAnalyzerType &amp;CollisionAnalyzerShape, const <a class="el" href="../../d0/df6/_math_fwd_8h.html#a532fe2b7d7e9b59259adebff28450bef">FTransform</a> &amp;GeomPose, <a class="el" href="../../d6/db1/class_t_array.html">TArray</a>&lt; <a class="el" href="../../df/d2c/struct_f_overlap_result.html">FOverlapResult</a> &gt; &amp;OutOverlaps, <a class="el" href="../../db/dd8/_engine_types_8h.html#aad19b3d048702469c60fa16d0e5533c8">ECollisionChannel</a> TraceChannel, const struct <a class="el" href="../../d4/d96/struct_f_collision_query_params.html">FCollisionQueryParams</a> &amp;Params, const struct <a class="el" href="../../d4/dc1/struct_f_collision_response_params.html">FCollisionResponseParams</a> &amp;ResponseParams, const struct <a class="el" href="../../d1/d0d/struct_f_collision_object_query_params.html">FCollisionObjectQueryParams</a> &amp;ObjectParams, const AccelContainerType &amp;AccelContainer)</td></tr>
+<tr class="memitem:a5de4306507f8dd8db785fc03f33def41" id="r_a5de4306507f8dd8db785fc03f33def41"><td class="memTemplParams" colspan="2">template&lt;<a class="el" href="../../d4/d0f/namespace_chaos.html#ac197df781754860e132c4d692708b580">EQueryInfo</a> InfoType, typename GeomType, typename AccelContainerType = FDefaultAccelContainer&gt; </td></tr>
+<tr class="memitem:a5de4306507f8dd8db785fc03f33def41 template"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5de4306507f8dd8db785fc03f33def41">GeomOverlapMultiHelper</a> (const <a class="el" href="../../d4/d0f/namespace_chaos.html#a282624c5070f036bda7bd82ebf1740a8">EThreadQueryContext</a> ThreadContext, const <a class="el" href="../../de/d4d/class_u_world.html">UWorld</a> *World, const GeomType &amp;InGeom, const <a class="el" href="../../d0/df6/_math_fwd_8h.html#a532fe2b7d7e9b59259adebff28450bef">FTransform</a> &amp;GeomPose, <a class="el" href="../../d6/db1/class_t_array.html">TArray</a>&lt; <a class="el" href="../../df/d2c/struct_f_overlap_result.html">FOverlapResult</a> &gt; &amp;OutOverlaps, <a class="el" href="../../db/dd8/_engine_types_8h.html#aad19b3d048702469c60fa16d0e5533c8">ECollisionChannel</a> TraceChannel, const struct <a class="el" href="../../d4/d96/struct_f_collision_query_params.html">FCollisionQueryParams</a> &amp;Params, const struct <a class="el" href="../../d4/dc1/struct_f_collision_response_params.html">FCollisionResponseParams</a> &amp;ResponseParams, const struct <a class="el" href="../../d1/d0d/struct_f_collision_object_query_params.html">FCollisionObjectQueryParams</a> &amp;ObjectParams, const AccelContainerType &amp;AccelContainer=<a class="el" href="../../dc/d51/struct_f_default_accel_container.html">FDefaultAccelContainer</a>{})</td></tr>
+<tr class="memitem:a1e14fe12b4a0163d07f1ecccc8abdc19" id="r_a1e14fe12b4a0163d07f1ecccc8abdc19"><td class="memTemplParams" colspan="2">template&lt;<a class="el" href="../../d4/d0f/namespace_chaos.html#ac197df781754860e132c4d692708b580">EQueryInfo</a> InfoType&gt; </td></tr>
+<tr class="memitem:a1e14fe12b4a0163d07f1ecccc8abdc19 template"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a1e14fe12b4a0163d07f1ecccc8abdc19">GeomOverlapMultiHelperWithQueryHandler</a> (<a class="el" href="../../d4/d3a/class_u_physics_query_handler.html">UPhysicsQueryHandler</a> &amp;QueryHandler, const <a class="el" href="../../d4/d0f/namespace_chaos.html#a282624c5070f036bda7bd82ebf1740a8">EThreadQueryContext</a> ThreadContext, const <a class="el" href="../../de/d4d/class_u_world.html">UWorld</a> *World, const <a class="el" href="../../db/df5/struct_chaos_1_1_f_query_shape.html">Chaos::FQueryShape</a> &amp;QueryShape, const <a class="el" href="../../d0/df6/_math_fwd_8h.html#a532fe2b7d7e9b59259adebff28450bef">FTransform</a> &amp;GeomPose, <a class="el" href="../../d6/db1/class_t_array.html">TArray</a>&lt; <a class="el" href="../../df/d2c/struct_f_overlap_result.html">FOverlapResult</a> &gt; &amp;OutOverlaps, <a class="el" href="../../db/dd8/_engine_types_8h.html#aad19b3d048702469c60fa16d0e5533c8">ECollisionChannel</a> TraceChannel, const struct <a class="el" href="../../d4/d96/struct_f_collision_query_params.html">FCollisionQueryParams</a> &amp;Params, const struct <a class="el" href="../../d4/dc1/struct_f_collision_response_params.html">FCollisionResponseParams</a> &amp;ResponseParams, const struct <a class="el" href="../../d1/d0d/struct_f_collision_object_query_params.html">FCollisionObjectQueryParams</a> &amp;ObjectParams)</td></tr>
+<tr class="memitem:a817e8a328b0a3685e2a824b0d6b61fa9" id="r_a817e8a328b0a3685e2a824b0d6b61fa9"><td class="memTemplParams" colspan="2">template&lt;<a class="el" href="../../d4/d0f/namespace_chaos.html#ac197df781754860e132c4d692708b580">EQueryInfo</a> InfoType&gt; </td></tr>
+<tr class="memitem:a817e8a328b0a3685e2a824b0d6b61fa9 template"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a817e8a328b0a3685e2a824b0d6b61fa9">GeomOverlapMultiHelperWithQueryHandler</a> (<a class="el" href="../../d4/d3a/class_u_physics_query_handler.html">UPhysicsQueryHandler</a> &amp;QueryHandler, const <a class="el" href="../../d4/d0f/namespace_chaos.html#a282624c5070f036bda7bd82ebf1740a8">EThreadQueryContext</a> ThreadContext, const <a class="el" href="../../de/d4d/class_u_world.html">UWorld</a> *World, const <a class="el" href="../../d0/d08/struct_f_collision_shape.html">FCollisionShape</a> &amp;CollisionShape, const <a class="el" href="../../d0/df6/_math_fwd_8h.html#a532fe2b7d7e9b59259adebff28450bef">FTransform</a> &amp;GeomPose, <a class="el" href="../../d6/db1/class_t_array.html">TArray</a>&lt; <a class="el" href="../../df/d2c/struct_f_overlap_result.html">FOverlapResult</a> &gt; &amp;OutOverlaps, <a class="el" href="../../db/dd8/_engine_types_8h.html#aad19b3d048702469c60fa16d0e5533c8">ECollisionChannel</a> TraceChannel, const struct <a class="el" href="../../d4/d96/struct_f_collision_query_params.html">FCollisionQueryParams</a> &amp;Params, const struct <a class="el" href="../../d4/dc1/struct_f_collision_response_params.html">FCollisionResponseParams</a> &amp;ResponseParams, const struct <a class="el" href="../../d1/d0d/struct_f_collision_object_query_params.html">FCollisionObjectQueryParams</a> &amp;ObjectParams)</td></tr>
+<tr class="memitem:a7f9d764ca4c284483549347231f3cf55" id="r_a7f9d764ca4c284483549347231f3cf55"><td class="memTemplParams" colspan="2">template&lt;<a class="el" href="../../d4/d0f/namespace_chaos.html#ac197df781754860e132c4d692708b580">EQueryInfo</a> InfoType&gt; </td></tr>
+<tr class="memitem:a7f9d764ca4c284483549347231f3cf55 template"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7f9d764ca4c284483549347231f3cf55">GeomOverlapMultiHelperWithQueryHandler</a> (<a class="el" href="../../d4/d3a/class_u_physics_query_handler.html">UPhysicsQueryHandler</a> &amp;QueryHandler, const <a class="el" href="../../d4/d0f/namespace_chaos.html#a282624c5070f036bda7bd82ebf1740a8">EThreadQueryContext</a> ThreadContext, const <a class="el" href="../../de/d4d/class_u_world.html">UWorld</a> *World, const <a class="el" href="../../de/d64/_physics_interface_declares_core_8h.html#aa537124a4c1bcdbceb93c806460a3eb0">FPhysicsGeometryCollection</a> &amp;CollisionShape, const <a class="el" href="../../d0/df6/_math_fwd_8h.html#a532fe2b7d7e9b59259adebff28450bef">FTransform</a> &amp;GeomPose, <a class="el" href="../../d6/db1/class_t_array.html">TArray</a>&lt; <a class="el" href="../../df/d2c/struct_f_overlap_result.html">FOverlapResult</a> &gt; &amp;OutOverlaps, <a class="el" href="../../db/dd8/_engine_types_8h.html#aad19b3d048702469c60fa16d0e5533c8">ECollisionChannel</a> TraceChannel, const struct <a class="el" href="../../d4/d96/struct_f_collision_query_params.html">FCollisionQueryParams</a> &amp;Params, const struct <a class="el" href="../../d4/dc1/struct_f_collision_response_params.html">FCollisionResponseParams</a> &amp;ResponseParams, const struct <a class="el" href="../../d1/d0d/struct_f_collision_object_query_params.html">FCollisionObjectQueryParams</a> &amp;ObjectParams)</td></tr>
+<tr class="memitem:aff951a2a3aff72be9db84ebc535e5a92" id="r_aff951a2a3aff72be9db84ebc535e5a92"><td class="memTemplParams" colspan="2">template&lt;<a class="el" href="../../d4/d0f/namespace_chaos.html#ac197df781754860e132c4d692708b580">EQueryInfo</a> InfoType, typename GeomType, typename AccelContainerType = FDefaultAccelContainer&gt; </td></tr>
+<tr class="memitem:aff951a2a3aff72be9db84ebc535e5a92 template"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aff951a2a3aff72be9db84ebc535e5a92">GeomOverlapMultiHelper</a> (const <a class="el" href="../../de/d4d/class_u_world.html">UWorld</a> *World, const GeomType &amp;InGeom, const <a class="el" href="../../d0/df6/_math_fwd_8h.html#a532fe2b7d7e9b59259adebff28450bef">FTransform</a> &amp;GeomPose, <a class="el" href="../../d6/db1/class_t_array.html">TArray</a>&lt; <a class="el" href="../../df/d2c/struct_f_overlap_result.html">FOverlapResult</a> &gt; &amp;OutOverlaps, <a class="el" href="../../db/dd8/_engine_types_8h.html#aad19b3d048702469c60fa16d0e5533c8">ECollisionChannel</a> TraceChannel, const struct <a class="el" href="../../d4/d96/struct_f_collision_query_params.html">FCollisionQueryParams</a> &amp;Params, const struct <a class="el" href="../../d4/dc1/struct_f_collision_response_params.html">FCollisionResponseParams</a> &amp;ResponseParams, const struct <a class="el" href="../../d1/d0d/struct_f_collision_object_query_params.html">FCollisionObjectQueryParams</a> &amp;ObjectParams, const AccelContainerType &amp;AccelContainer=<a class="el" href="../../dc/d51/struct_f_default_accel_container.html">FDefaultAccelContainer</a>{})</td></tr>
+<tr class="memitem:aede8c1ef1109ffdb7f5a5ca427d5caf3" id="r_aede8c1ef1109ffdb7f5a5ca427d5caf3"><td class="memTemplParams" colspan="2">template&lt;typename OverlapHitType, <a class="el" href="../../d4/d0f/namespace_chaos.html#ac197df781754860e132c4d692708b580">EQueryInfo</a> InfoType&gt; </td></tr>
+<tr class="memitem:aede8c1ef1109ffdb7f5a5ca427d5caf3 template"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/d10/namespace_chaos_1_1_private.html#aede8c1ef1109ffdb7f5a5ca427d5caf3">Chaos::Private::OverlapImpl</a> (const <a class="el" href="../../de/d4d/class_u_world.html">UWorld</a> *World, const <a class="el" href="../../db/da8/struct_chaos_1_1_f_overlap_query_data.html">Chaos::FOverlapQueryData</a> &amp;OverlapData, const <a class="el" href="../../d5/db4/struct_chaos_1_1_f_common_query_data.html">FCommonQueryData</a> &amp;CommonData, <a class="el" href="../../d6/db1/class_t_array.html">TArray</a>&lt; <a class="el" href="../../df/d2c/struct_f_overlap_result.html">FOverlapResult</a> &gt; &amp;OutOverlaps)</td></tr>
+<tr class="memitem:addb46b93f8a06dcced2de7578f3f4e88" id="r_addb46b93f8a06dcced2de7578f3f4e88"><td class="memTemplParams" colspan="2">template&lt;<a class="el" href="../../d4/d0f/namespace_chaos.html#ac197df781754860e132c4d692708b580">EQueryInfo</a> InfoType, typename ... ArgTypes&gt; </td></tr>
+<tr class="memitem:addb46b93f8a06dcced2de7578f3f4e88 template"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/d10/namespace_chaos_1_1_private.html#addb46b93f8a06dcced2de7578f3f4e88">Chaos::Private::ForwardThreadContextType_Overlap</a> (const <a class="el" href="../../d4/d0f/namespace_chaos.html#a282624c5070f036bda7bd82ebf1740a8">EThreadQueryContext</a> ThreadContext, ArgTypes &amp;&amp;... Args)</td></tr>
+<tr class="memitem:a7ebe004d55732b4a324d9ef02c0ef6f3" id="r_a7ebe004d55732b4a324d9ef02c0ef6f3"><td class="memTemplParams" colspan="2">template&lt;<a class="el" href="#ade75f143524494a0dbf466e96e1384a5">ESingleMultiOrTest</a> SingleMultiOrTest, typename HitResultsType&gt; </td></tr>
+<tr class="memitem:a7ebe004d55732b4a324d9ef02c0ef6f3 template"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/d10/namespace_chaos_1_1_private.html#a7ebe004d55732b4a324d9ef02c0ef6f3">Chaos::Private::RaycastCommon</a> (const <a class="el" href="../../d4/d0f/namespace_chaos.html#a282624c5070f036bda7bd82ebf1740a8">EThreadQueryContext</a> ThreadContext, const <a class="el" href="../../de/d4d/class_u_world.html">UWorld</a> *World, const <a class="el" href="../../d3/d25/struct_chaos_1_1_f_ray_query_data.html">Chaos::FRayQueryData</a> &amp;RayData, const <a class="el" href="../../d5/db4/struct_chaos_1_1_f_common_query_data.html">Chaos::FCommonQueryData</a> &amp;CommonData, HitResultsType &amp;OutHits)</td></tr>
+<tr class="memitem:ace60f72e5ee9fafcefe63779e4e2cfa7" id="r_ace60f72e5ee9fafcefe63779e4e2cfa7"><td class="memTemplParams" colspan="2">template&lt;<a class="el" href="#ade75f143524494a0dbf466e96e1384a5">ESingleMultiOrTest</a> SingleMultiOrTest, typename HitResultsType&gt; </td></tr>
+<tr class="memitem:ace60f72e5ee9fafcefe63779e4e2cfa7 template"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/d10/namespace_chaos_1_1_private.html#ace60f72e5ee9fafcefe63779e4e2cfa7">Chaos::Private::SweepCommon</a> (const <a class="el" href="../../d4/d0f/namespace_chaos.html#a282624c5070f036bda7bd82ebf1740a8">EThreadQueryContext</a> ThreadContext, const <a class="el" href="../../de/d4d/class_u_world.html">UWorld</a> *World, const <a class="el" href="../../d7/d1d/struct_chaos_1_1_f_sweep_query_data.html">Chaos::FSweepQueryData</a> &amp;SweepData, const <a class="el" href="../../d5/db4/struct_chaos_1_1_f_common_query_data.html">Chaos::FCommonQueryData</a> &amp;CommonData, HitResultsType &amp;OutHits)</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-var-members" class="groupheader"><a id="var-members" name="var-members"></a>
+变量</h2></td></tr>
+<tr class="memitem:a55686ba443aaa46a3ff184d58a3776b2" id="r_a55686ba443aaa46a3ff184d58a3776b2"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../df/d2a/_s_anim_notify_shared_8h.html#ac7c94e837fed3f8e4bb3dd94d7bd2ecf">float</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a55686ba443aaa46a3ff184d58a3776b2">DebugLineLifetime</a> = 2.f</td></tr>
+</table>
+<a name="doc-define-members" id="doc-define-members"></a><h2 id="header-doc-define-members" class="groupheader">宏定义说明</h2>
+<a id="acc7df19a5ba89b8d917a7e6d38c7df5d" name="acc7df19a5ba89b8d917a7e6d38c7df5d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acc7df19a5ba89b8d917a7e6d38c7df5d">&#9670;&#160;</a></span>DEFINE_GENERIC_GEOM_FOR_ACCEL</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define DEFINE_GENERIC_GEOM_FOR_ACCEL</td>
+          <td>(</td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>TACCEL</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>值:</b><div class="fragment"><div class="line"><span class="keyword">template</span> <span class="keyword">struct </span><a class="code hl_struct" href="../../d9/d8e/struct_f_generic_geom_physics_interface_using_spatial_acceleration.html">FGenericGeomPhysicsInterfaceUsingSpatialAcceleration&lt;TACCEL, FCollisionShape&gt;</a>;\</div>
+<div class="line"><span class="keyword">template</span> <span class="keyword">struct </span><a class="code hl_struct" href="../../d9/d8e/struct_f_generic_geom_physics_interface_using_spatial_acceleration.html">FGenericGeomPhysicsInterfaceUsingSpatialAcceleration&lt;TACCEL, FPhysicsGeometry&gt;</a>;\</div>
+<div class="line"><span class="keyword">template</span> <span class="keyword">struct </span><a class="code hl_struct" href="../../d9/d8e/struct_f_generic_geom_physics_interface_using_spatial_acceleration.html">FGenericGeomPhysicsInterfaceUsingSpatialAcceleration&lt;TACCEL, FPhysicsGeometryCollection&gt;</a>;</div>
+<div class="ttc" id="astruct_f_generic_geom_physics_interface_using_spatial_acceleration_html"><div class="ttname"><a href="../../d9/d8e/struct_f_generic_geom_physics_interface_using_spatial_acceleration.html">FGenericGeomPhysicsInterfaceUsingSpatialAcceleration</a></div><div class="ttdef"><b>定义</b> GenericPhysicsInterface.h:72</div></div>
+</div><!-- fragment -->
+</div>
+</div>
+<a name="doc-typedef-members" id="doc-typedef-members"></a><h2 id="header-doc-typedef-members" class="groupheader">类型定义说明</h2>
+<a id="ac5f0f8a32e5f770c0ae59860d65edf7e" name="ac5f0f8a32e5f770c0ae59860d65edf7e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac5f0f8a32e5f770c0ae59860d65edf7e">&#9670;&#160;</a></span>EQueryInfo</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">using <a class="el" href="../../d4/d0f/namespace_chaos.html#ac197df781754860e132c4d692708b580">EQueryInfo</a> = <a class="el" href="../../d4/d0f/namespace_chaos.html#ac197df781754860e132c4d692708b580">Chaos::EQueryInfo</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a8e85cbf77daa13411ea4bde08a39bb01" name="a8e85cbf77daa13411ea4bde08a39bb01"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8e85cbf77daa13411ea4bde08a39bb01">&#9670;&#160;</a></span>EThreadQueryContext</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">using <a class="el" href="../../d4/d0f/namespace_chaos.html#a282624c5070f036bda7bd82ebf1740a8">EThreadQueryContext</a> = <a class="el" href="../../d4/d0f/namespace_chaos.html#a282624c5070f036bda7bd82ebf1740a8">Chaos::EThreadQueryContext</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aea1dbdc0225934504c98320d4df36ebc" name="aea1dbdc0225934504c98320d4df36ebc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aea1dbdc0225934504c98320d4df36ebc">&#9670;&#160;</a></span>TGeomSQInputs</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename GeomType&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">using <a class="el" href="#aea1dbdc0225934504c98320d4df36ebc">TGeomSQInputs</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>初始值:</b><div class="fragment"><div class="line"> std::conditional_t&lt;std::is_same_v&lt;GeomType, FPhysicsGeometryCollection&gt;, <a class="code hl_struct" href="../../d9/d77/struct_f_geom_collection_s_q_additional_inputs.html">FGeomCollectionSQAdditionalInputs</a>,</div>
+<div class="line">    std::conditional_t&lt;std::is_same_v&lt;GeomType, FCollisionShape&gt;, <a class="code hl_struct" href="../../d9/d8f/struct_f_geom_s_q_additional_inputs.html">FGeomSQAdditionalInputs</a>,</div>
+<div class="line">    std::conditional_t&lt;std::is_same_v&lt;GeomType, FPhysicsGeometry&gt;, <a class="code hl_struct" href="../../d9/d9e/struct_f_physics_geometry_s_q_additional_inputs.html">FPhysicsGeometrySQAdditionalInputs</a>,</div>
+<div class="line">    <span class="keywordtype">void</span>&gt;&gt;&gt;</div>
+<div class="ttc" id="astruct_f_geom_collection_s_q_additional_inputs_html"><div class="ttname"><a href="../../d9/d77/struct_f_geom_collection_s_q_additional_inputs.html">FGeomCollectionSQAdditionalInputs</a></div><div class="ttdef"><b>定义</b> SceneQuery.cpp:91</div></div>
+<div class="ttc" id="astruct_f_geom_s_q_additional_inputs_html"><div class="ttname"><a href="../../d9/d8f/struct_f_geom_s_q_additional_inputs.html">FGeomSQAdditionalInputs</a></div><div class="ttdef"><b>定义</b> SceneQuery.cpp:63</div></div>
+<div class="ttc" id="astruct_f_physics_geometry_s_q_additional_inputs_html"><div class="ttname"><a href="../../d9/d9e/struct_f_physics_geometry_s_q_additional_inputs.html">FPhysicsGeometrySQAdditionalInputs</a></div><div class="ttdef"><b>定义</b> SceneQuery.cpp:118</div></div>
+</div><!-- fragment -->
+</div>
+</div>
+<a name="doc-enum-members" id="doc-enum-members"></a><h2 id="header-doc-enum-members" class="groupheader">枚举类型说明</h2>
+<a id="ade75f143524494a0dbf466e96e1384a5" name="ade75f143524494a0dbf466e96e1384a5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ade75f143524494a0dbf466e96e1384a5">&#9670;&#160;</a></span>ESingleMultiOrTest</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum class <a class="el" href="#ade75f143524494a0dbf466e96e1384a5">ESingleMultiOrTest</a> : <a class="el" href="../../dd/de9/preprocessor_8c.html#adde6aaee8457bee49c2a92621fe22b79">uint8</a></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel strong">strong</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<table class="fieldtable">
+<tr><th colspan="2">枚举值</th></tr><tr><td class="fieldname"><a id="ade75f143524494a0dbf466e96e1384a5a66ba162102bbf6ae31b522aec561735e" name="ade75f143524494a0dbf466e96e1384a5a66ba162102bbf6ae31b522aec561735e"></a>Single&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="ade75f143524494a0dbf466e96e1384a5ace7898536dd0e928d1640ee2ad531cc8" name="ade75f143524494a0dbf466e96e1384a5ace7898536dd0e928d1640ee2ad531cc8"></a>Multi&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="ade75f143524494a0dbf466e96e1384a5a0cbc6611f5540bd0809a388dc95a615b" name="ade75f143524494a0dbf466e96e1384a5a0cbc6611f5540bd0809a388dc95a615b"></a>Test&#160;</td><td class="fielddoc"></td></tr>
+</table>
+
+</div>
+</div>
+<a id="aadd2e03766c2a5d8946ba4ee8cb16ad2" name="aadd2e03766c2a5d8946ba4ee8cb16ad2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aadd2e03766c2a5d8946ba4ee8cb16ad2">&#9670;&#160;</a></span>ESweepOrRay</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum class <a class="el" href="#aadd2e03766c2a5d8946ba4ee8cb16ad2">ESweepOrRay</a> : <a class="el" href="../../dd/de9/preprocessor_8c.html#adde6aaee8457bee49c2a92621fe22b79">uint8</a></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel strong">strong</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<table class="fieldtable">
+<tr><th colspan="2">枚举值</th></tr><tr><td class="fieldname"><a id="aadd2e03766c2a5d8946ba4ee8cb16ad2a117e624bbbd5afc75a3150ba85d3cb93" name="aadd2e03766c2a5d8946ba4ee8cb16ad2a117e624bbbd5afc75a3150ba85d3cb93"></a>Raycast&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="aadd2e03766c2a5d8946ba4ee8cb16ad2a8e9014ddfce21beb1b3cd7da888cbdea" name="aadd2e03766c2a5d8946ba4ee8cb16ad2a8e9014ddfce21beb1b3cd7da888cbdea"></a>Sweep&#160;</td><td class="fielddoc"></td></tr>
+</table>
+
+</div>
+</div>
+<a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">函数说明</h2>
+<a id="a42c5d03223a503d7f5e1dc2b27c0cbe1" name="a42c5d03223a503d7f5e1dc2b27c0cbe1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a42c5d03223a503d7f5e1dc2b27c0cbe1">&#9670;&#160;</a></span>BuildQueryShape() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a> BuildQueryShape </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="../../d0/d08/struct_f_collision_shape.html">FCollisionShape</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>CollisionShape</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../db/df5/struct_chaos_1_1_f_query_shape.html">Chaos::FQueryShape</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>OutQueryShape</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a3214f6fe3bb24c44c2ffcb78c172facf" name="a3214f6fe3bb24c44c2ffcb78c172facf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3214f6fe3bb24c44c2ffcb78c172facf">&#9670;&#160;</a></span>BuildQueryShape() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a> BuildQueryShape </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="../../de/d64/_physics_interface_declares_core_8h.html#aa537124a4c1bcdbceb93c806460a3eb0">FPhysicsGeometryCollection</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>GeometryCollection</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../db/df5/struct_chaos_1_1_f_query_shape.html">Chaos::FQueryShape</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>OutQueryShape</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a578e8a0cfa359c42ebe50dd9d02a65be" name="a578e8a0cfa359c42ebe50dd9d02a65be"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a578e8a0cfa359c42ebe50dd9d02a65be">&#9670;&#160;</a></span>ConvertToConvex()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../df/d63/_typed_element_query_capabilities_8inl.html#a72343342ce64c0755563ee6c5e27868d">void</a> ConvertToConvex </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="../../db/df5/struct_chaos_1_1_f_query_shape.html">Chaos::FQueryShape</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>QueryShape</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d4/d0f/namespace_chaos.html#a27ae8acc91278017a267fe4728db017d">Chaos::FImplicitObjectPtr</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>OutConvex</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a5ba65dfe47b798ffcd4f7af2cf6281c2" name="a5ba65dfe47b798ffcd4f7af2cf6281c2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5ba65dfe47b798ffcd4f7af2cf6281c2">&#9670;&#160;</a></span>CSV_DEFINE_CATEGORY()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">CSV_DEFINE_CATEGORY </td>
+          <td>(</td>
+          <td class="paramtype">SceneQuery</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d3/df7/radaudio__common_8h.html#ade27a78a51a66a5cfb6f09cf36bcfde9ae9de385ef6fe9bf3360d1038396b884c">false</a></td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a5de4306507f8dd8db785fc03f33def41" name="a5de4306507f8dd8db785fc03f33def41"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5de4306507f8dd8db785fc03f33def41">&#9670;&#160;</a></span>GeomOverlapMultiHelper() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;<a class="el" href="../../d4/d0f/namespace_chaos.html#ac197df781754860e132c4d692708b580">EQueryInfo</a> InfoType, typename GeomType, typename AccelContainerType = FDefaultAccelContainer&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a> GeomOverlapMultiHelper </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="../../d4/d0f/namespace_chaos.html#a282624c5070f036bda7bd82ebf1740a8">EThreadQueryContext</a></td>          <td class="paramname"><span class="paramname"><em>ThreadContext</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="../../de/d4d/class_u_world.html">UWorld</a> *</td>          <td class="paramname"><span class="paramname"><em>World</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const GeomType &amp;</td>          <td class="paramname"><span class="paramname"><em>InGeom</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="../../d0/df6/_math_fwd_8h.html#a532fe2b7d7e9b59259adebff28450bef">FTransform</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>GeomPose</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d6/db1/class_t_array.html">TArray</a>&lt; <a class="el" href="../../df/d2c/struct_f_overlap_result.html">FOverlapResult</a> &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>OutOverlaps</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../db/dd8/_engine_types_8h.html#aad19b3d048702469c60fa16d0e5533c8">ECollisionChannel</a></td>          <td class="paramname"><span class="paramname"><em>TraceChannel</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const struct <a class="el" href="../../d4/d96/struct_f_collision_query_params.html">FCollisionQueryParams</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>Params</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const struct <a class="el" href="../../d4/dc1/struct_f_collision_response_params.html">FCollisionResponseParams</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>ResponseParams</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const struct <a class="el" href="../../d1/d0d/struct_f_collision_object_query_params.html">FCollisionObjectQueryParams</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>ObjectParams</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const AccelContainerType &amp;</td>          <td class="paramname"><span class="paramname"><em>AccelContainer</em></span><span class="paramdefsep"> = </span><span class="paramdefval"><a class="el" href="../../dc/d51/struct_f_default_accel_container.html">FDefaultAccelContainer</a>{}</span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aff951a2a3aff72be9db84ebc535e5a92" name="aff951a2a3aff72be9db84ebc535e5a92"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aff951a2a3aff72be9db84ebc535e5a92">&#9670;&#160;</a></span>GeomOverlapMultiHelper() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;<a class="el" href="../../d4/d0f/namespace_chaos.html#ac197df781754860e132c4d692708b580">EQueryInfo</a> InfoType, typename GeomType, typename AccelContainerType = FDefaultAccelContainer&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a> GeomOverlapMultiHelper </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="../../de/d4d/class_u_world.html">UWorld</a> *</td>          <td class="paramname"><span class="paramname"><em>World</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const GeomType &amp;</td>          <td class="paramname"><span class="paramname"><em>InGeom</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="../../d0/df6/_math_fwd_8h.html#a532fe2b7d7e9b59259adebff28450bef">FTransform</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>GeomPose</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d6/db1/class_t_array.html">TArray</a>&lt; <a class="el" href="../../df/d2c/struct_f_overlap_result.html">FOverlapResult</a> &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>OutOverlaps</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../db/dd8/_engine_types_8h.html#aad19b3d048702469c60fa16d0e5533c8">ECollisionChannel</a></td>          <td class="paramname"><span class="paramname"><em>TraceChannel</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const struct <a class="el" href="../../d4/d96/struct_f_collision_query_params.html">FCollisionQueryParams</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>Params</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const struct <a class="el" href="../../d4/dc1/struct_f_collision_response_params.html">FCollisionResponseParams</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>ResponseParams</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const struct <a class="el" href="../../d1/d0d/struct_f_collision_object_query_params.html">FCollisionObjectQueryParams</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>ObjectParams</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const AccelContainerType &amp;</td>          <td class="paramname"><span class="paramname"><em>AccelContainer</em></span><span class="paramdefsep"> = </span><span class="paramdefval"><a class="el" href="../../dc/d51/struct_f_default_accel_container.html">FDefaultAccelContainer</a>{}</span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a1e14fe12b4a0163d07f1ecccc8abdc19" name="a1e14fe12b4a0163d07f1ecccc8abdc19"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1e14fe12b4a0163d07f1ecccc8abdc19">&#9670;&#160;</a></span>GeomOverlapMultiHelperWithQueryHandler() <span class="overload">[1/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;<a class="el" href="../../d4/d0f/namespace_chaos.html#ac197df781754860e132c4d692708b580">EQueryInfo</a> InfoType&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a> GeomOverlapMultiHelperWithQueryHandler </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d4/d3a/class_u_physics_query_handler.html">UPhysicsQueryHandler</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>QueryHandler</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="../../d4/d0f/namespace_chaos.html#a282624c5070f036bda7bd82ebf1740a8">EThreadQueryContext</a></td>          <td class="paramname"><span class="paramname"><em>ThreadContext</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="../../de/d4d/class_u_world.html">UWorld</a> *</td>          <td class="paramname"><span class="paramname"><em>World</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="../../db/df5/struct_chaos_1_1_f_query_shape.html">Chaos::FQueryShape</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>QueryShape</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="../../d0/df6/_math_fwd_8h.html#a532fe2b7d7e9b59259adebff28450bef">FTransform</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>GeomPose</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d6/db1/class_t_array.html">TArray</a>&lt; <a class="el" href="../../df/d2c/struct_f_overlap_result.html">FOverlapResult</a> &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>OutOverlaps</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../db/dd8/_engine_types_8h.html#aad19b3d048702469c60fa16d0e5533c8">ECollisionChannel</a></td>          <td class="paramname"><span class="paramname"><em>TraceChannel</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const struct <a class="el" href="../../d4/d96/struct_f_collision_query_params.html">FCollisionQueryParams</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>Params</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const struct <a class="el" href="../../d4/dc1/struct_f_collision_response_params.html">FCollisionResponseParams</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>ResponseParams</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const struct <a class="el" href="../../d1/d0d/struct_f_collision_object_query_params.html">FCollisionObjectQueryParams</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>ObjectParams</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a817e8a328b0a3685e2a824b0d6b61fa9" name="a817e8a328b0a3685e2a824b0d6b61fa9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a817e8a328b0a3685e2a824b0d6b61fa9">&#9670;&#160;</a></span>GeomOverlapMultiHelperWithQueryHandler() <span class="overload">[2/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;<a class="el" href="../../d4/d0f/namespace_chaos.html#ac197df781754860e132c4d692708b580">EQueryInfo</a> InfoType&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a> GeomOverlapMultiHelperWithQueryHandler </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d4/d3a/class_u_physics_query_handler.html">UPhysicsQueryHandler</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>QueryHandler</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="../../d4/d0f/namespace_chaos.html#a282624c5070f036bda7bd82ebf1740a8">EThreadQueryContext</a></td>          <td class="paramname"><span class="paramname"><em>ThreadContext</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="../../de/d4d/class_u_world.html">UWorld</a> *</td>          <td class="paramname"><span class="paramname"><em>World</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="../../d0/d08/struct_f_collision_shape.html">FCollisionShape</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>CollisionShape</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="../../d0/df6/_math_fwd_8h.html#a532fe2b7d7e9b59259adebff28450bef">FTransform</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>GeomPose</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d6/db1/class_t_array.html">TArray</a>&lt; <a class="el" href="../../df/d2c/struct_f_overlap_result.html">FOverlapResult</a> &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>OutOverlaps</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../db/dd8/_engine_types_8h.html#aad19b3d048702469c60fa16d0e5533c8">ECollisionChannel</a></td>          <td class="paramname"><span class="paramname"><em>TraceChannel</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const struct <a class="el" href="../../d4/d96/struct_f_collision_query_params.html">FCollisionQueryParams</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>Params</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const struct <a class="el" href="../../d4/dc1/struct_f_collision_response_params.html">FCollisionResponseParams</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>ResponseParams</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const struct <a class="el" href="../../d1/d0d/struct_f_collision_object_query_params.html">FCollisionObjectQueryParams</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>ObjectParams</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a7f9d764ca4c284483549347231f3cf55" name="a7f9d764ca4c284483549347231f3cf55"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7f9d764ca4c284483549347231f3cf55">&#9670;&#160;</a></span>GeomOverlapMultiHelperWithQueryHandler() <span class="overload">[3/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;<a class="el" href="../../d4/d0f/namespace_chaos.html#ac197df781754860e132c4d692708b580">EQueryInfo</a> InfoType&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a> GeomOverlapMultiHelperWithQueryHandler </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d4/d3a/class_u_physics_query_handler.html">UPhysicsQueryHandler</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>QueryHandler</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="../../d4/d0f/namespace_chaos.html#a282624c5070f036bda7bd82ebf1740a8">EThreadQueryContext</a></td>          <td class="paramname"><span class="paramname"><em>ThreadContext</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="../../de/d4d/class_u_world.html">UWorld</a> *</td>          <td class="paramname"><span class="paramname"><em>World</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="../../de/d64/_physics_interface_declares_core_8h.html#aa537124a4c1bcdbceb93c806460a3eb0">FPhysicsGeometryCollection</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>CollisionShape</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="../../d0/df6/_math_fwd_8h.html#a532fe2b7d7e9b59259adebff28450bef">FTransform</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>GeomPose</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d6/db1/class_t_array.html">TArray</a>&lt; <a class="el" href="../../df/d2c/struct_f_overlap_result.html">FOverlapResult</a> &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>OutOverlaps</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../db/dd8/_engine_types_8h.html#aad19b3d048702469c60fa16d0e5533c8">ECollisionChannel</a></td>          <td class="paramname"><span class="paramname"><em>TraceChannel</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const struct <a class="el" href="../../d4/d96/struct_f_collision_query_params.html">FCollisionQueryParams</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>Params</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const struct <a class="el" href="../../d4/dc1/struct_f_collision_response_params.html">FCollisionResponseParams</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>ResponseParams</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const struct <a class="el" href="../../d1/d0d/struct_f_collision_object_query_params.html">FCollisionObjectQueryParams</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>ObjectParams</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a6cf5012e7fc1dd5c6dd3ab9241a4ace4" name="a6cf5012e7fc1dd5c6dd3ab9241a4ace4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6cf5012e7fc1dd5c6dd3ab9241a4ace4">&#9670;&#160;</a></span>GeomOverlapMultiImp()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename OverlapHitType, <a class="el" href="../../d4/d0f/namespace_chaos.html#ac197df781754860e132c4d692708b580">EQueryInfo</a> InfoType, typename CollisionAnalyzerType, typename AccelContainerType&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a> GeomOverlapMultiImp </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="../../de/d4d/class_u_world.html">UWorld</a> *</td>          <td class="paramname"><span class="paramname"><em>World</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="../../de/d64/_physics_interface_declares_core_8h.html#af968e1064e14aca2503ac4a608b63a80">FPhysicsGeometry</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>Geom</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const CollisionAnalyzerType &amp;</td>          <td class="paramname"><span class="paramname"><em>CollisionAnalyzerShape</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="../../d0/df6/_math_fwd_8h.html#a532fe2b7d7e9b59259adebff28450bef">FTransform</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>GeomPose</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d6/db1/class_t_array.html">TArray</a>&lt; <a class="el" href="../../df/d2c/struct_f_overlap_result.html">FOverlapResult</a> &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>OutOverlaps</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../db/dd8/_engine_types_8h.html#aad19b3d048702469c60fa16d0e5533c8">ECollisionChannel</a></td>          <td class="paramname"><span class="paramname"><em>TraceChannel</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const struct <a class="el" href="../../d4/d96/struct_f_collision_query_params.html">FCollisionQueryParams</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>Params</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const struct <a class="el" href="../../d4/dc1/struct_f_collision_response_params.html">FCollisionResponseParams</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>ResponseParams</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const struct <a class="el" href="../../d1/d0d/struct_f_collision_object_query_params.html">FCollisionObjectQueryParams</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>ObjectParams</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const AccelContainerType &amp;</td>          <td class="paramname"><span class="paramname"><em>AccelContainer</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a9523de65e1f86a56315c1674f1b1ff25" name="a9523de65e1f86a56315c1674f1b1ff25"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9523de65e1f86a56315c1674f1b1ff25">&#9670;&#160;</a></span>GeomToSQInputs()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename GeomType&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="#aea1dbdc0225934504c98320d4df36ebc">TGeomSQInputs</a>&lt; GeomType &gt; GeomToSQInputs </td>
+          <td>(</td>
+          <td class="paramtype">const GeomType &amp;</td>          <td class="paramname"><span class="paramname"><em>Geom</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="../../d0/df6/_math_fwd_8h.html#a440e2e6b0f4eca3d0168353ed0cd6fad">FQuat</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>Rot</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a2b0281b0f40574d70ab75b58231be7d2" name="a2b0281b0f40574d70ab75b58231be7d2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2b0281b0f40574d70ab75b58231be7d2">&#9670;&#160;</a></span>GetIgnoreQueryHandler()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a> GetIgnoreQueryHandler </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a4b7f4da0a6bb4d0da3713a4fd96582be" name="a4b7f4da0a6bb4d0da3713a4fd96582be"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4b7f4da0a6bb4d0da3713a4fd96582be">&#9670;&#160;</a></span>GetThreadQueryContext()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d4/d0f/namespace_chaos.html#a282624c5070f036bda7bd82ebf1740a8">EThreadQueryContext</a> GetThreadQueryContext </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="../../d4/d0f/namespace_chaos.html#a9b61beb45f1e7351612c6222c3fddda0">Chaos::FPhysicsSolver</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>Solver</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="adf04309902a65c605ae1189b564a3170" name="adf04309902a65c605ae1189b564a3170"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adf04309902a65c605ae1189b564a3170">&#9670;&#160;</a></span>RaycastWithQueryHandler()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;<a class="el" href="#ade75f143524494a0dbf466e96e1384a5">ESingleMultiOrTest</a> SingleMultiOrTest, typename GeomInputsType, typename OutHitsType&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a> RaycastWithQueryHandler </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d4/d3a/class_u_physics_query_handler.html">UPhysicsQueryHandler</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>QueryHandler</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="../../d4/d0f/namespace_chaos.html#a282624c5070f036bda7bd82ebf1740a8">EThreadQueryContext</a></td>          <td class="paramname"><span class="paramname"><em>ThreadContext</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="../../de/d4d/class_u_world.html">UWorld</a> *</td>          <td class="paramname"><span class="paramname"><em>World</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">OutHitsType &amp;</td>          <td class="paramname"><span class="paramname"><em>OutHits</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const GeomInputsType &amp;</td>          <td class="paramname"><span class="paramname"><em>GeomInputs</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="../../d0/df6/_math_fwd_8h.html#adda141358ecae99df7ba663b9e637078">FVector</a></td>          <td class="paramname"><span class="paramname"><em>Start</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="../../d0/df6/_math_fwd_8h.html#adda141358ecae99df7ba663b9e637078">FVector</a></td>          <td class="paramname"><span class="paramname"><em>End</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="../../d5/db4/struct_chaos_1_1_f_common_query_data.html">Chaos::FCommonQueryData</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>CommonData</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="adaa4537ad5fe2f6276bb61d106981339" name="adaa4537ad5fe2f6276bb61d106981339"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adaa4537ad5fe2f6276bb61d106981339">&#9670;&#160;</a></span>SweepWithQueryHandler() <span class="overload">[1/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;<a class="el" href="#ade75f143524494a0dbf466e96e1384a5">ESingleMultiOrTest</a> SingleMultiOrTest, typename OutHitsType&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a> SweepWithQueryHandler </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d4/d3a/class_u_physics_query_handler.html">UPhysicsQueryHandler</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>QueryHandler</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="../../d4/d0f/namespace_chaos.html#a282624c5070f036bda7bd82ebf1740a8">EThreadQueryContext</a></td>          <td class="paramname"><span class="paramname"><em>ThreadContext</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="../../de/d4d/class_u_world.html">UWorld</a> *</td>          <td class="paramname"><span class="paramname"><em>World</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">OutHitsType &amp;</td>          <td class="paramname"><span class="paramname"><em>OutHits</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="../../db/df5/struct_chaos_1_1_f_query_shape.html">Chaos::FQueryShape</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>QueryShape</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="../../d0/df6/_math_fwd_8h.html#a440e2e6b0f4eca3d0168353ed0cd6fad">FQuat</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>GeomRot</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="../../d0/df6/_math_fwd_8h.html#adda141358ecae99df7ba663b9e637078">FVector</a></td>          <td class="paramname"><span class="paramname"><em>Start</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="../../d0/df6/_math_fwd_8h.html#adda141358ecae99df7ba663b9e637078">FVector</a></td>          <td class="paramname"><span class="paramname"><em>End</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="../../d5/db4/struct_chaos_1_1_f_common_query_data.html">Chaos::FCommonQueryData</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>CommonData</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ad20b3c08704c47e8a927e0a61fb68264" name="ad20b3c08704c47e8a927e0a61fb68264"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad20b3c08704c47e8a927e0a61fb68264">&#9670;&#160;</a></span>SweepWithQueryHandler() <span class="overload">[2/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;<a class="el" href="#ade75f143524494a0dbf466e96e1384a5">ESingleMultiOrTest</a> SingleMultiOrTest, typename OutHitsType&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a> SweepWithQueryHandler </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d4/d3a/class_u_physics_query_handler.html">UPhysicsQueryHandler</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>QueryHandler</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="../../d4/d0f/namespace_chaos.html#a282624c5070f036bda7bd82ebf1740a8">EThreadQueryContext</a></td>          <td class="paramname"><span class="paramname"><em>ThreadContext</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="../../de/d4d/class_u_world.html">UWorld</a> *</td>          <td class="paramname"><span class="paramname"><em>World</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">OutHitsType &amp;</td>          <td class="paramname"><span class="paramname"><em>OutHits</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="../../d9/d77/struct_f_geom_collection_s_q_additional_inputs.html">FGeomCollectionSQAdditionalInputs</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>GeomInputs</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="../../d0/df6/_math_fwd_8h.html#adda141358ecae99df7ba663b9e637078">FVector</a></td>          <td class="paramname"><span class="paramname"><em>Start</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="../../d0/df6/_math_fwd_8h.html#adda141358ecae99df7ba663b9e637078">FVector</a></td>          <td class="paramname"><span class="paramname"><em>End</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="../../d5/db4/struct_chaos_1_1_f_common_query_data.html">Chaos::FCommonQueryData</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>CommonData</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a33aba010741d5e5a4f31fa3d087cefc7" name="a33aba010741d5e5a4f31fa3d087cefc7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a33aba010741d5e5a4f31fa3d087cefc7">&#9670;&#160;</a></span>SweepWithQueryHandler() <span class="overload">[3/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;<a class="el" href="#ade75f143524494a0dbf466e96e1384a5">ESingleMultiOrTest</a> SingleMultiOrTest, typename OutHitsType&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a> SweepWithQueryHandler </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d4/d3a/class_u_physics_query_handler.html">UPhysicsQueryHandler</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>QueryHandler</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="../../d4/d0f/namespace_chaos.html#a282624c5070f036bda7bd82ebf1740a8">EThreadQueryContext</a></td>          <td class="paramname"><span class="paramname"><em>ThreadContext</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="../../de/d4d/class_u_world.html">UWorld</a> *</td>          <td class="paramname"><span class="paramname"><em>World</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">OutHitsType &amp;</td>          <td class="paramname"><span class="paramname"><em>OutHits</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="../../d9/d8f/struct_f_geom_s_q_additional_inputs.html">FGeomSQAdditionalInputs</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>GeomInputs</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="../../d0/df6/_math_fwd_8h.html#adda141358ecae99df7ba663b9e637078">FVector</a></td>          <td class="paramname"><span class="paramname"><em>Start</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="../../d0/df6/_math_fwd_8h.html#adda141358ecae99df7ba663b9e637078">FVector</a></td>          <td class="paramname"><span class="paramname"><em>End</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="../../d5/db4/struct_chaos_1_1_f_common_query_data.html">Chaos::FCommonQueryData</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>CommonData</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aa2fecbf5da04097ce76dc3f7b6a24833" name="aa2fecbf5da04097ce76dc3f7b6a24833"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa2fecbf5da04097ce76dc3f7b6a24833">&#9670;&#160;</a></span>TraceCommonImp() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;<a class="el" href="#aadd2e03766c2a5d8946ba4ee8cb16ad2">ESweepOrRay</a> SweepOrRay, <a class="el" href="#ade75f143524494a0dbf466e96e1384a5">ESingleMultiOrTest</a> SingleMultiOrTest, typename GeomInputsType, typename OutHitsType, typename AccelContainerType&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a> TraceCommonImp </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="../../d4/d0f/namespace_chaos.html#a282624c5070f036bda7bd82ebf1740a8">EThreadQueryContext</a></td>          <td class="paramname"><span class="paramname"><em>ThreadContext</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="../../de/d4d/class_u_world.html">UWorld</a> *</td>          <td class="paramname"><span class="paramname"><em>World</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">OutHitsType &amp;</td>          <td class="paramname"><span class="paramname"><em>OutHits</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const GeomInputsType &amp;</td>          <td class="paramname"><span class="paramname"><em>GeomInputs</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="../../d0/df6/_math_fwd_8h.html#adda141358ecae99df7ba663b9e637078">FVector</a></td>          <td class="paramname"><span class="paramname"><em>Start</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="../../d0/df6/_math_fwd_8h.html#adda141358ecae99df7ba663b9e637078">FVector</a></td>          <td class="paramname"><span class="paramname"><em>End</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../db/dd8/_engine_types_8h.html#aad19b3d048702469c60fa16d0e5533c8">ECollisionChannel</a></td>          <td class="paramname"><span class="paramname"><em>TraceChannel</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const struct <a class="el" href="../../d4/d96/struct_f_collision_query_params.html">FCollisionQueryParams</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>Params</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const struct <a class="el" href="../../d4/dc1/struct_f_collision_response_params.html">FCollisionResponseParams</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>ResponseParams</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const struct <a class="el" href="../../d1/d0d/struct_f_collision_object_query_params.html">FCollisionObjectQueryParams</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>ObjectParams</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const AccelContainerType &amp;</td>          <td class="paramname"><span class="paramname"><em>AccelContainer</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ae16af9772e44f8e0365f50cfd1d8b542" name="ae16af9772e44f8e0365f50cfd1d8b542"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae16af9772e44f8e0365f50cfd1d8b542">&#9670;&#160;</a></span>TraceCommonImp() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename HitType, typename PTHitType, <a class="el" href="#aadd2e03766c2a5d8946ba4ee8cb16ad2">ESweepOrRay</a> SweepOrRay, <a class="el" href="#ade75f143524494a0dbf466e96e1384a5">ESingleMultiOrTest</a> SingleMultiOrTest, typename GeomInputsType, typename OutHitsType, typename AccelContainerType&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a> TraceCommonImp </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="../../d4/d0f/namespace_chaos.html#a282624c5070f036bda7bd82ebf1740a8">EThreadQueryContext</a></td>          <td class="paramname"><span class="paramname"><em>ThreadContext</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="../../de/d4d/class_u_world.html">UWorld</a> *</td>          <td class="paramname"><span class="paramname"><em>World</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">OutHitsType &amp;</td>          <td class="paramname"><span class="paramname"><em>OutHits</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const GeomInputsType &amp;</td>          <td class="paramname"><span class="paramname"><em>GeomInputs</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="../../d0/df6/_math_fwd_8h.html#adda141358ecae99df7ba663b9e637078">FVector</a></td>          <td class="paramname"><span class="paramname"><em>Start</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="../../d0/df6/_math_fwd_8h.html#adda141358ecae99df7ba663b9e637078">FVector</a></td>          <td class="paramname"><span class="paramname"><em>End</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../db/dd8/_engine_types_8h.html#aad19b3d048702469c60fa16d0e5533c8">ECollisionChannel</a></td>          <td class="paramname"><span class="paramname"><em>TraceChannel</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const struct <a class="el" href="../../d4/d96/struct_f_collision_query_params.html">FCollisionQueryParams</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>Params</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const struct <a class="el" href="../../d4/dc1/struct_f_collision_response_params.html">FCollisionResponseParams</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>ResponseParams</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const struct <a class="el" href="../../d1/d0d/struct_f_collision_object_query_params.html">FCollisionObjectQueryParams</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>ObjectParams</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const AccelContainerType &amp;</td>          <td class="paramname"><span class="paramname"><em>AccelContainer</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ad353842cd0bfbce5c8b0242e652b371e" name="ad353842cd0bfbce5c8b0242e652b371e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad353842cd0bfbce5c8b0242e652b371e">&#9670;&#160;</a></span>TSceneCastCommon()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;<a class="el" href="#aadd2e03766c2a5d8946ba4ee8cb16ad2">ESweepOrRay</a> SweepOrRay, <a class="el" href="#ade75f143524494a0dbf466e96e1384a5">ESingleMultiOrTest</a> SingleMultiOrTest, typename OutHitsType, typename GeomInputsType, typename AccelContainerType = FDefaultAccelContainer&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a> TSceneCastCommon </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="../../de/d4d/class_u_world.html">UWorld</a> *</td>          <td class="paramname"><span class="paramname"><em>World</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">OutHitsType &amp;</td>          <td class="paramname"><span class="paramname"><em>OutHits</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const GeomInputsType &amp;</td>          <td class="paramname"><span class="paramname"><em>GeomInputs</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="../../d0/df6/_math_fwd_8h.html#adda141358ecae99df7ba663b9e637078">FVector</a></td>          <td class="paramname"><span class="paramname"><em>Start</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="../../d0/df6/_math_fwd_8h.html#adda141358ecae99df7ba663b9e637078">FVector</a></td>          <td class="paramname"><span class="paramname"><em>End</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../db/dd8/_engine_types_8h.html#aad19b3d048702469c60fa16d0e5533c8">ECollisionChannel</a></td>          <td class="paramname"><span class="paramname"><em>TraceChannel</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const struct <a class="el" href="../../d4/d96/struct_f_collision_query_params.html">FCollisionQueryParams</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>Params</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const struct <a class="el" href="../../d4/dc1/struct_f_collision_response_params.html">FCollisionResponseParams</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>ResponseParams</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const struct <a class="el" href="../../d1/d0d/struct_f_collision_object_query_params.html">FCollisionObjectQueryParams</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>ObjectParams</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const AccelContainerType &amp;</td>          <td class="paramname"><span class="paramname"><em>AccelContainer</em></span><span class="paramdefsep"> = </span><span class="paramdefval"><a class="el" href="../../dc/d51/struct_f_default_accel_container.html">FDefaultAccelContainer</a>{}</span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a34f06949ea7854368b55d953309b8981" name="a34f06949ea7854368b55d953309b8981"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a34f06949ea7854368b55d953309b8981">&#9670;&#160;</a></span>TSceneCastCommonImp()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Traits, typename GeomInputsType, typename AccelContainerType&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a> TSceneCastCommonImp </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="../../de/d4d/class_u_world.html">UWorld</a> *</td>          <td class="paramname"><span class="paramname"><em>World</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">typename Traits::OutHitsType &amp;</td>          <td class="paramname"><span class="paramname"><em>OutHits</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const GeomInputsType &amp;</td>          <td class="paramname"><span class="paramname"><em>GeomInputs</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="../../d0/df6/_math_fwd_8h.html#adda141358ecae99df7ba663b9e637078">FVector</a></td>          <td class="paramname"><span class="paramname"><em>Start</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="../../d0/df6/_math_fwd_8h.html#adda141358ecae99df7ba663b9e637078">FVector</a></td>          <td class="paramname"><span class="paramname"><em>End</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../db/dd8/_engine_types_8h.html#aad19b3d048702469c60fa16d0e5533c8">ECollisionChannel</a></td>          <td class="paramname"><span class="paramname"><em>TraceChannel</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const struct <a class="el" href="../../d4/d96/struct_f_collision_query_params.html">FCollisionQueryParams</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>Params</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const struct <a class="el" href="../../d4/dc1/struct_f_collision_response_params.html">FCollisionResponseParams</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>ResponseParams</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const struct <a class="el" href="../../d1/d0d/struct_f_collision_object_query_params.html">FCollisionObjectQueryParams</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>ObjectParams</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const AccelContainerType &amp;</td>          <td class="paramname"><span class="paramname"><em>AccelContainer</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aed8d710dbce068dd7bf4763c785f4c7b" name="aed8d710dbce068dd7bf4763c785f4c7b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aed8d710dbce068dd7bf4763c785f4c7b">&#9670;&#160;</a></span>TSceneCastCommonImpWithRetryRequest()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Traits, typename GeomInputsType, typename AccelContainerType&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a> TSceneCastCommonImpWithRetryRequest </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="../../de/d4d/class_u_world.html">UWorld</a> *</td>          <td class="paramname"><span class="paramname"><em>World</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">typename Traits::OutHitsType &amp;</td>          <td class="paramname"><span class="paramname"><em>OutHits</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const GeomInputsType &amp;</td>          <td class="paramname"><span class="paramname"><em>GeomInputs</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="../../d0/df6/_math_fwd_8h.html#adda141358ecae99df7ba663b9e637078">FVector</a></td>          <td class="paramname"><span class="paramname"><em>Start</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="../../d0/df6/_math_fwd_8h.html#adda141358ecae99df7ba663b9e637078">FVector</a></td>          <td class="paramname"><span class="paramname"><em>End</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../db/dd8/_engine_types_8h.html#aad19b3d048702469c60fa16d0e5533c8">ECollisionChannel</a></td>          <td class="paramname"><span class="paramname"><em>TraceChannel</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const struct <a class="el" href="../../d4/d96/struct_f_collision_query_params.html">FCollisionQueryParams</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>Params</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const struct <a class="el" href="../../d4/dc1/struct_f_collision_response_params.html">FCollisionResponseParams</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>ResponseParams</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const struct <a class="el" href="../../d1/d0d/struct_f_collision_object_query_params.html">FCollisionObjectQueryParams</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>ObjectParams</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const AccelContainerType &amp;</td>          <td class="paramname"><span class="paramname"><em>AccelContainer</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>bOutRequestRetry</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d4/d96/struct_f_collision_query_params.html">FCollisionQueryParams</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>OutRetryParams</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>(UE_BUILD_SHIPPING || UE_BUILD_TEST)</p>
+
+</div>
+</div>
+<a name="doc-var-members" id="doc-var-members"></a><h2 id="header-doc-var-members" class="groupheader">变量说明</h2>
+<a id="a55686ba443aaa46a3ff184d58a3776b2" name="a55686ba443aaa46a3ff184d58a3776b2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a55686ba443aaa46a3ff184d58a3776b2">&#9670;&#160;</a></span>DebugLineLifetime</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../df/d2a/_s_anim_notify_shared_8h.html#ac7c94e837fed3f8e4bb3dd94d7bd2ecf">float</a> DebugLineLifetime = 2.f</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<div id="page-nav" class="page-nav-panel">
+<div id="page-nav-resize-handle"></div>
+<div id="page-nav-tree">
+<div id="page-nav-contents">
+</div><!-- page-nav-contents -->
+</div><!-- page-nav-tree -->
+</div><!-- page-nav -->
+</div><!-- container -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a href="../../dir_0b6ee6e7e9547e675db4add2e5de97da.html">Engine</a></li><li class="navelem"><a href="../../dir_9579d1ecb2c7bf48cbe1049c41745cb4.html">Source</a></li><li class="navelem"><a href="../../dir_9f04efef762572853abdf73f62bebfcc.html">Runtime</a></li><li class="navelem"><a href="../../dir_750344885b5b0dabc1066bd532c992d7.html">Engine</a></li><li class="navelem"><a href="../../dir_0f80cfe80f66a90345f34a7a0d31ead6.html">Private</a></li><li class="navelem"><a href="../../dir_9d39f67187d1aed580259a5157318e43.html">Collision</a></li><li class="navelem"><a href="../../d0/d4b/_scene_query_8cpp.html">SceneQuery.cpp</a></li>
+    <li class="footer">制作者 <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.15.0 </li>
+  </ul>
+</div>
+</body>
+</html>

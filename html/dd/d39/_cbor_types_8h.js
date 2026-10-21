@@ -1,0 +1,46 @@
+var _cbor_types_8h =
+[
+    [ "FCborHeader", "d3/da2/class_f_cbor_header.html", "d3/da2/class_f_cbor_header" ],
+    [ "FCborContext", "da/d3b/struct_f_cbor_context.html", "da/d3b/struct_f_cbor_context" ],
+    [ "ScopedCborArchiveEndianness", "d2/d4f/class_scoped_cbor_archive_endianness.html", "d2/d4f/class_scoped_cbor_archive_endianness" ],
+    [ "ECborCode", "dd/d39/_cbor_types_8h.html#afc443bdcf38e2b18f5d5b628690a36aa", [
+      [ "None", "dd/d39/_cbor_types_8h.html#afc443bdcf38e2b18f5d5b628690a36aaa6adf97f83acf6453d4a6a4b1070f3754", null ],
+      [ "Uint", "dd/d39/_cbor_types_8h.html#afc443bdcf38e2b18f5d5b628690a36aaafa28cf323a8d44edbf80f68165f4f75b", null ],
+      [ "Int", "dd/d39/_cbor_types_8h.html#afc443bdcf38e2b18f5d5b628690a36aaa1686a6c336b71b36d77354cea19a8b52", null ],
+      [ "ByteString", "dd/d39/_cbor_types_8h.html#afc443bdcf38e2b18f5d5b628690a36aaa58efa9e8b8491c4a42cbf3bead1b06b6", null ],
+      [ "TextString", "dd/d39/_cbor_types_8h.html#afc443bdcf38e2b18f5d5b628690a36aaa6417befd10d8a79dafdaa7029f7b43c6", null ],
+      [ "Array", "dd/d39/_cbor_types_8h.html#afc443bdcf38e2b18f5d5b628690a36aaa4410ec34d9e6c1a68100ca0ce033fb17", null ],
+      [ "Map", "dd/d39/_cbor_types_8h.html#afc443bdcf38e2b18f5d5b628690a36aaa46f3ea056caa3126b91f3f70beea068c", null ],
+      [ "Tag", "dd/d39/_cbor_types_8h.html#afc443bdcf38e2b18f5d5b628690a36aaac101058e7ea21bbbf2a5ac893088e90b", null ],
+      [ "Prim", "dd/d39/_cbor_types_8h.html#afc443bdcf38e2b18f5d5b628690a36aaa2dd2c29e53bfa93cc4ed329bc57aa025", null ],
+      [ "Value_1Byte", "dd/d39/_cbor_types_8h.html#afc443bdcf38e2b18f5d5b628690a36aaad62e1ef2e10d687f7f3e8c3592502a2b", null ],
+      [ "Value_2Bytes", "dd/d39/_cbor_types_8h.html#afc443bdcf38e2b18f5d5b628690a36aaa13bd07de256a8aa7c6ef33fdf78bc9fa", null ],
+      [ "Value_4Bytes", "dd/d39/_cbor_types_8h.html#afc443bdcf38e2b18f5d5b628690a36aaa298e2e6acad58cfa3bab5ac674f3bdac", null ],
+      [ "Value_8Bytes", "dd/d39/_cbor_types_8h.html#afc443bdcf38e2b18f5d5b628690a36aaa9c0141254d2dc6971a510ff9510d15a5", null ],
+      [ "Unused_28", "dd/d39/_cbor_types_8h.html#afc443bdcf38e2b18f5d5b628690a36aaae4730a5ff7cd46498bb466eb14a22cb2", null ],
+      [ "Unused_29", "dd/d39/_cbor_types_8h.html#afc443bdcf38e2b18f5d5b628690a36aaafedecb8906d506655f0875bb2790edab", null ],
+      [ "Unused_30", "dd/d39/_cbor_types_8h.html#afc443bdcf38e2b18f5d5b628690a36aaa7ca737bb44c45e8afa22955f46b63896", null ],
+      [ "Indefinite", "dd/d39/_cbor_types_8h.html#afc443bdcf38e2b18f5d5b628690a36aaaf55dbf14245df4e3c834b3edd8495b52", null ],
+      [ "False", "dd/d39/_cbor_types_8h.html#afc443bdcf38e2b18f5d5b628690a36aaaf8320b26d30ab433c5a54546d21f414c", null ],
+      [ "True", "dd/d39/_cbor_types_8h.html#afc443bdcf38e2b18f5d5b628690a36aaaf827cf462f62848df37c5e1e94a4da74", null ],
+      [ "Null", "dd/d39/_cbor_types_8h.html#afc443bdcf38e2b18f5d5b628690a36aaabbb93ef26e3c101ff11cdd21cab08a94", null ],
+      [ "Undefined", "dd/d39/_cbor_types_8h.html#afc443bdcf38e2b18f5d5b628690a36aaaec0fc0100c4fc1ce4eea230c3dc10360", null ],
+      [ "Break", "dd/d39/_cbor_types_8h.html#afc443bdcf38e2b18f5d5b628690a36aaae4c38d6d45baf080943d323dd51a2ce8", null ],
+      [ "Dummy", "dd/d39/_cbor_types_8h.html#afc443bdcf38e2b18f5d5b628690a36aaabcf036b6f33e182d4705f4f5b1af13ac", null ],
+      [ "StreamEnd", "dd/d39/_cbor_types_8h.html#afc443bdcf38e2b18f5d5b628690a36aaa62c256a11372a584631c0ce45183a983", null ],
+      [ "ErrorReservedItem", "dd/d39/_cbor_types_8h.html#afc443bdcf38e2b18f5d5b628690a36aaa3c6f7aa978b58c90e768b2ead02b1b65", null ],
+      [ "ErrorStreamFailure", "dd/d39/_cbor_types_8h.html#afc443bdcf38e2b18f5d5b628690a36aaae1b6b94e39ff3a064969168b0bb5f5f6", null ],
+      [ "ErrorBreak", "dd/d39/_cbor_types_8h.html#afc443bdcf38e2b18f5d5b628690a36aaa673e832356a78c125e5f08f6ca28f36c", null ],
+      [ "ErrorMapContainer", "dd/d39/_cbor_types_8h.html#afc443bdcf38e2b18f5d5b628690a36aaaf3f64928fb3b8375ebd632f5372e2a3b", null ],
+      [ "ErrorContext", "dd/d39/_cbor_types_8h.html#afc443bdcf38e2b18f5d5b628690a36aaaa4281288b4f9a09d1597534dd8b1482c", null ],
+      [ "ErrorStringNesting", "dd/d39/_cbor_types_8h.html#afc443bdcf38e2b18f5d5b628690a36aaa41f4f3792c29229af491ede35ebc3660", null ],
+      [ "ErrorStringLength", "dd/d39/_cbor_types_8h.html#afc443bdcf38e2b18f5d5b628690a36aaad0d7fd7b1df8910ef67ad4c769a9ab92", null ]
+    ] ],
+    [ "ECborEndianness", "dd/d39/_cbor_types_8h.html#a29d4ca1c483acdb52d5031dcfaf7b8d8", [
+      [ "Platform", "dd/d39/_cbor_types_8h.html#a29d4ca1c483acdb52d5031dcfaf7b8d8a419f3742e6de8e0ec4b22cce005e7630", null ],
+      [ "BigEndian", "dd/d39/_cbor_types_8h.html#a29d4ca1c483acdb52d5031dcfaf7b8d8a2ce7a92ae43763828ac4acb4560c2a5b", null ],
+      [ "LittleEndian", "dd/d39/_cbor_types_8h.html#a29d4ca1c483acdb52d5031dcfaf7b8d8a3c0ba6b22b526d7fd50c3026435a8c02", null ],
+      [ "StandardCompliant", "dd/d39/_cbor_types_8h.html#a29d4ca1c483acdb52d5031dcfaf7b8d8ab7a5e9f7bfab5e02cf493d8277341057", null ]
+    ] ],
+    [ "ENUM_CLASS_FLAGS", "dd/d39/_cbor_types_8h.html#a82742db0deb9590e6df142a6da48c11d", null ]
+];

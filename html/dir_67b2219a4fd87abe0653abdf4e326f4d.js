@@ -1,0 +1,28 @@
+var dir_67b2219a4fd87abe0653abdf4e326f4d =
+[
+    [ "Clustering", "dir_38e92fd7375fa149827dcf9d6ba6ced3.html", "dir_38e92fd7375fa149827dcf9d6ba6ced3" ],
+    [ "CompGeom", "dir_c8a177e2644009c0f10d932705f7c9bd.html", "dir_c8a177e2644009c0f10d932705f7c9bd" ],
+    [ "DynamicMesh", "dir_ff234173b35b55c4925efc3c2731b683.html", "dir_ff234173b35b55c4925efc3c2731b683" ],
+    [ "Generators", "dir_50f1a12e4a7a3af164b9128847f5ff66.html", "dir_50f1a12e4a7a3af164b9128847f5ff66" ],
+    [ "Image", "dir_a09a9d0e499b8d8ffd5341b5520f44d0.html", "dir_a09a9d0e499b8d8ffd5341b5520f44d0" ],
+    [ "Implicit", "dir_0d9365db38e4fdbcb9aa21b3ea32cc6c.html", "dir_0d9365db38e4fdbcb9aa21b3ea32cc6c" ],
+    [ "Intersection", "dir_14e998dc8a7c2d8a40b20c2d80f4a34e.html", "dir_14e998dc8a7c2d8a40b20c2d80f4a34e" ],
+    [ "Operations", "dir_4803759f860eef6debe7ef3cd4ba797f.html", "dir_4803759f860eef6debe7ef3cd4ba797f" ],
+    [ "Parameterization", "dir_11e6e05813ff698fd3b7f549b68f775f.html", "dir_11e6e05813ff698fd3b7f549b68f775f" ],
+    [ "Sampling", "dir_3b467b9db6c310bdbc439d86ab51f0d9.html", "dir_3b467b9db6c310bdbc439d86ab51f0d9" ],
+    [ "Selections", "dir_4eddb8c0fecca5d5869157777f5024e7.html", "dir_4eddb8c0fecca5d5869157777f5024e7" ],
+    [ "Spatial", "dir_14fb29c7bd65e42946ee24b9829748fe.html", "dir_14fb29c7bd65e42946ee24b9829748fe" ],
+    [ "Splines", "dir_e3c1c4869063f371ddcb28c11c7ab8aa.html", "dir_e3c1c4869063f371ddcb28c11c7ab8aa" ],
+    [ "Tessellation", "dir_4c0c1e38ec67d5571f7a44ec8148f75a.html", "dir_4c0c1e38ec67d5571f7a44ec8148f75a" ],
+    [ "Tests", "dir_001c58c2aea1461319182f647e583e43.html", "dir_001c58c2aea1461319182f647e583e43" ],
+    [ "Util", "dir_cd7f55903b3ec693596ae6f41d1d3195.html", "dir_cd7f55903b3ec693596ae6f41d1d3195" ],
+    [ "DynamicMeshEditor.cpp", "db/df1/_dynamic_mesh_editor_8cpp.html", "db/df1/_dynamic_mesh_editor_8cpp" ],
+    [ "EdgeLoop.cpp", "d1/d9a/_edge_loop_8cpp.html", null ],
+    [ "EdgeSpan.cpp", "d1/db7/_edge_span_8cpp.html", null ],
+    [ "GeometryCoreModule.cpp", "d5/dd9/_geometry_core_module_8cpp.html", "d5/dd9/_geometry_core_module_8cpp" ],
+    [ "IndexUtil.cpp", "d9/d19/_index_util_8cpp.html", null ],
+    [ "MathUtil.cpp", "df/d04/_math_util_8cpp.html", "df/d04/_math_util_8cpp" ],
+    [ "MeshBoundaryLoops.cpp", "d7/d36/_mesh_boundary_loops_8cpp.html", null ],
+    [ "MeshRegionBoundaryLoops.cpp", "d6/d2e/_mesh_region_boundary_loops_8cpp.html", null ],
+    [ "OrientedBoxTypes.cpp", "da/d4c/_oriented_box_types_8cpp.html", null ]
+];

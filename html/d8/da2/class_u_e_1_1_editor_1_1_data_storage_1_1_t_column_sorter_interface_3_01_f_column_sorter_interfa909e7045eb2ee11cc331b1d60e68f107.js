@@ -1,0 +1,8 @@
+var class_u_e_1_1_editor_1_1_data_storage_1_1_t_column_sorter_interface_3_01_f_column_sorter_interfa909e7045eb2ee11cc331b1d60e68f107 =
+[
+    [ "~TColumnSorterInterface", "d8/da2/class_u_e_1_1_editor_1_1_data_storage_1_1_t_column_sorter_interface_3_01_f_column_sorter_interfa909e7045eb2ee11cc331b1d60e68f107.html#a2249b2856f7ef4e8f9586a0baabadeed", null ],
+    [ "CalculatePrefix", "d8/da2/class_u_e_1_1_editor_1_1_data_storage_1_1_t_column_sorter_interface_3_01_f_column_sorter_interfa909e7045eb2ee11cc331b1d60e68f107.html#a568d5b33afd7b9f420508f954b051ab1", null ],
+    [ "CalculatePrefix", "d8/da2/class_u_e_1_1_editor_1_1_data_storage_1_1_t_column_sorter_interface_3_01_f_column_sorter_interfa909e7045eb2ee11cc331b1d60e68f107.html#a67024afffda966ba13e77f6d9aa67891", null ],
+    [ "Compare", "d8/da2/class_u_e_1_1_editor_1_1_data_storage_1_1_t_column_sorter_interface_3_01_f_column_sorter_interfa909e7045eb2ee11cc331b1d60e68f107.html#a7993610c66e1d390db055d3d213d0f14", null ],
+    [ "GetSortType", "d8/da2/class_u_e_1_1_editor_1_1_data_storage_1_1_t_column_sorter_interface_3_01_f_column_sorter_interfa909e7045eb2ee11cc331b1d60e68f107.html#a0ff7b6ca5e89f8623c4c17c540485411", null ]
+];

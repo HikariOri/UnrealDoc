@@ -1,0 +1,36 @@
+var classu_lang_1_1_c_source_package =
+[
+    [ "SSettings", "db/d97/structu_lang_1_1_c_source_package_1_1_s_settings.html", "db/d97/structu_lang_1_1_c_source_package_1_1_s_settings" ],
+    [ "SVersionedDigest", "d6/d4e/structu_lang_1_1_c_source_package_1_1_s_versioned_digest.html", "d6/d4e/structu_lang_1_1_c_source_package_1_1_s_versioned_digest" ],
+    [ "EOrigin", "d7/d55/classu_lang_1_1_c_source_package.html#a263cef9a5b730727065b1645e303aa1c", [
+      [ "Unknown", "d7/d55/classu_lang_1_1_c_source_package.html#a263cef9a5b730727065b1645e303aa1ca8c8b38a94bbb01fd75aa1c5017428a9a", null ],
+      [ "Memory", "d7/d55/classu_lang_1_1_c_source_package.html#a263cef9a5b730727065b1645e303aa1caf917e38669a3addcb2fee625b9641571", null ],
+      [ "FileSystem", "d7/d55/classu_lang_1_1_c_source_package.html#a263cef9a5b730727065b1645e303aa1ca7404584043fc21ceb660e4d241ea9370", null ]
+    ] ],
+    [ "CSourcePackage", "d7/d55/classu_lang_1_1_c_source_package.html#ad8f65df148d5427eb30de316cbf1cc3f", null ],
+    [ "~CSourcePackage", "d7/d55/classu_lang_1_1_c_source_package.html#a972f0978e9a20f6e0a909c4e5db032ef", null ],
+    [ "AddDependencyPackage", "d7/d55/classu_lang_1_1_c_source_package.html#a66144a7dda808a749313f505de1b943c", null ],
+    [ "GenerateFingerprint", "d7/d55/classu_lang_1_1_c_source_package.html#a4cd120fc6ada55ca655ae4ff54f902ce", null ],
+    [ "GetDirPath", "d7/d55/classu_lang_1_1_c_source_package.html#a0ed3bb1736acb30ab96fd23fb345132e", null ],
+    [ "GetFilePath", "d7/d55/classu_lang_1_1_c_source_package.html#a6264d7813e389104901f73ef6a85f109", null ],
+    [ "GetFingerprint", "d7/d55/classu_lang_1_1_c_source_package.html#aaa1805bdafbb6298684c28318ddf0797", null ],
+    [ "GetName", "d7/d55/classu_lang_1_1_c_source_package.html#ab59af30d35be3e1b189e4786c1dea1cc", null ],
+    [ "GetNumSnippets", "d7/d55/classu_lang_1_1_c_source_package.html#ae2d0baa55bba2668acaca1a87b92e6b9", null ],
+    [ "GetOrigin", "d7/d55/classu_lang_1_1_c_source_package.html#af9d42359014623080038088c7c78a0ab", null ],
+    [ "GetSettings", "d7/d55/classu_lang_1_1_c_source_package.html#a3455051058e17a8304df2c928dd278cc", null ],
+    [ "RemoveSnippet", "d7/d55/classu_lang_1_1_c_source_package.html#a805636613a8efd0f2019b145d7ec7c3e", null ],
+    [ "SetAllowExperimental", "d7/d55/classu_lang_1_1_c_source_package.html#ad5a657883137b0fcb3a596048c3f1434", null ],
+    [ "SetDependencyPackages", "d7/d55/classu_lang_1_1_c_source_package.html#a8e535c275b3a229b64a59e8015b50bee", null ],
+    [ "SetFingerprint", "d7/d55/classu_lang_1_1_c_source_package.html#aafdc560d9a0223298d417139dbfbe323", null ],
+    [ "SetName", "d7/d55/classu_lang_1_1_c_source_package.html#a5377b880b6d274c90864fc627a079b2d", null ],
+    [ "SetRole", "d7/d55/classu_lang_1_1_c_source_package.html#aff461845f8c960a0a3d6167525e725da", null ],
+    [ "SetTreatDefinitionsAsImplicit", "d7/d55/classu_lang_1_1_c_source_package.html#abb4b3d90e9e05b14b407dd0d92c62088", null ],
+    [ "SetVersePath", "d7/d55/classu_lang_1_1_c_source_package.html#ad3d3f5791408e723fc81a7aa34798d32", null ],
+    [ "SetVerseScope", "d7/d55/classu_lang_1_1_c_source_package.html#a5b62c2987361b37984a3b3a0fcf94260", null ],
+    [ "SetVerseVersion", "d7/d55/classu_lang_1_1_c_source_package.html#a7817e4903b9d0d25f62edb058b16e416", null ],
+    [ "TruncateVniDestDir", "d7/d55/classu_lang_1_1_c_source_package.html#a3019e1a28bb732e600f1cb1f10794d48", null ],
+    [ "_Digest", "d7/d55/classu_lang_1_1_c_source_package.html#a3c746be4d5196d1358d9f714bfaff12f", null ],
+    [ "_PublicDigest", "d7/d55/classu_lang_1_1_c_source_package.html#ad675c20fe1f988405b525cb50d2259a0", null ],
+    [ "_RootModule", "d7/d55/classu_lang_1_1_c_source_package.html#af17d3a728058309a55a1109dae4a5630", null ],
+    [ "_Settings", "d7/d55/classu_lang_1_1_c_source_package.html#afeb7e51ea68b2ccce0391193abd49f36", null ]
+];

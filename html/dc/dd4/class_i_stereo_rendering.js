@@ -1,0 +1,25 @@
+var class_i_stereo_rendering =
+[
+    [ "~IStereoRendering", "dc/dd4/class_i_stereo_rendering.html#ae6489761f1be8686bc00db7a4a26f789", null ],
+    [ "AdjustViewRect", "dc/dd4/class_i_stereo_rendering.html#a3699d1ca7ddb83e4e906a7e98a795987", null ],
+    [ "CalculateStereoViewOffset", "dc/dd4/class_i_stereo_rendering.html#af4572087892d6fcf89f91132316f00db", null ],
+    [ "EnableStereo", "dc/dd4/class_i_stereo_rendering.html#a73d65423a259c548d73135f45665353f", null ],
+    [ "EndFinalPostprocessSettings", "dc/dd4/class_i_stereo_rendering.html#ac4247c31e9e775e245f5d574fdf47a64", null ],
+    [ "GetDesiredNumberOfViews", "dc/dd4/class_i_stereo_rendering.html#aac4285ffc46e9f46978606e282c47935", null ],
+    [ "GetExternalViewState", "dc/dd4/class_i_stereo_rendering.html#af757b21b0d612173d26aa10df15af6ae", null ],
+    [ "GetLODViewIndex", "dc/dd4/class_i_stereo_rendering.html#a5755628e8cde73f533a5ab4383a3eaac", null ],
+    [ "GetRenderTargetManager", "dc/dd4/class_i_stereo_rendering.html#ab7ed5242625d13e6648aa3fdd2550c68", null ],
+    [ "GetStereoLayers", "dc/dd4/class_i_stereo_rendering.html#ace78045cf1cc165fe16bb94f0d44b387", null ],
+    [ "GetStereoProjectionMatrix", "dc/dd4/class_i_stereo_rendering.html#a130094d38321a3f79ac1bb339cf7d768", null ],
+    [ "GetTextSafeRegionBounds", "dc/dd4/class_i_stereo_rendering.html#a867c69a889f1f3c1199d3ec7e9df3fee", null ],
+    [ "GetViewPassForIndex", "dc/dd4/class_i_stereo_rendering.html#afd573c15409bf0746a230d685b6817e7", null ],
+    [ "HasExternalViewState", "dc/dd4/class_i_stereo_rendering.html#a4764a7fff933abc3db30005f37bac40a", null ],
+    [ "IsStandaloneStereoOnlyDevice", "dc/dd4/class_i_stereo_rendering.html#abd1ed7753f6e651789ce3669a73fcbca", null ],
+    [ "IsStereoEnabled", "dc/dd4/class_i_stereo_rendering.html#a23bbfc053767e475962908ca8d2d3ef1", null ],
+    [ "IsStereoEnabledOnNextFrame", "dc/dd4/class_i_stereo_rendering.html#a3401360b40cb82e207bb48cbc0866349", null ],
+    [ "OverrideFinalPostprocessSettings", "dc/dd4/class_i_stereo_rendering.html#aaf47c2c4ad6f9cc3b6616435dde500de", null ],
+    [ "RenderTexture_RenderThread", "dc/dd4/class_i_stereo_rendering.html#a4a7462e2b9b8247647c1ab1dd98c59d1", null ],
+    [ "RenderTexture_RenderThread", "dc/dd4/class_i_stereo_rendering.html#a3de1fb07905599cff4fb1e08a69f6894", null ],
+    [ "SetFinalViewRect", "dc/dd4/class_i_stereo_rendering.html#a23ba4d373699d2d615ecd81593908a23", null ],
+    [ "StartFinalPostprocessSettings", "dc/dd4/class_i_stereo_rendering.html#aa0fe402af603173e5ef7bc1f688b50da", null ]
+];

@@ -1,0 +1,38 @@
+var struct_f_shader_compiler_stats =
+[
+    [ "FWorkerDiagnosticsInfo", "d1/de6/struct_f_shader_compiler_stats_1_1_f_worker_diagnostics_info.html", "d1/de6/struct_f_shader_compiler_stats_1_1_f_worker_diagnostics_info" ],
+    [ "ShaderCompilerStats", "de/d81/struct_f_shader_compiler_stats.html#a6bf5df4cdc352bd5c67753bd8595c631", null ],
+    [ "EExecutionType", "de/d81/struct_f_shader_compiler_stats.html#a61b416516ef317dfb64d8a720bdc0851", [
+      [ "Local", "de/d81/struct_f_shader_compiler_stats.html#a61b416516ef317dfb64d8a720bdc0851a509820290d57f333403f490dde7316f4", null ],
+      [ "Distributed", "de/d81/struct_f_shader_compiler_stats.html#a61b416516ef317dfb64d8a720bdc0851a8c16cbebef45d87fd2b36ce69f46c526", null ]
+    ] ],
+    [ "AddDDCHit", "de/d81/struct_f_shader_compiler_stats.html#a3e74160e43f8fba67d8bbdc681c26398", null ],
+    [ "AddDDCMiss", "de/d81/struct_f_shader_compiler_stats.html#a9cf400b6da21f0785405a6be34dfe08b", null ],
+    [ "Aggregate", "de/d81/struct_f_shader_compiler_stats.html#a7995fd3bcf22dcd7e7224bb441f83f76", null ],
+    [ "GatherAnalytics", "de/d81/struct_f_shader_compiler_stats.html#a6f9d4162df048049e8461eafd7549d58", null ],
+    [ "GetDDCHits", "de/d81/struct_f_shader_compiler_stats.html#a42bd00eebfc63b21de4c0e9dc8fea796", null ],
+    [ "GetDDCMisses", "de/d81/struct_f_shader_compiler_stats.html#ad24d6f993ec82009c6635dbe8a5c7e2b", null ],
+    [ "GetShaderCompilerStats", "de/d81/struct_f_shader_compiler_stats.html#a662a60c2c91dacb2743aaa10c040f32b", null ],
+    [ "GetTimeShaderCompilationWasActive", "de/d81/struct_f_shader_compiler_stats.html#ae14dfa6fe53db78fa7d26306548c6fdb", null ],
+    [ "GetTotalShadersCompiled", "de/d81/struct_f_shader_compiler_stats.html#a894affd5dfdf997d2a2a8acc0db6f1d1", null ],
+    [ "IncrementMaterialCacheHit", "de/d81/struct_f_shader_compiler_stats.html#a865caa6831ddaef9667035bd36b5fdc4", null ],
+    [ "IncrementMaterialCook", "de/d81/struct_f_shader_compiler_stats.html#ae899b140ed0336d380e3d874a050bbf1", null ],
+    [ "IncrementMaterialTranslated", "de/d81/struct_f_shader_compiler_stats.html#a532131096768ef464c04b943c6084860", null ],
+    [ "ReadFromCompactBinary", "de/d81/struct_f_shader_compiler_stats.html#aa424e981974d4ed4fcb936892f04bd65", null ],
+    [ "RegisterAssignedJob", "de/d81/struct_f_shader_compiler_stats.html#a44ad505a3faea2a7c95405f1225e5fbc", null ],
+    [ "RegisterCompiledShaders", "de/d81/struct_f_shader_compiler_stats.html#ac619aac7f67d8c4a45dce15c341a392e", null ],
+    [ "RegisterCookedShaders", "de/d81/struct_f_shader_compiler_stats.html#a6301d7afd00fec6f87ebc6afb3cc9e70", null ],
+    [ "RegisterDistributedBuildStats", "de/d81/struct_f_shader_compiler_stats.html#aea855b71320b87bed18161eb4d25791d", null ],
+    [ "RegisterFinishedJob", "de/d81/struct_f_shader_compiler_stats.html#aef667860b2968b54ef4a998abd2a7474", null ],
+    [ "RegisterJobBatch", "de/d81/struct_f_shader_compiler_stats.html#a68326bfcc877fea17eb9e8cbade6a644", null ],
+    [ "RegisterLocalWorkerIdleTime", "de/d81/struct_f_shader_compiler_stats.html#a72b21c0803b2366edcef6954547ab2b2", null ],
+    [ "RegisterMemoryViolation", "de/d81/struct_f_shader_compiler_stats.html#aa1d808f40f804e7e37eff6d99d5c8862", null ],
+    [ "RegisterNewPendingJob", "de/d81/struct_f_shader_compiler_stats.html#a8279196d5f2cf7be8f6281aea9b39933", null ],
+    [ "RegisterWorkerDiagnostics", "de/d81/struct_f_shader_compiler_stats.html#a64dbc3ff6d127e2cc6eeee8b6c259c61", null ],
+    [ "SetMultiProcessAggregated", "de/d81/struct_f_shader_compiler_stats.html#a900c2b0a90f4e0a85740abaa08a4118b", null ],
+    [ "ToJson", "de/d81/struct_f_shader_compiler_stats.html#ae01414147c35b6ab747c0601e273e2f5", null ],
+    [ "WriteStats", "de/d81/struct_f_shader_compiler_stats.html#af97ed333ef71ec4ac9d60afef5e58426", null ],
+    [ "WriteStatSummary", "de/d81/struct_f_shader_compiler_stats.html#ad885a2c69a959ef279b57fea4f35b78f", null ],
+    [ "WriteToCompactBinary", "de/d81/struct_f_shader_compiler_stats.html#ad977adcc6779e74e132b6479ac392f81", null ],
+    [ "FShaderJobCache", "de/d81/struct_f_shader_compiler_stats.html#ad52a13a2d669385aaf7752f81e52ef10", null ]
+];

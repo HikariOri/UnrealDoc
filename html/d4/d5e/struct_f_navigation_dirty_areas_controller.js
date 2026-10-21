@@ -1,0 +1,25 @@
+var struct_f_navigation_dirty_areas_controller =
+[
+    [ "FNavigationDirtyAreasController", "d4/d5e/struct_f_navigation_dirty_areas_controller.html#a83479ff13f0322465988c31816ef6f9a", null ],
+    [ "AddArea", "d4/d5e/struct_f_navigation_dirty_areas_controller.html#adfb14055ca92c3796973cd414dd92c7b", null ],
+    [ "AddAreas", "d4/d5e/struct_f_navigation_dirty_areas_controller.html#a85a02bdc5746bc9c96c0c78b6cda8a42", null ],
+    [ "DECLARE_DELEGATE_RetVal_OneParam", "d4/d5e/struct_f_navigation_dirty_areas_controller.html#a0e2e4011a146923b205bd1fa42476884", null ],
+    [ "ForceRebuildOnNextTick", "d4/d5e/struct_f_navigation_dirty_areas_controller.html#adf391f0811951cf3e2bd8cb094da47df", null ],
+    [ "GetNumDirtyAreas", "d4/d5e/struct_f_navigation_dirty_areas_controller.html#abe14826752108a2d9652b3c942001ced", null ],
+    [ "HadDirtyAreasReportedWhileAccumulationLocked", "d4/d5e/struct_f_navigation_dirty_areas_controller.html#a4fad7ef4b4e3d8fda8e24686b82b18b6", null ],
+    [ "IsDirty", "d4/d5e/struct_f_navigation_dirty_areas_controller.html#ad1fa2024dee06520060e6edfda1c0d5c", null ],
+    [ "OnNavigationBuildLocked", "d4/d5e/struct_f_navigation_dirty_areas_controller.html#a6ed7a77ccca15b39ec5bca3de6a3f16f", null ],
+    [ "OnNavigationBuildUnlocked", "d4/d5e/struct_f_navigation_dirty_areas_controller.html#a817286288726e15d54d163be786d55ef", null ],
+    [ "Reset", "d4/d5e/struct_f_navigation_dirty_areas_controller.html#abdfeb4504e3f2acc18949e0913906bea", null ],
+    [ "SetCanReportOversizedDirtyArea", "d4/d5e/struct_f_navigation_dirty_areas_controller.html#a2f7966477cb8e564d86f3d65fb88e646", null ],
+    [ "SetDirtyAreaWarningSizeThreshold", "d4/d5e/struct_f_navigation_dirty_areas_controller.html#a705d60be99b7917b416cb7294373e021", null ],
+    [ "SetUseWorldPartitionedDynamicMode", "d4/d5e/struct_f_navigation_dirty_areas_controller.html#a8cec082099fea1f822011ec2e3f01a9c", null ],
+    [ "Tick", "d4/d5e/struct_f_navigation_dirty_areas_controller.html#a6c2352776387544c55fe95915903609c", null ],
+    [ "bCanAccumulateDirtyAreas", "d4/d5e/struct_f_navigation_dirty_areas_controller.html#af6dfc21c9c5ee21c8f54fa56c2251f58", null ],
+    [ "bDirtyAreasReportedWhileAccumulationLocked", "d4/d5e/struct_f_navigation_dirty_areas_controller.html#a5a1c0b488c7b79aec490faf0dc4a83d3", null ],
+    [ "bUseWorldPartitionedDynamicMode", "d4/d5e/struct_f_navigation_dirty_areas_controller.html#a31eeb96ddc1bddf2db8c15e1f50f4b08", null ],
+    [ "DirtyAreas", "d4/d5e/struct_f_navigation_dirty_areas_controller.html#a2d9e9487f6fa5e765df8b44831ed641f", null ],
+    [ "DirtyAreasUpdateFreq", "d4/d5e/struct_f_navigation_dirty_areas_controller.html#a2d0e034c461304e726783bdb98ab7335", null ],
+    [ "DirtyAreasUpdateTime", "d4/d5e/struct_f_navigation_dirty_areas_controller.html#aa736c599c71b9ed0ae0e68a6746aa0d4", null ],
+    [ "ShouldSkipObjectPredicate", "d4/d5e/struct_f_navigation_dirty_areas_controller.html#aac2eb96f354f9f5cd98db2f2128e780e", null ]
+];

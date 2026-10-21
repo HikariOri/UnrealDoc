@@ -1,0 +1,26 @@
+var struct_f_unix_crash_context =
+[
+    [ "FUnixCrashContext", "d9/de6/struct_f_unix_crash_context.html#a2f1bd212205a32ea0a474c1dd6db0b96", null ],
+    [ "~FUnixCrashContext", "d9/de6/struct_f_unix_crash_context.html#a4da376003a589ed79b1dd1caada0b954", null ],
+    [ "AddPlatformSpecificProperties", "d9/de6/struct_f_unix_crash_context.html#a3568ac85daf8f60bedf2f35791e7b7ae", null ],
+    [ "CaptureAllThreadContexts", "d9/de6/struct_f_unix_crash_context.html#a70626d40d4deceeff7727208820e244b", null ],
+    [ "CaptureStackTrace", "d9/de6/struct_f_unix_crash_context.html#a8804be9d69225842a4a6f2f5c99d4023", null ],
+    [ "CaptureThreadStackTrace", "d9/de6/struct_f_unix_crash_context.html#aab5a1adf6a3547d804c52778f40f881f", null ],
+    [ "GenerateCrashInfoAndLaunchReporter", "d9/de6/struct_f_unix_crash_context.html#a3c7bf0176d7b912536361b84e225eceb", null ],
+    [ "GenerateReport", "d9/de6/struct_f_unix_crash_context.html#ab4ced3af46e017c387290853cc96008e", null ],
+    [ "GetPlatformAllThreadContextsString", "d9/de6/struct_f_unix_crash_context.html#a956d491752ad0b792c22a0fa248c7862", null ],
+    [ "GetPortableCallStack", "d9/de6/struct_f_unix_crash_context.html#a5eea2f520a5da3bea228b1970ce51cd7", null ],
+    [ "InitFromDiagnostics", "d9/de6/struct_f_unix_crash_context.html#a3b1d1dda041df641a35e89ffe231cf58", null ],
+    [ "InitFromSignal", "d9/de6/struct_f_unix_crash_context.html#ac8cd3110a0fc29b353070d8d8daf6d72", null ],
+    [ "SetFirstCrashHandlerFrame", "d9/de6/struct_f_unix_crash_context.html#ad44400ba040f08c45a8392272b87e617", null ],
+    [ "SetType", "d9/de6/struct_f_unix_crash_context.html#ae730c18722c4fae9755d18a1145dac77", null ],
+    [ "BacktraceSymbols", "d9/de6/struct_f_unix_crash_context.html#adfa104a37fbb68d32beef21d36919f89", null ],
+    [ "bCapturedBacktrace", "d9/de6/struct_f_unix_crash_context.html#a96584a25700593436c7153ae9cec1b1f", null ],
+    [ "Context", "d9/de6/struct_f_unix_crash_context.html#afbec9763ddd7cb57162277ee7e2caa17", null ],
+    [ "ErrorFrame", "d9/de6/struct_f_unix_crash_context.html#a407692614457f0d44ca7ea2bbaef083c", null ],
+    [ "FirstCrashHandlerFrame", "d9/de6/struct_f_unix_crash_context.html#ac028e04d21a39702872e581c6de547da", null ],
+    [ "Info", "d9/de6/struct_f_unix_crash_context.html#ac3385fe443262cd4d5bc3ac2f2f5ab68", null ],
+    [ "MinidumpCallstackInfo", "d9/de6/struct_f_unix_crash_context.html#a87040655ea928c26c6089131052079d7", null ],
+    [ "Signal", "d9/de6/struct_f_unix_crash_context.html#adc6bbc269d68fd41df46c59c52010447", null ],
+    [ "SignalDescription", "d9/de6/struct_f_unix_crash_context.html#a25583665eb85267b3f5a1f9271c98ded", null ]
+];

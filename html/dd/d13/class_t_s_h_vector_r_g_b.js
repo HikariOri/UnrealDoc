@@ -1,0 +1,27 @@
+var class_t_s_h_vector_r_g_b =
+[
+    [ "TSHVectorRGB", "dd/d13/class_t_s_h_vector_r_g_b.html#a8fed7d8b8f72bcbc85a1f890fe5f296a", null ],
+    [ "TSHVectorRGB", "dd/d13/class_t_s_h_vector_r_g_b.html#ac87335f9dd49c1f0b2a9c52c7a2dc954", null ],
+    [ "AddAmbient", "dd/d13/class_t_s_h_vector_r_g_b.html#a6af44ac20f1faf4f8844b9de5e5af3a4", null ],
+    [ "AddIncomingRadiance", "dd/d13/class_t_s_h_vector_r_g_b.html#a1684b16866bfb7ef7bc16b0027d7edcc", null ],
+    [ "ApplyWindowing", "dd/d13/class_t_s_h_vector_r_g_b.html#ad330ebc62d1a3fd84b073233a32ac40f", null ],
+    [ "AreFloatsValid", "dd/d13/class_t_s_h_vector_r_g_b.html#ad4db7fc95be00ba9c2217e4da1326e9a", null ],
+    [ "CalcIntegral", "dd/d13/class_t_s_h_vector_r_g_b.html#a1016e6800d125ac5c948b41cdc719359", null ],
+    [ "Desaturate", "dd/d13/class_t_s_h_vector_r_g_b.html#a0d4a4475d7d4d0bbbae4ae29082e526c", null ],
+    [ "GetLuminance", "dd/d13/class_t_s_h_vector_r_g_b.html#a1a84a1c682762fddb0d6a82e1191a5bc", null ],
+    [ "operator*=", "dd/d13/class_t_s_h_vector_r_g_b.html#aa6665c98a25e12ec51b3e36cfcd6e66b", null ],
+    [ "operator+=", "dd/d13/class_t_s_h_vector_r_g_b.html#a78a7ac4f0ae7f068eb2ce287958c625e", null ],
+    [ "operator-=", "dd/d13/class_t_s_h_vector_r_g_b.html#adf606351f5afceb859eb4684604b046b", null ],
+    [ "Dot", "dd/d13/class_t_s_h_vector_r_g_b.html#afcfe3269178a6c947b59a69e8242a7f2", null ],
+    [ "operator*", "dd/d13/class_t_s_h_vector_r_g_b.html#acf45022f73aa0e5b9ca3f83bf883ab25", null ],
+    [ "operator*", "dd/d13/class_t_s_h_vector_r_g_b.html#a2ac10b160cabacc1021d56f0cf2823f6", null ],
+    [ "operator*", "dd/d13/class_t_s_h_vector_r_g_b.html#a60aa7e8de21854adf5054cf5ea88d55f", null ],
+    [ "operator*", "dd/d13/class_t_s_h_vector_r_g_b.html#abdf777498b2d61f4fb64812249cb4742", null ],
+    [ "operator+", "dd/d13/class_t_s_h_vector_r_g_b.html#a7f91458fb9816af81cd4e43256a96ca3", null ],
+    [ "operator-", "dd/d13/class_t_s_h_vector_r_g_b.html#aee28efd62e611f21b7b7ee158c0c5853", null ],
+    [ "operator/", "dd/d13/class_t_s_h_vector_r_g_b.html#a92ead4a19856cef0d5b780958d3ab745", null ],
+    [ "operator<<", "dd/d13/class_t_s_h_vector_r_g_b.html#af6e8076c3c426ae0765e2e4877fa3d45", null ],
+    [ "B", "dd/d13/class_t_s_h_vector_r_g_b.html#ac8cb980bbc22fead858d0d12e4343306", null ],
+    [ "G", "dd/d13/class_t_s_h_vector_r_g_b.html#a6ee61a5e9a64aa20534c959c89e71560", null ],
+    [ "R", "dd/d13/class_t_s_h_vector_r_g_b.html#a963fa7c17cfaa1700653fc860253fd99", null ]
+];

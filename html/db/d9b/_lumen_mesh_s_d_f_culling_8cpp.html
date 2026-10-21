@@ -1,0 +1,1095 @@
+<!-- HTML header for doxygen 1.15.0-->
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh">
+<head>
+  <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=11" />
+  <meta name="generator" content="Doxygen 1.15.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>UE 5.8.4: Engine/Source/Runtime/Renderer/Private/Lumen/LumenMeshSDFCulling.cpp 文件参考</title>
+  <link rel="icon" href="../../EdIconDefault.bmp" type="image/x-icon" />
+  <link href="../../tabs.css" rel="stylesheet" type="text/css" />
+  <script type="text/javascript" src="../../jquery.js"></script>
+  <script type="text/javascript" src="../../dynsections.js"></script>
+  <link href="../../navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../navtreedata.js"></script>
+<script type="text/javascript" src="../../navtree.js"></script>
+<script type="text/javascript" src="../../cookie.js"></script>
+  <link href="../../search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../search/searchdata.js"></script>
+<script type="text/javascript" src="../../search/search.js"></script>
+  <script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  extensions: ["tex2jax.js"],
+  jax: ["input/TeX","output/HTML-CSS"],
+});
+</script>
+<script type="text/javascript" async="async" src="https://cdn.jsdelivr.net/npm/mathjax@2/MathJax.js"></script>
+  <link href="../../doxygen.css" rel="stylesheet" type="text/css" />
+  <link href="../../doxygen-awesome.css" rel="stylesheet" type="text/css"/>
+<link href="../../doxygen-awesome-sidebar-only.css" rel="stylesheet" type="text/css"/>
+<link href="../../doxygen-awesome-sidebar-only-darkmode-toggle.css" rel="stylesheet" type="text/css"/>
+  <!-- ... other metadata & script includes ... -->
+  <script type="text/javascript" src="../../doxygen-awesome-darkmode-toggle.js"></script>
+  <script type="text/javascript">
+    DoxygenAwesomeDarkModeToggle.title = "Zwischen hellem/dunklem Modus wechseln"
+    DoxygenAwesomeDarkModeToggle.lightModeIcon = '🌞'
+    // icon from https://fonts.google.com/icons
+    DoxygenAwesomeDarkModeToggle.darkModeIcon = `<svg xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 24 24" height="24px" viewBox="0 0 24 24" width="24px" fill="#009793"><g><rect fill="none" height="24" width="24"/></g><g><g><path d="M8.1,14.15C9.77,14.63,11,16.17,11,18c0,0.68-0.19,1.31-0.48,1.87c0.48,0.09,0.97,0.14,1.48,0.14 c1.48,0,2.9-0.41,4.13-1.15c-2.62-0.92-5.23-2.82-6.8-5.86C7.74,9.94,7.78,7.09,8.29,4.9c-2.57,1.33-4.3,4.01-4.3,7.1c0,0,0,0,0,0 c0.01,0,0.01,0,0.02,0C5.66,12,7.18,12.83,8.1,14.15z" opacity=".3"/><path d="M19.78,17.51c-2.47,0-6.57-1.33-8.68-5.43C8.77,7.57,10.6,3.6,11.63,2.01C6.27,2.2,1.98,6.59,1.98,12 c0,0.14,0.02,0.28,0.02,0.42C2.61,12.16,3.28,12,3.98,12c0,0,0,0,0,0c0-3.09,1.73-5.77,4.3-7.1C7.78,7.09,7.74,9.94,9.32,13 c1.57,3.04,4.18,4.95,6.8,5.86c-1.23,0.74-2.65,1.15-4.13,1.15c-0.5,0-1-0.05-1.48-0.14c-0.37,0.7-0.94,1.27-1.64,1.64 c0.98,0.32,2.03,0.5,3.11,0.5c3.5,0,6.58-1.8,8.37-4.52C20.18,17.5,19.98,17.51,19.78,17.51z"/><path d="M7,16l-0.18,0C6.4,14.84,5.3,14,4,14c-1.66,0-3,1.34-3,3s1.34,3,3,3c0.62,0,2.49,0,3,0c1.1,0,2-0.9,2-2 C9,16.9,8.1,16,7,16z"/></g></g></svg>`
+    DoxygenAwesomeDarkModeToggle.init()
+  </script>
+  <script type="text/javascript" src="../../doxygen-awesome-fragment-copy-button.js"></script>
+  <script type="text/javascript">
+    DoxygenAwesomeFragmentCopyButton.title = "In die Zwischenablage kopieren"
+    // DoxygenAwesomeFragmentCopyButton.copyIcon = `<svg ...>`
+    // DoxygenAwesomeFragmentCopyButton.successIcon = `<svg ...>`
+    DoxygenAwesomeFragmentCopyButton.init()
+  </script>
+  <script type="text/javascript" src="../../doxygen-awesome-paragraph-link.js"></script>
+  <script type="text/javascript">
+    DoxygenAwesomeParagraphLink.title = "Abschnitt verknüpfen"
+    DoxygenAwesomeParagraphLink.icon = "¶"
+    DoxygenAwesomeParagraphLink.init()
+  </script>
+  <script type="text/javascript" src="../../doxygen-awesome-interactive-toc.js"></script>
+  <script type="text/javascript">
+    DoxygenAwesomeInteractiveToc.topOffset = 45
+    DoxygenAwesomeInteractiveToc.hideMobileMenu = false
+    DoxygenAwesomeInteractiveToc.init()
+  </script>
+</head>
+<body>
+    <div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+      <div id="titlearea">
+        <table cellspacing="0" cellpadding="0">
+          <tbody>
+            <tr id="projectrow">
+              <td id="projectlogo"><img alt="Logo" src="../../EdIconDefault.bmp"  /></td>
+              <td id="projectalign">
+                <div id="projectname">UE 5.8.4
+                </div>
+                <div id="projectbrief">Unreal Engine</div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <!-- end header part -->
+<!-- 制作者 Doxygen 1.15.0 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "../../search/",'.html');
+</script>
+<script type="text/javascript">
+$(function() { codefold.init(); });
+</script>
+<script type="text/javascript" src="../../menudata.js"></script>
+<script type="text/javascript" src="../../menu.js"></script>
+<script type="text/javascript">
+$(function() {
+  initMenu('../../',true,false,'search.php','搜索',true);
+  $(function() { init_search(); });
+});
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(function(){initNavTree('db/d9b/_lumen_mesh_s_d_f_culling_8cpp.html','../../',''); });
+</script>
+<div id="container">
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">载入中...</div>
+<div class="SRStatus" id="Searching">搜索中...</div>
+<div class="SRStatus" id="NoMatches">未找到</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">LumenMeshSDFCulling.cpp 文件参考</div></div>
+</div><!--header-->
+<div class="contents">
+<div class="textblock"><code>#include &quot;<a class="el" href="../../d0/da7/_light_rendering_8h_source.html">LightRendering.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d5/dbc/_scene_private_8h_source.html">ScenePrivate.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d5/d3b/_scene_utils_8h_source.html">SceneUtils.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../df/db5/_pipeline_state_cache_8h_source.html">PipelineStateCache.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../de/d64/_shader_parameter_struct_8h_source.html">ShaderParameterStruct.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d2/d93/_pixel_shader_utils_8h_source.html">PixelShaderUtils.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../da/dd9/_distance_field_lighting_shared_8h_source.html">DistanceFieldLightingShared.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d1/dff/_lumen_mesh_cards_8h_source.html">LumenMeshCards.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../da/d07/_lumen_tracing_utils_8h_source.html">LumenTracingUtils.h</a>&quot;</code><br />
+</div><div class="textblock"><div class="dynheader">
+LumenMeshSDFCulling.cpp 的引用(Include)关系图:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d6/dd8/_lumen_mesh_s_d_f_culling_8cpp__incl.svg" width="4190" height="683"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+</div><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-nested-classes" class="groupheader"><a id="nested-classes" name="nested-classes"></a>
+类</h2></td></tr>
+<tr class="memitem:FCullMeshSDFObjectsForViewCS" id="r_FCullMeshSDFObjectsForViewCS"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/d6f/class_f_cull_mesh_s_d_f_objects_for_view_c_s.html">FCullMeshSDFObjectsForViewCS</a></td></tr>
+<tr class="memitem:FCombineObjectIndexBuffersCS" id="r_FCombineObjectIndexBuffersCS"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d3e/class_f_combine_object_index_buffers_c_s.html">FCombineObjectIndexBuffersCS</a></td></tr>
+<tr class="memitem:FMeshSDFObjectCullVS" id="r_FMeshSDFObjectCullVS"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/df3/class_f_mesh_s_d_f_object_cull_v_s.html">FMeshSDFObjectCullVS</a></td></tr>
+<tr class="memitem:FMeshSDFObjectCullPS" id="r_FMeshSDFObjectCullPS"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/d3b/class_f_mesh_s_d_f_object_cull_p_s.html">FMeshSDFObjectCullPS</a></td></tr>
+<tr class="memitem:FCompactCulledObjectsCS" id="r_FCompactCulledObjectsCS"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d8/d20/class_f_compact_culled_objects_c_s.html">FCompactCulledObjectsCS</a></td></tr>
+<tr class="memitem:FComputeCulledObjectsStartOffsetCS" id="r_FComputeCulledObjectsStartOffsetCS"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/dd0/class_f_compute_culled_objects_start_offset_c_s.html">FComputeCulledObjectsStartOffsetCS</a></td></tr>
+<tr class="memitem:FObjectCullingContext" id="r_FObjectCullingContext"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/d49/class_f_object_culling_context.html">FObjectCullingContext</a></td></tr>
+<tr class="memitem:FCullHeightfieldObjectsForViewCS" id="r_FCullHeightfieldObjectsForViewCS"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/d05/class_f_cull_heightfield_objects_for_view_c_s.html">FCullHeightfieldObjectsForViewCS</a></td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-func-members" class="groupheader"><a id="func-members" name="func-members"></a>
+函数</h2></td></tr>
+<tr class="memitem:a141d4ffe0349c96ab72d6c00a6e6b626" id="r_a141d4ffe0349c96ab72d6c00a6e6b626"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d2/d79/class_f_auto_console_variable_ref.html">FAutoConsoleVariableRef</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a141d4ffe0349c96ab72d6c00a6e6b626">CVarMeshSDFAverageCulledCount</a> (<a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;r.Lumen.DiffuseIndirect.MeshSDF.AverageCulledCount&quot;), <a class="el" href="#a9005e06c1f14315099122e7982962273">GMeshSDFAverageCulledCount</a>, <a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;&quot;), <a class="el" href="../../d4/dd9/_i_console_manager_8h.html#a7f594f23c2b2c5687f1a502ebb3ba105a5fb4e7a0526f4a0c350d71e18956527c">ECVF_Scalability</a>|<a class="el" href="../../d4/dd9/_i_console_manager_8h.html#a7f594f23c2b2c5687f1a502ebb3ba105a774ea60f41417af093a7ca56c4204a70">ECVF_RenderThreadSafe</a>)</td></tr>
+<tr class="memitem:ad0cb4fcc971b53465bd61331437683eb" id="r_ad0cb4fcc971b53465bd61331437683eb"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d2/d79/class_f_auto_console_variable_ref.html">FAutoConsoleVariableRef</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad0cb4fcc971b53465bd61331437683eb">CVarMeshSDFRadiusThreshold</a> (<a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;r.Lumen.DiffuseIndirect.MeshSDF.RadiusThreshold&quot;), <a class="el" href="#ab5af8d3de35ae54025fac343a3d6c4a7">GMeshSDFRadiusThreshold</a>, <a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;&quot;), <a class="el" href="../../d4/dd9/_i_console_manager_8h.html#a7f594f23c2b2c5687f1a502ebb3ba105a5fb4e7a0526f4a0c350d71e18956527c">ECVF_Scalability</a>|<a class="el" href="../../d4/dd9/_i_console_manager_8h.html#a7f594f23c2b2c5687f1a502ebb3ba105a774ea60f41417af093a7ca56c4204a70">ECVF_RenderThreadSafe</a>)</td></tr>
+<tr class="memitem:a458423b6bbd9a38bdff287cc5252edd4" id="r_a458423b6bbd9a38bdff287cc5252edd4"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d2/d79/class_f_auto_console_variable_ref.html">FAutoConsoleVariableRef</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a458423b6bbd9a38bdff287cc5252edd4">CVarMeshSDFNotCoveredExpandSurfaceScale</a> (<a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;r.Lumen.DiffuseIndirect.MeshSDF.NotCoveredExpandSurfaceScale&quot;), <a class="el" href="#a1f618b896197992a326b793c58fcdb10">GMeshSDFNotCoveredExpandSurfaceScale</a>, <a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;Scales the <a class="el" href="../../d8/d06/_android_open_g_l_functions_8h.html#a0720952aa1caded45b5bcdce589663a9">surface</a> expand used <a class="el" href="../../d3/db8/binka__ue__decode__test_8cpp.html#ac1ee511585a5c7a2d58c146185895b72">for</a> Mesh SDFs that contain mostly two sided materials (foliage)&quot;), ECVF_Scalability|<a class="el" href="../../d4/dd9/_i_console_manager_8h.html#a7f594f23c2b2c5687f1a502ebb3ba105a774ea60f41417af093a7ca56c4204a70">ECVF_RenderThreadSafe</a>)</td></tr>
+<tr class="memitem:a368806e52efcacb74eb74bf3baa6765a" id="r_a368806e52efcacb74eb74bf3baa6765a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d2/d79/class_f_auto_console_variable_ref.html">FAutoConsoleVariableRef</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a368806e52efcacb74eb74bf3baa6765a">CVarMeshSDFNotCoveredMinStepScale</a> (<a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;r.Lumen.DiffuseIndirect.MeshSDF.NotCoveredMinStepScale&quot;), <a class="el" href="#a18e9f7036419cefe425f0682258ff36c">GMeshSDFNotCoveredMinStepScale</a>, <a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;Scales the min step size to improve performance, <a class="el" href="../../d3/db8/binka__ue__decode__test_8cpp.html#ac1ee511585a5c7a2d58c146185895b72">for</a> Mesh SDFs that contain mostly two sided materials (foliage)&quot;), ECVF_Scalability|<a class="el" href="../../d4/dd9/_i_console_manager_8h.html#a7f594f23c2b2c5687f1a502ebb3ba105a774ea60f41417af093a7ca56c4204a70">ECVF_RenderThreadSafe</a>)</td></tr>
+<tr class="memitem:a23dc53673bdcee642d9b60e1c1a70e2a" id="r_a23dc53673bdcee642d9b60e1c1a70e2a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d2/d79/class_f_auto_console_variable_ref.html">FAutoConsoleVariableRef</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a23dc53673bdcee642d9b60e1c1a70e2a">CVarMeshSDFDitheredTransparencyStepThreshold</a> (<a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;r.Lumen.DiffuseIndirect.MeshSDF.DitheredTransparencyStepThreshold&quot;), <a class="el" href="#a5f4453081df6171d5dc855f9aea99f4c">GMeshSDFDitheredTransparencyStepThreshold</a>, <a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;Per-step stochastic semi-transparency threshold, <a class="el" href="../../d3/db8/binka__ue__decode__test_8cpp.html#ac1ee511585a5c7a2d58c146185895b72">for</a> tracing users that have dithered transparency enabled, <a class="el" href="../../d3/db8/binka__ue__decode__test_8cpp.html#ac1ee511585a5c7a2d58c146185895b72">for</a> Mesh SDFs that contain mostly two sided materials (foliage)&quot;), ECVF_Scalability|<a class="el" href="../../d4/dd9/_i_console_manager_8h.html#a7f594f23c2b2c5687f1a502ebb3ba105a774ea60f41417af093a7ca56c4204a70">ECVF_RenderThreadSafe</a>)</td></tr>
+<tr class="memitem:abbff41327eb3ba75d793d91f545b0ab8" id="r_abbff41327eb3ba75d793d91f545b0ab8"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../df/d63/_typed_element_query_capabilities_8inl.html#a72343342ce64c0755563ee6c5e27868d">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#abbff41327eb3ba75d793d91f545b0ab8">SetupLumenMeshSDFTracingParameters</a> (<a class="el" href="../../d3/d85/class_f_r_d_g_builder.html">FRDGBuilder</a> &amp;GraphBuilder, const <a class="el" href="../../d4/dfa/class_f_scene.html">FScene</a> *Scene, const <a class="el" href="../../dd/d2b/class_f_view_info.html">FViewInfo</a> &amp;View, FLumenMeshSDFTracingParameters &amp;OutParameters)</td></tr>
+<tr class="memitem:a89f428c40bac361a9d961b0759232f4b" id="r_a89f428c40bac361a9d961b0759232f4b"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a89f428c40bac361a9d961b0759232f4b">IMPLEMENT_GLOBAL_SHADER</a> (<a class="el" href="../../dc/d6f/class_f_cull_mesh_s_d_f_objects_for_view_c_s.html">FCullMeshSDFObjectsForViewCS</a>, &quot;/Engine/<a class="el" href="../../d9/db1/namespace_private.html">Private</a>/<a class="el" href="../../de/de9/namespace_lumen.html">Lumen</a>/LumenMeshSDFCulling.usf&quot;, &quot;CullMeshSDFObjectsForViewCS&quot;, <a class="el" href="../../da/dca/_r_h_i_definitions_8h.html#a0a3cc83cb6ebc79b66b43fae3ffee64ea2a84a18d7ac3d1fac11e3153f0abf73b">SF_Compute</a>)</td></tr>
+<tr class="memitem:a4153914ddf7ff19b92aa553beadaf24b" id="r_a4153914ddf7ff19b92aa553beadaf24b"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4153914ddf7ff19b92aa553beadaf24b">IMPLEMENT_GLOBAL_SHADER</a> (<a class="el" href="../../d4/d3e/class_f_combine_object_index_buffers_c_s.html">FCombineObjectIndexBuffersCS</a>, &quot;/Engine/<a class="el" href="../../d9/db1/namespace_private.html">Private</a>/<a class="el" href="../../de/de9/namespace_lumen.html">Lumen</a>/LumenMeshSDFCulling.usf&quot;, &quot;CombineObjectIndexBuffersCS&quot;, <a class="el" href="../../da/dca/_r_h_i_definitions_8h.html#a0a3cc83cb6ebc79b66b43fae3ffee64ea2a84a18d7ac3d1fac11e3153f0abf73b">SF_Compute</a>)</td></tr>
+<tr class="memitem:a851d481d1191fbd3b228a32572ee679f" id="r_a851d481d1191fbd3b228a32572ee679f"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a851d481d1191fbd3b228a32572ee679f">IMPLEMENT_GLOBAL_SHADER</a> (<a class="el" href="../../df/df3/class_f_mesh_s_d_f_object_cull_v_s.html">FMeshSDFObjectCullVS</a>, &quot;/Engine/<a class="el" href="../../d9/db1/namespace_private.html">Private</a>/<a class="el" href="../../de/de9/namespace_lumen.html">Lumen</a>/LumenMeshSDFCulling.usf&quot;, &quot;MeshSDFObjectCullVS&quot;, <a class="el" href="../../da/dca/_r_h_i_definitions_8h.html#a0a3cc83cb6ebc79b66b43fae3ffee64ea57b843d1079d918ef496ded337a171d2">SF_Vertex</a>)</td></tr>
+<tr class="memitem:a201a6c8b25b93edcf911b134a8db3706" id="r_a201a6c8b25b93edcf911b134a8db3706"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a201a6c8b25b93edcf911b134a8db3706">IMPLEMENT_GLOBAL_SHADER</a> (<a class="el" href="../../d7/d3b/class_f_mesh_s_d_f_object_cull_p_s.html">FMeshSDFObjectCullPS</a>, &quot;/Engine/<a class="el" href="../../d9/db1/namespace_private.html">Private</a>/<a class="el" href="../../de/de9/namespace_lumen.html">Lumen</a>/LumenMeshSDFCulling.usf&quot;, &quot;MeshSDFObjectCullPS&quot;, <a class="el" href="../../da/dca/_r_h_i_definitions_8h.html#a0a3cc83cb6ebc79b66b43fae3ffee64eaf50bfe1c5c23e92a75ba64d89bcd3bfa">SF_Pixel</a>)</td></tr>
+<tr class="memitem:a250f0345b796c1c54e15fb92828a6232" id="r_a250f0345b796c1c54e15fb92828a6232"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a250f0345b796c1c54e15fb92828a6232">IMPLEMENT_GLOBAL_SHADER</a> (<a class="el" href="../../d8/d20/class_f_compact_culled_objects_c_s.html">FCompactCulledObjectsCS</a>, &quot;/Engine/<a class="el" href="../../d9/db1/namespace_private.html">Private</a>/<a class="el" href="../../de/de9/namespace_lumen.html">Lumen</a>/LumenMeshSDFCulling.usf&quot;, &quot;CompactCulledObjectsCS&quot;, <a class="el" href="../../da/dca/_r_h_i_definitions_8h.html#a0a3cc83cb6ebc79b66b43fae3ffee64ea2a84a18d7ac3d1fac11e3153f0abf73b">SF_Compute</a>)</td></tr>
+<tr class="memitem:a035ea7a88141aa4403f91a02ba8f3ba2" id="r_a035ea7a88141aa4403f91a02ba8f3ba2"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a035ea7a88141aa4403f91a02ba8f3ba2">IMPLEMENT_GLOBAL_SHADER</a> (<a class="el" href="../../d3/dd0/class_f_compute_culled_objects_start_offset_c_s.html">FComputeCulledObjectsStartOffsetCS</a>, &quot;/Engine/<a class="el" href="../../d9/db1/namespace_private.html">Private</a>/<a class="el" href="../../de/de9/namespace_lumen.html">Lumen</a>/LumenMeshSDFCulling.usf&quot;, &quot;ComputeCulledObjectsStartOffsetCS&quot;, <a class="el" href="../../da/dca/_r_h_i_definitions_8h.html#a0a3cc83cb6ebc79b66b43fae3ffee64ea2a84a18d7ac3d1fac11e3153f0abf73b">SF_Compute</a>)</td></tr>
+<tr class="memitem:aef03ed42723b7189ea7fc814b551b079" id="r_aef03ed42723b7189ea7fc814b551b079"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../df/d63/_typed_element_query_capabilities_8inl.html#a72343342ce64c0755563ee6c5e27868d">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aef03ed42723b7189ea7fc814b551b079">InitObjectCullingContext</a> (<a class="el" href="../../d3/d85/class_f_r_d_g_builder.html">FRDGBuilder</a> &amp;GraphBuilder, <a class="el" href="../../dd/de9/preprocessor_8c.html#a1134b580f8da4de94ca6b1de4d37975e">uint32</a> NumCullGridCells, <a class="el" href="../../d3/d49/class_f_object_culling_context.html">FObjectCullingContext</a> &amp;Context)</td></tr>
+<tr class="memitem:ac98af908d71370b61887b76ba5cd1230" id="r_ac98af908d71370b61887b76ba5cd1230"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../df/d63/_typed_element_query_capabilities_8inl.html#a72343342ce64c0755563ee6c5e27868d">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac98af908d71370b61887b76ba5cd1230">FillGridParameters</a> (<a class="el" href="../../d3/d85/class_f_r_d_g_builder.html">FRDGBuilder</a> &amp;GraphBuilder, const <a class="el" href="../../d4/dfa/class_f_scene.html">FScene</a> *Scene, const <a class="el" href="../../dd/d2b/class_f_view_info.html">FViewInfo</a> &amp;View, const <a class="el" href="../../d3/d49/class_f_object_culling_context.html">FObjectCullingContext</a> *Context, FLumenMeshSDFGridParameters &amp;OutGridParameters)</td></tr>
+<tr class="memitem:a9011846b6c7d6333c97f2ba3a74336bd" id="r_a9011846b6c7d6333c97f2ba3a74336bd"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9011846b6c7d6333c97f2ba3a74336bd">IMPLEMENT_GLOBAL_SHADER</a> (<a class="el" href="../../de/d05/class_f_cull_heightfield_objects_for_view_c_s.html">FCullHeightfieldObjectsForViewCS</a>, &quot;/Engine/<a class="el" href="../../d9/db1/namespace_private.html">Private</a>/<a class="el" href="../../de/de9/namespace_lumen.html">Lumen</a>/LumenMeshSDFCulling.usf&quot;, &quot;CullHeightfieldObjectsForViewCS&quot;, <a class="el" href="../../da/dca/_r_h_i_definitions_8h.html#a0a3cc83cb6ebc79b66b43fae3ffee64ea2a84a18d7ac3d1fac11e3153f0abf73b">SF_Compute</a>)</td></tr>
+<tr class="memitem:afabc13fa5a5f2687f11ba7c67d9ffca9" id="r_afabc13fa5a5f2687f11ba7c67d9ffca9"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../df/d63/_typed_element_query_capabilities_8inl.html#a72343342ce64c0755563ee6c5e27868d">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#afabc13fa5a5f2687f11ba7c67d9ffca9">CombineObjectIndexBuffers</a> (<a class="el" href="../../d3/d85/class_f_r_d_g_builder.html">FRDGBuilder</a> &amp;GraphBuilder, const <a class="el" href="../../d4/dfa/class_f_scene.html">FScene</a> *Scene, const <a class="el" href="../../dd/d2b/class_f_view_info.html">FViewInfo</a> &amp;View, <a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a> bCullMeshSDFObjects, <a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a> bCullHeightfieldObjects, <a class="el" href="../../d3/d49/class_f_object_culling_context.html">FObjectCullingContext</a> &amp;Context, <a class="el" href="../../d9/de1/_n_n_e_runtime_r_d_g_8h.html#a934d7411e595a58728f7ba3bb9aae740">FRDGBufferRef</a> &amp;CombinedObjectIndexBuffer)</td></tr>
+<tr class="memitem:aa11d30f839740018e515d79de1062529" id="r_aa11d30f839740018e515d79de1062529"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../df/d63/_typed_element_query_capabilities_8inl.html#a72343342ce64c0755563ee6c5e27868d">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa11d30f839740018e515d79de1062529">CullHeightfieldObjectsForView</a> (<a class="el" href="../../d3/d85/class_f_r_d_g_builder.html">FRDGBuilder</a> &amp;GraphBuilder, const <a class="el" href="../../d4/dfa/class_f_scene.html">FScene</a> *Scene, const <a class="el" href="../../dd/d2b/class_f_view_info.html">FViewInfo</a> &amp;View, const <a class="el" href="../../dc/da7/struct_f_lumen_scene_frame_temporaries.html">FLumenSceneFrameTemporaries</a> &amp;FrameTemporaries, <a class="el" href="../../df/d2a/_s_anim_notify_shared_8h.html#ac7c94e837fed3f8e4bb3dd94d7bd2ecf">float</a> MaxMeshSDFInfluenceRadius, <a class="el" href="../../df/d2a/_s_anim_notify_shared_8h.html#ac7c94e837fed3f8e4bb3dd94d7bd2ecf">float</a> CardTraceEndDistanceFromCamera, <a class="el" href="../../d9/de1/_n_n_e_runtime_r_d_g_8h.html#a934d7411e595a58728f7ba3bb9aae740">FRDGBufferRef</a> &amp;NumHeightfieldCulledObjects, <a class="el" href="../../d9/de1/_n_n_e_runtime_r_d_g_8h.html#a934d7411e595a58728f7ba3bb9aae740">FRDGBufferRef</a> &amp;HeightfieldObjectIndexBuffer, <a class="el" href="../../d9/de1/_n_n_e_runtime_r_d_g_8h.html#a934d7411e595a58728f7ba3bb9aae740">FRDGBufferRef</a> &amp;HeightfieldObjectIndirectArguments)</td></tr>
+<tr class="memitem:a0766975cdd955b518c483c3e333cf319" id="r_a0766975cdd955b518c483c3e333cf319"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../df/d63/_typed_element_query_capabilities_8inl.html#a72343342ce64c0755563ee6c5e27868d">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a0766975cdd955b518c483c3e333cf319">CullMeshSDFObjectsForView</a> (<a class="el" href="../../d3/d85/class_f_r_d_g_builder.html">FRDGBuilder</a> &amp;GraphBuilder, const <a class="el" href="../../d4/dfa/class_f_scene.html">FScene</a> *Scene, const <a class="el" href="../../dd/d2b/class_f_view_info.html">FViewInfo</a> &amp;View, <a class="el" href="../../df/d2a/_s_anim_notify_shared_8h.html#ac7c94e837fed3f8e4bb3dd94d7bd2ecf">float</a> MaxMeshSDFInfluenceRadius, <a class="el" href="../../df/d2a/_s_anim_notify_shared_8h.html#ac7c94e837fed3f8e4bb3dd94d7bd2ecf">float</a> CardTraceEndDistanceFromCamera, <a class="el" href="../../d3/d49/class_f_object_culling_context.html">FObjectCullingContext</a> &amp;Context)</td></tr>
+<tr class="memitem:afadc44d48edcea2d1e3f6025aa4e4a81" id="r_afadc44d48edcea2d1e3f6025aa4e4a81"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../df/d63/_typed_element_query_capabilities_8inl.html#a72343342ce64c0755563ee6c5e27868d">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#afadc44d48edcea2d1e3f6025aa4e4a81">CompactCulledObjectArray</a> (<a class="el" href="../../d3/d85/class_f_r_d_g_builder.html">FRDGBuilder</a> &amp;GraphBuilder, const <a class="el" href="../../d4/dfa/class_f_scene.html">FScene</a> *Scene, const <a class="el" href="../../dd/d2b/class_f_view_info.html">FViewInfo</a> &amp;View, <a class="el" href="../../d3/d49/class_f_object_culling_context.html">FObjectCullingContext</a> &amp;Context, <a class="el" href="../../d6/de8/_render_graph_definitions_8h.html#a3b73b7355dd6964375c48c23d5fb76da">ERDGPassFlags</a> ComputePassFlags)</td></tr>
+<tr class="memitem:aaf203ec5e0176b5c412a81311264c098" id="r_aaf203ec5e0176b5c412a81311264c098"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../df/d63/_typed_element_query_capabilities_8inl.html#a72343342ce64c0755563ee6c5e27868d">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aaf203ec5e0176b5c412a81311264c098">CullObjectsToGrid</a> (const <a class="el" href="../../dd/d2b/class_f_view_info.html">FViewInfo</a> &amp;View, const <a class="el" href="../../d4/dfa/class_f_scene.html">FScene</a> *Scene, const <a class="el" href="../../dc/da7/struct_f_lumen_scene_frame_temporaries.html">FLumenSceneFrameTemporaries</a> &amp;FrameTemporaries, <a class="el" href="../../df/d2a/_s_anim_notify_shared_8h.html#ac7c94e837fed3f8e4bb3dd94d7bd2ecf">float</a> MaxMeshSDFInfluenceRadius, <a class="el" href="../../df/d2a/_s_anim_notify_shared_8h.html#ac7c94e837fed3f8e4bb3dd94d7bd2ecf">float</a> CardTraceEndDistanceFromCamera, <a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a8dbb3cd84ca9fd010dadfc3815eefa5d">int32</a> GridPixelsPerCellXY, <a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a8dbb3cd84ca9fd010dadfc3815eefa5d">int32</a> GridSizeZ, <a class="el" href="../../d0/df6/_math_fwd_8h.html#adda141358ecae99df7ba663b9e637078">FVector</a> ZParams, <a class="el" href="../../d0/df6/_math_fwd_8h.html#ac900284388a4a5ca150dbd45a0347fe6">FIntVector</a> CullGridSize, <a class="el" href="../../d3/d85/class_f_r_d_g_builder.html">FRDGBuilder</a> &amp;GraphBuilder, <a class="el" href="../../d9/de1/_n_n_e_runtime_r_d_g_8h.html#a934d7411e595a58728f7ba3bb9aae740">FRDGBufferRef</a> ObjectIndexBuffer, <a class="el" href="../../d3/d49/class_f_object_culling_context.html">FObjectCullingContext</a> &amp;Context)</td></tr>
+<tr class="memitem:a41f2938fc53ae6fc484e15c76127dc20" id="r_a41f2938fc53ae6fc484e15c76127dc20"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../df/d63/_typed_element_query_capabilities_8inl.html#a72343342ce64c0755563ee6c5e27868d">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a41f2938fc53ae6fc484e15c76127dc20">CullMeshObjectsToViewGrid</a> (const <a class="el" href="../../dd/d2b/class_f_view_info.html">FViewInfo</a> &amp;View, const <a class="el" href="../../d4/dfa/class_f_scene.html">FScene</a> *Scene, const <a class="el" href="../../dc/da7/struct_f_lumen_scene_frame_temporaries.html">FLumenSceneFrameTemporaries</a> &amp;FrameTemporaries, <a class="el" href="../../df/d2a/_s_anim_notify_shared_8h.html#ac7c94e837fed3f8e4bb3dd94d7bd2ecf">float</a> MaxMeshSDFInfluenceRadius, <a class="el" href="../../df/d2a/_s_anim_notify_shared_8h.html#ac7c94e837fed3f8e4bb3dd94d7bd2ecf">float</a> CardTraceEndDistanceFromCamera, <a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a8dbb3cd84ca9fd010dadfc3815eefa5d">int32</a> GridPixelsPerCellXY, <a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a8dbb3cd84ca9fd010dadfc3815eefa5d">int32</a> GridSizeZ, <a class="el" href="../../d0/df6/_math_fwd_8h.html#adda141358ecae99df7ba663b9e637078">FVector</a> ZParams, <a class="el" href="../../d3/d85/class_f_r_d_g_builder.html">FRDGBuilder</a> &amp;GraphBuilder, FLumenMeshSDFGridParameters &amp;OutGridParameters, <a class="el" href="../../d6/de8/_render_graph_definitions_8h.html#a3b73b7355dd6964375c48c23d5fb76da">ERDGPassFlags</a> ComputePassFlags)</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-var-members" class="groupheader"><a id="var-members" name="var-members"></a>
+变量</h2></td></tr>
+<tr class="memitem:a9005e06c1f14315099122e7982962273" id="r_a9005e06c1f14315099122e7982962273"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a8dbb3cd84ca9fd010dadfc3815eefa5d">int32</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9005e06c1f14315099122e7982962273">GMeshSDFAverageCulledCount</a> = 512</td></tr>
+<tr class="memitem:ab5af8d3de35ae54025fac343a3d6c4a7" id="r_ab5af8d3de35ae54025fac343a3d6c4a7"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../df/d2a/_s_anim_notify_shared_8h.html#ac7c94e837fed3f8e4bb3dd94d7bd2ecf">float</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab5af8d3de35ae54025fac343a3d6c4a7">GMeshSDFRadiusThreshold</a> = 30</td></tr>
+<tr class="memitem:a1f618b896197992a326b793c58fcdb10" id="r_a1f618b896197992a326b793c58fcdb10"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../df/d2a/_s_anim_notify_shared_8h.html#ac7c94e837fed3f8e4bb3dd94d7bd2ecf">float</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a1f618b896197992a326b793c58fcdb10">GMeshSDFNotCoveredExpandSurfaceScale</a> = .6f</td></tr>
+<tr class="memitem:a18e9f7036419cefe425f0682258ff36c" id="r_a18e9f7036419cefe425f0682258ff36c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../df/d2a/_s_anim_notify_shared_8h.html#ac7c94e837fed3f8e4bb3dd94d7bd2ecf">float</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a18e9f7036419cefe425f0682258ff36c">GMeshSDFNotCoveredMinStepScale</a> = 32</td></tr>
+<tr class="memitem:a5f4453081df6171d5dc855f9aea99f4c" id="r_a5f4453081df6171d5dc855f9aea99f4c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../df/d2a/_s_anim_notify_shared_8h.html#ac7c94e837fed3f8e4bb3dd94d7bd2ecf">float</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5f4453081df6171d5dc855f9aea99f4c">GMeshSDFDitheredTransparencyStepThreshold</a> = .1f</td></tr>
+<tr class="memitem:a1c449441acabc599350977e2f0b99134" id="r_a1c449441acabc599350977e2f0b99134"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../dd/de9/preprocessor_8c.html#a1134b580f8da4de94ca6b1de4d37975e">uint32</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a1c449441acabc599350977e2f0b99134">CullMeshSDFObjectsForViewGroupSize</a> = 64</td></tr>
+<tr class="memitem:ac45fd9a8e63398b669c37653b7c88a77" id="r_ac45fd9a8e63398b669c37653b7c88a77"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../dd/de9/preprocessor_8c.html#a1134b580f8da4de94ca6b1de4d37975e">uint32</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac45fd9a8e63398b669c37653b7c88a77">ComputeCulledMeshSDFObjectsStartOffsetGroupSize</a> = 64</td></tr>
+</table>
+<a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">函数说明</h2>
+<a id="afabc13fa5a5f2687f11ba7c67d9ffca9" name="afabc13fa5a5f2687f11ba7c67d9ffca9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afabc13fa5a5f2687f11ba7c67d9ffca9">&#9670;&#160;</a></span>CombineObjectIndexBuffers()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../df/d63/_typed_element_query_capabilities_8inl.html#a72343342ce64c0755563ee6c5e27868d">void</a> CombineObjectIndexBuffers </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d3/d85/class_f_r_d_g_builder.html">FRDGBuilder</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>GraphBuilder</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="../../d4/dfa/class_f_scene.html">FScene</a> *</td>          <td class="paramname"><span class="paramname"><em>Scene</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="../../dd/d2b/class_f_view_info.html">FViewInfo</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>View</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a></td>          <td class="paramname"><span class="paramname"><em>bCullMeshSDFObjects</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a></td>          <td class="paramname"><span class="paramname"><em>bCullHeightfieldObjects</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d3/d49/class_f_object_culling_context.html">FObjectCullingContext</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>Context</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d9/de1/_n_n_e_runtime_r_d_g_8h.html#a934d7411e595a58728f7ba3bb9aae740">FRDGBufferRef</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>CombinedObjectIndexBuffer</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="afadc44d48edcea2d1e3f6025aa4e4a81" name="afadc44d48edcea2d1e3f6025aa4e4a81"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afadc44d48edcea2d1e3f6025aa4e4a81">&#9670;&#160;</a></span>CompactCulledObjectArray()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../df/d63/_typed_element_query_capabilities_8inl.html#a72343342ce64c0755563ee6c5e27868d">void</a> CompactCulledObjectArray </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d3/d85/class_f_r_d_g_builder.html">FRDGBuilder</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>GraphBuilder</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="../../d4/dfa/class_f_scene.html">FScene</a> *</td>          <td class="paramname"><span class="paramname"><em>Scene</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="../../dd/d2b/class_f_view_info.html">FViewInfo</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>View</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d3/d49/class_f_object_culling_context.html">FObjectCullingContext</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>Context</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d6/de8/_render_graph_definitions_8h.html#a3b73b7355dd6964375c48c23d5fb76da">ERDGPassFlags</a></td>          <td class="paramname"><span class="paramname"><em>ComputePassFlags</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aa11d30f839740018e515d79de1062529" name="aa11d30f839740018e515d79de1062529"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa11d30f839740018e515d79de1062529">&#9670;&#160;</a></span>CullHeightfieldObjectsForView()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../df/d63/_typed_element_query_capabilities_8inl.html#a72343342ce64c0755563ee6c5e27868d">void</a> CullHeightfieldObjectsForView </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d3/d85/class_f_r_d_g_builder.html">FRDGBuilder</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>GraphBuilder</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="../../d4/dfa/class_f_scene.html">FScene</a> *</td>          <td class="paramname"><span class="paramname"><em>Scene</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="../../dd/d2b/class_f_view_info.html">FViewInfo</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>View</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="../../dc/da7/struct_f_lumen_scene_frame_temporaries.html">FLumenSceneFrameTemporaries</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>FrameTemporaries</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../df/d2a/_s_anim_notify_shared_8h.html#ac7c94e837fed3f8e4bb3dd94d7bd2ecf">float</a></td>          <td class="paramname"><span class="paramname"><em>MaxMeshSDFInfluenceRadius</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../df/d2a/_s_anim_notify_shared_8h.html#ac7c94e837fed3f8e4bb3dd94d7bd2ecf">float</a></td>          <td class="paramname"><span class="paramname"><em>CardTraceEndDistanceFromCamera</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d9/de1/_n_n_e_runtime_r_d_g_8h.html#a934d7411e595a58728f7ba3bb9aae740">FRDGBufferRef</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>NumHeightfieldCulledObjects</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d9/de1/_n_n_e_runtime_r_d_g_8h.html#a934d7411e595a58728f7ba3bb9aae740">FRDGBufferRef</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>HeightfieldObjectIndexBuffer</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d9/de1/_n_n_e_runtime_r_d_g_8h.html#a934d7411e595a58728f7ba3bb9aae740">FRDGBufferRef</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>HeightfieldObjectIndirectArguments</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a41f2938fc53ae6fc484e15c76127dc20" name="a41f2938fc53ae6fc484e15c76127dc20"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a41f2938fc53ae6fc484e15c76127dc20">&#9670;&#160;</a></span>CullMeshObjectsToViewGrid()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../df/d63/_typed_element_query_capabilities_8inl.html#a72343342ce64c0755563ee6c5e27868d">void</a> CullMeshObjectsToViewGrid </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="../../dd/d2b/class_f_view_info.html">FViewInfo</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>View</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="../../d4/dfa/class_f_scene.html">FScene</a> *</td>          <td class="paramname"><span class="paramname"><em>Scene</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="../../dc/da7/struct_f_lumen_scene_frame_temporaries.html">FLumenSceneFrameTemporaries</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>FrameTemporaries</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../df/d2a/_s_anim_notify_shared_8h.html#ac7c94e837fed3f8e4bb3dd94d7bd2ecf">float</a></td>          <td class="paramname"><span class="paramname"><em>MaxMeshSDFInfluenceRadius</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../df/d2a/_s_anim_notify_shared_8h.html#ac7c94e837fed3f8e4bb3dd94d7bd2ecf">float</a></td>          <td class="paramname"><span class="paramname"><em>CardTraceEndDistanceFromCamera</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a8dbb3cd84ca9fd010dadfc3815eefa5d">int32</a></td>          <td class="paramname"><span class="paramname"><em>GridPixelsPerCellXY</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a8dbb3cd84ca9fd010dadfc3815eefa5d">int32</a></td>          <td class="paramname"><span class="paramname"><em>GridSizeZ</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d0/df6/_math_fwd_8h.html#adda141358ecae99df7ba663b9e637078">FVector</a></td>          <td class="paramname"><span class="paramname"><em>ZParams</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d3/d85/class_f_r_d_g_builder.html">FRDGBuilder</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>GraphBuilder</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">FLumenMeshSDFGridParameters &amp;</td>          <td class="paramname"><span class="paramname"><em>OutGridParameters</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d6/de8/_render_graph_definitions_8h.html#a3b73b7355dd6964375c48c23d5fb76da">ERDGPassFlags</a></td>          <td class="paramname"><span class="paramname"><em>ComputePassFlags</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a0766975cdd955b518c483c3e333cf319" name="a0766975cdd955b518c483c3e333cf319"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0766975cdd955b518c483c3e333cf319">&#9670;&#160;</a></span>CullMeshSDFObjectsForView()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../df/d63/_typed_element_query_capabilities_8inl.html#a72343342ce64c0755563ee6c5e27868d">void</a> CullMeshSDFObjectsForView </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d3/d85/class_f_r_d_g_builder.html">FRDGBuilder</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>GraphBuilder</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="../../d4/dfa/class_f_scene.html">FScene</a> *</td>          <td class="paramname"><span class="paramname"><em>Scene</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="../../dd/d2b/class_f_view_info.html">FViewInfo</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>View</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../df/d2a/_s_anim_notify_shared_8h.html#ac7c94e837fed3f8e4bb3dd94d7bd2ecf">float</a></td>          <td class="paramname"><span class="paramname"><em>MaxMeshSDFInfluenceRadius</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../df/d2a/_s_anim_notify_shared_8h.html#ac7c94e837fed3f8e4bb3dd94d7bd2ecf">float</a></td>          <td class="paramname"><span class="paramname"><em>CardTraceEndDistanceFromCamera</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d3/d49/class_f_object_culling_context.html">FObjectCullingContext</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>Context</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aaf203ec5e0176b5c412a81311264c098" name="aaf203ec5e0176b5c412a81311264c098"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aaf203ec5e0176b5c412a81311264c098">&#9670;&#160;</a></span>CullObjectsToGrid()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../df/d63/_typed_element_query_capabilities_8inl.html#a72343342ce64c0755563ee6c5e27868d">void</a> CullObjectsToGrid </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="../../dd/d2b/class_f_view_info.html">FViewInfo</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>View</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="../../d4/dfa/class_f_scene.html">FScene</a> *</td>          <td class="paramname"><span class="paramname"><em>Scene</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="../../dc/da7/struct_f_lumen_scene_frame_temporaries.html">FLumenSceneFrameTemporaries</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>FrameTemporaries</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../df/d2a/_s_anim_notify_shared_8h.html#ac7c94e837fed3f8e4bb3dd94d7bd2ecf">float</a></td>          <td class="paramname"><span class="paramname"><em>MaxMeshSDFInfluenceRadius</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../df/d2a/_s_anim_notify_shared_8h.html#ac7c94e837fed3f8e4bb3dd94d7bd2ecf">float</a></td>          <td class="paramname"><span class="paramname"><em>CardTraceEndDistanceFromCamera</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a8dbb3cd84ca9fd010dadfc3815eefa5d">int32</a></td>          <td class="paramname"><span class="paramname"><em>GridPixelsPerCellXY</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a8dbb3cd84ca9fd010dadfc3815eefa5d">int32</a></td>          <td class="paramname"><span class="paramname"><em>GridSizeZ</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d0/df6/_math_fwd_8h.html#adda141358ecae99df7ba663b9e637078">FVector</a></td>          <td class="paramname"><span class="paramname"><em>ZParams</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d0/df6/_math_fwd_8h.html#ac900284388a4a5ca150dbd45a0347fe6">FIntVector</a></td>          <td class="paramname"><span class="paramname"><em>CullGridSize</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d3/d85/class_f_r_d_g_builder.html">FRDGBuilder</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>GraphBuilder</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d9/de1/_n_n_e_runtime_r_d_g_8h.html#a934d7411e595a58728f7ba3bb9aae740">FRDGBufferRef</a></td>          <td class="paramname"><span class="paramname"><em>ObjectIndexBuffer</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d3/d49/class_f_object_culling_context.html">FObjectCullingContext</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>Context</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a141d4ffe0349c96ab72d6c00a6e6b626" name="a141d4ffe0349c96ab72d6c00a6e6b626"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a141d4ffe0349c96ab72d6c00a6e6b626">&#9670;&#160;</a></span>CVarMeshSDFAverageCulledCount()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d2/d79/class_f_auto_console_variable_ref.html">FAutoConsoleVariableRef</a> CVarMeshSDFAverageCulledCount </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;r.Lumen.DiffuseIndirect.MeshSDF.AverageCulledCount&quot;)</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="#a9005e06c1f14315099122e7982962273">GMeshSDFAverageCulledCount</a></td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;&quot;)</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d4/dd9/_i_console_manager_8h.html#a7f594f23c2b2c5687f1a502ebb3ba105a5fb4e7a0526f4a0c350d71e18956527c">ECVF_Scalability</a>|</td>          <td class="paramname"><span class="paramname"><em>ECVF_RenderThreadSafe</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a23dc53673bdcee642d9b60e1c1a70e2a" name="a23dc53673bdcee642d9b60e1c1a70e2a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a23dc53673bdcee642d9b60e1c1a70e2a">&#9670;&#160;</a></span>CVarMeshSDFDitheredTransparencyStepThreshold()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d2/d79/class_f_auto_console_variable_ref.html">FAutoConsoleVariableRef</a> CVarMeshSDFDitheredTransparencyStepThreshold </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;r.Lumen.DiffuseIndirect.MeshSDF.DitheredTransparencyStepThreshold&quot;)</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="#a5f4453081df6171d5dc855f9aea99f4c">GMeshSDFDitheredTransparencyStepThreshold</a></td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;Per-step stochastic semi-transparency threshold, <a class="el" href="../../d3/db8/binka__ue__decode__test_8cpp.html#ac1ee511585a5c7a2d58c146185895b72">for</a> tracing users that have dithered transparency enabled, <a class="el" href="../../d3/db8/binka__ue__decode__test_8cpp.html#ac1ee511585a5c7a2d58c146185895b72">for</a> Mesh SDFs that contain mostly two sided materials (foliage)&quot;)</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d4/dd9/_i_console_manager_8h.html#a7f594f23c2b2c5687f1a502ebb3ba105a5fb4e7a0526f4a0c350d71e18956527c">ECVF_Scalability</a>|</td>          <td class="paramname"><span class="paramname"><em>ECVF_RenderThreadSafe</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a458423b6bbd9a38bdff287cc5252edd4" name="a458423b6bbd9a38bdff287cc5252edd4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a458423b6bbd9a38bdff287cc5252edd4">&#9670;&#160;</a></span>CVarMeshSDFNotCoveredExpandSurfaceScale()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d2/d79/class_f_auto_console_variable_ref.html">FAutoConsoleVariableRef</a> CVarMeshSDFNotCoveredExpandSurfaceScale </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;r.Lumen.DiffuseIndirect.MeshSDF.NotCoveredExpandSurfaceScale&quot;)</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="#a1f618b896197992a326b793c58fcdb10">GMeshSDFNotCoveredExpandSurfaceScale</a></td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;Scales the <a class="el" href="../../d8/d06/_android_open_g_l_functions_8h.html#a0720952aa1caded45b5bcdce589663a9">surface</a> expand used <a class="el" href="../../d3/db8/binka__ue__decode__test_8cpp.html#ac1ee511585a5c7a2d58c146185895b72">for</a> Mesh SDFs that contain mostly two sided materials (foliage)&quot;)</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d4/dd9/_i_console_manager_8h.html#a7f594f23c2b2c5687f1a502ebb3ba105a5fb4e7a0526f4a0c350d71e18956527c">ECVF_Scalability</a>|</td>          <td class="paramname"><span class="paramname"><em>ECVF_RenderThreadSafe</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a368806e52efcacb74eb74bf3baa6765a" name="a368806e52efcacb74eb74bf3baa6765a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a368806e52efcacb74eb74bf3baa6765a">&#9670;&#160;</a></span>CVarMeshSDFNotCoveredMinStepScale()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d2/d79/class_f_auto_console_variable_ref.html">FAutoConsoleVariableRef</a> CVarMeshSDFNotCoveredMinStepScale </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;r.Lumen.DiffuseIndirect.MeshSDF.NotCoveredMinStepScale&quot;)</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="#a18e9f7036419cefe425f0682258ff36c">GMeshSDFNotCoveredMinStepScale</a></td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;Scales the min step size to improve performance, <a class="el" href="../../d3/db8/binka__ue__decode__test_8cpp.html#ac1ee511585a5c7a2d58c146185895b72">for</a> Mesh SDFs that contain mostly two sided materials (foliage)&quot;)</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d4/dd9/_i_console_manager_8h.html#a7f594f23c2b2c5687f1a502ebb3ba105a5fb4e7a0526f4a0c350d71e18956527c">ECVF_Scalability</a>|</td>          <td class="paramname"><span class="paramname"><em>ECVF_RenderThreadSafe</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ad0cb4fcc971b53465bd61331437683eb" name="ad0cb4fcc971b53465bd61331437683eb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad0cb4fcc971b53465bd61331437683eb">&#9670;&#160;</a></span>CVarMeshSDFRadiusThreshold()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d2/d79/class_f_auto_console_variable_ref.html">FAutoConsoleVariableRef</a> CVarMeshSDFRadiusThreshold </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;r.Lumen.DiffuseIndirect.MeshSDF.RadiusThreshold&quot;)</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="#ab5af8d3de35ae54025fac343a3d6c4a7">GMeshSDFRadiusThreshold</a></td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;&quot;)</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d4/dd9/_i_console_manager_8h.html#a7f594f23c2b2c5687f1a502ebb3ba105a5fb4e7a0526f4a0c350d71e18956527c">ECVF_Scalability</a>|</td>          <td class="paramname"><span class="paramname"><em>ECVF_RenderThreadSafe</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ac98af908d71370b61887b76ba5cd1230" name="ac98af908d71370b61887b76ba5cd1230"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac98af908d71370b61887b76ba5cd1230">&#9670;&#160;</a></span>FillGridParameters()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../df/d63/_typed_element_query_capabilities_8inl.html#a72343342ce64c0755563ee6c5e27868d">void</a> FillGridParameters </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d3/d85/class_f_r_d_g_builder.html">FRDGBuilder</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>GraphBuilder</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="../../d4/dfa/class_f_scene.html">FScene</a> *</td>          <td class="paramname"><span class="paramname"><em>Scene</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="../../dd/d2b/class_f_view_info.html">FViewInfo</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>View</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="../../d3/d49/class_f_object_culling_context.html">FObjectCullingContext</a> *</td>          <td class="paramname"><span class="paramname"><em>Context</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">FLumenMeshSDFGridParameters &amp;</td>          <td class="paramname"><span class="paramname"><em>OutGridParameters</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a4153914ddf7ff19b92aa553beadaf24b" name="a4153914ddf7ff19b92aa553beadaf24b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4153914ddf7ff19b92aa553beadaf24b">&#9670;&#160;</a></span>IMPLEMENT_GLOBAL_SHADER() <span class="overload">[1/7]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">IMPLEMENT_GLOBAL_SHADER </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d4/d3e/class_f_combine_object_index_buffers_c_s.html">FCombineObjectIndexBuffersCS</a></td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&quot;/Engine/<a class="el" href="../../d9/db1/namespace_private.html">Private</a>/<a class="el" href="../../de/de9/namespace_lumen.html">Lumen</a>/LumenMeshSDFCulling.usf&quot;</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&quot;CombineObjectIndexBuffersCS&quot;</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../da/dca/_r_h_i_definitions_8h.html#a0a3cc83cb6ebc79b66b43fae3ffee64ea2a84a18d7ac3d1fac11e3153f0abf73b">SF_Compute</a></td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a250f0345b796c1c54e15fb92828a6232" name="a250f0345b796c1c54e15fb92828a6232"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a250f0345b796c1c54e15fb92828a6232">&#9670;&#160;</a></span>IMPLEMENT_GLOBAL_SHADER() <span class="overload">[2/7]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">IMPLEMENT_GLOBAL_SHADER </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d8/d20/class_f_compact_culled_objects_c_s.html">FCompactCulledObjectsCS</a></td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&quot;/Engine/<a class="el" href="../../d9/db1/namespace_private.html">Private</a>/<a class="el" href="../../de/de9/namespace_lumen.html">Lumen</a>/LumenMeshSDFCulling.usf&quot;</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&quot;CompactCulledObjectsCS&quot;</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../da/dca/_r_h_i_definitions_8h.html#a0a3cc83cb6ebc79b66b43fae3ffee64ea2a84a18d7ac3d1fac11e3153f0abf73b">SF_Compute</a></td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a035ea7a88141aa4403f91a02ba8f3ba2" name="a035ea7a88141aa4403f91a02ba8f3ba2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a035ea7a88141aa4403f91a02ba8f3ba2">&#9670;&#160;</a></span>IMPLEMENT_GLOBAL_SHADER() <span class="overload">[3/7]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">IMPLEMENT_GLOBAL_SHADER </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d3/dd0/class_f_compute_culled_objects_start_offset_c_s.html">FComputeCulledObjectsStartOffsetCS</a></td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&quot;/Engine/<a class="el" href="../../d9/db1/namespace_private.html">Private</a>/<a class="el" href="../../de/de9/namespace_lumen.html">Lumen</a>/LumenMeshSDFCulling.usf&quot;</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&quot;ComputeCulledObjectsStartOffsetCS&quot;</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../da/dca/_r_h_i_definitions_8h.html#a0a3cc83cb6ebc79b66b43fae3ffee64ea2a84a18d7ac3d1fac11e3153f0abf73b">SF_Compute</a></td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a9011846b6c7d6333c97f2ba3a74336bd" name="a9011846b6c7d6333c97f2ba3a74336bd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9011846b6c7d6333c97f2ba3a74336bd">&#9670;&#160;</a></span>IMPLEMENT_GLOBAL_SHADER() <span class="overload">[4/7]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">IMPLEMENT_GLOBAL_SHADER </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../de/d05/class_f_cull_heightfield_objects_for_view_c_s.html">FCullHeightfieldObjectsForViewCS</a></td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&quot;/Engine/<a class="el" href="../../d9/db1/namespace_private.html">Private</a>/<a class="el" href="../../de/de9/namespace_lumen.html">Lumen</a>/LumenMeshSDFCulling.usf&quot;</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&quot;CullHeightfieldObjectsForViewCS&quot;</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../da/dca/_r_h_i_definitions_8h.html#a0a3cc83cb6ebc79b66b43fae3ffee64ea2a84a18d7ac3d1fac11e3153f0abf73b">SF_Compute</a></td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a89f428c40bac361a9d961b0759232f4b" name="a89f428c40bac361a9d961b0759232f4b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a89f428c40bac361a9d961b0759232f4b">&#9670;&#160;</a></span>IMPLEMENT_GLOBAL_SHADER() <span class="overload">[5/7]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">IMPLEMENT_GLOBAL_SHADER </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../dc/d6f/class_f_cull_mesh_s_d_f_objects_for_view_c_s.html">FCullMeshSDFObjectsForViewCS</a></td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&quot;/Engine/<a class="el" href="../../d9/db1/namespace_private.html">Private</a>/<a class="el" href="../../de/de9/namespace_lumen.html">Lumen</a>/LumenMeshSDFCulling.usf&quot;</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&quot;CullMeshSDFObjectsForViewCS&quot;</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../da/dca/_r_h_i_definitions_8h.html#a0a3cc83cb6ebc79b66b43fae3ffee64ea2a84a18d7ac3d1fac11e3153f0abf73b">SF_Compute</a></td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a201a6c8b25b93edcf911b134a8db3706" name="a201a6c8b25b93edcf911b134a8db3706"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a201a6c8b25b93edcf911b134a8db3706">&#9670;&#160;</a></span>IMPLEMENT_GLOBAL_SHADER() <span class="overload">[6/7]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">IMPLEMENT_GLOBAL_SHADER </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d7/d3b/class_f_mesh_s_d_f_object_cull_p_s.html">FMeshSDFObjectCullPS</a></td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&quot;/Engine/<a class="el" href="../../d9/db1/namespace_private.html">Private</a>/<a class="el" href="../../de/de9/namespace_lumen.html">Lumen</a>/LumenMeshSDFCulling.usf&quot;</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&quot;MeshSDFObjectCullPS&quot;</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../da/dca/_r_h_i_definitions_8h.html#a0a3cc83cb6ebc79b66b43fae3ffee64eaf50bfe1c5c23e92a75ba64d89bcd3bfa">SF_Pixel</a></td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a851d481d1191fbd3b228a32572ee679f" name="a851d481d1191fbd3b228a32572ee679f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a851d481d1191fbd3b228a32572ee679f">&#9670;&#160;</a></span>IMPLEMENT_GLOBAL_SHADER() <span class="overload">[7/7]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">IMPLEMENT_GLOBAL_SHADER </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../df/df3/class_f_mesh_s_d_f_object_cull_v_s.html">FMeshSDFObjectCullVS</a></td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&quot;/Engine/<a class="el" href="../../d9/db1/namespace_private.html">Private</a>/<a class="el" href="../../de/de9/namespace_lumen.html">Lumen</a>/LumenMeshSDFCulling.usf&quot;</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&quot;MeshSDFObjectCullVS&quot;</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../da/dca/_r_h_i_definitions_8h.html#a0a3cc83cb6ebc79b66b43fae3ffee64ea57b843d1079d918ef496ded337a171d2">SF_Vertex</a></td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aef03ed42723b7189ea7fc814b551b079" name="aef03ed42723b7189ea7fc814b551b079"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aef03ed42723b7189ea7fc814b551b079">&#9670;&#160;</a></span>InitObjectCullingContext()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../df/d63/_typed_element_query_capabilities_8inl.html#a72343342ce64c0755563ee6c5e27868d">void</a> InitObjectCullingContext </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d3/d85/class_f_r_d_g_builder.html">FRDGBuilder</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>GraphBuilder</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../dd/de9/preprocessor_8c.html#a1134b580f8da4de94ca6b1de4d37975e">uint32</a></td>          <td class="paramname"><span class="paramname"><em>NumCullGridCells</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d3/d49/class_f_object_culling_context.html">FObjectCullingContext</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>Context</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="abbff41327eb3ba75d793d91f545b0ab8" name="abbff41327eb3ba75d793d91f545b0ab8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abbff41327eb3ba75d793d91f545b0ab8">&#9670;&#160;</a></span>SetupLumenMeshSDFTracingParameters()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../df/d63/_typed_element_query_capabilities_8inl.html#a72343342ce64c0755563ee6c5e27868d">void</a> SetupLumenMeshSDFTracingParameters </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d3/d85/class_f_r_d_g_builder.html">FRDGBuilder</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>GraphBuilder</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="../../d4/dfa/class_f_scene.html">FScene</a> *</td>          <td class="paramname"><span class="paramname"><em>Scene</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="../../dd/d2b/class_f_view_info.html">FViewInfo</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>View</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">FLumenMeshSDFTracingParameters &amp;</td>          <td class="paramname"><span class="paramname"><em>OutParameters</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a name="doc-var-members" id="doc-var-members"></a><h2 id="header-doc-var-members" class="groupheader">变量说明</h2>
+<a id="ac45fd9a8e63398b669c37653b7c88a77" name="ac45fd9a8e63398b669c37653b7c88a77"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac45fd9a8e63398b669c37653b7c88a77">&#9670;&#160;</a></span>ComputeCulledMeshSDFObjectsStartOffsetGroupSize</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../dd/de9/preprocessor_8c.html#a1134b580f8da4de94ca6b1de4d37975e">uint32</a> ComputeCulledMeshSDFObjectsStartOffsetGroupSize = 64</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a1c449441acabc599350977e2f0b99134" name="a1c449441acabc599350977e2f0b99134"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1c449441acabc599350977e2f0b99134">&#9670;&#160;</a></span>CullMeshSDFObjectsForViewGroupSize</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../dd/de9/preprocessor_8c.html#a1134b580f8da4de94ca6b1de4d37975e">uint32</a> CullMeshSDFObjectsForViewGroupSize = 64</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a9005e06c1f14315099122e7982962273" name="a9005e06c1f14315099122e7982962273"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9005e06c1f14315099122e7982962273">&#9670;&#160;</a></span>GMeshSDFAverageCulledCount</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a8dbb3cd84ca9fd010dadfc3815eefa5d">int32</a> GMeshSDFAverageCulledCount = 512</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a5f4453081df6171d5dc855f9aea99f4c" name="a5f4453081df6171d5dc855f9aea99f4c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5f4453081df6171d5dc855f9aea99f4c">&#9670;&#160;</a></span>GMeshSDFDitheredTransparencyStepThreshold</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../df/d2a/_s_anim_notify_shared_8h.html#ac7c94e837fed3f8e4bb3dd94d7bd2ecf">float</a> GMeshSDFDitheredTransparencyStepThreshold = .1f</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a1f618b896197992a326b793c58fcdb10" name="a1f618b896197992a326b793c58fcdb10"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1f618b896197992a326b793c58fcdb10">&#9670;&#160;</a></span>GMeshSDFNotCoveredExpandSurfaceScale</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../df/d2a/_s_anim_notify_shared_8h.html#ac7c94e837fed3f8e4bb3dd94d7bd2ecf">float</a> GMeshSDFNotCoveredExpandSurfaceScale = .6f</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a18e9f7036419cefe425f0682258ff36c" name="a18e9f7036419cefe425f0682258ff36c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a18e9f7036419cefe425f0682258ff36c">&#9670;&#160;</a></span>GMeshSDFNotCoveredMinStepScale</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../df/d2a/_s_anim_notify_shared_8h.html#ac7c94e837fed3f8e4bb3dd94d7bd2ecf">float</a> GMeshSDFNotCoveredMinStepScale = 32</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ab5af8d3de35ae54025fac343a3d6c4a7" name="ab5af8d3de35ae54025fac343a3d6c4a7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab5af8d3de35ae54025fac343a3d6c4a7">&#9670;&#160;</a></span>GMeshSDFRadiusThreshold</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../df/d2a/_s_anim_notify_shared_8h.html#ac7c94e837fed3f8e4bb3dd94d7bd2ecf">float</a> GMeshSDFRadiusThreshold = 30</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<div id="page-nav" class="page-nav-panel">
+<div id="page-nav-resize-handle"></div>
+<div id="page-nav-tree">
+<div id="page-nav-contents">
+</div><!-- page-nav-contents -->
+</div><!-- page-nav-tree -->
+</div><!-- page-nav -->
+</div><!-- container -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a href="../../dir_0b6ee6e7e9547e675db4add2e5de97da.html">Engine</a></li><li class="navelem"><a href="../../dir_9579d1ecb2c7bf48cbe1049c41745cb4.html">Source</a></li><li class="navelem"><a href="../../dir_9f04efef762572853abdf73f62bebfcc.html">Runtime</a></li><li class="navelem"><a href="../../dir_5ed6327f04b0f38d3f6fe5caa38b0445.html">Renderer</a></li><li class="navelem"><a href="../../dir_e317dc6f09036e33460f39c550131623.html">Private</a></li><li class="navelem"><a href="../../dir_161a7642c6d0198965c23f504e27c348.html">Lumen</a></li><li class="navelem"><a href="../../db/d9b/_lumen_mesh_s_d_f_culling_8cpp.html">LumenMeshSDFCulling.cpp</a></li>
+    <li class="footer">制作者 <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.15.0 </li>
+  </ul>
+</div>
+</body>
+</html>

@@ -1,0 +1,1555 @@
+<!-- HTML header for doxygen 1.15.0-->
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh">
+<head>
+  <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=11" />
+  <meta name="generator" content="Doxygen 1.15.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>UE 5.8.4: Engine/Source/Runtime/Renderer/Private/Lumen/LumenRadianceCache.cpp 文件参考</title>
+  <link rel="icon" href="../../EdIconDefault.bmp" type="image/x-icon" />
+  <link href="../../tabs.css" rel="stylesheet" type="text/css" />
+  <script type="text/javascript" src="../../jquery.js"></script>
+  <script type="text/javascript" src="../../dynsections.js"></script>
+  <link href="../../navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../navtreedata.js"></script>
+<script type="text/javascript" src="../../navtree.js"></script>
+<script type="text/javascript" src="../../cookie.js"></script>
+  <link href="../../search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../search/searchdata.js"></script>
+<script type="text/javascript" src="../../search/search.js"></script>
+  <script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  extensions: ["tex2jax.js"],
+  jax: ["input/TeX","output/HTML-CSS"],
+});
+</script>
+<script type="text/javascript" async="async" src="https://cdn.jsdelivr.net/npm/mathjax@2/MathJax.js"></script>
+  <link href="../../doxygen.css" rel="stylesheet" type="text/css" />
+  <link href="../../doxygen-awesome.css" rel="stylesheet" type="text/css"/>
+<link href="../../doxygen-awesome-sidebar-only.css" rel="stylesheet" type="text/css"/>
+<link href="../../doxygen-awesome-sidebar-only-darkmode-toggle.css" rel="stylesheet" type="text/css"/>
+  <!-- ... other metadata & script includes ... -->
+  <script type="text/javascript" src="../../doxygen-awesome-darkmode-toggle.js"></script>
+  <script type="text/javascript">
+    DoxygenAwesomeDarkModeToggle.title = "Zwischen hellem/dunklem Modus wechseln"
+    DoxygenAwesomeDarkModeToggle.lightModeIcon = '🌞'
+    // icon from https://fonts.google.com/icons
+    DoxygenAwesomeDarkModeToggle.darkModeIcon = `<svg xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 24 24" height="24px" viewBox="0 0 24 24" width="24px" fill="#009793"><g><rect fill="none" height="24" width="24"/></g><g><g><path d="M8.1,14.15C9.77,14.63,11,16.17,11,18c0,0.68-0.19,1.31-0.48,1.87c0.48,0.09,0.97,0.14,1.48,0.14 c1.48,0,2.9-0.41,4.13-1.15c-2.62-0.92-5.23-2.82-6.8-5.86C7.74,9.94,7.78,7.09,8.29,4.9c-2.57,1.33-4.3,4.01-4.3,7.1c0,0,0,0,0,0 c0.01,0,0.01,0,0.02,0C5.66,12,7.18,12.83,8.1,14.15z" opacity=".3"/><path d="M19.78,17.51c-2.47,0-6.57-1.33-8.68-5.43C8.77,7.57,10.6,3.6,11.63,2.01C6.27,2.2,1.98,6.59,1.98,12 c0,0.14,0.02,0.28,0.02,0.42C2.61,12.16,3.28,12,3.98,12c0,0,0,0,0,0c0-3.09,1.73-5.77,4.3-7.1C7.78,7.09,7.74,9.94,9.32,13 c1.57,3.04,4.18,4.95,6.8,5.86c-1.23,0.74-2.65,1.15-4.13,1.15c-0.5,0-1-0.05-1.48-0.14c-0.37,0.7-0.94,1.27-1.64,1.64 c0.98,0.32,2.03,0.5,3.11,0.5c3.5,0,6.58-1.8,8.37-4.52C20.18,17.5,19.98,17.51,19.78,17.51z"/><path d="M7,16l-0.18,0C6.4,14.84,5.3,14,4,14c-1.66,0-3,1.34-3,3s1.34,3,3,3c0.62,0,2.49,0,3,0c1.1,0,2-0.9,2-2 C9,16.9,8.1,16,7,16z"/></g></g></svg>`
+    DoxygenAwesomeDarkModeToggle.init()
+  </script>
+  <script type="text/javascript" src="../../doxygen-awesome-fragment-copy-button.js"></script>
+  <script type="text/javascript">
+    DoxygenAwesomeFragmentCopyButton.title = "In die Zwischenablage kopieren"
+    // DoxygenAwesomeFragmentCopyButton.copyIcon = `<svg ...>`
+    // DoxygenAwesomeFragmentCopyButton.successIcon = `<svg ...>`
+    DoxygenAwesomeFragmentCopyButton.init()
+  </script>
+  <script type="text/javascript" src="../../doxygen-awesome-paragraph-link.js"></script>
+  <script type="text/javascript">
+    DoxygenAwesomeParagraphLink.title = "Abschnitt verknüpfen"
+    DoxygenAwesomeParagraphLink.icon = "¶"
+    DoxygenAwesomeParagraphLink.init()
+  </script>
+  <script type="text/javascript" src="../../doxygen-awesome-interactive-toc.js"></script>
+  <script type="text/javascript">
+    DoxygenAwesomeInteractiveToc.topOffset = 45
+    DoxygenAwesomeInteractiveToc.hideMobileMenu = false
+    DoxygenAwesomeInteractiveToc.init()
+  </script>
+</head>
+<body>
+    <div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+      <div id="titlearea">
+        <table cellspacing="0" cellpadding="0">
+          <tbody>
+            <tr id="projectrow">
+              <td id="projectlogo"><img alt="Logo" src="../../EdIconDefault.bmp"  /></td>
+              <td id="projectalign">
+                <div id="projectname">UE 5.8.4
+                </div>
+                <div id="projectbrief">Unreal Engine</div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <!-- end header part -->
+<!-- 制作者 Doxygen 1.15.0 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "../../search/",'.html');
+</script>
+<script type="text/javascript">
+$(function() { codefold.init(); });
+</script>
+<script type="text/javascript" src="../../menudata.js"></script>
+<script type="text/javascript" src="../../menu.js"></script>
+<script type="text/javascript">
+$(function() {
+  initMenu('../../',true,false,'search.php','搜索',true);
+  $(function() { init_search(); });
+});
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(function(){initNavTree('da/d9d/_lumen_radiance_cache_8cpp.html','../../',''); });
+</script>
+<div id="container">
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">载入中...</div>
+<div class="SRStatus" id="Searching">搜索中...</div>
+<div class="SRStatus" id="NoMatches">未找到</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">LumenRadianceCache.cpp 文件参考</div></div>
+</div><!--header-->
+<div class="contents">
+<div class="textblock"><code>#include &quot;<a class="el" href="../../d9/d3e/_lumen_radiance_cache_8h_source.html">LumenRadianceCache.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../de/d74/_lumen_radiance_cache_internal_8h_source.html">LumenRadianceCacheInternal.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d5/dbc/_scene_private_8h_source.html">ScenePrivate.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d5/d3b/_scene_utils_8h_source.html">SceneUtils.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../df/db5/_pipeline_state_cache_8h_source.html">PipelineStateCache.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../de/d64/_shader_parameter_struct_8h_source.html">ShaderParameterStruct.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../da/d72/_distance_field_ambient_occlusion_8h_source.html">DistanceFieldAmbientOcclusion.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../dd/da8/_lumen_screen_probe_gather_8h_source.html">LumenScreenProbeGather.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d1/d3e/_lumen_scene_lighting_8h_source.html">LumenSceneLighting.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d8/dc2/_shader_print_parameters_8h_source.html">ShaderPrintParameters.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../dc/dc6/_scene_view_state_8h_source.html">SceneViewState.h</a>&quot;</code><br />
+</div><div class="textblock"><div class="dynheader">
+LumenRadianceCache.cpp 的引用(Include)关系图:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d6/d56/_lumen_radiance_cache_8cpp__incl.svg" width="4787" height="608"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+</div><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-nested-classes" class="groupheader"><a id="nested-classes" name="nested-classes"></a>
+类</h2></td></tr>
+<tr class="memitem:FMarkRadianceProbesUsedByVisualizeCS" id="r_FMarkRadianceProbesUsedByVisualizeCS"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/d4a/class_f_mark_radiance_probes_used_by_visualize_c_s.html">FMarkRadianceProbesUsedByVisualizeCS</a></td></tr>
+<tr class="memitem:FClearProbeFreeList" id="r_FClearProbeFreeList"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/d70/class_f_clear_probe_free_list.html">FClearProbeFreeList</a></td></tr>
+<tr class="memitem:FClearProbeIndirectionCS" id="r_FClearProbeIndirectionCS"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d32/class_f_clear_probe_indirection_c_s.html">FClearProbeIndirectionCS</a></td></tr>
+<tr class="memitem:FUpdateCacheForUsedProbesCS" id="r_FUpdateCacheForUsedProbesCS"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d8/dd5/class_f_update_cache_for_used_probes_c_s.html">FUpdateCacheForUsedProbesCS</a></td></tr>
+<tr class="memitem:FClearRadianceCacheUpdateResourcesCS" id="r_FClearRadianceCacheUpdateResourcesCS"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/dc9/class_f_clear_radiance_cache_update_resources_c_s.html">FClearRadianceCacheUpdateResourcesCS</a></td></tr>
+<tr class="memitem:FAllocateUsedProbesCS" id="r_FAllocateUsedProbesCS"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/d0c/class_f_allocate_used_probes_c_s.html">FAllocateUsedProbesCS</a></td></tr>
+<tr class="memitem:FAllocateProbeTracesCS" id="r_FAllocateProbeTracesCS"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/ddd/class_f_allocate_probe_traces_c_s.html">FAllocateProbeTracesCS</a></td></tr>
+<tr class="memitem:FSelectMaxPriorityBucketCS" id="r_FSelectMaxPriorityBucketCS"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d07/class_f_select_max_priority_bucket_c_s.html">FSelectMaxPriorityBucketCS</a></td></tr>
+<tr class="memitem:FRadianceCacheUpdateStatsCS" id="r_FRadianceCacheUpdateStatsCS"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/db3/class_f_radiance_cache_update_stats_c_s.html">FRadianceCacheUpdateStatsCS</a></td></tr>
+<tr class="memitem:FSetupProbeIndirectArgsCS" id="r_FSetupProbeIndirectArgsCS"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/d4a/class_f_setup_probe_indirect_args_c_s.html">FSetupProbeIndirectArgsCS</a></td></tr>
+<tr class="memitem:FComputeProbeWorldOffsetsCS" id="r_FComputeProbeWorldOffsetsCS"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/da4/class_f_compute_probe_world_offsets_c_s.html">FComputeProbeWorldOffsetsCS</a></td></tr>
+<tr class="memitem:FClearProbePDFs" id="r_FClearProbePDFs"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d8/daf/class_f_clear_probe_p_d_fs.html">FClearProbePDFs</a></td></tr>
+<tr class="memitem:FScatterScreenProbeBRDFToRadianceProbesCS" id="r_FScatterScreenProbeBRDFToRadianceProbesCS"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/d7c/class_f_scatter_screen_probe_b_r_d_f_to_radiance_probes_c_s.html">FScatterScreenProbeBRDFToRadianceProbesCS</a></td></tr>
+<tr class="memitem:FGenerateUniformProbeTraceTilesCS" id="r_FGenerateUniformProbeTraceTilesCS"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/dfe/class_f_generate_uniform_probe_trace_tiles_c_s.html">FGenerateUniformProbeTraceTilesCS</a></td></tr>
+<tr class="memitem:FGenerateAdaptiveProbeTraceTilesCS" id="r_FGenerateAdaptiveProbeTraceTilesCS"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d2/d30/class_f_generate_adaptive_probe_trace_tiles_c_s.html">FGenerateAdaptiveProbeTraceTilesCS</a></td></tr>
+<tr class="memitem:FSetupTraceFromProbesCS" id="r_FSetupTraceFromProbesCS"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d8/d30/class_f_setup_trace_from_probes_c_s.html">FSetupTraceFromProbesCS</a></td></tr>
+<tr class="memitem:FSortProbeTraceTilesCS" id="r_FSortProbeTraceTilesCS"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/df3/class_f_sort_probe_trace_tiles_c_s.html">FSortProbeTraceTilesCS</a></td></tr>
+<tr class="memitem:FRadianceCacheTraceFromProbesCS" id="r_FRadianceCacheTraceFromProbesCS"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d6d/class_f_radiance_cache_trace_from_probes_c_s.html">FRadianceCacheTraceFromProbesCS</a></td></tr>
+<tr class="memitem:FFilterProbeRadianceWithGatherCS" id="r_FFilterProbeRadianceWithGatherCS"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/d64/class_f_filter_probe_radiance_with_gather_c_s.html">FFilterProbeRadianceWithGatherCS</a></td></tr>
+<tr class="memitem:FCalculateProbeIrradianceCS" id="r_FCalculateProbeIrradianceCS"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/dc9/class_f_calculate_probe_irradiance_c_s.html">FCalculateProbeIrradianceCS</a></td></tr>
+<tr class="memitem:FPrepareProbeOcclusionCS" id="r_FPrepareProbeOcclusionCS"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/def/class_f_prepare_probe_occlusion_c_s.html">FPrepareProbeOcclusionCS</a></td></tr>
+<tr class="memitem:FFixupBordersAndGenerateMipsCS" id="r_FFixupBordersAndGenerateMipsCS"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/dff/class_f_fixup_borders_and_generate_mips_c_s.html">FFixupBordersAndGenerateMipsCS</a></td></tr>
+<tr class="memitem:FClipmapLevelGeometry" id="r_FClipmapLevelGeometry"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/d34/struct_f_clipmap_level_geometry.html">FClipmapLevelGeometry</a></td></tr>
+<tr class="memitem:FClipmapGeometry" id="r_FClipmapGeometry"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/ded/struct_f_clipmap_geometry.html">FClipmapGeometry</a></td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-namespaces" class="groupheader"><a id="namespaces" name="namespaces"></a>
+命名空间</h2></td></tr>
+<tr class="memitem:LumenRadianceCache" id="r_LumenRadianceCache"><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/de1/namespace_lumen_radiance_cache.html">LumenRadianceCache</a></td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-func-members" class="groupheader"><a id="func-members" name="func-members"></a>
+函数</h2></td></tr>
+<tr class="memitem:a5c1de9577b05447896adae42b764121c" id="r_a5c1de9577b05447896adae42b764121c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d2/d79/class_f_auto_console_variable_ref.html">FAutoConsoleVariableRef</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5c1de9577b05447896adae42b764121c">CVarRadianceCacheIrradianceProbeOffsetMode</a> (<a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;r.Lumen.RadianceCache.IrradianceProbeOffsetMode&quot;), <a class="el" href="#a21c075ce6284742c70dcb8abad073abe">GRadianceCacheIrradianceProbeOffsetMode</a>, <a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;0: No offsetting, 1: Offset irradiance probes using <a class="el" href="../../db/da0/_hair_strands_composition_8cpp.html#a821b97273c138d0ab4a82d3b546d0422afb05061537eda8c392bde12eb77f0737">GBuffer</a> (when probes are on screen), 2: Offset using Global SDF (when available)&quot;), ECVF_Scalability|<a class="el" href="../../d4/dd9/_i_console_manager_8h.html#a7f594f23c2b2c5687f1a502ebb3ba105a774ea60f41417af093a7ca56c4204a70">ECVF_RenderThreadSafe</a>)</td></tr>
+<tr class="memitem:a8ff751525b1f8bf3bbf714a68c524bf5" id="r_a8ff751525b1f8bf3bbf714a68c524bf5"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d2/d79/class_f_auto_console_variable_ref.html">FAutoConsoleVariableRef</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8ff751525b1f8bf3bbf714a68c524bf5">GVarLumenRadianceCacheFilterMaxRadianceHitAngle</a> (<a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;r.Lumen.RadianceCache.SpatialFilterMaxRadianceHitAngle&quot;), <a class="el" href="#a09e8084786244bf4e89945a2573dd75f">GLumenRadianceCacheFilterMaxRadianceHitAngle</a>, <a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;In Degrees.  Larger angles allow filtering of nearby features but more leaking.&quot;), <a class="el" href="../../d4/dd9/_i_console_manager_8h.html#a7f594f23c2b2c5687f1a502ebb3ba105a5fb4e7a0526f4a0c350d71e18956527c">ECVF_Scalability</a>|<a class="el" href="../../d4/dd9/_i_console_manager_8h.html#a7f594f23c2b2c5687f1a502ebb3ba105a774ea60f41417af093a7ca56c4204a70">ECVF_RenderThreadSafe</a>)</td></tr>
+<tr class="memitem:a329242db25bed0882ddc5bfec2a85132" id="r_a329242db25bed0882ddc5bfec2a85132"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d2/d79/class_f_auto_console_variable_ref.html">FAutoConsoleVariableRef</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a329242db25bed0882ddc5bfec2a85132">GVarLumenRadianceCacheOcclusionKernelCosineExponent</a> (<a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;r.Lumen.RadianceCache.OcclusionKernelCosineExponent&quot;), <a class="el" href="#a1a86a1630ccd5b0324c4b4b7c55b919d">GLumenRadianceCacheOcclusionKernelCosineExponent</a>, <a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;Exponent on the cosine power-weighted depths that become probe occlusion. Larger <a class="el" href="../../d8/d06/_android_open_g_l_functions_8h.html#a250b37a0411d5375d92808e2840cb0dd">values</a> give more precise probe occlusion, but sharper transitions.&quot;), <a class="el" href="../../d4/dd9/_i_console_manager_8h.html#a7f594f23c2b2c5687f1a502ebb3ba105a5fb4e7a0526f4a0c350d71e18956527c">ECVF_Scalability</a>|<a class="el" href="../../d4/dd9/_i_console_manager_8h.html#a7f594f23c2b2c5687f1a502ebb3ba105a774ea60f41417af093a7ca56c4204a70">ECVF_RenderThreadSafe</a>)</td></tr>
+<tr class="memitem:aa50bd2b9d176daf5472765b3dfd7f6a2" id="r_aa50bd2b9d176daf5472765b3dfd7f6a2"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d2/d79/class_f_auto_console_variable_ref.html">FAutoConsoleVariableRef</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa50bd2b9d176daf5472765b3dfd7f6a2">CVarLumenRadianceCacheForceUniformTraceTileLevel</a> (<a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;r.Lumen.RadianceCache.ForceUniformTraceTileLevel&quot;), <a class="el" href="#aa980cd2f8fdced4e727a138b73691396">GLumenRadianceCacheForceUniformTraceTileLevel</a>, <a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;When set to &gt;= 0, forces a uniform <a class="el" href="../../d7/df8/namespacetrace.html">trace</a> tile <a class="el" href="../../d8/d06/_android_open_g_l_functions_8h.html#abc60a79088789bd61297bf5f9ff500d1">level</a> <a class="el" href="../../d3/db8/binka__ue__decode__test_8cpp.html#ac1ee511585a5c7a2d58c146185895b72">for</a> debugging, and overrides <a class="el" href="../../d7/df8/namespacetrace.html">trace</a> tile BRDF importance sampling.  <a class="el" href="../../d7/d4b/_android_input_interface_8h.html#a6ab52c477d6bebd13efdd10042ddca51ac9ceaeea41ae06d1a39c3322c762ec71">Valid</a> range is [0, 2].  0 = half res, 1 = full res, 2 = supersampled&quot;), <a class="el" href="../../d4/dd9/_i_console_manager_8h.html#a7f594f23c2b2c5687f1a502ebb3ba105a5fb4e7a0526f4a0c350d71e18956527c">ECVF_Scalability</a>|<a class="el" href="../../d4/dd9/_i_console_manager_8h.html#a7f594f23c2b2c5687f1a502ebb3ba105a774ea60f41417af093a7ca56c4204a70">ECVF_RenderThreadSafe</a>)</td></tr>
+<tr class="memitem:a345d43cbd01db0f14755e38d495ef0b0" id="r_a345d43cbd01db0f14755e38d495ef0b0"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d2/d79/class_f_auto_console_variable_ref.html">FAutoConsoleVariableRef</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a345d43cbd01db0f14755e38d495ef0b0">CVarLumenRadianceCacheSupersampleTileBRDFThreshold</a> (<a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;r.Lumen.RadianceCache.SupersampleTileBRDFThreshold&quot;), <a class="el" href="#a80047742a83ab6555b6ea7628eece4f1">GLumenRadianceCacheSupersampleTileBRDFThreshold</a>, <a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;Value of the BRDF [0-1] above which to <a class="el" href="../../d7/df8/namespacetrace.html">trace</a> more rays to supersample the probe radiance.&quot;), <a class="el" href="../../d4/dd9/_i_console_manager_8h.html#a7f594f23c2b2c5687f1a502ebb3ba105a5fb4e7a0526f4a0c350d71e18956527c">ECVF_Scalability</a>|<a class="el" href="../../d4/dd9/_i_console_manager_8h.html#a7f594f23c2b2c5687f1a502ebb3ba105a774ea60f41417af093a7ca56c4204a70">ECVF_RenderThreadSafe</a>)</td></tr>
+<tr class="memitem:a1151ef513f81b8b244cf535080c12ffe" id="r_a1151ef513f81b8b244cf535080c12ffe"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d2/d79/class_f_auto_console_variable_ref.html">FAutoConsoleVariableRef</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a1151ef513f81b8b244cf535080c12ffe">CVarLumenRadianceCacheDownsampleDistanceFromCamera</a> (<a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;r.Lumen.RadianceCache.DownsampleDistanceFromCamera&quot;), <a class="el" href="#a4ab5a744c0eed92fed7e8639945fafd5">GLumenRadianceCacheDownsampleDistanceFromCamera</a>, <a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;Probes further than this distance from the camera are always downsampled.&quot;), <a class="el" href="../../d4/dd9/_i_console_manager_8h.html#a7f594f23c2b2c5687f1a502ebb3ba105a5fb4e7a0526f4a0c350d71e18956527c">ECVF_Scalability</a>|<a class="el" href="../../d4/dd9/_i_console_manager_8h.html#a7f594f23c2b2c5687f1a502ebb3ba105a774ea60f41417af093a7ca56c4204a70">ECVF_RenderThreadSafe</a>)</td></tr>
+<tr class="memitem:a469d7983fdfe3ece70df4b7431a46ad7" id="r_a469d7983fdfe3ece70df4b7431a46ad7"><td class="memItemLeft" align="right" valign="top">FRadianceCacheInputs&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/de1/namespace_lumen_radiance_cache.html#a469d7983fdfe3ece70df4b7431a46ad7">LumenRadianceCache::GetDefaultRadianceCacheInputs</a> ()</td></tr>
+<tr class="memitem:a8e453cc6841830dd37a6f5ebe2c85802" id="r_a8e453cc6841830dd37a6f5ebe2c85802"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../df/d63/_typed_element_query_capabilities_8inl.html#a72343342ce64c0755563ee6c5e27868d">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/de1/namespace_lumen_radiance_cache.html#a8e453cc6841830dd37a6f5ebe2c85802">LumenRadianceCache::GetInterpolationParametersNoResources</a> (<a class="el" href="../../d3/d85/class_f_r_d_g_builder.html">FRDGBuilder</a> &amp;GraphBuilder, const <a class="el" href="../../d6/da4/class_f_radiance_cache_state.html">FRadianceCacheState</a> &amp;RadianceCacheState, const LumenRadianceCache::FRadianceCacheInputs &amp;RadianceCacheInputs, FRadianceCacheInterpolationParameters &amp;OutParameters)</td></tr>
+<tr class="memitem:a189d089be61ffc6ec230425d69e9af71" id="r_a189d089be61ffc6ec230425d69e9af71"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../df/d63/_typed_element_query_capabilities_8inl.html#a72343342ce64c0755563ee6c5e27868d">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/de1/namespace_lumen_radiance_cache.html#a189d089be61ffc6ec230425d69e9af71">LumenRadianceCache::GetInterpolationParameters</a> (const <a class="el" href="../../dd/d2b/class_f_view_info.html">FViewInfo</a> &amp;View, <a class="el" href="../../d3/d85/class_f_r_d_g_builder.html">FRDGBuilder</a> &amp;GraphBuilder, const <a class="el" href="../../d6/da4/class_f_radiance_cache_state.html">FRadianceCacheState</a> &amp;RadianceCacheState, const LumenRadianceCache::FRadianceCacheInputs &amp;RadianceCacheInputs, FRadianceCacheInterpolationParameters &amp;OutParameters)</td></tr>
+<tr class="memitem:a5259339e244a0809df965381070957a0" id="r_a5259339e244a0809df965381070957a0"><td class="memItemLeft" align="right" valign="top">FRadianceCacheMarkParameters&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/de1/namespace_lumen_radiance_cache.html#a5259339e244a0809df965381070957a0">LumenRadianceCache::GetMarkParameters</a> (<a class="el" href="../../d2/d51/_render_graph_fwd_8h.html#aef96dcb6d66f367ddbb6c0183a1d5efd">FRDGTextureUAVRef</a> RadianceProbeIndirectionTextureUAV, const <a class="el" href="../../d6/da4/class_f_radiance_cache_state.html">FRadianceCacheState</a> &amp;RadianceCacheState, const LumenRadianceCache::FRadianceCacheInputs &amp;RadianceCacheInputs)</td></tr>
+<tr class="memitem:a3d517aee4cbff1b91c6e5f0242da3a61" id="r_a3d517aee4cbff1b91c6e5f0242da3a61"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/de1/namespace_lumen_radiance_cache.html#a3d517aee4cbff1b91c6e5f0242da3a61">LumenRadianceCache::ShouldFilterProbes</a> ()</td></tr>
+<tr class="memitem:a679db227c727e34a525f01786ed51182" id="r_a679db227c727e34a525f01786ed51182"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d0/df6/_math_fwd_8h.html#af6853de5e4fcb2bad3bd5fdd2e50bffd">FIntPoint</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/de1/namespace_lumen_radiance_cache.html#a679db227c727e34a525f01786ed51182">LumenRadianceCache::GetProbeAtlasResolutionInProbes</a> (<a class="el" href="../../dd/de9/preprocessor_8c.html#a1134b580f8da4de94ca6b1de4d37975e">uint32</a> RequestedResolution)</td></tr>
+<tr class="memitem:ad004ed84595beedebbe5d44600e9c0d9" id="r_ad004ed84595beedebbe5d44600e9c0d9"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad004ed84595beedebbe5d44600e9c0d9">SupportAdaptiveProbes</a> (<a class="el" href="../../de/d49/_r_h_i_shader_platform_8h.html#a424c00593a28eb7ade584eea91161acd">EShaderPlatform</a> Platform)</td></tr>
+<tr class="memitem:a512810b9f08042221e7d85b4989b0114" id="r_a512810b9f08042221e7d85b4989b0114"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a512810b9f08042221e7d85b4989b0114">IMPLEMENT_GLOBAL_SHADER</a> (<a class="el" href="../../d9/d4a/class_f_mark_radiance_probes_used_by_visualize_c_s.html">FMarkRadianceProbesUsedByVisualizeCS</a>, &quot;/Engine/<a class="el" href="../../d9/db1/namespace_private.html">Private</a>/<a class="el" href="../../de/de9/namespace_lumen.html">Lumen</a>/LumenRadianceCache.usf&quot;, &quot;MarkRadianceProbesUsedByVisualizeCS&quot;, <a class="el" href="../../da/dca/_r_h_i_definitions_8h.html#a0a3cc83cb6ebc79b66b43fae3ffee64ea2a84a18d7ac3d1fac11e3153f0abf73b">SF_Compute</a>)</td></tr>
+<tr class="memitem:aedc179db36fc0640965f3cae8fc7b3de" id="r_aedc179db36fc0640965f3cae8fc7b3de"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../df/d63/_typed_element_query_capabilities_8inl.html#a72343342ce64c0755563ee6c5e27868d">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aedc179db36fc0640965f3cae8fc7b3de">MarkUsedProbesForVisualize</a> (<a class="el" href="../../d3/d85/class_f_r_d_g_builder.html">FRDGBuilder</a> &amp;GraphBuilder, const <a class="el" href="../../dd/d2b/class_f_view_info.html">FViewInfo</a> &amp;View, const LumenRadianceCache::FRadianceCacheMarkParameters &amp;RadianceCacheMarkParameters, <a class="el" href="../../d6/de8/_render_graph_definitions_8h.html#a3b73b7355dd6964375c48c23d5fb76da">ERDGPassFlags</a> ComputePassFlags)</td></tr>
+<tr class="memitem:a7430f4b279674bf155720ba24f3b6915" id="r_a7430f4b279674bf155720ba24f3b6915"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7430f4b279674bf155720ba24f3b6915">IMPLEMENT_GLOBAL_SHADER</a> (<a class="el" href="../../db/d70/class_f_clear_probe_free_list.html">FClearProbeFreeList</a>, &quot;/Engine/<a class="el" href="../../d9/db1/namespace_private.html">Private</a>/<a class="el" href="../../de/de9/namespace_lumen.html">Lumen</a>/LumenRadianceCacheUpdate.usf&quot;, &quot;ClearProbeFreeListCS&quot;, <a class="el" href="../../da/dca/_r_h_i_definitions_8h.html#a0a3cc83cb6ebc79b66b43fae3ffee64ea2a84a18d7ac3d1fac11e3153f0abf73b">SF_Compute</a>)</td></tr>
+<tr class="memitem:ada41fed61aeea9c90e22991da1283fc1" id="r_ada41fed61aeea9c90e22991da1283fc1"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ada41fed61aeea9c90e22991da1283fc1">IMPLEMENT_GLOBAL_SHADER</a> (<a class="el" href="../../d4/d32/class_f_clear_probe_indirection_c_s.html">FClearProbeIndirectionCS</a>, &quot;/Engine/<a class="el" href="../../d9/db1/namespace_private.html">Private</a>/<a class="el" href="../../de/de9/namespace_lumen.html">Lumen</a>/LumenRadianceCache.usf&quot;, &quot;ClearProbeIndirectionCS&quot;, <a class="el" href="../../da/dca/_r_h_i_definitions_8h.html#a0a3cc83cb6ebc79b66b43fae3ffee64ea2a84a18d7ac3d1fac11e3153f0abf73b">SF_Compute</a>)</td></tr>
+<tr class="memitem:a14e8564fb723e4e08073071398eedbfa" id="r_a14e8564fb723e4e08073071398eedbfa"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a14e8564fb723e4e08073071398eedbfa">IMPLEMENT_GLOBAL_SHADER</a> (<a class="el" href="../../d8/dd5/class_f_update_cache_for_used_probes_c_s.html">FUpdateCacheForUsedProbesCS</a>, &quot;/Engine/<a class="el" href="../../d9/db1/namespace_private.html">Private</a>/<a class="el" href="../../de/de9/namespace_lumen.html">Lumen</a>/LumenRadianceCacheUpdate.usf&quot;, &quot;UpdateCacheForUsedProbesCS&quot;, <a class="el" href="../../da/dca/_r_h_i_definitions_8h.html#a0a3cc83cb6ebc79b66b43fae3ffee64ea2a84a18d7ac3d1fac11e3153f0abf73b">SF_Compute</a>)</td></tr>
+<tr class="memitem:ab7ffe5d779772e30f16efe3c74e9e793" id="r_ab7ffe5d779772e30f16efe3c74e9e793"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab7ffe5d779772e30f16efe3c74e9e793">IMPLEMENT_GLOBAL_SHADER</a> (<a class="el" href="../../df/dc9/class_f_clear_radiance_cache_update_resources_c_s.html">FClearRadianceCacheUpdateResourcesCS</a>, &quot;/Engine/<a class="el" href="../../d9/db1/namespace_private.html">Private</a>/<a class="el" href="../../de/de9/namespace_lumen.html">Lumen</a>/LumenRadianceCacheUpdate.usf&quot;, &quot;ClearRadianceCacheUpdateResourcesCS&quot;, <a class="el" href="../../da/dca/_r_h_i_definitions_8h.html#a0a3cc83cb6ebc79b66b43fae3ffee64ea2a84a18d7ac3d1fac11e3153f0abf73b">SF_Compute</a>)</td></tr>
+<tr class="memitem:ab88ceb426c1fa5e907e20ea340da8a2c" id="r_ab88ceb426c1fa5e907e20ea340da8a2c"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab88ceb426c1fa5e907e20ea340da8a2c">IMPLEMENT_GLOBAL_SHADER</a> (<a class="el" href="../../dd/d0c/class_f_allocate_used_probes_c_s.html">FAllocateUsedProbesCS</a>, &quot;/Engine/<a class="el" href="../../d9/db1/namespace_private.html">Private</a>/<a class="el" href="../../de/de9/namespace_lumen.html">Lumen</a>/LumenRadianceCacheUpdate.usf&quot;, &quot;AllocateUsedProbesCS&quot;, <a class="el" href="../../da/dca/_r_h_i_definitions_8h.html#a0a3cc83cb6ebc79b66b43fae3ffee64ea2a84a18d7ac3d1fac11e3153f0abf73b">SF_Compute</a>)</td></tr>
+<tr class="memitem:ab26231196972137aae49e44dfe362f84" id="r_ab26231196972137aae49e44dfe362f84"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab26231196972137aae49e44dfe362f84">IMPLEMENT_GLOBAL_SHADER</a> (<a class="el" href="../../d6/ddd/class_f_allocate_probe_traces_c_s.html">FAllocateProbeTracesCS</a>, &quot;/Engine/<a class="el" href="../../d9/db1/namespace_private.html">Private</a>/<a class="el" href="../../de/de9/namespace_lumen.html">Lumen</a>/LumenRadianceCacheUpdate.usf&quot;, &quot;AllocateProbeTracesCS&quot;, <a class="el" href="../../da/dca/_r_h_i_definitions_8h.html#a0a3cc83cb6ebc79b66b43fae3ffee64ea2a84a18d7ac3d1fac11e3153f0abf73b">SF_Compute</a>)</td></tr>
+<tr class="memitem:a5521be0840f18ddf691555c4f57ebe6c" id="r_a5521be0840f18ddf691555c4f57ebe6c"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5521be0840f18ddf691555c4f57ebe6c">IMPLEMENT_GLOBAL_SHADER</a> (<a class="el" href="../../df/d07/class_f_select_max_priority_bucket_c_s.html">FSelectMaxPriorityBucketCS</a>, &quot;/Engine/<a class="el" href="../../d9/db1/namespace_private.html">Private</a>/<a class="el" href="../../de/de9/namespace_lumen.html">Lumen</a>/LumenRadianceCacheUpdate.usf&quot;, &quot;SelectMaxPriorityBucketCS&quot;, <a class="el" href="../../da/dca/_r_h_i_definitions_8h.html#a0a3cc83cb6ebc79b66b43fae3ffee64ea2a84a18d7ac3d1fac11e3153f0abf73b">SF_Compute</a>)</td></tr>
+<tr class="memitem:a163b726041d751b5f76c24e3550f5a2b" id="r_a163b726041d751b5f76c24e3550f5a2b"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a163b726041d751b5f76c24e3550f5a2b">IMPLEMENT_GLOBAL_SHADER</a> (<a class="el" href="../../d4/db3/class_f_radiance_cache_update_stats_c_s.html">FRadianceCacheUpdateStatsCS</a>, &quot;/Engine/<a class="el" href="../../d9/db1/namespace_private.html">Private</a>/<a class="el" href="../../de/de9/namespace_lumen.html">Lumen</a>/LumenRadianceCacheDebug.usf&quot;, &quot;RadianceCacheUpdateStatsCS&quot;, <a class="el" href="../../da/dca/_r_h_i_definitions_8h.html#a0a3cc83cb6ebc79b66b43fae3ffee64ea2a84a18d7ac3d1fac11e3153f0abf73b">SF_Compute</a>)</td></tr>
+<tr class="memitem:a532c5caeb185ea5e6a71879f15b8cf01" id="r_a532c5caeb185ea5e6a71879f15b8cf01"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a532c5caeb185ea5e6a71879f15b8cf01">IMPLEMENT_GLOBAL_SHADER</a> (<a class="el" href="../../da/d4a/class_f_setup_probe_indirect_args_c_s.html">FSetupProbeIndirectArgsCS</a>, &quot;/Engine/<a class="el" href="../../d9/db1/namespace_private.html">Private</a>/<a class="el" href="../../de/de9/namespace_lumen.html">Lumen</a>/LumenRadianceCache.usf&quot;, &quot;SetupProbeIndirectArgsCS&quot;, <a class="el" href="../../da/dca/_r_h_i_definitions_8h.html#a0a3cc83cb6ebc79b66b43fae3ffee64ea2a84a18d7ac3d1fac11e3153f0abf73b">SF_Compute</a>)</td></tr>
+<tr class="memitem:a2650e365aa33ea261ef1d0acf1d6c7e2" id="r_a2650e365aa33ea261ef1d0acf1d6c7e2"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2650e365aa33ea261ef1d0acf1d6c7e2">IMPLEMENT_GLOBAL_SHADER</a> (<a class="el" href="../../db/da4/class_f_compute_probe_world_offsets_c_s.html">FComputeProbeWorldOffsetsCS</a>, &quot;/Engine/<a class="el" href="../../d9/db1/namespace_private.html">Private</a>/<a class="el" href="../../de/de9/namespace_lumen.html">Lumen</a>/LumenRadianceCache.usf&quot;, &quot;ComputeProbeWorldOffsetsCS&quot;, <a class="el" href="../../da/dca/_r_h_i_definitions_8h.html#a0a3cc83cb6ebc79b66b43fae3ffee64ea2a84a18d7ac3d1fac11e3153f0abf73b">SF_Compute</a>)</td></tr>
+<tr class="memitem:aff4ce00345f654dc114e29235f2af494" id="r_aff4ce00345f654dc114e29235f2af494"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aff4ce00345f654dc114e29235f2af494">IMPLEMENT_GLOBAL_SHADER</a> (<a class="el" href="../../d8/daf/class_f_clear_probe_p_d_fs.html">FClearProbePDFs</a>, &quot;/Engine/<a class="el" href="../../d9/db1/namespace_private.html">Private</a>/<a class="el" href="../../de/de9/namespace_lumen.html">Lumen</a>/LumenRadianceCache.usf&quot;, &quot;ClearProbePDFs&quot;, <a class="el" href="../../da/dca/_r_h_i_definitions_8h.html#a0a3cc83cb6ebc79b66b43fae3ffee64ea2a84a18d7ac3d1fac11e3153f0abf73b">SF_Compute</a>)</td></tr>
+<tr class="memitem:aaf1ba9aa44b7b01029d291742b646c25" id="r_aaf1ba9aa44b7b01029d291742b646c25"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aaf1ba9aa44b7b01029d291742b646c25">IMPLEMENT_GLOBAL_SHADER</a> (<a class="el" href="../../dd/d7c/class_f_scatter_screen_probe_b_r_d_f_to_radiance_probes_c_s.html">FScatterScreenProbeBRDFToRadianceProbesCS</a>, &quot;/Engine/<a class="el" href="../../d9/db1/namespace_private.html">Private</a>/<a class="el" href="../../de/de9/namespace_lumen.html">Lumen</a>/LumenRadianceCache.usf&quot;, &quot;ScatterScreenProbeBRDFToRadianceProbesCS&quot;, <a class="el" href="../../da/dca/_r_h_i_definitions_8h.html#a0a3cc83cb6ebc79b66b43fae3ffee64ea2a84a18d7ac3d1fac11e3153f0abf73b">SF_Compute</a>)</td></tr>
+<tr class="memitem:a97ed58a9fd7cb26fbabbffbc281ccb0a" id="r_a97ed58a9fd7cb26fbabbffbc281ccb0a"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a97ed58a9fd7cb26fbabbffbc281ccb0a">IMPLEMENT_GLOBAL_SHADER</a> (<a class="el" href="../../d0/dfe/class_f_generate_uniform_probe_trace_tiles_c_s.html">FGenerateUniformProbeTraceTilesCS</a>, &quot;/Engine/<a class="el" href="../../d9/db1/namespace_private.html">Private</a>/<a class="el" href="../../de/de9/namespace_lumen.html">Lumen</a>/LumenRadianceCache.usf&quot;, &quot;GenerateUniformProbeTraceTilesCS&quot;, <a class="el" href="../../da/dca/_r_h_i_definitions_8h.html#a0a3cc83cb6ebc79b66b43fae3ffee64ea2a84a18d7ac3d1fac11e3153f0abf73b">SF_Compute</a>)</td></tr>
+<tr class="memitem:a54ac1ef8c878ff4c90fd43feebc0a489" id="r_a54ac1ef8c878ff4c90fd43feebc0a489"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a54ac1ef8c878ff4c90fd43feebc0a489">IMPLEMENT_GLOBAL_SHADER</a> (<a class="el" href="../../d2/d30/class_f_generate_adaptive_probe_trace_tiles_c_s.html">FGenerateAdaptiveProbeTraceTilesCS</a>, &quot;/Engine/<a class="el" href="../../d9/db1/namespace_private.html">Private</a>/<a class="el" href="../../de/de9/namespace_lumen.html">Lumen</a>/LumenRadianceCache.usf&quot;, &quot;GenerateAdaptiveProbeTraceTilesCS&quot;, <a class="el" href="../../da/dca/_r_h_i_definitions_8h.html#a0a3cc83cb6ebc79b66b43fae3ffee64ea2a84a18d7ac3d1fac11e3153f0abf73b">SF_Compute</a>)</td></tr>
+<tr class="memitem:af13a2b8fea211e77db84e60c2af71765" id="r_af13a2b8fea211e77db84e60c2af71765"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af13a2b8fea211e77db84e60c2af71765">IMPLEMENT_GLOBAL_SHADER</a> (<a class="el" href="../../d8/d30/class_f_setup_trace_from_probes_c_s.html">FSetupTraceFromProbesCS</a>, &quot;/Engine/<a class="el" href="../../d9/db1/namespace_private.html">Private</a>/<a class="el" href="../../de/de9/namespace_lumen.html">Lumen</a>/LumenRadianceCache.usf&quot;, &quot;SetupTraceFromProbesCS&quot;, <a class="el" href="../../da/dca/_r_h_i_definitions_8h.html#a0a3cc83cb6ebc79b66b43fae3ffee64ea2a84a18d7ac3d1fac11e3153f0abf73b">SF_Compute</a>)</td></tr>
+<tr class="memitem:ade200851214ff9bae59ef45f67d380ba" id="r_ade200851214ff9bae59ef45f67d380ba"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ade200851214ff9bae59ef45f67d380ba">IMPLEMENT_GLOBAL_SHADER</a> (<a class="el" href="../../d0/df3/class_f_sort_probe_trace_tiles_c_s.html">FSortProbeTraceTilesCS</a>, &quot;/Engine/<a class="el" href="../../d9/db1/namespace_private.html">Private</a>/<a class="el" href="../../de/de9/namespace_lumen.html">Lumen</a>/LumenRadianceCache.usf&quot;, &quot;SortProbeTraceTilesCS&quot;, <a class="el" href="../../da/dca/_r_h_i_definitions_8h.html#a0a3cc83cb6ebc79b66b43fae3ffee64ea2a84a18d7ac3d1fac11e3153f0abf73b">SF_Compute</a>)</td></tr>
+<tr class="memitem:a355de1e7b92bed422431a91cb33163cd" id="r_a355de1e7b92bed422431a91cb33163cd"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a355de1e7b92bed422431a91cb33163cd">IMPLEMENT_GLOBAL_SHADER</a> (<a class="el" href="../../d6/d6d/class_f_radiance_cache_trace_from_probes_c_s.html">FRadianceCacheTraceFromProbesCS</a>, &quot;/Engine/<a class="el" href="../../d9/db1/namespace_private.html">Private</a>/<a class="el" href="../../de/de9/namespace_lumen.html">Lumen</a>/LumenRadianceCache.usf&quot;, &quot;TraceFromProbesCS&quot;, <a class="el" href="../../da/dca/_r_h_i_definitions_8h.html#a0a3cc83cb6ebc79b66b43fae3ffee64ea2a84a18d7ac3d1fac11e3153f0abf73b">SF_Compute</a>)</td></tr>
+<tr class="memitem:ab98a99e3c6e21832ba3771ddbdd19d03" id="r_ab98a99e3c6e21832ba3771ddbdd19d03"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab98a99e3c6e21832ba3771ddbdd19d03">IMPLEMENT_GLOBAL_SHADER</a> (<a class="el" href="../../d7/d64/class_f_filter_probe_radiance_with_gather_c_s.html">FFilterProbeRadianceWithGatherCS</a>, &quot;/Engine/<a class="el" href="../../d9/db1/namespace_private.html">Private</a>/<a class="el" href="../../de/de9/namespace_lumen.html">Lumen</a>/LumenRadianceCache.usf&quot;, &quot;FilterProbeRadianceWithGatherCS&quot;, <a class="el" href="../../da/dca/_r_h_i_definitions_8h.html#a0a3cc83cb6ebc79b66b43fae3ffee64ea2a84a18d7ac3d1fac11e3153f0abf73b">SF_Compute</a>)</td></tr>
+<tr class="memitem:a65f4953adb853b49ac8adce5b2b2d9c0" id="r_a65f4953adb853b49ac8adce5b2b2d9c0"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a65f4953adb853b49ac8adce5b2b2d9c0">IMPLEMENT_GLOBAL_SHADER</a> (<a class="el" href="../../d0/dc9/class_f_calculate_probe_irradiance_c_s.html">FCalculateProbeIrradianceCS</a>, &quot;/Engine/<a class="el" href="../../d9/db1/namespace_private.html">Private</a>/<a class="el" href="../../de/de9/namespace_lumen.html">Lumen</a>/LumenRadianceCache.usf&quot;, &quot;CalculateProbeIrradianceCS&quot;, <a class="el" href="../../da/dca/_r_h_i_definitions_8h.html#a0a3cc83cb6ebc79b66b43fae3ffee64ea2a84a18d7ac3d1fac11e3153f0abf73b">SF_Compute</a>)</td></tr>
+<tr class="memitem:a446b84fdb4aadbcab49c44211161f5df" id="r_a446b84fdb4aadbcab49c44211161f5df"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a446b84fdb4aadbcab49c44211161f5df">IMPLEMENT_GLOBAL_SHADER</a> (<a class="el" href="../../d9/def/class_f_prepare_probe_occlusion_c_s.html">FPrepareProbeOcclusionCS</a>, &quot;/Engine/<a class="el" href="../../d9/db1/namespace_private.html">Private</a>/<a class="el" href="../../de/de9/namespace_lumen.html">Lumen</a>/LumenRadianceCache.usf&quot;, &quot;PrepareProbeOcclusionCS&quot;, <a class="el" href="../../da/dca/_r_h_i_definitions_8h.html#a0a3cc83cb6ebc79b66b43fae3ffee64ea2a84a18d7ac3d1fac11e3153f0abf73b">SF_Compute</a>)</td></tr>
+<tr class="memitem:a7bc2e9932c9abb1f21bbe2d07254dc5c" id="r_a7bc2e9932c9abb1f21bbe2d07254dc5c"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7bc2e9932c9abb1f21bbe2d07254dc5c">IMPLEMENT_GLOBAL_SHADER</a> (<a class="el" href="../../d0/dff/class_f_fixup_borders_and_generate_mips_c_s.html">FFixupBordersAndGenerateMipsCS</a>, &quot;/Engine/<a class="el" href="../../d9/db1/namespace_private.html">Private</a>/<a class="el" href="../../de/de9/namespace_lumen.html">Lumen</a>/LumenRadianceCache.usf&quot;, &quot;FixupBordersAndGenerateMipsCS&quot;, <a class="el" href="../../da/dca/_r_h_i_definitions_8h.html#a0a3cc83cb6ebc79b66b43fae3ffee64ea2a84a18d7ac3d1fac11e3153f0abf73b">SF_Compute</a>)</td></tr>
+<tr class="memitem:a6bb170a9da9d708e9347958c0ff026cf" id="r_a6bb170a9da9d708e9347958c0ff026cf"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6bb170a9da9d708e9347958c0ff026cf">UpdateRadianceCacheState</a> (<a class="el" href="../../d3/d85/class_f_r_d_g_builder.html">FRDGBuilder</a> &amp;GraphBuilder, const <a class="el" href="../../dd/d2b/class_f_view_info.html">FViewInfo</a> &amp;View, const LumenRadianceCache::FRadianceCacheInputs &amp;RadianceCacheInputs, <a class="el" href="../../d6/da4/class_f_radiance_cache_state.html">FRadianceCacheState</a> &amp;CacheState)</td></tr>
+<tr class="memitem:a3ec597a90ba2d97b7e23509a2fdc7eba" id="r_a3ec597a90ba2d97b7e23509a2fdc7eba"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d6/d6d/_canvas_types_8h.html#aea265cf57883ec58a09111d4a17b8448">FRDGTextureRef</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a3ec597a90ba2d97b7e23509a2fdc7eba">CreateRadianceProbeIndirectionTexture</a> (<a class="el" href="../../d3/d85/class_f_r_d_g_builder.html">FRDGBuilder</a> &amp;GraphBuilder, const <a class="el" href="../../d0/df6/_math_fwd_8h.html#ac900284388a4a5ca150dbd45a0347fe6">FIntVector</a> &amp;RadianceProbeIndirectionTextureSize)</td></tr>
+<tr class="memitem:a1ef8c4658edce0de3ac946d6543652f9" id="r_a1ef8c4658edce0de3ac946d6543652f9"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d6/d6d/_canvas_types_8h.html#aea265cf57883ec58a09111d4a17b8448">FRDGTextureRef</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a1ef8c4658edce0de3ac946d6543652f9">CreateRadianceProbeIndirectionTexture</a> (<a class="el" href="../../d3/d85/class_f_r_d_g_builder.html">FRDGBuilder</a> &amp;GraphBuilder, const LumenRadianceCache::FRadianceCacheInputs &amp;RadianceCacheInputs)</td></tr>
+<tr class="memitem:ae5f4eb7ad4edd171115110245385b861" id="r_ae5f4eb7ad4edd171115110245385b861"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../df/d63/_typed_element_query_capabilities_8inl.html#a72343342ce64c0755563ee6c5e27868d">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae5f4eb7ad4edd171115110245385b861">ClearRadianceProbeIndirectionTexture</a> (<a class="el" href="../../d3/d85/class_f_r_d_g_builder.html">FRDGBuilder</a> &amp;GraphBuilder, const <a class="el" href="../../dd/d2b/class_f_view_info.html">FViewInfo</a> &amp;View, <a class="el" href="../../d6/d6d/_canvas_types_8h.html#aea265cf57883ec58a09111d4a17b8448">FRDGTextureRef</a> RadianceProbeIndirectionTexture, <a class="el" href="../../d6/de8/_render_graph_definitions_8h.html#a3b73b7355dd6964375c48c23d5fb76da">ERDGPassFlags</a> ComputePassFlags)</td></tr>
+<tr class="memitem:ad7e801c5b39b7af66b322fb0dfa8304f" id="r_ad7e801c5b39b7af66b322fb0dfa8304f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/de1/namespace_lumen_radiance_cache.html#ad7e801c5b39b7af66b322fb0dfa8304f">LumenRadianceCache::ShouldImportanceSampleBRDF</a> (const <a class="el" href="../../da/d83/class_lumen_radiance_cache_1_1_f_update_inputs.html">FUpdateInputs</a> &amp;Inputs)</td></tr>
+<tr class="memitem:a038405c1d42b7c5e1b3ac6709822e7bc" id="r_a038405c1d42b7c5e1b3ac6709822e7bc"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../df/d2a/_s_anim_notify_shared_8h.html#ac7c94e837fed3f8e4bb3dd94d7bd2ecf">float</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/de1/namespace_lumen_radiance_cache.html#a038405c1d42b7c5e1b3ac6709822e7bc">LumenRadianceCache::GetSupersampleDistanceFromCameraSq</a> ()</td></tr>
+<tr class="memitem:a8e132d3b6ee7f154edd50798805c926a" id="r_a8e132d3b6ee7f154edd50798805c926a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d6/d6d/_canvas_types_8h.html#aea265cf57883ec58a09111d4a17b8448">FRDGTextureRef</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/de1/namespace_lumen_radiance_cache.html#a8e132d3b6ee7f154edd50798805c926a">LumenRadianceCache::MarkForTranslucencyReflections</a> (<a class="el" href="../../d3/d85/class_f_r_d_g_builder.html">FRDGBuilder</a> &amp;GraphBuilder, <a class="el" href="../../dd/d2b/class_f_view_info.html">FViewInfo</a> &amp;View, const <a class="el" href="../../d9/d6f/class_f_scene_renderer.html">FSceneRenderer</a> &amp;SceneRenderer, const <a class="el" href="../../d1/d9e/struct_f_scene_textures.html">FSceneTextures</a> &amp;SceneTextures)</td></tr>
+<tr class="memitem:afe5bf204f67d491f6f671391ac7601dd" id="r_afe5bf204f67d491f6f671391ac7601dd"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d2/d51/_render_graph_fwd_8h.html#ad7fb1bf19241fbbd8f870dd76c6397bd">FRDGBufferSRVRef</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/de1/namespace_lumen_radiance_cache.html#afe5bf204f67d491f6f671391ac7601dd">LumenRadianceCache::GetProbeValidSRV</a> (<a class="el" href="../../d3/d85/class_f_r_d_g_builder.html">FRDGBuilder</a> &amp;GraphBuilder, <a class="el" href="../../d9/de1/_n_n_e_runtime_r_d_g_8h.html#a934d7411e595a58728f7ba3bb9aae740">FRDGBufferRef</a> InProbeValid)</td></tr>
+<tr class="memitem:a7b81649d2bdf73ae3946d01aacd41be3" id="r_a7b81649d2bdf73ae3946d01aacd41be3"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../df/d63/_typed_element_query_capabilities_8inl.html#a72343342ce64c0755563ee6c5e27868d">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/de1/namespace_lumen_radiance_cache.html#a7b81649d2bdf73ae3946d01aacd41be3">LumenRadianceCache::UpdateRadianceCaches</a> (<a class="el" href="../../d3/d85/class_f_r_d_g_builder.html">FRDGBuilder</a> &amp;GraphBuilder, const <a class="el" href="../../dc/da7/struct_f_lumen_scene_frame_temporaries.html">FLumenSceneFrameTemporaries</a> &amp;FrameTemporaries, const <a class="el" href="../../d7/db4/class_lumen_radiance_cache_1_1_t_inline_array.html">TInlineArray</a>&lt; <a class="el" href="../../da/d83/class_lumen_radiance_cache_1_1_f_update_inputs.html">FUpdateInputs</a> &gt; &amp;InputArray, <a class="el" href="../../d7/db4/class_lumen_radiance_cache_1_1_t_inline_array.html">TInlineArray</a>&lt; <a class="el" href="../../d3/d63/class_lumen_radiance_cache_1_1_f_update_outputs.html">FUpdateOutputs</a> &gt; &amp;OutputArray, const <a class="el" href="../../d4/dfa/class_f_scene.html">FScene</a> *Scene, const <a class="el" href="../../d5/d2b/class_f_view_family_info.html">FViewFamilyInfo</a> &amp;ViewFamily, const <a class="el" href="../../d1/d9e/struct_f_scene_textures.html">FSceneTextures</a> &amp;SceneTextures, <a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a> bPropagateGlobalLightingChange, <a class="el" href="../../d6/de8/_render_graph_definitions_8h.html#a3b73b7355dd6964375c48c23d5fb76da">ERDGPassFlags</a> ComputePassFlags)</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-var-members" class="groupheader"><a id="var-members" name="var-members"></a>
+变量</h2></td></tr>
+<tr class="memitem:a9696ae850ff9865713bbfc07feab0bf5" id="r_a9696ae850ff9865713bbfc07feab0bf5"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a8dbb3cd84ca9fd010dadfc3815eefa5d">int32</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9696ae850ff9865713bbfc07feab0bf5">GRadianceCacheUpdate</a> = 1</td></tr>
+<tr class="memitem:afaaec1ea9c6670a466d8ef5086201295" id="r_afaaec1ea9c6670a466d8ef5086201295"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d2/d79/class_f_auto_console_variable_ref.html">FAutoConsoleVariableRef</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#afaaec1ea9c6670a466d8ef5086201295">CVarRadianceCacheUpdate</a> (<a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;r.Lumen.RadianceCache.Update&quot;), <a class="el" href="#a9696ae850ff9865713bbfc07feab0bf5">GRadianceCacheUpdate</a>, <a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;Whether to update radiance cache every frame. Useful <a class="el" href="../../d3/db8/binka__ue__decode__test_8cpp.html#ac1ee511585a5c7a2d58c146185895b72">for</a> debugging.&quot;), <a class="el" href="../../d4/dd9/_i_console_manager_8h.html#a7f594f23c2b2c5687f1a502ebb3ba105a774ea60f41417af093a7ca56c4204a70">ECVF_RenderThreadSafe</a>)</td></tr>
+<tr class="memitem:a21582be302583fd8e4a8632696c2de01" id="r_a21582be302583fd8e4a8632696c2de01"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a8dbb3cd84ca9fd010dadfc3815eefa5d">int32</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a21582be302583fd8e4a8632696c2de01">GRadianceCacheForceFullUpdate</a> = 0</td></tr>
+<tr class="memitem:a1e5b343c6c8ddb8fe56ff609d84fc49b" id="r_a1e5b343c6c8ddb8fe56ff609d84fc49b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d2/d79/class_f_auto_console_variable_ref.html">FAutoConsoleVariableRef</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a1e5b343c6c8ddb8fe56ff609d84fc49b">CVarRadianceForceFullUpdate</a> (<a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;r.Lumen.RadianceCache.ForceFullUpdate&quot;), <a class="el" href="#a21582be302583fd8e4a8632696c2de01">GRadianceCacheForceFullUpdate</a>, <a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;Whether to update entuire radiance cache once. Useful <a class="el" href="../../d3/db8/binka__ue__decode__test_8cpp.html#ac1ee511585a5c7a2d58c146185895b72">for</a> debugging.&quot;), <a class="el" href="../../d4/dd9/_i_console_manager_8h.html#a7f594f23c2b2c5687f1a502ebb3ba105a774ea60f41417af093a7ca56c4204a70">ECVF_RenderThreadSafe</a>)</td></tr>
+<tr class="memitem:a32794583bb8df17d4c2f92e4027acae7" id="r_a32794583bb8df17d4c2f92e4027acae7"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a8dbb3cd84ca9fd010dadfc3815eefa5d">int32</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a32794583bb8df17d4c2f92e4027acae7">GRadianceCacheShowBlackRadianceCacheLighting</a> = 0</td></tr>
+<tr class="memitem:aaeeb3cfaa108f760328872e7d9f7c6df" id="r_aaeeb3cfaa108f760328872e7d9f7c6df"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d2/d79/class_f_auto_console_variable_ref.html">FAutoConsoleVariableRef</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aaeeb3cfaa108f760328872e7d9f7c6df">CVarRadianceCacheShowBlackRadianceCacheLighting</a> (<a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;r.Lumen.RadianceCache.ShowBlackRadianceCacheLighting&quot;), <a class="el" href="#a32794583bb8df17d4c2f92e4027acae7">GRadianceCacheShowBlackRadianceCacheLighting</a>, <a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;&quot;), <a class="el" href="../../d4/dd9/_i_console_manager_8h.html#a7f594f23c2b2c5687f1a502ebb3ba105a774ea60f41417af093a7ca56c4204a70">ECVF_RenderThreadSafe</a>)</td></tr>
+<tr class="memitem:a333ab6c00688a10cd1008aff15c235f9" id="r_a333ab6c00688a10cd1008aff15c235f9"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a8dbb3cd84ca9fd010dadfc3815eefa5d">int32</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a333ab6c00688a10cd1008aff15c235f9">GRadianceCacheSortTraceTiles</a> = 0</td></tr>
+<tr class="memitem:a1f9e4dc84ff18127694fdbefe5c6249d" id="r_a1f9e4dc84ff18127694fdbefe5c6249d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d2/d79/class_f_auto_console_variable_ref.html">FAutoConsoleVariableRef</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a1f9e4dc84ff18127694fdbefe5c6249d">CVarRadianceCacheSortTraceTiles</a> (<a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;r.Lumen.RadianceCache.SortTraceTiles&quot;), <a class="el" href="#a333ab6c00688a10cd1008aff15c235f9">GRadianceCacheSortTraceTiles</a>, <a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;Whether to sort Trace Tiles by direction before tracing to extract coherency&quot;), <a class="el" href="../../d4/dd9/_i_console_manager_8h.html#a7f594f23c2b2c5687f1a502ebb3ba105a774ea60f41417af093a7ca56c4204a70">ECVF_RenderThreadSafe</a>)</td></tr>
+<tr class="memitem:a21c075ce6284742c70dcb8abad073abe" id="r_a21c075ce6284742c70dcb8abad073abe"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a8dbb3cd84ca9fd010dadfc3815eefa5d">int32</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a21c075ce6284742c70dcb8abad073abe">GRadianceCacheIrradianceProbeOffsetMode</a> = 1</td></tr>
+<tr class="memitem:a09e8084786244bf4e89945a2573dd75f" id="r_a09e8084786244bf4e89945a2573dd75f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../df/d2a/_s_anim_notify_shared_8h.html#ac7c94e837fed3f8e4bb3dd94d7bd2ecf">float</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a09e8084786244bf4e89945a2573dd75f">GLumenRadianceCacheFilterMaxRadianceHitAngle</a> = .2f</td></tr>
+<tr class="memitem:a1a86a1630ccd5b0324c4b4b7c55b919d" id="r_a1a86a1630ccd5b0324c4b4b7c55b919d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../df/d2a/_s_anim_notify_shared_8h.html#ac7c94e837fed3f8e4bb3dd94d7bd2ecf">float</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a1a86a1630ccd5b0324c4b4b7c55b919d">GLumenRadianceCacheOcclusionKernelCosineExponent</a> = 128.0f</td></tr>
+<tr class="memitem:aa980cd2f8fdced4e727a138b73691396" id="r_aa980cd2f8fdced4e727a138b73691396"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a8dbb3cd84ca9fd010dadfc3815eefa5d">int32</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa980cd2f8fdced4e727a138b73691396">GLumenRadianceCacheForceUniformTraceTileLevel</a> = -1</td></tr>
+<tr class="memitem:a80047742a83ab6555b6ea7628eece4f1" id="r_a80047742a83ab6555b6ea7628eece4f1"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../df/d2a/_s_anim_notify_shared_8h.html#ac7c94e837fed3f8e4bb3dd94d7bd2ecf">float</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a80047742a83ab6555b6ea7628eece4f1">GLumenRadianceCacheSupersampleTileBRDFThreshold</a> = .1f</td></tr>
+<tr class="memitem:a4ab5a744c0eed92fed7e8639945fafd5" id="r_a4ab5a744c0eed92fed7e8639945fafd5"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../df/d2a/_s_anim_notify_shared_8h.html#ac7c94e837fed3f8e4bb3dd94d7bd2ecf">float</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4ab5a744c0eed92fed7e8639945fafd5">GLumenRadianceCacheDownsampleDistanceFromCamera</a> = 4000.0f</td></tr>
+<tr class="memitem:ad8ad46141e9f75c9d4dfe4d063ca457a" id="r_ad8ad46141e9f75c9d4dfe4d063ca457a"><td class="memItemLeft" align="right" valign="top">constexpr <a class="el" href="../../dd/de9/preprocessor_8c.html#a1134b580f8da4de94ca6b1de4d37975e">uint32</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/de1/namespace_lumen_radiance_cache.html#ad8ad46141e9f75c9d4dfe4d063ca457a">LumenRadianceCache::PRIORITY_HISTOGRAM_SIZE</a> = 16</td></tr>
+<tr class="memitem:a938cc67377c7d0769b268ac4949273fe" id="r_a938cc67377c7d0769b268ac4949273fe"><td class="memItemLeft" align="right" valign="top">constexpr <a class="el" href="../../dd/de9/preprocessor_8c.html#a1134b580f8da4de94ca6b1de4d37975e">uint32</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/de1/namespace_lumen_radiance_cache.html#a938cc67377c7d0769b268ac4949273fe">LumenRadianceCache::PROBES_TO_UPDATE_TRACE_COST_STRIDE</a> = 2</td></tr>
+</table>
+<a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">函数说明</h2>
+<a id="ae5f4eb7ad4edd171115110245385b861" name="ae5f4eb7ad4edd171115110245385b861"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae5f4eb7ad4edd171115110245385b861">&#9670;&#160;</a></span>ClearRadianceProbeIndirectionTexture()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../df/d63/_typed_element_query_capabilities_8inl.html#a72343342ce64c0755563ee6c5e27868d">void</a> ClearRadianceProbeIndirectionTexture </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d3/d85/class_f_r_d_g_builder.html">FRDGBuilder</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>GraphBuilder</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="../../dd/d2b/class_f_view_info.html">FViewInfo</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>View</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d6/d6d/_canvas_types_8h.html#aea265cf57883ec58a09111d4a17b8448">FRDGTextureRef</a></td>          <td class="paramname"><span class="paramname"><em>RadianceProbeIndirectionTexture</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d6/de8/_render_graph_definitions_8h.html#a3b73b7355dd6964375c48c23d5fb76da">ERDGPassFlags</a></td>          <td class="paramname"><span class="paramname"><em>ComputePassFlags</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a3ec597a90ba2d97b7e23509a2fdc7eba" name="a3ec597a90ba2d97b7e23509a2fdc7eba"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3ec597a90ba2d97b7e23509a2fdc7eba">&#9670;&#160;</a></span>CreateRadianceProbeIndirectionTexture() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d6/d6d/_canvas_types_8h.html#aea265cf57883ec58a09111d4a17b8448">FRDGTextureRef</a> CreateRadianceProbeIndirectionTexture </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d3/d85/class_f_r_d_g_builder.html">FRDGBuilder</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>GraphBuilder</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="../../d0/df6/_math_fwd_8h.html#ac900284388a4a5ca150dbd45a0347fe6">FIntVector</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>RadianceProbeIndirectionTextureSize</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a1ef8c4658edce0de3ac946d6543652f9" name="a1ef8c4658edce0de3ac946d6543652f9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1ef8c4658edce0de3ac946d6543652f9">&#9670;&#160;</a></span>CreateRadianceProbeIndirectionTexture() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d6/d6d/_canvas_types_8h.html#aea265cf57883ec58a09111d4a17b8448">FRDGTextureRef</a> CreateRadianceProbeIndirectionTexture </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d3/d85/class_f_r_d_g_builder.html">FRDGBuilder</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>GraphBuilder</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const LumenRadianceCache::FRadianceCacheInputs &amp;</td>          <td class="paramname"><span class="paramname"><em>RadianceCacheInputs</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a1151ef513f81b8b244cf535080c12ffe" name="a1151ef513f81b8b244cf535080c12ffe"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1151ef513f81b8b244cf535080c12ffe">&#9670;&#160;</a></span>CVarLumenRadianceCacheDownsampleDistanceFromCamera()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d2/d79/class_f_auto_console_variable_ref.html">FAutoConsoleVariableRef</a> CVarLumenRadianceCacheDownsampleDistanceFromCamera </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;r.Lumen.RadianceCache.DownsampleDistanceFromCamera&quot;)</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="#a4ab5a744c0eed92fed7e8639945fafd5">GLumenRadianceCacheDownsampleDistanceFromCamera</a></td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;Probes further than this distance from the camera are always downsampled.&quot;)</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d4/dd9/_i_console_manager_8h.html#a7f594f23c2b2c5687f1a502ebb3ba105a5fb4e7a0526f4a0c350d71e18956527c">ECVF_Scalability</a>|</td>          <td class="paramname"><span class="paramname"><em>ECVF_RenderThreadSafe</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aa50bd2b9d176daf5472765b3dfd7f6a2" name="aa50bd2b9d176daf5472765b3dfd7f6a2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa50bd2b9d176daf5472765b3dfd7f6a2">&#9670;&#160;</a></span>CVarLumenRadianceCacheForceUniformTraceTileLevel()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d2/d79/class_f_auto_console_variable_ref.html">FAutoConsoleVariableRef</a> CVarLumenRadianceCacheForceUniformTraceTileLevel </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;r.Lumen.RadianceCache.ForceUniformTraceTileLevel&quot;)</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="#aa980cd2f8fdced4e727a138b73691396">GLumenRadianceCacheForceUniformTraceTileLevel</a></td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;When set to &gt;= 0, forces a uniform <a class="el" href="../../d7/df8/namespacetrace.html">trace</a> tile <a class="el" href="../../d8/d06/_android_open_g_l_functions_8h.html#abc60a79088789bd61297bf5f9ff500d1">level</a> <a class="el" href="../../d3/db8/binka__ue__decode__test_8cpp.html#ac1ee511585a5c7a2d58c146185895b72">for</a> debugging, and overrides <a class="el" href="../../d7/df8/namespacetrace.html">trace</a> tile BRDF importance sampling.  <a class="el" href="../../d7/d4b/_android_input_interface_8h.html#a6ab52c477d6bebd13efdd10042ddca51ac9ceaeea41ae06d1a39c3322c762ec71">Valid</a> range is [0, 2].  0 = half res, 1 = full res, 2 = supersampled&quot;)</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d4/dd9/_i_console_manager_8h.html#a7f594f23c2b2c5687f1a502ebb3ba105a5fb4e7a0526f4a0c350d71e18956527c">ECVF_Scalability</a>|</td>          <td class="paramname"><span class="paramname"><em>ECVF_RenderThreadSafe</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a345d43cbd01db0f14755e38d495ef0b0" name="a345d43cbd01db0f14755e38d495ef0b0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a345d43cbd01db0f14755e38d495ef0b0">&#9670;&#160;</a></span>CVarLumenRadianceCacheSupersampleTileBRDFThreshold()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d2/d79/class_f_auto_console_variable_ref.html">FAutoConsoleVariableRef</a> CVarLumenRadianceCacheSupersampleTileBRDFThreshold </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;r.Lumen.RadianceCache.SupersampleTileBRDFThreshold&quot;)</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="#a80047742a83ab6555b6ea7628eece4f1">GLumenRadianceCacheSupersampleTileBRDFThreshold</a></td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;Value of the BRDF [0-1] above which to <a class="el" href="../../d7/df8/namespacetrace.html">trace</a> more rays to supersample the probe radiance.&quot;)</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d4/dd9/_i_console_manager_8h.html#a7f594f23c2b2c5687f1a502ebb3ba105a5fb4e7a0526f4a0c350d71e18956527c">ECVF_Scalability</a>|</td>          <td class="paramname"><span class="paramname"><em>ECVF_RenderThreadSafe</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a5c1de9577b05447896adae42b764121c" name="a5c1de9577b05447896adae42b764121c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5c1de9577b05447896adae42b764121c">&#9670;&#160;</a></span>CVarRadianceCacheIrradianceProbeOffsetMode()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d2/d79/class_f_auto_console_variable_ref.html">FAutoConsoleVariableRef</a> CVarRadianceCacheIrradianceProbeOffsetMode </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;r.Lumen.RadianceCache.IrradianceProbeOffsetMode&quot;)</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="#a21c075ce6284742c70dcb8abad073abe">GRadianceCacheIrradianceProbeOffsetMode</a></td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;0: No offsetting, 1: Offset irradiance probes using <a class="el" href="../../db/da0/_hair_strands_composition_8cpp.html#a821b97273c138d0ab4a82d3b546d0422afb05061537eda8c392bde12eb77f0737">GBuffer</a> (when probes are on screen), 2: Offset using Global SDF (when available)&quot;)</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d4/dd9/_i_console_manager_8h.html#a7f594f23c2b2c5687f1a502ebb3ba105a5fb4e7a0526f4a0c350d71e18956527c">ECVF_Scalability</a>|</td>          <td class="paramname"><span class="paramname"><em>ECVF_RenderThreadSafe</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a8ff751525b1f8bf3bbf714a68c524bf5" name="a8ff751525b1f8bf3bbf714a68c524bf5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8ff751525b1f8bf3bbf714a68c524bf5">&#9670;&#160;</a></span>GVarLumenRadianceCacheFilterMaxRadianceHitAngle()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d2/d79/class_f_auto_console_variable_ref.html">FAutoConsoleVariableRef</a> GVarLumenRadianceCacheFilterMaxRadianceHitAngle </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;r.Lumen.RadianceCache.SpatialFilterMaxRadianceHitAngle&quot;)</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="#a09e8084786244bf4e89945a2573dd75f">GLumenRadianceCacheFilterMaxRadianceHitAngle</a></td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;In Degrees.  Larger angles allow filtering of nearby features but more leaking.&quot;)</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d4/dd9/_i_console_manager_8h.html#a7f594f23c2b2c5687f1a502ebb3ba105a5fb4e7a0526f4a0c350d71e18956527c">ECVF_Scalability</a>|</td>          <td class="paramname"><span class="paramname"><em>ECVF_RenderThreadSafe</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a329242db25bed0882ddc5bfec2a85132" name="a329242db25bed0882ddc5bfec2a85132"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a329242db25bed0882ddc5bfec2a85132">&#9670;&#160;</a></span>GVarLumenRadianceCacheOcclusionKernelCosineExponent()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d2/d79/class_f_auto_console_variable_ref.html">FAutoConsoleVariableRef</a> GVarLumenRadianceCacheOcclusionKernelCosineExponent </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;r.Lumen.RadianceCache.OcclusionKernelCosineExponent&quot;)</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="#a1a86a1630ccd5b0324c4b4b7c55b919d">GLumenRadianceCacheOcclusionKernelCosineExponent</a></td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;Exponent on the cosine power-weighted depths that become probe occlusion. Larger <a class="el" href="../../d8/d06/_android_open_g_l_functions_8h.html#a250b37a0411d5375d92808e2840cb0dd">values</a> give more precise probe occlusion, but sharper transitions.&quot;)</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d4/dd9/_i_console_manager_8h.html#a7f594f23c2b2c5687f1a502ebb3ba105a5fb4e7a0526f4a0c350d71e18956527c">ECVF_Scalability</a>|</td>          <td class="paramname"><span class="paramname"><em>ECVF_RenderThreadSafe</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ab26231196972137aae49e44dfe362f84" name="ab26231196972137aae49e44dfe362f84"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab26231196972137aae49e44dfe362f84">&#9670;&#160;</a></span>IMPLEMENT_GLOBAL_SHADER() <span class="overload">[1/22]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">IMPLEMENT_GLOBAL_SHADER </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d6/ddd/class_f_allocate_probe_traces_c_s.html">FAllocateProbeTracesCS</a></td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&quot;/Engine/<a class="el" href="../../d9/db1/namespace_private.html">Private</a>/<a class="el" href="../../de/de9/namespace_lumen.html">Lumen</a>/LumenRadianceCacheUpdate.usf&quot;</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&quot;AllocateProbeTracesCS&quot;</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../da/dca/_r_h_i_definitions_8h.html#a0a3cc83cb6ebc79b66b43fae3ffee64ea2a84a18d7ac3d1fac11e3153f0abf73b">SF_Compute</a></td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ab88ceb426c1fa5e907e20ea340da8a2c" name="ab88ceb426c1fa5e907e20ea340da8a2c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab88ceb426c1fa5e907e20ea340da8a2c">&#9670;&#160;</a></span>IMPLEMENT_GLOBAL_SHADER() <span class="overload">[2/22]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">IMPLEMENT_GLOBAL_SHADER </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../dd/d0c/class_f_allocate_used_probes_c_s.html">FAllocateUsedProbesCS</a></td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&quot;/Engine/<a class="el" href="../../d9/db1/namespace_private.html">Private</a>/<a class="el" href="../../de/de9/namespace_lumen.html">Lumen</a>/LumenRadianceCacheUpdate.usf&quot;</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&quot;AllocateUsedProbesCS&quot;</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../da/dca/_r_h_i_definitions_8h.html#a0a3cc83cb6ebc79b66b43fae3ffee64ea2a84a18d7ac3d1fac11e3153f0abf73b">SF_Compute</a></td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a65f4953adb853b49ac8adce5b2b2d9c0" name="a65f4953adb853b49ac8adce5b2b2d9c0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a65f4953adb853b49ac8adce5b2b2d9c0">&#9670;&#160;</a></span>IMPLEMENT_GLOBAL_SHADER() <span class="overload">[3/22]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">IMPLEMENT_GLOBAL_SHADER </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d0/dc9/class_f_calculate_probe_irradiance_c_s.html">FCalculateProbeIrradianceCS</a></td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&quot;/Engine/<a class="el" href="../../d9/db1/namespace_private.html">Private</a>/<a class="el" href="../../de/de9/namespace_lumen.html">Lumen</a>/LumenRadianceCache.usf&quot;</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&quot;CalculateProbeIrradianceCS&quot;</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../da/dca/_r_h_i_definitions_8h.html#a0a3cc83cb6ebc79b66b43fae3ffee64ea2a84a18d7ac3d1fac11e3153f0abf73b">SF_Compute</a></td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a7430f4b279674bf155720ba24f3b6915" name="a7430f4b279674bf155720ba24f3b6915"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7430f4b279674bf155720ba24f3b6915">&#9670;&#160;</a></span>IMPLEMENT_GLOBAL_SHADER() <span class="overload">[4/22]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">IMPLEMENT_GLOBAL_SHADER </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../db/d70/class_f_clear_probe_free_list.html">FClearProbeFreeList</a></td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&quot;/Engine/<a class="el" href="../../d9/db1/namespace_private.html">Private</a>/<a class="el" href="../../de/de9/namespace_lumen.html">Lumen</a>/LumenRadianceCacheUpdate.usf&quot;</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&quot;ClearProbeFreeListCS&quot;</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../da/dca/_r_h_i_definitions_8h.html#a0a3cc83cb6ebc79b66b43fae3ffee64ea2a84a18d7ac3d1fac11e3153f0abf73b">SF_Compute</a></td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ada41fed61aeea9c90e22991da1283fc1" name="ada41fed61aeea9c90e22991da1283fc1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ada41fed61aeea9c90e22991da1283fc1">&#9670;&#160;</a></span>IMPLEMENT_GLOBAL_SHADER() <span class="overload">[5/22]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">IMPLEMENT_GLOBAL_SHADER </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d4/d32/class_f_clear_probe_indirection_c_s.html">FClearProbeIndirectionCS</a></td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&quot;/Engine/<a class="el" href="../../d9/db1/namespace_private.html">Private</a>/<a class="el" href="../../de/de9/namespace_lumen.html">Lumen</a>/LumenRadianceCache.usf&quot;</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&quot;ClearProbeIndirectionCS&quot;</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../da/dca/_r_h_i_definitions_8h.html#a0a3cc83cb6ebc79b66b43fae3ffee64ea2a84a18d7ac3d1fac11e3153f0abf73b">SF_Compute</a></td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aff4ce00345f654dc114e29235f2af494" name="aff4ce00345f654dc114e29235f2af494"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aff4ce00345f654dc114e29235f2af494">&#9670;&#160;</a></span>IMPLEMENT_GLOBAL_SHADER() <span class="overload">[6/22]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">IMPLEMENT_GLOBAL_SHADER </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d8/daf/class_f_clear_probe_p_d_fs.html">FClearProbePDFs</a></td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&quot;/Engine/<a class="el" href="../../d9/db1/namespace_private.html">Private</a>/<a class="el" href="../../de/de9/namespace_lumen.html">Lumen</a>/LumenRadianceCache.usf&quot;</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&quot;ClearProbePDFs&quot;</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../da/dca/_r_h_i_definitions_8h.html#a0a3cc83cb6ebc79b66b43fae3ffee64ea2a84a18d7ac3d1fac11e3153f0abf73b">SF_Compute</a></td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ab7ffe5d779772e30f16efe3c74e9e793" name="ab7ffe5d779772e30f16efe3c74e9e793"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab7ffe5d779772e30f16efe3c74e9e793">&#9670;&#160;</a></span>IMPLEMENT_GLOBAL_SHADER() <span class="overload">[7/22]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">IMPLEMENT_GLOBAL_SHADER </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../df/dc9/class_f_clear_radiance_cache_update_resources_c_s.html">FClearRadianceCacheUpdateResourcesCS</a></td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&quot;/Engine/<a class="el" href="../../d9/db1/namespace_private.html">Private</a>/<a class="el" href="../../de/de9/namespace_lumen.html">Lumen</a>/LumenRadianceCacheUpdate.usf&quot;</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&quot;ClearRadianceCacheUpdateResourcesCS&quot;</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../da/dca/_r_h_i_definitions_8h.html#a0a3cc83cb6ebc79b66b43fae3ffee64ea2a84a18d7ac3d1fac11e3153f0abf73b">SF_Compute</a></td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a2650e365aa33ea261ef1d0acf1d6c7e2" name="a2650e365aa33ea261ef1d0acf1d6c7e2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2650e365aa33ea261ef1d0acf1d6c7e2">&#9670;&#160;</a></span>IMPLEMENT_GLOBAL_SHADER() <span class="overload">[8/22]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">IMPLEMENT_GLOBAL_SHADER </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../db/da4/class_f_compute_probe_world_offsets_c_s.html">FComputeProbeWorldOffsetsCS</a></td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&quot;/Engine/<a class="el" href="../../d9/db1/namespace_private.html">Private</a>/<a class="el" href="../../de/de9/namespace_lumen.html">Lumen</a>/LumenRadianceCache.usf&quot;</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&quot;ComputeProbeWorldOffsetsCS&quot;</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../da/dca/_r_h_i_definitions_8h.html#a0a3cc83cb6ebc79b66b43fae3ffee64ea2a84a18d7ac3d1fac11e3153f0abf73b">SF_Compute</a></td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ab98a99e3c6e21832ba3771ddbdd19d03" name="ab98a99e3c6e21832ba3771ddbdd19d03"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab98a99e3c6e21832ba3771ddbdd19d03">&#9670;&#160;</a></span>IMPLEMENT_GLOBAL_SHADER() <span class="overload">[9/22]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">IMPLEMENT_GLOBAL_SHADER </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d7/d64/class_f_filter_probe_radiance_with_gather_c_s.html">FFilterProbeRadianceWithGatherCS</a></td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&quot;/Engine/<a class="el" href="../../d9/db1/namespace_private.html">Private</a>/<a class="el" href="../../de/de9/namespace_lumen.html">Lumen</a>/LumenRadianceCache.usf&quot;</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&quot;FilterProbeRadianceWithGatherCS&quot;</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../da/dca/_r_h_i_definitions_8h.html#a0a3cc83cb6ebc79b66b43fae3ffee64ea2a84a18d7ac3d1fac11e3153f0abf73b">SF_Compute</a></td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a7bc2e9932c9abb1f21bbe2d07254dc5c" name="a7bc2e9932c9abb1f21bbe2d07254dc5c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7bc2e9932c9abb1f21bbe2d07254dc5c">&#9670;&#160;</a></span>IMPLEMENT_GLOBAL_SHADER() <span class="overload">[10/22]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">IMPLEMENT_GLOBAL_SHADER </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d0/dff/class_f_fixup_borders_and_generate_mips_c_s.html">FFixupBordersAndGenerateMipsCS</a></td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&quot;/Engine/<a class="el" href="../../d9/db1/namespace_private.html">Private</a>/<a class="el" href="../../de/de9/namespace_lumen.html">Lumen</a>/LumenRadianceCache.usf&quot;</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&quot;FixupBordersAndGenerateMipsCS&quot;</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../da/dca/_r_h_i_definitions_8h.html#a0a3cc83cb6ebc79b66b43fae3ffee64ea2a84a18d7ac3d1fac11e3153f0abf73b">SF_Compute</a></td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a54ac1ef8c878ff4c90fd43feebc0a489" name="a54ac1ef8c878ff4c90fd43feebc0a489"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a54ac1ef8c878ff4c90fd43feebc0a489">&#9670;&#160;</a></span>IMPLEMENT_GLOBAL_SHADER() <span class="overload">[11/22]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">IMPLEMENT_GLOBAL_SHADER </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d2/d30/class_f_generate_adaptive_probe_trace_tiles_c_s.html">FGenerateAdaptiveProbeTraceTilesCS</a></td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&quot;/Engine/<a class="el" href="../../d9/db1/namespace_private.html">Private</a>/<a class="el" href="../../de/de9/namespace_lumen.html">Lumen</a>/LumenRadianceCache.usf&quot;</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&quot;GenerateAdaptiveProbeTraceTilesCS&quot;</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../da/dca/_r_h_i_definitions_8h.html#a0a3cc83cb6ebc79b66b43fae3ffee64ea2a84a18d7ac3d1fac11e3153f0abf73b">SF_Compute</a></td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a97ed58a9fd7cb26fbabbffbc281ccb0a" name="a97ed58a9fd7cb26fbabbffbc281ccb0a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a97ed58a9fd7cb26fbabbffbc281ccb0a">&#9670;&#160;</a></span>IMPLEMENT_GLOBAL_SHADER() <span class="overload">[12/22]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">IMPLEMENT_GLOBAL_SHADER </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d0/dfe/class_f_generate_uniform_probe_trace_tiles_c_s.html">FGenerateUniformProbeTraceTilesCS</a></td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&quot;/Engine/<a class="el" href="../../d9/db1/namespace_private.html">Private</a>/<a class="el" href="../../de/de9/namespace_lumen.html">Lumen</a>/LumenRadianceCache.usf&quot;</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&quot;GenerateUniformProbeTraceTilesCS&quot;</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../da/dca/_r_h_i_definitions_8h.html#a0a3cc83cb6ebc79b66b43fae3ffee64ea2a84a18d7ac3d1fac11e3153f0abf73b">SF_Compute</a></td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a512810b9f08042221e7d85b4989b0114" name="a512810b9f08042221e7d85b4989b0114"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a512810b9f08042221e7d85b4989b0114">&#9670;&#160;</a></span>IMPLEMENT_GLOBAL_SHADER() <span class="overload">[13/22]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">IMPLEMENT_GLOBAL_SHADER </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d9/d4a/class_f_mark_radiance_probes_used_by_visualize_c_s.html">FMarkRadianceProbesUsedByVisualizeCS</a></td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&quot;/Engine/<a class="el" href="../../d9/db1/namespace_private.html">Private</a>/<a class="el" href="../../de/de9/namespace_lumen.html">Lumen</a>/LumenRadianceCache.usf&quot;</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&quot;MarkRadianceProbesUsedByVisualizeCS&quot;</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../da/dca/_r_h_i_definitions_8h.html#a0a3cc83cb6ebc79b66b43fae3ffee64ea2a84a18d7ac3d1fac11e3153f0abf73b">SF_Compute</a></td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a446b84fdb4aadbcab49c44211161f5df" name="a446b84fdb4aadbcab49c44211161f5df"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a446b84fdb4aadbcab49c44211161f5df">&#9670;&#160;</a></span>IMPLEMENT_GLOBAL_SHADER() <span class="overload">[14/22]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">IMPLEMENT_GLOBAL_SHADER </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d9/def/class_f_prepare_probe_occlusion_c_s.html">FPrepareProbeOcclusionCS</a></td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&quot;/Engine/<a class="el" href="../../d9/db1/namespace_private.html">Private</a>/<a class="el" href="../../de/de9/namespace_lumen.html">Lumen</a>/LumenRadianceCache.usf&quot;</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&quot;PrepareProbeOcclusionCS&quot;</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../da/dca/_r_h_i_definitions_8h.html#a0a3cc83cb6ebc79b66b43fae3ffee64ea2a84a18d7ac3d1fac11e3153f0abf73b">SF_Compute</a></td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a355de1e7b92bed422431a91cb33163cd" name="a355de1e7b92bed422431a91cb33163cd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a355de1e7b92bed422431a91cb33163cd">&#9670;&#160;</a></span>IMPLEMENT_GLOBAL_SHADER() <span class="overload">[15/22]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">IMPLEMENT_GLOBAL_SHADER </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d6/d6d/class_f_radiance_cache_trace_from_probes_c_s.html">FRadianceCacheTraceFromProbesCS</a></td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&quot;/Engine/<a class="el" href="../../d9/db1/namespace_private.html">Private</a>/<a class="el" href="../../de/de9/namespace_lumen.html">Lumen</a>/LumenRadianceCache.usf&quot;</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&quot;TraceFromProbesCS&quot;</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../da/dca/_r_h_i_definitions_8h.html#a0a3cc83cb6ebc79b66b43fae3ffee64ea2a84a18d7ac3d1fac11e3153f0abf73b">SF_Compute</a></td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a163b726041d751b5f76c24e3550f5a2b" name="a163b726041d751b5f76c24e3550f5a2b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a163b726041d751b5f76c24e3550f5a2b">&#9670;&#160;</a></span>IMPLEMENT_GLOBAL_SHADER() <span class="overload">[16/22]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">IMPLEMENT_GLOBAL_SHADER </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d4/db3/class_f_radiance_cache_update_stats_c_s.html">FRadianceCacheUpdateStatsCS</a></td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&quot;/Engine/<a class="el" href="../../d9/db1/namespace_private.html">Private</a>/<a class="el" href="../../de/de9/namespace_lumen.html">Lumen</a>/LumenRadianceCacheDebug.usf&quot;</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&quot;RadianceCacheUpdateStatsCS&quot;</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../da/dca/_r_h_i_definitions_8h.html#a0a3cc83cb6ebc79b66b43fae3ffee64ea2a84a18d7ac3d1fac11e3153f0abf73b">SF_Compute</a></td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aaf1ba9aa44b7b01029d291742b646c25" name="aaf1ba9aa44b7b01029d291742b646c25"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aaf1ba9aa44b7b01029d291742b646c25">&#9670;&#160;</a></span>IMPLEMENT_GLOBAL_SHADER() <span class="overload">[17/22]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">IMPLEMENT_GLOBAL_SHADER </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../dd/d7c/class_f_scatter_screen_probe_b_r_d_f_to_radiance_probes_c_s.html">FScatterScreenProbeBRDFToRadianceProbesCS</a></td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&quot;/Engine/<a class="el" href="../../d9/db1/namespace_private.html">Private</a>/<a class="el" href="../../de/de9/namespace_lumen.html">Lumen</a>/LumenRadianceCache.usf&quot;</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&quot;ScatterScreenProbeBRDFToRadianceProbesCS&quot;</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../da/dca/_r_h_i_definitions_8h.html#a0a3cc83cb6ebc79b66b43fae3ffee64ea2a84a18d7ac3d1fac11e3153f0abf73b">SF_Compute</a></td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a5521be0840f18ddf691555c4f57ebe6c" name="a5521be0840f18ddf691555c4f57ebe6c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5521be0840f18ddf691555c4f57ebe6c">&#9670;&#160;</a></span>IMPLEMENT_GLOBAL_SHADER() <span class="overload">[18/22]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">IMPLEMENT_GLOBAL_SHADER </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../df/d07/class_f_select_max_priority_bucket_c_s.html">FSelectMaxPriorityBucketCS</a></td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&quot;/Engine/<a class="el" href="../../d9/db1/namespace_private.html">Private</a>/<a class="el" href="../../de/de9/namespace_lumen.html">Lumen</a>/LumenRadianceCacheUpdate.usf&quot;</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&quot;SelectMaxPriorityBucketCS&quot;</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../da/dca/_r_h_i_definitions_8h.html#a0a3cc83cb6ebc79b66b43fae3ffee64ea2a84a18d7ac3d1fac11e3153f0abf73b">SF_Compute</a></td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a532c5caeb185ea5e6a71879f15b8cf01" name="a532c5caeb185ea5e6a71879f15b8cf01"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a532c5caeb185ea5e6a71879f15b8cf01">&#9670;&#160;</a></span>IMPLEMENT_GLOBAL_SHADER() <span class="overload">[19/22]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">IMPLEMENT_GLOBAL_SHADER </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../da/d4a/class_f_setup_probe_indirect_args_c_s.html">FSetupProbeIndirectArgsCS</a></td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&quot;/Engine/<a class="el" href="../../d9/db1/namespace_private.html">Private</a>/<a class="el" href="../../de/de9/namespace_lumen.html">Lumen</a>/LumenRadianceCache.usf&quot;</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&quot;SetupProbeIndirectArgsCS&quot;</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../da/dca/_r_h_i_definitions_8h.html#a0a3cc83cb6ebc79b66b43fae3ffee64ea2a84a18d7ac3d1fac11e3153f0abf73b">SF_Compute</a></td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="af13a2b8fea211e77db84e60c2af71765" name="af13a2b8fea211e77db84e60c2af71765"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af13a2b8fea211e77db84e60c2af71765">&#9670;&#160;</a></span>IMPLEMENT_GLOBAL_SHADER() <span class="overload">[20/22]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">IMPLEMENT_GLOBAL_SHADER </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d8/d30/class_f_setup_trace_from_probes_c_s.html">FSetupTraceFromProbesCS</a></td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&quot;/Engine/<a class="el" href="../../d9/db1/namespace_private.html">Private</a>/<a class="el" href="../../de/de9/namespace_lumen.html">Lumen</a>/LumenRadianceCache.usf&quot;</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&quot;SetupTraceFromProbesCS&quot;</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../da/dca/_r_h_i_definitions_8h.html#a0a3cc83cb6ebc79b66b43fae3ffee64ea2a84a18d7ac3d1fac11e3153f0abf73b">SF_Compute</a></td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ade200851214ff9bae59ef45f67d380ba" name="ade200851214ff9bae59ef45f67d380ba"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ade200851214ff9bae59ef45f67d380ba">&#9670;&#160;</a></span>IMPLEMENT_GLOBAL_SHADER() <span class="overload">[21/22]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">IMPLEMENT_GLOBAL_SHADER </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d0/df3/class_f_sort_probe_trace_tiles_c_s.html">FSortProbeTraceTilesCS</a></td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&quot;/Engine/<a class="el" href="../../d9/db1/namespace_private.html">Private</a>/<a class="el" href="../../de/de9/namespace_lumen.html">Lumen</a>/LumenRadianceCache.usf&quot;</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&quot;SortProbeTraceTilesCS&quot;</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../da/dca/_r_h_i_definitions_8h.html#a0a3cc83cb6ebc79b66b43fae3ffee64ea2a84a18d7ac3d1fac11e3153f0abf73b">SF_Compute</a></td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a14e8564fb723e4e08073071398eedbfa" name="a14e8564fb723e4e08073071398eedbfa"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a14e8564fb723e4e08073071398eedbfa">&#9670;&#160;</a></span>IMPLEMENT_GLOBAL_SHADER() <span class="overload">[22/22]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">IMPLEMENT_GLOBAL_SHADER </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d8/dd5/class_f_update_cache_for_used_probes_c_s.html">FUpdateCacheForUsedProbesCS</a></td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&quot;/Engine/<a class="el" href="../../d9/db1/namespace_private.html">Private</a>/<a class="el" href="../../de/de9/namespace_lumen.html">Lumen</a>/LumenRadianceCacheUpdate.usf&quot;</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&quot;UpdateCacheForUsedProbesCS&quot;</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../da/dca/_r_h_i_definitions_8h.html#a0a3cc83cb6ebc79b66b43fae3ffee64ea2a84a18d7ac3d1fac11e3153f0abf73b">SF_Compute</a></td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aedc179db36fc0640965f3cae8fc7b3de" name="aedc179db36fc0640965f3cae8fc7b3de"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aedc179db36fc0640965f3cae8fc7b3de">&#9670;&#160;</a></span>MarkUsedProbesForVisualize()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../df/d63/_typed_element_query_capabilities_8inl.html#a72343342ce64c0755563ee6c5e27868d">void</a> MarkUsedProbesForVisualize </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d3/d85/class_f_r_d_g_builder.html">FRDGBuilder</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>GraphBuilder</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="../../dd/d2b/class_f_view_info.html">FViewInfo</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>View</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const LumenRadianceCache::FRadianceCacheMarkParameters &amp;</td>          <td class="paramname"><span class="paramname"><em>RadianceCacheMarkParameters</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d6/de8/_render_graph_definitions_8h.html#a3b73b7355dd6964375c48c23d5fb76da">ERDGPassFlags</a></td>          <td class="paramname"><span class="paramname"><em>ComputePassFlags</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ad004ed84595beedebbe5d44600e9c0d9" name="ad004ed84595beedebbe5d44600e9c0d9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad004ed84595beedebbe5d44600e9c0d9">&#9670;&#160;</a></span>SupportAdaptiveProbes()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a> SupportAdaptiveProbes </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../de/d49/_r_h_i_shader_platform_8h.html#a424c00593a28eb7ade584eea91161acd">EShaderPlatform</a></td>          <td class="paramname"><span class="paramname"><em>Platform</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a6bb170a9da9d708e9347958c0ff026cf" name="a6bb170a9da9d708e9347958c0ff026cf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6bb170a9da9d708e9347958c0ff026cf">&#9670;&#160;</a></span>UpdateRadianceCacheState()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a> UpdateRadianceCacheState </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d3/d85/class_f_r_d_g_builder.html">FRDGBuilder</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>GraphBuilder</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="../../dd/d2b/class_f_view_info.html">FViewInfo</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>View</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const LumenRadianceCache::FRadianceCacheInputs &amp;</td>          <td class="paramname"><span class="paramname"><em>RadianceCacheInputs</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d6/da4/class_f_radiance_cache_state.html">FRadianceCacheState</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>CacheState</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a name="doc-var-members" id="doc-var-members"></a><h2 id="header-doc-var-members" class="groupheader">变量说明</h2>
+<a id="aaeeb3cfaa108f760328872e7d9f7c6df" name="aaeeb3cfaa108f760328872e7d9f7c6df"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aaeeb3cfaa108f760328872e7d9f7c6df">&#9670;&#160;</a></span>CVarRadianceCacheShowBlackRadianceCacheLighting</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d2/d79/class_f_auto_console_variable_ref.html">FAutoConsoleVariableRef</a> CVarRadianceCacheShowBlackRadianceCacheLighting(<a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;r.Lumen.RadianceCache.ShowBlackRadianceCacheLighting&quot;), <a class="el" href="#a32794583bb8df17d4c2f92e4027acae7">GRadianceCacheShowBlackRadianceCacheLighting</a>, <a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;&quot;), <a class="el" href="../../d4/dd9/_i_console_manager_8h.html#a7f594f23c2b2c5687f1a502ebb3ba105a774ea60f41417af093a7ca56c4204a70">ECVF_RenderThreadSafe</a>) </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;r.Lumen.RadianceCache.ShowBlackRadianceCacheLighting&quot;)</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="#a32794583bb8df17d4c2f92e4027acae7">GRadianceCacheShowBlackRadianceCacheLighting</a></td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;&quot;)</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d4/dd9/_i_console_manager_8h.html#a7f594f23c2b2c5687f1a502ebb3ba105a774ea60f41417af093a7ca56c4204a70">ECVF_RenderThreadSafe</a></td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a1f9e4dc84ff18127694fdbefe5c6249d" name="a1f9e4dc84ff18127694fdbefe5c6249d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1f9e4dc84ff18127694fdbefe5c6249d">&#9670;&#160;</a></span>CVarRadianceCacheSortTraceTiles</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d2/d79/class_f_auto_console_variable_ref.html">FAutoConsoleVariableRef</a> CVarRadianceCacheSortTraceTiles(<a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;r.Lumen.RadianceCache.SortTraceTiles&quot;), <a class="el" href="#a333ab6c00688a10cd1008aff15c235f9">GRadianceCacheSortTraceTiles</a>, <a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;Whether to sort Trace Tiles by direction before tracing to extract coherency&quot;), <a class="el" href="../../d4/dd9/_i_console_manager_8h.html#a7f594f23c2b2c5687f1a502ebb3ba105a774ea60f41417af093a7ca56c4204a70">ECVF_RenderThreadSafe</a>) </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;r.Lumen.RadianceCache.SortTraceTiles&quot;)</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="#a333ab6c00688a10cd1008aff15c235f9">GRadianceCacheSortTraceTiles</a></td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;Whether to sort Trace Tiles by direction before tracing to extract coherency&quot;)</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d4/dd9/_i_console_manager_8h.html#a7f594f23c2b2c5687f1a502ebb3ba105a774ea60f41417af093a7ca56c4204a70">ECVF_RenderThreadSafe</a></td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="afaaec1ea9c6670a466d8ef5086201295" name="afaaec1ea9c6670a466d8ef5086201295"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afaaec1ea9c6670a466d8ef5086201295">&#9670;&#160;</a></span>CVarRadianceCacheUpdate</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d2/d79/class_f_auto_console_variable_ref.html">FAutoConsoleVariableRef</a> CVarRadianceCacheUpdate(<a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;r.Lumen.RadianceCache.Update&quot;), <a class="el" href="#a9696ae850ff9865713bbfc07feab0bf5">GRadianceCacheUpdate</a>, <a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;Whether to update radiance cache every frame. Useful <a class="el" href="../../d3/db8/binka__ue__decode__test_8cpp.html#ac1ee511585a5c7a2d58c146185895b72">for</a> debugging.&quot;), <a class="el" href="../../d4/dd9/_i_console_manager_8h.html#a7f594f23c2b2c5687f1a502ebb3ba105a774ea60f41417af093a7ca56c4204a70">ECVF_RenderThreadSafe</a>) </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;r.Lumen.RadianceCache.Update&quot;)</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="#a9696ae850ff9865713bbfc07feab0bf5">GRadianceCacheUpdate</a></td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;Whether to update radiance cache every frame. Useful <a class="el" href="../../d3/db8/binka__ue__decode__test_8cpp.html#ac1ee511585a5c7a2d58c146185895b72">for</a> debugging.&quot;)</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d4/dd9/_i_console_manager_8h.html#a7f594f23c2b2c5687f1a502ebb3ba105a774ea60f41417af093a7ca56c4204a70">ECVF_RenderThreadSafe</a></td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a1e5b343c6c8ddb8fe56ff609d84fc49b" name="a1e5b343c6c8ddb8fe56ff609d84fc49b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1e5b343c6c8ddb8fe56ff609d84fc49b">&#9670;&#160;</a></span>CVarRadianceForceFullUpdate</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d2/d79/class_f_auto_console_variable_ref.html">FAutoConsoleVariableRef</a> CVarRadianceForceFullUpdate(<a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;r.Lumen.RadianceCache.ForceFullUpdate&quot;), <a class="el" href="#a21582be302583fd8e4a8632696c2de01">GRadianceCacheForceFullUpdate</a>, <a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;Whether to update entuire radiance cache once. Useful <a class="el" href="../../d3/db8/binka__ue__decode__test_8cpp.html#ac1ee511585a5c7a2d58c146185895b72">for</a> debugging.&quot;), <a class="el" href="../../d4/dd9/_i_console_manager_8h.html#a7f594f23c2b2c5687f1a502ebb3ba105a774ea60f41417af093a7ca56c4204a70">ECVF_RenderThreadSafe</a>) </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;r.Lumen.RadianceCache.ForceFullUpdate&quot;)</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="#a21582be302583fd8e4a8632696c2de01">GRadianceCacheForceFullUpdate</a></td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;Whether to update entuire radiance cache once. Useful <a class="el" href="../../d3/db8/binka__ue__decode__test_8cpp.html#ac1ee511585a5c7a2d58c146185895b72">for</a> debugging.&quot;)</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d4/dd9/_i_console_manager_8h.html#a7f594f23c2b2c5687f1a502ebb3ba105a774ea60f41417af093a7ca56c4204a70">ECVF_RenderThreadSafe</a></td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a4ab5a744c0eed92fed7e8639945fafd5" name="a4ab5a744c0eed92fed7e8639945fafd5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4ab5a744c0eed92fed7e8639945fafd5">&#9670;&#160;</a></span>GLumenRadianceCacheDownsampleDistanceFromCamera</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../df/d2a/_s_anim_notify_shared_8h.html#ac7c94e837fed3f8e4bb3dd94d7bd2ecf">float</a> GLumenRadianceCacheDownsampleDistanceFromCamera = 4000.0f</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a09e8084786244bf4e89945a2573dd75f" name="a09e8084786244bf4e89945a2573dd75f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a09e8084786244bf4e89945a2573dd75f">&#9670;&#160;</a></span>GLumenRadianceCacheFilterMaxRadianceHitAngle</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../df/d2a/_s_anim_notify_shared_8h.html#ac7c94e837fed3f8e4bb3dd94d7bd2ecf">float</a> GLumenRadianceCacheFilterMaxRadianceHitAngle = .2f</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aa980cd2f8fdced4e727a138b73691396" name="aa980cd2f8fdced4e727a138b73691396"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa980cd2f8fdced4e727a138b73691396">&#9670;&#160;</a></span>GLumenRadianceCacheForceUniformTraceTileLevel</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a8dbb3cd84ca9fd010dadfc3815eefa5d">int32</a> GLumenRadianceCacheForceUniformTraceTileLevel = -1</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a1a86a1630ccd5b0324c4b4b7c55b919d" name="a1a86a1630ccd5b0324c4b4b7c55b919d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1a86a1630ccd5b0324c4b4b7c55b919d">&#9670;&#160;</a></span>GLumenRadianceCacheOcclusionKernelCosineExponent</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../df/d2a/_s_anim_notify_shared_8h.html#ac7c94e837fed3f8e4bb3dd94d7bd2ecf">float</a> GLumenRadianceCacheOcclusionKernelCosineExponent = 128.0f</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a80047742a83ab6555b6ea7628eece4f1" name="a80047742a83ab6555b6ea7628eece4f1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a80047742a83ab6555b6ea7628eece4f1">&#9670;&#160;</a></span>GLumenRadianceCacheSupersampleTileBRDFThreshold</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../df/d2a/_s_anim_notify_shared_8h.html#ac7c94e837fed3f8e4bb3dd94d7bd2ecf">float</a> GLumenRadianceCacheSupersampleTileBRDFThreshold = .1f</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a21582be302583fd8e4a8632696c2de01" name="a21582be302583fd8e4a8632696c2de01"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a21582be302583fd8e4a8632696c2de01">&#9670;&#160;</a></span>GRadianceCacheForceFullUpdate</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a8dbb3cd84ca9fd010dadfc3815eefa5d">int32</a> GRadianceCacheForceFullUpdate = 0</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a21c075ce6284742c70dcb8abad073abe" name="a21c075ce6284742c70dcb8abad073abe"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a21c075ce6284742c70dcb8abad073abe">&#9670;&#160;</a></span>GRadianceCacheIrradianceProbeOffsetMode</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a8dbb3cd84ca9fd010dadfc3815eefa5d">int32</a> GRadianceCacheIrradianceProbeOffsetMode = 1</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a32794583bb8df17d4c2f92e4027acae7" name="a32794583bb8df17d4c2f92e4027acae7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a32794583bb8df17d4c2f92e4027acae7">&#9670;&#160;</a></span>GRadianceCacheShowBlackRadianceCacheLighting</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a8dbb3cd84ca9fd010dadfc3815eefa5d">int32</a> GRadianceCacheShowBlackRadianceCacheLighting = 0</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a333ab6c00688a10cd1008aff15c235f9" name="a333ab6c00688a10cd1008aff15c235f9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a333ab6c00688a10cd1008aff15c235f9">&#9670;&#160;</a></span>GRadianceCacheSortTraceTiles</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a8dbb3cd84ca9fd010dadfc3815eefa5d">int32</a> GRadianceCacheSortTraceTiles = 0</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a9696ae850ff9865713bbfc07feab0bf5" name="a9696ae850ff9865713bbfc07feab0bf5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9696ae850ff9865713bbfc07feab0bf5">&#9670;&#160;</a></span>GRadianceCacheUpdate</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a8dbb3cd84ca9fd010dadfc3815eefa5d">int32</a> GRadianceCacheUpdate = 1</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<div id="page-nav" class="page-nav-panel">
+<div id="page-nav-resize-handle"></div>
+<div id="page-nav-tree">
+<div id="page-nav-contents">
+</div><!-- page-nav-contents -->
+</div><!-- page-nav-tree -->
+</div><!-- page-nav -->
+</div><!-- container -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a href="../../dir_0b6ee6e7e9547e675db4add2e5de97da.html">Engine</a></li><li class="navelem"><a href="../../dir_9579d1ecb2c7bf48cbe1049c41745cb4.html">Source</a></li><li class="navelem"><a href="../../dir_9f04efef762572853abdf73f62bebfcc.html">Runtime</a></li><li class="navelem"><a href="../../dir_5ed6327f04b0f38d3f6fe5caa38b0445.html">Renderer</a></li><li class="navelem"><a href="../../dir_e317dc6f09036e33460f39c550131623.html">Private</a></li><li class="navelem"><a href="../../dir_161a7642c6d0198965c23f504e27c348.html">Lumen</a></li><li class="navelem"><a href="../../da/d9d/_lumen_radiance_cache_8cpp.html">LumenRadianceCache.cpp</a></li>
+    <li class="footer">制作者 <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.15.0 </li>
+  </ul>
+</div>
+</body>
+</html>

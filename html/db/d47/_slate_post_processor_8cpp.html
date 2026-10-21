@@ -1,0 +1,931 @@
+<!-- HTML header for doxygen 1.15.0-->
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh">
+<head>
+  <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=11" />
+  <meta name="generator" content="Doxygen 1.15.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>UE 5.8.4: Engine/Source/Runtime/SlateRHIRenderer/Private/SlatePostProcessor.cpp 文件参考</title>
+  <link rel="icon" href="../../EdIconDefault.bmp" type="image/x-icon" />
+  <link href="../../tabs.css" rel="stylesheet" type="text/css" />
+  <script type="text/javascript" src="../../jquery.js"></script>
+  <script type="text/javascript" src="../../dynsections.js"></script>
+  <link href="../../navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../navtreedata.js"></script>
+<script type="text/javascript" src="../../navtree.js"></script>
+<script type="text/javascript" src="../../cookie.js"></script>
+  <link href="../../search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../search/searchdata.js"></script>
+<script type="text/javascript" src="../../search/search.js"></script>
+  <script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  extensions: ["tex2jax.js"],
+  jax: ["input/TeX","output/HTML-CSS"],
+});
+</script>
+<script type="text/javascript" async="async" src="https://cdn.jsdelivr.net/npm/mathjax@2/MathJax.js"></script>
+  <link href="../../doxygen.css" rel="stylesheet" type="text/css" />
+  <link href="../../doxygen-awesome.css" rel="stylesheet" type="text/css"/>
+<link href="../../doxygen-awesome-sidebar-only.css" rel="stylesheet" type="text/css"/>
+<link href="../../doxygen-awesome-sidebar-only-darkmode-toggle.css" rel="stylesheet" type="text/css"/>
+  <!-- ... other metadata & script includes ... -->
+  <script type="text/javascript" src="../../doxygen-awesome-darkmode-toggle.js"></script>
+  <script type="text/javascript">
+    DoxygenAwesomeDarkModeToggle.title = "Zwischen hellem/dunklem Modus wechseln"
+    DoxygenAwesomeDarkModeToggle.lightModeIcon = '🌞'
+    // icon from https://fonts.google.com/icons
+    DoxygenAwesomeDarkModeToggle.darkModeIcon = `<svg xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 24 24" height="24px" viewBox="0 0 24 24" width="24px" fill="#009793"><g><rect fill="none" height="24" width="24"/></g><g><g><path d="M8.1,14.15C9.77,14.63,11,16.17,11,18c0,0.68-0.19,1.31-0.48,1.87c0.48,0.09,0.97,0.14,1.48,0.14 c1.48,0,2.9-0.41,4.13-1.15c-2.62-0.92-5.23-2.82-6.8-5.86C7.74,9.94,7.78,7.09,8.29,4.9c-2.57,1.33-4.3,4.01-4.3,7.1c0,0,0,0,0,0 c0.01,0,0.01,0,0.02,0C5.66,12,7.18,12.83,8.1,14.15z" opacity=".3"/><path d="M19.78,17.51c-2.47,0-6.57-1.33-8.68-5.43C8.77,7.57,10.6,3.6,11.63,2.01C6.27,2.2,1.98,6.59,1.98,12 c0,0.14,0.02,0.28,0.02,0.42C2.61,12.16,3.28,12,3.98,12c0,0,0,0,0,0c0-3.09,1.73-5.77,4.3-7.1C7.78,7.09,7.74,9.94,9.32,13 c1.57,3.04,4.18,4.95,6.8,5.86c-1.23,0.74-2.65,1.15-4.13,1.15c-0.5,0-1-0.05-1.48-0.14c-0.37,0.7-0.94,1.27-1.64,1.64 c0.98,0.32,2.03,0.5,3.11,0.5c3.5,0,6.58-1.8,8.37-4.52C20.18,17.5,19.98,17.51,19.78,17.51z"/><path d="M7,16l-0.18,0C6.4,14.84,5.3,14,4,14c-1.66,0-3,1.34-3,3s1.34,3,3,3c0.62,0,2.49,0,3,0c1.1,0,2-0.9,2-2 C9,16.9,8.1,16,7,16z"/></g></g></svg>`
+    DoxygenAwesomeDarkModeToggle.init()
+  </script>
+  <script type="text/javascript" src="../../doxygen-awesome-fragment-copy-button.js"></script>
+  <script type="text/javascript">
+    DoxygenAwesomeFragmentCopyButton.title = "In die Zwischenablage kopieren"
+    // DoxygenAwesomeFragmentCopyButton.copyIcon = `<svg ...>`
+    // DoxygenAwesomeFragmentCopyButton.successIcon = `<svg ...>`
+    DoxygenAwesomeFragmentCopyButton.init()
+  </script>
+  <script type="text/javascript" src="../../doxygen-awesome-paragraph-link.js"></script>
+  <script type="text/javascript">
+    DoxygenAwesomeParagraphLink.title = "Abschnitt verknüpfen"
+    DoxygenAwesomeParagraphLink.icon = "¶"
+    DoxygenAwesomeParagraphLink.init()
+  </script>
+  <script type="text/javascript" src="../../doxygen-awesome-interactive-toc.js"></script>
+  <script type="text/javascript">
+    DoxygenAwesomeInteractiveToc.topOffset = 45
+    DoxygenAwesomeInteractiveToc.hideMobileMenu = false
+    DoxygenAwesomeInteractiveToc.init()
+  </script>
+</head>
+<body>
+    <div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+      <div id="titlearea">
+        <table cellspacing="0" cellpadding="0">
+          <tbody>
+            <tr id="projectrow">
+              <td id="projectlogo"><img alt="Logo" src="../../EdIconDefault.bmp"  /></td>
+              <td id="projectalign">
+                <div id="projectname">UE 5.8.4
+                </div>
+                <div id="projectbrief">Unreal Engine</div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <!-- end header part -->
+<!-- 制作者 Doxygen 1.15.0 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "../../search/",'.html');
+</script>
+<script type="text/javascript">
+$(function() { codefold.init(); });
+</script>
+<script type="text/javascript" src="../../menudata.js"></script>
+<script type="text/javascript" src="../../menu.js"></script>
+<script type="text/javascript">
+$(function() {
+  initMenu('../../',true,false,'search.php','搜索',true);
+  $(function() { init_search(); });
+});
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(function(){initNavTree('db/d47/_slate_post_processor_8cpp.html','../../',''); });
+</script>
+<div id="container">
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">载入中...</div>
+<div class="SRStatus" id="Searching">搜索中...</div>
+<div class="SRStatus" id="NoMatches">未找到</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">SlatePostProcessor.cpp 文件参考</div></div>
+</div><!--header-->
+<div class="contents">
+<div class="textblock"><code>#include &quot;<a class="el" href="../../d2/da7/_slate_post_processor_8h_source.html">SlatePostProcessor.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../df/df5/_slate_shaders_8h_source.html">SlateShaders.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d9/dff/_renderer_utils_8h_source.html">RendererUtils.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../dd/d74/_slate_r_h_i_rendering_policy_interface_8h_source.html">Interfaces/SlateRHIRenderingPolicyInterface.h</a>&quot;</code><br />
+</div><div class="textblock"><div class="dynheader">
+SlatePostProcessor.cpp 的引用(Include)关系图:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../dd/de0/_slate_post_processor_8cpp__incl.svg" width="3187" height="939"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+</div><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-nested-classes" class="groupheader"><a id="nested-classes" name="nested-classes"></a>
+类</h2></td></tr>
+<tr class="memitem:FCompositeHDRForBlurPS" id="r_FCompositeHDRForBlurPS"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d8/d16/class_f_composite_h_d_r_for_blur_p_s.html">FCompositeHDRForBlurPS</a></td></tr>
+<tr class="memitem:FSlateCompositeHDRForBlurPassInputs" id="r_FSlateCompositeHDRForBlurPassInputs"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/d95/struct_f_slate_composite_h_d_r_for_blur_pass_inputs.html">FSlateCompositeHDRForBlurPassInputs</a></td></tr>
+<tr class="memitem:FSlatePostProcessDirectResamplePS" id="r_FSlatePostProcessDirectResamplePS"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/de0/class_f_slate_post_process_direct_resample_p_s.html">FSlatePostProcessDirectResamplePS</a></td></tr>
+<tr class="memitem:FSlatePostProcessResample2x2PS" id="r_FSlatePostProcessResample2x2PS"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/d86/class_f_slate_post_process_resample2x2_p_s.html">FSlatePostProcessResample2x2PS</a></td></tr>
+<tr class="memitem:FSlatePostProcessDownsamplePassInputs" id="r_FSlatePostProcessDownsamplePassInputs"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/dfa/struct_f_slate_post_process_downsample_pass_inputs.html">FSlatePostProcessDownsamplePassInputs</a></td></tr>
+<tr class="memitem:FSlatePostProcessUpsamplePS" id="r_FSlatePostProcessUpsamplePS"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d2/d20/class_f_slate_post_process_upsample_p_s.html">FSlatePostProcessUpsamplePS</a></td></tr>
+<tr class="memitem:FSlatePostProcessUpsampleInputs" id="r_FSlatePostProcessUpsampleInputs"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/dd7/struct_f_slate_post_process_upsample_inputs.html">FSlatePostProcessUpsampleInputs</a></td></tr>
+<tr class="memitem:FSlatePostProcessOptimizedKawaseUpsamplePS" id="r_FSlatePostProcessOptimizedKawaseUpsamplePS"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/d98/class_f_slate_post_process_optimized_kawase_upsample_p_s.html">FSlatePostProcessOptimizedKawaseUpsamplePS</a></td></tr>
+<tr class="memitem:FSlateKawaseBlurUpsampleParameters" id="r_FSlateKawaseBlurUpsampleParameters"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/dc7/struct_f_slate_kawase_blur_upsample_parameters.html">FSlateKawaseBlurUpsampleParameters</a></td></tr>
+<tr class="memitem:FSlateKawaseBlurInternalConfiguration" id="r_FSlateKawaseBlurInternalConfiguration"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/d77/struct_f_slate_kawase_blur_internal_configuration.html">FSlateKawaseBlurInternalConfiguration</a></td></tr>
+<tr class="memitem:FSlatePostProcessBlurPS" id="r_FSlatePostProcessBlurPS"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/d02/class_f_slate_post_process_blur_p_s.html">FSlatePostProcessBlurPS</a></td></tr>
+<tr class="memitem:FSlatePostProcessColorDeficiencyPS" id="r_FSlatePostProcessColorDeficiencyPS"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/dbe/class_f_slate_post_process_color_deficiency_p_s.html">FSlatePostProcessColorDeficiencyPS</a></td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-enum-members" class="groupheader"><a id="enum-members" name="enum-members"></a>
+枚举</h2></td></tr>
+<tr class="memitem:abbc73d0d9f80c7fcf43535978c9b39bc" id="r_abbc73d0d9f80c7fcf43535978c9b39bc"><td class="memItemLeft" align="right" valign="top">enum class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#abbc73d0d9f80c7fcf43535978c9b39bc">ESlatePostProcessUpsampleOutputFormat</a> { <a class="el" href="#abbc73d0d9f80c7fcf43535978c9b39bca9c38ebb7384dada637be8899efa68e6f">SDR</a> = 0
+, <a class="el" href="#abbc73d0d9f80c7fcf43535978c9b39bcacbd582385e9c2b74736c5ffdbac9c532">HDR_SCRGB</a>
+, <a class="el" href="#abbc73d0d9f80c7fcf43535978c9b39bca5468e3f64b68982fdc6496059f630719">HDR_PQ10</a>
+, <a class="el" href="#abbc73d0d9f80c7fcf43535978c9b39bca26a4b44a837bf97b972628509912b4a5">MAX</a>
+ }</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-func-members" class="groupheader"><a id="func-members" name="func-members"></a>
+函数</h2></td></tr>
+<tr class="memitem:a90f6edd66cb7a85766bd1b7616723c8d" id="r_a90f6edd66cb7a85766bd1b7616723c8d"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a90f6edd66cb7a85766bd1b7616723c8d">CSV_DECLARE_CATEGORY_MODULE_EXTERN</a> (SLATECORE_API, <a class="el" href="../../d7/d4e/namespace_slate.html">Slate</a>)</td></tr>
+<tr class="memitem:ab4ad756ad06337f58968c8d40c5b27ed" id="r_ab4ad756ad06337f58968c8d40c5b27ed"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../df/d2a/_s_anim_notify_shared_8h.html#ac7c94e837fed3f8e4bb3dd94d7bd2ecf">float</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab4ad756ad06337f58968c8d40c5b27ed">GetSlateHDRUILevel</a> ()</td></tr>
+<tr class="memitem:ada641d200df8957acb45207761d8e7f4" id="r_ada641d200df8957acb45207761d8e7f4"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../df/d2a/_s_anim_notify_shared_8h.html#ac7c94e837fed3f8e4bb3dd94d7bd2ecf">float</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ada641d200df8957acb45207761d8e7f4">GetSlateHDRUILuminance</a> ()</td></tr>
+<tr class="memitem:a8471c2c06310756abcff1d4b4b2ca096" id="r_a8471c2c06310756abcff1d4b4b2ca096"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a8dbb3cd84ca9fd010dadfc3815eefa5d">int32</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8471c2c06310756abcff1d4b4b2ca096">GetSlateHDRUILuminanceMode</a> ()</td></tr>
+<tr class="memitem:a1976ad5a0b25f85b34a40a1f5b442fd6" id="r_a1976ad5a0b25f85b34a40a1f5b442fd6"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a8dbb3cd84ca9fd010dadfc3815eefa5d">int32</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a1976ad5a0b25f85b34a40a1f5b442fd6">GetSlateHDRUICompositeEOTF</a> ()</td></tr>
+<tr class="memitem:acd0fb3fc4ac00ba3a2da0ba4b13b0ba4" id="r_acd0fb3fc4ac00ba3a2da0ba4b13b0ba4"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../df/d2a/_s_anim_notify_shared_8h.html#ac7c94e837fed3f8e4bb3dd94d7bd2ecf">float</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#acd0fb3fc4ac00ba3a2da0ba4b13b0ba4">GetSlateHDRUICompositeEOTFGamma</a> ()</td></tr>
+<tr class="memitem:ab2c6e3f72f73cc41e506902ebf6393b1" id="r_ab2c6e3f72f73cc41e506902ebf6393b1"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a8dbb3cd84ca9fd010dadfc3815eefa5d">int32</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab2c6e3f72f73cc41e506902ebf6393b1">GetSlateHDRUICompositeBlend</a> ()</td></tr>
+<tr class="memitem:a79dc424f19f6ef57d6ba1ed5cccf8d22" id="r_a79dc424f19f6ef57d6ba1ed5cccf8d22"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../df/d2a/_s_anim_notify_shared_8h.html#ac7c94e837fed3f8e4bb3dd94d7bd2ecf">float</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a79dc424f19f6ef57d6ba1ed5cccf8d22">GetSlateHDRUICompositeBlendGamma</a> ()</td></tr>
+<tr class="memitem:a2b501be302ba8dcb4c32eecbc1bfe830" id="r_a2b501be302ba8dcb4c32eecbc1bfe830"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../da/dca/_r_h_i_definitions_8h.html#ad4ae7462d4e6cb213ec4f7673da42d5d">ETextureCreateFlags</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2b501be302ba8dcb4c32eecbc1bfe830">GetSlateTransientRenderTargetFlags</a> ()</td></tr>
+<tr class="memitem:a809f51c1adb53113d5af12409af8cb81" id="r_a809f51c1adb53113d5af12409af8cb81"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../da/dca/_r_h_i_definitions_8h.html#ad4ae7462d4e6cb213ec4f7673da42d5d">ETextureCreateFlags</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a809f51c1adb53113d5af12409af8cb81">GetSlateTransientDepthStencilFlags</a> ()</td></tr>
+<tr class="memitem:a3bcc4676c09c6ad69f91fa9d7c03f7d0" id="r_a3bcc4676c09c6ad69f91fa9d7c03f7d0"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a3bcc4676c09c6ad69f91fa9d7c03f7d0">IMPLEMENT_GLOBAL_SHADER</a> (<a class="el" href="../../d8/d16/class_f_composite_h_d_r_for_blur_p_s.html">FCompositeHDRForBlurPS</a>, &quot;/Engine/<a class="el" href="../../d9/db1/namespace_private.html">Private</a>/CompositeUIPixelShader.usf&quot;, &quot;CompositeUIForBlur&quot;, <a class="el" href="../../da/dca/_r_h_i_definitions_8h.html#a0a3cc83cb6ebc79b66b43fae3ffee64eaf50bfe1c5c23e92a75ba64d89bcd3bfa">SF_Pixel</a>)</td></tr>
+<tr class="memitem:adf6291130f07e26dc3f7abd4c579d966" id="r_adf6291130f07e26dc3f7abd4c579d966"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d3/df7/struct_f_screen_pass_texture.html">FScreenPassTexture</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#adf6291130f07e26dc3f7abd4c579d966">AddSlateCompositeHDRForBlurPass</a> (<a class="el" href="../../d3/d85/class_f_r_d_g_builder.html">FRDGBuilder</a> &amp;GraphBuilder, const <a class="el" href="../../d5/d95/struct_f_slate_composite_h_d_r_for_blur_pass_inputs.html">FSlateCompositeHDRForBlurPassInputs</a> &amp;Inputs)</td></tr>
+<tr class="memitem:aadbb0de2c5f627271cf308383f6ddcbf" id="r_aadbb0de2c5f627271cf308383f6ddcbf"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aadbb0de2c5f627271cf308383f6ddcbf">IMPLEMENT_GLOBAL_SHADER</a> (<a class="el" href="../../db/de0/class_f_slate_post_process_direct_resample_p_s.html">FSlatePostProcessDirectResamplePS</a>, &quot;/Engine/<a class="el" href="../../d9/db1/namespace_private.html">Private</a>/SlatePostProcessPixelShader.usf&quot;, &quot;Resample1Main&quot;, <a class="el" href="../../da/dca/_r_h_i_definitions_8h.html#a0a3cc83cb6ebc79b66b43fae3ffee64eaf50bfe1c5c23e92a75ba64d89bcd3bfa">SF_Pixel</a>)</td></tr>
+<tr class="memitem:a439ab37b2c960568d1f49785481f3dc0" id="r_a439ab37b2c960568d1f49785481f3dc0"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a439ab37b2c960568d1f49785481f3dc0">IMPLEMENT_GLOBAL_SHADER</a> (<a class="el" href="../../db/d86/class_f_slate_post_process_resample2x2_p_s.html">FSlatePostProcessResample2x2PS</a>, &quot;/Engine/<a class="el" href="../../d9/db1/namespace_private.html">Private</a>/SlatePostProcessPixelShader.usf&quot;, &quot;Resample2x2Main&quot;, <a class="el" href="../../da/dca/_r_h_i_definitions_8h.html#a0a3cc83cb6ebc79b66b43fae3ffee64eaf50bfe1c5c23e92a75ba64d89bcd3bfa">SF_Pixel</a>)</td></tr>
+<tr class="memitem:a9e9d234a748a0e9fa013fcf2cdb807ea" id="r_a9e9d234a748a0e9fa013fcf2cdb807ea"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d3/df7/struct_f_screen_pass_texture.html">FScreenPassTexture</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9e9d234a748a0e9fa013fcf2cdb807ea">AddSlatePostProcessDownsamplePass</a> (<a class="el" href="../../d3/d85/class_f_r_d_g_builder.html">FRDGBuilder</a> &amp;GraphBuilder, const <a class="el" href="../../d0/dfa/struct_f_slate_post_process_downsample_pass_inputs.html">FSlatePostProcessDownsamplePassInputs</a> &amp;Inputs)</td></tr>
+<tr class="memitem:afdc0daa41d69a3685b4e87e2a32c475a" id="r_afdc0daa41d69a3685b4e87e2a32c475a"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#afdc0daa41d69a3685b4e87e2a32c475a">IMPLEMENT_GLOBAL_SHADER</a> (<a class="el" href="../../d2/d20/class_f_slate_post_process_upsample_p_s.html">FSlatePostProcessUpsamplePS</a>, &quot;/Engine/<a class="el" href="../../d9/db1/namespace_private.html">Private</a>/SlatePostProcessPixelShader.usf&quot;, &quot;UpsampleMain&quot;, <a class="el" href="../../da/dca/_r_h_i_definitions_8h.html#a0a3cc83cb6ebc79b66b43fae3ffee64eaf50bfe1c5c23e92a75ba64d89bcd3bfa">SF_Pixel</a>)</td></tr>
+<tr class="memitem:a27c553bf50594b3951da639c537c4e6e" id="r_a27c553bf50594b3951da639c537c4e6e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../df/d63/_typed_element_query_capabilities_8inl.html#a72343342ce64c0755563ee6c5e27868d">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a27c553bf50594b3951da639c537c4e6e">AddSlatePostProcessUpsamplePass</a> (<a class="el" href="../../d3/d85/class_f_r_d_g_builder.html">FRDGBuilder</a> &amp;GraphBuilder, const <a class="el" href="../../d5/dd7/struct_f_slate_post_process_upsample_inputs.html">FSlatePostProcessUpsampleInputs</a> &amp;Inputs)</td></tr>
+<tr class="memitem:af64d4dab1ebdd8dd0a5081375d1c8a9c" id="r_af64d4dab1ebdd8dd0a5081375d1c8a9c"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af64d4dab1ebdd8dd0a5081375d1c8a9c">IMPLEMENT_GLOBAL_SHADER</a> (<a class="el" href="../../d9/d98/class_f_slate_post_process_optimized_kawase_upsample_p_s.html">FSlatePostProcessOptimizedKawaseUpsamplePS</a>, &quot;/Engine/<a class="el" href="../../d9/db1/namespace_private.html">Private</a>/SlatePostProcessPixelShader.usf&quot;, &quot;OptimizedKawaseUpsampleMain&quot;, <a class="el" href="../../da/dca/_r_h_i_definitions_8h.html#a0a3cc83cb6ebc79b66b43fae3ffee64eaf50bfe1c5c23e92a75ba64d89bcd3bfa">SF_Pixel</a>)</td></tr>
+<tr class="memitem:a7b1ff1556a6801ab9308f6ba14cf013a" id="r_a7b1ff1556a6801ab9308f6ba14cf013a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../db/dc7/struct_f_slate_kawase_blur_upsample_parameters.html">FSlateKawaseBlurUpsampleParameters</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7b1ff1556a6801ab9308f6ba14cf013a">GetSlateKawaseBlurUpsampleParameters</a> (<a class="el" href="../../df/d2a/_s_anim_notify_shared_8h.html#ac7c94e837fed3f8e4bb3dd94d7bd2ecf">float</a> Sigma)</td></tr>
+<tr class="memitem:aa5809d1287562370269df14690c87ff6" id="r_aa5809d1287562370269df14690c87ff6"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d9/d77/struct_f_slate_kawase_blur_internal_configuration.html">FSlateKawaseBlurInternalConfiguration</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa5809d1287562370269df14690c87ff6">GetSlateKawaseBlurInternalConfiguration</a> (<a class="el" href="../../df/d2a/_s_anim_notify_shared_8h.html#ac7c94e837fed3f8e4bb3dd94d7bd2ecf">float</a> Sigma)</td></tr>
+<tr class="memitem:a056ce0426a997868ac314a78cb3d766e" id="r_a056ce0426a997868ac314a78cb3d766e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d3/df7/struct_f_screen_pass_texture.html">FScreenPassTexture</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a056ce0426a997868ac314a78cb3d766e">AddSlateKawaseBlur</a> (<a class="el" href="../../d3/d85/class_f_r_d_g_builder.html">FRDGBuilder</a> &amp;GraphBuilder, const <a class="el" href="../../d3/df7/struct_f_screen_pass_texture.html">FScreenPassTexture</a> &amp;InputTexture, const <a class="el" href="../../d9/d77/struct_f_slate_kawase_blur_internal_configuration.html">FSlateKawaseBlurInternalConfiguration</a> &amp;Configuration)</td></tr>
+<tr class="memitem:ac73dc59b07c3a847b9ac4e811a2d706d" id="r_ac73dc59b07c3a847b9ac4e811a2d706d"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac73dc59b07c3a847b9ac4e811a2d706d">IMPLEMENT_GLOBAL_SHADER</a> (<a class="el" href="../../d0/d02/class_f_slate_post_process_blur_p_s.html">FSlatePostProcessBlurPS</a>, &quot;/Engine/<a class="el" href="../../d9/db1/namespace_private.html">Private</a>/SlatePostProcessPixelShader.usf&quot;, &quot;GaussianBlurMain&quot;, <a class="el" href="../../da/dca/_r_h_i_definitions_8h.html#a0a3cc83cb6ebc79b66b43fae3ffee64eaf50bfe1c5c23e92a75ba64d89bcd3bfa">SF_Pixel</a>)</td></tr>
+<tr class="memitem:a75522e06b4ce644d02c6c42a87b28acf" id="r_a75522e06b4ce644d02c6c42a87b28acf"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d3/df7/struct_f_screen_pass_texture.html">FScreenPassTexture</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a75522e06b4ce644d02c6c42a87b28acf">AddSlatePostProcessOldGaussianBlur</a> (<a class="el" href="../../d3/d85/class_f_r_d_g_builder.html">FRDGBuilder</a> &amp;GraphBuilder, const <a class="el" href="../../d7/dbe/struct_f_slate_post_process_blur_pass_inputs.html">FSlatePostProcessBlurPassInputs</a> &amp;Inputs)</td></tr>
+<tr class="memitem:ab998230baa0d4248d1bdba19ace82e2d" id="r_ab998230baa0d4248d1bdba19ace82e2d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../df/d63/_typed_element_query_capabilities_8inl.html#a72343342ce64c0755563ee6c5e27868d">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab998230baa0d4248d1bdba19ace82e2d">AddSlatePostProcessBlurPass</a> (<a class="el" href="../../d3/d85/class_f_r_d_g_builder.html">FRDGBuilder</a> &amp;GraphBuilder, const <a class="el" href="../../d7/dbe/struct_f_slate_post_process_blur_pass_inputs.html">FSlatePostProcessBlurPassInputs</a> &amp;Inputs)</td></tr>
+<tr class="memitem:a4334fd900311e18c3157e14c66c9a3e1" id="r_a4334fd900311e18c3157e14c66c9a3e1"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../df/d63/_typed_element_query_capabilities_8inl.html#a72343342ce64c0755563ee6c5e27868d">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4334fd900311e18c3157e14c66c9a3e1">AddSlatePostProcessCopy</a> (<a class="el" href="../../d3/d85/class_f_r_d_g_builder.html">FRDGBuilder</a> &amp;GraphBuilder, <a class="el" href="../../d3/df7/struct_f_screen_pass_texture.html">FScreenPassTexture</a> Input, <a class="el" href="../../d3/df7/struct_f_screen_pass_texture.html">FScreenPassTexture</a> Output)</td></tr>
+<tr class="memitem:a3afe8255ecd484fe626a4b995f52d8dc" id="r_a3afe8255ecd484fe626a4b995f52d8dc"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../df/d63/_typed_element_query_capabilities_8inl.html#a72343342ce64c0755563ee6c5e27868d">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a3afe8255ecd484fe626a4b995f52d8dc">AddSlatePostProcessBlurPass</a> (<a class="el" href="../../d3/d85/class_f_r_d_g_builder.html">FRDGBuilder</a> &amp;GraphBuilder, const <a class="el" href="../../d7/da1/struct_f_slate_post_process_simple_blur_pass_inputs.html">FSlatePostProcessSimpleBlurPassInputs</a> &amp;SimpleInputs)</td></tr>
+<tr class="memitem:a260d91c1ed8660c79537fc1627ff0dba" id="r_a260d91c1ed8660c79537fc1627ff0dba"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a260d91c1ed8660c79537fc1627ff0dba">IMPLEMENT_GLOBAL_SHADER</a> (<a class="el" href="../../da/dbe/class_f_slate_post_process_color_deficiency_p_s.html">FSlatePostProcessColorDeficiencyPS</a>, &quot;/Engine/<a class="el" href="../../d9/db1/namespace_private.html">Private</a>/SlatePostProcessColorDeficiencyPixelShader.usf&quot;, &quot;ColorDeficiencyMain&quot;, <a class="el" href="../../da/dca/_r_h_i_definitions_8h.html#a0a3cc83cb6ebc79b66b43fae3ffee64eaf50bfe1c5c23e92a75ba64d89bcd3bfa">SF_Pixel</a>)</td></tr>
+<tr class="memitem:aeddf5b962ac6ba4c3192f6ef2a32f181" id="r_aeddf5b962ac6ba4c3192f6ef2a32f181"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../df/d63/_typed_element_query_capabilities_8inl.html#a72343342ce64c0755563ee6c5e27868d">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aeddf5b962ac6ba4c3192f6ef2a32f181">AddSlatePostProcessColorDeficiencyPass</a> (<a class="el" href="../../d3/d85/class_f_r_d_g_builder.html">FRDGBuilder</a> &amp;GraphBuilder, const <a class="el" href="../../d5/d19/struct_f_slate_post_process_color_deficiency_pass_inputs.html">FSlatePostProcessColorDeficiencyPassInputs</a> &amp;Inputs)</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-var-members" class="groupheader"><a id="var-members" name="var-members"></a>
+变量</h2></td></tr>
+<tr class="memitem:a5a909930db39a03a017bd59e837c1b8f" id="r_a5a909930db39a03a017bd59e837c1b8f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d2/d79/class_f_auto_console_variable_ref.html">FAutoConsoleVariableRef</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5a909930db39a03a017bd59e837c1b8f">CVarSlatePostBlurUseDualKawaseFilter</a> (<a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;UI.SlatePostBlurUseDualKawaseFilter&quot;), SlatePostBlurDualKawaseFilterEnable, <a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;Toggles between the old Gaussian blur implementation (0) and the new optimized Dual Kawase filter blur implementation (1)&quot;))</td></tr>
+<tr class="memitem:af92e3a9f7b7128fbff6c04fd4eec2267" id="r_af92e3a9f7b7128fbff6c04fd4eec2267"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d2/d79/class_f_auto_console_variable_ref.html">FAutoConsoleVariableRef</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af92e3a9f7b7128fbff6c04fd4eec2267">CVarSlatePostBlurStrengthOverride</a> (<a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;UI.SlatePostBlurStrengthOverride&quot;), SlatePostBlurStrengthOverride, <a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;Globally overrides the blur strength <a class="el" href="../../d3/db8/binka__ue__decode__test_8cpp.html#ac1ee511585a5c7a2d58c146185895b72">for</a> all <a class="el" href="../../d7/d4e/namespace_slate.html">Slate</a> post process blurs (0 = no override)&quot;))</td></tr>
+</table>
+<a name="doc-enum-members" id="doc-enum-members"></a><h2 id="header-doc-enum-members" class="groupheader">枚举类型说明</h2>
+<a id="abbc73d0d9f80c7fcf43535978c9b39bc" name="abbc73d0d9f80c7fcf43535978c9b39bc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abbc73d0d9f80c7fcf43535978c9b39bc">&#9670;&#160;</a></span>ESlatePostProcessUpsampleOutputFormat</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum class <a class="el" href="#abbc73d0d9f80c7fcf43535978c9b39bc">ESlatePostProcessUpsampleOutputFormat</a></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel strong">strong</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<table class="fieldtable">
+<tr><th colspan="2">枚举值</th></tr><tr><td class="fieldname"><a id="abbc73d0d9f80c7fcf43535978c9b39bca9c38ebb7384dada637be8899efa68e6f" name="abbc73d0d9f80c7fcf43535978c9b39bca9c38ebb7384dada637be8899efa68e6f"></a>SDR&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="abbc73d0d9f80c7fcf43535978c9b39bcacbd582385e9c2b74736c5ffdbac9c532" name="abbc73d0d9f80c7fcf43535978c9b39bcacbd582385e9c2b74736c5ffdbac9c532"></a>HDR_SCRGB&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="abbc73d0d9f80c7fcf43535978c9b39bca5468e3f64b68982fdc6496059f630719" name="abbc73d0d9f80c7fcf43535978c9b39bca5468e3f64b68982fdc6496059f630719"></a>HDR_PQ10&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="abbc73d0d9f80c7fcf43535978c9b39bca26a4b44a837bf97b972628509912b4a5" name="abbc73d0d9f80c7fcf43535978c9b39bca26a4b44a837bf97b972628509912b4a5"></a>MAX&#160;</td><td class="fielddoc"></td></tr>
+</table>
+
+</div>
+</div>
+<a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">函数说明</h2>
+<a id="adf6291130f07e26dc3f7abd4c579d966" name="adf6291130f07e26dc3f7abd4c579d966"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adf6291130f07e26dc3f7abd4c579d966">&#9670;&#160;</a></span>AddSlateCompositeHDRForBlurPass()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d3/df7/struct_f_screen_pass_texture.html">FScreenPassTexture</a> AddSlateCompositeHDRForBlurPass </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d3/d85/class_f_r_d_g_builder.html">FRDGBuilder</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>GraphBuilder</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="../../d5/d95/struct_f_slate_composite_h_d_r_for_blur_pass_inputs.html">FSlateCompositeHDRForBlurPassInputs</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>Inputs</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a056ce0426a997868ac314a78cb3d766e" name="a056ce0426a997868ac314a78cb3d766e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a056ce0426a997868ac314a78cb3d766e">&#9670;&#160;</a></span>AddSlateKawaseBlur()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d3/df7/struct_f_screen_pass_texture.html">FScreenPassTexture</a> AddSlateKawaseBlur </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d3/d85/class_f_r_d_g_builder.html">FRDGBuilder</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>GraphBuilder</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="../../d3/df7/struct_f_screen_pass_texture.html">FScreenPassTexture</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>InputTexture</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="../../d9/d77/struct_f_slate_kawase_blur_internal_configuration.html">FSlateKawaseBlurInternalConfiguration</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>Configuration</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ab998230baa0d4248d1bdba19ace82e2d" name="ab998230baa0d4248d1bdba19ace82e2d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab998230baa0d4248d1bdba19ace82e2d">&#9670;&#160;</a></span>AddSlatePostProcessBlurPass() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../df/d63/_typed_element_query_capabilities_8inl.html#a72343342ce64c0755563ee6c5e27868d">void</a> AddSlatePostProcessBlurPass </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d3/d85/class_f_r_d_g_builder.html">FRDGBuilder</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>GraphBuilder</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="../../d7/dbe/struct_f_slate_post_process_blur_pass_inputs.html">FSlatePostProcessBlurPassInputs</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>Inputs</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a3afe8255ecd484fe626a4b995f52d8dc" name="a3afe8255ecd484fe626a4b995f52d8dc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3afe8255ecd484fe626a4b995f52d8dc">&#9670;&#160;</a></span>AddSlatePostProcessBlurPass() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../df/d63/_typed_element_query_capabilities_8inl.html#a72343342ce64c0755563ee6c5e27868d">void</a> AddSlatePostProcessBlurPass </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d3/d85/class_f_r_d_g_builder.html">FRDGBuilder</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>GraphBuilder</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="../../d7/da1/struct_f_slate_post_process_simple_blur_pass_inputs.html">FSlatePostProcessSimpleBlurPassInputs</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>SimpleInputs</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aeddf5b962ac6ba4c3192f6ef2a32f181" name="aeddf5b962ac6ba4c3192f6ef2a32f181"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aeddf5b962ac6ba4c3192f6ef2a32f181">&#9670;&#160;</a></span>AddSlatePostProcessColorDeficiencyPass()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../df/d63/_typed_element_query_capabilities_8inl.html#a72343342ce64c0755563ee6c5e27868d">void</a> AddSlatePostProcessColorDeficiencyPass </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d3/d85/class_f_r_d_g_builder.html">FRDGBuilder</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>GraphBuilder</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="../../d5/d19/struct_f_slate_post_process_color_deficiency_pass_inputs.html">FSlatePostProcessColorDeficiencyPassInputs</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>Inputs</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a4334fd900311e18c3157e14c66c9a3e1" name="a4334fd900311e18c3157e14c66c9a3e1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4334fd900311e18c3157e14c66c9a3e1">&#9670;&#160;</a></span>AddSlatePostProcessCopy()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../df/d63/_typed_element_query_capabilities_8inl.html#a72343342ce64c0755563ee6c5e27868d">void</a> AddSlatePostProcessCopy </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d3/d85/class_f_r_d_g_builder.html">FRDGBuilder</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>GraphBuilder</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d3/df7/struct_f_screen_pass_texture.html">FScreenPassTexture</a></td>          <td class="paramname"><span class="paramname"><em>Input</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d3/df7/struct_f_screen_pass_texture.html">FScreenPassTexture</a></td>          <td class="paramname"><span class="paramname"><em>Output</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Directly copies or resamples Input into Output with bilinear interpolation if the extent is different. </p>
+
+</div>
+</div>
+<a id="a9e9d234a748a0e9fa013fcf2cdb807ea" name="a9e9d234a748a0e9fa013fcf2cdb807ea"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9e9d234a748a0e9fa013fcf2cdb807ea">&#9670;&#160;</a></span>AddSlatePostProcessDownsamplePass()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d3/df7/struct_f_screen_pass_texture.html">FScreenPassTexture</a> AddSlatePostProcessDownsamplePass </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d3/d85/class_f_r_d_g_builder.html">FRDGBuilder</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>GraphBuilder</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="../../d0/dfa/struct_f_slate_post_process_downsample_pass_inputs.html">FSlatePostProcessDownsamplePassInputs</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>Inputs</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a75522e06b4ce644d02c6c42a87b28acf" name="a75522e06b4ce644d02c6c42a87b28acf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a75522e06b4ce644d02c6c42a87b28acf">&#9670;&#160;</a></span>AddSlatePostProcessOldGaussianBlur()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d3/df7/struct_f_screen_pass_texture.html">FScreenPassTexture</a> AddSlatePostProcessOldGaussianBlur </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d3/d85/class_f_r_d_g_builder.html">FRDGBuilder</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>GraphBuilder</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="../../d7/dbe/struct_f_slate_post_process_blur_pass_inputs.html">FSlatePostProcessBlurPassInputs</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>Inputs</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a27c553bf50594b3951da639c537c4e6e" name="a27c553bf50594b3951da639c537c4e6e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a27c553bf50594b3951da639c537c4e6e">&#9670;&#160;</a></span>AddSlatePostProcessUpsamplePass()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../df/d63/_typed_element_query_capabilities_8inl.html#a72343342ce64c0755563ee6c5e27868d">void</a> AddSlatePostProcessUpsamplePass </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d3/d85/class_f_r_d_g_builder.html">FRDGBuilder</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>GraphBuilder</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="../../d5/dd7/struct_f_slate_post_process_upsample_inputs.html">FSlatePostProcessUpsampleInputs</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>Inputs</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a90f6edd66cb7a85766bd1b7616723c8d" name="a90f6edd66cb7a85766bd1b7616723c8d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a90f6edd66cb7a85766bd1b7616723c8d">&#9670;&#160;</a></span>CSV_DECLARE_CATEGORY_MODULE_EXTERN()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">CSV_DECLARE_CATEGORY_MODULE_EXTERN </td>
+          <td>(</td>
+          <td class="paramtype">SLATECORE_API</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d7/d4e/namespace_slate.html">Slate</a></td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ab2c6e3f72f73cc41e506902ebf6393b1" name="ab2c6e3f72f73cc41e506902ebf6393b1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab2c6e3f72f73cc41e506902ebf6393b1">&#9670;&#160;</a></span>GetSlateHDRUICompositeBlend()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a8dbb3cd84ca9fd010dadfc3815eefa5d">int32</a> GetSlateHDRUICompositeBlend </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a79dc424f19f6ef57d6ba1ed5cccf8d22" name="a79dc424f19f6ef57d6ba1ed5cccf8d22"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a79dc424f19f6ef57d6ba1ed5cccf8d22">&#9670;&#160;</a></span>GetSlateHDRUICompositeBlendGamma()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../df/d2a/_s_anim_notify_shared_8h.html#ac7c94e837fed3f8e4bb3dd94d7bd2ecf">float</a> GetSlateHDRUICompositeBlendGamma </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a1976ad5a0b25f85b34a40a1f5b442fd6" name="a1976ad5a0b25f85b34a40a1f5b442fd6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1976ad5a0b25f85b34a40a1f5b442fd6">&#9670;&#160;</a></span>GetSlateHDRUICompositeEOTF()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a8dbb3cd84ca9fd010dadfc3815eefa5d">int32</a> GetSlateHDRUICompositeEOTF </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="acd0fb3fc4ac00ba3a2da0ba4b13b0ba4" name="acd0fb3fc4ac00ba3a2da0ba4b13b0ba4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acd0fb3fc4ac00ba3a2da0ba4b13b0ba4">&#9670;&#160;</a></span>GetSlateHDRUICompositeEOTFGamma()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../df/d2a/_s_anim_notify_shared_8h.html#ac7c94e837fed3f8e4bb3dd94d7bd2ecf">float</a> GetSlateHDRUICompositeEOTFGamma </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ab4ad756ad06337f58968c8d40c5b27ed" name="ab4ad756ad06337f58968c8d40c5b27ed"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab4ad756ad06337f58968c8d40c5b27ed">&#9670;&#160;</a></span>GetSlateHDRUILevel()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../df/d2a/_s_anim_notify_shared_8h.html#ac7c94e837fed3f8e4bb3dd94d7bd2ecf">float</a> GetSlateHDRUILevel </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ada641d200df8957acb45207761d8e7f4" name="ada641d200df8957acb45207761d8e7f4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ada641d200df8957acb45207761d8e7f4">&#9670;&#160;</a></span>GetSlateHDRUILuminance()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../df/d2a/_s_anim_notify_shared_8h.html#ac7c94e837fed3f8e4bb3dd94d7bd2ecf">float</a> GetSlateHDRUILuminance </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a8471c2c06310756abcff1d4b4b2ca096" name="a8471c2c06310756abcff1d4b4b2ca096"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8471c2c06310756abcff1d4b4b2ca096">&#9670;&#160;</a></span>GetSlateHDRUILuminanceMode()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a8dbb3cd84ca9fd010dadfc3815eefa5d">int32</a> GetSlateHDRUILuminanceMode </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aa5809d1287562370269df14690c87ff6" name="aa5809d1287562370269df14690c87ff6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa5809d1287562370269df14690c87ff6">&#9670;&#160;</a></span>GetSlateKawaseBlurInternalConfiguration()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d9/d77/struct_f_slate_kawase_blur_internal_configuration.html">FSlateKawaseBlurInternalConfiguration</a> GetSlateKawaseBlurInternalConfiguration </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../df/d2a/_s_anim_notify_shared_8h.html#ac7c94e837fed3f8e4bb3dd94d7bd2ecf">float</a></td>          <td class="paramname"><span class="paramname"><em>Sigma</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a7b1ff1556a6801ab9308f6ba14cf013a" name="a7b1ff1556a6801ab9308f6ba14cf013a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7b1ff1556a6801ab9308f6ba14cf013a">&#9670;&#160;</a></span>GetSlateKawaseBlurUpsampleParameters()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../db/dc7/struct_f_slate_kawase_blur_upsample_parameters.html">FSlateKawaseBlurUpsampleParameters</a> GetSlateKawaseBlurUpsampleParameters </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../df/d2a/_s_anim_notify_shared_8h.html#ac7c94e837fed3f8e4bb3dd94d7bd2ecf">float</a></td>          <td class="paramname"><span class="paramname"><em>Sigma</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a809f51c1adb53113d5af12409af8cb81" name="a809f51c1adb53113d5af12409af8cb81"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a809f51c1adb53113d5af12409af8cb81">&#9670;&#160;</a></span>GetSlateTransientDepthStencilFlags()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../da/dca/_r_h_i_definitions_8h.html#ad4ae7462d4e6cb213ec4f7673da42d5d">ETextureCreateFlags</a> GetSlateTransientDepthStencilFlags </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a2b501be302ba8dcb4c32eecbc1bfe830" name="a2b501be302ba8dcb4c32eecbc1bfe830"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2b501be302ba8dcb4c32eecbc1bfe830">&#9670;&#160;</a></span>GetSlateTransientRenderTargetFlags()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../da/dca/_r_h_i_definitions_8h.html#ad4ae7462d4e6cb213ec4f7673da42d5d">ETextureCreateFlags</a> GetSlateTransientRenderTargetFlags </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a3bcc4676c09c6ad69f91fa9d7c03f7d0" name="a3bcc4676c09c6ad69f91fa9d7c03f7d0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3bcc4676c09c6ad69f91fa9d7c03f7d0">&#9670;&#160;</a></span>IMPLEMENT_GLOBAL_SHADER() <span class="overload">[1/7]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">IMPLEMENT_GLOBAL_SHADER </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d8/d16/class_f_composite_h_d_r_for_blur_p_s.html">FCompositeHDRForBlurPS</a></td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&quot;/Engine/<a class="el" href="../../d9/db1/namespace_private.html">Private</a>/CompositeUIPixelShader.usf&quot;</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&quot;CompositeUIForBlur&quot;</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../da/dca/_r_h_i_definitions_8h.html#a0a3cc83cb6ebc79b66b43fae3ffee64eaf50bfe1c5c23e92a75ba64d89bcd3bfa">SF_Pixel</a></td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ac73dc59b07c3a847b9ac4e811a2d706d" name="ac73dc59b07c3a847b9ac4e811a2d706d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac73dc59b07c3a847b9ac4e811a2d706d">&#9670;&#160;</a></span>IMPLEMENT_GLOBAL_SHADER() <span class="overload">[2/7]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">IMPLEMENT_GLOBAL_SHADER </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d0/d02/class_f_slate_post_process_blur_p_s.html">FSlatePostProcessBlurPS</a></td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&quot;/Engine/<a class="el" href="../../d9/db1/namespace_private.html">Private</a>/SlatePostProcessPixelShader.usf&quot;</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&quot;GaussianBlurMain&quot;</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../da/dca/_r_h_i_definitions_8h.html#a0a3cc83cb6ebc79b66b43fae3ffee64eaf50bfe1c5c23e92a75ba64d89bcd3bfa">SF_Pixel</a></td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a260d91c1ed8660c79537fc1627ff0dba" name="a260d91c1ed8660c79537fc1627ff0dba"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a260d91c1ed8660c79537fc1627ff0dba">&#9670;&#160;</a></span>IMPLEMENT_GLOBAL_SHADER() <span class="overload">[3/7]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">IMPLEMENT_GLOBAL_SHADER </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../da/dbe/class_f_slate_post_process_color_deficiency_p_s.html">FSlatePostProcessColorDeficiencyPS</a></td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&quot;/Engine/<a class="el" href="../../d9/db1/namespace_private.html">Private</a>/SlatePostProcessColorDeficiencyPixelShader.usf&quot;</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&quot;ColorDeficiencyMain&quot;</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../da/dca/_r_h_i_definitions_8h.html#a0a3cc83cb6ebc79b66b43fae3ffee64eaf50bfe1c5c23e92a75ba64d89bcd3bfa">SF_Pixel</a></td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aadbb0de2c5f627271cf308383f6ddcbf" name="aadbb0de2c5f627271cf308383f6ddcbf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aadbb0de2c5f627271cf308383f6ddcbf">&#9670;&#160;</a></span>IMPLEMENT_GLOBAL_SHADER() <span class="overload">[4/7]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">IMPLEMENT_GLOBAL_SHADER </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../db/de0/class_f_slate_post_process_direct_resample_p_s.html">FSlatePostProcessDirectResamplePS</a></td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&quot;/Engine/<a class="el" href="../../d9/db1/namespace_private.html">Private</a>/SlatePostProcessPixelShader.usf&quot;</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&quot;Resample1Main&quot;</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../da/dca/_r_h_i_definitions_8h.html#a0a3cc83cb6ebc79b66b43fae3ffee64eaf50bfe1c5c23e92a75ba64d89bcd3bfa">SF_Pixel</a></td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="af64d4dab1ebdd8dd0a5081375d1c8a9c" name="af64d4dab1ebdd8dd0a5081375d1c8a9c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af64d4dab1ebdd8dd0a5081375d1c8a9c">&#9670;&#160;</a></span>IMPLEMENT_GLOBAL_SHADER() <span class="overload">[5/7]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">IMPLEMENT_GLOBAL_SHADER </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d9/d98/class_f_slate_post_process_optimized_kawase_upsample_p_s.html">FSlatePostProcessOptimizedKawaseUpsamplePS</a></td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&quot;/Engine/<a class="el" href="../../d9/db1/namespace_private.html">Private</a>/SlatePostProcessPixelShader.usf&quot;</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&quot;OptimizedKawaseUpsampleMain&quot;</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../da/dca/_r_h_i_definitions_8h.html#a0a3cc83cb6ebc79b66b43fae3ffee64eaf50bfe1c5c23e92a75ba64d89bcd3bfa">SF_Pixel</a></td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a439ab37b2c960568d1f49785481f3dc0" name="a439ab37b2c960568d1f49785481f3dc0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a439ab37b2c960568d1f49785481f3dc0">&#9670;&#160;</a></span>IMPLEMENT_GLOBAL_SHADER() <span class="overload">[6/7]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">IMPLEMENT_GLOBAL_SHADER </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../db/d86/class_f_slate_post_process_resample2x2_p_s.html">FSlatePostProcessResample2x2PS</a></td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&quot;/Engine/<a class="el" href="../../d9/db1/namespace_private.html">Private</a>/SlatePostProcessPixelShader.usf&quot;</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&quot;Resample2x2Main&quot;</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../da/dca/_r_h_i_definitions_8h.html#a0a3cc83cb6ebc79b66b43fae3ffee64eaf50bfe1c5c23e92a75ba64d89bcd3bfa">SF_Pixel</a></td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="afdc0daa41d69a3685b4e87e2a32c475a" name="afdc0daa41d69a3685b4e87e2a32c475a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afdc0daa41d69a3685b4e87e2a32c475a">&#9670;&#160;</a></span>IMPLEMENT_GLOBAL_SHADER() <span class="overload">[7/7]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">IMPLEMENT_GLOBAL_SHADER </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d2/d20/class_f_slate_post_process_upsample_p_s.html">FSlatePostProcessUpsamplePS</a></td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&quot;/Engine/<a class="el" href="../../d9/db1/namespace_private.html">Private</a>/SlatePostProcessPixelShader.usf&quot;</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&quot;UpsampleMain&quot;</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../da/dca/_r_h_i_definitions_8h.html#a0a3cc83cb6ebc79b66b43fae3ffee64eaf50bfe1c5c23e92a75ba64d89bcd3bfa">SF_Pixel</a></td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a name="doc-var-members" id="doc-var-members"></a><h2 id="header-doc-var-members" class="groupheader">变量说明</h2>
+<a id="af92e3a9f7b7128fbff6c04fd4eec2267" name="af92e3a9f7b7128fbff6c04fd4eec2267"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af92e3a9f7b7128fbff6c04fd4eec2267">&#9670;&#160;</a></span>CVarSlatePostBlurStrengthOverride</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d2/d79/class_f_auto_console_variable_ref.html">FAutoConsoleVariableRef</a> CVarSlatePostBlurStrengthOverride(<a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;UI.SlatePostBlurStrengthOverride&quot;), SlatePostBlurStrengthOverride, <a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;Globally overrides the blur strength <a class="el" href="../../d3/db8/binka__ue__decode__test_8cpp.html#ac1ee511585a5c7a2d58c146185895b72">for</a> all <a class="el" href="../../d7/d4e/namespace_slate.html">Slate</a> post process blurs (0 = no override)&quot;)) </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;UI.SlatePostBlurStrengthOverride&quot;)</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">SlatePostBlurStrengthOverride</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;Globally overrides the blur strength <a class="el" href="../../d3/db8/binka__ue__decode__test_8cpp.html#ac1ee511585a5c7a2d58c146185895b72">for</a> all <a class="el" href="../../d7/d4e/namespace_slate.html">Slate</a> post process blurs (0 = no override)&quot;)</td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a5a909930db39a03a017bd59e837c1b8f" name="a5a909930db39a03a017bd59e837c1b8f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5a909930db39a03a017bd59e837c1b8f">&#9670;&#160;</a></span>CVarSlatePostBlurUseDualKawaseFilter</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d2/d79/class_f_auto_console_variable_ref.html">FAutoConsoleVariableRef</a> CVarSlatePostBlurUseDualKawaseFilter(<a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;UI.SlatePostBlurUseDualKawaseFilter&quot;), SlatePostBlurDualKawaseFilterEnable, <a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;Toggles between the old Gaussian blur implementation (0) and the new optimized Dual Kawase filter blur implementation (1)&quot;)) </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;UI.SlatePostBlurUseDualKawaseFilter&quot;)</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">SlatePostBlurDualKawaseFilterEnable</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;Toggles between the old Gaussian blur implementation (0) and the new optimized Dual Kawase filter blur implementation (1)&quot;)</td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<div id="page-nav" class="page-nav-panel">
+<div id="page-nav-resize-handle"></div>
+<div id="page-nav-tree">
+<div id="page-nav-contents">
+</div><!-- page-nav-contents -->
+</div><!-- page-nav-tree -->
+</div><!-- page-nav -->
+</div><!-- container -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a href="../../dir_0b6ee6e7e9547e675db4add2e5de97da.html">Engine</a></li><li class="navelem"><a href="../../dir_9579d1ecb2c7bf48cbe1049c41745cb4.html">Source</a></li><li class="navelem"><a href="../../dir_9f04efef762572853abdf73f62bebfcc.html">Runtime</a></li><li class="navelem"><a href="../../dir_5a94fe0e804932f0e4956f4a2e09c638.html">SlateRHIRenderer</a></li><li class="navelem"><a href="../../dir_f094e05e46e9e5a93e36e9cfda8cad09.html">Private</a></li><li class="navelem"><a href="../../db/d47/_slate_post_processor_8cpp.html">SlatePostProcessor.cpp</a></li>
+    <li class="footer">制作者 <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.15.0 </li>
+  </ul>
+</div>
+</body>
+</html>

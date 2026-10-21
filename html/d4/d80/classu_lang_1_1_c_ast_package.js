@@ -1,0 +1,25 @@
+var classu_lang_1_1_c_ast_package =
+[
+    [ "CAstPackage", "d4/d80/classu_lang_1_1_c_ast_package.html#af77207512aa1cbc361270eb2b85dd1f9", null ],
+    [ "CanSeeDefinition", "d4/d80/classu_lang_1_1_c_ast_package.html#aaafe22c60cadf4d71b5135c6f01b1a88", null ],
+    [ "CanSeePackage", "d4/d80/classu_lang_1_1_c_ast_package.html#a5693f0628b00e3ac3cb18a0bfedbd57c", null ],
+    [ "GetErrorDesc", "d4/d80/classu_lang_1_1_c_ast_package.html#aeab3b385e70ba143adb244919e8f7087", null ],
+    [ "GetNodeType", "d4/d80/classu_lang_1_1_c_ast_package.html#ab041c964868216d35fbfa5f4aa79eee1", null ],
+    [ "VisitChildren", "d4/d80/classu_lang_1_1_c_ast_package.html#a519111d1e6befea09f64b385bf3b65f8", null ],
+    [ "VisitImmediates", "d4/d80/classu_lang_1_1_c_ast_package.html#a595468c65b8353b97b5984c08c43c4a7", null ],
+    [ "_bAllowExperimental", "d4/d80/classu_lang_1_1_c_ast_package.html#ae4fbc82574b12fcae9c7aaa126ec0ddf", null ],
+    [ "_bAllowNative", "d4/d80/classu_lang_1_1_c_ast_package.html#aa1cd66a43832a6d8c0b6be49069f60bd", null ],
+    [ "_bTreatModulesAsImplicit", "d4/d80/classu_lang_1_1_c_ast_package.html#ab20ed82db7b5893509d53c5541bb1878", null ],
+    [ "_CompilationUnit", "d4/d80/classu_lang_1_1_c_ast_package.html#a70a8af74dd08029571a016132a99ce06", null ],
+    [ "_Dependencies", "d4/d80/classu_lang_1_1_c_ast_package.html#acf6349b085d00b6c0315a59385e1fa04", null ],
+    [ "_EffectiveVerseVersion", "d4/d80/classu_lang_1_1_c_ast_package.html#afcb914e4773ab949997388a444e2b735", null ],
+    [ "_Name", "d4/d80/classu_lang_1_1_c_ast_package.html#a942aecd7c5cf95a070e8f7d7558824b5", null ],
+    [ "_NumConcreteEntitlementSubclasses", "d4/d80/classu_lang_1_1_c_ast_package.html#a55bcca350d1fcbba123ecb17e63558b0", null ],
+    [ "_NumPersistentVars", "d4/d80/classu_lang_1_1_c_ast_package.html#aafc8acab06effa199b86fc252cefdb3a", null ],
+    [ "_Role", "d4/d80/classu_lang_1_1_c_ast_package.html#aa644b6f3e6de4330331fb9f8a28388fa", null ],
+    [ "_RootModule", "d4/d80/classu_lang_1_1_c_ast_package.html#a36a1fe7836b94e8a055f5b3db3a59981", null ],
+    [ "_UploadedAtFNVersion", "d4/d80/classu_lang_1_1_c_ast_package.html#a33188f8873d3f9e41d09f8c22325a686", null ],
+    [ "_UsedDependencies", "d4/d80/classu_lang_1_1_c_ast_package.html#ae537011b008aadaaa27641594b1781bf", null ],
+    [ "_VersePath", "d4/d80/classu_lang_1_1_c_ast_package.html#a8498b886e349d5fff42d8cf32b26a4a4", null ],
+    [ "_VerseScope", "d4/d80/classu_lang_1_1_c_ast_package.html#af0eba12a357c73f4f1ce26ca9f36ef69", null ]
+];

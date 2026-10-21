@@ -1,0 +1,27 @@
+var class_f_growable_malloc_chunk =
+[
+    [ "FGrowableMallocChunk", "d4/db8/class_f_growable_malloc_chunk.html#a0f062a9afdea626e50c63e09526e4888", null ],
+    [ "~FGrowableMallocChunk", "d4/db8/class_f_growable_malloc_chunk.html#a0427a4c9153a37467d8e9a185b97924a", null ],
+    [ "CanFitEntry", "d4/db8/class_f_growable_malloc_chunk.html#abc7a8f824830df8a26a11bc487162dc0", null ],
+    [ "CreateAllocationStruct", "d4/db8/class_f_growable_malloc_chunk.html#ad37c295b3192167d52377f3897fdbd01", null ],
+    [ "CreateInternalMemory", "d4/db8/class_f_growable_malloc_chunk.html#ae7aa78f165551ead12db6486a5d2cdb5", null ],
+    [ "Destroy", "d4/db8/class_f_growable_malloc_chunk.html#a66d884f12d33780ff2b8908677b703fe", null ],
+    [ "DestroyAllocationStruct", "d4/db8/class_f_growable_malloc_chunk.html#ab6260739b27715258b8bf70ed50ca08b", null ],
+    [ "DestroyInternalMemory", "d4/db8/class_f_growable_malloc_chunk.html#a3f4d34845e5d552931d16e45d492be5c", null ],
+    [ "DoesChunkContainAddress", "d4/db8/class_f_growable_malloc_chunk.html#affc7832691bf3ce05238ab60d090010d", null ],
+    [ "DoesChunkContainAllocation", "d4/db8/class_f_growable_malloc_chunk.html#a45225308445c8c2e34b6d13653113457", null ],
+    [ "Free", "d4/db8/class_f_growable_malloc_chunk.html#a89f86065ee94600ebc21f23eb772a729", null ],
+    [ "GetAddressForTracking", "d4/db8/class_f_growable_malloc_chunk.html#aa2e706cb9641d6720cebf603b054b2c5", null ],
+    [ "GetAllocationInfo", "d4/db8/class_f_growable_malloc_chunk.html#ad2e55546e3098965a77a57a3dd8591db", null ],
+    [ "Initialize", "d4/db8/class_f_growable_malloc_chunk.html#a25b63d0266bcd031df7ee7b33821e8de", null ],
+    [ "InitializeAllocationStruct", "d4/db8/class_f_growable_malloc_chunk.html#af5a6868e8c94fc7411d029036a0ea098", null ],
+    [ "IsEmpty", "d4/db8/class_f_growable_malloc_chunk.html#a3d98095f0ae77f667f1efd223f465582", null ],
+    [ "Malloc", "d4/db8/class_f_growable_malloc_chunk.html#a699c7f03ddb12072fbcfa207fe955825", null ],
+    [ "ShowFullAllocationList", "d4/db8/class_f_growable_malloc_chunk.html#aa47fab788c4bfc9990b569b789065283", null ],
+    [ "CriticalSection", "d4/db8/class_f_growable_malloc_chunk.html#ae6c919d9443b0d9dd6e38b25c23aa863", null ],
+    [ "FreeList", "d4/db8/class_f_growable_malloc_chunk.html#a03b7cd38d9bd7731241e4547103004da", null ],
+    [ "HeapSize", "d4/db8/class_f_growable_malloc_chunk.html#a4837003b2b5d57ee4c577699601754fa", null ],
+    [ "MaxFreeEntrySize", "d4/db8/class_f_growable_malloc_chunk.html#aa9c40d1e0f02b9ad20523b0d24c92913", null ],
+    [ "MemoryType", "d4/db8/class_f_growable_malloc_chunk.html#a567d3b458e845aa43d1bc7ce2d4cb288", null ],
+    [ "UsedMemorySize", "d4/db8/class_f_growable_malloc_chunk.html#a78348f32c520dd189c6a417062322e26", null ]
+];

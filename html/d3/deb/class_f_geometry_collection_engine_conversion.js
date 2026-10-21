@@ -1,0 +1,4 @@
+var class_f_geometry_collection_engine_conversion =
+[
+    [ "FSkeletalMeshToCollectionConversionParameters", "d0/dba/struct_f_geometry_collection_engine_conversion_1_1_f_skeletal_mesh_to_collection_conversion_parameters.html", "d0/dba/struct_f_geometry_collection_engine_conversion_1_1_f_skeletal_mesh_to_collection_conversion_parameters" ]
+];

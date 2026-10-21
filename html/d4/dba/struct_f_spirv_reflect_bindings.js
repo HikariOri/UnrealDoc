@@ -1,0 +1,25 @@
+var struct_f_spirv_reflect_bindings =
+[
+    [ "AddDescriptorBinding", "d4/dba/struct_f_spirv_reflect_bindings.html#a0bb9c6cd1ef467e8743634935dadf4e9", null ],
+    [ "AssignInputAttributeLocationsBySemanticIndex", "d4/dba/struct_f_spirv_reflect_bindings.html#a084b25169fd2c67dd0fb6ab7a27d3edd", null ],
+    [ "GatherDescriptorBindings", "d4/dba/struct_f_spirv_reflect_bindings.html#a9bcde353862b88691a9e199850a22483", null ],
+    [ "GatherInputAttributes", "d4/dba/struct_f_spirv_reflect_bindings.html#adbf68b77062fb0037e7f90879d6ba502", null ],
+    [ "GatherOutputAttributes", "d4/dba/struct_f_spirv_reflect_bindings.html#ae67bcf0d60fd765e5c03ae83b2b99da3", null ],
+    [ "GatherPushConstants", "d4/dba/struct_f_spirv_reflect_bindings.html#aa318973155277e24b8007b29950e81d5", null ],
+    [ "AccelerationStructures", "d4/dba/struct_f_spirv_reflect_bindings.html#a3e7a0847c74e63f547c98d4c57e52fdd", null ],
+    [ "AtomicCounters", "d4/dba/struct_f_spirv_reflect_bindings.html#a9b838cc78dbb12141ed7ffcd4e925023", null ],
+    [ "InputAttachments", "d4/dba/struct_f_spirv_reflect_bindings.html#a21ffb94b5392abe5b912bf44b3509040", null ],
+    [ "InputAttributes", "d4/dba/struct_f_spirv_reflect_bindings.html#a1a5ade65527bfd91cc6ddba96fe66eca", null ],
+    [ "NumBindlessResources", "d4/dba/struct_f_spirv_reflect_bindings.html#a333e0d3af1ebfff2e5136857e788bf91", null ],
+    [ "NumBindlessSamplers", "d4/dba/struct_f_spirv_reflect_bindings.html#a6b0aa7fb331b37180b8321d5f982b048", null ],
+    [ "OutputAttributes", "d4/dba/struct_f_spirv_reflect_bindings.html#af44f54f2f71644a8a881a50be0170002", null ],
+    [ "PushConstants", "d4/dba/struct_f_spirv_reflect_bindings.html#a2ba1a6fbcd5716cd21ed81a44ece1e59", null ],
+    [ "Samplers", "d4/dba/struct_f_spirv_reflect_bindings.html#a33205aa8f603a8fd7893802d815cbaa5", null ],
+    [ "SBufferSRVs", "d4/dba/struct_f_spirv_reflect_bindings.html#a53ae613fbd10d4927d500198aac3290b", null ],
+    [ "SBufferUAVs", "d4/dba/struct_f_spirv_reflect_bindings.html#a09dc19661eda958be3270af6ffe3a55e", null ],
+    [ "TBufferSRVs", "d4/dba/struct_f_spirv_reflect_bindings.html#a7b3d87d042e89c7e8c4ffd12e97ed144", null ],
+    [ "TBufferUAVs", "d4/dba/struct_f_spirv_reflect_bindings.html#a7b055a6ef751d00ce0daf78d103c7e02", null ],
+    [ "TextureSRVs", "d4/dba/struct_f_spirv_reflect_bindings.html#af237522c1c09de4a826e6674357242d5", null ],
+    [ "TextureUAVs", "d4/dba/struct_f_spirv_reflect_bindings.html#a10d71bb2c1e1ea82efb3cb43f1d8b564", null ],
+    [ "UniformBuffers", "d4/dba/struct_f_spirv_reflect_bindings.html#ab127ebb4564ecbea6031e4b32086e580", null ]
+];

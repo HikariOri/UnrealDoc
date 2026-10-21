@@ -1,0 +1,5 @@
+var struct_u_e_1_1_net_1_1_private_1_1_f_replication_filtering_1_1_f_update_dirty_objects_batch_helper_1_1_f_per_filter_info =
+[
+    [ "ObjectCount", "d4/d5c/struct_u_e_1_1_net_1_1_private_1_1_f_replication_filtering_1_1_f_update_dirty_objects_batch_helper_1_1_f_per_filter_info.html#a0f52e6014f133b9c9d6f9d3fe64e7a9e", null ],
+    [ "ObjectIndices", "d4/d5c/struct_u_e_1_1_net_1_1_private_1_1_f_replication_filtering_1_1_f_update_dirty_objects_batch_helper_1_1_f_per_filter_info.html#ad5fd716162f5299a023c37e4efba4f9e", null ]
+];

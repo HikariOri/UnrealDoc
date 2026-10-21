@@ -1,0 +1,27 @@
+var struct_u_e_1_1_windows_application_1_1_touchpad_sensitivity_1_1tag_t_o_u_c_h_p_a_d___p_a_r_a_m_e_t_e_r_s___v0 =
+[
+    [ "allowActiveWhenMousePresent", "d4/d9c/struct_u_e_1_1_windows_application_1_1_touchpad_sensitivity_1_1tag_t_o_u_c_h_p_a_d___p_a_r_a_m_e_t_e_r_s___v0.html#ae7365d659c4d18dc7ae9d3823fe27f8d", null ],
+    [ "cursorSpeed", "d4/d9c/struct_u_e_1_1_windows_application_1_1_touchpad_sensitivity_1_1tag_t_o_u_c_h_p_a_d___p_a_r_a_m_e_t_e_r_s___v0.html#a7862f2d1981b148683c60f20cbc7be3c", null ],
+    [ "externalMousePresent", "d4/d9c/struct_u_e_1_1_windows_application_1_1_touchpad_sensitivity_1_1tag_t_o_u_c_h_p_a_d___p_a_r_a_m_e_t_e_r_s___v0.html#a8043c10fc76d38aa77b884157fdf4164", null ],
+    [ "fourFingersSupported", "d4/d9c/struct_u_e_1_1_windows_application_1_1_touchpad_sensitivity_1_1tag_t_o_u_c_h_p_a_d___p_a_r_a_m_e_t_e_r_s___v0.html#a57186c7d17d9e1e3083c797bc0cab950", null ],
+    [ "legacyTouchpadFeatures", "d4/d9c/struct_u_e_1_1_windows_application_1_1_touchpad_sensitivity_1_1tag_t_o_u_c_h_p_a_d___p_a_r_a_m_e_t_e_r_s___v0.html#a8bd08f90699026b705c6b2ced5bc3822", null ],
+    [ "legacyTouchpadPresent", "d4/d9c/struct_u_e_1_1_windows_application_1_1_touchpad_sensitivity_1_1tag_t_o_u_c_h_p_a_d___p_a_r_a_m_e_t_e_r_s___v0.html#ab3223c2c7318e664497482f0ffd3a65f", null ],
+    [ "mouseAccelSettingHonored", "d4/d9c/struct_u_e_1_1_windows_application_1_1_touchpad_sensitivity_1_1tag_t_o_u_c_h_p_a_d___p_a_r_a_m_e_t_e_r_s___v0.html#a6320b5d6ae34542716dbff5dbb4a9bad", null ],
+    [ "panEnabled", "d4/d9c/struct_u_e_1_1_windows_application_1_1_touchpad_sensitivity_1_1tag_t_o_u_c_h_p_a_d___p_a_r_a_m_e_t_e_r_s___v0.html#a9450f5ba2465d1c3e99e2c8b83ae73ec", null ],
+    [ "Reserved1", "d4/d9c/struct_u_e_1_1_windows_application_1_1_touchpad_sensitivity_1_1tag_t_o_u_c_h_p_a_d___p_a_r_a_m_e_t_e_r_s___v0.html#ae1b9e4b190fe01e0fe80405b5b76840f", null ],
+    [ "Reserved2", "d4/d9c/struct_u_e_1_1_windows_application_1_1_touchpad_sensitivity_1_1tag_t_o_u_c_h_p_a_d___p_a_r_a_m_e_t_e_r_s___v0.html#a6a6a7a9839c8e0c43a8d7e7f3b3fdb7f", null ],
+    [ "Reserved3", "d4/d9c/struct_u_e_1_1_windows_application_1_1_touchpad_sensitivity_1_1tag_t_o_u_c_h_p_a_d___p_a_r_a_m_e_t_e_r_s___v0.html#aa51522b1f6afe5fe9d58c097403d5612", null ],
+    [ "Reserved4", "d4/d9c/struct_u_e_1_1_windows_application_1_1_touchpad_sensitivity_1_1tag_t_o_u_c_h_p_a_d___p_a_r_a_m_e_t_e_r_s___v0.html#a5dcfb826a1992ce987b87440a055fab2", null ],
+    [ "Reserved5", "d4/d9c/struct_u_e_1_1_windows_application_1_1_touchpad_sensitivity_1_1tag_t_o_u_c_h_p_a_d___p_a_r_a_m_e_t_e_r_s___v0.html#aec41f8fb39b1fae4b7561f9edb63e5ba", null ],
+    [ "rightClickZoneEnabled", "d4/d9c/struct_u_e_1_1_windows_application_1_1_touchpad_sensitivity_1_1tag_t_o_u_c_h_p_a_d___p_a_r_a_m_e_t_e_r_s___v0.html#a8c44c1de93500022b762e5da4c763d10", null ],
+    [ "scrollDirectionReversed", "d4/d9c/struct_u_e_1_1_windows_application_1_1_touchpad_sensitivity_1_1tag_t_o_u_c_h_p_a_d___p_a_r_a_m_e_t_e_r_s___v0.html#a0123f2e408820cab561949b93c5ea4e8", null ],
+    [ "sensitivityLevel", "d4/d9c/struct_u_e_1_1_windows_application_1_1_touchpad_sensitivity_1_1tag_t_o_u_c_h_p_a_d___p_a_r_a_m_e_t_e_r_s___v0.html#a24a5d0f31ca70a7d4bf155319c66372a", null ],
+    [ "tapAndDragEnabled", "d4/d9c/struct_u_e_1_1_windows_application_1_1_touchpad_sensitivity_1_1tag_t_o_u_c_h_p_a_d___p_a_r_a_m_e_t_e_r_s___v0.html#a42c859d27d2b71e803ae660d75508f39", null ],
+    [ "tapEnabled", "d4/d9c/struct_u_e_1_1_windows_application_1_1_touchpad_sensitivity_1_1tag_t_o_u_c_h_p_a_d___p_a_r_a_m_e_t_e_r_s___v0.html#ae27b057c7d5532fecdbcacdfe91a5df0", null ],
+    [ "touchpadActive", "d4/d9c/struct_u_e_1_1_windows_application_1_1_touchpad_sensitivity_1_1tag_t_o_u_c_h_p_a_d___p_a_r_a_m_e_t_e_r_s___v0.html#a80bc3409d409c5c7d5f108768e68beff", null ],
+    [ "touchpadEnabled", "d4/d9c/struct_u_e_1_1_windows_application_1_1_touchpad_sensitivity_1_1tag_t_o_u_c_h_p_a_d___p_a_r_a_m_e_t_e_r_s___v0.html#ab248846cf2e0fdc8c182810a04743484", null ],
+    [ "touchpadPresent", "d4/d9c/struct_u_e_1_1_windows_application_1_1_touchpad_sensitivity_1_1tag_t_o_u_c_h_p_a_d___p_a_r_a_m_e_t_e_r_s___v0.html#a60edfd7d6fec07f5d8015c4ffe3fa4d0", null ],
+    [ "twoFingerTapEnabled", "d4/d9c/struct_u_e_1_1_windows_application_1_1_touchpad_sensitivity_1_1tag_t_o_u_c_h_p_a_d___p_a_r_a_m_e_t_e_r_s___v0.html#aac4fe163e7e9d2ff04ad63a988865d36", null ],
+    [ "versionNumber", "d4/d9c/struct_u_e_1_1_windows_application_1_1_touchpad_sensitivity_1_1tag_t_o_u_c_h_p_a_d___p_a_r_a_m_e_t_e_r_s___v0.html#a092228f090d88d39d65af764f5eb13e0", null ],
+    [ "zoomEnabled", "d4/d9c/struct_u_e_1_1_windows_application_1_1_touchpad_sensitivity_1_1tag_t_o_u_c_h_p_a_d___p_a_r_a_m_e_t_e_r_s___v0.html#ae9112776813597f50fecd762c107abd3", null ]
+];

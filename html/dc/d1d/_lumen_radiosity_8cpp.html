@@ -1,0 +1,1378 @@
+<!-- HTML header for doxygen 1.15.0-->
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh">
+<head>
+  <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=11" />
+  <meta name="generator" content="Doxygen 1.15.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>UE 5.8.4: Engine/Source/Runtime/Renderer/Private/Lumen/LumenRadiosity.cpp 文件参考</title>
+  <link rel="icon" href="../../EdIconDefault.bmp" type="image/x-icon" />
+  <link href="../../tabs.css" rel="stylesheet" type="text/css" />
+  <script type="text/javascript" src="../../jquery.js"></script>
+  <script type="text/javascript" src="../../dynsections.js"></script>
+  <link href="../../navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../navtreedata.js"></script>
+<script type="text/javascript" src="../../navtree.js"></script>
+<script type="text/javascript" src="../../cookie.js"></script>
+  <link href="../../search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../search/searchdata.js"></script>
+<script type="text/javascript" src="../../search/search.js"></script>
+  <script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  extensions: ["tex2jax.js"],
+  jax: ["input/TeX","output/HTML-CSS"],
+});
+</script>
+<script type="text/javascript" async="async" src="https://cdn.jsdelivr.net/npm/mathjax@2/MathJax.js"></script>
+  <link href="../../doxygen.css" rel="stylesheet" type="text/css" />
+  <link href="../../doxygen-awesome.css" rel="stylesheet" type="text/css"/>
+<link href="../../doxygen-awesome-sidebar-only.css" rel="stylesheet" type="text/css"/>
+<link href="../../doxygen-awesome-sidebar-only-darkmode-toggle.css" rel="stylesheet" type="text/css"/>
+  <!-- ... other metadata & script includes ... -->
+  <script type="text/javascript" src="../../doxygen-awesome-darkmode-toggle.js"></script>
+  <script type="text/javascript">
+    DoxygenAwesomeDarkModeToggle.title = "Zwischen hellem/dunklem Modus wechseln"
+    DoxygenAwesomeDarkModeToggle.lightModeIcon = '🌞'
+    // icon from https://fonts.google.com/icons
+    DoxygenAwesomeDarkModeToggle.darkModeIcon = `<svg xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 24 24" height="24px" viewBox="0 0 24 24" width="24px" fill="#009793"><g><rect fill="none" height="24" width="24"/></g><g><g><path d="M8.1,14.15C9.77,14.63,11,16.17,11,18c0,0.68-0.19,1.31-0.48,1.87c0.48,0.09,0.97,0.14,1.48,0.14 c1.48,0,2.9-0.41,4.13-1.15c-2.62-0.92-5.23-2.82-6.8-5.86C7.74,9.94,7.78,7.09,8.29,4.9c-2.57,1.33-4.3,4.01-4.3,7.1c0,0,0,0,0,0 c0.01,0,0.01,0,0.02,0C5.66,12,7.18,12.83,8.1,14.15z" opacity=".3"/><path d="M19.78,17.51c-2.47,0-6.57-1.33-8.68-5.43C8.77,7.57,10.6,3.6,11.63,2.01C6.27,2.2,1.98,6.59,1.98,12 c0,0.14,0.02,0.28,0.02,0.42C2.61,12.16,3.28,12,3.98,12c0,0,0,0,0,0c0-3.09,1.73-5.77,4.3-7.1C7.78,7.09,7.74,9.94,9.32,13 c1.57,3.04,4.18,4.95,6.8,5.86c-1.23,0.74-2.65,1.15-4.13,1.15c-0.5,0-1-0.05-1.48-0.14c-0.37,0.7-0.94,1.27-1.64,1.64 c0.98,0.32,2.03,0.5,3.11,0.5c3.5,0,6.58-1.8,8.37-4.52C20.18,17.5,19.98,17.51,19.78,17.51z"/><path d="M7,16l-0.18,0C6.4,14.84,5.3,14,4,14c-1.66,0-3,1.34-3,3s1.34,3,3,3c0.62,0,2.49,0,3,0c1.1,0,2-0.9,2-2 C9,16.9,8.1,16,7,16z"/></g></g></svg>`
+    DoxygenAwesomeDarkModeToggle.init()
+  </script>
+  <script type="text/javascript" src="../../doxygen-awesome-fragment-copy-button.js"></script>
+  <script type="text/javascript">
+    DoxygenAwesomeFragmentCopyButton.title = "In die Zwischenablage kopieren"
+    // DoxygenAwesomeFragmentCopyButton.copyIcon = `<svg ...>`
+    // DoxygenAwesomeFragmentCopyButton.successIcon = `<svg ...>`
+    DoxygenAwesomeFragmentCopyButton.init()
+  </script>
+  <script type="text/javascript" src="../../doxygen-awesome-paragraph-link.js"></script>
+  <script type="text/javascript">
+    DoxygenAwesomeParagraphLink.title = "Abschnitt verknüpfen"
+    DoxygenAwesomeParagraphLink.icon = "¶"
+    DoxygenAwesomeParagraphLink.init()
+  </script>
+  <script type="text/javascript" src="../../doxygen-awesome-interactive-toc.js"></script>
+  <script type="text/javascript">
+    DoxygenAwesomeInteractiveToc.topOffset = 45
+    DoxygenAwesomeInteractiveToc.hideMobileMenu = false
+    DoxygenAwesomeInteractiveToc.init()
+  </script>
+</head>
+<body>
+    <div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+      <div id="titlearea">
+        <table cellspacing="0" cellpadding="0">
+          <tbody>
+            <tr id="projectrow">
+              <td id="projectlogo"><img alt="Logo" src="../../EdIconDefault.bmp"  /></td>
+              <td id="projectalign">
+                <div id="projectname">UE 5.8.4
+                </div>
+                <div id="projectbrief">Unreal Engine</div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <!-- end header part -->
+<!-- 制作者 Doxygen 1.15.0 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "../../search/",'.html');
+</script>
+<script type="text/javascript">
+$(function() { codefold.init(); });
+</script>
+<script type="text/javascript" src="../../menudata.js"></script>
+<script type="text/javascript" src="../../menu.js"></script>
+<script type="text/javascript">
+$(function() {
+  initMenu('../../',true,false,'search.php','搜索',true);
+  $(function() { init_search(); });
+});
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(function(){initNavTree('dc/d1d/_lumen_radiosity_8cpp.html','../../',''); });
+</script>
+<div id="container">
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">载入中...</div>
+<div class="SRStatus" id="Searching">搜索中...</div>
+<div class="SRStatus" id="NoMatches">未找到</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">LumenRadiosity.cpp 文件参考</div></div>
+</div><!--header-->
+<div class="contents">
+<div class="textblock"><code>#include &quot;<a class="el" href="../../d4/d54/_lumen_radiosity_8h_source.html">LumenRadiosity.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d5/dbc/_scene_private_8h_source.html">ScenePrivate.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d5/d3b/_scene_utils_8h_source.html">SceneUtils.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../df/db5/_pipeline_state_cache_8h_source.html">PipelineStateCache.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../de/d64/_shader_parameter_struct_8h_source.html">ShaderParameterStruct.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d2/d93/_pixel_shader_utils_8h_source.html">PixelShaderUtils.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d8/d57/_reflection_environment_8h_source.html">ReflectionEnvironment.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../da/d72/_distance_field_ambient_occlusion_8h_source.html">DistanceFieldAmbientOcclusion.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d9/d3e/_lumen_radiance_cache_8h_source.html">LumenRadianceCache.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d1/d3e/_lumen_scene_lighting_8h_source.html">LumenSceneLighting.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../da/d07/_lumen_tracing_utils_8h_source.html">LumenTracingUtils.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../dc/d29/_lumen_hardware_ray_tracing_common_8h_source.html">LumenHardwareRayTracingCommon.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../de/dec/_blue_noise_8h_source.html">BlueNoise.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d8/dc2/_shader_print_parameters_8h_source.html">ShaderPrintParameters.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../db/d71/_deferred_shading_renderer_8h_source.html">DeferredShadingRenderer.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../dc/d79/_nanite_resources_8h_source.html">Rendering/NaniteResources.h</a>&quot;</code><br />
+</div><div class="textblock"><div class="dynheader">
+LumenRadiosity.cpp 的引用(Include)关系图:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d1/d6c/_lumen_radiosity_8cpp__incl.svg" width="4758" height="534"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+</div><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-nested-classes" class="groupheader"><a id="nested-classes" name="nested-classes"></a>
+类</h2></td></tr>
+<tr class="memitem:FBuildRadiosityTilesCS" id="r_FBuildRadiosityTilesCS"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/d3b/class_f_build_radiosity_tiles_c_s.html">FBuildRadiosityTilesCS</a></td></tr>
+<tr class="memitem:FLumenRadiosityIndirectArgsCS" id="r_FLumenRadiosityIndirectArgsCS"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/dfa/class_f_lumen_radiosity_indirect_args_c_s.html">FLumenRadiosityIndirectArgsCS</a></td></tr>
+<tr class="memitem:FLumenRadiosityDistanceFieldTracingCS" id="r_FLumenRadiosityDistanceFieldTracingCS"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d82/class_f_lumen_radiosity_distance_field_tracing_c_s.html">FLumenRadiosityDistanceFieldTracingCS</a></td></tr>
+<tr class="memitem:FLumenRadiositySpatialFilterProbeRadiance" id="r_FLumenRadiositySpatialFilterProbeRadiance"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d54/class_f_lumen_radiosity_spatial_filter_probe_radiance.html">FLumenRadiositySpatialFilterProbeRadiance</a></td></tr>
+<tr class="memitem:FLumenRadiosityConvertToSH" id="r_FLumenRadiosityConvertToSH"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/da3/class_f_lumen_radiosity_convert_to_s_h.html">FLumenRadiosityConvertToSH</a></td></tr>
+<tr class="memitem:FLumenRadiosityIntegrateCS" id="r_FLumenRadiosityIntegrateCS"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/dc6/class_f_lumen_radiosity_integrate_c_s.html">FLumenRadiosityIntegrateCS</a></td></tr>
+<tr class="memitem:FBuildVisualizeProbesCS" id="r_FBuildVisualizeProbesCS"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/df0/class_f_build_visualize_probes_c_s.html">FBuildVisualizeProbesCS</a></td></tr>
+<tr class="memitem:FVisualizeRadiosityProbesVS" id="r_FVisualizeRadiosityProbesVS"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d2/d7d/class_f_visualize_radiosity_probes_v_s.html">FVisualizeRadiosityProbesVS</a></td></tr>
+<tr class="memitem:FVisualizeRadiosityProbesPS" id="r_FVisualizeRadiosityProbesPS"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d3f/class_f_visualize_radiosity_probes_p_s.html">FVisualizeRadiosityProbesPS</a></td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-namespaces" class="groupheader"><a id="namespaces" name="namespaces"></a>
+命名空间</h2></td></tr>
+<tr class="memitem:LumenRadiosity" id="r_LumenRadiosity"><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d0d/namespace_lumen_radiosity.html">LumenRadiosity</a></td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-enum-members" class="groupheader"><a id="enum-members" name="enum-members"></a>
+枚举</h2></td></tr>
+<tr class="memitem:abe3ed77000eddfbe046a3112a4041c38" id="r_abe3ed77000eddfbe046a3112a4041c38"><td class="memItemLeft" align="right" valign="top">enum class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#abe3ed77000eddfbe046a3112a4041c38">ERadiosityIndirectArgs</a> { <br />
+&#160;&#160;<a class="el" href="#abe3ed77000eddfbe046a3112a4041c38aaa8aaa8e04acde3d9e2fdc415ef398a9">NumTracesDiv64</a> = 0 * sizeof(FRHIDispatchIndirectParameters)
+, <a class="el" href="#abe3ed77000eddfbe046a3112a4041c38a04a68b85776916304bb68461ba0250bb">NumTracesDiv32</a> = 1 * sizeof(FRHIDispatchIndirectParameters)
+, <a class="el" href="#abe3ed77000eddfbe046a3112a4041c38a2a45a09716b8d1b174ce3723d5d09467">ThreadPerProbe</a> = 2 * sizeof(FRHIDispatchIndirectParameters)
+, <a class="el" href="#abe3ed77000eddfbe046a3112a4041c38ae2caab911a8fb533723e6f5b05d592a4">HardwareRayTracingThreadPerTrace</a> = 3 * sizeof(FRHIDispatchIndirectParameters)
+, <br />
+&#160;&#160;<a class="el" href="#abe3ed77000eddfbe046a3112a4041c38a26a4b44a837bf97b972628509912b4a5">MAX</a> = 4
+<br />
+ }</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-func-members" class="groupheader"><a id="func-members" name="func-members"></a>
+函数</h2></td></tr>
+<tr class="memitem:af773d9b1e28a3d1217085db7f4b9402d" id="r_af773d9b1e28a3d1217085db7f4b9402d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d2/d79/class_f_auto_console_variable_ref.html">FAutoConsoleVariableRef</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af773d9b1e28a3d1217085db7f4b9402d">CVarLumenRadiosity</a> (<a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;r.LumenScene.Radiosity&quot;), <a class="el" href="#aaf06cfe411e8aaa118cd21fbc01a6166">GLumenRadiosity</a>, <a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;Whether to enable the Radiosity, which is an indirect lighting gather from the Surface Cache that provides multibounce diffuse.&quot;), <a class="el" href="../../d4/dd9/_i_console_manager_8h.html#a7f594f23c2b2c5687f1a502ebb3ba105a5fb4e7a0526f4a0c350d71e18956527c">ECVF_Scalability</a>|<a class="el" href="../../d4/dd9/_i_console_manager_8h.html#a7f594f23c2b2c5687f1a502ebb3ba105a774ea60f41417af093a7ca56c4204a70">ECVF_RenderThreadSafe</a>)</td></tr>
+<tr class="memitem:a8e5b6eb7aec0ffa094b63ffcac8252af" id="r_a8e5b6eb7aec0ffa094b63ffcac8252af"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d2/d79/class_f_auto_console_variable_ref.html">FAutoConsoleVariableRef</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8e5b6eb7aec0ffa094b63ffcac8252af">CVarLumenRadiosityProbeSpacing</a> (<a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;r.LumenScene.Radiosity.ProbeSpacing&quot;), <a class="el" href="#a1b40f7ed81343bb589c8efd0f4791ea5">GLumenRadiosityProbeSpacing</a>, <a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;Distance between probes, in Surface Cache texels&quot;), <a class="el" href="../../d4/dd9/_i_console_manager_8h.html#a7f594f23c2b2c5687f1a502ebb3ba105a5fb4e7a0526f4a0c350d71e18956527c">ECVF_Scalability</a>|<a class="el" href="../../d4/dd9/_i_console_manager_8h.html#a7f594f23c2b2c5687f1a502ebb3ba105a774ea60f41417af093a7ca56c4204a70">ECVF_RenderThreadSafe</a>)</td></tr>
+<tr class="memitem:a66d4d9e907a4042f927f4420c1336e2f" id="r_a66d4d9e907a4042f927f4420c1336e2f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d2/d79/class_f_auto_console_variable_ref.html">FAutoConsoleVariableRef</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a66d4d9e907a4042f927f4420c1336e2f">CVarLumenRadiosityHemisphereProbeResolution</a> (<a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;r.LumenScene.Radiosity.HemisphereProbeResolution&quot;), <a class="el" href="#a4447c9e901ba55a9be62c76c20a3a493">GLumenRadiosityHemisphereProbeResolution</a>, <a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;Number of traces along one dimension of the hemisphere probe layout.&quot;), <a class="el" href="../../d4/dd9/_i_console_manager_8h.html#a7f594f23c2b2c5687f1a502ebb3ba105a5fb4e7a0526f4a0c350d71e18956527c">ECVF_Scalability</a>|<a class="el" href="../../d4/dd9/_i_console_manager_8h.html#a7f594f23c2b2c5687f1a502ebb3ba105a774ea60f41417af093a7ca56c4204a70">ECVF_RenderThreadSafe</a>)</td></tr>
+<tr class="memitem:a9493114655d30d17c1273517ebe8117f" id="r_a9493114655d30d17c1273517ebe8117f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d2/d79/class_f_auto_console_variable_ref.html">FAutoConsoleVariableRef</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9493114655d30d17c1273517ebe8117f">CVarLumenRadiositySpatialFilterProbes</a> (<a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;r.LumenScene.Radiosity.SpatialFilterProbes&quot;), <a class="el" href="#a5729b88fccf72cb0d71d2e5accdf5c25">GLumenRadiositySpatialFilterProbes</a>, <a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;Whether to spatially filter Radiosity probes.  Filtering reduces noise but increases leaking.&quot;), <a class="el" href="../../d4/dd9/_i_console_manager_8h.html#a7f594f23c2b2c5687f1a502ebb3ba105a5fb4e7a0526f4a0c350d71e18956527c">ECVF_Scalability</a>|<a class="el" href="../../d4/dd9/_i_console_manager_8h.html#a7f594f23c2b2c5687f1a502ebb3ba105a774ea60f41417af093a7ca56c4204a70">ECVF_RenderThreadSafe</a>)</td></tr>
+<tr class="memitem:a27b40ab0557e9b8ebb8005d0a67fdb7a" id="r_a27b40ab0557e9b8ebb8005d0a67fdb7a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d2/d79/class_f_auto_console_variable_ref.html">FAutoConsoleVariableRef</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a27b40ab0557e9b8ebb8005d0a67fdb7a">CVarLumenRadiositySpatialFilterProbesKernelSize</a> (<a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;r.LumenScene.Radiosity.SpatialFilterProbes.KernelSize&quot;), <a class="el" href="#a0c134a087d8dc2033e89c269ec7e5767">GLumenRadiositySpatialFilterProbesKernelSize</a>, <a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;Larger kernels reduce noise but increase leaking.&quot;), <a class="el" href="../../d4/dd9/_i_console_manager_8h.html#a7f594f23c2b2c5687f1a502ebb3ba105a5fb4e7a0526f4a0c350d71e18956527c">ECVF_Scalability</a>|<a class="el" href="../../d4/dd9/_i_console_manager_8h.html#a7f594f23c2b2c5687f1a502ebb3ba105a774ea60f41417af093a7ca56c4204a70">ECVF_RenderThreadSafe</a>)</td></tr>
+<tr class="memitem:a90b0999050aa3456641285068e608d3c" id="r_a90b0999050aa3456641285068e608d3c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d2/d79/class_f_auto_console_variable_ref.html">FAutoConsoleVariableRef</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a90b0999050aa3456641285068e608d3c">CVarRadiosityFilteringProbePlaneWeighting</a> (<a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;r.LumenScene.Radiosity.ProbePlaneWeighting&quot;), <a class="el" href="#a3dc6188729f6c98581f22ba0a179f9fd">GRadiosityFilteringProbePlaneWeighting</a>, <a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;Whether to weight Radiosity probes by plane distance, useful to prevent leaking.&quot;), <a class="el" href="../../d4/dd9/_i_console_manager_8h.html#a7f594f23c2b2c5687f1a502ebb3ba105a5fb4e7a0526f4a0c350d71e18956527c">ECVF_Scalability</a>|<a class="el" href="../../d4/dd9/_i_console_manager_8h.html#a7f594f23c2b2c5687f1a502ebb3ba105a774ea60f41417af093a7ca56c4204a70">ECVF_RenderThreadSafe</a>)</td></tr>
+<tr class="memitem:ade42fd4502ca89f046c908516d250edb" id="r_ade42fd4502ca89f046c908516d250edb"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d2/d79/class_f_auto_console_variable_ref.html">FAutoConsoleVariableRef</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ade42fd4502ca89f046c908516d250edb">CVarRadiosityFilteringProbeOcclusion</a> (<a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;r.LumenScene.Radiosity.ProbeOcclusion&quot;), <a class="el" href="#a81034ff2dba4fe13522a2d3e58cd24d3">GRadiosityFilteringProbeOcclusion</a>, <a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;Whether to depth test against the probe hit depths during interpolation and filtering to reduce leaking.  Not available with Software Ray Tracing due to imprecision.&quot;), <a class="el" href="../../d4/dd9/_i_console_manager_8h.html#a7f594f23c2b2c5687f1a502ebb3ba105a5fb4e7a0526f4a0c350d71e18956527c">ECVF_Scalability</a>|<a class="el" href="../../d4/dd9/_i_console_manager_8h.html#a7f594f23c2b2c5687f1a502ebb3ba105a774ea60f41417af093a7ca56c4204a70">ECVF_RenderThreadSafe</a>)</td></tr>
+<tr class="memitem:ae93b29d061c291182bceb60a4b9be388" id="r_ae93b29d061c291182bceb60a4b9be388"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d2/d79/class_f_auto_console_variable_ref.html">FAutoConsoleVariableRef</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae93b29d061c291182bceb60a4b9be388">CVarRadiosityFilteringProbeOcclusionStrength</a> (<a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;r.LumenScene.Radiosity.ProbeOcclusionStrength&quot;), <a class="el" href="#a740bef080e1fbdacc26c3333e3d5058d">GRadiosityFilteringProbeOcclusionStrength</a>, <a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;Strength of probe occlusion.  0 = No probe occlusion, 1 = Attempt to stop all leaking, but has self-occlusion artifacts, .5 (default) = tradeoff between the extremes.&quot;), <a class="el" href="../../d4/dd9/_i_console_manager_8h.html#a7f594f23c2b2c5687f1a502ebb3ba105a5fb4e7a0526f4a0c350d71e18956527c">ECVF_Scalability</a>|<a class="el" href="../../d4/dd9/_i_console_manager_8h.html#a7f594f23c2b2c5687f1a502ebb3ba105a774ea60f41417af093a7ca56c4204a70">ECVF_RenderThreadSafe</a>)</td></tr>
+<tr class="memitem:a5b26be73d3366ebfddf4f1cd7dd0eac8" id="r_a5b26be73d3366ebfddf4f1cd7dd0eac8"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d2/d79/class_f_auto_console_variable_ref.html">FAutoConsoleVariableRef</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5b26be73d3366ebfddf4f1cd7dd0eac8">CVarRadiosityProbePlaneWeightingDepthScale</a> (<a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;r.LumenScene.Radiosity.SpatialFilterProbes.PlaneWeightingDepthScale&quot;), <a class="el" href="#a45a842f6d72e98a67576f92f516d6ec2">GRadiosityProbePlaneWeightingDepthScale</a>, <a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;Controls the distance at which probes can be interpolated from.  Higher <a class="el" href="../../d8/d06/_android_open_g_l_functions_8h.html#a250b37a0411d5375d92808e2840cb0dd">values</a> introduce leaking.&quot;), <a class="el" href="../../d4/dd9/_i_console_manager_8h.html#a7f594f23c2b2c5687f1a502ebb3ba105a5fb4e7a0526f4a0c350d71e18956527c">ECVF_Scalability</a>|<a class="el" href="../../d4/dd9/_i_console_manager_8h.html#a7f594f23c2b2c5687f1a502ebb3ba105a774ea60f41417af093a7ca56c4204a70">ECVF_RenderThreadSafe</a>)</td></tr>
+<tr class="memitem:a87934e5366b09211199b0c52850d70d3" id="r_a87934e5366b09211199b0c52850d70d3"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d2/d79/class_f_auto_console_variable_ref.html">FAutoConsoleVariableRef</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a87934e5366b09211199b0c52850d70d3">CVarLumenRadiosityMaxRayIntensity</a> (<a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;r.LumenScene.Radiosity.MaxRayIntensity&quot;), <a class="el" href="#aeb94f6e86cfed79cf61de61602553904">GLumenRadiosityMaxRayIntensity</a>, <a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;Clamps Radiosity <a class="el" href="../../d7/df8/namespacetrace.html">trace</a> intensity, relative to current view exposure.  Useful <a class="el" href="../../d3/db8/binka__ue__decode__test_8cpp.html#ac1ee511585a5c7a2d58c146185895b72">for</a> reducing artifacts from small bright emissive sources, but loses energy and adds view dependence.&quot;), <a class="el" href="../../d4/dd9/_i_console_manager_8h.html#a7f594f23c2b2c5687f1a502ebb3ba105a5fb4e7a0526f4a0c350d71e18956527c">ECVF_Scalability</a>|<a class="el" href="../../d4/dd9/_i_console_manager_8h.html#a7f594f23c2b2c5687f1a502ebb3ba105a774ea60f41417af093a7ca56c4204a70">ECVF_RenderThreadSafe</a>)</td></tr>
+<tr class="memitem:a2adaad608c229561cc9301dbc179b4ba" id="r_a2adaad608c229561cc9301dbc179b4ba"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d2/d79/class_f_auto_console_variable_ref.html">FAutoConsoleVariableRef</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2adaad608c229561cc9301dbc179b4ba">CVarLumenRadiositySurfaceBias</a> (<a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;r.LumenScene.Radiosity.DistanceFieldSurfaceBias&quot;), <a class="el" href="#a8e04e55f9f64bf827cefdf335e26873c">GLumenRadiosityDistanceFieldSurfaceBias</a>, <a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;.&quot;), <a class="el" href="../../d4/dd9/_i_console_manager_8h.html#a7f594f23c2b2c5687f1a502ebb3ba105a5fb4e7a0526f4a0c350d71e18956527c">ECVF_Scalability</a>|<a class="el" href="../../d4/dd9/_i_console_manager_8h.html#a7f594f23c2b2c5687f1a502ebb3ba105a774ea60f41417af093a7ca56c4204a70">ECVF_RenderThreadSafe</a>)</td></tr>
+<tr class="memitem:aec78a782c35d5ade3673ccf23ea3d930" id="r_aec78a782c35d5ade3673ccf23ea3d930"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d2/d79/class_f_auto_console_variable_ref.html">FAutoConsoleVariableRef</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aec78a782c35d5ade3673ccf23ea3d930">CVarLumenRadiosityDistanceFieldSurfaceBias</a> (<a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;r.LumenScene.Radiosity.DistanceFieldSurfaceSlopeBias&quot;), <a class="el" href="#a8e04e55f9f64bf827cefdf335e26873c">GLumenRadiosityDistanceFieldSurfaceBias</a>, <a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;.&quot;), <a class="el" href="../../d4/dd9/_i_console_manager_8h.html#a7f594f23c2b2c5687f1a502ebb3ba105a5fb4e7a0526f4a0c350d71e18956527c">ECVF_Scalability</a>|<a class="el" href="../../d4/dd9/_i_console_manager_8h.html#a7f594f23c2b2c5687f1a502ebb3ba105a774ea60f41417af093a7ca56c4204a70">ECVF_RenderThreadSafe</a>)</td></tr>
+<tr class="memitem:a56eb6db2f81ca45dcbd0dcb7c67c2339" id="r_a56eb6db2f81ca45dcbd0dcb7c67c2339"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d2/d79/class_f_auto_console_variable_ref.html">FAutoConsoleVariableRef</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a56eb6db2f81ca45dcbd0dcb7c67c2339">CVarLumenRadiosityTemporalAccumulation</a> (<a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;r.LumenScene.Radiosity.Temporal&quot;), <a class="el" href="#a8f8560e9946bdf008ee61ff238443283">GLumenRadiosityTemporalAccumulation</a>, <a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;Whether to use temporal super sampling on Radiosity.  Increases quality, but also adds latency to the speed that lighting changes propagate, and animated noise in the results.&quot;), <a class="el" href="../../d4/dd9/_i_console_manager_8h.html#a7f594f23c2b2c5687f1a502ebb3ba105a5fb4e7a0526f4a0c350d71e18956527c">ECVF_Scalability</a>|<a class="el" href="../../d4/dd9/_i_console_manager_8h.html#a7f594f23c2b2c5687f1a502ebb3ba105a774ea60f41417af093a7ca56c4204a70">ECVF_RenderThreadSafe</a>)</td></tr>
+<tr class="memitem:a6cd895d611c3810624c4f3fb6cf517b1" id="r_a6cd895d611c3810624c4f3fb6cf517b1"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d2/d79/class_f_auto_console_variable_ref.html">FAutoConsoleVariableRef</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6cd895d611c3810624c4f3fb6cf517b1">CVarLumenRadiosityTemporalMaxFramesAccumulated</a> (<a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;r.LumenScene.Radiosity.Temporal.MaxFramesAccumulated&quot;), <a class="el" href="#a411b4b92eed97ea7eabfd61dea2a2cd2">GLumenRadiosityTemporalMaxFramesAccumulated</a>, <a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;Lower <a class="el" href="../../d8/d06/_android_open_g_l_functions_8h.html#a250b37a0411d5375d92808e2840cb0dd">values</a> cause the temporal filter to propagate lighting changes faster, but also increase flickering from noise.&quot;), <a class="el" href="../../d4/dd9/_i_console_manager_8h.html#a7f594f23c2b2c5687f1a502ebb3ba105a5fb4e7a0526f4a0c350d71e18956527c">ECVF_Scalability</a>|<a class="el" href="../../d4/dd9/_i_console_manager_8h.html#a7f594f23c2b2c5687f1a502ebb3ba105a774ea60f41417af093a7ca56c4204a70">ECVF_RenderThreadSafe</a>)</td></tr>
+<tr class="memitem:a60e22564315de6a78522fc4b3b6a521d" id="r_a60e22564315de6a78522fc4b3b6a521d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d2/d79/class_f_auto_console_variable_ref.html">FAutoConsoleVariableRef</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a60e22564315de6a78522fc4b3b6a521d">CVarLumenRadiosityFixedJitterIndex</a> (<a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;r.LumenScene.Radiosity.Temporal.FixedJitterIndex&quot;), <a class="el" href="#a0ab2996698845342a109ba8ef1624dc7">GLumenRadiosityFixedJitterIndex</a>, <a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;If zero or greater, overrides the temporal jitter index with a fixed index.  Useful <a class="el" href="../../d3/db8/binka__ue__decode__test_8cpp.html#ac1ee511585a5c7a2d58c146185895b72">for</a> debugging and inspecting sampling patterns.&quot;), <a class="el" href="../../d4/dd9/_i_console_manager_8h.html#a7f594f23c2b2c5687f1a502ebb3ba105a5fb4e7a0526f4a0c350d71e18956527c">ECVF_Scalability</a>|<a class="el" href="../../d4/dd9/_i_console_manager_8h.html#a7f594f23c2b2c5687f1a502ebb3ba105a774ea60f41417af093a7ca56c4204a70">ECVF_RenderThreadSafe</a>)</td></tr>
+<tr class="memitem:ad89e5fc6651e341644a332275a10a56a" id="r_ad89e5fc6651e341644a332275a10a56a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../df/d63/_typed_element_query_capabilities_8inl.html#a72343342ce64c0755563ee6c5e27868d">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d0d/namespace_lumen_radiosity.html#ad89e5fc6651e341644a332275a10a56a">LumenRadiosity::AddRadiosityPass</a> (<a class="el" href="../../d3/d85/class_f_r_d_g_builder.html">FRDGBuilder</a> &amp;GraphBuilder, const <a class="el" href="../../d4/dfa/class_f_scene.html">FScene</a> *Scene, const <a class="el" href="../../d6/db1/class_t_array.html">TArray</a>&lt; <a class="el" href="../../dd/d2b/class_f_view_info.html">FViewInfo</a> &gt; &amp;Views, <a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a> bRenderSkylight, <a class="el" href="../../d9/d40/class_f_lumen_scene_data.html">FLumenSceneData</a> &amp;LumenSceneData, const <a class="el" href="../../dc/da7/struct_f_lumen_scene_frame_temporaries.html">FLumenSceneFrameTemporaries</a> &amp;FrameTemporaries, const <a class="el" href="../../d3/dd6/struct_lumen_radiosity_1_1_f_frame_temporaries.html">LumenRadiosity::FFrameTemporaries</a> &amp;RadiosityFrameTemporaries, const <a class="el" href="../../db/d6d/class_f_lumen_card_update_context.html">FLumenCardUpdateContext</a> &amp;CardUpdateContext, <a class="el" href="../../d0/de1/struct_f_lumen_card_tile_update_context.html">FLumenCardTileUpdateContext</a> &amp;CardTileUpdateContext, <a class="el" href="../../d6/de8/_render_graph_definitions_8h.html#a3b73b7355dd6964375c48c23d5fb76da">ERDGPassFlags</a> ComputePassFlags)</td></tr>
+<tr class="memitem:a9df8d52cb196a7b0e18f3ecc994b3e17" id="r_a9df8d52cb196a7b0e18f3ecc994b3e17"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../dd/de9/preprocessor_8c.html#a1134b580f8da4de94ca6b1de4d37975e">uint32</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d0d/namespace_lumen_radiosity.html#a9df8d52cb196a7b0e18f3ecc994b3e17">LumenRadiosity::GetRadiosityProbeSpacing</a> (const <a class="el" href="../../dd/d2b/class_f_view_info.html">FViewInfo</a> &amp;View)</td></tr>
+<tr class="memitem:a4534ba90df8e9629bca537e3ef98a691" id="r_a4534ba90df8e9629bca537e3ef98a691"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a8dbb3cd84ca9fd010dadfc3815eefa5d">int32</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d0d/namespace_lumen_radiosity.html#a4534ba90df8e9629bca537e3ef98a691">LumenRadiosity::GetHemisphereProbeResolution</a> (const <a class="el" href="../../dd/d2b/class_f_view_info.html">FViewInfo</a> &amp;View)</td></tr>
+<tr class="memitem:a0e2c8137eba8e590c4f1d264020ab757" id="r_a0e2c8137eba8e590c4f1d264020ab757"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d0d/namespace_lumen_radiosity.html#a0e2c8137eba8e590c4f1d264020ab757">LumenRadiosity::UseTemporalAccumulation</a> ()</td></tr>
+<tr class="memitem:a47c88b645453f85a9fe8389a4ae83c5f" id="r_a47c88b645453f85a9fe8389a4ae83c5f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d0d/namespace_lumen_radiosity.html#a47c88b645453f85a9fe8389a4ae83c5f">LumenRadiosity::UseProbeOcclusion</a> ()</td></tr>
+<tr class="memitem:aa68b364d5c9318919cb190e9514ecf08" id="r_aa68b364d5c9318919cb190e9514ecf08"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa68b364d5c9318919cb190e9514ecf08">IMPLEMENT_GLOBAL_SHADER</a> (<a class="el" href="../../dd/d3b/class_f_build_radiosity_tiles_c_s.html">FBuildRadiosityTilesCS</a>, &quot;/Engine/<a class="el" href="../../d9/db1/namespace_private.html">Private</a>/<a class="el" href="../../de/de9/namespace_lumen.html">Lumen</a>/Radiosity/LumenRadiosityCulling.usf&quot;, &quot;BuildRadiosityTilesCS&quot;, <a class="el" href="../../da/dca/_r_h_i_definitions_8h.html#a0a3cc83cb6ebc79b66b43fae3ffee64ea2a84a18d7ac3d1fac11e3153f0abf73b">SF_Compute</a>)</td></tr>
+<tr class="memitem:a472f24eb88bae8f989b208c22cd75202" id="r_a472f24eb88bae8f989b208c22cd75202"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a472f24eb88bae8f989b208c22cd75202">IMPLEMENT_GLOBAL_SHADER</a> (<a class="el" href="../../d6/dfa/class_f_lumen_radiosity_indirect_args_c_s.html">FLumenRadiosityIndirectArgsCS</a>, &quot;/Engine/<a class="el" href="../../d9/db1/namespace_private.html">Private</a>/<a class="el" href="../../de/de9/namespace_lumen.html">Lumen</a>/Radiosity/LumenRadiosity.usf&quot;, &quot;LumenRadiosityIndirectArgsCS&quot;, <a class="el" href="../../da/dca/_r_h_i_definitions_8h.html#a0a3cc83cb6ebc79b66b43fae3ffee64ea2a84a18d7ac3d1fac11e3153f0abf73b">SF_Compute</a>)</td></tr>
+<tr class="memitem:a0fa9c8603b3686ad59bedcda6e5828a9" id="r_a0fa9c8603b3686ad59bedcda6e5828a9"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a0fa9c8603b3686ad59bedcda6e5828a9">IMPLEMENT_GLOBAL_SHADER</a> (<a class="el" href="../../df/d82/class_f_lumen_radiosity_distance_field_tracing_c_s.html">FLumenRadiosityDistanceFieldTracingCS</a>, &quot;/Engine/<a class="el" href="../../d9/db1/namespace_private.html">Private</a>/<a class="el" href="../../de/de9/namespace_lumen.html">Lumen</a>/Radiosity/LumenRadiosity.usf&quot;, &quot;LumenRadiosityDistanceFieldTracingCS&quot;, <a class="el" href="../../da/dca/_r_h_i_definitions_8h.html#a0a3cc83cb6ebc79b66b43fae3ffee64ea2a84a18d7ac3d1fac11e3153f0abf73b">SF_Compute</a>)</td></tr>
+<tr class="memitem:a2bb5a8c480f329d3d65fb83aec9a8064" id="r_a2bb5a8c480f329d3d65fb83aec9a8064"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2bb5a8c480f329d3d65fb83aec9a8064">IMPLEMENT_GLOBAL_SHADER</a> (<a class="el" href="../../d6/d54/class_f_lumen_radiosity_spatial_filter_probe_radiance.html">FLumenRadiositySpatialFilterProbeRadiance</a>, &quot;/Engine/<a class="el" href="../../d9/db1/namespace_private.html">Private</a>/<a class="el" href="../../de/de9/namespace_lumen.html">Lumen</a>/Radiosity/LumenRadiosity.usf&quot;, &quot;LumenRadiositySpatialFilterProbeRadiance&quot;, <a class="el" href="../../da/dca/_r_h_i_definitions_8h.html#a0a3cc83cb6ebc79b66b43fae3ffee64ea2a84a18d7ac3d1fac11e3153f0abf73b">SF_Compute</a>)</td></tr>
+<tr class="memitem:a13d9cc3a06222cf95c74950308e5ce09" id="r_a13d9cc3a06222cf95c74950308e5ce09"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a13d9cc3a06222cf95c74950308e5ce09">IMPLEMENT_GLOBAL_SHADER</a> (<a class="el" href="../../de/da3/class_f_lumen_radiosity_convert_to_s_h.html">FLumenRadiosityConvertToSH</a>, &quot;/Engine/<a class="el" href="../../d9/db1/namespace_private.html">Private</a>/<a class="el" href="../../de/de9/namespace_lumen.html">Lumen</a>/Radiosity/LumenRadiosity.usf&quot;, &quot;LumenRadiosityConvertToSH&quot;, <a class="el" href="../../da/dca/_r_h_i_definitions_8h.html#a0a3cc83cb6ebc79b66b43fae3ffee64ea2a84a18d7ac3d1fac11e3153f0abf73b">SF_Compute</a>)</td></tr>
+<tr class="memitem:aa596505dd53464393f3edef520ba2dad" id="r_aa596505dd53464393f3edef520ba2dad"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa596505dd53464393f3edef520ba2dad">IMPLEMENT_GLOBAL_SHADER</a> (<a class="el" href="../../d0/dc6/class_f_lumen_radiosity_integrate_c_s.html">FLumenRadiosityIntegrateCS</a>, &quot;/Engine/<a class="el" href="../../d9/db1/namespace_private.html">Private</a>/<a class="el" href="../../de/de9/namespace_lumen.html">Lumen</a>/Radiosity/LumenRadiosity.usf&quot;, &quot;LumenRadiosityIntegrateCS&quot;, <a class="el" href="../../da/dca/_r_h_i_definitions_8h.html#a0a3cc83cb6ebc79b66b43fae3ffee64ea2a84a18d7ac3d1fac11e3153f0abf73b">SF_Compute</a>)</td></tr>
+<tr class="memitem:a91a42dc0dc8c51fe2700c9bd9194999d" id="r_a91a42dc0dc8c51fe2700c9bd9194999d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d6/d6d/_canvas_types_8h.html#aea265cf57883ec58a09111d4a17b8448">FRDGTextureRef</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a91a42dc0dc8c51fe2700c9bd9194999d">RegisterOrCreateRadiosityAtlas</a> (<a class="el" href="../../d3/d85/class_f_r_d_g_builder.html">FRDGBuilder</a> &amp;GraphBuilder, const <a class="el" href="../../d7/d10/class_t_ref_count_ptr.html">TRefCountPtr</a>&lt; <a class="el" href="../../dd/db5/struct_i_pooled_render_target.html">IPooledRenderTarget</a> &gt; &amp;AtlasRT, const TCHAR *AtlasName, <a class="el" href="../../d0/df6/_math_fwd_8h.html#af6853de5e4fcb2bad3bd5fdd2e50bffd">FIntPoint</a> AtlasSize, <a class="el" href="../../d5/db6/_pixel_format_8h.html#aaefcb820f58db492c4c56dc4d7a93f23">EPixelFormat</a> AtlasFormat, <a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a> &amp;bIndirectLightingHistoryValid)</td></tr>
+<tr class="memitem:a7d1f9abe2683fa9b163f028ff89bb80b" id="r_a7d1f9abe2683fa9b163f028ff89bb80b"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7d1f9abe2683fa9b163f028ff89bb80b">IMPLEMENT_GLOBAL_SHADER</a> (<a class="el" href="../../dd/df0/class_f_build_visualize_probes_c_s.html">FBuildVisualizeProbesCS</a>, &quot;/Engine/<a class="el" href="../../d9/db1/namespace_private.html">Private</a>/<a class="el" href="../../de/de9/namespace_lumen.html">Lumen</a>/Radiosity/LumenVisualizeRadiosityProbes.usf&quot;, &quot;BuildVisualizeProbesCS&quot;, <a class="el" href="../../da/dca/_r_h_i_definitions_8h.html#a0a3cc83cb6ebc79b66b43fae3ffee64ea2a84a18d7ac3d1fac11e3153f0abf73b">SF_Compute</a>)</td></tr>
+<tr class="memitem:a34cd885e8f3b91f891436995e6ab9dc3" id="r_a34cd885e8f3b91f891436995e6ab9dc3"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a34cd885e8f3b91f891436995e6ab9dc3">IMPLEMENT_GLOBAL_SHADER</a> (<a class="el" href="../../d2/d7d/class_f_visualize_radiosity_probes_v_s.html">FVisualizeRadiosityProbesVS</a>, &quot;/Engine/<a class="el" href="../../d9/db1/namespace_private.html">Private</a>/<a class="el" href="../../de/de9/namespace_lumen.html">Lumen</a>/Radiosity/LumenVisualizeRadiosityProbes.usf&quot;, &quot;VisualizeRadiosityProbesVS&quot;, <a class="el" href="../../da/dca/_r_h_i_definitions_8h.html#a0a3cc83cb6ebc79b66b43fae3ffee64ea57b843d1079d918ef496ded337a171d2">SF_Vertex</a>)</td></tr>
+<tr class="memitem:adfc6ad6c478365946698fecc14e2dec5" id="r_adfc6ad6c478365946698fecc14e2dec5"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#adfc6ad6c478365946698fecc14e2dec5">IMPLEMENT_GLOBAL_SHADER</a> (<a class="el" href="../../d6/d3f/class_f_visualize_radiosity_probes_p_s.html">FVisualizeRadiosityProbesPS</a>, &quot;/Engine/<a class="el" href="../../d9/db1/namespace_private.html">Private</a>/<a class="el" href="../../de/de9/namespace_lumen.html">Lumen</a>/Radiosity/LumenVisualizeRadiosityProbes.usf&quot;, &quot;VisualizeRadiosityProbesPS&quot;, <a class="el" href="../../da/dca/_r_h_i_definitions_8h.html#a0a3cc83cb6ebc79b66b43fae3ffee64eaf50bfe1c5c23e92a75ba64d89bcd3bfa">SF_Pixel</a>)</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-var-members" class="groupheader"><a id="var-members" name="var-members"></a>
+变量</h2></td></tr>
+<tr class="memitem:aaf06cfe411e8aaa118cd21fbc01a6166" id="r_aaf06cfe411e8aaa118cd21fbc01a6166"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a8dbb3cd84ca9fd010dadfc3815eefa5d">int32</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aaf06cfe411e8aaa118cd21fbc01a6166">GLumenRadiosity</a> = 1</td></tr>
+<tr class="memitem:a1b40f7ed81343bb589c8efd0f4791ea5" id="r_a1b40f7ed81343bb589c8efd0f4791ea5"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a8dbb3cd84ca9fd010dadfc3815eefa5d">int32</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a1b40f7ed81343bb589c8efd0f4791ea5">GLumenRadiosityProbeSpacing</a> = 4</td></tr>
+<tr class="memitem:a4447c9e901ba55a9be62c76c20a3a493" id="r_a4447c9e901ba55a9be62c76c20a3a493"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a8dbb3cd84ca9fd010dadfc3815eefa5d">int32</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4447c9e901ba55a9be62c76c20a3a493">GLumenRadiosityHemisphereProbeResolution</a> = 4</td></tr>
+<tr class="memitem:a5729b88fccf72cb0d71d2e5accdf5c25" id="r_a5729b88fccf72cb0d71d2e5accdf5c25"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a8dbb3cd84ca9fd010dadfc3815eefa5d">int32</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5729b88fccf72cb0d71d2e5accdf5c25">GLumenRadiositySpatialFilterProbes</a> = 1</td></tr>
+<tr class="memitem:a0c134a087d8dc2033e89c269ec7e5767" id="r_a0c134a087d8dc2033e89c269ec7e5767"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a8dbb3cd84ca9fd010dadfc3815eefa5d">int32</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a0c134a087d8dc2033e89c269ec7e5767">GLumenRadiositySpatialFilterProbesKernelSize</a> = 1</td></tr>
+<tr class="memitem:a3dc6188729f6c98581f22ba0a179f9fd" id="r_a3dc6188729f6c98581f22ba0a179f9fd"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a8dbb3cd84ca9fd010dadfc3815eefa5d">int32</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a3dc6188729f6c98581f22ba0a179f9fd">GRadiosityFilteringProbePlaneWeighting</a> = 1</td></tr>
+<tr class="memitem:a81034ff2dba4fe13522a2d3e58cd24d3" id="r_a81034ff2dba4fe13522a2d3e58cd24d3"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a8dbb3cd84ca9fd010dadfc3815eefa5d">int32</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a81034ff2dba4fe13522a2d3e58cd24d3">GRadiosityFilteringProbeOcclusion</a> = 0</td></tr>
+<tr class="memitem:a740bef080e1fbdacc26c3333e3d5058d" id="r_a740bef080e1fbdacc26c3333e3d5058d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../df/d2a/_s_anim_notify_shared_8h.html#ac7c94e837fed3f8e4bb3dd94d7bd2ecf">float</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a740bef080e1fbdacc26c3333e3d5058d">GRadiosityFilteringProbeOcclusionStrength</a> = .5f</td></tr>
+<tr class="memitem:a45a842f6d72e98a67576f92f516d6ec2" id="r_a45a842f6d72e98a67576f92f516d6ec2"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../df/d2a/_s_anim_notify_shared_8h.html#ac7c94e837fed3f8e4bb3dd94d7bd2ecf">float</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a45a842f6d72e98a67576f92f516d6ec2">GRadiosityProbePlaneWeightingDepthScale</a> = -100.0f</td></tr>
+<tr class="memitem:aeb94f6e86cfed79cf61de61602553904" id="r_aeb94f6e86cfed79cf61de61602553904"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../df/d2a/_s_anim_notify_shared_8h.html#ac7c94e837fed3f8e4bb3dd94d7bd2ecf">float</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aeb94f6e86cfed79cf61de61602553904">GLumenRadiosityMaxRayIntensity</a> = 40.0f</td></tr>
+<tr class="memitem:a8e04e55f9f64bf827cefdf335e26873c" id="r_a8e04e55f9f64bf827cefdf335e26873c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../df/d2a/_s_anim_notify_shared_8h.html#ac7c94e837fed3f8e4bb3dd94d7bd2ecf">float</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8e04e55f9f64bf827cefdf335e26873c">GLumenRadiosityDistanceFieldSurfaceBias</a> = 10.0f</td></tr>
+<tr class="memitem:ab6842c7e083d21f16c3e05ce48743ed5" id="r_ab6842c7e083d21f16c3e05ce48743ed5"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../df/d2a/_s_anim_notify_shared_8h.html#ac7c94e837fed3f8e4bb3dd94d7bd2ecf">float</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab6842c7e083d21f16c3e05ce48743ed5">GLumenRadiosityDistanceFieldSurfaceSlopeBias</a> = 5.0f</td></tr>
+<tr class="memitem:a8f8560e9946bdf008ee61ff238443283" id="r_a8f8560e9946bdf008ee61ff238443283"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a8dbb3cd84ca9fd010dadfc3815eefa5d">int32</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8f8560e9946bdf008ee61ff238443283">GLumenRadiosityTemporalAccumulation</a> = 1</td></tr>
+<tr class="memitem:a411b4b92eed97ea7eabfd61dea2a2cd2" id="r_a411b4b92eed97ea7eabfd61dea2a2cd2"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a8dbb3cd84ca9fd010dadfc3815eefa5d">int32</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a411b4b92eed97ea7eabfd61dea2a2cd2">GLumenRadiosityTemporalMaxFramesAccumulated</a> = 4</td></tr>
+<tr class="memitem:a0ab2996698845342a109ba8ef1624dc7" id="r_a0ab2996698845342a109ba8ef1624dc7"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a8dbb3cd84ca9fd010dadfc3815eefa5d">int32</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a0ab2996698845342a109ba8ef1624dc7">GLumenRadiosityFixedJitterIndex</a> = -1</td></tr>
+<tr class="memitem:a700478fbd79ed0f7d79702193a8f4e8a" id="r_a700478fbd79ed0f7d79702193a8f4e8a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d5/d78/class_t_auto_console_variable.html">TAutoConsoleVariable</a>&lt; <a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a8dbb3cd84ca9fd010dadfc3815eefa5d">int32</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a700478fbd79ed0f7d79702193a8f4e8a">CVarLumenSceneRadiosityVisualizeProbes</a> (<a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;r.LumenScene.Radiosity.VisualizeProbes&quot;), 0, <a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;Whether to visualize radiosity probes.&quot;), <a class="el" href="../../d4/dd9/_i_console_manager_8h.html#a7f594f23c2b2c5687f1a502ebb3ba105a5fb4e7a0526f4a0c350d71e18956527c">ECVF_Scalability</a>|<a class="el" href="../../d4/dd9/_i_console_manager_8h.html#a7f594f23c2b2c5687f1a502ebb3ba105a774ea60f41417af093a7ca56c4204a70">ECVF_RenderThreadSafe</a>)</td></tr>
+<tr class="memitem:a707f8933ff2601b1ab5be05b72cfa05d" id="r_a707f8933ff2601b1ab5be05b72cfa05d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d5/d78/class_t_auto_console_variable.html">TAutoConsoleVariable</a>&lt; <a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a8dbb3cd84ca9fd010dadfc3815eefa5d">int32</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a707f8933ff2601b1ab5be05b72cfa05d">CVarLumenSceneRadiosityVisualizeProbeRadius</a> (<a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;r.LumenScene.Radiosity.VisualizeProbeRadius&quot;), 10.0f, <a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;Radius of a visualized radiosity probe.&quot;), <a class="el" href="../../d4/dd9/_i_console_manager_8h.html#a7f594f23c2b2c5687f1a502ebb3ba105a5fb4e7a0526f4a0c350d71e18956527c">ECVF_Scalability</a>|<a class="el" href="../../d4/dd9/_i_console_manager_8h.html#a7f594f23c2b2c5687f1a502ebb3ba105a774ea60f41417af093a7ca56c4204a70">ECVF_RenderThreadSafe</a>)</td></tr>
+<tr class="memitem:a6b6e3c8e8bc8cd13f4d746d27f4dd055" id="r_a6b6e3c8e8bc8cd13f4d746d27f4dd055"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d5/d78/class_t_auto_console_variable.html">TAutoConsoleVariable</a>&lt; <a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a8dbb3cd84ca9fd010dadfc3815eefa5d">int32</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6b6e3c8e8bc8cd13f4d746d27f4dd055">CVarLumenSceneRadiosityVisualizeProbesShowInvalid</a> (<a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;r.LumenScene.Radiosity.VisualizeProbes.ShowInvalid&quot;), 0, <a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;Whether to show invalid radiosity probes in visualization.&quot;), <a class="el" href="../../d4/dd9/_i_console_manager_8h.html#a7f594f23c2b2c5687f1a502ebb3ba105a774ea60f41417af093a7ca56c4204a70">ECVF_RenderThreadSafe</a>)</td></tr>
+</table>
+<a name="doc-enum-members" id="doc-enum-members"></a><h2 id="header-doc-enum-members" class="groupheader">枚举类型说明</h2>
+<a id="abe3ed77000eddfbe046a3112a4041c38" name="abe3ed77000eddfbe046a3112a4041c38"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abe3ed77000eddfbe046a3112a4041c38">&#9670;&#160;</a></span>ERadiosityIndirectArgs</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum class <a class="el" href="#abe3ed77000eddfbe046a3112a4041c38">ERadiosityIndirectArgs</a></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel strong">strong</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<table class="fieldtable">
+<tr><th colspan="2">枚举值</th></tr><tr><td class="fieldname"><a id="abe3ed77000eddfbe046a3112a4041c38aaa8aaa8e04acde3d9e2fdc415ef398a9" name="abe3ed77000eddfbe046a3112a4041c38aaa8aaa8e04acde3d9e2fdc415ef398a9"></a>NumTracesDiv64&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="abe3ed77000eddfbe046a3112a4041c38a04a68b85776916304bb68461ba0250bb" name="abe3ed77000eddfbe046a3112a4041c38a04a68b85776916304bb68461ba0250bb"></a>NumTracesDiv32&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="abe3ed77000eddfbe046a3112a4041c38a2a45a09716b8d1b174ce3723d5d09467" name="abe3ed77000eddfbe046a3112a4041c38a2a45a09716b8d1b174ce3723d5d09467"></a>ThreadPerProbe&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="abe3ed77000eddfbe046a3112a4041c38ae2caab911a8fb533723e6f5b05d592a4" name="abe3ed77000eddfbe046a3112a4041c38ae2caab911a8fb533723e6f5b05d592a4"></a>HardwareRayTracingThreadPerTrace&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="abe3ed77000eddfbe046a3112a4041c38a26a4b44a837bf97b972628509912b4a5" name="abe3ed77000eddfbe046a3112a4041c38a26a4b44a837bf97b972628509912b4a5"></a>MAX&#160;</td><td class="fielddoc"></td></tr>
+</table>
+
+</div>
+</div>
+<a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">函数说明</h2>
+<a id="af773d9b1e28a3d1217085db7f4b9402d" name="af773d9b1e28a3d1217085db7f4b9402d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af773d9b1e28a3d1217085db7f4b9402d">&#9670;&#160;</a></span>CVarLumenRadiosity()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d2/d79/class_f_auto_console_variable_ref.html">FAutoConsoleVariableRef</a> CVarLumenRadiosity </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;r.LumenScene.Radiosity&quot;)</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="#aaf06cfe411e8aaa118cd21fbc01a6166">GLumenRadiosity</a></td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;Whether to enable the Radiosity, which is an indirect lighting gather from the Surface Cache that provides multibounce diffuse.&quot;)</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d4/dd9/_i_console_manager_8h.html#a7f594f23c2b2c5687f1a502ebb3ba105a5fb4e7a0526f4a0c350d71e18956527c">ECVF_Scalability</a>|</td>          <td class="paramname"><span class="paramname"><em>ECVF_RenderThreadSafe</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aec78a782c35d5ade3673ccf23ea3d930" name="aec78a782c35d5ade3673ccf23ea3d930"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aec78a782c35d5ade3673ccf23ea3d930">&#9670;&#160;</a></span>CVarLumenRadiosityDistanceFieldSurfaceBias()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d2/d79/class_f_auto_console_variable_ref.html">FAutoConsoleVariableRef</a> CVarLumenRadiosityDistanceFieldSurfaceBias </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;r.LumenScene.Radiosity.DistanceFieldSurfaceSlopeBias&quot;)</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="#a8e04e55f9f64bf827cefdf335e26873c">GLumenRadiosityDistanceFieldSurfaceBias</a></td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;.&quot;)</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d4/dd9/_i_console_manager_8h.html#a7f594f23c2b2c5687f1a502ebb3ba105a5fb4e7a0526f4a0c350d71e18956527c">ECVF_Scalability</a>|</td>          <td class="paramname"><span class="paramname"><em>ECVF_RenderThreadSafe</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a60e22564315de6a78522fc4b3b6a521d" name="a60e22564315de6a78522fc4b3b6a521d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a60e22564315de6a78522fc4b3b6a521d">&#9670;&#160;</a></span>CVarLumenRadiosityFixedJitterIndex()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d2/d79/class_f_auto_console_variable_ref.html">FAutoConsoleVariableRef</a> CVarLumenRadiosityFixedJitterIndex </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;r.LumenScene.Radiosity.Temporal.FixedJitterIndex&quot;)</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="#a0ab2996698845342a109ba8ef1624dc7">GLumenRadiosityFixedJitterIndex</a></td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;If zero or greater, overrides the temporal jitter index with a fixed index.  Useful <a class="el" href="../../d3/db8/binka__ue__decode__test_8cpp.html#ac1ee511585a5c7a2d58c146185895b72">for</a> debugging and inspecting sampling patterns.&quot;)</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d4/dd9/_i_console_manager_8h.html#a7f594f23c2b2c5687f1a502ebb3ba105a5fb4e7a0526f4a0c350d71e18956527c">ECVF_Scalability</a>|</td>          <td class="paramname"><span class="paramname"><em>ECVF_RenderThreadSafe</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a66d4d9e907a4042f927f4420c1336e2f" name="a66d4d9e907a4042f927f4420c1336e2f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a66d4d9e907a4042f927f4420c1336e2f">&#9670;&#160;</a></span>CVarLumenRadiosityHemisphereProbeResolution()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d2/d79/class_f_auto_console_variable_ref.html">FAutoConsoleVariableRef</a> CVarLumenRadiosityHemisphereProbeResolution </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;r.LumenScene.Radiosity.HemisphereProbeResolution&quot;)</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="#a4447c9e901ba55a9be62c76c20a3a493">GLumenRadiosityHemisphereProbeResolution</a></td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;Number of traces along one dimension of the hemisphere probe layout.&quot;)</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d4/dd9/_i_console_manager_8h.html#a7f594f23c2b2c5687f1a502ebb3ba105a5fb4e7a0526f4a0c350d71e18956527c">ECVF_Scalability</a>|</td>          <td class="paramname"><span class="paramname"><em>ECVF_RenderThreadSafe</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a87934e5366b09211199b0c52850d70d3" name="a87934e5366b09211199b0c52850d70d3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a87934e5366b09211199b0c52850d70d3">&#9670;&#160;</a></span>CVarLumenRadiosityMaxRayIntensity()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d2/d79/class_f_auto_console_variable_ref.html">FAutoConsoleVariableRef</a> CVarLumenRadiosityMaxRayIntensity </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;r.LumenScene.Radiosity.MaxRayIntensity&quot;)</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="#aeb94f6e86cfed79cf61de61602553904">GLumenRadiosityMaxRayIntensity</a></td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;Clamps Radiosity <a class="el" href="../../d7/df8/namespacetrace.html">trace</a> intensity, relative to current view exposure.  Useful <a class="el" href="../../d3/db8/binka__ue__decode__test_8cpp.html#ac1ee511585a5c7a2d58c146185895b72">for</a> reducing artifacts from small bright emissive sources, but loses energy and adds view dependence.&quot;)</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d4/dd9/_i_console_manager_8h.html#a7f594f23c2b2c5687f1a502ebb3ba105a5fb4e7a0526f4a0c350d71e18956527c">ECVF_Scalability</a>|</td>          <td class="paramname"><span class="paramname"><em>ECVF_RenderThreadSafe</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a8e5b6eb7aec0ffa094b63ffcac8252af" name="a8e5b6eb7aec0ffa094b63ffcac8252af"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8e5b6eb7aec0ffa094b63ffcac8252af">&#9670;&#160;</a></span>CVarLumenRadiosityProbeSpacing()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d2/d79/class_f_auto_console_variable_ref.html">FAutoConsoleVariableRef</a> CVarLumenRadiosityProbeSpacing </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;r.LumenScene.Radiosity.ProbeSpacing&quot;)</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="#a1b40f7ed81343bb589c8efd0f4791ea5">GLumenRadiosityProbeSpacing</a></td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;Distance between probes, in Surface Cache texels&quot;)</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d4/dd9/_i_console_manager_8h.html#a7f594f23c2b2c5687f1a502ebb3ba105a5fb4e7a0526f4a0c350d71e18956527c">ECVF_Scalability</a>|</td>          <td class="paramname"><span class="paramname"><em>ECVF_RenderThreadSafe</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a9493114655d30d17c1273517ebe8117f" name="a9493114655d30d17c1273517ebe8117f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9493114655d30d17c1273517ebe8117f">&#9670;&#160;</a></span>CVarLumenRadiositySpatialFilterProbes()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d2/d79/class_f_auto_console_variable_ref.html">FAutoConsoleVariableRef</a> CVarLumenRadiositySpatialFilterProbes </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;r.LumenScene.Radiosity.SpatialFilterProbes&quot;)</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="#a5729b88fccf72cb0d71d2e5accdf5c25">GLumenRadiositySpatialFilterProbes</a></td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;Whether to spatially filter Radiosity probes.  Filtering reduces noise but increases leaking.&quot;)</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d4/dd9/_i_console_manager_8h.html#a7f594f23c2b2c5687f1a502ebb3ba105a5fb4e7a0526f4a0c350d71e18956527c">ECVF_Scalability</a>|</td>          <td class="paramname"><span class="paramname"><em>ECVF_RenderThreadSafe</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a27b40ab0557e9b8ebb8005d0a67fdb7a" name="a27b40ab0557e9b8ebb8005d0a67fdb7a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a27b40ab0557e9b8ebb8005d0a67fdb7a">&#9670;&#160;</a></span>CVarLumenRadiositySpatialFilterProbesKernelSize()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d2/d79/class_f_auto_console_variable_ref.html">FAutoConsoleVariableRef</a> CVarLumenRadiositySpatialFilterProbesKernelSize </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;r.LumenScene.Radiosity.SpatialFilterProbes.KernelSize&quot;)</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="#a0c134a087d8dc2033e89c269ec7e5767">GLumenRadiositySpatialFilterProbesKernelSize</a></td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;Larger kernels reduce noise but increase leaking.&quot;)</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d4/dd9/_i_console_manager_8h.html#a7f594f23c2b2c5687f1a502ebb3ba105a5fb4e7a0526f4a0c350d71e18956527c">ECVF_Scalability</a>|</td>          <td class="paramname"><span class="paramname"><em>ECVF_RenderThreadSafe</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a2adaad608c229561cc9301dbc179b4ba" name="a2adaad608c229561cc9301dbc179b4ba"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2adaad608c229561cc9301dbc179b4ba">&#9670;&#160;</a></span>CVarLumenRadiositySurfaceBias()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d2/d79/class_f_auto_console_variable_ref.html">FAutoConsoleVariableRef</a> CVarLumenRadiositySurfaceBias </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;r.LumenScene.Radiosity.DistanceFieldSurfaceBias&quot;)</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="#a8e04e55f9f64bf827cefdf335e26873c">GLumenRadiosityDistanceFieldSurfaceBias</a></td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;.&quot;)</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d4/dd9/_i_console_manager_8h.html#a7f594f23c2b2c5687f1a502ebb3ba105a5fb4e7a0526f4a0c350d71e18956527c">ECVF_Scalability</a>|</td>          <td class="paramname"><span class="paramname"><em>ECVF_RenderThreadSafe</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a56eb6db2f81ca45dcbd0dcb7c67c2339" name="a56eb6db2f81ca45dcbd0dcb7c67c2339"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a56eb6db2f81ca45dcbd0dcb7c67c2339">&#9670;&#160;</a></span>CVarLumenRadiosityTemporalAccumulation()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d2/d79/class_f_auto_console_variable_ref.html">FAutoConsoleVariableRef</a> CVarLumenRadiosityTemporalAccumulation </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;r.LumenScene.Radiosity.Temporal&quot;)</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="#a8f8560e9946bdf008ee61ff238443283">GLumenRadiosityTemporalAccumulation</a></td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;Whether to use temporal super sampling on Radiosity.  Increases quality, but also adds latency to the speed that lighting changes propagate, and animated noise in the results.&quot;)</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d4/dd9/_i_console_manager_8h.html#a7f594f23c2b2c5687f1a502ebb3ba105a5fb4e7a0526f4a0c350d71e18956527c">ECVF_Scalability</a>|</td>          <td class="paramname"><span class="paramname"><em>ECVF_RenderThreadSafe</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a6cd895d611c3810624c4f3fb6cf517b1" name="a6cd895d611c3810624c4f3fb6cf517b1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6cd895d611c3810624c4f3fb6cf517b1">&#9670;&#160;</a></span>CVarLumenRadiosityTemporalMaxFramesAccumulated()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d2/d79/class_f_auto_console_variable_ref.html">FAutoConsoleVariableRef</a> CVarLumenRadiosityTemporalMaxFramesAccumulated </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;r.LumenScene.Radiosity.Temporal.MaxFramesAccumulated&quot;)</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="#a411b4b92eed97ea7eabfd61dea2a2cd2">GLumenRadiosityTemporalMaxFramesAccumulated</a></td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;Lower <a class="el" href="../../d8/d06/_android_open_g_l_functions_8h.html#a250b37a0411d5375d92808e2840cb0dd">values</a> cause the temporal filter to propagate lighting changes faster, but also increase flickering from noise.&quot;)</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d4/dd9/_i_console_manager_8h.html#a7f594f23c2b2c5687f1a502ebb3ba105a5fb4e7a0526f4a0c350d71e18956527c">ECVF_Scalability</a>|</td>          <td class="paramname"><span class="paramname"><em>ECVF_RenderThreadSafe</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ade42fd4502ca89f046c908516d250edb" name="ade42fd4502ca89f046c908516d250edb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ade42fd4502ca89f046c908516d250edb">&#9670;&#160;</a></span>CVarRadiosityFilteringProbeOcclusion()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d2/d79/class_f_auto_console_variable_ref.html">FAutoConsoleVariableRef</a> CVarRadiosityFilteringProbeOcclusion </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;r.LumenScene.Radiosity.ProbeOcclusion&quot;)</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="#a81034ff2dba4fe13522a2d3e58cd24d3">GRadiosityFilteringProbeOcclusion</a></td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;Whether to depth test against the probe hit depths during interpolation and filtering to reduce leaking.  Not available with Software Ray Tracing due to imprecision.&quot;)</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d4/dd9/_i_console_manager_8h.html#a7f594f23c2b2c5687f1a502ebb3ba105a5fb4e7a0526f4a0c350d71e18956527c">ECVF_Scalability</a>|</td>          <td class="paramname"><span class="paramname"><em>ECVF_RenderThreadSafe</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ae93b29d061c291182bceb60a4b9be388" name="ae93b29d061c291182bceb60a4b9be388"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae93b29d061c291182bceb60a4b9be388">&#9670;&#160;</a></span>CVarRadiosityFilteringProbeOcclusionStrength()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d2/d79/class_f_auto_console_variable_ref.html">FAutoConsoleVariableRef</a> CVarRadiosityFilteringProbeOcclusionStrength </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;r.LumenScene.Radiosity.ProbeOcclusionStrength&quot;)</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="#a740bef080e1fbdacc26c3333e3d5058d">GRadiosityFilteringProbeOcclusionStrength</a></td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;Strength of probe occlusion.  0 = No probe occlusion, 1 = Attempt to stop all leaking, but has self-occlusion artifacts, .5 (default) = tradeoff between the extremes.&quot;)</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d4/dd9/_i_console_manager_8h.html#a7f594f23c2b2c5687f1a502ebb3ba105a5fb4e7a0526f4a0c350d71e18956527c">ECVF_Scalability</a>|</td>          <td class="paramname"><span class="paramname"><em>ECVF_RenderThreadSafe</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a90b0999050aa3456641285068e608d3c" name="a90b0999050aa3456641285068e608d3c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a90b0999050aa3456641285068e608d3c">&#9670;&#160;</a></span>CVarRadiosityFilteringProbePlaneWeighting()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d2/d79/class_f_auto_console_variable_ref.html">FAutoConsoleVariableRef</a> CVarRadiosityFilteringProbePlaneWeighting </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;r.LumenScene.Radiosity.ProbePlaneWeighting&quot;)</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="#a3dc6188729f6c98581f22ba0a179f9fd">GRadiosityFilteringProbePlaneWeighting</a></td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;Whether to weight Radiosity probes by plane distance, useful to prevent leaking.&quot;)</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d4/dd9/_i_console_manager_8h.html#a7f594f23c2b2c5687f1a502ebb3ba105a5fb4e7a0526f4a0c350d71e18956527c">ECVF_Scalability</a>|</td>          <td class="paramname"><span class="paramname"><em>ECVF_RenderThreadSafe</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a5b26be73d3366ebfddf4f1cd7dd0eac8" name="a5b26be73d3366ebfddf4f1cd7dd0eac8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5b26be73d3366ebfddf4f1cd7dd0eac8">&#9670;&#160;</a></span>CVarRadiosityProbePlaneWeightingDepthScale()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d2/d79/class_f_auto_console_variable_ref.html">FAutoConsoleVariableRef</a> CVarRadiosityProbePlaneWeightingDepthScale </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;r.LumenScene.Radiosity.SpatialFilterProbes.PlaneWeightingDepthScale&quot;)</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="#a45a842f6d72e98a67576f92f516d6ec2">GRadiosityProbePlaneWeightingDepthScale</a></td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;Controls the distance at which probes can be interpolated from.  Higher <a class="el" href="../../d8/d06/_android_open_g_l_functions_8h.html#a250b37a0411d5375d92808e2840cb0dd">values</a> introduce leaking.&quot;)</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d4/dd9/_i_console_manager_8h.html#a7f594f23c2b2c5687f1a502ebb3ba105a5fb4e7a0526f4a0c350d71e18956527c">ECVF_Scalability</a>|</td>          <td class="paramname"><span class="paramname"><em>ECVF_RenderThreadSafe</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aa68b364d5c9318919cb190e9514ecf08" name="aa68b364d5c9318919cb190e9514ecf08"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa68b364d5c9318919cb190e9514ecf08">&#9670;&#160;</a></span>IMPLEMENT_GLOBAL_SHADER() <span class="overload">[1/9]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">IMPLEMENT_GLOBAL_SHADER </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../dd/d3b/class_f_build_radiosity_tiles_c_s.html">FBuildRadiosityTilesCS</a></td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&quot;/Engine/<a class="el" href="../../d9/db1/namespace_private.html">Private</a>/<a class="el" href="../../de/de9/namespace_lumen.html">Lumen</a>/Radiosity/LumenRadiosityCulling.usf&quot;</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&quot;BuildRadiosityTilesCS&quot;</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../da/dca/_r_h_i_definitions_8h.html#a0a3cc83cb6ebc79b66b43fae3ffee64ea2a84a18d7ac3d1fac11e3153f0abf73b">SF_Compute</a></td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a7d1f9abe2683fa9b163f028ff89bb80b" name="a7d1f9abe2683fa9b163f028ff89bb80b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7d1f9abe2683fa9b163f028ff89bb80b">&#9670;&#160;</a></span>IMPLEMENT_GLOBAL_SHADER() <span class="overload">[2/9]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">IMPLEMENT_GLOBAL_SHADER </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../dd/df0/class_f_build_visualize_probes_c_s.html">FBuildVisualizeProbesCS</a></td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&quot;/Engine/<a class="el" href="../../d9/db1/namespace_private.html">Private</a>/<a class="el" href="../../de/de9/namespace_lumen.html">Lumen</a>/Radiosity/LumenVisualizeRadiosityProbes.usf&quot;</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&quot;BuildVisualizeProbesCS&quot;</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../da/dca/_r_h_i_definitions_8h.html#a0a3cc83cb6ebc79b66b43fae3ffee64ea2a84a18d7ac3d1fac11e3153f0abf73b">SF_Compute</a></td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a13d9cc3a06222cf95c74950308e5ce09" name="a13d9cc3a06222cf95c74950308e5ce09"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a13d9cc3a06222cf95c74950308e5ce09">&#9670;&#160;</a></span>IMPLEMENT_GLOBAL_SHADER() <span class="overload">[3/9]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">IMPLEMENT_GLOBAL_SHADER </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../de/da3/class_f_lumen_radiosity_convert_to_s_h.html">FLumenRadiosityConvertToSH</a></td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&quot;/Engine/<a class="el" href="../../d9/db1/namespace_private.html">Private</a>/<a class="el" href="../../de/de9/namespace_lumen.html">Lumen</a>/Radiosity/LumenRadiosity.usf&quot;</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&quot;LumenRadiosityConvertToSH&quot;</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../da/dca/_r_h_i_definitions_8h.html#a0a3cc83cb6ebc79b66b43fae3ffee64ea2a84a18d7ac3d1fac11e3153f0abf73b">SF_Compute</a></td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a0fa9c8603b3686ad59bedcda6e5828a9" name="a0fa9c8603b3686ad59bedcda6e5828a9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0fa9c8603b3686ad59bedcda6e5828a9">&#9670;&#160;</a></span>IMPLEMENT_GLOBAL_SHADER() <span class="overload">[4/9]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">IMPLEMENT_GLOBAL_SHADER </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../df/d82/class_f_lumen_radiosity_distance_field_tracing_c_s.html">FLumenRadiosityDistanceFieldTracingCS</a></td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&quot;/Engine/<a class="el" href="../../d9/db1/namespace_private.html">Private</a>/<a class="el" href="../../de/de9/namespace_lumen.html">Lumen</a>/Radiosity/LumenRadiosity.usf&quot;</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&quot;LumenRadiosityDistanceFieldTracingCS&quot;</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../da/dca/_r_h_i_definitions_8h.html#a0a3cc83cb6ebc79b66b43fae3ffee64ea2a84a18d7ac3d1fac11e3153f0abf73b">SF_Compute</a></td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a472f24eb88bae8f989b208c22cd75202" name="a472f24eb88bae8f989b208c22cd75202"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a472f24eb88bae8f989b208c22cd75202">&#9670;&#160;</a></span>IMPLEMENT_GLOBAL_SHADER() <span class="overload">[5/9]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">IMPLEMENT_GLOBAL_SHADER </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d6/dfa/class_f_lumen_radiosity_indirect_args_c_s.html">FLumenRadiosityIndirectArgsCS</a></td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&quot;/Engine/<a class="el" href="../../d9/db1/namespace_private.html">Private</a>/<a class="el" href="../../de/de9/namespace_lumen.html">Lumen</a>/Radiosity/LumenRadiosity.usf&quot;</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&quot;LumenRadiosityIndirectArgsCS&quot;</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../da/dca/_r_h_i_definitions_8h.html#a0a3cc83cb6ebc79b66b43fae3ffee64ea2a84a18d7ac3d1fac11e3153f0abf73b">SF_Compute</a></td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aa596505dd53464393f3edef520ba2dad" name="aa596505dd53464393f3edef520ba2dad"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa596505dd53464393f3edef520ba2dad">&#9670;&#160;</a></span>IMPLEMENT_GLOBAL_SHADER() <span class="overload">[6/9]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">IMPLEMENT_GLOBAL_SHADER </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d0/dc6/class_f_lumen_radiosity_integrate_c_s.html">FLumenRadiosityIntegrateCS</a></td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&quot;/Engine/<a class="el" href="../../d9/db1/namespace_private.html">Private</a>/<a class="el" href="../../de/de9/namespace_lumen.html">Lumen</a>/Radiosity/LumenRadiosity.usf&quot;</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&quot;LumenRadiosityIntegrateCS&quot;</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../da/dca/_r_h_i_definitions_8h.html#a0a3cc83cb6ebc79b66b43fae3ffee64ea2a84a18d7ac3d1fac11e3153f0abf73b">SF_Compute</a></td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a2bb5a8c480f329d3d65fb83aec9a8064" name="a2bb5a8c480f329d3d65fb83aec9a8064"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2bb5a8c480f329d3d65fb83aec9a8064">&#9670;&#160;</a></span>IMPLEMENT_GLOBAL_SHADER() <span class="overload">[7/9]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">IMPLEMENT_GLOBAL_SHADER </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d6/d54/class_f_lumen_radiosity_spatial_filter_probe_radiance.html">FLumenRadiositySpatialFilterProbeRadiance</a></td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&quot;/Engine/<a class="el" href="../../d9/db1/namespace_private.html">Private</a>/<a class="el" href="../../de/de9/namespace_lumen.html">Lumen</a>/Radiosity/LumenRadiosity.usf&quot;</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&quot;LumenRadiositySpatialFilterProbeRadiance&quot;</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../da/dca/_r_h_i_definitions_8h.html#a0a3cc83cb6ebc79b66b43fae3ffee64ea2a84a18d7ac3d1fac11e3153f0abf73b">SF_Compute</a></td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="adfc6ad6c478365946698fecc14e2dec5" name="adfc6ad6c478365946698fecc14e2dec5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adfc6ad6c478365946698fecc14e2dec5">&#9670;&#160;</a></span>IMPLEMENT_GLOBAL_SHADER() <span class="overload">[8/9]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">IMPLEMENT_GLOBAL_SHADER </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d6/d3f/class_f_visualize_radiosity_probes_p_s.html">FVisualizeRadiosityProbesPS</a></td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&quot;/Engine/<a class="el" href="../../d9/db1/namespace_private.html">Private</a>/<a class="el" href="../../de/de9/namespace_lumen.html">Lumen</a>/Radiosity/LumenVisualizeRadiosityProbes.usf&quot;</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&quot;VisualizeRadiosityProbesPS&quot;</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../da/dca/_r_h_i_definitions_8h.html#a0a3cc83cb6ebc79b66b43fae3ffee64eaf50bfe1c5c23e92a75ba64d89bcd3bfa">SF_Pixel</a></td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a34cd885e8f3b91f891436995e6ab9dc3" name="a34cd885e8f3b91f891436995e6ab9dc3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a34cd885e8f3b91f891436995e6ab9dc3">&#9670;&#160;</a></span>IMPLEMENT_GLOBAL_SHADER() <span class="overload">[9/9]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">IMPLEMENT_GLOBAL_SHADER </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d2/d7d/class_f_visualize_radiosity_probes_v_s.html">FVisualizeRadiosityProbesVS</a></td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&quot;/Engine/<a class="el" href="../../d9/db1/namespace_private.html">Private</a>/<a class="el" href="../../de/de9/namespace_lumen.html">Lumen</a>/Radiosity/LumenVisualizeRadiosityProbes.usf&quot;</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&quot;VisualizeRadiosityProbesVS&quot;</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../da/dca/_r_h_i_definitions_8h.html#a0a3cc83cb6ebc79b66b43fae3ffee64ea57b843d1079d918ef496ded337a171d2">SF_Vertex</a></td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a91a42dc0dc8c51fe2700c9bd9194999d" name="a91a42dc0dc8c51fe2700c9bd9194999d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a91a42dc0dc8c51fe2700c9bd9194999d">&#9670;&#160;</a></span>RegisterOrCreateRadiosityAtlas()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d6/d6d/_canvas_types_8h.html#aea265cf57883ec58a09111d4a17b8448">FRDGTextureRef</a> RegisterOrCreateRadiosityAtlas </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d3/d85/class_f_r_d_g_builder.html">FRDGBuilder</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>GraphBuilder</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="../../d7/d10/class_t_ref_count_ptr.html">TRefCountPtr</a>&lt; <a class="el" href="../../dd/db5/struct_i_pooled_render_target.html">IPooledRenderTarget</a> &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>AtlasRT</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const TCHAR *</td>          <td class="paramname"><span class="paramname"><em>AtlasName</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d0/df6/_math_fwd_8h.html#af6853de5e4fcb2bad3bd5fdd2e50bffd">FIntPoint</a></td>          <td class="paramname"><span class="paramname"><em>AtlasSize</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d5/db6/_pixel_format_8h.html#aaefcb820f58db492c4c56dc4d7a93f23">EPixelFormat</a></td>          <td class="paramname"><span class="paramname"><em>AtlasFormat</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>bIndirectLightingHistoryValid</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a name="doc-var-members" id="doc-var-members"></a><h2 id="header-doc-var-members" class="groupheader">变量说明</h2>
+<a id="a707f8933ff2601b1ab5be05b72cfa05d" name="a707f8933ff2601b1ab5be05b72cfa05d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a707f8933ff2601b1ab5be05b72cfa05d">&#9670;&#160;</a></span>CVarLumenSceneRadiosityVisualizeProbeRadius</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d5/d78/class_t_auto_console_variable.html">TAutoConsoleVariable</a>&lt; <a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a8dbb3cd84ca9fd010dadfc3815eefa5d">int32</a> &gt; CVarLumenSceneRadiosityVisualizeProbeRadius(<a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;r.LumenScene.Radiosity.VisualizeProbeRadius&quot;), 10.0f, <a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;Radius of a visualized radiosity probe.&quot;), <a class="el" href="../../d4/dd9/_i_console_manager_8h.html#a7f594f23c2b2c5687f1a502ebb3ba105a5fb4e7a0526f4a0c350d71e18956527c">ECVF_Scalability</a>|<a class="el" href="../../d4/dd9/_i_console_manager_8h.html#a7f594f23c2b2c5687f1a502ebb3ba105a774ea60f41417af093a7ca56c4204a70">ECVF_RenderThreadSafe</a>) </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;r.LumenScene.Radiosity.VisualizeProbeRadius&quot;)</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">10.</td>          <td class="paramname"><span class="paramname"><em>0f</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;Radius of a visualized radiosity probe.&quot;)</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d4/dd9/_i_console_manager_8h.html#a7f594f23c2b2c5687f1a502ebb3ba105a5fb4e7a0526f4a0c350d71e18956527c">ECVF_Scalability</a>|</td>          <td class="paramname"><span class="paramname"><em>ECVF_RenderThreadSafe</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a700478fbd79ed0f7d79702193a8f4e8a" name="a700478fbd79ed0f7d79702193a8f4e8a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a700478fbd79ed0f7d79702193a8f4e8a">&#9670;&#160;</a></span>CVarLumenSceneRadiosityVisualizeProbes</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d5/d78/class_t_auto_console_variable.html">TAutoConsoleVariable</a>&lt; <a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a8dbb3cd84ca9fd010dadfc3815eefa5d">int32</a> &gt; CVarLumenSceneRadiosityVisualizeProbes(<a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;r.LumenScene.Radiosity.VisualizeProbes&quot;), 0, <a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;Whether to visualize radiosity probes.&quot;), <a class="el" href="../../d4/dd9/_i_console_manager_8h.html#a7f594f23c2b2c5687f1a502ebb3ba105a5fb4e7a0526f4a0c350d71e18956527c">ECVF_Scalability</a>|<a class="el" href="../../d4/dd9/_i_console_manager_8h.html#a7f594f23c2b2c5687f1a502ebb3ba105a774ea60f41417af093a7ca56c4204a70">ECVF_RenderThreadSafe</a>) </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;r.LumenScene.Radiosity.VisualizeProbes&quot;)</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">0</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;Whether to visualize radiosity probes.&quot;)</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d4/dd9/_i_console_manager_8h.html#a7f594f23c2b2c5687f1a502ebb3ba105a5fb4e7a0526f4a0c350d71e18956527c">ECVF_Scalability</a>|</td>          <td class="paramname"><span class="paramname"><em>ECVF_RenderThreadSafe</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a6b6e3c8e8bc8cd13f4d746d27f4dd055" name="a6b6e3c8e8bc8cd13f4d746d27f4dd055"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6b6e3c8e8bc8cd13f4d746d27f4dd055">&#9670;&#160;</a></span>CVarLumenSceneRadiosityVisualizeProbesShowInvalid</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d5/d78/class_t_auto_console_variable.html">TAutoConsoleVariable</a>&lt; <a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a8dbb3cd84ca9fd010dadfc3815eefa5d">int32</a> &gt; CVarLumenSceneRadiosityVisualizeProbesShowInvalid(<a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;r.LumenScene.Radiosity.VisualizeProbes.ShowInvalid&quot;), 0, <a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;Whether to show invalid radiosity probes in visualization.&quot;), <a class="el" href="../../d4/dd9/_i_console_manager_8h.html#a7f594f23c2b2c5687f1a502ebb3ba105a774ea60f41417af093a7ca56c4204a70">ECVF_RenderThreadSafe</a>) </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;r.LumenScene.Radiosity.VisualizeProbes.ShowInvalid&quot;)</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">0</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;Whether to show invalid radiosity probes in visualization.&quot;)</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d4/dd9/_i_console_manager_8h.html#a7f594f23c2b2c5687f1a502ebb3ba105a774ea60f41417af093a7ca56c4204a70">ECVF_RenderThreadSafe</a></td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aaf06cfe411e8aaa118cd21fbc01a6166" name="aaf06cfe411e8aaa118cd21fbc01a6166"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aaf06cfe411e8aaa118cd21fbc01a6166">&#9670;&#160;</a></span>GLumenRadiosity</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a8dbb3cd84ca9fd010dadfc3815eefa5d">int32</a> GLumenRadiosity = 1</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a8e04e55f9f64bf827cefdf335e26873c" name="a8e04e55f9f64bf827cefdf335e26873c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8e04e55f9f64bf827cefdf335e26873c">&#9670;&#160;</a></span>GLumenRadiosityDistanceFieldSurfaceBias</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../df/d2a/_s_anim_notify_shared_8h.html#ac7c94e837fed3f8e4bb3dd94d7bd2ecf">float</a> GLumenRadiosityDistanceFieldSurfaceBias = 10.0f</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ab6842c7e083d21f16c3e05ce48743ed5" name="ab6842c7e083d21f16c3e05ce48743ed5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab6842c7e083d21f16c3e05ce48743ed5">&#9670;&#160;</a></span>GLumenRadiosityDistanceFieldSurfaceSlopeBias</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../df/d2a/_s_anim_notify_shared_8h.html#ac7c94e837fed3f8e4bb3dd94d7bd2ecf">float</a> GLumenRadiosityDistanceFieldSurfaceSlopeBias = 5.0f</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a0ab2996698845342a109ba8ef1624dc7" name="a0ab2996698845342a109ba8ef1624dc7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0ab2996698845342a109ba8ef1624dc7">&#9670;&#160;</a></span>GLumenRadiosityFixedJitterIndex</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a8dbb3cd84ca9fd010dadfc3815eefa5d">int32</a> GLumenRadiosityFixedJitterIndex = -1</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a4447c9e901ba55a9be62c76c20a3a493" name="a4447c9e901ba55a9be62c76c20a3a493"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4447c9e901ba55a9be62c76c20a3a493">&#9670;&#160;</a></span>GLumenRadiosityHemisphereProbeResolution</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a8dbb3cd84ca9fd010dadfc3815eefa5d">int32</a> GLumenRadiosityHemisphereProbeResolution = 4</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aeb94f6e86cfed79cf61de61602553904" name="aeb94f6e86cfed79cf61de61602553904"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aeb94f6e86cfed79cf61de61602553904">&#9670;&#160;</a></span>GLumenRadiosityMaxRayIntensity</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../df/d2a/_s_anim_notify_shared_8h.html#ac7c94e837fed3f8e4bb3dd94d7bd2ecf">float</a> GLumenRadiosityMaxRayIntensity = 40.0f</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a1b40f7ed81343bb589c8efd0f4791ea5" name="a1b40f7ed81343bb589c8efd0f4791ea5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1b40f7ed81343bb589c8efd0f4791ea5">&#9670;&#160;</a></span>GLumenRadiosityProbeSpacing</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a8dbb3cd84ca9fd010dadfc3815eefa5d">int32</a> GLumenRadiosityProbeSpacing = 4</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a5729b88fccf72cb0d71d2e5accdf5c25" name="a5729b88fccf72cb0d71d2e5accdf5c25"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5729b88fccf72cb0d71d2e5accdf5c25">&#9670;&#160;</a></span>GLumenRadiositySpatialFilterProbes</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a8dbb3cd84ca9fd010dadfc3815eefa5d">int32</a> GLumenRadiositySpatialFilterProbes = 1</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a0c134a087d8dc2033e89c269ec7e5767" name="a0c134a087d8dc2033e89c269ec7e5767"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0c134a087d8dc2033e89c269ec7e5767">&#9670;&#160;</a></span>GLumenRadiositySpatialFilterProbesKernelSize</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a8dbb3cd84ca9fd010dadfc3815eefa5d">int32</a> GLumenRadiositySpatialFilterProbesKernelSize = 1</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a8f8560e9946bdf008ee61ff238443283" name="a8f8560e9946bdf008ee61ff238443283"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8f8560e9946bdf008ee61ff238443283">&#9670;&#160;</a></span>GLumenRadiosityTemporalAccumulation</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a8dbb3cd84ca9fd010dadfc3815eefa5d">int32</a> GLumenRadiosityTemporalAccumulation = 1</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a411b4b92eed97ea7eabfd61dea2a2cd2" name="a411b4b92eed97ea7eabfd61dea2a2cd2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a411b4b92eed97ea7eabfd61dea2a2cd2">&#9670;&#160;</a></span>GLumenRadiosityTemporalMaxFramesAccumulated</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a8dbb3cd84ca9fd010dadfc3815eefa5d">int32</a> GLumenRadiosityTemporalMaxFramesAccumulated = 4</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a81034ff2dba4fe13522a2d3e58cd24d3" name="a81034ff2dba4fe13522a2d3e58cd24d3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a81034ff2dba4fe13522a2d3e58cd24d3">&#9670;&#160;</a></span>GRadiosityFilteringProbeOcclusion</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a8dbb3cd84ca9fd010dadfc3815eefa5d">int32</a> GRadiosityFilteringProbeOcclusion = 0</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a740bef080e1fbdacc26c3333e3d5058d" name="a740bef080e1fbdacc26c3333e3d5058d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a740bef080e1fbdacc26c3333e3d5058d">&#9670;&#160;</a></span>GRadiosityFilteringProbeOcclusionStrength</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../df/d2a/_s_anim_notify_shared_8h.html#ac7c94e837fed3f8e4bb3dd94d7bd2ecf">float</a> GRadiosityFilteringProbeOcclusionStrength = .5f</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a3dc6188729f6c98581f22ba0a179f9fd" name="a3dc6188729f6c98581f22ba0a179f9fd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3dc6188729f6c98581f22ba0a179f9fd">&#9670;&#160;</a></span>GRadiosityFilteringProbePlaneWeighting</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a8dbb3cd84ca9fd010dadfc3815eefa5d">int32</a> GRadiosityFilteringProbePlaneWeighting = 1</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a45a842f6d72e98a67576f92f516d6ec2" name="a45a842f6d72e98a67576f92f516d6ec2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a45a842f6d72e98a67576f92f516d6ec2">&#9670;&#160;</a></span>GRadiosityProbePlaneWeightingDepthScale</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../df/d2a/_s_anim_notify_shared_8h.html#ac7c94e837fed3f8e4bb3dd94d7bd2ecf">float</a> GRadiosityProbePlaneWeightingDepthScale = -100.0f</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<div id="page-nav" class="page-nav-panel">
+<div id="page-nav-resize-handle"></div>
+<div id="page-nav-tree">
+<div id="page-nav-contents">
+</div><!-- page-nav-contents -->
+</div><!-- page-nav-tree -->
+</div><!-- page-nav -->
+</div><!-- container -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a href="../../dir_0b6ee6e7e9547e675db4add2e5de97da.html">Engine</a></li><li class="navelem"><a href="../../dir_9579d1ecb2c7bf48cbe1049c41745cb4.html">Source</a></li><li class="navelem"><a href="../../dir_9f04efef762572853abdf73f62bebfcc.html">Runtime</a></li><li class="navelem"><a href="../../dir_5ed6327f04b0f38d3f6fe5caa38b0445.html">Renderer</a></li><li class="navelem"><a href="../../dir_e317dc6f09036e33460f39c550131623.html">Private</a></li><li class="navelem"><a href="../../dir_161a7642c6d0198965c23f504e27c348.html">Lumen</a></li><li class="navelem"><a href="../../dc/d1d/_lumen_radiosity_8cpp.html">LumenRadiosity.cpp</a></li>
+    <li class="footer">制作者 <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.15.0 </li>
+  </ul>
+</div>
+</body>
+</html>

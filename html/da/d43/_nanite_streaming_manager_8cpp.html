@@ -1,0 +1,1791 @@
+<!-- HTML header for doxygen 1.15.0-->
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh">
+<head>
+  <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=11" />
+  <meta name="generator" content="Doxygen 1.15.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>UE 5.8.4: Engine/Source/Runtime/Engine/Private/Rendering/NaniteStreamingManager.cpp 文件参考</title>
+  <link rel="icon" href="../../EdIconDefault.bmp" type="image/x-icon" />
+  <link href="../../tabs.css" rel="stylesheet" type="text/css" />
+  <script type="text/javascript" src="../../jquery.js"></script>
+  <script type="text/javascript" src="../../dynsections.js"></script>
+  <link href="../../navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../navtreedata.js"></script>
+<script type="text/javascript" src="../../navtree.js"></script>
+<script type="text/javascript" src="../../cookie.js"></script>
+  <link href="../../search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../search/searchdata.js"></script>
+<script type="text/javascript" src="../../search/search.js"></script>
+  <script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  extensions: ["tex2jax.js"],
+  jax: ["input/TeX","output/HTML-CSS"],
+});
+</script>
+<script type="text/javascript" async="async" src="https://cdn.jsdelivr.net/npm/mathjax@2/MathJax.js"></script>
+  <link href="../../doxygen.css" rel="stylesheet" type="text/css" />
+  <link href="../../doxygen-awesome.css" rel="stylesheet" type="text/css"/>
+<link href="../../doxygen-awesome-sidebar-only.css" rel="stylesheet" type="text/css"/>
+<link href="../../doxygen-awesome-sidebar-only-darkmode-toggle.css" rel="stylesheet" type="text/css"/>
+  <!-- ... other metadata & script includes ... -->
+  <script type="text/javascript" src="../../doxygen-awesome-darkmode-toggle.js"></script>
+  <script type="text/javascript">
+    DoxygenAwesomeDarkModeToggle.title = "Zwischen hellem/dunklem Modus wechseln"
+    DoxygenAwesomeDarkModeToggle.lightModeIcon = '🌞'
+    // icon from https://fonts.google.com/icons
+    DoxygenAwesomeDarkModeToggle.darkModeIcon = `<svg xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 24 24" height="24px" viewBox="0 0 24 24" width="24px" fill="#009793"><g><rect fill="none" height="24" width="24"/></g><g><g><path d="M8.1,14.15C9.77,14.63,11,16.17,11,18c0,0.68-0.19,1.31-0.48,1.87c0.48,0.09,0.97,0.14,1.48,0.14 c1.48,0,2.9-0.41,4.13-1.15c-2.62-0.92-5.23-2.82-6.8-5.86C7.74,9.94,7.78,7.09,8.29,4.9c-2.57,1.33-4.3,4.01-4.3,7.1c0,0,0,0,0,0 c0.01,0,0.01,0,0.02,0C5.66,12,7.18,12.83,8.1,14.15z" opacity=".3"/><path d="M19.78,17.51c-2.47,0-6.57-1.33-8.68-5.43C8.77,7.57,10.6,3.6,11.63,2.01C6.27,2.2,1.98,6.59,1.98,12 c0,0.14,0.02,0.28,0.02,0.42C2.61,12.16,3.28,12,3.98,12c0,0,0,0,0,0c0-3.09,1.73-5.77,4.3-7.1C7.78,7.09,7.74,9.94,9.32,13 c1.57,3.04,4.18,4.95,6.8,5.86c-1.23,0.74-2.65,1.15-4.13,1.15c-0.5,0-1-0.05-1.48-0.14c-0.37,0.7-0.94,1.27-1.64,1.64 c0.98,0.32,2.03,0.5,3.11,0.5c3.5,0,6.58-1.8,8.37-4.52C20.18,17.5,19.98,17.51,19.78,17.51z"/><path d="M7,16l-0.18,0C6.4,14.84,5.3,14,4,14c-1.66,0-3,1.34-3,3s1.34,3,3,3c0.62,0,2.49,0,3,0c1.1,0,2-0.9,2-2 C9,16.9,8.1,16,7,16z"/></g></g></svg>`
+    DoxygenAwesomeDarkModeToggle.init()
+  </script>
+  <script type="text/javascript" src="../../doxygen-awesome-fragment-copy-button.js"></script>
+  <script type="text/javascript">
+    DoxygenAwesomeFragmentCopyButton.title = "In die Zwischenablage kopieren"
+    // DoxygenAwesomeFragmentCopyButton.copyIcon = `<svg ...>`
+    // DoxygenAwesomeFragmentCopyButton.successIcon = `<svg ...>`
+    DoxygenAwesomeFragmentCopyButton.init()
+  </script>
+  <script type="text/javascript" src="../../doxygen-awesome-paragraph-link.js"></script>
+  <script type="text/javascript">
+    DoxygenAwesomeParagraphLink.title = "Abschnitt verknüpfen"
+    DoxygenAwesomeParagraphLink.icon = "¶"
+    DoxygenAwesomeParagraphLink.init()
+  </script>
+  <script type="text/javascript" src="../../doxygen-awesome-interactive-toc.js"></script>
+  <script type="text/javascript">
+    DoxygenAwesomeInteractiveToc.topOffset = 45
+    DoxygenAwesomeInteractiveToc.hideMobileMenu = false
+    DoxygenAwesomeInteractiveToc.init()
+  </script>
+</head>
+<body>
+    <div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+      <div id="titlearea">
+        <table cellspacing="0" cellpadding="0">
+          <tbody>
+            <tr id="projectrow">
+              <td id="projectlogo"><img alt="Logo" src="../../EdIconDefault.bmp"  /></td>
+              <td id="projectalign">
+                <div id="projectname">UE 5.8.4
+                </div>
+                <div id="projectbrief">Unreal Engine</div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <!-- end header part -->
+<!-- 制作者 Doxygen 1.15.0 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "../../search/",'.html');
+</script>
+<script type="text/javascript">
+$(function() { codefold.init(); });
+</script>
+<script type="text/javascript" src="../../menudata.js"></script>
+<script type="text/javascript" src="../../menu.js"></script>
+<script type="text/javascript">
+$(function() {
+  initMenu('../../',true,false,'search.php','搜索',true);
+  $(function() { init_search(); });
+});
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(function(){initNavTree('da/d43/_nanite_streaming_manager_8cpp.html','../../',''); });
+</script>
+<div id="container">
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">载入中...</div>
+<div class="SRStatus" id="Searching">搜索中...</div>
+<div class="SRStatus" id="NoMatches">未找到</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">NaniteStreamingManager.cpp 文件参考</div></div>
+</div><!--header-->
+<div class="contents">
+<div class="textblock"><code>#include &quot;<a class="el" href="../../d5/d98/_nanite_streaming_manager_8h_source.html">Rendering/NaniteStreamingManager.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d8/df3/_data_driven_shader_platform_info_8h_source.html">DataDrivenShaderPlatformInfo.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../dd/d5a/_global_shader_8h_source.html">GlobalShader.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d8/db3/_render_graph_builder_8h_source.html">RenderGraphBuilder.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d5/d32/_render_graph_utils_8h_source.html">RenderGraphUtils.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d3/d90/_core_2_public_2_async_2_parallel_for_8h_source.html">Async/ParallelFor.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../de/d01/_render_utils_8h_source.html">RenderUtils.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../dc/d79/_nanite_resources_8h_source.html">Rendering/NaniteResources.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d3/d4a/_shader_compiler_core_8h_source.html">ShaderCompilerCore.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d7/d10/_stats_trace_8h_source.html">Stats/StatsTrace.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d0/dcf/_platform_file_manager_8h_source.html">HAL/PlatformFileManager.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d7/dae/_shader_permutation_utils_8h_source.html">ShaderPermutationUtils.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d8/d32/_io_store_trace_8h_source.html">ProfilingDebugging/IoStoreTrace.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d0/d25/_nanite_fixup_chunk_8h_source.html">Nanite/NaniteFixupChunk.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d2/dbb/_nanite_ordered_scatter_updater_8h_source.html">Nanite/NaniteOrderedScatterUpdater.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d7/dff/_nanite_streaming_shared_8h_source.html">Nanite/NaniteStreamingShared.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../da/d90/_nanite_readback_manager_8h_source.html">Nanite/NaniteReadbackManager.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d4/d90/_nanite_streaming_page_uploader_8h_source.html">Nanite/NaniteStreamingPageUploader.h</a>&quot;</code><br />
+</div><div class="textblock"><div class="dynheader">
+NaniteStreamingManager.cpp 的引用(Include)关系图:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d8/dd9/_nanite_streaming_manager_8cpp__incl.svg" width="4427" height="955"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+</div><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-nested-classes" class="groupheader"><a id="nested-classes" name="nested-classes"></a>
+类</h2></td></tr>
+<tr class="memitem:Nanite_3A_3AFMemcpy_5FCS" id="r_Nanite_3A_3AFMemcpy_5FCS"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d2/dbc/class_nanite_1_1_f_memcpy___c_s.html">Nanite::FMemcpy_CS</a></td></tr>
+<tr class="memitem:Nanite_3A_3AFHierarchyDepthManager" id="r_Nanite_3A_3AFHierarchyDepthManager"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/d8d/class_nanite_1_1_f_hierarchy_depth_manager.html">Nanite::FHierarchyDepthManager</a></td></tr>
+<tr class="memitem:Nanite_3A_3AFRingBufferAllocator" id="r_Nanite_3A_3AFRingBufferAllocator"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d3b/class_nanite_1_1_f_ring_buffer_allocator.html">Nanite::FRingBufferAllocator</a></td></tr>
+<tr class="memitem:Nanite_3A_3AFQualityScalingManager" id="r_Nanite_3A_3AFQualityScalingManager"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d2/d94/class_nanite_1_1_f_quality_scaling_manager.html">Nanite::FQualityScalingManager</a></td></tr>
+<tr class="memitem:Nanite_3A_3AFStreamingUpdateParameters" id="r_Nanite_3A_3AFStreamingUpdateParameters"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/d92/struct_nanite_1_1_f_streaming_update_parameters.html">Nanite::FStreamingUpdateParameters</a></td></tr>
+<tr class="memitem:Nanite_3A_3AFStreamingUpdateTask" id="r_Nanite_3A_3AFStreamingUpdateTask"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/df2/class_nanite_1_1_f_streaming_update_task.html">Nanite::FStreamingUpdateTask</a></td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-namespaces" class="groupheader"><a id="namespaces" name="namespaces"></a>
+命名空间</h2></td></tr>
+<tr class="memitem:Nanite" id="r_Nanite"><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/d3d/namespace_nanite.html">Nanite</a></td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-define-members" class="groupheader"><a id="define-members" name="define-members"></a>
+宏定义</h2></td></tr>
+<tr class="memitem:a03a5a000cb6165c08825ebbea469e8ca" id="r_a03a5a000cb6165c08825ebbea469e8ca"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a03a5a000cb6165c08825ebbea469e8ca">MAX_LEGACY_REQUESTS_PER_UPDATE</a>&#160;&#160;&#160;32u</td></tr>
+<tr class="memitem:a130cd5c58fc5edf2c5ff063c3acc2e08" id="r_a130cd5c58fc5edf2c5ff063c3acc2e08"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a130cd5c58fc5edf2c5ff063c3acc2e08">MAX_RUNTIME_RESOURCE_VERSIONS_BITS</a>&#160;&#160;&#160;8</td></tr>
+<tr class="memitem:aa34eab808f72663373e6c1c27c57f582" id="r_aa34eab808f72663373e6c1c27c57f582"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa34eab808f72663373e6c1c27c57f582">MAX_RUNTIME_RESOURCE_VERSIONS_MASK</a>&#160;&#160;&#160;((1 &lt;&lt; <a class="el" href="#a130cd5c58fc5edf2c5ff063c3acc2e08">MAX_RUNTIME_RESOURCE_VERSIONS_BITS</a>) - 1)</td></tr>
+<tr class="memitem:a036fc952f3c5b1e36b876ee797cb2a14" id="r_a036fc952f3c5b1e36b876ee797cb2a14"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a036fc952f3c5b1e36b876ee797cb2a14">MAX_RESOURCE_PREFETCH_PAGES</a>&#160;&#160;&#160;16</td></tr>
+<tr class="memitem:a38a99a3cbd18c96da90d74536a63374a" id="r_a38a99a3cbd18c96da90d74536a63374a"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a38a99a3cbd18c96da90d74536a63374a">LRU_INDEX_MASK</a>&#160;&#160;&#160;0x7FFFFFFFu</td></tr>
+<tr class="memitem:afab261abc554ff65a1c1014b93cf073d" id="r_afab261abc554ff65a1c1014b93cf073d"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#afab261abc554ff65a1c1014b93cf073d">LRU_FLAG_REFERENCED_THIS_UPDATE</a>&#160;&#160;&#160;0x80000000u</td></tr>
+<tr class="memitem:ab50f16ff96ff02062d1aa886f78014a0" id="r_ab50f16ff96ff02062d1aa886f78014a0"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab50f16ff96ff02062d1aa886f78014a0">DEBUG_TRANSCODE_PAGES_REPEATEDLY</a>&#160;&#160;&#160;0</td></tr>
+<tr class="memitem:a84bf1185c7f6182946f1ac41defcdbec" id="r_a84bf1185c7f6182946f1ac41defcdbec"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a84bf1185c7f6182946f1ac41defcdbec">DEBUG_ALLOCATION_STRESS_TEST</a>&#160;&#160;&#160;0</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-func-members" class="groupheader"><a id="func-members" name="func-members"></a>
+函数</h2></td></tr>
+<tr class="memitem:a35f9c86570ce35d9418eebeff785e487" id="r_a35f9c86570ce35d9418eebeff785e487"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a35f9c86570ce35d9418eebeff785e487">DECLARE_STATS_GROUP_SORTBYNAME</a> (<a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;NaniteStreaming&quot;), STATGROUP_NaniteStreaming, STATCAT_Advanced)</td></tr>
+<tr class="memitem:a3bf7d6459e32f142b4fbf5e704bcaeb5" id="r_a3bf7d6459e32f142b4fbf5e704bcaeb5"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a3bf7d6459e32f142b4fbf5e704bcaeb5">DECLARE_DWORD_ACCUMULATOR_STAT</a> (<a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;Nanite Resources&quot;), STAT_NaniteStreaming00_NaniteResources, STATGROUP_NaniteStreaming)</td></tr>
+<tr class="memitem:adb5c375a27b9d73c38708e8cf4f23208" id="r_adb5c375a27b9d73c38708e8cf4f23208"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#adb5c375a27b9d73c38708e8cf4f23208">DECLARE_DWORD_ACCUMULATOR_STAT</a> (<a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;HierarchyNodes&quot;), STAT_NaniteStreaming02_HierarchyNodes, STATGROUP_NaniteStreaming)</td></tr>
+<tr class="memitem:ade6de2ecef7534e416707cde96b0397b" id="r_ade6de2ecef7534e416707cde96b0397b"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ade6de2ecef7534e416707cde96b0397b">DECLARE_DWORD_ACCUMULATOR_STAT</a> (<a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;    Peak&quot;), STAT_NaniteStreaming03_PeakHierarchyNodes, STATGROUP_NaniteStreaming)</td></tr>
+<tr class="memitem:a98b951080a9138296e64f8f51b91e5aa" id="r_a98b951080a9138296e64f8f51b91e5aa"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a98b951080a9138296e64f8f51b91e5aa">DECLARE_DWORD_ACCUMULATOR_STAT</a> (<a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;    Max Depth&quot;), STAT_NaniteStreaming04_MaxHierarchyLevels, STATGROUP_NaniteStreaming)</td></tr>
+<tr class="memitem:a3b3868177009d73a4772c39c14e316e7" id="r_a3b3868177009d73a4772c39c14e316e7"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a3b3868177009d73a4772c39c14e316e7">DECLARE_DWORD_ACCUMULATOR_STAT</a> (<a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;Root Pages&quot;), STAT_NaniteStreaming06_RootPages, STATGROUP_NaniteStreaming)</td></tr>
+<tr class="memitem:a78fc02360a9c59a90c3cd8b61112dbb8" id="r_a78fc02360a9c59a90c3cd8b61112dbb8"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a78fc02360a9c59a90c3cd8b61112dbb8">DECLARE_DWORD_ACCUMULATOR_STAT</a> (<a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;    Peak&quot;), STAT_NaniteStreaming07_PeakRootPages, STATGROUP_NaniteStreaming)</td></tr>
+<tr class="memitem:a4fcac9cbfc80eb7b65a7f42cc6bdd016" id="r_a4fcac9cbfc80eb7b65a7f42cc6bdd016"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4fcac9cbfc80eb7b65a7f42cc6bdd016">DECLARE_DWORD_ACCUMULATOR_STAT</a> (<a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;    Allocated&quot;), STAT_NaniteStreaming08_AllocatedRootPages, STATGROUP_NaniteStreaming)</td></tr>
+<tr class="memitem:abfd98953bf371bf22c332592307f85ec" id="r_abfd98953bf371bf22c332592307f85ec"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#abfd98953bf371bf22c332592307f85ec">DECLARE_DWORD_ACCUMULATOR_STAT</a> (<a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;    Limit&quot;), STAT_NaniteStreaming09_RootPageLimit, STATGROUP_NaniteStreaming)</td></tr>
+<tr class="memitem:a218f11846bad56965029bdc40047c134" id="r_a218f11846bad56965029bdc40047c134"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a218f11846bad56965029bdc40047c134">DECLARE_DWORD_ACCUMULATOR_STAT</a> (<a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;Streaming <a class="el" href="../../da/dab/_skeletal_mesh_updater_8h.html#a4a32f8442774f920244971f92769d064">Pool</a> Pages&quot;), STAT_NaniteStreaming0A_StreamingPoolPages, STATGROUP_NaniteStreaming)</td></tr>
+<tr class="memitem:aad46dee36abdfdcf1400840abdb14b71" id="r_aad46dee36abdfdcf1400840abdb14b71"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aad46dee36abdfdcf1400840abdb14b71">DECLARE_DWORD_ACCUMULATOR_STAT</a> (<a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;Total Streaming Pages&quot;), STAT_NaniteStreaming0B_TotalStreamingPages, STATGROUP_NaniteStreaming)</td></tr>
+<tr class="memitem:a56d4ca535e13e0116140a4f4dcfa614e" id="r_a56d4ca535e13e0116140a4f4dcfa614e"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a56d4ca535e13e0116140a4f4dcfa614e">DECLARE_FLOAT_ACCUMULATOR_STAT</a> (<a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;Hierarchy <a class="el" href="../../d0/de4/_sequence_history_8h.html#a41f48316f09703e0b7cd9ac6b643e9c8">Size</a> (<a class="el" href="../../d7/d8b/lz4_8cpp.html#aa6b38d492364d98453284934ed7caee9">MB</a>)&quot;), STAT_NaniteStreaming11_HiearchySizeMB, STATGROUP_NaniteStreaming)</td></tr>
+<tr class="memitem:adc4ff1e24ec37beccbb832b0ac691492" id="r_adc4ff1e24ec37beccbb832b0ac691492"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#adc4ff1e24ec37beccbb832b0ac691492">DECLARE_FLOAT_ACCUMULATOR_STAT</a> (<a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;Total <a class="el" href="../../da/dab/_skeletal_mesh_updater_8h.html#a4a32f8442774f920244971f92769d064">Pool</a> <a class="el" href="../../d0/de4/_sequence_history_8h.html#a41f48316f09703e0b7cd9ac6b643e9c8">Size</a> (<a class="el" href="../../d7/d8b/lz4_8cpp.html#aa6b38d492364d98453284934ed7caee9">MB</a>)&quot;), STAT_NaniteStreaming12_TotalPoolSizeMB, STATGROUP_NaniteStreaming)</td></tr>
+<tr class="memitem:a9799eedbb563f33b3a0c4b3f0d4639f1" id="r_a9799eedbb563f33b3a0c4b3f0d4639f1"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9799eedbb563f33b3a0c4b3f0d4639f1">DECLARE_FLOAT_ACCUMULATOR_STAT</a> (<a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;    Root <a class="el" href="../../da/dab/_skeletal_mesh_updater_8h.html#a4a32f8442774f920244971f92769d064">Pool</a> <a class="el" href="../../d0/de4/_sequence_history_8h.html#a41f48316f09703e0b7cd9ac6b643e9c8">Size</a> (<a class="el" href="../../d7/d8b/lz4_8cpp.html#aa6b38d492364d98453284934ed7caee9">MB</a>)&quot;), STAT_NaniteStreaming13_AllocatedRootPagesSizeMB, STATGROUP_NaniteStreaming)</td></tr>
+<tr class="memitem:ada2d7bee15143ffb74ea955ad041e99a" id="r_ada2d7bee15143ffb74ea955ad041e99a"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ada2d7bee15143ffb74ea955ad041e99a">DECLARE_FLOAT_ACCUMULATOR_STAT</a> (<a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;    Streaming <a class="el" href="../../da/dab/_skeletal_mesh_updater_8h.html#a4a32f8442774f920244971f92769d064">Pool</a> <a class="el" href="../../d0/de4/_sequence_history_8h.html#a41f48316f09703e0b7cd9ac6b643e9c8">Size</a> (<a class="el" href="../../d7/d8b/lz4_8cpp.html#aa6b38d492364d98453284934ed7caee9">MB</a>)&quot;), STAT_NaniteStreaming14_StreamingPoolSizeMB, STATGROUP_NaniteStreaming)</td></tr>
+<tr class="memitem:a0f784cedfb7d57703449832070f4ffe5" id="r_a0f784cedfb7d57703449832070f4ffe5"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a0f784cedfb7d57703449832070f4ffe5">DECLARE_FLOAT_ACCUMULATOR_STAT</a> (<a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;Total <a class="el" href="../../da/dab/_skeletal_mesh_updater_8h.html#a4a32f8442774f920244971f92769d064">Pool</a> <a class="el" href="../../d0/de4/_sequence_history_8h.html#a41f48316f09703e0b7cd9ac6b643e9c8">Size</a> Limit (<a class="el" href="../../d7/d8b/lz4_8cpp.html#aa6b38d492364d98453284934ed7caee9">MB</a>)&quot;), STAT_NaniteStreaming15_TotalPoolSizeLimitMB, STATGROUP_NaniteStreaming)</td></tr>
+<tr class="memitem:a0356dd67a652572b84fd264781ac8540" id="r_a0356dd67a652572b84fd264781ac8540"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a0356dd67a652572b84fd264781ac8540">DECLARE_DWORD_COUNTER_STAT</a> (<a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;Page Requests&quot;), STAT_NaniteStreaming20_PageRequests, STATGROUP_NaniteStreaming)</td></tr>
+<tr class="memitem:a768a709d4ae348c5c413caf17db44dde" id="r_a768a709d4ae348c5c413caf17db44dde"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a768a709d4ae348c5c413caf17db44dde">DECLARE_DWORD_COUNTER_STAT</a> (<a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;    GPU&quot;), STAT_NaniteStreaming21_PageRequestsGPU, STATGROUP_NaniteStreaming)</td></tr>
+<tr class="memitem:a63ed04492512e0e86b6c0e96e9ce0353" id="r_a63ed04492512e0e86b6c0e96e9ce0353"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a63ed04492512e0e86b6c0e96e9ce0353">DECLARE_DWORD_COUNTER_STAT</a> (<a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;    Explicit&quot;), STAT_NaniteStreaming22_PageRequestsExplicit, STATGROUP_NaniteStreaming)</td></tr>
+<tr class="memitem:a5b0974b9e763f1dea992563a53b0af8b" id="r_a5b0974b9e763f1dea992563a53b0af8b"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5b0974b9e763f1dea992563a53b0af8b">DECLARE_DWORD_COUNTER_STAT</a> (<a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;    Prefetch&quot;), STAT_NaniteStreaming23_PageRequestsPrefetch, STATGROUP_NaniteStreaming)</td></tr>
+<tr class="memitem:aa22b55382b4c587b00663134a24962f6" id="r_aa22b55382b4c587b00663134a24962f6"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa22b55382b4c587b00663134a24962f6">DECLARE_DWORD_COUNTER_STAT</a> (<a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;    Parents&quot;), STAT_NaniteStreaming24_PageRequestsParents, STATGROUP_NaniteStreaming)</td></tr>
+<tr class="memitem:aec6b2a15abefc0312bfac85aaa35592f" id="r_aec6b2a15abefc0312bfac85aaa35592f"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aec6b2a15abefc0312bfac85aaa35592f">DECLARE_DWORD_COUNTER_STAT</a> (<a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;    Unique&quot;), STAT_NaniteStreaming25_PageRequestsUnique, STATGROUP_NaniteStreaming)</td></tr>
+<tr class="memitem:a41886c5110f71fdf248bf1d2febdaae7" id="r_a41886c5110f71fdf248bf1d2febdaae7"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a41886c5110f71fdf248bf1d2febdaae7">DECLARE_DWORD_COUNTER_STAT</a> (<a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;    Registered&quot;), STAT_NaniteStreaming26_PageRequestsRegistered, STATGROUP_NaniteStreaming)</td></tr>
+<tr class="memitem:a38b889b615a94bb3482662a038187b92" id="r_a38b889b615a94bb3482662a038187b92"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a38b889b615a94bb3482662a038187b92">DECLARE_DWORD_COUNTER_STAT</a> (<a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;    New&quot;), STAT_NaniteStreaming27_PageRequestsNew, STATGROUP_NaniteStreaming)</td></tr>
+<tr class="memitem:ab7cbdc95bcd4efe9bf44814d4cd11c00" id="r_ab7cbdc95bcd4efe9bf44814d4cd11c00"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab7cbdc95bcd4efe9bf44814d4cd11c00">DECLARE_FLOAT_COUNTER_STAT</a> (<a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;Visible Streaming Data <a class="el" href="../../d0/de4/_sequence_history_8h.html#a41f48316f09703e0b7cd9ac6b643e9c8">Size</a> (<a class="el" href="../../d7/d8b/lz4_8cpp.html#aa6b38d492364d98453284934ed7caee9">MB</a>)&quot;), STAT_NaniteStreaming30_VisibleStreamingDataSizeMB, STATGROUP_NaniteStreaming)</td></tr>
+<tr class="memitem:a116fcc77afc4238da2d7687e5d8ace2e" id="r_a116fcc77afc4238da2d7687e5d8ace2e"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a116fcc77afc4238da2d7687e5d8ace2e">DECLARE_FLOAT_COUNTER_STAT</a> (<a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;    Streaming <a class="el" href="../../da/dab/_skeletal_mesh_updater_8h.html#a4a32f8442774f920244971f92769d064">Pool</a> Percentage&quot;), STAT_NaniteStreaming31_VisibleStreamingPoolPercentage, STATGROUP_NaniteStreaming)</td></tr>
+<tr class="memitem:a37de5edf52b90bd9e8682cf1b44c573a" id="r_a37de5edf52b90bd9e8682cf1b44c573a"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a37de5edf52b90bd9e8682cf1b44c573a">DECLARE_FLOAT_COUNTER_STAT</a> (<a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;    Quality Scale&quot;), STAT_NaniteStreaming32_VisibleStreamingQualityScale, STATGROUP_NaniteStreaming)</td></tr>
+<tr class="memitem:a5534176619d79a8a0022a3a4d3a28e59" id="r_a5534176619d79a8a0022a3a4d3a28e59"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5534176619d79a8a0022a3a4d3a28e59">DECLARE_FLOAT_COUNTER_STAT</a> (<a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;IO Request <a class="el" href="../../d0/de4/_sequence_history_8h.html#a41f48316f09703e0b7cd9ac6b643e9c8">Size</a> (<a class="el" href="../../d7/d8b/lz4_8cpp.html#aa6b38d492364d98453284934ed7caee9">MB</a>)&quot;), STAT_NaniteStreaming40_IORequestSizeMB, STATGROUP_NaniteStreaming)</td></tr>
+<tr class="memitem:a9fc94b4955407a9a0dbdeaa10d6b3a56" id="r_a9fc94b4955407a9a0dbdeaa10d6b3a56"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9fc94b4955407a9a0dbdeaa10d6b3a56">DECLARE_DWORD_COUNTER_STAT</a> (<a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;Readback Size&quot;), STAT_NaniteStreaming41_ReadbackSize, STATGROUP_NaniteStreaming)</td></tr>
+<tr class="memitem:a0ad277b78473381139b7ea5caf08f4b8" id="r_a0ad277b78473381139b7ea5caf08f4b8"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a0ad277b78473381139b7ea5caf08f4b8">DECLARE_DWORD_COUNTER_STAT</a> (<a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;Readback Buffer Size&quot;), STAT_NaniteStreaming42_ReadbackBufferSize, STATGROUP_NaniteStreaming)</td></tr>
+<tr class="memitem:a3471df8f6a48f040dfcc94b5bc1c937b" id="r_a3471df8f6a48f040dfcc94b5bc1c937b"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a3471df8f6a48f040dfcc94b5bc1c937b">DECLARE_CYCLE_STAT</a> (<a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;AddResource&quot;), STAT_NaniteStreaming_AddResource, STATGROUP_NaniteStreaming)</td></tr>
+<tr class="memitem:af2dcbb73033c44addd90a60108b67a5c" id="r_af2dcbb73033c44addd90a60108b67a5c"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af2dcbb73033c44addd90a60108b67a5c">DECLARE_CYCLE_STAT</a> (<a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;RemoveResource&quot;), STAT_NaniteStreaming_RemoveResource, STATGROUP_NaniteStreaming)</td></tr>
+<tr class="memitem:a9bc8d18ce4e700d0d47e756f75e2ef4f" id="r_a9bc8d18ce4e700d0d47e756f75e2ef4f"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9bc8d18ce4e700d0d47e756f75e2ef4f">DECLARE_CYCLE_STAT</a> (<a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;BeginAsyncUpdate&quot;), STAT_NaniteStreaming_BeginAsyncUpdate, STATGROUP_NaniteStreaming)</td></tr>
+<tr class="memitem:adce4ea315ef15a5510e483049489c1f2" id="r_adce4ea315ef15a5510e483049489c1f2"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#adce4ea315ef15a5510e483049489c1f2">DECLARE_CYCLE_STAT</a> (<a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;AsyncUpdate&quot;), STAT_NaniteStreaming_AsyncUpdate, STATGROUP_NaniteStreaming)</td></tr>
+<tr class="memitem:acb2ca46323b274572e873dae4227e7b4" id="r_acb2ca46323b274572e873dae4227e7b4"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#acb2ca46323b274572e873dae4227e7b4">DECLARE_CYCLE_STAT</a> (<a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;ProcessRequests&quot;), STAT_NaniteStreaming_ProcessRequests, STATGROUP_NaniteStreaming)</td></tr>
+<tr class="memitem:a8a7b9b7bb6e470a09c5f1b69375df9de" id="r_a8a7b9b7bb6e470a09c5f1b69375df9de"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8a7b9b7bb6e470a09c5f1b69375df9de">DECLARE_CYCLE_STAT</a> (<a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;InstallReadyPages&quot;), STAT_NaniteStreaming_InstallReadyPages, STATGROUP_NaniteStreaming)</td></tr>
+<tr class="memitem:a649a3a649c8031356074428bb39f7cf2" id="r_a649a3a649c8031356074428bb39f7cf2"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a649a3a649c8031356074428bb39f7cf2">DECLARE_CYCLE_STAT</a> (<a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;UploadTask&quot;), STAT_NaniteStreaming_UploadTask, STATGROUP_NaniteStreaming)</td></tr>
+<tr class="memitem:a185b5592bfb6d120b57e608efe2f05b5" id="r_a185b5592bfb6d120b57e608efe2f05b5"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a185b5592bfb6d120b57e608efe2f05b5">DECLARE_CYCLE_STAT</a> (<a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;ApplyFixup&quot;), STAT_NaniteStreaming_ApplyFixup, STATGROUP_NaniteStreaming)</td></tr>
+<tr class="memitem:a0f85e3078063abb38c1f500a963585bf" id="r_a0f85e3078063abb38c1f500a963585bf"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a0f85e3078063abb38c1f500a963585bf">DECLARE_CYCLE_STAT</a> (<a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;ResolveOverwrites&quot;), STAT_NaniteStreaming_ResolveOverwrites, STATGROUP_NaniteStreaming)</td></tr>
+<tr class="memitem:a04fed20728ee9aa2f7aec371f8302f49" id="r_a04fed20728ee9aa2f7aec371f8302f49"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a04fed20728ee9aa2f7aec371f8302f49">DECLARE_CYCLE_STAT</a> (<a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;EndAsyncUpdate&quot;), STAT_NaniteStreaming_EndAsyncUpdate, STATGROUP_NaniteStreaming)</td></tr>
+<tr class="memitem:a4484a3f2d052db7f40a9029cd65b1998" id="r_a4484a3f2d052db7f40a9029cd65b1998"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4484a3f2d052db7f40a9029cd65b1998">DECLARE_CYCLE_STAT</a> (<a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;AddParentRequests&quot;), STAT_NaniteStreaming_AddParentRequests, STATGROUP_NaniteStreaming)</td></tr>
+<tr class="memitem:ada46613204dfa64cb7ae7337fae1f12b" id="r_ada46613204dfa64cb7ae7337fae1f12b"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ada46613204dfa64cb7ae7337fae1f12b">DECLARE_CYCLE_STAT</a> (<a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;AddParentRegisteredRequests&quot;), STAT_NaniteStreaming_AddParentRegisteredRequests, STATGROUP_NaniteStreaming)</td></tr>
+<tr class="memitem:a350e02dc28c63257ca0495a42bd0c411" id="r_a350e02dc28c63257ca0495a42bd0c411"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a350e02dc28c63257ca0495a42bd0c411">DECLARE_CYCLE_STAT</a> (<a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;AddParentNewRequests&quot;), STAT_NaniteStreaming_AddParentNewRequests, STATGROUP_NaniteStreaming)</td></tr>
+<tr class="memitem:a50fc55c20f76948dc237b5fa8f4b970f" id="r_a50fc55c20f76948dc237b5fa8f4b970f"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a50fc55c20f76948dc237b5fa8f4b970f">DECLARE_CYCLE_STAT</a> (<a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;ClearReferencedArray&quot;), STAT_NaniteStreaming_ClearReferencedArray, STATGROUP_NaniteStreaming)</td></tr>
+<tr class="memitem:a8b22d488e5ab85fda0849f0fba42b2e6" id="r_a8b22d488e5ab85fda0849f0fba42b2e6"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8b22d488e5ab85fda0849f0fba42b2e6">DECLARE_CYCLE_STAT</a> (<a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;CompactLRU&quot;), STAT_NaniteStreaming_CompactLRU, STATGROUP_NaniteStreaming)</td></tr>
+<tr class="memitem:a9372b6a2cd312a584ea7ad6adb96dcdb" id="r_a9372b6a2cd312a584ea7ad6adb96dcdb"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9372b6a2cd312a584ea7ad6adb96dcdb">DECLARE_CYCLE_STAT</a> (<a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;UpdateLRU&quot;), STAT_NaniteStreaming_UpdateLRU, STATGROUP_NaniteStreaming)</td></tr>
+<tr class="memitem:a96a59b8819e7f1c17cf84bfb96aa17b7" id="r_a96a59b8819e7f1c17cf84bfb96aa17b7"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a96a59b8819e7f1c17cf84bfb96aa17b7">DECLARE_CYCLE_STAT</a> (<a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;ProcessGPURequests&quot;), STAT_NaniteStreaming_ProcessGPURequests, STATGROUP_NaniteStreaming)</td></tr>
+<tr class="memitem:a2dc2ce9b5c5a0ed0df067fd21ffa53a0" id="r_a2dc2ce9b5c5a0ed0df067fd21ffa53a0"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2dc2ce9b5c5a0ed0df067fd21ffa53a0">DECLARE_CYCLE_STAT</a> (<a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;SelectHighestPriority&quot;), STAT_NaniteStreaming_SelectHighestPriority, STATGROUP_NaniteStreaming)</td></tr>
+<tr class="memitem:ae9bde2fd74baf18b27da079c28485441" id="r_ae9bde2fd74baf18b27da079c28485441"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae9bde2fd74baf18b27da079c28485441">DECLARE_CYCLE_STAT</a> (<a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;Heapify&quot;), STAT_NaniteStreaming_Heapify, STATGROUP_NaniteStreaming)</td></tr>
+<tr class="memitem:a66026a9682c1e1294d10efd6cd455fa1" id="r_a66026a9682c1e1294d10efd6cd455fa1"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a66026a9682c1e1294d10efd6cd455fa1">DECLARE_CYCLE_STAT</a> (<a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;VerifyLRU&quot;), STAT_NaniteStreaming_VerifyLRU, STATGROUP_NaniteStreaming)</td></tr>
+<tr class="memitem:af960ad26582aba998f32698f287bdee0" id="r_af960ad26582aba998f32698f287bdee0"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af960ad26582aba998f32698f287bdee0">DECLARE_CYCLE_STAT</a> (<a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;VerifyFixupState&quot;), STAT_NaniteStreaming_VerifyFixupState, STATGROUP_NaniteStreaming)</td></tr>
+<tr class="memitem:a9371d699ec66d788bc957d0f26d13b12" id="r_a9371d699ec66d788bc957d0f26d13b12"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9371d699ec66d788bc957d0f26d13b12">DECLARE_LOG_CATEGORY_EXTERN</a> (LogNaniteStreaming, Log, <a class="el" href="../../db/da0/_hair_strands_composition_8cpp.html#a01ae254fc9c19378956c218ed4e9c32da54991d225c58ce0af43461d4e9a82312">All</a>)</td></tr>
+<tr class="memitem:a44cdeb0aa82da787090cda3d61d7481b" id="r_a44cdeb0aa82da787090cda3d61d7481b"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a44cdeb0aa82da787090cda3d61d7481b">DEFINE_LOG_CATEGORY</a> (LogNaniteStreaming)</td></tr>
+<tr class="memitem:a912ebbd9a59525fdf2a7bef48ad8b14a" id="r_a912ebbd9a59525fdf2a7bef48ad8b14a"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a912ebbd9a59525fdf2a7bef48ad8b14a">CSV_DEFINE_CATEGORY</a> (NaniteStreaming, <a class="el" href="../../d3/df7/radaudio__common_8h.html#ade27a78a51a66a5cfb6f09cf36bcfde9a08f175a5505a10b9ed657defeb050e4b">true</a>)</td></tr>
+<tr class="memitem:aaf87ff88f1c9b15c84530868a5c85339" id="r_aaf87ff88f1c9b15c84530868a5c85339"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aaf87ff88f1c9b15c84530868a5c85339">CSV_DEFINE_CATEGORY</a> (NaniteStreamingDetail, <a class="el" href="../../d3/df7/radaudio__common_8h.html#ade27a78a51a66a5cfb6f09cf36bcfde9ae9de385ef6fe9bf3360d1038396b884c">false</a>)</td></tr>
+<tr class="memitem:a12b9275693b5eb6d3500ac955c739cbf" id="r_a12b9275693b5eb6d3500ac955c739cbf"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d0/d76/_android_platform_8h.html#a724fb9f82013c782db5c3c12ea36aac8">FORCEINLINE</a> <a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a8dbb3cd84ca9fd010dadfc3815eefa5d">int32</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/d3d/namespace_nanite.html#a12b9275693b5eb6d3500ac955c739cbf">Nanite::VerificationLevel</a> ()</td></tr>
+<tr class="memitem:a5f17241c90e567a19f453426ef4f4fd6" id="r_a5f17241c90e567a19f453426ef4f4fd6"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/d3d/namespace_nanite.html#a5f17241c90e567a19f453426ef4f4fd6">Nanite::IMPLEMENT_GLOBAL_SHADER</a> (<a class="el" href="../../d2/dbc/class_nanite_1_1_f_memcpy___c_s.html">FMemcpy_CS</a>, &quot;/Engine/<a class="el" href="../../d7/d40/namespace_nanite_1_1_private.html">Private</a>/<a class="el" href="../../d5/d3d/namespace_nanite.html">Nanite</a>/NaniteStreaming.usf&quot;, &quot;Memcpy&quot;, <a class="el" href="../../da/dca/_r_h_i_definitions_8h.html#a0a3cc83cb6ebc79b66b43fae3ffee64ea2a84a18d7ac3d1fac11e3153f0abf73b">SF_Compute</a>)</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-var-members" class="groupheader"><a id="var-members" name="var-members"></a>
+变量</h2></td></tr>
+<tr class="memitem:ab16dee00f2079805c0f35e013ee04c58" id="r_ab16dee00f2079805c0f35e013ee04c58"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../da/dee/class_t_global_resource.html">TGlobalResource</a>&lt; <a class="el" href="../../d1/d0e/class_nanite_1_1_f_streaming_manager.html">FStreamingManager</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/d3d/namespace_nanite.html#ab16dee00f2079805c0f35e013ee04c58">Nanite::GStreamingManager</a></td></tr>
+</table>
+<a name="doc-define-members" id="doc-define-members"></a><h2 id="header-doc-define-members" class="groupheader">宏定义说明</h2>
+<a id="a84bf1185c7f6182946f1ac41defcdbec" name="a84bf1185c7f6182946f1ac41defcdbec"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a84bf1185c7f6182946f1ac41defcdbec">&#9670;&#160;</a></span>DEBUG_ALLOCATION_STRESS_TEST</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define DEBUG_ALLOCATION_STRESS_TEST&#160;&#160;&#160;0</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ab50f16ff96ff02062d1aa886f78014a0" name="ab50f16ff96ff02062d1aa886f78014a0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab50f16ff96ff02062d1aa886f78014a0">&#9670;&#160;</a></span>DEBUG_TRANSCODE_PAGES_REPEATEDLY</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define DEBUG_TRANSCODE_PAGES_REPEATEDLY&#160;&#160;&#160;0</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="afab261abc554ff65a1c1014b93cf073d" name="afab261abc554ff65a1c1014b93cf073d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afab261abc554ff65a1c1014b93cf073d">&#9670;&#160;</a></span>LRU_FLAG_REFERENCED_THIS_UPDATE</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define LRU_FLAG_REFERENCED_THIS_UPDATE&#160;&#160;&#160;0x80000000u</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a38a99a3cbd18c96da90d74536a63374a" name="a38a99a3cbd18c96da90d74536a63374a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a38a99a3cbd18c96da90d74536a63374a">&#9670;&#160;</a></span>LRU_INDEX_MASK</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define LRU_INDEX_MASK&#160;&#160;&#160;0x7FFFFFFFu</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a03a5a000cb6165c08825ebbea469e8ca" name="a03a5a000cb6165c08825ebbea469e8ca"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a03a5a000cb6165c08825ebbea469e8ca">&#9670;&#160;</a></span>MAX_LEGACY_REQUESTS_PER_UPDATE</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define MAX_LEGACY_REQUESTS_PER_UPDATE&#160;&#160;&#160;32u</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a036fc952f3c5b1e36b876ee797cb2a14" name="a036fc952f3c5b1e36b876ee797cb2a14"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a036fc952f3c5b1e36b876ee797cb2a14">&#9670;&#160;</a></span>MAX_RESOURCE_PREFETCH_PAGES</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define MAX_RESOURCE_PREFETCH_PAGES&#160;&#160;&#160;16</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a130cd5c58fc5edf2c5ff063c3acc2e08" name="a130cd5c58fc5edf2c5ff063c3acc2e08"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a130cd5c58fc5edf2c5ff063c3acc2e08">&#9670;&#160;</a></span>MAX_RUNTIME_RESOURCE_VERSIONS_BITS</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define MAX_RUNTIME_RESOURCE_VERSIONS_BITS&#160;&#160;&#160;8</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aa34eab808f72663373e6c1c27c57f582" name="aa34eab808f72663373e6c1c27c57f582"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa34eab808f72663373e6c1c27c57f582">&#9670;&#160;</a></span>MAX_RUNTIME_RESOURCE_VERSIONS_MASK</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define MAX_RUNTIME_RESOURCE_VERSIONS_MASK&#160;&#160;&#160;((1 &lt;&lt; <a class="el" href="#a130cd5c58fc5edf2c5ff063c3acc2e08">MAX_RUNTIME_RESOURCE_VERSIONS_BITS</a>) - 1)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">函数说明</h2>
+<a id="a912ebbd9a59525fdf2a7bef48ad8b14a" name="a912ebbd9a59525fdf2a7bef48ad8b14a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a912ebbd9a59525fdf2a7bef48ad8b14a">&#9670;&#160;</a></span>CSV_DEFINE_CATEGORY() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">CSV_DEFINE_CATEGORY </td>
+          <td>(</td>
+          <td class="paramtype">NaniteStreaming</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d3/df7/radaudio__common_8h.html#ade27a78a51a66a5cfb6f09cf36bcfde9a08f175a5505a10b9ed657defeb050e4b">true</a></td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aaf87ff88f1c9b15c84530868a5c85339" name="aaf87ff88f1c9b15c84530868a5c85339"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aaf87ff88f1c9b15c84530868a5c85339">&#9670;&#160;</a></span>CSV_DEFINE_CATEGORY() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">CSV_DEFINE_CATEGORY </td>
+          <td>(</td>
+          <td class="paramtype">NaniteStreamingDetail</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d3/df7/radaudio__common_8h.html#ade27a78a51a66a5cfb6f09cf36bcfde9ae9de385ef6fe9bf3360d1038396b884c">false</a></td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a350e02dc28c63257ca0495a42bd0c411" name="a350e02dc28c63257ca0495a42bd0c411"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a350e02dc28c63257ca0495a42bd0c411">&#9670;&#160;</a></span>DECLARE_CYCLE_STAT() <span class="overload">[1/21]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">DECLARE_CYCLE_STAT </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;AddParentNewRequests&quot;)</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">STAT_NaniteStreaming_AddParentNewRequests</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">STATGROUP_NaniteStreaming</td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ada46613204dfa64cb7ae7337fae1f12b" name="ada46613204dfa64cb7ae7337fae1f12b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ada46613204dfa64cb7ae7337fae1f12b">&#9670;&#160;</a></span>DECLARE_CYCLE_STAT() <span class="overload">[2/21]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">DECLARE_CYCLE_STAT </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;AddParentRegisteredRequests&quot;)</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">STAT_NaniteStreaming_AddParentRegisteredRequests</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">STATGROUP_NaniteStreaming</td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a4484a3f2d052db7f40a9029cd65b1998" name="a4484a3f2d052db7f40a9029cd65b1998"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4484a3f2d052db7f40a9029cd65b1998">&#9670;&#160;</a></span>DECLARE_CYCLE_STAT() <span class="overload">[3/21]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">DECLARE_CYCLE_STAT </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;AddParentRequests&quot;)</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">STAT_NaniteStreaming_AddParentRequests</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">STATGROUP_NaniteStreaming</td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a3471df8f6a48f040dfcc94b5bc1c937b" name="a3471df8f6a48f040dfcc94b5bc1c937b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3471df8f6a48f040dfcc94b5bc1c937b">&#9670;&#160;</a></span>DECLARE_CYCLE_STAT() <span class="overload">[4/21]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">DECLARE_CYCLE_STAT </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;AddResource&quot;)</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">STAT_NaniteStreaming_AddResource</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">STATGROUP_NaniteStreaming</td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a185b5592bfb6d120b57e608efe2f05b5" name="a185b5592bfb6d120b57e608efe2f05b5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a185b5592bfb6d120b57e608efe2f05b5">&#9670;&#160;</a></span>DECLARE_CYCLE_STAT() <span class="overload">[5/21]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">DECLARE_CYCLE_STAT </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;ApplyFixup&quot;)</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">STAT_NaniteStreaming_ApplyFixup</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">STATGROUP_NaniteStreaming</td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="adce4ea315ef15a5510e483049489c1f2" name="adce4ea315ef15a5510e483049489c1f2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adce4ea315ef15a5510e483049489c1f2">&#9670;&#160;</a></span>DECLARE_CYCLE_STAT() <span class="overload">[6/21]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">DECLARE_CYCLE_STAT </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;AsyncUpdate&quot;)</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">STAT_NaniteStreaming_AsyncUpdate</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">STATGROUP_NaniteStreaming</td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a9bc8d18ce4e700d0d47e756f75e2ef4f" name="a9bc8d18ce4e700d0d47e756f75e2ef4f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9bc8d18ce4e700d0d47e756f75e2ef4f">&#9670;&#160;</a></span>DECLARE_CYCLE_STAT() <span class="overload">[7/21]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">DECLARE_CYCLE_STAT </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;BeginAsyncUpdate&quot;)</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">STAT_NaniteStreaming_BeginAsyncUpdate</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">STATGROUP_NaniteStreaming</td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a50fc55c20f76948dc237b5fa8f4b970f" name="a50fc55c20f76948dc237b5fa8f4b970f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a50fc55c20f76948dc237b5fa8f4b970f">&#9670;&#160;</a></span>DECLARE_CYCLE_STAT() <span class="overload">[8/21]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">DECLARE_CYCLE_STAT </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;ClearReferencedArray&quot;)</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">STAT_NaniteStreaming_ClearReferencedArray</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">STATGROUP_NaniteStreaming</td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a8b22d488e5ab85fda0849f0fba42b2e6" name="a8b22d488e5ab85fda0849f0fba42b2e6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8b22d488e5ab85fda0849f0fba42b2e6">&#9670;&#160;</a></span>DECLARE_CYCLE_STAT() <span class="overload">[9/21]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">DECLARE_CYCLE_STAT </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;CompactLRU&quot;)</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">STAT_NaniteStreaming_CompactLRU</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">STATGROUP_NaniteStreaming</td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a04fed20728ee9aa2f7aec371f8302f49" name="a04fed20728ee9aa2f7aec371f8302f49"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a04fed20728ee9aa2f7aec371f8302f49">&#9670;&#160;</a></span>DECLARE_CYCLE_STAT() <span class="overload">[10/21]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">DECLARE_CYCLE_STAT </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;EndAsyncUpdate&quot;)</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">STAT_NaniteStreaming_EndAsyncUpdate</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">STATGROUP_NaniteStreaming</td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ae9bde2fd74baf18b27da079c28485441" name="ae9bde2fd74baf18b27da079c28485441"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae9bde2fd74baf18b27da079c28485441">&#9670;&#160;</a></span>DECLARE_CYCLE_STAT() <span class="overload">[11/21]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">DECLARE_CYCLE_STAT </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;Heapify&quot;)</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">STAT_NaniteStreaming_Heapify</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">STATGROUP_NaniteStreaming</td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a8a7b9b7bb6e470a09c5f1b69375df9de" name="a8a7b9b7bb6e470a09c5f1b69375df9de"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8a7b9b7bb6e470a09c5f1b69375df9de">&#9670;&#160;</a></span>DECLARE_CYCLE_STAT() <span class="overload">[12/21]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">DECLARE_CYCLE_STAT </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;InstallReadyPages&quot;)</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">STAT_NaniteStreaming_InstallReadyPages</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">STATGROUP_NaniteStreaming</td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a96a59b8819e7f1c17cf84bfb96aa17b7" name="a96a59b8819e7f1c17cf84bfb96aa17b7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a96a59b8819e7f1c17cf84bfb96aa17b7">&#9670;&#160;</a></span>DECLARE_CYCLE_STAT() <span class="overload">[13/21]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">DECLARE_CYCLE_STAT </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;ProcessGPURequests&quot;)</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">STAT_NaniteStreaming_ProcessGPURequests</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">STATGROUP_NaniteStreaming</td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="acb2ca46323b274572e873dae4227e7b4" name="acb2ca46323b274572e873dae4227e7b4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acb2ca46323b274572e873dae4227e7b4">&#9670;&#160;</a></span>DECLARE_CYCLE_STAT() <span class="overload">[14/21]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">DECLARE_CYCLE_STAT </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;ProcessRequests&quot;)</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">STAT_NaniteStreaming_ProcessRequests</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">STATGROUP_NaniteStreaming</td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="af2dcbb73033c44addd90a60108b67a5c" name="af2dcbb73033c44addd90a60108b67a5c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af2dcbb73033c44addd90a60108b67a5c">&#9670;&#160;</a></span>DECLARE_CYCLE_STAT() <span class="overload">[15/21]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">DECLARE_CYCLE_STAT </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;RemoveResource&quot;)</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">STAT_NaniteStreaming_RemoveResource</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">STATGROUP_NaniteStreaming</td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a0f85e3078063abb38c1f500a963585bf" name="a0f85e3078063abb38c1f500a963585bf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0f85e3078063abb38c1f500a963585bf">&#9670;&#160;</a></span>DECLARE_CYCLE_STAT() <span class="overload">[16/21]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">DECLARE_CYCLE_STAT </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;ResolveOverwrites&quot;)</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">STAT_NaniteStreaming_ResolveOverwrites</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">STATGROUP_NaniteStreaming</td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a2dc2ce9b5c5a0ed0df067fd21ffa53a0" name="a2dc2ce9b5c5a0ed0df067fd21ffa53a0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2dc2ce9b5c5a0ed0df067fd21ffa53a0">&#9670;&#160;</a></span>DECLARE_CYCLE_STAT() <span class="overload">[17/21]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">DECLARE_CYCLE_STAT </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;SelectHighestPriority&quot;)</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">STAT_NaniteStreaming_SelectHighestPriority</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">STATGROUP_NaniteStreaming</td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a9372b6a2cd312a584ea7ad6adb96dcdb" name="a9372b6a2cd312a584ea7ad6adb96dcdb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9372b6a2cd312a584ea7ad6adb96dcdb">&#9670;&#160;</a></span>DECLARE_CYCLE_STAT() <span class="overload">[18/21]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">DECLARE_CYCLE_STAT </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;UpdateLRU&quot;)</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">STAT_NaniteStreaming_UpdateLRU</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">STATGROUP_NaniteStreaming</td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a649a3a649c8031356074428bb39f7cf2" name="a649a3a649c8031356074428bb39f7cf2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a649a3a649c8031356074428bb39f7cf2">&#9670;&#160;</a></span>DECLARE_CYCLE_STAT() <span class="overload">[19/21]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">DECLARE_CYCLE_STAT </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;UploadTask&quot;)</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">STAT_NaniteStreaming_UploadTask</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">STATGROUP_NaniteStreaming</td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="af960ad26582aba998f32698f287bdee0" name="af960ad26582aba998f32698f287bdee0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af960ad26582aba998f32698f287bdee0">&#9670;&#160;</a></span>DECLARE_CYCLE_STAT() <span class="overload">[20/21]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">DECLARE_CYCLE_STAT </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;VerifyFixupState&quot;)</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">STAT_NaniteStreaming_VerifyFixupState</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">STATGROUP_NaniteStreaming</td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a66026a9682c1e1294d10efd6cd455fa1" name="a66026a9682c1e1294d10efd6cd455fa1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a66026a9682c1e1294d10efd6cd455fa1">&#9670;&#160;</a></span>DECLARE_CYCLE_STAT() <span class="overload">[21/21]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">DECLARE_CYCLE_STAT </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;VerifyLRU&quot;)</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">STAT_NaniteStreaming_VerifyLRU</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">STATGROUP_NaniteStreaming</td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a4fcac9cbfc80eb7b65a7f42cc6bdd016" name="a4fcac9cbfc80eb7b65a7f42cc6bdd016"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4fcac9cbfc80eb7b65a7f42cc6bdd016">&#9670;&#160;</a></span>DECLARE_DWORD_ACCUMULATOR_STAT() <span class="overload">[1/10]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">DECLARE_DWORD_ACCUMULATOR_STAT </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;    Allocated&quot;)</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">STAT_NaniteStreaming08_AllocatedRootPages</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">STATGROUP_NaniteStreaming</td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="abfd98953bf371bf22c332592307f85ec" name="abfd98953bf371bf22c332592307f85ec"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abfd98953bf371bf22c332592307f85ec">&#9670;&#160;</a></span>DECLARE_DWORD_ACCUMULATOR_STAT() <span class="overload">[2/10]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">DECLARE_DWORD_ACCUMULATOR_STAT </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;    Limit&quot;)</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">STAT_NaniteStreaming09_RootPageLimit</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">STATGROUP_NaniteStreaming</td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a98b951080a9138296e64f8f51b91e5aa" name="a98b951080a9138296e64f8f51b91e5aa"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a98b951080a9138296e64f8f51b91e5aa">&#9670;&#160;</a></span>DECLARE_DWORD_ACCUMULATOR_STAT() <span class="overload">[3/10]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">DECLARE_DWORD_ACCUMULATOR_STAT </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;    Max Depth&quot;)</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">STAT_NaniteStreaming04_MaxHierarchyLevels</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">STATGROUP_NaniteStreaming</td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ade6de2ecef7534e416707cde96b0397b" name="ade6de2ecef7534e416707cde96b0397b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ade6de2ecef7534e416707cde96b0397b">&#9670;&#160;</a></span>DECLARE_DWORD_ACCUMULATOR_STAT() <span class="overload">[4/10]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">DECLARE_DWORD_ACCUMULATOR_STAT </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;    Peak&quot;)</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">STAT_NaniteStreaming03_PeakHierarchyNodes</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">STATGROUP_NaniteStreaming</td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a78fc02360a9c59a90c3cd8b61112dbb8" name="a78fc02360a9c59a90c3cd8b61112dbb8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a78fc02360a9c59a90c3cd8b61112dbb8">&#9670;&#160;</a></span>DECLARE_DWORD_ACCUMULATOR_STAT() <span class="overload">[5/10]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">DECLARE_DWORD_ACCUMULATOR_STAT </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;    Peak&quot;)</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">STAT_NaniteStreaming07_PeakRootPages</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">STATGROUP_NaniteStreaming</td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="adb5c375a27b9d73c38708e8cf4f23208" name="adb5c375a27b9d73c38708e8cf4f23208"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adb5c375a27b9d73c38708e8cf4f23208">&#9670;&#160;</a></span>DECLARE_DWORD_ACCUMULATOR_STAT() <span class="overload">[6/10]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">DECLARE_DWORD_ACCUMULATOR_STAT </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;HierarchyNodes&quot;)</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">STAT_NaniteStreaming02_HierarchyNodes</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">STATGROUP_NaniteStreaming</td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a3bf7d6459e32f142b4fbf5e704bcaeb5" name="a3bf7d6459e32f142b4fbf5e704bcaeb5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3bf7d6459e32f142b4fbf5e704bcaeb5">&#9670;&#160;</a></span>DECLARE_DWORD_ACCUMULATOR_STAT() <span class="overload">[7/10]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">DECLARE_DWORD_ACCUMULATOR_STAT </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;Nanite Resources&quot;)</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">STAT_NaniteStreaming00_NaniteResources</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">STATGROUP_NaniteStreaming</td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a3b3868177009d73a4772c39c14e316e7" name="a3b3868177009d73a4772c39c14e316e7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3b3868177009d73a4772c39c14e316e7">&#9670;&#160;</a></span>DECLARE_DWORD_ACCUMULATOR_STAT() <span class="overload">[8/10]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">DECLARE_DWORD_ACCUMULATOR_STAT </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;Root Pages&quot;)</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">STAT_NaniteStreaming06_RootPages</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">STATGROUP_NaniteStreaming</td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a218f11846bad56965029bdc40047c134" name="a218f11846bad56965029bdc40047c134"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a218f11846bad56965029bdc40047c134">&#9670;&#160;</a></span>DECLARE_DWORD_ACCUMULATOR_STAT() <span class="overload">[9/10]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">DECLARE_DWORD_ACCUMULATOR_STAT </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;Streaming <a class="el" href="../../da/dab/_skeletal_mesh_updater_8h.html#a4a32f8442774f920244971f92769d064">Pool</a> Pages&quot;)</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">STAT_NaniteStreaming0A_StreamingPoolPages</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">STATGROUP_NaniteStreaming</td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aad46dee36abdfdcf1400840abdb14b71" name="aad46dee36abdfdcf1400840abdb14b71"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aad46dee36abdfdcf1400840abdb14b71">&#9670;&#160;</a></span>DECLARE_DWORD_ACCUMULATOR_STAT() <span class="overload">[10/10]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">DECLARE_DWORD_ACCUMULATOR_STAT </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;Total Streaming Pages&quot;)</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">STAT_NaniteStreaming0B_TotalStreamingPages</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">STATGROUP_NaniteStreaming</td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a63ed04492512e0e86b6c0e96e9ce0353" name="a63ed04492512e0e86b6c0e96e9ce0353"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a63ed04492512e0e86b6c0e96e9ce0353">&#9670;&#160;</a></span>DECLARE_DWORD_COUNTER_STAT() <span class="overload">[1/10]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">DECLARE_DWORD_COUNTER_STAT </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;    Explicit&quot;)</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">STAT_NaniteStreaming22_PageRequestsExplicit</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">STATGROUP_NaniteStreaming</td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a768a709d4ae348c5c413caf17db44dde" name="a768a709d4ae348c5c413caf17db44dde"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a768a709d4ae348c5c413caf17db44dde">&#9670;&#160;</a></span>DECLARE_DWORD_COUNTER_STAT() <span class="overload">[2/10]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">DECLARE_DWORD_COUNTER_STAT </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;    GPU&quot;)</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">STAT_NaniteStreaming21_PageRequestsGPU</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">STATGROUP_NaniteStreaming</td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a38b889b615a94bb3482662a038187b92" name="a38b889b615a94bb3482662a038187b92"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a38b889b615a94bb3482662a038187b92">&#9670;&#160;</a></span>DECLARE_DWORD_COUNTER_STAT() <span class="overload">[3/10]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">DECLARE_DWORD_COUNTER_STAT </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;    New&quot;)</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">STAT_NaniteStreaming27_PageRequestsNew</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">STATGROUP_NaniteStreaming</td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aa22b55382b4c587b00663134a24962f6" name="aa22b55382b4c587b00663134a24962f6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa22b55382b4c587b00663134a24962f6">&#9670;&#160;</a></span>DECLARE_DWORD_COUNTER_STAT() <span class="overload">[4/10]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">DECLARE_DWORD_COUNTER_STAT </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;    Parents&quot;)</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">STAT_NaniteStreaming24_PageRequestsParents</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">STATGROUP_NaniteStreaming</td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a5b0974b9e763f1dea992563a53b0af8b" name="a5b0974b9e763f1dea992563a53b0af8b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5b0974b9e763f1dea992563a53b0af8b">&#9670;&#160;</a></span>DECLARE_DWORD_COUNTER_STAT() <span class="overload">[5/10]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">DECLARE_DWORD_COUNTER_STAT </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;    Prefetch&quot;)</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">STAT_NaniteStreaming23_PageRequestsPrefetch</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">STATGROUP_NaniteStreaming</td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a41886c5110f71fdf248bf1d2febdaae7" name="a41886c5110f71fdf248bf1d2febdaae7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a41886c5110f71fdf248bf1d2febdaae7">&#9670;&#160;</a></span>DECLARE_DWORD_COUNTER_STAT() <span class="overload">[6/10]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">DECLARE_DWORD_COUNTER_STAT </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;    Registered&quot;)</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">STAT_NaniteStreaming26_PageRequestsRegistered</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">STATGROUP_NaniteStreaming</td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aec6b2a15abefc0312bfac85aaa35592f" name="aec6b2a15abefc0312bfac85aaa35592f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aec6b2a15abefc0312bfac85aaa35592f">&#9670;&#160;</a></span>DECLARE_DWORD_COUNTER_STAT() <span class="overload">[7/10]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">DECLARE_DWORD_COUNTER_STAT </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;    Unique&quot;)</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">STAT_NaniteStreaming25_PageRequestsUnique</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">STATGROUP_NaniteStreaming</td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a0356dd67a652572b84fd264781ac8540" name="a0356dd67a652572b84fd264781ac8540"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0356dd67a652572b84fd264781ac8540">&#9670;&#160;</a></span>DECLARE_DWORD_COUNTER_STAT() <span class="overload">[8/10]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">DECLARE_DWORD_COUNTER_STAT </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;Page Requests&quot;)</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">STAT_NaniteStreaming20_PageRequests</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">STATGROUP_NaniteStreaming</td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a0ad277b78473381139b7ea5caf08f4b8" name="a0ad277b78473381139b7ea5caf08f4b8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0ad277b78473381139b7ea5caf08f4b8">&#9670;&#160;</a></span>DECLARE_DWORD_COUNTER_STAT() <span class="overload">[9/10]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">DECLARE_DWORD_COUNTER_STAT </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;Readback Buffer Size&quot;)</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">STAT_NaniteStreaming42_ReadbackBufferSize</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">STATGROUP_NaniteStreaming</td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a9fc94b4955407a9a0dbdeaa10d6b3a56" name="a9fc94b4955407a9a0dbdeaa10d6b3a56"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9fc94b4955407a9a0dbdeaa10d6b3a56">&#9670;&#160;</a></span>DECLARE_DWORD_COUNTER_STAT() <span class="overload">[10/10]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">DECLARE_DWORD_COUNTER_STAT </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;Readback Size&quot;)</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">STAT_NaniteStreaming41_ReadbackSize</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">STATGROUP_NaniteStreaming</td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a9799eedbb563f33b3a0c4b3f0d4639f1" name="a9799eedbb563f33b3a0c4b3f0d4639f1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9799eedbb563f33b3a0c4b3f0d4639f1">&#9670;&#160;</a></span>DECLARE_FLOAT_ACCUMULATOR_STAT() <span class="overload">[1/5]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">DECLARE_FLOAT_ACCUMULATOR_STAT </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;    Root <a class="el" href="../../da/dab/_skeletal_mesh_updater_8h.html#a4a32f8442774f920244971f92769d064">Pool</a> <a class="el" href="../../d0/de4/_sequence_history_8h.html#a41f48316f09703e0b7cd9ac6b643e9c8">Size</a> (<a class="el" href="../../d7/d8b/lz4_8cpp.html#aa6b38d492364d98453284934ed7caee9">MB</a>)&quot;)</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">STAT_NaniteStreaming13_AllocatedRootPagesSizeMB</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">STATGROUP_NaniteStreaming</td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ada2d7bee15143ffb74ea955ad041e99a" name="ada2d7bee15143ffb74ea955ad041e99a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ada2d7bee15143ffb74ea955ad041e99a">&#9670;&#160;</a></span>DECLARE_FLOAT_ACCUMULATOR_STAT() <span class="overload">[2/5]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">DECLARE_FLOAT_ACCUMULATOR_STAT </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;    Streaming <a class="el" href="../../da/dab/_skeletal_mesh_updater_8h.html#a4a32f8442774f920244971f92769d064">Pool</a> <a class="el" href="../../d0/de4/_sequence_history_8h.html#a41f48316f09703e0b7cd9ac6b643e9c8">Size</a> (<a class="el" href="../../d7/d8b/lz4_8cpp.html#aa6b38d492364d98453284934ed7caee9">MB</a>)&quot;)</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">STAT_NaniteStreaming14_StreamingPoolSizeMB</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">STATGROUP_NaniteStreaming</td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a56d4ca535e13e0116140a4f4dcfa614e" name="a56d4ca535e13e0116140a4f4dcfa614e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a56d4ca535e13e0116140a4f4dcfa614e">&#9670;&#160;</a></span>DECLARE_FLOAT_ACCUMULATOR_STAT() <span class="overload">[3/5]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">DECLARE_FLOAT_ACCUMULATOR_STAT </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;Hierarchy <a class="el" href="../../d0/de4/_sequence_history_8h.html#a41f48316f09703e0b7cd9ac6b643e9c8">Size</a> (<a class="el" href="../../d7/d8b/lz4_8cpp.html#aa6b38d492364d98453284934ed7caee9">MB</a>)&quot;)</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">STAT_NaniteStreaming11_HiearchySizeMB</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">STATGROUP_NaniteStreaming</td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="adc4ff1e24ec37beccbb832b0ac691492" name="adc4ff1e24ec37beccbb832b0ac691492"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adc4ff1e24ec37beccbb832b0ac691492">&#9670;&#160;</a></span>DECLARE_FLOAT_ACCUMULATOR_STAT() <span class="overload">[4/5]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">DECLARE_FLOAT_ACCUMULATOR_STAT </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;Total <a class="el" href="../../da/dab/_skeletal_mesh_updater_8h.html#a4a32f8442774f920244971f92769d064">Pool</a> <a class="el" href="../../d0/de4/_sequence_history_8h.html#a41f48316f09703e0b7cd9ac6b643e9c8">Size</a> (<a class="el" href="../../d7/d8b/lz4_8cpp.html#aa6b38d492364d98453284934ed7caee9">MB</a>)&quot;)</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">STAT_NaniteStreaming12_TotalPoolSizeMB</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">STATGROUP_NaniteStreaming</td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a0f784cedfb7d57703449832070f4ffe5" name="a0f784cedfb7d57703449832070f4ffe5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0f784cedfb7d57703449832070f4ffe5">&#9670;&#160;</a></span>DECLARE_FLOAT_ACCUMULATOR_STAT() <span class="overload">[5/5]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">DECLARE_FLOAT_ACCUMULATOR_STAT </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;Total <a class="el" href="../../da/dab/_skeletal_mesh_updater_8h.html#a4a32f8442774f920244971f92769d064">Pool</a> <a class="el" href="../../d0/de4/_sequence_history_8h.html#a41f48316f09703e0b7cd9ac6b643e9c8">Size</a> Limit (<a class="el" href="../../d7/d8b/lz4_8cpp.html#aa6b38d492364d98453284934ed7caee9">MB</a>)&quot;)</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">STAT_NaniteStreaming15_TotalPoolSizeLimitMB</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">STATGROUP_NaniteStreaming</td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a37de5edf52b90bd9e8682cf1b44c573a" name="a37de5edf52b90bd9e8682cf1b44c573a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a37de5edf52b90bd9e8682cf1b44c573a">&#9670;&#160;</a></span>DECLARE_FLOAT_COUNTER_STAT() <span class="overload">[1/4]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">DECLARE_FLOAT_COUNTER_STAT </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;    Quality Scale&quot;)</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">STAT_NaniteStreaming32_VisibleStreamingQualityScale</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">STATGROUP_NaniteStreaming</td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a116fcc77afc4238da2d7687e5d8ace2e" name="a116fcc77afc4238da2d7687e5d8ace2e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a116fcc77afc4238da2d7687e5d8ace2e">&#9670;&#160;</a></span>DECLARE_FLOAT_COUNTER_STAT() <span class="overload">[2/4]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">DECLARE_FLOAT_COUNTER_STAT </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;    Streaming <a class="el" href="../../da/dab/_skeletal_mesh_updater_8h.html#a4a32f8442774f920244971f92769d064">Pool</a> Percentage&quot;)</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">STAT_NaniteStreaming31_VisibleStreamingPoolPercentage</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">STATGROUP_NaniteStreaming</td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a5534176619d79a8a0022a3a4d3a28e59" name="a5534176619d79a8a0022a3a4d3a28e59"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5534176619d79a8a0022a3a4d3a28e59">&#9670;&#160;</a></span>DECLARE_FLOAT_COUNTER_STAT() <span class="overload">[3/4]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">DECLARE_FLOAT_COUNTER_STAT </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;IO Request <a class="el" href="../../d0/de4/_sequence_history_8h.html#a41f48316f09703e0b7cd9ac6b643e9c8">Size</a> (<a class="el" href="../../d7/d8b/lz4_8cpp.html#aa6b38d492364d98453284934ed7caee9">MB</a>)&quot;)</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">STAT_NaniteStreaming40_IORequestSizeMB</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">STATGROUP_NaniteStreaming</td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ab7cbdc95bcd4efe9bf44814d4cd11c00" name="ab7cbdc95bcd4efe9bf44814d4cd11c00"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab7cbdc95bcd4efe9bf44814d4cd11c00">&#9670;&#160;</a></span>DECLARE_FLOAT_COUNTER_STAT() <span class="overload">[4/4]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">DECLARE_FLOAT_COUNTER_STAT </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;Visible Streaming Data <a class="el" href="../../d0/de4/_sequence_history_8h.html#a41f48316f09703e0b7cd9ac6b643e9c8">Size</a> (<a class="el" href="../../d7/d8b/lz4_8cpp.html#aa6b38d492364d98453284934ed7caee9">MB</a>)&quot;)</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">STAT_NaniteStreaming30_VisibleStreamingDataSizeMB</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">STATGROUP_NaniteStreaming</td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a9371d699ec66d788bc957d0f26d13b12" name="a9371d699ec66d788bc957d0f26d13b12"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9371d699ec66d788bc957d0f26d13b12">&#9670;&#160;</a></span>DECLARE_LOG_CATEGORY_EXTERN()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">DECLARE_LOG_CATEGORY_EXTERN </td>
+          <td>(</td>
+          <td class="paramtype">LogNaniteStreaming</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Log</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../db/da0/_hair_strands_composition_8cpp.html#a01ae254fc9c19378956c218ed4e9c32da54991d225c58ce0af43461d4e9a82312">All</a></td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a35f9c86570ce35d9418eebeff785e487" name="a35f9c86570ce35d9418eebeff785e487"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a35f9c86570ce35d9418eebeff785e487">&#9670;&#160;</a></span>DECLARE_STATS_GROUP_SORTBYNAME()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">DECLARE_STATS_GROUP_SORTBYNAME </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;NaniteStreaming&quot;)</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">STATGROUP_NaniteStreaming</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">STATCAT_Advanced</td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a44cdeb0aa82da787090cda3d61d7481b" name="a44cdeb0aa82da787090cda3d61d7481b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a44cdeb0aa82da787090cda3d61d7481b">&#9670;&#160;</a></span>DEFINE_LOG_CATEGORY()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">DEFINE_LOG_CATEGORY </td>
+          <td>(</td>
+          <td class="paramtype">LogNaniteStreaming</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<div id="page-nav" class="page-nav-panel">
+<div id="page-nav-resize-handle"></div>
+<div id="page-nav-tree">
+<div id="page-nav-contents">
+</div><!-- page-nav-contents -->
+</div><!-- page-nav-tree -->
+</div><!-- page-nav -->
+</div><!-- container -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a href="../../dir_0b6ee6e7e9547e675db4add2e5de97da.html">Engine</a></li><li class="navelem"><a href="../../dir_9579d1ecb2c7bf48cbe1049c41745cb4.html">Source</a></li><li class="navelem"><a href="../../dir_9f04efef762572853abdf73f62bebfcc.html">Runtime</a></li><li class="navelem"><a href="../../dir_750344885b5b0dabc1066bd532c992d7.html">Engine</a></li><li class="navelem"><a href="../../dir_0f80cfe80f66a90345f34a7a0d31ead6.html">Private</a></li><li class="navelem"><a href="../../dir_ea4f2ef93fb6e61fc49455c61ffb6924.html">Rendering</a></li><li class="navelem"><a href="../../da/d43/_nanite_streaming_manager_8cpp.html">NaniteStreamingManager.cpp</a></li>
+    <li class="footer">制作者 <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.15.0 </li>
+  </ul>
+</div>
+</body>
+</html>

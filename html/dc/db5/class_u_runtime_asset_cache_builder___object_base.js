@@ -1,0 +1,26 @@
+var class_u_runtime_asset_cache_builder___object_base =
+[
+    [ "Build", "dc/db5/class_u_runtime_asset_cache_builder___object_base.html#a2b7407cd4cf3194e44d29b605c448a5b", null ],
+    [ "Cleanup", "dc/db5/class_u_runtime_asset_cache_builder___object_base.html#a4038975d8a6ccd04800158a118574a09", null ],
+    [ "GetAssetUniqueName", "dc/db5/class_u_runtime_asset_cache_builder___object_base.html#a8536829403c1a8eba2e62d871b9b0594", null ],
+    [ "GetAssetVersion", "dc/db5/class_u_runtime_asset_cache_builder___object_base.html#a53184fe924de81f867f34a77bfe21f10", null ],
+    [ "GetBucketConfigName", "dc/db5/class_u_runtime_asset_cache_builder___object_base.html#aafdd317a37399c19e343f799a6f546ce", null ],
+    [ "GetBuilderName", "dc/db5/class_u_runtime_asset_cache_builder___object_base.html#aeb4204e9dbabcdc44539609be06ee5ae", null ],
+    [ "GetFromCacheAsync", "dc/db5/class_u_runtime_asset_cache_builder___object_base.html#a7b465ab8fe641c46a662c4054f250b31", null ],
+    [ "GetFromCacheAsyncComplete", "dc/db5/class_u_runtime_asset_cache_builder___object_base.html#a66e9f93576fa3c65490a2554f7047393", null ],
+    [ "GetSerializedDataSizeEstimate", "dc/db5/class_u_runtime_asset_cache_builder___object_base.html#a8ed21b6540984a27081ff2f179cd9f92", null ],
+    [ "IsBuildThreadSafe", "dc/db5/class_u_runtime_asset_cache_builder___object_base.html#a26c77f2329709e847c93bae0ece9e5d2", null ],
+    [ "OnAssetCacheMiss", "dc/db5/class_u_runtime_asset_cache_builder___object_base.html#af8c4eb04659937691657629c026459ef", null ],
+    [ "OnAssetCacheMiss_Implementation", "dc/db5/class_u_runtime_asset_cache_builder___object_base.html#a97308249dd991f8455d8edae056ce009", null ],
+    [ "OnAssetPostLoad", "dc/db5/class_u_runtime_asset_cache_builder___object_base.html#a9ab63364d95c3485cd22242bca8858c0", null ],
+    [ "OnAssetPreLoad", "dc/db5/class_u_runtime_asset_cache_builder___object_base.html#aebd8cc8541c66ea08add45d3b826fc2a", null ],
+    [ "OnSetAsset", "dc/db5/class_u_runtime_asset_cache_builder___object_base.html#a4ce4cce899ab6ed1a6ca0e2bc3483c23", null ],
+    [ "PostInitProperties", "dc/db5/class_u_runtime_asset_cache_builder___object_base.html#a2115b4fda7f244ddc308ac70485a9ecb", null ],
+    [ "SaveNewAssetToCache", "dc/db5/class_u_runtime_asset_cache_builder___object_base.html#ae93cd0fea3de06c682dfc90e88972ddf", null ],
+    [ "SerializeAsset", "dc/db5/class_u_runtime_asset_cache_builder___object_base.html#ad4738ce2a38fe1ff014f0b47b3e721b7", null ],
+    [ "SetAsset", "dc/db5/class_u_runtime_asset_cache_builder___object_base.html#af82f474bc2e29162812ea4bc89e6113e", null ],
+    [ "ShouldBuildAsynchronously", "dc/db5/class_u_runtime_asset_cache_builder___object_base.html#a1c4702370fd56c81c5902c8b10dd52dc", null ],
+    [ "AssetName", "dc/db5/class_u_runtime_asset_cache_builder___object_base.html#acb9ec613eac9eca444e4d2aa76798cd3", null ],
+    [ "AssetVersion", "dc/db5/class_u_runtime_asset_cache_builder___object_base.html#ae18365cd4930d1ae23455a33630238f7", null ],
+    [ "CacheHandle", "dc/db5/class_u_runtime_asset_cache_builder___object_base.html#aa42718f585b12fb124f87ee8774bafdc", null ]
+];

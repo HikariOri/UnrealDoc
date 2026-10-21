@@ -1,0 +1,5 @@
+var struct_u_e_1_1_movie_scene_1_1_t_property_meta_data_components_3_01_t_property_meta_data_3_01_meta_data_types_8_8_8_01_4_01_4 =
+[
+    [ "MakeTCHARPtr", "d4/db3/struct_u_e_1_1_movie_scene_1_1_t_property_meta_data_components_3_01_t_property_meta_data_3_01_meta_data_types_8_8_8_01_4_01_4.html#a3ba3aa8e8e2c618b6c3602e9cdcecb40", null ],
+    [ "Initialize", "d4/db3/struct_u_e_1_1_movie_scene_1_1_t_property_meta_data_components_3_01_t_property_meta_data_3_01_meta_data_types_8_8_8_01_4_01_4.html#aec6dd1ccdbf323dd0cf036c5b020dbf1", null ]
+];

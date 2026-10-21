@@ -1,0 +1,805 @@
+<!-- HTML header for doxygen 1.15.0-->
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh">
+<head>
+  <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=11" />
+  <meta name="generator" content="Doxygen 1.15.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>UE 5.8.4: Engine/Source/Editor/UnrealEd/Private/Cooker/CookRequestCluster.h 源文件</title>
+  <link rel="icon" href="../../EdIconDefault.bmp" type="image/x-icon" />
+  <link href="../../tabs.css" rel="stylesheet" type="text/css" />
+  <script type="text/javascript" src="../../jquery.js"></script>
+  <script type="text/javascript" src="../../dynsections.js"></script>
+  <link href="../../navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../navtreedata.js"></script>
+<script type="text/javascript" src="../../navtree.js"></script>
+<script type="text/javascript" src="../../cookie.js"></script>
+  <link href="../../search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../search/searchdata.js"></script>
+<script type="text/javascript" src="../../search/search.js"></script>
+  <link href="../../doxygen.css" rel="stylesheet" type="text/css" />
+  <link href="../../doxygen-awesome.css" rel="stylesheet" type="text/css"/>
+<link href="../../doxygen-awesome-sidebar-only.css" rel="stylesheet" type="text/css"/>
+<link href="../../doxygen-awesome-sidebar-only-darkmode-toggle.css" rel="stylesheet" type="text/css"/>
+  <!-- ... other metadata & script includes ... -->
+  <script type="text/javascript" src="../../doxygen-awesome-darkmode-toggle.js"></script>
+  <script type="text/javascript">
+    DoxygenAwesomeDarkModeToggle.title = "Zwischen hellem/dunklem Modus wechseln"
+    DoxygenAwesomeDarkModeToggle.lightModeIcon = '🌞'
+    // icon from https://fonts.google.com/icons
+    DoxygenAwesomeDarkModeToggle.darkModeIcon = `<svg xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 24 24" height="24px" viewBox="0 0 24 24" width="24px" fill="#009793"><g><rect fill="none" height="24" width="24"/></g><g><g><path d="M8.1,14.15C9.77,14.63,11,16.17,11,18c0,0.68-0.19,1.31-0.48,1.87c0.48,0.09,0.97,0.14,1.48,0.14 c1.48,0,2.9-0.41,4.13-1.15c-2.62-0.92-5.23-2.82-6.8-5.86C7.74,9.94,7.78,7.09,8.29,4.9c-2.57,1.33-4.3,4.01-4.3,7.1c0,0,0,0,0,0 c0.01,0,0.01,0,0.02,0C5.66,12,7.18,12.83,8.1,14.15z" opacity=".3"/><path d="M19.78,17.51c-2.47,0-6.57-1.33-8.68-5.43C8.77,7.57,10.6,3.6,11.63,2.01C6.27,2.2,1.98,6.59,1.98,12 c0,0.14,0.02,0.28,0.02,0.42C2.61,12.16,3.28,12,3.98,12c0,0,0,0,0,0c0-3.09,1.73-5.77,4.3-7.1C7.78,7.09,7.74,9.94,9.32,13 c1.57,3.04,4.18,4.95,6.8,5.86c-1.23,0.74-2.65,1.15-4.13,1.15c-0.5,0-1-0.05-1.48-0.14c-0.37,0.7-0.94,1.27-1.64,1.64 c0.98,0.32,2.03,0.5,3.11,0.5c3.5,0,6.58-1.8,8.37-4.52C20.18,17.5,19.98,17.51,19.78,17.51z"/><path d="M7,16l-0.18,0C6.4,14.84,5.3,14,4,14c-1.66,0-3,1.34-3,3s1.34,3,3,3c0.62,0,2.49,0,3,0c1.1,0,2-0.9,2-2 C9,16.9,8.1,16,7,16z"/></g></g></svg>`
+    DoxygenAwesomeDarkModeToggle.init()
+  </script>
+  <script type="text/javascript" src="../../doxygen-awesome-fragment-copy-button.js"></script>
+  <script type="text/javascript">
+    DoxygenAwesomeFragmentCopyButton.title = "In die Zwischenablage kopieren"
+    // DoxygenAwesomeFragmentCopyButton.copyIcon = `<svg ...>`
+    // DoxygenAwesomeFragmentCopyButton.successIcon = `<svg ...>`
+    DoxygenAwesomeFragmentCopyButton.init()
+  </script>
+  <script type="text/javascript" src="../../doxygen-awesome-paragraph-link.js"></script>
+  <script type="text/javascript">
+    DoxygenAwesomeParagraphLink.title = "Abschnitt verknüpfen"
+    DoxygenAwesomeParagraphLink.icon = "¶"
+    DoxygenAwesomeParagraphLink.init()
+  </script>
+  <script type="text/javascript" src="../../doxygen-awesome-interactive-toc.js"></script>
+  <script type="text/javascript">
+    DoxygenAwesomeInteractiveToc.topOffset = 45
+    DoxygenAwesomeInteractiveToc.hideMobileMenu = false
+    DoxygenAwesomeInteractiveToc.init()
+  </script>
+</head>
+<body>
+    <div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+      <div id="titlearea">
+        <table cellspacing="0" cellpadding="0">
+          <tbody>
+            <tr id="projectrow">
+              <td id="projectlogo"><img alt="Logo" src="../../EdIconDefault.bmp"  /></td>
+              <td id="projectalign">
+                <div id="projectname">UE 5.8.4
+                </div>
+                <div id="projectbrief">Unreal Engine</div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <!-- end header part -->
+<!-- 制作者 Doxygen 1.15.0 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "../../search/",'.html');
+</script>
+<script type="text/javascript">
+$(function() { codefold.init(); });
+</script>
+<script type="text/javascript" src="../../menudata.js"></script>
+<script type="text/javascript" src="../../menu.js"></script>
+<script type="text/javascript">
+$(function() {
+  initMenu('../../',true,false,'search.php','搜索',true);
+  $(function() { init_search(); });
+});
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(function(){initNavTree('d6/d49/_cook_request_cluster_8h_source.html','../../',''); });
+</script>
+<div id="container">
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">载入中...</div>
+<div class="SRStatus" id="Searching">搜索中...</div>
+<div class="SRStatus" id="NoMatches">未找到</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">CookRequestCluster.h</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="../../d6/d49/_cook_request_cluster_8h.html">浏览该文件的文档.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="comment">// Copyright Epic Games, Inc. All Rights Reserved.</span></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span> </div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="preprocessor">#pragma once</span></div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span> </div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="preprocessor">#include &quot;<a class="code" href="../../d2/d56/_bit_array_8h.html">Containers/BitArray.h</a>&quot;</span></div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="preprocessor">#include &quot;<a class="code" href="../../dc/d3d/_container_allocation_policies_8h.html">Containers/ContainerAllocationPolicies.h</a>&quot;</span></div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="preprocessor">#include &quot;<a class="code" href="../../da/d60/_containers_fwd_8h.html">Containers/ContainersFwd.h</a>&quot;</span></div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="preprocessor">#include &quot;Containers/Set.h&quot;</span></div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="preprocessor">#include &quot;<a class="code" href="../../d7/d6a/_string_fwd_8h.html">Containers/StringFwd.h</a>&quot;</span></div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="preprocessor">#include &quot;<a class="code" href="../../d7/d9b/_unreal_string_8h.html">Containers/UnrealString.h</a>&quot;</span></div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="preprocessor">#include &quot;<a class="code" href="../../d2/d37/_core_2_public_2_h_a_l_2_event_8h.html">HAL/Event.h</a>&quot;</span></div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="preprocessor">#include &quot;<a class="code" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html">HAL/Platform.h</a>&quot;</span></div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="preprocessor">#include &quot;<a class="code" href="../../d3/d61/_platform_crt_8h.html">HAL/PlatformCrt.h</a>&quot;</span></div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="preprocessor">#include &quot;Containers/Array.h&quot;</span></div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span><span class="preprocessor">#include &quot;Containers/Map.h&quot;</span></div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span><span class="preprocessor">#include &quot;<a class="code" href="../../d1/d90/_mpsc_queue_8h.html">Containers/MpscQueue.h</a>&quot;</span></div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span><span class="preprocessor">#include &quot;<a class="code" href="../../dd/d66/_core_2_public_2_containers_2_ring_buffer_8h.html">Containers/RingBuffer.h</a>&quot;</span></div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span><span class="preprocessor">#include &quot;<a class="code" href="../../d5/dfd/_cook_package_artifacts_8h.html">Cooker/CookPackageArtifacts.h</a>&quot;</span></div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span><span class="preprocessor">#include &quot;<a class="code" href="../../d9/dc2/_cook_types_8h.html">Cooker/CookTypes.h</a>&quot;</span></div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span><span class="preprocessor">#include &quot;<a class="code" href="../../df/d0b/_typed_block_allocator_8h.html">Cooker/TypedBlockAllocator.h</a>&quot;</span></div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span><span class="preprocessor">#include &quot;<a class="code" href="../../df/d05/_critical_section_8h.html">HAL/CriticalSection.h</a>&quot;</span></div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span><span class="preprocessor">#include &quot;<a class="code" href="../../d8/df6/_unique_ptr_8h.html">Templates/UniquePtr.h</a>&quot;</span></div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span><span class="preprocessor">#include &quot;<a class="code" href="../../d1/d07/_core_u_object_2_public_2_u_object_2_i_cook_info_8h.html">UObject/ICookInfo.h</a>&quot;</span></div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span><span class="preprocessor">#include &quot;<a class="code" href="../../d7/da0/_name_types_8h.html">UObject/NameTypes.h</a>&quot;</span></div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span> </div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span><span class="preprocessor">#include &lt;atomic&gt;</span></div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span> </div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span><span class="keyword">class </span><a class="code hl_class" href="../../de/d11/class_f_asset_package_data.html">FAssetPackageData</a>;</div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span><span class="keyword">class </span><a class="code hl_class" href="../../d9/ddd/class_i_asset_registry.html">IAssetRegistry</a>;</div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span><span class="keyword">class </span><a class="code hl_class" href="../../d9/d36/class_i_cooked_package_writer.html">ICookedPackageWriter</a>;</div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span><span class="keyword">class </span><a class="code hl_class" href="../../d5/d9e/class_i_target_platform.html">ITargetPlatform</a>;</div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span><span class="keyword">class </span><a class="code hl_class" href="../../d5/dfe/class_u_cook_on_the_fly_server.html">UCookOnTheFlyServer</a>;</div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span><span class="keyword">namespace </span><a class="code hl_namespace" href="../../d6/d50/namespace_u_e_1_1_cook.html">UE::Cook</a> { <span class="keyword">class </span><a class="code hl_class" href="../../da/d68/class_u_e_1_1_cook_1_1_f_package_artifacts.html">FPackageArtifacts</a>; }</div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span><span class="keyword">namespace </span><a class="code hl_namespace" href="../../d6/d50/namespace_u_e_1_1_cook.html">UE::Cook</a> { <span class="keyword">class </span><a class="code hl_class" href="../../da/d28/class_u_e_1_1_cook_1_1_f_request_queue.html">FRequestQueue</a>; }</div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span><span class="keyword">namespace </span><a class="code hl_namespace" href="../../d6/d50/namespace_u_e_1_1_cook.html">UE::Cook</a> { <span class="keyword">enum class</span> <a class="code hl_enumeration" href="../../d6/d50/namespace_u_e_1_1_cook.html#ac509667a06871da447d06f2566173835">EIncrementallyModifiedReason</a> : <a class="code hl_typedef" href="../../dd/de9/preprocessor_8c.html#adde6aaee8457bee49c2a92621fe22b79">uint8</a>; }</div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span><span class="keyword">namespace </span><a class="code hl_namespace" href="../../d6/d50/namespace_u_e_1_1_cook.html">UE::Cook</a> { <span class="keyword">enum class</span> <a class="code hl_enumeration" href="../../d6/d50/namespace_u_e_1_1_cook.html#af60798853b1be66d0555c445330517a5">EReachability</a> : <a class="code hl_typedef" href="../../dd/de9/preprocessor_8c.html#adde6aaee8457bee49c2a92621fe22b79">uint8</a>; }</div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span><span class="keyword">namespace </span><a class="code hl_namespace" href="../../d6/d50/namespace_u_e_1_1_cook.html">UE::Cook</a> { <span class="keyword">struct </span><a class="code hl_struct" href="../../d9/df5/struct_u_e_1_1_cook_1_1_f_discovery_queue_element.html">FDiscoveryQueueElement</a>; }</div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span><span class="keyword">namespace </span><a class="code hl_namespace" href="../../d6/d50/namespace_u_e_1_1_cook.html">UE::Cook</a> { <span class="keyword">struct </span><a class="code hl_struct" href="../../d4/d95/struct_u_e_1_1_cook_1_1_f_file_platform_request.html">FFilePlatformRequest</a>; }</div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span><span class="keyword">namespace </span><a class="code hl_namespace" href="../../d6/d50/namespace_u_e_1_1_cook.html">UE::Cook</a> { <span class="keyword">struct </span><a class="code hl_struct" href="../../de/d15/struct_u_e_1_1_cook_1_1_f_incrementally_modified_context.html">FIncrementallyModifiedContext</a>; }</div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span><span class="keyword">namespace </span><a class="code hl_namespace" href="../../d6/d50/namespace_u_e_1_1_cook.html">UE::Cook</a> { <span class="keyword">struct </span><a class="code hl_struct" href="../../df/d00/struct_u_e_1_1_cook_1_1_f_package_data.html">FPackageData</a>; }</div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span><span class="keyword">namespace </span><a class="code hl_namespace" href="../../d6/d50/namespace_u_e_1_1_cook.html">UE::Cook</a> { <span class="keyword">struct </span><a class="code hl_struct" href="../../d5/dbb/struct_u_e_1_1_cook_1_1_f_package_datas.html">FPackageDatas</a>; }</div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span><span class="keyword">namespace </span><a class="code hl_namespace" href="../../d6/d50/namespace_u_e_1_1_cook.html">UE::Cook</a> { <span class="keyword">struct </span><a class="code hl_struct" href="../../df/d3b/struct_u_e_1_1_cook_1_1_f_package_platform_data.html">FPackagePlatformData</a>; }</div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span><span class="keyword">namespace </span><a class="code hl_namespace" href="../../d6/d50/namespace_u_e_1_1_cook.html">UE::Cook</a> { <span class="keyword">struct </span><a class="code hl_struct" href="../../dc/d30/struct_u_e_1_1_cook_1_1_f_package_tracker.html">FPackageTracker</a>; }</div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span> </div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span><span class="keyword">namespace </span><a class="code hl_namespace" href="../../d6/d50/namespace_u_e_1_1_cook.html">UE::Cook</a></div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>{</div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span></div>
+<div class="foldopen" id="foldopen00052" data-start="{" data-end="};">
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno"><a class="line" href="../../d6/df0/class_u_e_1_1_cook_1_1_f_request_cluster.html">   52</a></span><span class="keyword">class </span><a class="code hl_function" href="../../d6/df0/class_u_e_1_1_cook_1_1_f_request_cluster.html#ae14272c2c1bbbb8f3f33b98a9b280221">FRequestCluster</a></div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>{</div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>    <a class="code hl_function" href="../../d6/df0/class_u_e_1_1_cook_1_1_f_request_cluster.html#a56e7ec4d3a76f24c8e3bebc929891802">~FRequestCluster</a>();</div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>    <a class="code hl_function" href="../../d6/df0/class_u_e_1_1_cook_1_1_f_request_cluster.html#ae14272c2c1bbbb8f3f33b98a9b280221">FRequestCluster</a>(<a class="code hl_class" href="../../d5/dfe/class_u_cook_on_the_fly_server.html">UCookOnTheFlyServer</a>&amp; COTFS, <a class="code hl_class" href="../../d6/db1/class_t_array.html">TArray&lt;FFilePlatformRequest&gt;</a>&amp;&amp; InRequests);</div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>    <a class="code hl_function" href="../../d6/df0/class_u_e_1_1_cook_1_1_f_request_cluster.html#ae14272c2c1bbbb8f3f33b98a9b280221">FRequestCluster</a>(<a class="code hl_class" href="../../d5/dfe/class_u_cook_on_the_fly_server.html">UCookOnTheFlyServer</a>&amp; COTFS, <a class="code hl_class" href="../../d0/d65/class_u_e_1_1_cook_1_1_t_package_data_map.html">TPackageDataMap&lt;ESuppressCookReason&gt;</a>&amp;&amp; InRequests, <a class="code hl_enumeration" href="../../d6/d50/namespace_u_e_1_1_cook.html#af60798853b1be66d0555c445330517a5">EReachability</a> InExploreReachability);</div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>    <a class="code hl_function" href="../../d6/df0/class_u_e_1_1_cook_1_1_f_request_cluster.html#ae14272c2c1bbbb8f3f33b98a9b280221">FRequestCluster</a>(<a class="code hl_class" href="../../d5/dfe/class_u_cook_on_the_fly_server.html">UCookOnTheFlyServer</a>&amp; COTFS, <a class="code hl_class" href="../../df/d63/class_t_ring_buffer.html">TRingBuffer&lt;FDiscoveryQueueElement&gt;</a>&amp; DiscoveryQueue);</div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno"><a class="line" href="../../d6/df0/class_u_e_1_1_cook_1_1_f_request_cluster.html#aebc08f6af1bff8a1fc77ad2157fe7802">   59</a></span>    <a class="code hl_function" href="../../d6/df0/class_u_e_1_1_cook_1_1_f_request_cluster.html#aebc08f6af1bff8a1fc77ad2157fe7802">FRequestCluster</a>(<a class="code hl_function" href="../../d6/df0/class_u_e_1_1_cook_1_1_f_request_cluster.html#ae14272c2c1bbbb8f3f33b98a9b280221">FRequestCluster</a>&amp;&amp;) = <span class="keyword">delete</span>; <span class="comment">// Has internal pointers, would have to write manually</span></div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno"><a class="line" href="../../d6/df0/class_u_e_1_1_cook_1_1_f_request_cluster.html#ad104762a51deff9b8b184c8e7fa5fd41">   60</a></span>    <a class="code hl_function" href="../../d6/df0/class_u_e_1_1_cook_1_1_f_request_cluster.html#ad104762a51deff9b8b184c8e7fa5fd41">FRequestCluster</a>(<span class="keyword">const</span> <a class="code hl_function" href="../../d6/df0/class_u_e_1_1_cook_1_1_f_request_cluster.html#ae14272c2c1bbbb8f3f33b98a9b280221">FRequestCluster</a>&amp;) = <span class="keyword">delete</span>;</div>
+<div class="foldopen" id="foldopen00061" data-start="{" data-end="};">
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno"><a class="line" href="../../d6/df0/class_u_e_1_1_cook_1_1_f_request_cluster.html#af4c14ed555ffd94127730de2a1a6e5ff">   61</a></span>    <span class="keyword">enum</span> <a class="code hl_enumeration" href="../../d6/df0/class_u_e_1_1_cook_1_1_f_request_cluster.html#af4c14ed555ffd94127730de2a1a6e5ff">EBuildDependencyQueueConstructorType</a></div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>    {</div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno"><a class="line" href="../../d6/df0/class_u_e_1_1_cook_1_1_f_request_cluster.html#af4c14ed555ffd94127730de2a1a6e5ffaa62282d38afc02dcdce3d0e57507cf0d">   63</a></span>        <a class="code hl_enumvalue" href="../../d6/df0/class_u_e_1_1_cook_1_1_f_request_cluster.html#af4c14ed555ffd94127730de2a1a6e5ffaa62282d38afc02dcdce3d0e57507cf0d">BuildDependencyQueue</a></div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>    };</div>
+</div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>    <a class="code hl_function" href="../../d6/df0/class_u_e_1_1_cook_1_1_f_request_cluster.html#ae14272c2c1bbbb8f3f33b98a9b280221">FRequestCluster</a>(<a class="code hl_class" href="../../d5/dfe/class_u_cook_on_the_fly_server.html">UCookOnTheFlyServer</a>&amp; COTFS, <a class="code hl_enumeration" href="../../d6/df0/class_u_e_1_1_cook_1_1_f_request_cluster.html#af4c14ed555ffd94127730de2a1a6e5ff">EBuildDependencyQueueConstructorType</a>,</div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span>        <a class="code hl_class" href="../../df/d63/class_t_ring_buffer.html">TRingBuffer&lt;FPackageData*&gt;</a>&amp; BuildDependencyDiscoveryQueue);</div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span></div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="../../d6/df0/class_u_e_1_1_cook_1_1_f_request_cluster.html#a9617c606dd9339893cfb9aa71a8f603c">Process</a>(<span class="keyword">const</span> <a class="code hl_struct" href="../../da/df8/struct_u_e_1_1_cook_1_1_f_cooker_timer.html">FCookerTimer</a>&amp; CookerTimer, <span class="keywordtype">bool</span>&amp; bOutComplete);</div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span></div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>    <span class="keywordtype">bool</span> <a class="code hl_function" href="../../d6/df0/class_u_e_1_1_cook_1_1_f_request_cluster.html#a10db7d179c18128f52f2a237e14e814a">NeedsProcessing</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span></div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>    <a class="code hl_typedef" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a8dbb3cd84ca9fd010dadfc3815eefa5d">int32</a> <a class="code hl_function" href="../../d6/df0/class_u_e_1_1_cook_1_1_f_request_cluster.html#aaa8944dce760d421179cbdb9d73c604d">NumPackageDatas</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="../../d6/df0/class_u_e_1_1_cook_1_1_f_request_cluster.html#a63115276c171b0986f54b7ee7a541f56">RemovePackageData</a>(<a class="code hl_struct" href="../../df/d00/struct_u_e_1_1_cook_1_1_f_package_data.html">FPackageData</a>* <a class="code hl_enumvalue" href="../../db/dff/_io_store_utilities_8cpp.html#ac1de6d781adbc7b78e059c8e5cb08392affb140c1ffdd02fcba9a6d592500e73a">PackageData</a>);</div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="../../d6/df0/class_u_e_1_1_cook_1_1_f_request_cluster.html#a35c52221e213f585f7b9565e2713cb0a">OnNewReachablePlatforms</a>(<a class="code hl_struct" href="../../df/d00/struct_u_e_1_1_cook_1_1_f_package_data.html">FPackageData</a>* <a class="code hl_enumvalue" href="../../db/dff/_io_store_utilities_8cpp.html#ac1de6d781adbc7b78e059c8e5cb08392affb140c1ffdd02fcba9a6d592500e73a">PackageData</a>);</div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="../../d6/df0/class_u_e_1_1_cook_1_1_f_request_cluster.html#a6a80b83f0e2e1b9c85b927ac8d5ac795">OnBeforePlatformAddedToSession</a>(<span class="keyword">const</span> <a class="code hl_class" href="../../d5/d9e/class_i_target_platform.html">ITargetPlatform</a>* TargetPlatform);</div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="../../d6/df0/class_u_e_1_1_cook_1_1_f_request_cluster.html#a16a3acd2f74f622d57ee6caf2633a84a">OnRemoveSessionPlatform</a>(<span class="keyword">const</span> <a class="code hl_class" href="../../d5/d9e/class_i_target_platform.html">ITargetPlatform</a>* TargetPlatform);</div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="../../d6/df0/class_u_e_1_1_cook_1_1_f_request_cluster.html#ab8454741fd0300f8b04675aba7e57da9">RemapTargetPlatforms</a>(<a class="code hl_class" href="../../da/d41/class_t_map.html">TMap&lt;ITargetPlatform*, ITargetPlatform*&gt;</a>&amp; Remap);</div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span></div>
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span>    <span class="keywordtype">bool</span> <a class="code hl_function" href="../../d6/df0/class_u_e_1_1_cook_1_1_f_request_cluster.html#ad25847dbc82cabe846e3def9d1d37d40">Contains</a>(<a class="code hl_struct" href="../../df/d00/struct_u_e_1_1_cook_1_1_f_package_data.html">FPackageData</a>* <a class="code hl_enumvalue" href="../../db/dff/_io_store_utilities_8cpp.html#ac1de6d781adbc7b78e059c8e5cb08392affb140c1ffdd02fcba9a6d592500e73a">PackageData</a>) <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="../../d6/df0/class_u_e_1_1_cook_1_1_f_request_cluster.html#abc91971f2818f037090b46feaedb259f">ClearAndDetachOwnedPackageDatas</a>(<a class="code hl_class" href="../../d6/db1/class_t_array.html">TArray&lt;FPackageData*&gt;</a>&amp; OutRequestsToLoad,</div>
+<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span>        <a class="code hl_class" href="../../d6/db1/class_t_array.html">TArray</a>&lt;<a class="code hl_typedef" href="../../db/da7/_tuple_fwd_8h.html#a2876748d27cdabd8f68a5536f6580565">TPair&lt;FPackageData*, ESuppressCookReason&gt;</a>&gt;&amp; OutRequestsToDemote,</div>
+<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span>        <a class="code hl_class" href="../../da/d41/class_t_map.html">TMap</a>&lt;<a class="code hl_struct" href="../../df/d00/struct_u_e_1_1_cook_1_1_f_package_data.html">FPackageData</a>*, <a class="code hl_class" href="../../d6/db1/class_t_array.html">TArray&lt;FPackageData*&gt;</a>&gt;&amp; OutRequestGraph);</div>
+<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span>    <a class="code hl_typedef" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a8dbb3cd84ca9fd010dadfc3815eefa5d">int32</a> <a class="code hl_function" href="../../d6/df0/class_u_e_1_1_cook_1_1_f_request_cluster.html#afaa21d7305287b7916a73b3aa9e22318">GetPackagesToMarkNotInProgress</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span> </div>
+<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span>    <span class="keyword">static</span> TConstArrayView&lt;FName&gt; <a class="code hl_function" href="../../d6/df0/class_u_e_1_1_cook_1_1_f_request_cluster.html#a6447b439b664948cccc5fc1ad260c0cd">GetLocalizationReferences</a>(<a class="code hl_class" href="../../d5/dd5/class_f_name.html">FName</a> <a class="code hl_namespace" href="../../d3/d43/namespace_u_e_1_1_package_name.html">PackageName</a>, <a class="code hl_class" href="../../d5/dfe/class_u_cook_on_the_fly_server.html">UCookOnTheFlyServer</a>&amp; InCOTFS);</div>
+<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span>    <span class="keyword">static</span> <a class="code hl_class" href="../../d6/db1/class_t_array.html">TArray&lt;FName&gt;</a> <a class="code hl_function" href="../../d6/df0/class_u_e_1_1_cook_1_1_f_request_cluster.html#aac5b632041202611a615eff9321e8320">GetAssetManagerReferences</a>(<a class="code hl_class" href="../../d5/dd5/class_f_name.html">FName</a> <a class="code hl_namespace" href="../../d3/d43/namespace_u_e_1_1_package_name.html">PackageName</a>);</div>
+<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span>    <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code hl_function" href="../../d6/df0/class_u_e_1_1_cook_1_1_f_request_cluster.html#a666ee3eb10e913590d3e68445b765b3f">IsRequestCookable</a>(<span class="keyword">const</span> <a class="code hl_class" href="../../d5/d9e/class_i_target_platform.html">ITargetPlatform</a>* TargetPlatform, <span class="keyword">const</span> <a class="code hl_struct" href="../../df/d00/struct_u_e_1_1_cook_1_1_f_package_data.html">FPackageData</a>&amp; <a class="code hl_enumvalue" href="../../db/dff/_io_store_utilities_8cpp.html#ac1de6d781adbc7b78e059c8e5cb08392affb140c1ffdd02fcba9a6d592500e73a">PackageData</a>,</div>
+<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span>        <a class="code hl_class" href="../../d5/dfe/class_u_cook_on_the_fly_server.html">UCookOnTheFlyServer</a>&amp; COTFS, <a class="code hl_enumeration" href="../../d6/d50/namespace_u_e_1_1_cook.html#ac51d3b00c794bca93a5cd7c0f27aca2e">ESuppressCookReason</a>&amp; OutReason, <span class="keywordtype">bool</span>&amp; bOutCookable, <span class="keywordtype">bool</span>&amp; bOutExplorable);</div>
+<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span> </div>
+<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span><span class="keyword">private</span>:</div>
+<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span>    <span class="keyword">struct </span>FGraphSearch;</div>
+<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span></div>
+<div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span>    <span class="keyword">struct </span>FVisitStatus</div>
+<div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span>    {</div>
+<div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span>        <a class="code hl_struct" href="../../df/d00/struct_u_e_1_1_cook_1_1_f_package_data.html">FPackageData</a>* PackageData = <span class="keyword">nullptr</span>;</div>
+<div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span>        <span class="keywordtype">bool</span> bVisited = <span class="keyword">false</span>;</div>
+<div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span>    };</div>
+<div class="line"><a id="l00117" name="l00117"></a><span class="lineno">  117</span></div>
+<div class="line"><a id="l00119" name="l00119"></a><span class="lineno">  119</span>    <span class="keyword">enum class</span> EAsyncQueryStatus : <a class="code hl_typedef" href="../../dd/de9/preprocessor_8c.html#adde6aaee8457bee49c2a92621fe22b79">uint8</a></div>
+<div class="line"><a id="l00120" name="l00120"></a><span class="lineno">  120</span>    {</div>
+<div class="line"><a id="l00121" name="l00121"></a><span class="lineno">  121</span>        NotRequested,</div>
+<div class="line"><a id="l00122" name="l00122"></a><span class="lineno">  122</span>        SchedulerRequested,</div>
+<div class="line"><a id="l00123" name="l00123"></a><span class="lineno">  123</span>        AsyncRequested,</div>
+<div class="line"><a id="l00124" name="l00124"></a><span class="lineno">  124</span>        Complete,</div>
+<div class="line"><a id="l00125" name="l00125"></a><span class="lineno">  125</span>    };</div>
+<div class="line"><a id="l00126" name="l00126"></a><span class="lineno">  126</span></div>
+<div class="line"><a id="l00128" name="l00128"></a><span class="lineno">  128</span>    <span class="keyword">struct </span>FQueryPlatformData</div>
+<div class="line"><a id="l00129" name="l00129"></a><span class="lineno">  129</span>    {</div>
+<div class="line"><a id="l00130" name="l00130"></a><span class="lineno">  130</span>        EAsyncQueryStatus GetAsyncQueryStatus();</div>
+<div class="line"><a id="l00131" name="l00131"></a><span class="lineno">  131</span>        <span class="keywordtype">bool</span> CompareExchangeAsyncQueryStatus(EAsyncQueryStatus&amp; Expected, EAsyncQueryStatus <a class="code hl_enumvalue" href="../../d2/dbe/_widget_blueprint_8h.html#a68b5757cf2c065c5c207be23f50635e6a0f69b9dda83068a219d49c3792b00983">Desired</a>);</div>
+<div class="line"><a id="l00132" name="l00132"></a><span class="lineno">  132</span> </div>
+<div class="line"><a id="l00133" name="l00133"></a><span class="lineno">  133</span>    <span class="keyword">public</span>:</div>
+<div class="line"><a id="l00134" name="l00134"></a><span class="lineno">  134</span>        <span class="comment">// All fields other than CookAttachments and AsyncQueryStatus are read/write on Scheduler thread only</span></div>
+<div class="line"><a id="l00140" name="l00140"></a><span class="lineno">  140</span>        FIncrementalCookAttachments CookAttachments;</div>
+<div class="line"><a id="l00141" name="l00141"></a><span class="lineno">  141</span>        <span class="keywordtype">bool</span> bSchedulerThreadFetchCompleted = <span class="keyword">false</span>;</div>
+<div class="line"><a id="l00142" name="l00142"></a><span class="lineno">  142</span>        <span class="keywordtype">bool</span> bExploreRequested = <span class="keyword">false</span>;</div>
+<div class="line"><a id="l00143" name="l00143"></a><span class="lineno">  143</span>        <span class="keywordtype">bool</span> bExploreCompleted = <span class="keyword">false</span>;</div>
+<div class="line"><a id="l00144" name="l00144"></a><span class="lineno">  144</span>        <span class="keywordtype">bool</span> bIncrementallyUnmodifiedRequested = <span class="keyword">false</span>;</div>
+<div class="line"><a id="l00145" name="l00145"></a><span class="lineno">  145</span>        <span class="keywordtype">bool</span> bTransitiveBuildDependenciesResolvedAsNotModified = <span class="keyword">false</span>;</div>
+<div class="line"><a id="l00146" name="l00146"></a><span class="lineno">  146</span>        <span class="keywordtype">bool</span> bIncrementallyModifiedInstigated = <span class="keyword">false</span>;</div>
+<div class="line"><a id="l00147" name="l00147"></a><span class="lineno">  147</span>    <span class="keyword">private</span>:</div>
+<div class="line"><a id="l00148" name="l00148"></a><span class="lineno">  148</span>        std::atomic&lt;EAsyncQueryStatus&gt; AsyncQueryStatus;</div>
+<div class="line"><a id="l00149" name="l00149"></a><span class="lineno">  149</span>    };</div>
+<div class="line"><a id="l00150" name="l00150"></a><span class="lineno">  150</span></div>
+<div class="line"><a id="l00156" name="l00156"></a><span class="lineno">  156</span>    <span class="keyword">struct </span>FVertexData</div>
+<div class="line"><a id="l00157" name="l00157"></a><span class="lineno">  157</span>    {</div>
+<div class="line"><a id="l00158" name="l00158"></a><span class="lineno">  158</span>    <span class="keyword">public</span>:</div>
+<div class="line"><a id="l00159" name="l00159"></a><span class="lineno">  159</span>        <span class="comment">// Constructor and initialization that occurs before async work on the vertex is possible</span></div>
+<div class="line"><a id="l00160" name="l00160"></a><span class="lineno">  160</span>        FVertexData(<a class="code hl_variable" href="../../d2/dc9/_s_anim_segments_panel_8h.html#a5feee5d8f9e49b79aaf8fa9c6ef73d33">FName</a> InPackageName, UE::Cook::FPackageData* InPackageData, <a class="code hl_typedef" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a8dbb3cd84ca9fd010dadfc3815eefa5d">int32</a> NumFetchPlatforms);</div>
+<div class="line"><a id="l00161" name="l00161"></a><span class="lineno">  161</span> </div>
+<div class="line"><a id="l00162" name="l00162"></a><span class="lineno">  162</span> </div>
+<div class="line"><a id="l00163" name="l00163"></a><span class="lineno">  163</span>        <span class="comment">// Interface that is readonly once async work on the vertex is possible and is therefore readable from any thread</span></div>
+<div class="line"><a id="l00164" name="l00164"></a><span class="lineno">  164</span> </div>
+<div class="line"><a id="l00165" name="l00165"></a><span class="lineno">  165</span> </div>
+<div class="line"><a id="l00166" name="l00166"></a><span class="lineno">  166</span>        <a class="code hl_variable" href="../../d2/dc9/_s_anim_segments_panel_8h.html#a5feee5d8f9e49b79aaf8fa9c6ef73d33">FName</a> GetPackageName() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00167" name="l00167"></a><span class="lineno">  167</span> </div>
+<div class="line"><a id="l00168" name="l00168"></a><span class="lineno">  168</span> </div>
+<div class="line"><a id="l00169" name="l00169"></a><span class="lineno">  169</span>        <span class="comment">// Interface that is callable only by the current owner thread, which switches from process thread to</span></div>
+<div class="line"><a id="l00170" name="l00170"></a><span class="lineno">  170</span>        <span class="comment">// async thread during fetch</span></div>
+<div class="line"><a id="l00171" name="l00171"></a><span class="lineno">  171</span> </div>
+<div class="line"><a id="l00172" name="l00172"></a><span class="lineno">  172</span></div>
+<div class="line"><a id="l00174" name="l00174"></a><span class="lineno">  174</span>        <a class="code hl_function" href="../../dd/d92/_array_view_8h.html#a1fb70cb435d504cc27188537f2b60a23">TArrayView&lt;FQueryPlatformData&gt;</a> GetPlatformData();</div>
+<div class="line"><a id="l00175" name="l00175"></a><span class="lineno">  175</span> </div>
+<div class="line"><a id="l00176" name="l00176"></a><span class="lineno">  176</span> </div>
+<div class="line"><a id="l00177" name="l00177"></a><span class="lineno">  177</span>        <span class="comment">// Interface that is callable from the process thread only</span></div>
+<div class="line"><a id="l00178" name="l00178"></a><span class="lineno">  178</span> </div>
+<div class="line"><a id="l00179" name="l00179"></a><span class="lineno">  179</span> </div>
+<div class="line"><a id="l00180" name="l00180"></a><span class="lineno">  180</span>        <a class="code hl_typedef" href="../../d4/d53/namespace_u_e_1_1_diff_writer.html#a4b1e1a3ee3a38711b132f26e9fccac70">FPackageData</a>* GetPackageData() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00181" name="l00181"></a><span class="lineno">  181</span>        TArray&lt;FVertexData*&gt;&amp; GetIncrementallyModifiedListeners();</div>
+<div class="line"><a id="l00182" name="l00182"></a><span class="lineno">  182</span>        TSet&lt;FVertexData*&gt; GetUnreadyDependencies();</div>
+<div class="line"><a id="l00183" name="l00183"></a><span class="lineno">  183</span></div>
+<div class="line"><a id="l00189" name="l00189"></a><span class="lineno">  189</span>        <span class="keywordtype">bool</span> IsOwnedByCluster() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00190" name="l00190"></a><span class="lineno">  190</span>        <span class="keywordtype">void</span> SetOwnedByCluster(<span class="keywordtype">bool</span> bOwned);</div>
+<div class="line"><a id="l00191" name="l00191"></a><span class="lineno">  191</span></div>
+<div class="line"><a id="l00196" name="l00196"></a><span class="lineno">  196</span>        <span class="keywordtype">bool</span> HasBeenPulledIntoCluster() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00197" name="l00197"></a><span class="lineno">  197</span></div>
+<div class="line"><a id="l00199" name="l00199"></a><span class="lineno">  199</span>        <a class="code hl_enumeration" href="../../d6/d50/namespace_u_e_1_1_cook.html#ac51d3b00c794bca93a5cd7c0f27aca2e">ESuppressCookReason</a> GetSuppressReason() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00200" name="l00200"></a><span class="lineno">  200</span>        <span class="keywordtype">void</span> SetSuppressReason(<a class="code hl_enumeration" href="../../d6/d50/namespace_u_e_1_1_cook.html#ac51d3b00c794bca93a5cd7c0f27aca2e">ESuppressCookReason</a> <a class="code hl_enumvalue" href="../../d1/d75/_s_color_picker_8h.html#a84461ad6c05d7bc638a383922014d918a689202409e48743b914713f96d93947c">Value</a>);</div>
+<div class="line"><a id="l00201" name="l00201"></a><span class="lineno">  201</span></div>
+<div class="line"><a id="l00203" name="l00203"></a><span class="lineno">  203</span>        <span class="keywordtype">bool</span> IsAnyCookable() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00204" name="l00204"></a><span class="lineno">  204</span>        <span class="keywordtype">void</span> SetAnyCookable(<span class="keywordtype">bool</span> bInCookable);</div>
+<div class="line"><a id="l00205" name="l00205"></a><span class="lineno">  205</span></div>
+<div class="line"><a id="l00210" name="l00210"></a><span class="lineno">  210</span>        <span class="keywordtype">bool</span> IsWaitingOnUnreadyDependencies() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00211" name="l00211"></a><span class="lineno">  211</span>        <span class="keywordtype">void</span> SetWaitingOnUnreadyDependencies(<span class="keywordtype">bool</span> bWaiting);</div>
+<div class="line"><a id="l00212" name="l00212"></a><span class="lineno">  212</span></div>
+<div class="line"><a id="l00214" name="l00214"></a><span class="lineno">  214</span>        <span class="keywordtype">bool</span> WasMarkedSkipped() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00215" name="l00215"></a><span class="lineno">  215</span>        <span class="keywordtype">void</span> SetWasMarkedSkipped(<span class="keywordtype">bool</span> bValue);</div>
+<div class="line"><a id="l00216" name="l00216"></a><span class="lineno">  216</span></div>
+<div class="line"><a id="l00222" name="l00222"></a><span class="lineno">  222</span>        <span class="keywordtype">bool</span> IsOwnedButNotInProgress() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00223" name="l00223"></a><span class="lineno">  223</span> </div>
+<div class="line"><a id="l00224" name="l00224"></a><span class="lineno">  224</span>    <span class="keyword">private</span>:</div>
+<div class="line"><a id="l00225" name="l00225"></a><span class="lineno">  225</span>        <span class="comment">// Data that is readonly once async work on the vertex is possible and is therefore readable from any thread</span></div>
+<div class="line"><a id="l00226" name="l00226"></a><span class="lineno">  226</span> </div>
+<div class="line"><a id="l00227" name="l00227"></a><span class="lineno">  227</span>        <a class="code hl_variable" href="../../d2/dc9/_s_anim_segments_panel_8h.html#a5feee5d8f9e49b79aaf8fa9c6ef73d33">FName</a> PackageName;</div>
+<div class="line"><a id="l00228" name="l00228"></a><span class="lineno">  228</span> </div>
+<div class="line"><a id="l00229" name="l00229"></a><span class="lineno">  229</span>        <span class="comment">// Data that is read/write only by the current owner thread, which switches from process thread to</span></div>
+<div class="line"><a id="l00230" name="l00230"></a><span class="lineno">  230</span>        <span class="comment">// async thread during fetch</span></div>
+<div class="line"><a id="l00231" name="l00231"></a><span class="lineno">  231</span> </div>
+<div class="line"><a id="l00232" name="l00232"></a><span class="lineno">  232</span>        TArray&lt;FQueryPlatformData&gt; PlatformData;</div>
+<div class="line"><a id="l00233" name="l00233"></a><span class="lineno">  233</span> </div>
+<div class="line"><a id="l00234" name="l00234"></a><span class="lineno">  234</span>        <span class="comment">// Data that is read/write from the process thread only</span></div>
+<div class="line"><a id="l00235" name="l00235"></a><span class="lineno">  235</span> </div>
+<div class="line"><a id="l00236" name="l00236"></a><span class="lineno">  236</span>        TArray&lt;FVertexData*&gt; IncrementallyModifiedListeners;</div>
+<div class="line"><a id="l00237" name="l00237"></a><span class="lineno">  237</span>        TSet&lt;FVertexData*&gt; UnreadyDependencies;</div>
+<div class="line"><a id="l00238" name="l00238"></a><span class="lineno">  238</span>        UE::Cook::FPackageData* PackageData = <span class="keyword">nullptr</span>;</div>
+<div class="line"><a id="l00239" name="l00239"></a><span class="lineno">  239</span>        <a class="code hl_enumeration" href="../../d6/d50/namespace_u_e_1_1_cook.html#ac51d3b00c794bca93a5cd7c0f27aca2e">ESuppressCookReason</a> SuppressCookReason = <a class="code hl_enumvalue" href="../../d6/d50/namespace_u_e_1_1_cook.html#ac51d3b00c794bca93a5cd7c0f27aca2ea5d4ebb7c4f2eb9d4fd461418c2ee15f2">ESuppressCookReason::NotSuppressed</a>;</div>
+<div class="line"><a id="l00240" name="l00240"></a><span class="lineno">  240</span>        <span class="keywordtype">bool</span> bOwnedByCluster = <span class="keyword">false</span>;</div>
+<div class="line"><a id="l00241" name="l00241"></a><span class="lineno">  241</span>        <span class="keywordtype">bool</span> bHasBeenPulledIntoCluster = <span class="keyword">false</span>;</div>
+<div class="line"><a id="l00242" name="l00242"></a><span class="lineno">  242</span>        <span class="keywordtype">bool</span> bAnyCookable = <span class="keyword">true</span>;</div>
+<div class="line"><a id="l00243" name="l00243"></a><span class="lineno">  243</span>        <span class="keywordtype">bool</span> bWaitingOnUnreadyDependencies = <span class="keyword">false</span>;</div>
+<div class="line"><a id="l00244" name="l00244"></a><span class="lineno">  244</span>        <span class="keywordtype">bool</span> bWasMarkedSkipped = <span class="keyword">false</span>;</div>
+<div class="line"><a id="l00245" name="l00245"></a><span class="lineno">  245</span>    };</div>
+<div class="line"><a id="l00246" name="l00246"></a><span class="lineno">  246</span></div>
+<div class="line"><a id="l00254" name="l00254"></a><span class="lineno">  254</span>    <span class="keyword">struct </span>FQueryVertexBatch</div>
+<div class="line"><a id="l00255" name="l00255"></a><span class="lineno">  255</span>    {</div>
+<div class="line"><a id="l00256" name="l00256"></a><span class="lineno">  256</span>        FQueryVertexBatch(FGraphSearch&amp; InGraphSearch);</div>
+<div class="line"><a id="l00257" name="l00257"></a><span class="lineno">  257</span>        <span class="keywordtype">void</span> <a class="code hl_function" href="../../d0/db7/_mem_pro_8cpp.html#aaa7f2acd75bb8eec434a9d35b5693292">Reset</a>();</div>
+<div class="line"><a id="l00258" name="l00258"></a><span class="lineno">  258</span>        <span class="keywordtype">void</span> Send();</div>
+<div class="line"><a id="l00259" name="l00259"></a><span class="lineno">  259</span> </div>
+<div class="line"><a id="l00260" name="l00260"></a><span class="lineno">  260</span>        <span class="keywordtype">void</span> RecordCacheResults(<a class="code hl_variable" href="../../d2/dc9/_s_anim_segments_panel_8h.html#a5feee5d8f9e49b79aaf8fa9c6ef73d33">FName</a> PackageName, <a class="code hl_typedef" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a8dbb3cd84ca9fd010dadfc3815eefa5d">int32</a> PlatformIndex,</div>
+<div class="line"><a id="l00261" name="l00261"></a><span class="lineno">  261</span>            FIncrementalCookAttachments&amp;&amp; CookAttachments);</div>
+<div class="line"><a id="l00262" name="l00262"></a><span class="lineno">  262</span> </div>
+<div class="foldopen" id="foldopen00263" data-start="{" data-end="};">
+<div class="line"><a id="l00263" name="l00263"></a><span class="lineno"><a class="line" href="../../d2/d28/struct_u_e_1_1_cook_1_1_f_request_cluster_1_1_f_query_vertex_batch_1_1_f_platform_data.html">  263</a></span>        <span class="keyword">struct </span><a class="code hl_struct" href="../../d2/d28/struct_u_e_1_1_cook_1_1_f_request_cluster_1_1_f_query_vertex_batch_1_1_f_platform_data.html">FPlatformData</a></div>
+<div class="line"><a id="l00264" name="l00264"></a><span class="lineno">  264</span>        {</div>
+<div class="line"><a id="l00265" name="l00265"></a><span class="lineno"><a class="line" href="../../d2/d28/struct_u_e_1_1_cook_1_1_f_request_cluster_1_1_f_query_vertex_batch_1_1_f_platform_data.html#a3e2ad539f657d26b22e041c414ce115f">  265</a></span>            <a class="code hl_class" href="../../d6/db1/class_t_array.html">TArray&lt;FPackageIncrementalCookId&gt;</a> <a class="code hl_variable" href="../../d2/d28/struct_u_e_1_1_cook_1_1_f_request_cluster_1_1_f_query_vertex_batch_1_1_f_platform_data.html#a3e2ad539f657d26b22e041c414ce115f">PackageIds</a>;</div>
+<div class="line"><a id="l00266" name="l00266"></a><span class="lineno">  266</span>        };</div>
+</div>
+<div class="line"><a id="l00267" name="l00267"></a><span class="lineno">  267</span> </div>
+<div class="line"><a id="l00268" name="l00268"></a><span class="lineno">  268</span>        <a class="code hl_class" href="../../d6/db1/class_t_array.html">TArray&lt;FPlatformData&gt;</a> PlatformDatas;</div>
+<div class="line"><a id="l00274" name="l00274"></a><span class="lineno">  274</span>        <a class="code hl_class" href="../../da/d41/class_t_map.html">TMap&lt;FName, FVertexData*&gt;</a> Vertices;</div>
+<div class="line"><a id="l00276" name="l00276"></a><span class="lineno">  276</span>        FGraphSearch&amp; ThreadSafeOnlyVars;</div>
+<div class="line"><a id="l00278" name="l00278"></a><span class="lineno">  278</span>        std::atomic&lt;uint32&gt; NumPendingRequests;</div>
+<div class="line"><a id="l00279" name="l00279"></a><span class="lineno">  279</span>    };</div>
+<div class="line"><a id="l00280" name="l00280"></a><span class="lineno">  280</span></div>
+<div class="line"><a id="l00282" name="l00282"></a><span class="lineno">  282</span>    <span class="keyword">struct </span>FFetchPlatformData</div>
+<div class="line"><a id="l00283" name="l00283"></a><span class="lineno">  283</span>    {</div>
+<div class="line"><a id="l00284" name="l00284"></a><span class="lineno">  284</span>        <span class="keyword">const</span> <a class="code hl_class" href="../../d5/d9e/class_i_target_platform.html">ITargetPlatform</a>* Platform = <span class="keyword">nullptr</span>;</div>
+<div class="line"><a id="l00285" name="l00285"></a><span class="lineno">  285</span>        <a class="code hl_class" href="../../d9/d36/class_i_cooked_package_writer.html">ICookedPackageWriter</a>* Writer = <span class="keyword">nullptr</span>;</div>
+<div class="line"><a id="l00286" name="l00286"></a><span class="lineno">  286</span>        <span class="keywordtype">bool</span> bIsPlatformAgnosticPlatform = <span class="keyword">false</span>;</div>
+<div class="line"><a id="l00287" name="l00287"></a><span class="lineno">  287</span>        <span class="keywordtype">bool</span> bIsCookerLoadingPlatform = <span class="keyword">false</span>;</div>
+<div class="line"><a id="l00288" name="l00288"></a><span class="lineno">  288</span>    };</div>
+<div class="line"><a id="l00289" name="l00289"></a><span class="lineno">  289</span>    <span class="comment">// Platforms are listed in various arrays, always in the same order. Some special case entries exist and are added</span></div>
+<div class="line"><a id="l00290" name="l00290"></a><span class="lineno">  290</span>    <span class="comment">// at specified indices in the arrays.</span></div>
+<div class="line"><a id="l00291" name="l00291"></a><span class="lineno">  291</span>    <span class="keyword">static</span> <span class="keyword">constexpr</span> <a class="code hl_typedef" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a8dbb3cd84ca9fd010dadfc3815eefa5d">int32</a> PlatformAgnosticPlatformIndex = 0;</div>
+<div class="line"><a id="l00292" name="l00292"></a><span class="lineno">  292</span>    <span class="keyword">static</span> <span class="keyword">constexpr</span> <a class="code hl_typedef" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a8dbb3cd84ca9fd010dadfc3815eefa5d">int32</a> CookerLoadingPlatformIndex = 1;</div>
+<div class="line"><a id="l00293" name="l00293"></a><span class="lineno">  293</span>    <span class="keyword">static</span> <span class="keyword">constexpr</span> <a class="code hl_typedef" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a8dbb3cd84ca9fd010dadfc3815eefa5d">int32</a> FirstSessionPlatformIndex = 2;</div>
+<div class="line"><a id="l00294" name="l00294"></a><span class="lineno">  294</span></div>
+<div class="line"><a id="l00296" name="l00296"></a><span class="lineno">  296</span>    <span class="keyword">enum class</span> ETraversalTier</div>
+<div class="line"><a id="l00297" name="l00297"></a><span class="lineno">  297</span>    {</div>
+<div class="line"><a id="l00302" name="l00302"></a><span class="lineno">  302</span>        MarkForRuntime,</div>
+<div class="line"><a id="l00307" name="l00307"></a><span class="lineno">  307</span>        MarkForBuildDependency,</div>
+<div class="line"><a id="l00312" name="l00312"></a><span class="lineno">  312</span>        <a class="code hl_enumvalue" href="../../d6/d50/namespace_u_e_1_1_cook.html#a1f6ba5d278e26345053894665a5c50c1a51051038da9b71c1ce1a0b4f66e8176d">BuildDependencies</a>,</div>
+<div class="line"><a id="l00318" name="l00318"></a><span class="lineno">  318</span>        RuntimeVisitVertices,</div>
+<div class="line"><a id="l00323" name="l00323"></a><span class="lineno">  323</span>        RuntimeFollowDependencies,</div>
+<div class="line"><a id="l00324" name="l00324"></a><span class="lineno">  324</span>    };</div>
+<div class="line"><a id="l00325" name="l00325"></a><span class="lineno">  325</span></div>
+<div class="line"><a id="l00333" name="l00333"></a><span class="lineno">  333</span>    <span class="keyword">struct </span>FGraphSearch</div>
+<div class="line"><a id="l00334" name="l00334"></a><span class="lineno">  334</span>    {</div>
+<div class="line"><a id="l00335" name="l00335"></a><span class="lineno">  335</span>    <span class="keyword">public</span>:</div>
+<div class="line"><a id="l00336" name="l00336"></a><span class="lineno">  336</span>        FGraphSearch(<a class="code hl_function" href="../../d6/df0/class_u_e_1_1_cook_1_1_f_request_cluster.html#ae14272c2c1bbbb8f3f33b98a9b280221">FRequestCluster</a>&amp; InCluster);</div>
+<div class="line"><a id="l00337" name="l00337"></a><span class="lineno">  337</span>        <span class="keywordtype">void</span> <a class="code hl_function" href="../../d9/de7/_i_o_s_platform_file_8cpp.html#adcbb63faf2d70050fdd88cf7728d8cb6">Initialize</a>();</div>
+<div class="line"><a id="l00338" name="l00338"></a><span class="lineno">  338</span>        ~FGraphSearch();</div>
+<div class="line"><a id="l00339" name="l00339"></a><span class="lineno">  339</span>        <span class="keywordtype">void</span> <a class="code hl_function" href="../../d0/db7/_mem_pro_8cpp.html#aaa7f2acd75bb8eec434a9d35b5693292">Reset</a>();</div>
+<div class="line"><a id="l00340" name="l00340"></a><span class="lineno">  340</span>        <span class="keywordtype">bool</span> IsInitialized() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00341" name="l00341"></a><span class="lineno">  341</span> </div>
+<div class="line"><a id="l00342" name="l00342"></a><span class="lineno">  342</span>        <span class="comment">// All public functions are callable only from the process thread</span></div>
+<div class="line"><a id="l00344" name="l00344"></a><span class="lineno">  344</span>        <span class="keywordtype">void</span> VisitWithoutFetching();</div>
+<div class="line"><a id="l00346" name="l00346"></a><span class="lineno">  346</span>        <span class="keywordtype">void</span> StartSearch();</div>
+<div class="line"><a id="l00347" name="l00347"></a><span class="lineno">  347</span>        <span class="keywordtype">bool</span> IsStarted() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00348" name="l00348"></a><span class="lineno">  348</span>        <span class="keywordtype">void</span> OnNewReachablePlatforms(FPackageData* <a class="code hl_enumvalue" href="../../db/dff/_io_store_utilities_8cpp.html#ac1de6d781adbc7b78e059c8e5cb08392affb140c1ffdd02fcba9a6d592500e73a">PackageData</a>);</div>
+<div class="line"><a id="l00349" name="l00349"></a><span class="lineno">  349</span></div>
+<div class="line"><a id="l00354" name="l00354"></a><span class="lineno">  354</span>        <span class="keywordtype">void</span> TickExploration(<span class="keywordtype">bool</span>&amp; bOutDone);</div>
+<div class="line"><a id="l00356" name="l00356"></a><span class="lineno">  356</span>        <span class="keywordtype">void</span> WaitForAsyncQueue(<span class="keywordtype">double</span> WaitTimeSeconds);</div>
+<div class="line"><a id="l00357" name="l00357"></a><span class="lineno">  357</span></div>
+<div class="line"><a id="l00362" name="l00362"></a><span class="lineno">  362</span>        <a class="code hl_class" href="../../da/d41/class_t_map.html">TMap&lt;FPackageData*, TArray&lt;FPackageData*&gt;</a>&gt;&amp; GetGraphEdges();</div>
+<div class="line"><a id="l00363" name="l00363"></a><span class="lineno">  363</span> </div>
+<div class="line"><a id="l00364" name="l00364"></a><span class="lineno">  364</span>    <span class="keyword">private</span>:</div>
+<div class="line"><a id="l00365" name="l00365"></a><span class="lineno">  365</span>        <span class="comment">// Scratch data structures used to avoid dynamic allocations; lifetime of each use is only on the stack</span></div>
+<div class="line"><a id="l00366" name="l00366"></a><span class="lineno">  366</span>        <span class="keyword">struct </span>FScratchPlatformDependencyBits</div>
+<div class="line"><a id="l00367" name="l00367"></a><span class="lineno">  367</span>        {</div>
+<div class="line"><a id="l00368" name="l00368"></a><span class="lineno">  368</span>            <a class="code hl_class" href="../../df/d02/class_t_bit_array.html">TBitArray&lt;&gt;</a> HasRuntimePlatformByIndex;</div>
+<div class="line"><a id="l00369" name="l00369"></a><span class="lineno">  369</span>            <a class="code hl_class" href="../../df/d02/class_t_bit_array.html">TBitArray&lt;&gt;</a> HasBuildPlatformByIndex;</div>
+<div class="line"><a id="l00370" name="l00370"></a><span class="lineno">  370</span>            <a class="code hl_class" href="../../df/d02/class_t_bit_array.html">TBitArray&lt;&gt;</a> ForceExplorableByIndex;</div>
+<div class="line"><a id="l00371" name="l00371"></a><span class="lineno">  371</span>            EInstigator InstigatorType = EInstigator::InvalidCategory;</div>
+<div class="line"><a id="l00372" name="l00372"></a><span class="lineno">  372</span>            EInstigator BuildInstigatorType = EInstigator::InvalidCategory;</div>
+<div class="line"><a id="l00373" name="l00373"></a><span class="lineno">  373</span>        };</div>
+<div class="line"><a id="l00374" name="l00374"></a><span class="lineno">  374</span>        <span class="keyword">struct </span>FExploreEdgesContext</div>
+<div class="line"><a id="l00375" name="l00375"></a><span class="lineno">  375</span>        {</div>
+<div class="line"><a id="l00376" name="l00376"></a><span class="lineno">  376</span>        <span class="keyword">public</span>:</div>
+<div class="line"><a id="l00377" name="l00377"></a><span class="lineno">  377</span>            FExploreEdgesContext(<a class="code hl_function" href="../../d6/df0/class_u_e_1_1_cook_1_1_f_request_cluster.html#ae14272c2c1bbbb8f3f33b98a9b280221">FRequestCluster</a>&amp; InCluster, FGraphSearch&amp; InGraphSearch);</div>
+<div class="line"><a id="l00378" name="l00378"></a><span class="lineno">  378</span></div>
+<div class="line"><a id="l00383" name="l00383"></a><span class="lineno">  383</span>            <span class="keywordtype">void</span> Explore(FVertexData&amp; InVertex);</div>
+<div class="line"><a id="l00384" name="l00384"></a><span class="lineno">  384</span> </div>
+<div class="line"><a id="l00385" name="l00385"></a><span class="lineno">  385</span>        <span class="keyword">private</span>:</div>
+<div class="line"><a id="l00386" name="l00386"></a><span class="lineno">  386</span>            <span class="keywordtype">void</span> <a class="code hl_function" href="../../d9/de7/_i_o_s_platform_file_8cpp.html#adcbb63faf2d70050fdd88cf7728d8cb6">Initialize</a>(FVertexData&amp; InVertex);</div>
+<div class="line"><a id="l00387" name="l00387"></a><span class="lineno">  387</span>            <span class="keywordtype">void</span> CalculatePlatformsToProcess();</div>
+<div class="line"><a id="l00388" name="l00388"></a><span class="lineno">  388</span>            <span class="keywordtype">bool</span> TryCalculateIncrementallyUnmodified();</div>
+<div class="line"><a id="l00389" name="l00389"></a><span class="lineno">  389</span>            <span class="keywordtype">void</span> CalculatePackageDataDependenciesPlatformAgnostic();</div>
+<div class="line"><a id="l00390" name="l00390"></a><span class="lineno">  390</span>            <span class="keywordtype">void</span> CalculateDependenciesAndIncrementallySkippable();</div>
+<div class="line"><a id="l00391" name="l00391"></a><span class="lineno">  391</span>            <span class="keywordtype">void</span> QueueVisitsOfDependencies();</div>
+<div class="line"><a id="l00392" name="l00392"></a><span class="lineno">  392</span>            <span class="keywordtype">void</span> MarkExploreComplete();</div>
+<div class="line"><a id="l00393" name="l00393"></a><span class="lineno">  393</span> </div>
+<div class="line"><a id="l00394" name="l00394"></a><span class="lineno">  394</span>            <span class="keywordtype">void</span> AddPlatformDependency(<a class="code hl_class" href="../../d5/dd5/class_f_name.html">FName</a> DependencyName, <a class="code hl_typedef" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a8dbb3cd84ca9fd010dadfc3815eefa5d">int32</a> PlatformIndex, EInstigator InstigatorType);</div>
+<div class="line"><a id="l00395" name="l00395"></a><span class="lineno">  395</span>            <span class="keywordtype">void</span> AddPlatformDependencyRange(TConstArrayView&lt;FName&gt; Range, <a class="code hl_typedef" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a8dbb3cd84ca9fd010dadfc3815eefa5d">int32</a> PlatformIndex, EInstigator InstigatorType);</div>
+<div class="line"><a id="l00396" name="l00396"></a><span class="lineno">  396</span>            <span class="keywordtype">void</span> ProcessPlatformAttachments(<a class="code hl_typedef" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a8dbb3cd84ca9fd010dadfc3815eefa5d">int32</a> PlatformIndex, <span class="keyword">const</span> <a class="code hl_class" href="../../d5/d9e/class_i_target_platform.html">ITargetPlatform</a>* TargetPlatform,</div>
+<div class="line"><a id="l00397" name="l00397"></a><span class="lineno">  397</span>                FFetchPlatformData&amp; FetchPlatformData, FPackagePlatformData&amp; PackagePlatformData,</div>
+<div class="line"><a id="l00398" name="l00398"></a><span class="lineno">  398</span>                FIncrementalCookAttachments&amp; PlatformAttachments, <span class="keywordtype">bool</span> bExploreDependencies);</div>
+<div class="line"><a id="l00399" name="l00399"></a><span class="lineno">  399</span>            <span class="keywordtype">void</span> ProcessPlatformDiscoveredDependencies(<a class="code hl_typedef" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a8dbb3cd84ca9fd010dadfc3815eefa5d">int32</a> PlatformIndex, <span class="keyword">const</span> <a class="code hl_class" href="../../d5/d9e/class_i_target_platform.html">ITargetPlatform</a>* TargetPlatform);</div>
+<div class="line"><a id="l00400" name="l00400"></a><span class="lineno">  400</span> </div>
+<div class="line"><a id="l00401" name="l00401"></a><span class="lineno">  401</span>            <span class="keywordtype">void</span> SetIncrementallyUnmodified(<a class="code hl_typedef" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a8dbb3cd84ca9fd010dadfc3815eefa5d">int32</a> PlatformIndex, FPackagePlatformData&amp; PackagePlatformData);</div>
+<div class="line"><a id="l00402" name="l00402"></a><span class="lineno">  402</span>            <span class="keywordtype">void</span> SetIncrementallyModified(<a class="code hl_typedef" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a8dbb3cd84ca9fd010dadfc3815eefa5d">int32</a> PlatformIndex, FPackagePlatformData&amp; PackagePlatformData,</div>
+<div class="line"><a id="l00403" name="l00403"></a><span class="lineno">  403</span>                <span class="keywordtype">bool</span> bPreviouslyCooked, <a class="code hl_enumeration" href="../../d6/d50/namespace_u_e_1_1_cook.html#ac509667a06871da447d06f2566173835">EIncrementallyModifiedReason</a> Reason,</div>
+<div class="line"><a id="l00404" name="l00404"></a><span class="lineno">  404</span>                FIncrementallyModifiedContext&amp; <a class="code hl_enumvalue" href="../../d2/d5b/_vulkan_submission_8h.html#aa4b3c8fa94b41c64030fd453ef8b865aaad4e206408c1c59bfb8a057ba7857446">Context</a>);</div>
+<div class="line"><a id="l00405" name="l00405"></a><span class="lineno">  405</span> </div>
+<div class="line"><a id="l00406" name="l00406"></a><span class="lineno">  406</span>        <span class="keyword">private</span>:</div>
+<div class="line"><a id="l00407" name="l00407"></a><span class="lineno">  407</span>            <a class="code hl_function" href="../../d6/df0/class_u_e_1_1_cook_1_1_f_request_cluster.html#ae14272c2c1bbbb8f3f33b98a9b280221">FRequestCluster</a>&amp; Cluster;</div>
+<div class="line"><a id="l00408" name="l00408"></a><span class="lineno">  408</span>            FGraphSearch&amp; GraphSearch;</div>
+<div class="line"><a id="l00409" name="l00409"></a><span class="lineno">  409</span>            FVertexData* <a class="code hl_enumvalue" href="../../d8/df1/_metal_r_h_i_private_8h.html#a8377b95bbf59edd1a902638208b8ed47ad013c4439c3e09308d6b2eef2a4025ae">Vertex</a> = <span class="keyword">nullptr</span>;</div>
+<div class="line"><a id="l00410" name="l00410"></a><span class="lineno">  410</span>            FPackageData* PackageData = <span class="keyword">nullptr</span>;</div>
+<div class="line"><a id="l00411" name="l00411"></a><span class="lineno">  411</span>            <a class="code hl_class" href="../../d6/db1/class_t_array.html">TArray&lt;FName&gt;</a>* DiscoveredDependencies = <span class="keyword">nullptr</span>;</div>
+<div class="line"><a id="l00412" name="l00412"></a><span class="lineno">  412</span>            <a class="code hl_class" href="../../d6/db1/class_t_array.html">TArray&lt;FName&gt;</a> HardGameDependencies;</div>
+<div class="line"><a id="l00413" name="l00413"></a><span class="lineno">  413</span>            <a class="code hl_class" href="../../d6/db1/class_t_array.html">TArray&lt;FName&gt;</a> HardEditorDependencies;</div>
+<div class="line"><a id="l00414" name="l00414"></a><span class="lineno">  414</span>            <a class="code hl_class" href="../../d6/db1/class_t_array.html">TArray&lt;FName&gt;</a> SoftGameDependencies;</div>
+<div class="line"><a id="l00415" name="l00415"></a><span class="lineno">  415</span>            <a class="code hl_class" href="../../d6/db1/class_t_array.html">TArray&lt;FName&gt;</a> CookerLoadingDependencies;</div>
+<div class="line"><a id="l00416" name="l00416"></a><span class="lineno">  416</span>            <a class="code hl_class" href="../../d6/db1/class_t_array.html">TArray&lt;int32, TInlineAllocator&lt;10&gt;</a>&gt; PlatformsToProcess;</div>
+<div class="line"><a id="l00417" name="l00417"></a><span class="lineno">  417</span>            <a class="code hl_class" href="../../d6/db1/class_t_array.html">TArray&lt;int32, TInlineAllocator&lt;10&gt;</a>&gt; PlatformsToExplore;</div>
+<div class="line"><a id="l00418" name="l00418"></a><span class="lineno">  418</span>            <a class="code hl_class" href="../../da/d41/class_t_map.html">TMap&lt;FName, FScratchPlatformDependencyBits&gt;</a> PlatformDependencyMap;</div>
+<div class="line"><a id="l00419" name="l00419"></a><span class="lineno">  419</span>            TSet&lt;FName&gt; HardDependenciesSet;</div>
+<div class="line"><a id="l00420" name="l00420"></a><span class="lineno">  420</span>            TSet&lt;FName&gt; SkippedPackages;</div>
+<div class="line"><a id="l00421" name="l00421"></a><span class="lineno">  421</span>            <a class="code hl_class" href="../../d6/db1/class_t_array.html">TArray&lt;FVertexData*&gt;</a> UnreadyTransitiveBuildVertices;</div>
+<div class="line"><a id="l00422" name="l00422"></a><span class="lineno">  422</span>            <a class="code hl_class" href="../../d5/dd5/class_f_name.html">FName</a> PackageName;</div>
+<div class="line"><a id="l00423" name="l00423"></a><span class="lineno">  423</span>            <a class="code hl_typedef" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a8dbb3cd84ca9fd010dadfc3815eefa5d">int32</a> LocalNumFetchPlatforms = 0;</div>
+<div class="line"><a id="l00424" name="l00424"></a><span class="lineno">  424</span>            <span class="keywordtype">bool</span> bFetchAnyTargetPlatform = <span class="keyword">false</span>;</div>
+<div class="line"><a id="l00425" name="l00425"></a><span class="lineno">  425</span>        };</div>
+<div class="line"><a id="l00426" name="l00426"></a><span class="lineno">  426</span>        <span class="keyword">friend</span> <span class="keyword">struct </span>FQueryVertexBatch;</div>
+<div class="line"><a id="l00427" name="l00427"></a><span class="lineno">  427</span>        <span class="keyword">friend</span> <span class="keyword">struct </span>FVertexData;</div>
+<div class="line"><a id="l00428" name="l00428"></a><span class="lineno">  428</span>        </div>
+<div class="line"><a id="l00429" name="l00429"></a><span class="lineno">  429</span>        <span class="comment">// Functions callable only from the Process thread</span></div>
+<div class="line"><a id="l00431" name="l00431"></a><span class="lineno">  431</span>        <span class="keywordtype">void</span> UpdateDisplay();</div>
+<div class="line"><a id="l00432" name="l00432"></a><span class="lineno">  432</span></div>
+<div class="line"><a id="l00434" name="l00434"></a><span class="lineno">  434</span>        <span class="keywordtype">void</span> QueueEdgesFetch(FVertexData&amp; <a class="code hl_enumvalue" href="../../d8/df1/_metal_r_h_i_private_8h.html#a8377b95bbf59edd1a902638208b8ed47ad013c4439c3e09308d6b2eef2a4025ae">Vertex</a>, TConstArrayView&lt;int32&gt; PlatformIndexes);</div>
+<div class="line"><a id="l00436" name="l00436"></a><span class="lineno">  436</span>        <span class="keywordtype">void</span> VisitVertex(FVertexData&amp; <a class="code hl_enumvalue" href="../../d8/df1/_metal_r_h_i_private_8h.html#a8377b95bbf59edd1a902638208b8ed47ad013c4439c3e09308d6b2eef2a4025ae">Vertex</a>);</div>
+<div class="line"><a id="l00438" name="l00438"></a><span class="lineno">  438</span>        <span class="keywordtype">void</span> VisitVertexForPlatform(FVertexData&amp; <a class="code hl_enumvalue" href="../../d8/df1/_metal_r_h_i_private_8h.html#a8377b95bbf59edd1a902638208b8ed47ad013c4439c3e09308d6b2eef2a4025ae">Vertex</a>, <span class="keyword">const</span> ITargetPlatform* <a class="code hl_enumvalue" href="../../d6/d50/namespace_u_e_1_1_cook.html#a5db77c4af77056a6729311f8d0704220a419f3742e6de8e0ec4b22cce005e7630">Platform</a>,</div>
+<div class="line"><a id="l00439" name="l00439"></a><span class="lineno">  439</span>            <a class="code hl_enumeration" href="../../d6/d50/namespace_u_e_1_1_cook.html#af60798853b1be66d0555c445330517a5">EReachability</a> ClusterReachability, FPackagePlatformData&amp; PlatformData,</div>
+<div class="line"><a id="l00440" name="l00440"></a><span class="lineno">  440</span>            <a class="code hl_enumeration" href="../../d6/d50/namespace_u_e_1_1_cook.html#ac51d3b00c794bca93a5cd7c0f27aca2e">ESuppressCookReason</a>&amp; OutSuppressCookReason);</div>
+<div class="line"><a id="l00441" name="l00441"></a><span class="lineno">  441</span>        <span class="keywordtype">void</span> ResolveTransitiveBuildDependencyCycle();</div>
+<div class="line"><a id="l00442" name="l00442"></a><span class="lineno">  442</span></div>
+<div class="line"><a id="l00444" name="l00444"></a><span class="lineno">  444</span>        <span class="keywordtype">void</span> AddToVisitVertexQueue(FVertexData&amp; <a class="code hl_enumvalue" href="../../d8/df1/_metal_r_h_i_private_8h.html#a8377b95bbf59edd1a902638208b8ed47ad013c4439c3e09308d6b2eef2a4025ae">Vertex</a>);</div>
+<div class="line"><a id="l00445" name="l00445"></a><span class="lineno">  445</span> </div>
+<div class="line"><a id="l00446" name="l00446"></a><span class="lineno">  446</span>        <span class="comment">// Functions that must be called only within the Lock</span></div>
+<div class="line"><a id="l00448" name="l00448"></a><span class="lineno">  448</span>        FQueryVertexBatch* AllocateBatch(); </div>
+<div class="line"><a id="l00450" name="l00450"></a><span class="lineno">  450</span>        <span class="keywordtype">void</span> FreeBatch(FQueryVertexBatch* Batch);</div>
+<div class="line"><a id="l00452" name="l00452"></a><span class="lineno">  452</span>        <span class="keywordtype">void</span> CreateAvailableBatches(<span class="keywordtype">bool</span> bAllowIncompleteBatch);</div>
+<div class="line"><a id="l00454" name="l00454"></a><span class="lineno">  454</span>        FQueryVertexBatch* CreateBatchOfPoppedVertices(<a class="code hl_typedef" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a8dbb3cd84ca9fd010dadfc3815eefa5d">int32</a> BatchSize);</div>
+<div class="line"><a id="l00455" name="l00455"></a><span class="lineno">  455</span> </div>
+<div class="line"><a id="l00456" name="l00456"></a><span class="lineno">  456</span>        <span class="comment">// Functions that are safe to call from any thread</span></div>
+<div class="line"><a id="l00458" name="l00458"></a><span class="lineno">  458</span>        <span class="keywordtype">void</span> OnBatchCompleted(FQueryVertexBatch* Batch);</div>
+<div class="line"><a id="l00460" name="l00460"></a><span class="lineno">  460</span>        <span class="keywordtype">void</span> KickVertex(FVertexData* <a class="code hl_enumvalue" href="../../d8/df1/_metal_r_h_i_private_8h.html#a8377b95bbf59edd1a902638208b8ed47ad013c4439c3e09308d6b2eef2a4025ae">Vertex</a>);</div>
+<div class="line"><a id="l00461" name="l00461"></a><span class="lineno">  461</span> </div>
+<div class="line"><a id="l00462" name="l00462"></a><span class="lineno">  462</span>        <a class="code hl_function" href="../../dd/d92/_array_view_8h.html#a1fb70cb435d504cc27188537f2b60a23">TArrayView&lt;FQueryPlatformData&gt;</a> GetPlatformDataArray(FVertexData&amp; <a class="code hl_enumvalue" href="../../d8/df1/_metal_r_h_i_private_8h.html#a8377b95bbf59edd1a902638208b8ed47ad013c4439c3e09308d6b2eef2a4025ae">Vertex</a>);</div>
+<div class="line"><a id="l00463" name="l00463"></a><span class="lineno">  463</span> </div>
+<div class="line"><a id="l00464" name="l00464"></a><span class="lineno">  464</span>    <span class="keyword">private</span>:</div>
+<div class="line"><a id="l00465" name="l00465"></a><span class="lineno">  465</span>        <span class="comment">// Variables that are read-only during multithreading</span></div>
+<div class="line"><a id="l00466" name="l00466"></a><span class="lineno">  466</span>        TArray&lt;FFetchPlatformData&gt; FetchPlatforms;</div>
+<div class="line"><a id="l00467" name="l00467"></a><span class="lineno">  467</span>        <a class="code hl_function" href="../../d6/df0/class_u_e_1_1_cook_1_1_f_request_cluster.html#ae14272c2c1bbbb8f3f33b98a9b280221">FRequestCluster</a>&amp; Cluster;</div>
+<div class="line"><a id="l00468" name="l00468"></a><span class="lineno">  468</span> </div>
+<div class="line"><a id="l00469" name="l00469"></a><span class="lineno">  469</span>        <span class="comment">// Variables that are accessible only from the Process thread</span></div>
+<div class="line"><a id="l00471" name="l00471"></a><span class="lineno">  471</span>        FExploreEdgesContext ExploreEdgesContext;</div>
+<div class="line"><a id="l00472" name="l00472"></a><span class="lineno">  472</span>        TMap&lt;FPackageData*, TArray&lt;FPackageData*&gt;&gt; GraphEdges;</div>
+<div class="line"><a id="l00473" name="l00473"></a><span class="lineno">  473</span>        TSet&lt;FVertexData*&gt; VisitVertexQueue;</div>
+<div class="line"><a id="l00474" name="l00474"></a><span class="lineno">  474</span>        TSet&lt;FVertexData*&gt; PendingTransitiveBuildDependencyVertices;</div>
+<div class="line"><a id="l00476" name="l00476"></a><span class="lineno">  476</span>        TRingBuffer&lt;FVertexData*&gt; PreAsyncQueue;</div>
+<div class="line"><a id="l00478" name="l00478"></a><span class="lineno">  478</span>        <span class="keywordtype">double</span> LastActivityTime = 0.;</div>
+<div class="line"><a id="l00479" name="l00479"></a><span class="lineno">  479</span>        <a class="code hl_typedef" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a8dbb3cd84ca9fd010dadfc3815eefa5d">int32</a> RunAwayTickLoopCount = 0;</div>
+<div class="line"><a id="l00480" name="l00480"></a><span class="lineno">  480</span>        <span class="keywordtype">bool</span> bInitialized = <span class="keyword">false</span>;</div>
+<div class="line"><a id="l00481" name="l00481"></a><span class="lineno">  481</span>        <span class="keywordtype">bool</span> bStarted = <span class="keyword">false</span>;</div>
+<div class="line"><a id="l00482" name="l00482"></a><span class="lineno">  482</span> </div>
+<div class="line"><a id="l00483" name="l00483"></a><span class="lineno">  483</span>        <span class="comment">// Variables that are accessible from multiple threads, guarded by Lock</span></div>
+<div class="line"><a id="l00484" name="l00484"></a><span class="lineno">  484</span>        <a class="code hl_typedef" href="../../df/d05/_critical_section_8h.html#a3493a225a68d4748d7b1c85e8ae9d0b5">FCriticalSection</a> Lock;</div>
+<div class="line"><a id="l00485" name="l00485"></a><span class="lineno">  485</span>        TTypedBlockAllocatorResetList&lt;FQueryVertexBatch&gt; BatchAllocator;</div>
+<div class="line"><a id="l00486" name="l00486"></a><span class="lineno">  486</span>        TSet&lt;FQueryVertexBatch*&gt; AsyncQueueBatches;</div>
+<div class="line"><a id="l00487" name="l00487"></a><span class="lineno">  487</span> </div>
+<div class="line"><a id="l00488" name="l00488"></a><span class="lineno">  488</span>        <span class="comment">// Variables that are accessible from multiple threads, internally threadsafe</span></div>
+<div class="line"><a id="l00489" name="l00489"></a><span class="lineno">  489</span>        TMpscQueue&lt;FVertexData*&gt; AsyncQueueResults;</div>
+<div class="line"><a id="l00490" name="l00490"></a><span class="lineno">  490</span>        FEventRef AsyncResultsReadyEvent;</div>
+<div class="line"><a id="l00491" name="l00491"></a><span class="lineno">  491</span>    };</div>
+<div class="line"><a id="l00492" name="l00492"></a><span class="lineno">  492</span> </div>
+<div class="line"><a id="l00493" name="l00493"></a><span class="lineno">  493</span><span class="keyword">private</span>:</div>
+<div class="line"><a id="l00494" name="l00494"></a><span class="lineno">  494</span>    <a class="code hl_function" href="../../d6/df0/class_u_e_1_1_cook_1_1_f_request_cluster.html#ae14272c2c1bbbb8f3f33b98a9b280221">FRequestCluster</a>(UCookOnTheFlyServer&amp; COTFS, <a class="code hl_enumeration" href="../../d6/d50/namespace_u_e_1_1_cook.html#af60798853b1be66d0555c445330517a5">EReachability</a> ExploreReachability);</div>
+<div class="line"><a id="l00495" name="l00495"></a><span class="lineno">  495</span>    <span class="keywordtype">void</span> EmptyClusterPackages();</div>
+<div class="line"><a id="l00496" name="l00496"></a><span class="lineno">  496</span>    <span class="keywordtype">void</span> ReserveInitialRequests(<a class="code hl_typedef" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a8dbb3cd84ca9fd010dadfc3815eefa5d">int32</a> RequestNum);</div>
+<div class="line"><a id="l00501" name="l00501"></a><span class="lineno">  501</span>    <span class="keywordtype">void</span> AddVertexCounts(FVertexData&amp; <a class="code hl_enumvalue" href="../../d8/df1/_metal_r_h_i_private_8h.html#a8377b95bbf59edd1a902638208b8ed47ad013c4439c3e09308d6b2eef2a4025ae">Vertex</a>, <a class="code hl_typedef" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a8dbb3cd84ca9fd010dadfc3815eefa5d">int32</a> <a class="code hl_enumvalue" href="../../d8/d89/_network_replay_streaming_8h.html#a497b7b5fc10cac4b9020808f14f4f3c8adb1f4ab5845def61a83d5df13e0c2397">Delta</a>);</div>
+<div class="line"><a id="l00502" name="l00502"></a><span class="lineno">  502</span>    <span class="keywordtype">void</span> SetOwnedByCluster(FVertexData&amp; <a class="code hl_enumvalue" href="../../d8/df1/_metal_r_h_i_private_8h.html#a8377b95bbf59edd1a902638208b8ed47ad013c4439c3e09308d6b2eef2a4025ae">Vertex</a>, <span class="keywordtype">bool</span> bOwnedByCluster, <span class="keywordtype">bool</span> bNeedsStateChange = <span class="keyword">true</span>);</div>
+<div class="line"><a id="l00503" name="l00503"></a><span class="lineno">  503</span>    <span class="keywordtype">void</span> SetSuppressReason(FVertexData&amp; <a class="code hl_enumvalue" href="../../d8/df1/_metal_r_h_i_private_8h.html#a8377b95bbf59edd1a902638208b8ed47ad013c4439c3e09308d6b2eef2a4025ae">Vertex</a>, <a class="code hl_enumeration" href="../../d6/d50/namespace_u_e_1_1_cook.html#ac51d3b00c794bca93a5cd7c0f27aca2e">ESuppressCookReason</a> Reason);</div>
+<div class="line"><a id="l00504" name="l00504"></a><span class="lineno">  504</span>    <span class="keywordtype">void</span> SetWasMarkedSkipped(FVertexData&amp; <a class="code hl_enumvalue" href="../../d8/df1/_metal_r_h_i_private_8h.html#a8377b95bbf59edd1a902638208b8ed47ad013c4439c3e09308d6b2eef2a4025ae">Vertex</a>, <span class="keywordtype">bool</span> bWasMarkedSkipped);</div>
+<div class="line"><a id="l00505" name="l00505"></a><span class="lineno">  505</span>    <span class="keywordtype">void</span> FetchPackageNames(<span class="keyword">const</span> FCookerTimer&amp; CookerTimer, <span class="keywordtype">bool</span>&amp; bOutComplete);</div>
+<div class="line"><a id="l00506" name="l00506"></a><span class="lineno">  506</span>    <span class="keywordtype">void</span> PumpExploration(<span class="keyword">const</span> FCookerTimer&amp; CookerTimer, <span class="keywordtype">bool</span>&amp; bOutComplete);</div>
+<div class="line"><a id="l00507" name="l00507"></a><span class="lineno">  507</span>    <span class="keywordtype">void</span> StartAsync(<span class="keyword">const</span> FCookerTimer&amp; CookerTimer, <span class="keywordtype">bool</span>&amp; bOutComplete);</div>
+<div class="line"><a id="l00508" name="l00508"></a><span class="lineno">  508</span>    <span class="keywordtype">bool</span> IsIncrementalCook() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00509" name="l00509"></a><span class="lineno">  509</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="../../d6/df0/class_u_e_1_1_cook_1_1_f_request_cluster.html#a666ee3eb10e913590d3e68445b765b3f">IsRequestCookable</a>(<span class="keyword">const</span> ITargetPlatform* TargetPlatform, <span class="keyword">const</span> FPackageData&amp; <a class="code hl_enumvalue" href="../../db/dff/_io_store_utilities_8cpp.html#ac1de6d781adbc7b78e059c8e5cb08392affb140c1ffdd02fcba9a6d592500e73a">PackageData</a>,</div>
+<div class="line"><a id="l00510" name="l00510"></a><span class="lineno">  510</span>        <a class="code hl_enumeration" href="../../d6/d50/namespace_u_e_1_1_cook.html#ac51d3b00c794bca93a5cd7c0f27aca2e">ESuppressCookReason</a>&amp; OutReason, <span class="keywordtype">bool</span>&amp; bOutCookable, <span class="keywordtype">bool</span>&amp; bOutExplorable);</div>
+<div class="line"><a id="l00511" name="l00511"></a><span class="lineno">  511</span>    <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code hl_function" href="../../d6/df0/class_u_e_1_1_cook_1_1_f_request_cluster.html#a666ee3eb10e913590d3e68445b765b3f">IsRequestCookable</a>(<span class="keyword">const</span> ITargetPlatform* TargetPlatform, <span class="keyword">const</span> FPackageData&amp; <a class="code hl_enumvalue" href="../../db/dff/_io_store_utilities_8cpp.html#ac1de6d781adbc7b78e059c8e5cb08392affb140c1ffdd02fcba9a6d592500e73a">PackageData</a>,</div>
+<div class="line"><a id="l00512" name="l00512"></a><span class="lineno">  512</span>        UCookOnTheFlyServer&amp; InCOTFS, <a class="code hl_typedef" href="../../d7/d6a/_string_fwd_8h.html#a841e8ee04adcccfc0c78bd543334882f">FStringView</a> InDLCPath, <a class="code hl_enumeration" href="../../d6/d50/namespace_u_e_1_1_cook.html#ac51d3b00c794bca93a5cd7c0f27aca2e">ESuppressCookReason</a>&amp; OutReason, <span class="keywordtype">bool</span>&amp; bOutCookable,</div>
+<div class="line"><a id="l00513" name="l00513"></a><span class="lineno">  513</span>        <span class="keywordtype">bool</span>&amp; bOutExplorable);</div>
+<div class="line"><a id="l00518" name="l00518"></a><span class="lineno">  518</span>    <span class="keywordtype">bool</span> TraversalExploreRuntimeDependencies();</div>
+<div class="line"><a id="l00522" name="l00522"></a><span class="lineno">  522</span>    <span class="keywordtype">bool</span> TraversalExploreIncremental();</div>
+<div class="line"><a id="l00527" name="l00527"></a><span class="lineno">  527</span>    <span class="keywordtype">bool</span> TraversalMarkCookable();</div>
+<div class="line"><a id="l00528" name="l00528"></a><span class="lineno">  528</span></div>
+<div class="line"><a id="l00530" name="l00530"></a><span class="lineno">  530</span>    <a class="code hl_typedef" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a8dbb3cd84ca9fd010dadfc3815eefa5d">int32</a> GetNumFetchPlatforms() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00532" name="l00532"></a><span class="lineno">  532</span>    <a class="code hl_typedef" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a8dbb3cd84ca9fd010dadfc3815eefa5d">int32</a> GetNumSessionPlatforms() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00533" name="l00533"></a><span class="lineno">  533</span></div>
+<div class="line"><a id="l00535" name="l00535"></a><span class="lineno">  535</span>    FVertexData&amp; FindOrAddVertex(<a class="code hl_variable" href="../../d2/dc9/_s_anim_segments_panel_8h.html#a5feee5d8f9e49b79aaf8fa9c6ef73d33">FName</a> <a class="code hl_enumvalue" href="../../d4/db2/_s_asset_view_8h.html#a1a1a4d5d4362e34cc0c99bb94fdcf2d4a3bd2acd7a468d69b03985ebe99042c18">PackageName</a>, FGenerationHelper* ParentGenerationHelper = <span class="keyword">nullptr</span>);</div>
+<div class="line"><a id="l00536" name="l00536"></a><span class="lineno">  536</span>    FVertexData&amp; FindOrAddVertex(FPackageData&amp; <a class="code hl_enumvalue" href="../../db/dff/_io_store_utilities_8cpp.html#ac1de6d781adbc7b78e059c8e5cb08392affb140c1ffdd02fcba9a6d592500e73a">PackageData</a>);</div>
+<div class="line"><a id="l00538" name="l00538"></a><span class="lineno">  538</span>    FVertexData* AllocateVertex(<a class="code hl_variable" href="../../d2/dc9/_s_anim_segments_panel_8h.html#a5feee5d8f9e49b79aaf8fa9c6ef73d33">FName</a> <a class="code hl_enumvalue" href="../../d4/db2/_s_asset_view_8h.html#a1a1a4d5d4362e34cc0c99bb94fdcf2d4a3bd2acd7a468d69b03985ebe99042c18">PackageName</a>, FPackageData* <a class="code hl_enumvalue" href="../../db/dff/_io_store_utilities_8cpp.html#ac1de6d781adbc7b78e059c8e5cb08392affb140c1ffdd02fcba9a6d592500e73a">PackageData</a>);</div>
+<div class="line"><a id="l00539" name="l00539"></a><span class="lineno">  539</span> </div>
+<div class="line"><a id="l00540" name="l00540"></a><span class="lineno">  540</span> </div>
+<div class="line"><a id="l00541" name="l00541"></a><span class="lineno">  541</span>    TArray&lt;FFilePlatformRequest&gt; FilePlatformRequests;</div>
+<div class="line"><a id="l00542" name="l00542"></a><span class="lineno">  542</span>    TMap&lt;FName, FVertexData*&gt; ClusterPackages;</div>
+<div class="line"><a id="l00543" name="l00543"></a><span class="lineno">  543</span>    TMap&lt;FPackageData*, TArray&lt;FPackageData*&gt;&gt; RequestGraph;</div>
+<div class="line"><a id="l00544" name="l00544"></a><span class="lineno">  544</span>    TTypedBlockAllocatorFreeList&lt;FVertexData&gt; VertexAllocator;</div>
+<div class="line"><a id="l00545" name="l00545"></a><span class="lineno">  545</span>    <a class="code hl_variable" href="../../d2/d8e/_s_anim_notify_panel_8h.html#a7483aa7f043c623f8990a95320be654d">FString</a> DLCPath;</div>
+<div class="line"><a id="l00546" name="l00546"></a><span class="lineno">  546</span>    FGraphSearch GraphSearch;</div>
+<div class="line"><a id="l00547" name="l00547"></a><span class="lineno">  547</span>    UCookOnTheFlyServer&amp; COTFS;</div>
+<div class="line"><a id="l00548" name="l00548"></a><span class="lineno">  548</span>    FPackageDatas&amp; PackageDatas;</div>
+<div class="line"><a id="l00549" name="l00549"></a><span class="lineno">  549</span>    IAssetRegistry&amp; AssetRegistry;</div>
+<div class="line"><a id="l00550" name="l00550"></a><span class="lineno">  550</span>    FPackageTracker&amp; PackageTracker;</div>
+<div class="line"><a id="l00551" name="l00551"></a><span class="lineno">  551</span>    FBuildDefinitions&amp; BuildDefinitions;</div>
+<div class="line"><a id="l00552" name="l00552"></a><span class="lineno">  552</span>    ETraversalTier TraversalTier = ETraversalTier::RuntimeFollowDependencies;</div>
+<div class="line"><a id="l00553" name="l00553"></a><span class="lineno">  553</span>    <a class="code hl_typedef" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a8dbb3cd84ca9fd010dadfc3815eefa5d">int32</a> NumOwned = 0;</div>
+<div class="line"><a id="l00554" name="l00554"></a><span class="lineno">  554</span>    <a class="code hl_typedef" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a8dbb3cd84ca9fd010dadfc3815eefa5d">int32</a> NumOwnedButNotInProgress = 0;</div>
+<div class="line"><a id="l00555" name="l00555"></a><span class="lineno">  555</span>    <a class="code hl_typedef" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a8dbb3cd84ca9fd010dadfc3815eefa5d">int32</a> NumFetchPlatforms = 0;</div>
+<div class="line"><a id="l00556" name="l00556"></a><span class="lineno">  556</span>    <span class="keywordtype">bool</span> bAllowHardDependencies = <span class="keyword">true</span>;</div>
+<div class="line"><a id="l00557" name="l00557"></a><span class="lineno">  557</span>    <span class="keywordtype">bool</span> bAllowSoftDependencies = <span class="keyword">true</span>;</div>
+<div class="line"><a id="l00558" name="l00558"></a><span class="lineno">  558</span>    <span class="keywordtype">bool</span> bErrorOnEngineContentUse = <span class="keyword">false</span>;</div>
+<div class="line"><a id="l00559" name="l00559"></a><span class="lineno">  559</span>    <span class="keywordtype">bool</span> bPackageNamesComplete = <span class="keyword">false</span>;</div>
+<div class="line"><a id="l00560" name="l00560"></a><span class="lineno">  560</span>    <span class="keywordtype">bool</span> bDependenciesComplete = <span class="keyword">false</span>;</div>
+<div class="line"><a id="l00561" name="l00561"></a><span class="lineno">  561</span>    <span class="keywordtype">bool</span> bStartAsyncComplete = <span class="keyword">false</span>;</div>
+<div class="line"><a id="l00562" name="l00562"></a><span class="lineno">  562</span>    <span class="keywordtype">bool</span> bAllowIncrementalResults = <span class="keyword">false</span>;</div>
+<div class="line"><a id="l00563" name="l00563"></a><span class="lineno">  563</span>    <span class="keywordtype">bool</span> bPreQueueBuildDefinitions = <span class="keyword">true</span>;</div>
+<div class="line"><a id="l00564" name="l00564"></a><span class="lineno">  564</span>};</div>
+</div>
+<div class="line"><a id="l00565" name="l00565"></a><span class="lineno">  565</span> </div>
+<div class="line"><a id="l00566" name="l00566"></a><span class="lineno">  566</span></div>
+<div class="line"><a id="l00568" name="l00568"></a><span class="lineno">  568</span><span class="comment">// Inline implementations</span></div>
+<div class="line"><a id="l00570" name="l00570"></a><span class="lineno">  570</span> </div>
+<div class="line"><a id="l00571" name="l00571"></a><span class="lineno">  571</span><span class="keyword">inline</span> <a class="code hl_variable" href="../../d2/dc9/_s_anim_segments_panel_8h.html#a5feee5d8f9e49b79aaf8fa9c6ef73d33">FName</a> FRequestCluster::FVertexData::GetPackageName()<span class="keyword"> const</span></div>
+<div class="line"><a id="l00572" name="l00572"></a><span class="lineno">  572</span><span class="keyword"></span>{</div>
+<div class="line"><a id="l00573" name="l00573"></a><span class="lineno">  573</span>    <span class="keywordflow">return</span> PackageName;</div>
+<div class="line"><a id="l00574" name="l00574"></a><span class="lineno">  574</span>}</div>
+<div class="line"><a id="l00575" name="l00575"></a><span class="lineno">  575</span> </div>
+<div class="line"><a id="l00576" name="l00576"></a><span class="lineno">  576</span><span class="keyword">inline</span> <a class="code hl_function" href="../../dd/d92/_array_view_8h.html#a1fb70cb435d504cc27188537f2b60a23">TArrayView&lt;FRequestCluster::FQueryPlatformData&gt;</a> FRequestCluster::FVertexData::GetPlatformData()</div>
+<div class="line"><a id="l00577" name="l00577"></a><span class="lineno">  577</span>{</div>
+<div class="line"><a id="l00578" name="l00578"></a><span class="lineno">  578</span>    <span class="keywordflow">return</span> PlatformData;</div>
+<div class="line"><a id="l00579" name="l00579"></a><span class="lineno">  579</span>}</div>
+<div class="line"><a id="l00580" name="l00580"></a><span class="lineno">  580</span> </div>
+<div class="line"><a id="l00581" name="l00581"></a><span class="lineno">  581</span><span class="keyword">inline</span> <a class="code hl_typedef" href="../../d4/d53/namespace_u_e_1_1_diff_writer.html#a4b1e1a3ee3a38711b132f26e9fccac70">FPackageData</a>* FRequestCluster::FVertexData::GetPackageData()<span class="keyword"> const</span></div>
+<div class="line"><a id="l00582" name="l00582"></a><span class="lineno">  582</span><span class="keyword"></span>{</div>
+<div class="line"><a id="l00583" name="l00583"></a><span class="lineno">  583</span>    <span class="keywordflow">return</span> <a class="code hl_enumvalue" href="../../db/dff/_io_store_utilities_8cpp.html#ac1de6d781adbc7b78e059c8e5cb08392affb140c1ffdd02fcba9a6d592500e73a">PackageData</a>;</div>
+<div class="line"><a id="l00584" name="l00584"></a><span class="lineno">  584</span>}</div>
+<div class="line"><a id="l00585" name="l00585"></a><span class="lineno">  585</span> </div>
+<div class="line"><a id="l00586" name="l00586"></a><span class="lineno">  586</span><span class="keyword">inline</span> TArray&lt;FRequestCluster::FVertexData*&gt;&amp; FRequestCluster::FVertexData::GetIncrementallyModifiedListeners()</div>
+<div class="line"><a id="l00587" name="l00587"></a><span class="lineno">  587</span>{</div>
+<div class="line"><a id="l00588" name="l00588"></a><span class="lineno">  588</span>    <span class="keywordflow">return</span> IncrementallyModifiedListeners;</div>
+<div class="line"><a id="l00589" name="l00589"></a><span class="lineno">  589</span>}</div>
+<div class="line"><a id="l00590" name="l00590"></a><span class="lineno">  590</span> </div>
+<div class="line"><a id="l00591" name="l00591"></a><span class="lineno">  591</span><span class="keyword">inline</span> TSet&lt;FRequestCluster::FVertexData*&gt; FRequestCluster::FVertexData::GetUnreadyDependencies()</div>
+<div class="line"><a id="l00592" name="l00592"></a><span class="lineno">  592</span>{</div>
+<div class="line"><a id="l00593" name="l00593"></a><span class="lineno">  593</span>    <span class="keywordflow">return</span> UnreadyDependencies;</div>
+<div class="line"><a id="l00594" name="l00594"></a><span class="lineno">  594</span>}</div>
+<div class="line"><a id="l00595" name="l00595"></a><span class="lineno">  595</span> </div>
+<div class="line"><a id="l00596" name="l00596"></a><span class="lineno">  596</span><span class="keyword">inline</span> <span class="keywordtype">bool</span> FRequestCluster::FVertexData::IsOwnedByCluster()<span class="keyword"> const</span></div>
+<div class="line"><a id="l00597" name="l00597"></a><span class="lineno">  597</span><span class="keyword"></span>{</div>
+<div class="line"><a id="l00598" name="l00598"></a><span class="lineno">  598</span>    <span class="keywordflow">return</span> bOwnedByCluster;</div>
+<div class="line"><a id="l00599" name="l00599"></a><span class="lineno">  599</span>}</div>
+<div class="line"><a id="l00600" name="l00600"></a><span class="lineno">  600</span> </div>
+<div class="line"><a id="l00601" name="l00601"></a><span class="lineno">  601</span><span class="keyword">inline</span> <span class="keywordtype">void</span> FRequestCluster::FVertexData::SetOwnedByCluster(<span class="keywordtype">bool</span> bOwned)</div>
+<div class="line"><a id="l00602" name="l00602"></a><span class="lineno">  602</span>{</div>
+<div class="line"><a id="l00603" name="l00603"></a><span class="lineno">  603</span>    bOwnedByCluster = bOwned;</div>
+<div class="line"><a id="l00604" name="l00604"></a><span class="lineno">  604</span>    bHasBeenPulledIntoCluster |= bOwned;</div>
+<div class="line"><a id="l00605" name="l00605"></a><span class="lineno">  605</span>}</div>
+<div class="line"><a id="l00606" name="l00606"></a><span class="lineno">  606</span> </div>
+<div class="line"><a id="l00607" name="l00607"></a><span class="lineno">  607</span><span class="keyword">inline</span> <span class="keywordtype">bool</span> FRequestCluster::FVertexData::HasBeenPulledIntoCluster()<span class="keyword"> const</span></div>
+<div class="line"><a id="l00608" name="l00608"></a><span class="lineno">  608</span><span class="keyword"></span>{</div>
+<div class="line"><a id="l00609" name="l00609"></a><span class="lineno">  609</span>    <span class="keywordflow">return</span> bHasBeenPulledIntoCluster;</div>
+<div class="line"><a id="l00610" name="l00610"></a><span class="lineno">  610</span>}</div>
+<div class="line"><a id="l00611" name="l00611"></a><span class="lineno">  611</span> </div>
+<div class="line"><a id="l00612" name="l00612"></a><span class="lineno">  612</span><span class="keyword">inline</span> <a class="code hl_enumeration" href="../../d6/d50/namespace_u_e_1_1_cook.html#ac51d3b00c794bca93a5cd7c0f27aca2e">ESuppressCookReason</a> FRequestCluster::FVertexData::GetSuppressReason()<span class="keyword"> const</span></div>
+<div class="line"><a id="l00613" name="l00613"></a><span class="lineno">  613</span><span class="keyword"></span>{</div>
+<div class="line"><a id="l00614" name="l00614"></a><span class="lineno">  614</span>    <span class="keywordflow">return</span> SuppressCookReason;</div>
+<div class="line"><a id="l00615" name="l00615"></a><span class="lineno">  615</span>}</div>
+<div class="line"><a id="l00616" name="l00616"></a><span class="lineno">  616</span> </div>
+<div class="line"><a id="l00617" name="l00617"></a><span class="lineno">  617</span><span class="keyword">inline</span> <span class="keywordtype">void</span> FRequestCluster::FVertexData::SetSuppressReason(<a class="code hl_enumeration" href="../../d6/d50/namespace_u_e_1_1_cook.html#ac51d3b00c794bca93a5cd7c0f27aca2e">ESuppressCookReason</a> <a class="code hl_enumvalue" href="../../d1/d75/_s_color_picker_8h.html#a84461ad6c05d7bc638a383922014d918a689202409e48743b914713f96d93947c">Value</a>)</div>
+<div class="line"><a id="l00618" name="l00618"></a><span class="lineno">  618</span>{</div>
+<div class="line"><a id="l00619" name="l00619"></a><span class="lineno">  619</span>    SuppressCookReason = <a class="code hl_enumvalue" href="../../d1/d75/_s_color_picker_8h.html#a84461ad6c05d7bc638a383922014d918a689202409e48743b914713f96d93947c">Value</a>;</div>
+<div class="line"><a id="l00620" name="l00620"></a><span class="lineno">  620</span>}</div>
+<div class="line"><a id="l00621" name="l00621"></a><span class="lineno">  621</span> </div>
+<div class="line"><a id="l00622" name="l00622"></a><span class="lineno">  622</span><span class="keyword">inline</span> <span class="keywordtype">bool</span> FRequestCluster::FVertexData::IsAnyCookable()<span class="keyword"> const</span></div>
+<div class="line"><a id="l00623" name="l00623"></a><span class="lineno">  623</span><span class="keyword"></span>{</div>
+<div class="line"><a id="l00624" name="l00624"></a><span class="lineno">  624</span>    <span class="keywordflow">return</span> bAnyCookable;</div>
+<div class="line"><a id="l00625" name="l00625"></a><span class="lineno">  625</span>}</div>
+<div class="line"><a id="l00626" name="l00626"></a><span class="lineno">  626</span> </div>
+<div class="line"><a id="l00627" name="l00627"></a><span class="lineno">  627</span><span class="keyword">inline</span> <span class="keywordtype">void</span> FRequestCluster::FVertexData::SetAnyCookable(<span class="keywordtype">bool</span> bInCookable)</div>
+<div class="line"><a id="l00628" name="l00628"></a><span class="lineno">  628</span>{</div>
+<div class="line"><a id="l00629" name="l00629"></a><span class="lineno">  629</span>    bAnyCookable = bInCookable;</div>
+<div class="line"><a id="l00630" name="l00630"></a><span class="lineno">  630</span>}</div>
+<div class="line"><a id="l00631" name="l00631"></a><span class="lineno">  631</span> </div>
+<div class="line"><a id="l00632" name="l00632"></a><span class="lineno">  632</span><span class="keyword">inline</span> <span class="keywordtype">bool</span> FRequestCluster::FVertexData::IsWaitingOnUnreadyDependencies()<span class="keyword"> const</span></div>
+<div class="line"><a id="l00633" name="l00633"></a><span class="lineno">  633</span><span class="keyword"></span>{</div>
+<div class="line"><a id="l00634" name="l00634"></a><span class="lineno">  634</span>    <span class="keywordflow">return</span> bWaitingOnUnreadyDependencies;</div>
+<div class="line"><a id="l00635" name="l00635"></a><span class="lineno">  635</span>}</div>
+<div class="line"><a id="l00636" name="l00636"></a><span class="lineno">  636</span> </div>
+<div class="line"><a id="l00637" name="l00637"></a><span class="lineno">  637</span><span class="keyword">inline</span> <span class="keywordtype">void</span> FRequestCluster::FVertexData::SetWaitingOnUnreadyDependencies(<span class="keywordtype">bool</span> bWaiting)</div>
+<div class="line"><a id="l00638" name="l00638"></a><span class="lineno">  638</span>{</div>
+<div class="line"><a id="l00639" name="l00639"></a><span class="lineno">  639</span>    bWaitingOnUnreadyDependencies = bWaiting;</div>
+<div class="line"><a id="l00640" name="l00640"></a><span class="lineno">  640</span>}</div>
+<div class="line"><a id="l00641" name="l00641"></a><span class="lineno">  641</span> </div>
+<div class="line"><a id="l00642" name="l00642"></a><span class="lineno">  642</span><span class="keyword">inline</span> <span class="keywordtype">bool</span> FRequestCluster::FVertexData::WasMarkedSkipped()<span class="keyword"> const</span></div>
+<div class="line"><a id="l00643" name="l00643"></a><span class="lineno">  643</span><span class="keyword"></span>{</div>
+<div class="line"><a id="l00644" name="l00644"></a><span class="lineno">  644</span>    <span class="keywordflow">return</span> bWasMarkedSkipped;</div>
+<div class="line"><a id="l00645" name="l00645"></a><span class="lineno">  645</span>}</div>
+<div class="line"><a id="l00646" name="l00646"></a><span class="lineno">  646</span> </div>
+<div class="line"><a id="l00647" name="l00647"></a><span class="lineno">  647</span><span class="keyword">inline</span> <span class="keywordtype">void</span> FRequestCluster::FVertexData::SetWasMarkedSkipped(<span class="keywordtype">bool</span> bValue)</div>
+<div class="line"><a id="l00648" name="l00648"></a><span class="lineno">  648</span>{</div>
+<div class="line"><a id="l00649" name="l00649"></a><span class="lineno">  649</span>    bWasMarkedSkipped = bValue;</div>
+<div class="line"><a id="l00650" name="l00650"></a><span class="lineno">  650</span>}</div>
+<div class="line"><a id="l00651" name="l00651"></a><span class="lineno">  651</span> </div>
+<div class="line"><a id="l00652" name="l00652"></a><span class="lineno">  652</span><span class="keyword">inline</span> <span class="keywordtype">bool</span> FRequestCluster::FVertexData::IsOwnedButNotInProgress()<span class="keyword"> const</span></div>
+<div class="line"><a id="l00653" name="l00653"></a><span class="lineno">  653</span><span class="keyword"></span>{</div>
+<div class="line"><a id="l00654" name="l00654"></a><span class="lineno">  654</span>    <span class="keywordflow">return</span> bOwnedByCluster &amp;</div>
+<div class="line"><a id="l00655" name="l00655"></a><span class="lineno">  655</span>        ((SuppressCookReason != <a class="code hl_enumvalue" href="../../d6/d50/namespace_u_e_1_1_cook.html#ac51d3b00c794bca93a5cd7c0f27aca2ea5d4ebb7c4f2eb9d4fd461418c2ee15f2">ESuppressCookReason::NotSuppressed</a>) | bWasMarkedSkipped);</div>
+<div class="line"><a id="l00656" name="l00656"></a><span class="lineno">  656</span>}</div>
+<div class="line"><a id="l00657" name="l00657"></a><span class="lineno">  657</span> </div>
+<div class="line"><a id="l00658" name="l00658"></a><span class="lineno">  658</span><span class="keyword">inline</span> <span class="keywordtype">bool</span> FRequestCluster::FGraphSearch::IsInitialized()<span class="keyword"> const</span></div>
+<div class="line"><a id="l00659" name="l00659"></a><span class="lineno">  659</span><span class="keyword"></span>{</div>
+<div class="line"><a id="l00660" name="l00660"></a><span class="lineno">  660</span>    <span class="keywordflow">return</span> bInitialized;</div>
+<div class="line"><a id="l00661" name="l00661"></a><span class="lineno">  661</span>}</div>
+<div class="line"><a id="l00662" name="l00662"></a><span class="lineno">  662</span> </div>
+<div class="line"><a id="l00663" name="l00663"></a><span class="lineno">  663</span><span class="keyword">inline</span> <span class="keywordtype">bool</span> FRequestCluster::FGraphSearch::IsStarted()<span class="keyword"> const</span></div>
+<div class="line"><a id="l00664" name="l00664"></a><span class="lineno">  664</span><span class="keyword"></span>{</div>
+<div class="line"><a id="l00665" name="l00665"></a><span class="lineno">  665</span>    <span class="keywordflow">return</span> bStarted;</div>
+<div class="line"><a id="l00666" name="l00666"></a><span class="lineno">  666</span>}</div>
+<div class="line"><a id="l00667" name="l00667"></a><span class="lineno">  667</span> </div>
+<div class="line"><a id="l00668" name="l00668"></a><span class="lineno">  668</span><span class="keyword">inline</span> <a class="code hl_function" href="../../dd/d92/_array_view_8h.html#a1fb70cb435d504cc27188537f2b60a23">TArrayView&lt;FRequestCluster::FQueryPlatformData&gt;</a> FRequestCluster::FGraphSearch::GetPlatformDataArray(</div>
+<div class="line"><a id="l00669" name="l00669"></a><span class="lineno">  669</span>    FVertexData&amp; <a class="code hl_enumvalue" href="../../d8/df1/_metal_r_h_i_private_8h.html#a8377b95bbf59edd1a902638208b8ed47ad013c4439c3e09308d6b2eef2a4025ae">Vertex</a>)</div>
+<div class="line"><a id="l00670" name="l00670"></a><span class="lineno">  670</span>{</div>
+<div class="line"><a id="l00671" name="l00671"></a><span class="lineno">  671</span>    <span class="keywordflow">return</span> <a class="code hl_enumvalue" href="../../d8/df1/_metal_r_h_i_private_8h.html#a8377b95bbf59edd1a902638208b8ed47ad013c4439c3e09308d6b2eef2a4025ae">Vertex</a>.GetPlatformData();</div>
+<div class="line"><a id="l00672" name="l00672"></a><span class="lineno">  672</span>}</div>
+<div class="line"><a id="l00673" name="l00673"></a><span class="lineno">  673</span> </div>
+<div class="line"><a id="l00674" name="l00674"></a><span class="lineno">  674</span><span class="keyword">inline</span> FRequestCluster::EAsyncQueryStatus FRequestCluster::FQueryPlatformData::GetAsyncQueryStatus()</div>
+<div class="line"><a id="l00675" name="l00675"></a><span class="lineno">  675</span>{</div>
+<div class="line"><a id="l00676" name="l00676"></a><span class="lineno">  676</span>    <span class="keywordflow">return</span> AsyncQueryStatus.load(std::memory_order_acquire);</div>
+<div class="line"><a id="l00677" name="l00677"></a><span class="lineno">  677</span>}</div>
+<div class="line"><a id="l00678" name="l00678"></a><span class="lineno">  678</span> </div>
+<div class="line"><a id="l00679" name="l00679"></a><span class="lineno">  679</span><span class="keyword">inline</span> <span class="keywordtype">bool</span> FRequestCluster::FQueryPlatformData::CompareExchangeAsyncQueryStatus(EAsyncQueryStatus&amp; Expected,</div>
+<div class="line"><a id="l00680" name="l00680"></a><span class="lineno">  680</span>    EAsyncQueryStatus <a class="code hl_enumvalue" href="../../d2/dbe/_widget_blueprint_8h.html#a68b5757cf2c065c5c207be23f50635e6a0f69b9dda83068a219d49c3792b00983">Desired</a>)</div>
+<div class="line"><a id="l00681" name="l00681"></a><span class="lineno">  681</span>{</div>
+<div class="line"><a id="l00682" name="l00682"></a><span class="lineno">  682</span>    <span class="keywordflow">return</span> AsyncQueryStatus.compare_exchange_strong(Expected, <a class="code hl_enumvalue" href="../../d2/dbe/_widget_blueprint_8h.html#a68b5757cf2c065c5c207be23f50635e6a0f69b9dda83068a219d49c3792b00983">Desired</a>,</div>
+<div class="line"><a id="l00683" name="l00683"></a><span class="lineno">  683</span>        <span class="comment">// For the read operation to see whether we should set it, we need only relaxed memory order;</span></div>
+<div class="line"><a id="l00684" name="l00684"></a><span class="lineno">  684</span>        <span class="comment">// we don&#39;t care about the values of other related variables that depend on it when deciding whether</span></div>
+<div class="line"><a id="l00685" name="l00685"></a><span class="lineno">  685</span>        <span class="comment">// it is our turn to set it.</span></div>
+<div class="line"><a id="l00686" name="l00686"></a><span class="lineno">  686</span>        <span class="comment">// For the write operation if we decide to set it, we need release memory order to guard reads of</span></div>
+<div class="line"><a id="l00687" name="l00687"></a><span class="lineno">  687</span>        <span class="comment">// the variables that depend on it (e.g. CookAttachments).</span></div>
+<div class="line"><a id="l00688" name="l00688"></a><span class="lineno">  688</span>        std::memory_order_release <span class="comment">/* success memory order */</span>,</div>
+<div class="line"><a id="l00689" name="l00689"></a><span class="lineno">  689</span>        std::memory_order_relaxed <span class="comment">/* failure memory order */</span></div>
+<div class="line"><a id="l00690" name="l00690"></a><span class="lineno">  690</span>    );</div>
+<div class="line"><a id="l00691" name="l00691"></a><span class="lineno">  691</span>}</div>
+<div class="line"><a id="l00692" name="l00692"></a><span class="lineno">  692</span> </div>
+<div class="foldopen" id="foldopen00693" data-start="{" data-end="}">
+<div class="line"><a id="l00693" name="l00693"></a><span class="lineno"><a class="line" href="../../d6/df0/class_u_e_1_1_cook_1_1_f_request_cluster.html#a10db7d179c18128f52f2a237e14e814a">  693</a></span><span class="keyword">inline</span> <span class="keywordtype">bool</span> <a class="code hl_function" href="../../d6/df0/class_u_e_1_1_cook_1_1_f_request_cluster.html#a10db7d179c18128f52f2a237e14e814a">FRequestCluster::NeedsProcessing</a>()<span class="keyword"> const</span></div>
+<div class="line"><a id="l00694" name="l00694"></a><span class="lineno">  694</span><span class="keyword"></span>{</div>
+<div class="line"><a id="l00695" name="l00695"></a><span class="lineno">  695</span>    <span class="keywordflow">return</span> !ClusterPackages.IsEmpty() || !FilePlatformRequests.IsEmpty();</div>
+<div class="line"><a id="l00696" name="l00696"></a><span class="lineno">  696</span>}</div>
+</div>
+<div class="line"><a id="l00697" name="l00697"></a><span class="lineno">  697</span> </div>
+<div class="foldopen" id="foldopen00698" data-start="{" data-end="}">
+<div class="line"><a id="l00698" name="l00698"></a><span class="lineno"><a class="line" href="../../d6/df0/class_u_e_1_1_cook_1_1_f_request_cluster.html#aaa8944dce760d421179cbdb9d73c604d">  698</a></span><span class="keyword">inline</span> <a class="code hl_typedef" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a8dbb3cd84ca9fd010dadfc3815eefa5d">int32</a> <a class="code hl_function" href="../../d6/df0/class_u_e_1_1_cook_1_1_f_request_cluster.html#aaa8944dce760d421179cbdb9d73c604d">FRequestCluster::NumPackageDatas</a>()<span class="keyword"> const</span></div>
+<div class="line"><a id="l00699" name="l00699"></a><span class="lineno">  699</span><span class="keyword"></span>{</div>
+<div class="line"><a id="l00700" name="l00700"></a><span class="lineno">  700</span>    <span class="keywordflow">return</span> NumOwned;</div>
+<div class="line"><a id="l00701" name="l00701"></a><span class="lineno">  701</span>}</div>
+</div>
+<div class="line"><a id="l00702" name="l00702"></a><span class="lineno">  702</span> </div>
+<div class="foldopen" id="foldopen00703" data-start="{" data-end="}">
+<div class="line"><a id="l00703" name="l00703"></a><span class="lineno"><a class="line" href="../../d6/df0/class_u_e_1_1_cook_1_1_f_request_cluster.html#afaa21d7305287b7916a73b3aa9e22318">  703</a></span><span class="keyword">inline</span> <a class="code hl_typedef" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a8dbb3cd84ca9fd010dadfc3815eefa5d">int32</a> <a class="code hl_function" href="../../d6/df0/class_u_e_1_1_cook_1_1_f_request_cluster.html#afaa21d7305287b7916a73b3aa9e22318">FRequestCluster::GetPackagesToMarkNotInProgress</a>()<span class="keyword"> const</span></div>
+<div class="line"><a id="l00704" name="l00704"></a><span class="lineno">  704</span><span class="keyword"></span>{</div>
+<div class="line"><a id="l00705" name="l00705"></a><span class="lineno">  705</span>    <span class="keywordflow">return</span> NumOwnedButNotInProgress;</div>
+<div class="line"><a id="l00706" name="l00706"></a><span class="lineno">  706</span>}</div>
+</div>
+<div class="line"><a id="l00707" name="l00707"></a><span class="lineno">  707</span> </div>
+<div class="line"><a id="l00708" name="l00708"></a><span class="lineno">  708</span><span class="keyword">inline</span> <a class="code hl_typedef" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a8dbb3cd84ca9fd010dadfc3815eefa5d">int32</a> FRequestCluster::GetNumFetchPlatforms()<span class="keyword"> const</span></div>
+<div class="line"><a id="l00709" name="l00709"></a><span class="lineno">  709</span><span class="keyword"></span>{</div>
+<div class="line"><a id="l00710" name="l00710"></a><span class="lineno">  710</span>    <span class="keywordflow">return</span> NumFetchPlatforms;</div>
+<div class="line"><a id="l00711" name="l00711"></a><span class="lineno">  711</span>}</div>
+<div class="line"><a id="l00712" name="l00712"></a><span class="lineno">  712</span> </div>
+<div class="line"><a id="l00713" name="l00713"></a><span class="lineno">  713</span><span class="keyword">inline</span> <a class="code hl_typedef" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a8dbb3cd84ca9fd010dadfc3815eefa5d">int32</a> FRequestCluster::GetNumSessionPlatforms()<span class="keyword"> const</span></div>
+<div class="line"><a id="l00714" name="l00714"></a><span class="lineno">  714</span><span class="keyword"></span>{</div>
+<div class="line"><a id="l00715" name="l00715"></a><span class="lineno">  715</span>    <span class="keywordflow">return</span> NumFetchPlatforms - 2;</div>
+<div class="line"><a id="l00716" name="l00716"></a><span class="lineno">  716</span>}</div>
+<div class="line"><a id="l00717" name="l00717"></a><span class="lineno">  717</span> </div>
+<div class="line"><a id="l00718" name="l00718"></a><span class="lineno">  718</span>}</div>
+<div class="ttc" id="a_array_view_8h_html_a1fb70cb435d504cc27188537f2b60a23"><div class="ttname"><a href="../../dd/d92/_array_view_8h.html#a1fb70cb435d504cc27188537f2b60a23">TArrayView</a></div><div class="ttdeci">TArrayView(T *, int32) -&gt; TArrayView&lt; T &gt;</div></div>
+<div class="ttc" id="a_bit_array_8h_html"><div class="ttname"><a href="../../d2/d56/_bit_array_8h.html">BitArray.h</a></div></div>
+<div class="ttc" id="a_container_allocation_policies_8h_html"><div class="ttname"><a href="../../dc/d3d/_container_allocation_policies_8h.html">ContainerAllocationPolicies.h</a></div></div>
+<div class="ttc" id="a_containers_fwd_8h_html"><div class="ttname"><a href="../../da/d60/_containers_fwd_8h.html">ContainersFwd.h</a></div></div>
+<div class="ttc" id="a_cook_package_artifacts_8h_html"><div class="ttname"><a href="../../d5/dfd/_cook_package_artifacts_8h.html">CookPackageArtifacts.h</a></div></div>
+<div class="ttc" id="a_cook_types_8h_html"><div class="ttname"><a href="../../d9/dc2/_cook_types_8h.html">CookTypes.h</a></div></div>
+<div class="ttc" id="a_core_2_public_2_containers_2_ring_buffer_8h_html"><div class="ttname"><a href="../../dd/d66/_core_2_public_2_containers_2_ring_buffer_8h.html">RingBuffer.h</a></div></div>
+<div class="ttc" id="a_core_2_public_2_h_a_l_2_event_8h_html"><div class="ttname"><a href="../../d2/d37/_core_2_public_2_h_a_l_2_event_8h.html">Event.h</a></div></div>
+<div class="ttc" id="a_core_2_public_2_h_a_l_2_platform_8h_html"><div class="ttname"><a href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html">Platform.h</a></div></div>
+<div class="ttc" id="a_core_2_public_2_h_a_l_2_platform_8h_html_a8dbb3cd84ca9fd010dadfc3815eefa5d"><div class="ttname"><a href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a8dbb3cd84ca9fd010dadfc3815eefa5d">int32</a></div><div class="ttdeci">FPlatformTypes::int32 int32</div><div class="ttdoc">A 32-bit signed integer.</div><div class="ttdef"><b>定义</b> Platform.h:1190</div></div>
+<div class="ttc" id="a_core_u_object_2_public_2_u_object_2_i_cook_info_8h_html"><div class="ttname"><a href="../../d1/d07/_core_u_object_2_public_2_u_object_2_i_cook_info_8h.html">ICookInfo.h</a></div></div>
+<div class="ttc" id="a_critical_section_8h_html"><div class="ttname"><a href="../../df/d05/_critical_section_8h.html">CriticalSection.h</a></div></div>
+<div class="ttc" id="a_critical_section_8h_html_a3493a225a68d4748d7b1c85e8ae9d0b5"><div class="ttname"><a href="../../df/d05/_critical_section_8h.html#a3493a225a68d4748d7b1c85e8ae9d0b5">FCriticalSection</a></div><div class="ttdeci">UE::FPlatformRecursiveMutex FCriticalSection</div><div class="ttdef"><b>定义</b> CriticalSection.h:53</div></div>
+<div class="ttc" id="a_i_o_s_platform_file_8cpp_html_adcbb63faf2d70050fdd88cf7728d8cb6"><div class="ttname"><a href="../../d9/de7/_i_o_s_platform_file_8cpp.html#adcbb63faf2d70050fdd88cf7728d8cb6">Initialize</a></div><div class="ttdeci">bool Initialize(IPlatformFile *Inner, const TCHAR *CommandLineParam)</div><div class="ttdef"><b>定义</b> IOSPlatformFile.cpp:504</div></div>
+<div class="ttc" id="a_io_store_utilities_8cpp_html_ac1de6d781adbc7b78e059c8e5cb08392affb140c1ffdd02fcba9a6d592500e73a"><div class="ttname"><a href="../../db/dff/_io_store_utilities_8cpp.html#ac1de6d781adbc7b78e059c8e5cb08392affb140c1ffdd02fcba9a6d592500e73a">EChunkTypeFilter::PackageData</a></div><div class="ttdeci">@ PackageData</div><div class="ttdef"><b>定义</b> IoStoreUtilities.cpp:8133</div></div>
+<div class="ttc" id="a_mem_pro_8cpp_html_aaa7f2acd75bb8eec434a9d35b5693292"><div class="ttname"><a href="../../d0/db7/_mem_pro_8cpp.html#aaa7f2acd75bb8eec434a9d35b5693292">Reset</a></div><div class="ttdeci">void Reset()</div><div class="ttdef"><b>定义</b> MemPro.cpp:24</div></div>
+<div class="ttc" id="a_metal_r_h_i_private_8h_html_a8377b95bbf59edd1a902638208b8ed47ad013c4439c3e09308d6b2eef2a4025ae"><div class="ttname"><a href="../../d8/df1/_metal_r_h_i_private_8h.html#a8377b95bbf59edd1a902638208b8ed47ad013c4439c3e09308d6b2eef2a4025ae">Vertex</a></div><div class="ttdeci">@ Vertex</div><div class="ttdef"><b>定义</b> MetalRHIPrivate.h:227</div></div>
+<div class="ttc" id="a_mpsc_queue_8h_html"><div class="ttname"><a href="../../d1/d90/_mpsc_queue_8h.html">MpscQueue.h</a></div></div>
+<div class="ttc" id="a_name_types_8h_html"><div class="ttname"><a href="../../d7/da0/_name_types_8h.html">NameTypes.h</a></div></div>
+<div class="ttc" id="a_network_replay_streaming_8h_html_a497b7b5fc10cac4b9020808f14f4f3c8adb1f4ab5845def61a83d5df13e0c2397"><div class="ttname"><a href="../../d8/d89/_network_replay_streaming_8h.html#a497b7b5fc10cac4b9020808f14f4f3c8adb1f4ab5845def61a83d5df13e0c2397">EReplayCheckpointType::Delta</a></div><div class="ttdeci">@ Delta</div><div class="ttdef"><b>定义</b> NetworkReplayStreaming.h:484</div></div>
+<div class="ttc" id="a_platform_crt_8h_html"><div class="ttname"><a href="../../d3/d61/_platform_crt_8h.html">PlatformCrt.h</a></div></div>
+<div class="ttc" id="a_s_anim_notify_panel_8h_html_a7483aa7f043c623f8990a95320be654d"><div class="ttname"><a href="../../d2/d8e/_s_anim_notify_panel_8h.html#a7483aa7f043c623f8990a95320be654d">FString</a></div><div class="ttdeci">FOnGetScrubValue FString</div><div class="ttdef"><b>定义</b> SAnimNotifyPanel.h:38</div></div>
+<div class="ttc" id="a_s_anim_segments_panel_8h_html_a5feee5d8f9e49b79aaf8fa9c6ef73d33"><div class="ttname"><a href="../../d2/dc9/_s_anim_segments_panel_8h.html#a5feee5d8f9e49b79aaf8fa9c6ef73d33">FName</a></div><div class="ttdeci">int32 FName</div><div class="ttdef"><b>定义</b> SAnimSegmentsPanel.h:28</div></div>
+<div class="ttc" id="a_s_asset_view_8h_html_a1a1a4d5d4362e34cc0c99bb94fdcf2d4a3bd2acd7a468d69b03985ebe99042c18"><div class="ttname"><a href="../../d4/db2/_s_asset_view_8h.html#a1a1a4d5d4362e34cc0c99bb94fdcf2d4a3bd2acd7a468d69b03985ebe99042c18">EAssetViewCopyType::PackageName</a></div><div class="ttdeci">@ PackageName</div><div class="ttdef"><b>定义</b> SAssetView.h:108</div></div>
+<div class="ttc" id="a_s_color_picker_8h_html_a84461ad6c05d7bc638a383922014d918a689202409e48743b914713f96d93947c"><div class="ttname"><a href="../../d1/d75/_s_color_picker_8h.html#a84461ad6c05d7bc638a383922014d918a689202409e48743b914713f96d93947c">EColorPickerChannels::Value</a></div><div class="ttdeci">@ Value</div><div class="ttdef"><b>定义</b> SColorPicker.h:39</div></div>
+<div class="ttc" id="a_string_fwd_8h_html"><div class="ttname"><a href="../../d7/d6a/_string_fwd_8h.html">StringFwd.h</a></div></div>
+<div class="ttc" id="a_string_fwd_8h_html_a841e8ee04adcccfc0c78bd543334882f"><div class="ttname"><a href="../../d7/d6a/_string_fwd_8h.html#a841e8ee04adcccfc0c78bd543334882f">FStringView</a></div><div class="ttdeci">TStringView&lt; TCHAR &gt; FStringView</div><div class="ttdef"><b>定义</b> StringFwd.h:47</div></div>
+<div class="ttc" id="a_tuple_fwd_8h_html_a2876748d27cdabd8f68a5536f6580565"><div class="ttname"><a href="../../db/da7/_tuple_fwd_8h.html#a2876748d27cdabd8f68a5536f6580565">TPair</a></div><div class="ttdeci">TTuple&lt; KeyType, ValueType &gt; TPair</div><div class="ttdef"><b>定义</b> TupleFwd.h:9</div></div>
+<div class="ttc" id="a_typed_block_allocator_8h_html"><div class="ttname"><a href="../../df/d0b/_typed_block_allocator_8h.html">TypedBlockAllocator.h</a></div></div>
+<div class="ttc" id="a_unique_ptr_8h_html"><div class="ttname"><a href="../../d8/df6/_unique_ptr_8h.html">UniquePtr.h</a></div></div>
+<div class="ttc" id="a_unreal_string_8h_html"><div class="ttname"><a href="../../d7/d9b/_unreal_string_8h.html">UnrealString.h</a></div></div>
+<div class="ttc" id="a_vulkan_submission_8h_html_aa4b3c8fa94b41c64030fd453ef8b865aaad4e206408c1c59bfb8a057ba7857446"><div class="ttname"><a href="../../d2/d5b/_vulkan_submission_8h.html#aa4b3c8fa94b41c64030fd453ef8b865aaad4e206408c1c59bfb8a057ba7857446">EVulkanSyncPointType::Context</a></div><div class="ttdeci">@ Context</div><div class="ttdef"><b>定义</b> VulkanSubmission.h:38</div></div>
+<div class="ttc" id="a_widget_blueprint_8h_html_a68b5757cf2c065c5c207be23f50635e6a0f69b9dda83068a219d49c3792b00983"><div class="ttname"><a href="../../d2/dbe/_widget_blueprint_8h.html#a68b5757cf2c065c5c207be23f50635e6a0f69b9dda83068a219d49c3792b00983">EThumbnailPreviewSizeMode::Desired</a></div><div class="ttdeci">@ Desired</div><div class="ttdef"><b>定义</b> WidgetBlueprint.h:191</div></div>
+<div class="ttc" id="aclass_f_asset_package_data_html"><div class="ttname"><a href="../../de/d11/class_f_asset_package_data.html">FAssetPackageData</a></div><div class="ttdef"><b>定义</b> AssetData.h:944</div></div>
+<div class="ttc" id="aclass_f_name_html"><div class="ttname"><a href="../../d5/dd5/class_f_name.html">FName</a></div><div class="ttdef"><b>定义</b> NameTypes.h:632</div></div>
+<div class="ttc" id="aclass_i_asset_registry_html"><div class="ttname"><a href="../../d9/ddd/class_i_asset_registry.html">IAssetRegistry</a></div><div class="ttdef"><b>定义</b> IAssetRegistry.h:265</div></div>
+<div class="ttc" id="aclass_i_cooked_package_writer_html"><div class="ttname"><a href="../../d9/d36/class_i_cooked_package_writer.html">ICookedPackageWriter</a></div><div class="ttdef"><b>定义</b> PackageWriter.h:334</div></div>
+<div class="ttc" id="aclass_i_target_platform_html"><div class="ttname"><a href="../../d5/d9e/class_i_target_platform.html">ITargetPlatform</a></div><div class="ttdef"><b>定义</b> ITargetPlatform.h:38</div></div>
+<div class="ttc" id="aclass_t_array_html"><div class="ttname"><a href="../../d6/db1/class_t_array.html">TArray</a></div><div class="ttdef"><b>定义</b> Array.h:768</div></div>
+<div class="ttc" id="aclass_t_bit_array_html"><div class="ttname"><a href="../../df/d02/class_t_bit_array.html">TBitArray</a></div><div class="ttdef"><b>定义</b> BitArray.h:361</div></div>
+<div class="ttc" id="aclass_t_map_html"><div class="ttname"><a href="../../da/d41/class_t_map.html">TMap</a></div><div class="ttdef"><b>定义</b> IAndroidDeviceDetection.h:12</div></div>
+<div class="ttc" id="aclass_t_ring_buffer_html"><div class="ttname"><a href="../../df/d63/class_t_ring_buffer.html">TRingBuffer</a></div><div class="ttdef"><b>定义</b> RingBuffer.h:135</div></div>
+<div class="ttc" id="aclass_u_cook_on_the_fly_server_html"><div class="ttname"><a href="../../d5/dfe/class_u_cook_on_the_fly_server.html">UCookOnTheFlyServer</a></div><div class="ttdef"><b>定义</b> CookOnTheFlyServer.h:265</div></div>
+<div class="ttc" id="aclass_u_e_1_1_cook_1_1_f_package_artifacts_html"><div class="ttname"><a href="../../da/d68/class_u_e_1_1_cook_1_1_f_package_artifacts.html">UE::Cook::FPackageArtifacts</a></div><div class="ttdef"><b>定义</b> CookPackageArtifacts.h:214</div></div>
+<div class="ttc" id="aclass_u_e_1_1_cook_1_1_f_request_cluster_html_a10db7d179c18128f52f2a237e14e814a"><div class="ttname"><a href="../../d6/df0/class_u_e_1_1_cook_1_1_f_request_cluster.html#a10db7d179c18128f52f2a237e14e814a">UE::Cook::FRequestCluster::NeedsProcessing</a></div><div class="ttdeci">bool NeedsProcessing() const</div><div class="ttdef"><b>定义</b> CookRequestCluster.h:693</div></div>
+<div class="ttc" id="aclass_u_e_1_1_cook_1_1_f_request_cluster_html_a16a3acd2f74f622d57ee6caf2633a84a"><div class="ttname"><a href="../../d6/df0/class_u_e_1_1_cook_1_1_f_request_cluster.html#a16a3acd2f74f622d57ee6caf2633a84a">UE::Cook::FRequestCluster::OnRemoveSessionPlatform</a></div><div class="ttdeci">void OnRemoveSessionPlatform(const ITargetPlatform *TargetPlatform)</div><div class="ttdef"><b>定义</b> CookRequestCluster.cpp:653</div></div>
+<div class="ttc" id="aclass_u_e_1_1_cook_1_1_f_request_cluster_html_a35c52221e213f585f7b9565e2713cb0a"><div class="ttname"><a href="../../d6/df0/class_u_e_1_1_cook_1_1_f_request_cluster.html#a35c52221e213f585f7b9565e2713cb0a">UE::Cook::FRequestCluster::OnNewReachablePlatforms</a></div><div class="ttdeci">void OnNewReachablePlatforms(FPackageData *PackageData)</div><div class="ttdef"><b>定义</b> CookRequestCluster.cpp:634</div></div>
+<div class="ttc" id="aclass_u_e_1_1_cook_1_1_f_request_cluster_html_a56e7ec4d3a76f24c8e3bebc929891802"><div class="ttname"><a href="../../d6/df0/class_u_e_1_1_cook_1_1_f_request_cluster.html#a56e7ec4d3a76f24c8e3bebc929891802">UE::Cook::FRequestCluster::~FRequestCluster</a></div><div class="ttdeci">~FRequestCluster()</div><div class="ttdef"><b>定义</b> CookRequestCluster.cpp:133</div></div>
+<div class="ttc" id="aclass_u_e_1_1_cook_1_1_f_request_cluster_html_a63115276c171b0986f54b7ee7a541f56"><div class="ttname"><a href="../../d6/df0/class_u_e_1_1_cook_1_1_f_request_cluster.html#a63115276c171b0986f54b7ee7a541f56">UE::Cook::FRequestCluster::RemovePackageData</a></div><div class="ttdeci">void RemovePackageData(FPackageData *PackageData)</div><div class="ttdef"><b>定义</b> CookRequestCluster.cpp:618</div></div>
+<div class="ttc" id="aclass_u_e_1_1_cook_1_1_f_request_cluster_html_a6447b439b664948cccc5fc1ad260c0cd"><div class="ttname"><a href="../../d6/df0/class_u_e_1_1_cook_1_1_f_request_cluster.html#a6447b439b664948cccc5fc1ad260c0cd">UE::Cook::FRequestCluster::GetLocalizationReferences</a></div><div class="ttdeci">static TConstArrayView&lt; FName &gt; GetLocalizationReferences(FName PackageName, UCookOnTheFlyServer &amp;InCOTFS)</div><div class="ttdef"><b>定义</b> CookRequestCluster.cpp:2964</div></div>
+<div class="ttc" id="aclass_u_e_1_1_cook_1_1_f_request_cluster_html_a666ee3eb10e913590d3e68445b765b3f"><div class="ttname"><a href="../../d6/df0/class_u_e_1_1_cook_1_1_f_request_cluster.html#a666ee3eb10e913590d3e68445b765b3f">UE::Cook::FRequestCluster::IsRequestCookable</a></div><div class="ttdeci">static void IsRequestCookable(const ITargetPlatform *TargetPlatform, const FPackageData &amp;PackageData, UCookOnTheFlyServer &amp;COTFS, ESuppressCookReason &amp;OutReason, bool &amp;bOutCookable, bool &amp;bOutExplorable)</div><div class="ttdef"><b>定义</b> CookRequestCluster.cpp:2762</div></div>
+<div class="ttc" id="aclass_u_e_1_1_cook_1_1_f_request_cluster_html_a6a80b83f0e2e1b9c85b927ac8d5ac795"><div class="ttname"><a href="../../d6/df0/class_u_e_1_1_cook_1_1_f_request_cluster.html#a6a80b83f0e2e1b9c85b927ac8d5ac795">UE::Cook::FRequestCluster::OnBeforePlatformAddedToSession</a></div><div class="ttdeci">void OnBeforePlatformAddedToSession(const ITargetPlatform *TargetPlatform)</div><div class="ttdef"><b>定义</b> CookRequestCluster.cpp:642</div></div>
+<div class="ttc" id="aclass_u_e_1_1_cook_1_1_f_request_cluster_html_a9617c606dd9339893cfb9aa71a8f603c"><div class="ttname"><a href="../../d6/df0/class_u_e_1_1_cook_1_1_f_request_cluster.html#a9617c606dd9339893cfb9aa71a8f603c">UE::Cook::FRequestCluster::Process</a></div><div class="ttdeci">void Process(const FCookerTimer &amp;CookerTimer, bool &amp;bOutComplete)</div><div class="ttdef"><b>定义</b> CookRequestCluster.cpp:416</div></div>
+<div class="ttc" id="aclass_u_e_1_1_cook_1_1_f_request_cluster_html_aaa8944dce760d421179cbdb9d73c604d"><div class="ttname"><a href="../../d6/df0/class_u_e_1_1_cook_1_1_f_request_cluster.html#aaa8944dce760d421179cbdb9d73c604d">UE::Cook::FRequestCluster::NumPackageDatas</a></div><div class="ttdeci">int32 NumPackageDatas() const</div><div class="ttdef"><b>定义</b> CookRequestCluster.h:698</div></div>
+<div class="ttc" id="aclass_u_e_1_1_cook_1_1_f_request_cluster_html_aac5b632041202611a615eff9321e8320"><div class="ttname"><a href="../../d6/df0/class_u_e_1_1_cook_1_1_f_request_cluster.html#aac5b632041202611a615eff9321e8320">UE::Cook::FRequestCluster::GetAssetManagerReferences</a></div><div class="ttdeci">static TArray&lt; FName &gt; GetAssetManagerReferences(FName PackageName)</div><div class="ttdef"><b>定义</b> CookRequestCluster.cpp:2977</div></div>
+<div class="ttc" id="aclass_u_e_1_1_cook_1_1_f_request_cluster_html_ab8454741fd0300f8b04675aba7e57da9"><div class="ttname"><a href="../../d6/df0/class_u_e_1_1_cook_1_1_f_request_cluster.html#ab8454741fd0300f8b04675aba7e57da9">UE::Cook::FRequestCluster::RemapTargetPlatforms</a></div><div class="ttdeci">void RemapTargetPlatforms(TMap&lt; ITargetPlatform *, ITargetPlatform * &gt; &amp;Remap)</div><div class="ttdef"><b>定义</b> CookRequestCluster.cpp:665</div></div>
+<div class="ttc" id="aclass_u_e_1_1_cook_1_1_f_request_cluster_html_abc91971f2818f037090b46feaedb259f"><div class="ttname"><a href="../../d6/df0/class_u_e_1_1_cook_1_1_f_request_cluster.html#abc91971f2818f037090b46feaedb259f">UE::Cook::FRequestCluster::ClearAndDetachOwnedPackageDatas</a></div><div class="ttdeci">void ClearAndDetachOwnedPackageDatas(TArray&lt; FPackageData * &gt; &amp;OutRequestsToLoad, TArray&lt; TPair&lt; FPackageData *, ESuppressCookReason &gt; &gt; &amp;OutRequestsToDemote, TMap&lt; FPackageData *, TArray&lt; FPackageData * &gt; &gt; &amp;OutRequestGraph)</div><div class="ttdef"><b>定义</b> CookRequestCluster.cpp:690</div></div>
+<div class="ttc" id="aclass_u_e_1_1_cook_1_1_f_request_cluster_html_ad104762a51deff9b8b184c8e7fa5fd41"><div class="ttname"><a href="../../d6/df0/class_u_e_1_1_cook_1_1_f_request_cluster.html#ad104762a51deff9b8b184c8e7fa5fd41">UE::Cook::FRequestCluster::FRequestCluster</a></div><div class="ttdeci">FRequestCluster(const FRequestCluster &amp;)=delete</div></div>
+<div class="ttc" id="aclass_u_e_1_1_cook_1_1_f_request_cluster_html_ad25847dbc82cabe846e3def9d1d37d40"><div class="ttname"><a href="../../d6/df0/class_u_e_1_1_cook_1_1_f_request_cluster.html#ad25847dbc82cabe846e3def9d1d37d40">UE::Cook::FRequestCluster::Contains</a></div><div class="ttdeci">bool Contains(FPackageData *PackageData) const</div><div class="ttdef"><b>定义</b> CookRequestCluster.cpp:675</div></div>
+<div class="ttc" id="aclass_u_e_1_1_cook_1_1_f_request_cluster_html_ae14272c2c1bbbb8f3f33b98a9b280221"><div class="ttname"><a href="../../d6/df0/class_u_e_1_1_cook_1_1_f_request_cluster.html#ae14272c2c1bbbb8f3f33b98a9b280221">UE::Cook::FRequestCluster::FRequestCluster</a></div><div class="ttdeci">FRequestCluster(UCookOnTheFlyServer &amp;COTFS, TArray&lt; FFilePlatformRequest &gt; &amp;&amp;InRequests)</div><div class="ttdef"><b>定义</b> CookRequestCluster.cpp:153</div></div>
+<div class="ttc" id="aclass_u_e_1_1_cook_1_1_f_request_cluster_html_aebc08f6af1bff8a1fc77ad2157fe7802"><div class="ttname"><a href="../../d6/df0/class_u_e_1_1_cook_1_1_f_request_cluster.html#aebc08f6af1bff8a1fc77ad2157fe7802">UE::Cook::FRequestCluster::FRequestCluster</a></div><div class="ttdeci">FRequestCluster(FRequestCluster &amp;&amp;)=delete</div></div>
+<div class="ttc" id="aclass_u_e_1_1_cook_1_1_f_request_cluster_html_af4c14ed555ffd94127730de2a1a6e5ff"><div class="ttname"><a href="../../d6/df0/class_u_e_1_1_cook_1_1_f_request_cluster.html#af4c14ed555ffd94127730de2a1a6e5ff">UE::Cook::FRequestCluster::EBuildDependencyQueueConstructorType</a></div><div class="ttdeci">EBuildDependencyQueueConstructorType</div><div class="ttdef"><b>定义</b> CookRequestCluster.h:62</div></div>
+<div class="ttc" id="aclass_u_e_1_1_cook_1_1_f_request_cluster_html_af4c14ed555ffd94127730de2a1a6e5ffaa62282d38afc02dcdce3d0e57507cf0d"><div class="ttname"><a href="../../d6/df0/class_u_e_1_1_cook_1_1_f_request_cluster.html#af4c14ed555ffd94127730de2a1a6e5ffaa62282d38afc02dcdce3d0e57507cf0d">UE::Cook::FRequestCluster::BuildDependencyQueue</a></div><div class="ttdeci">@ BuildDependencyQueue</div><div class="ttdef"><b>定义</b> CookRequestCluster.h:63</div></div>
+<div class="ttc" id="aclass_u_e_1_1_cook_1_1_f_request_cluster_html_afaa21d7305287b7916a73b3aa9e22318"><div class="ttname"><a href="../../d6/df0/class_u_e_1_1_cook_1_1_f_request_cluster.html#afaa21d7305287b7916a73b3aa9e22318">UE::Cook::FRequestCluster::GetPackagesToMarkNotInProgress</a></div><div class="ttdeci">int32 GetPackagesToMarkNotInProgress() const</div><div class="ttdef"><b>定义</b> CookRequestCluster.h:703</div></div>
+<div class="ttc" id="aclass_u_e_1_1_cook_1_1_f_request_queue_html"><div class="ttname"><a href="../../da/d28/class_u_e_1_1_cook_1_1_f_request_queue.html">UE::Cook::FRequestQueue</a></div><div class="ttdef"><b>定义</b> CookPackageData.h:1115</div></div>
+<div class="ttc" id="aclass_u_e_1_1_cook_1_1_t_package_data_map_html"><div class="ttname"><a href="../../d0/d65/class_u_e_1_1_cook_1_1_t_package_data_map.html">UE::Cook::TPackageDataMap</a></div><div class="ttdef"><b>定义</b> CookTypes.h:76</div></div>
+<div class="ttc" id="anamespace_u_e_1_1_cook_html"><div class="ttname"><a href="../../d6/d50/namespace_u_e_1_1_cook.html">UE::Cook</a></div><div class="ttdef"><b>定义</b> CookMetadata.cpp:14</div></div>
+<div class="ttc" id="anamespace_u_e_1_1_cook_html_a1f6ba5d278e26345053894665a5c50c1a51051038da9b71c1ce1a0b4f66e8176d"><div class="ttname"><a href="../../d6/d50/namespace_u_e_1_1_cook.html#a1f6ba5d278e26345053894665a5c50c1a51051038da9b71c1ce1a0b4f66e8176d">UE::Cook::ECookPhase::BuildDependencies</a></div><div class="ttdeci">@ BuildDependencies</div><div class="ttdef"><b>定义</b> CookTypes.h:299</div></div>
+<div class="ttc" id="anamespace_u_e_1_1_cook_html_a5db77c4af77056a6729311f8d0704220a419f3742e6de8e0ec4b22cce005e7630"><div class="ttname"><a href="../../d6/d50/namespace_u_e_1_1_cook.html#a5db77c4af77056a6729311f8d0704220a419f3742e6de8e0ec4b22cce005e7630">UE::Cook::ECookOnTheFlyNetworkServerProtocol::Platform</a></div><div class="ttdeci">@ Platform</div><div class="ttdef"><b>定义</b> CookOnTheFlyNetServer.h:23</div></div>
+<div class="ttc" id="anamespace_u_e_1_1_cook_html_ac509667a06871da447d06f2566173835"><div class="ttname"><a href="../../d6/d50/namespace_u_e_1_1_cook.html#ac509667a06871da447d06f2566173835">UE::Cook::EIncrementallyModifiedReason</a></div><div class="ttdeci">EIncrementallyModifiedReason</div><div class="ttdef"><b>定义</b> CookDiagnostics.h:39</div></div>
+<div class="ttc" id="anamespace_u_e_1_1_cook_html_ac51d3b00c794bca93a5cd7c0f27aca2e"><div class="ttname"><a href="../../d6/d50/namespace_u_e_1_1_cook.html#ac51d3b00c794bca93a5cd7c0f27aca2e">UE::Cook::ESuppressCookReason</a></div><div class="ttdeci">ESuppressCookReason</div><div class="ttdef"><b>定义</b> CookTypes.h:125</div></div>
+<div class="ttc" id="anamespace_u_e_1_1_cook_html_ac51d3b00c794bca93a5cd7c0f27aca2ea5d4ebb7c4f2eb9d4fd461418c2ee15f2"><div class="ttname"><a href="../../d6/d50/namespace_u_e_1_1_cook.html#ac51d3b00c794bca93a5cd7c0f27aca2ea5d4ebb7c4f2eb9d4fd461418c2ee15f2">UE::Cook::ESuppressCookReason::NotSuppressed</a></div><div class="ttdeci">@ NotSuppressed</div><div class="ttdef"><b>定义</b> CookTypes.h:127</div></div>
+<div class="ttc" id="anamespace_u_e_1_1_cook_html_af60798853b1be66d0555c445330517a5"><div class="ttname"><a href="../../d6/d50/namespace_u_e_1_1_cook.html#af60798853b1be66d0555c445330517a5">UE::Cook::EReachability</a></div><div class="ttdeci">EReachability</div><div class="ttdef"><b>定义</b> CookPackageData.h:177</div></div>
+<div class="ttc" id="anamespace_u_e_1_1_diff_writer_html_a4b1e1a3ee3a38711b132f26e9fccac70"><div class="ttname"><a href="../../d4/d53/namespace_u_e_1_1_diff_writer.html#a4b1e1a3ee3a38711b132f26e9fccac70">UE::DiffWriter::FPackageData</a></div><div class="ttdeci">UE::ArchiveStackTrace::FPackageData FPackageData</div><div class="ttdef"><b>定义</b> DiffWriterArchive.h:41</div></div>
+<div class="ttc" id="anamespace_u_e_1_1_package_name_html"><div class="ttname"><a href="../../d3/d43/namespace_u_e_1_1_package_name.html">UE::PackageName</a></div><div class="ttdef"><b>定义</b> MountPoint.cpp:9</div></div>
+<div class="ttc" id="apreprocessor_8c_html_adde6aaee8457bee49c2a92621fe22b79"><div class="ttname"><a href="../../dd/de9/preprocessor_8c.html#adde6aaee8457bee49c2a92621fe22b79">uint8</a></div><div class="ttdeci">unsigned char uint8</div><div class="ttdef"><b>定义</b> preprocessor.c:65</div></div>
+<div class="ttc" id="astruct_u_e_1_1_cook_1_1_f_cooker_timer_html"><div class="ttname"><a href="../../da/df8/struct_u_e_1_1_cook_1_1_f_cooker_timer.html">UE::Cook::FCookerTimer</a></div><div class="ttdef"><b>定义</b> CookTypes.h:306</div></div>
+<div class="ttc" id="astruct_u_e_1_1_cook_1_1_f_discovery_queue_element_html"><div class="ttname"><a href="../../d9/df5/struct_u_e_1_1_cook_1_1_f_discovery_queue_element.html">UE::Cook::FDiscoveryQueueElement</a></div><div class="ttdef"><b>定义</b> CookPackageData.h:1102</div></div>
+<div class="ttc" id="astruct_u_e_1_1_cook_1_1_f_file_platform_request_html"><div class="ttname"><a href="../../d4/d95/struct_u_e_1_1_cook_1_1_f_file_platform_request.html">UE::Cook::FFilePlatformRequest</a></div><div class="ttdef"><b>定义</b> CookRequests.h:34</div></div>
+<div class="ttc" id="astruct_u_e_1_1_cook_1_1_f_incrementally_modified_context_html"><div class="ttname"><a href="../../de/d15/struct_u_e_1_1_cook_1_1_f_incrementally_modified_context.html">UE::Cook::FIncrementallyModifiedContext</a></div><div class="ttdef"><b>定义</b> CookDiagnostics.h:53</div></div>
+<div class="ttc" id="astruct_u_e_1_1_cook_1_1_f_package_data_html"><div class="ttname"><a href="../../df/d00/struct_u_e_1_1_cook_1_1_f_package_data.html">UE::Cook::FPackageData</a></div><div class="ttdef"><b>定义</b> CookPackageData.h:371</div></div>
+<div class="ttc" id="astruct_u_e_1_1_cook_1_1_f_package_datas_html"><div class="ttname"><a href="../../d5/dbb/struct_u_e_1_1_cook_1_1_f_package_datas.html">UE::Cook::FPackageDatas</a></div><div class="ttdef"><b>定义</b> CookPackageData.h:1235</div></div>
+<div class="ttc" id="astruct_u_e_1_1_cook_1_1_f_package_platform_data_html"><div class="ttname"><a href="../../df/d3b/struct_u_e_1_1_cook_1_1_f_package_platform_data.html">UE::Cook::FPackagePlatformData</a></div><div class="ttdef"><b>定义</b> CookPackageData.h:210</div></div>
+<div class="ttc" id="astruct_u_e_1_1_cook_1_1_f_package_tracker_html"><div class="ttname"><a href="../../dc/d30/struct_u_e_1_1_cook_1_1_f_package_tracker.html">UE::Cook::FPackageTracker</a></div><div class="ttdef"><b>定义</b> PackageTracker.h:248</div></div>
+<div class="ttc" id="astruct_u_e_1_1_cook_1_1_f_request_cluster_1_1_f_query_vertex_batch_1_1_f_platform_data_html"><div class="ttname"><a href="../../d2/d28/struct_u_e_1_1_cook_1_1_f_request_cluster_1_1_f_query_vertex_batch_1_1_f_platform_data.html">UE::Cook::FRequestCluster::FQueryVertexBatch::FPlatformData</a></div><div class="ttdef"><b>定义</b> CookRequestCluster.h:264</div></div>
+<div class="ttc" id="astruct_u_e_1_1_cook_1_1_f_request_cluster_1_1_f_query_vertex_batch_1_1_f_platform_data_html_a3e2ad539f657d26b22e041c414ce115f"><div class="ttname"><a href="../../d2/d28/struct_u_e_1_1_cook_1_1_f_request_cluster_1_1_f_query_vertex_batch_1_1_f_platform_data.html#a3e2ad539f657d26b22e041c414ce115f">UE::Cook::FRequestCluster::FQueryVertexBatch::FPlatformData::PackageIds</a></div><div class="ttdeci">TArray&lt; FPackageIncrementalCookId &gt; PackageIds</div><div class="ttdef"><b>定义</b> CookRequestCluster.h:265</div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+</div><!-- container -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a href="../../dir_0b6ee6e7e9547e675db4add2e5de97da.html">Engine</a></li><li class="navelem"><a href="../../dir_9579d1ecb2c7bf48cbe1049c41745cb4.html">Source</a></li><li class="navelem"><a href="../../dir_c6cb6fb3292d721ac39edcf45c3f2a55.html">Editor</a></li><li class="navelem"><a href="../../dir_846583fd8d9b90caabce9f6de5e6374e.html">UnrealEd</a></li><li class="navelem"><a href="../../dir_4fa8079517445a302e55b3b012d75c37.html">Private</a></li><li class="navelem"><a href="../../dir_3fa364fcd8c49e2518fa98ec614c8abd.html">Cooker</a></li><li class="navelem"><a href="../../d6/d49/_cook_request_cluster_8h.html">CookRequestCluster.h</a></li>
+    <li class="footer">制作者 <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.15.0 </li>
+  </ul>
+</div>
+</body>
+</html>

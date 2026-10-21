@@ -1,0 +1,5 @@
+var class_u_e_1_1_net_1_1_t_sample_min_max_avg_3_01_e_min_max_value_mode_1_1_per_time_seconds_00_01_min_max_time_seconds_01_4 =
+[
+    [ "AddSample", "d3/d3d/class_u_e_1_1_net_1_1_t_sample_min_max_avg_3_01_e_min_max_value_mode_1_1_per_time_seconds_00_01_min_max_time_seconds_01_4.html#a0b21c498cb8098c9e1f10c7325d6a920", null ],
+    [ "PeekMeasurement", "d3/d3d/class_u_e_1_1_net_1_1_t_sample_min_max_avg_3_01_e_min_max_value_mode_1_1_per_time_seconds_00_01_min_max_time_seconds_01_4.html#aa58204aac793828aa5a9444355f5500d", null ]
+];

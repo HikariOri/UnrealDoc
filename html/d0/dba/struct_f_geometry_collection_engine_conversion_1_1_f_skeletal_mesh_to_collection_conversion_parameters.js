@@ -1,0 +1,4 @@
+var struct_f_geometry_collection_engine_conversion_1_1_f_skeletal_mesh_to_collection_conversion_parameters =
+[
+    [ "bParentAllBonesUnderNewRoot", "d0/dba/struct_f_geometry_collection_engine_conversion_1_1_f_skeletal_mesh_to_collection_conversion_parameters.html#aeec582fc890e6d46e7846098b0bb6334", null ]
+];

@@ -1,0 +1,2194 @@
+<!-- HTML header for doxygen 1.15.0-->
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh">
+<head>
+  <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=11" />
+  <meta name="generator" content="Doxygen 1.15.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>UE 5.8.4: Engine/Source/Runtime/Renderer/Private/BasePassRendering.cpp 文件参考</title>
+  <link rel="icon" href="../../EdIconDefault.bmp" type="image/x-icon" />
+  <link href="../../tabs.css" rel="stylesheet" type="text/css" />
+  <script type="text/javascript" src="../../jquery.js"></script>
+  <script type="text/javascript" src="../../dynsections.js"></script>
+  <link href="../../navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../navtreedata.js"></script>
+<script type="text/javascript" src="../../navtree.js"></script>
+<script type="text/javascript" src="../../cookie.js"></script>
+  <link href="../../search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../search/searchdata.js"></script>
+<script type="text/javascript" src="../../search/search.js"></script>
+  <script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  extensions: ["tex2jax.js"],
+  jax: ["input/TeX","output/HTML-CSS"],
+});
+</script>
+<script type="text/javascript" async="async" src="https://cdn.jsdelivr.net/npm/mathjax@2/MathJax.js"></script>
+  <link href="../../doxygen.css" rel="stylesheet" type="text/css" />
+  <link href="../../doxygen-awesome.css" rel="stylesheet" type="text/css"/>
+<link href="../../doxygen-awesome-sidebar-only.css" rel="stylesheet" type="text/css"/>
+<link href="../../doxygen-awesome-sidebar-only-darkmode-toggle.css" rel="stylesheet" type="text/css"/>
+  <!-- ... other metadata & script includes ... -->
+  <script type="text/javascript" src="../../doxygen-awesome-darkmode-toggle.js"></script>
+  <script type="text/javascript">
+    DoxygenAwesomeDarkModeToggle.title = "Zwischen hellem/dunklem Modus wechseln"
+    DoxygenAwesomeDarkModeToggle.lightModeIcon = '🌞'
+    // icon from https://fonts.google.com/icons
+    DoxygenAwesomeDarkModeToggle.darkModeIcon = `<svg xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 24 24" height="24px" viewBox="0 0 24 24" width="24px" fill="#009793"><g><rect fill="none" height="24" width="24"/></g><g><g><path d="M8.1,14.15C9.77,14.63,11,16.17,11,18c0,0.68-0.19,1.31-0.48,1.87c0.48,0.09,0.97,0.14,1.48,0.14 c1.48,0,2.9-0.41,4.13-1.15c-2.62-0.92-5.23-2.82-6.8-5.86C7.74,9.94,7.78,7.09,8.29,4.9c-2.57,1.33-4.3,4.01-4.3,7.1c0,0,0,0,0,0 c0.01,0,0.01,0,0.02,0C5.66,12,7.18,12.83,8.1,14.15z" opacity=".3"/><path d="M19.78,17.51c-2.47,0-6.57-1.33-8.68-5.43C8.77,7.57,10.6,3.6,11.63,2.01C6.27,2.2,1.98,6.59,1.98,12 c0,0.14,0.02,0.28,0.02,0.42C2.61,12.16,3.28,12,3.98,12c0,0,0,0,0,0c0-3.09,1.73-5.77,4.3-7.1C7.78,7.09,7.74,9.94,9.32,13 c1.57,3.04,4.18,4.95,6.8,5.86c-1.23,0.74-2.65,1.15-4.13,1.15c-0.5,0-1-0.05-1.48-0.14c-0.37,0.7-0.94,1.27-1.64,1.64 c0.98,0.32,2.03,0.5,3.11,0.5c3.5,0,6.58-1.8,8.37-4.52C20.18,17.5,19.98,17.51,19.78,17.51z"/><path d="M7,16l-0.18,0C6.4,14.84,5.3,14,4,14c-1.66,0-3,1.34-3,3s1.34,3,3,3c0.62,0,2.49,0,3,0c1.1,0,2-0.9,2-2 C9,16.9,8.1,16,7,16z"/></g></g></svg>`
+    DoxygenAwesomeDarkModeToggle.init()
+  </script>
+  <script type="text/javascript" src="../../doxygen-awesome-fragment-copy-button.js"></script>
+  <script type="text/javascript">
+    DoxygenAwesomeFragmentCopyButton.title = "In die Zwischenablage kopieren"
+    // DoxygenAwesomeFragmentCopyButton.copyIcon = `<svg ...>`
+    // DoxygenAwesomeFragmentCopyButton.successIcon = `<svg ...>`
+    DoxygenAwesomeFragmentCopyButton.init()
+  </script>
+  <script type="text/javascript" src="../../doxygen-awesome-paragraph-link.js"></script>
+  <script type="text/javascript">
+    DoxygenAwesomeParagraphLink.title = "Abschnitt verknüpfen"
+    DoxygenAwesomeParagraphLink.icon = "¶"
+    DoxygenAwesomeParagraphLink.init()
+  </script>
+  <script type="text/javascript" src="../../doxygen-awesome-interactive-toc.js"></script>
+  <script type="text/javascript">
+    DoxygenAwesomeInteractiveToc.topOffset = 45
+    DoxygenAwesomeInteractiveToc.hideMobileMenu = false
+    DoxygenAwesomeInteractiveToc.init()
+  </script>
+</head>
+<body>
+    <div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+      <div id="titlearea">
+        <table cellspacing="0" cellpadding="0">
+          <tbody>
+            <tr id="projectrow">
+              <td id="projectlogo"><img alt="Logo" src="../../EdIconDefault.bmp"  /></td>
+              <td id="projectalign">
+                <div id="projectname">UE 5.8.4
+                </div>
+                <div id="projectbrief">Unreal Engine</div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <!-- end header part -->
+<!-- 制作者 Doxygen 1.15.0 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "../../search/",'.html');
+</script>
+<script type="text/javascript">
+$(function() { codefold.init(); });
+</script>
+<script type="text/javascript" src="../../menudata.js"></script>
+<script type="text/javascript" src="../../menu.js"></script>
+<script type="text/javascript">
+$(function() {
+  initMenu('../../',true,false,'search.php','搜索',true);
+  $(function() { init_search(); });
+});
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(function(){initNavTree('d3/dcf/_base_pass_rendering_8cpp.html','../../',''); });
+</script>
+<div id="container">
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">载入中...</div>
+<div class="SRStatus" id="Searching">搜索中...</div>
+<div class="SRStatus" id="NoMatches">未找到</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">BasePassRendering.cpp 文件参考</div></div>
+</div><!--header-->
+<div class="contents">
+<div class="textblock"><code>#include &quot;<a class="el" href="../../d3/dc8/_base_pass_rendering_8h_source.html">BasePassRendering.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../dc/d5e/_core_minimal_8h_source.html">CoreMinimal.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../db/dab/_anisotropy_rendering_8h_source.html">AnisotropyRendering.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../da/de8/_batched_elements_8h_source.html">BatchedElements.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d2/d2b/_clear_quad_8h_source.html">ClearQuad.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../dd/d92/_array_view_8h_source.html">Containers/ArrayView.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d2/dd6/_indirect_array_8h_source.html">Containers/IndirectArray.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../df/d65/_static_array_8h_source.html">Containers/StaticArray.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d8/df3/_data_driven_shader_platform_info_8h_source.html">DataDrivenShaderPlatformInfo.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d7/dbe/_d_buffer_textures_8h_source.html">DBufferTextures.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d0/da0/_debug_probe_rendering_8h_source.html">DebugProbeRendering.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d8/d9a/_debug_view_mode_helpers_8h_source.html">DebugViewModeHelpers.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../da/dbd/_debug_view_mode_rendering_8h_source.html">DebugViewModeRendering.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../db/d71/_deferred_shading_renderer_8h_source.html">DeferredShadingRenderer.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d1/df2/_depth_rendering_8h_source.html">DepthRendering.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d2/daa/_editor_primitives_rendering_8h_source.html">EditorPrimitivesRendering.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../db/dd8/_engine_types_8h_source.html">Engine/EngineTypes.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../db/d47/_concurrent_linear_allocator_8h_source.html">Experimental/ConcurrentLinearAllocator.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d7/dad/_fog_rendering_8h_source.html">FogRendering.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../da/d9b/_g_buffer_info_8h_source.html">GBufferInfo.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../dd/d5a/_global_shader_8h_source.html">GlobalShader.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d4/dd9/_i_console_manager_8h_source.html">HAL/IConsoleManager.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../de/d8a/_instance_culling_context_8h_source.html">InstanceCulling/InstanceCullingContext.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../df/dd7/_instance_culling_manager_8h_source.html">InstanceCulling/InstanceCullingManager.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d1/d96/_light_function_atlas_8h_source.html">LightFunctionAtlas.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../df/d83/_light_map_density_rendering_8h_source.html">LightMapDensityRendering.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d0/d0a/_light_map_rendering_8h_source.html">LightMapRendering.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../da/d95/_local_fog_volume_rendering_8h_source.html">LocalFogVolumeRendering.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d7/dcd/_log_macros_8h_source.html">Logging/LogMacros.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d8/db2/_material_domain_8h_source.html">MaterialDomain.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d3/d09/_material_8h_source.html">Materials/Material.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d1/de7/_material_render_proxy_8h_source.html">Materials/MaterialRenderProxy.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../dd/d3d/_material_shader_8h_source.html">MaterialShader.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d3/db5/_material_shader_type_8h_source.html">MaterialShaderType.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d2/d3d/_material_shared_8h_source.html">MaterialShared.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d9/df8/_color_8h_source.html">Math/Color.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d4/d05/_mesh_batch_8h_source.html">MeshBatch.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d2/d08/_mesh_draw_commands_8h_source.html">MeshDrawCommands.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d7/dbc/_mesh_material_shader_8h_source.html">MeshMaterialShader.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../dd/def/_mesh_material_shader_type_8h_source.html">MeshMaterialShaderType.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../db/dbe/_mesh_pass_processor_8h_source.html">MeshPassProcessor.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d3/d4c/_mesh_pass_processor_8inl_source.html">MeshPassProcessor.inl</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../db/dca/_large_world_coordinates_8h_source.html">Misc/LargeWorldCoordinates.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../de/d7c/_multi_g_p_u_8h_source.html">MultiGPU.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d2/dc5/_nanite_cull_raster_8h_source.html">Nanite/NaniteCullRaster.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d5/da1/_nanite_shading_8h_source.html">Nanite/NaniteShading.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d9/d23/_nanite_shared_8h_source.html">Nanite/NaniteShared.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../dd/dd7/_nanite_visualize_8h_source.html">Nanite/NaniteVisualize.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../de/d67/_o_i_t_8h_source.html">OIT/OIT.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../da/ddb/_one_color_shader_8h_source.html">OneColorShader.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../df/db5/_pipeline_state_cache_8h_source.html">PipelineStateCache.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d5/db6/_pixel_format_8h_source.html">PixelFormat.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d2/d4b/_planar_reflection_rendering_8h_source.html">PlanarReflectionRendering.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../dc/d3a/_primitive_scene_info_8h_source.html">PrimitiveSceneInfo.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d8/d3e/_primitive_scene_proxy_8h_source.html">PrimitiveSceneProxy.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../df/d7e/_cpu_profiler_trace_8h_source.html">ProfilingDebugging/CpuProfilerTrace.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d3/df9/_p_s_o_precache_8h_source.html">PSOPrecache.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d6/ddd/_p_s_o_precache_material_8h_source.html">PSOPrecacheMaterial.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d8/d9e/_p_s_o_precache_settings_8h_source.html">PSOPrecacheSettings.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d8/d57/_reflection_environment_8h_source.html">ReflectionEnvironment.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d1/ddc/_render_core_8h_source.html">RenderCore.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../dd/da6/_renderer_interface_8h_source.html">RendererInterface.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d8/db3/_render_graph_builder_8h_source.html">RenderGraphBuilder.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d5/d32/_render_graph_utils_8h_source.html">RenderGraphUtils.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d5/d7b/_render_resource_8h_source.html">RenderResource.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../de/d01/_render_utils_8h_source.html">RenderUtils.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d5/dfb/_r_h_i_8h_source.html">RHI.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../da/db9/_r_h_i_breadcrumbs_8h_source.html">RHIBreadcrumbs.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d1/d1d/_r_h_i_command_list_8h_source.html">RHICommandList.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../db/dec/_r_h_i_resources_8h_source.html">RHIResources.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d8/d3d/_r_h_i_static_states_8h_source.html">RHIStaticStates.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../dc/d17/_scene_core_8h_source.html">SceneCore.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d0/d94/_scene_interface_8h_source.html">SceneInterface.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../df/d35/_scene_management_8h_source.html">SceneManagement.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d5/dbc/_scene_private_8h_source.html">ScenePrivate.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d6/dda/_scene_rendering_8h_source.html">SceneRendering.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d4/dba/_scene_textures_8h_source.html">SceneTextures.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d9/d75/_scene_textures_config_8h_source.html">SceneTexturesConfig.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d7/d51/_scene_types_8h_source.html">SceneTypes.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d5/d3b/_scene_utils_8h_source.html">SceneUtils.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../dc/d7a/_scene_view_8h_source.html">SceneView.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d8/dc9/_scene_view_extension_8h_source.html">SceneViewExtension.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d8/d34/_shader_8h_source.html">Shader.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d5/d25/_shader_compiler_8h_source.html">ShaderCompiler.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d9/d2c/_shader_parameter_macros_8h_source.html">ShaderParameterMacros.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../de/d64/_shader_parameter_struct_8h_source.html">ShaderParameterStruct.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d6/d82/_shader_parameter_utils_8h_source.html">ShaderParameterUtils.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d1/d43/_shadow_rendering_8h_source.html">ShadowRendering.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../db/d35/_show_flags_8h_source.html">ShowFlags.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d3/d48/_stats_8h_source.html">Stats/Stats.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d1/df1/_substrate_8h_source.html">Substrate/Substrate.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d0/d2a/_system_textures_8h_source.html">SystemTextures.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../df/d03/_translucent_pass_resource_8h_source.html">TranslucentPassResource.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d6/d2f/_translucent_rendering_8h_source.html">TranslucentRendering.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d3/de1/_uniform_buffer_8h_source.html">UniformBuffer.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../db/d56/_variable_rate_shading_image_manager_8h_source.html">VariableRateShadingImageManager.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d5/d1d/_velocity_rendering_8h_source.html">VelocityRendering.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d5/d36/_vertex_factory_8h_source.html">VertexFactory.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../db/de1/_virtual_shadow_map_array_8h_source.html">VirtualShadowMaps/VirtualShadowMapArray.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d3/dd1/_base_pass_rendering_8inl_source.html">BasePassRendering.inl</a>&quot;</code><br />
+</div><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-define-members" class="groupheader"><a id="define-members" name="define-members"></a>
+宏定义</h2></td></tr>
+<tr class="memitem:a79554946c228e8710204f8fe5e232efc" id="r_a79554946c228e8710204f8fe5e232efc"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a79554946c228e8710204f8fe5e232efc">IMPLEMENT_BASEPASS_MESHSHADER_TYPE</a>(LightMapPolicyType,  LightMapPolicyName)</td></tr>
+<tr class="memitem:ac674ae4270f4d565a313d7e871b3c735" id="r_ac674ae4270f4d565a313d7e871b3c735"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac674ae4270f4d565a313d7e871b3c735">IMPLEMENT_BASEPASS_VERTEXSHADER_TYPE</a>(LightMapPolicyType,  LightMapPolicyName)</td></tr>
+<tr class="memitem:a7700539cf4b01638c6b25bc132136d2f" id="r_a7700539cf4b01638c6b25bc132136d2f"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7700539cf4b01638c6b25bc132136d2f">IMPLEMENT_BASEPASS_PIXELSHADER_TYPE</a>(LightMapPolicyType,  LightMapPolicyName,  GBufferLayout,  LayoutName)</td></tr>
+<tr class="memitem:a1766ec0b0eed68f211987c2eee00c034" id="r_a1766ec0b0eed68f211987c2eee00c034"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a1766ec0b0eed68f211987c2eee00c034">IMPLEMENT_BASEPASS_COMPUTESHADER_TYPE</a>(LightMapPolicyType,  LightMapPolicyName,  bVoxel,  VoxelName,  bCurve,  CurveName)</td></tr>
+<tr class="memitem:a28518c531fbc8526618ec18df9a77bdf" id="r_a28518c531fbc8526618ec18df9a77bdf"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a28518c531fbc8526618ec18df9a77bdf">IMPLEMENT_BASEPASS_WORKGRAPHSHADER_TYPE</a>(LightMapPolicyType,  LightMapPolicyName,  bVoxel,  VoxelName,  bCurve,  CurveName)</td></tr>
+<tr class="memitem:a6f1bb60b5ac549d5d57ed18d8788be77" id="r_a6f1bb60b5ac549d5d57ed18d8788be77"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6f1bb60b5ac549d5d57ed18d8788be77">IMPLEMENT_BASEPASS_LIGHTMAPPED_SHADER_TYPE</a>(LightMapPolicyType,  LightMapPolicyName)</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-func-members" class="groupheader"><a id="func-members" name="func-members"></a>
+函数</h2></td></tr>
+<tr class="memitem:a88442c9e33a59912784aa9a86db22d49" id="r_a88442c9e33a59912784aa9a86db22d49"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a88442c9e33a59912784aa9a86db22d49">IMPLEMENT_GLOBAL_SHADER_PARAMETER_STRUCT</a> (FSharedBasePassUniformParameters, &quot;BasePass&quot;)</td></tr>
+<tr class="memitem:a1ffd966290f499a9be68397718437ceb" id="r_a1ffd966290f499a9be68397718437ceb"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a1ffd966290f499a9be68397718437ceb">IMPLEMENT_STATIC_UNIFORM_BUFFER_STRUCT</a> (FOpaqueBasePassUniformParameters, &quot;OpaqueBasePass&quot;, SceneTextures)</td></tr>
+<tr class="memitem:a960b299fa2f31c4056768d4fd8c9326e" id="r_a960b299fa2f31c4056768d4fd8c9326e"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a960b299fa2f31c4056768d4fd8c9326e">IMPLEMENT_STATIC_UNIFORM_BUFFER_STRUCT</a> (FTranslucentBasePassUniformParameters, &quot;TranslucentBasePass&quot;, SceneTextures)</td></tr>
+<tr class="memitem:a3986298330cce703355d3d4d9288d550" id="r_a3986298330cce703355d3d4d9288d550"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a3986298330cce703355d3d4d9288d550">IMPLEMENT_BASEPASS_LIGHTMAPPED_SHADER_TYPE</a> (<a class="el" href="../../d3/d2b/class_f_self_shadowed_translucency_policy.html">FSelfShadowedTranslucencyPolicy</a>, <a class="el" href="../../d3/d2b/class_f_self_shadowed_translucency_policy.html">FSelfShadowedTranslucencyPolicy</a>)</td></tr>
+<tr class="memitem:a3c637eef8086267a81af493ff2b2b078" id="r_a3c637eef8086267a81af493ff2b2b078"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a3c637eef8086267a81af493ff2b2b078">IMPLEMENT_BASEPASS_LIGHTMAPPED_SHADER_TYPE</a> (<a class="el" href="../../d4/d29/class_f_self_shadowed_cached_point_indirect_lighting_policy.html">FSelfShadowedCachedPointIndirectLightingPolicy</a>, <a class="el" href="../../d4/d29/class_f_self_shadowed_cached_point_indirect_lighting_policy.html">FSelfShadowedCachedPointIndirectLightingPolicy</a>)</td></tr>
+<tr class="memitem:a4732a4441135929a4d0a94288cf0f9ff" id="r_a4732a4441135929a4d0a94288cf0f9ff"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4732a4441135929a4d0a94288cf0f9ff">IMPLEMENT_BASEPASS_LIGHTMAPPED_SHADER_TYPE</a> (<a class="el" href="../../da/d27/class_f_self_shadowed_volumetric_lightmap_policy.html">FSelfShadowedVolumetricLightmapPolicy</a>, <a class="el" href="../../da/d27/class_f_self_shadowed_volumetric_lightmap_policy.html">FSelfShadowedVolumetricLightmapPolicy</a>)</td></tr>
+<tr class="memitem:a0790cda05d415ede7260cd7005d9baff" id="r_a0790cda05d415ede7260cd7005d9baff"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a0790cda05d415ede7260cd7005d9baff">IMPLEMENT_BASEPASS_LIGHTMAPPED_SHADER_TYPE</a> (<a class="el" href="../../d6/da1/class_t_uniform_light_map_policy.html">TUniformLightMapPolicy</a>&lt; <a class="el" href="../../d0/d0a/_light_map_rendering_8h.html#a715ca627c49d0e186c87dbffaece820aa7751396a7b095ab1cc31f49e0eab208d">LMP_NO_LIGHTMAP</a> &gt;, <a class="el" href="../../de/df4/struct_f_no_light_map_policy.html">FNoLightMapPolicy</a>)</td></tr>
+<tr class="memitem:a08af609f8fa693765a4f3a2c94ade1d5" id="r_a08af609f8fa693765a4f3a2c94ade1d5"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a08af609f8fa693765a4f3a2c94ade1d5">IMPLEMENT_BASEPASS_LIGHTMAPPED_SHADER_TYPE</a> (<a class="el" href="../../d6/da1/class_t_uniform_light_map_policy.html">TUniformLightMapPolicy</a>&lt; <a class="el" href="../../d0/d0a/_light_map_rendering_8h.html#a715ca627c49d0e186c87dbffaece820aa7a7e30756de9cbc94eb5794138b93e97">LMP_PRECOMPUTED_IRRADIANCE_VOLUME_INDIRECT_LIGHTING</a> &gt;, <a class="el" href="../../d5/d98/struct_f_precomputed_volumetric_lightmap_lighting_policy.html">FPrecomputedVolumetricLightmapLightingPolicy</a>)</td></tr>
+<tr class="memitem:a82654c4e656000f189a42b1231bdeae1" id="r_a82654c4e656000f189a42b1231bdeae1"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a82654c4e656000f189a42b1231bdeae1">IMPLEMENT_BASEPASS_LIGHTMAPPED_SHADER_TYPE</a> (<a class="el" href="../../d6/da1/class_t_uniform_light_map_policy.html">TUniformLightMapPolicy</a>&lt; <a class="el" href="../../d0/d0a/_light_map_rendering_8h.html#a715ca627c49d0e186c87dbffaece820aa34e654d96349dca6f2c0eb41db43f629">LMP_CACHED_VOLUME_INDIRECT_LIGHTING</a> &gt;, <a class="el" href="../../d2/d93/struct_f_cached_volume_indirect_lighting_policy.html">FCachedVolumeIndirectLightingPolicy</a>)</td></tr>
+<tr class="memitem:a44c3890728692039f2c78c83eeb72e2a" id="r_a44c3890728692039f2c78c83eeb72e2a"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a44c3890728692039f2c78c83eeb72e2a">IMPLEMENT_BASEPASS_LIGHTMAPPED_SHADER_TYPE</a> (<a class="el" href="../../d6/da1/class_t_uniform_light_map_policy.html">TUniformLightMapPolicy</a>&lt; <a class="el" href="../../d0/d0a/_light_map_rendering_8h.html#a715ca627c49d0e186c87dbffaece820aa9e6b637dfb4ebc3481320169e12940c6">LMP_CACHED_POINT_INDIRECT_LIGHTING</a> &gt;, <a class="el" href="../../d4/dce/struct_f_cached_point_indirect_lighting_policy.html">FCachedPointIndirectLightingPolicy</a>)</td></tr>
+<tr class="memitem:a21ba5daaf72a9d4c8a83b33d8f1eea2b" id="r_a21ba5daaf72a9d4c8a83b33d8f1eea2b"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a21ba5daaf72a9d4c8a83b33d8f1eea2b">IMPLEMENT_BASEPASS_LIGHTMAPPED_SHADER_TYPE</a> (<a class="el" href="../../d6/da1/class_t_uniform_light_map_policy.html">TUniformLightMapPolicy</a>&lt; <a class="el" href="../../d0/d0a/_light_map_rendering_8h.html#a715ca627c49d0e186c87dbffaece820aaf03f9b5f9145d9670faf6ad6494d8c57">LMP_LQ_LIGHTMAP</a> &gt;, TLightMapPolicyLQ)</td></tr>
+<tr class="memitem:a2f645192c8c888bf279cd6c991ca71fe" id="r_a2f645192c8c888bf279cd6c991ca71fe"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2f645192c8c888bf279cd6c991ca71fe">IMPLEMENT_BASEPASS_LIGHTMAPPED_SHADER_TYPE</a> (<a class="el" href="../../d6/da1/class_t_uniform_light_map_policy.html">TUniformLightMapPolicy</a>&lt; <a class="el" href="../../d0/d0a/_light_map_rendering_8h.html#a715ca627c49d0e186c87dbffaece820aa1a5b7e9673fbc5ff243a82515a902a60">LMP_HQ_LIGHTMAP</a> &gt;, TLightMapPolicyHQ)</td></tr>
+<tr class="memitem:a867f6c1a15334e92dbba55b5e3d6b6e3" id="r_a867f6c1a15334e92dbba55b5e3d6b6e3"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a867f6c1a15334e92dbba55b5e3d6b6e3">IMPLEMENT_BASEPASS_LIGHTMAPPED_SHADER_TYPE</a> (<a class="el" href="../../d6/da1/class_t_uniform_light_map_policy.html">TUniformLightMapPolicy</a>&lt; <a class="el" href="../../d0/d0a/_light_map_rendering_8h.html#a715ca627c49d0e186c87dbffaece820aac1284bf9458949510c43cb09ebc9cbbc">LMP_DISTANCE_FIELD_SHADOWS_AND_HQ_LIGHTMAP</a> &gt;, TDistanceFieldShadowsAndLightMapPolicyHQ)</td></tr>
+<tr class="memitem:a6397ba9d61d869d694b467849a3bbe28" id="r_a6397ba9d61d869d694b467849a3bbe28"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6397ba9d61d869d694b467849a3bbe28">IMPLEMENT_MATERIAL_SHADER_TYPE</a> (, <a class="el" href="../../de/dd1/class_f128_bit_r_t_base_pass_p_s.html">F128BitRTBasePassPS</a>, <a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;/Engine/<a class="el" href="../../d9/db1/namespace_private.html">Private</a>/BasePassPixelShader.usf&quot;), <a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;MainPS&quot;), <a class="el" href="../../da/dca/_r_h_i_definitions_8h.html#a0a3cc83cb6ebc79b66b43fae3ffee64eaf50bfe1c5c23e92a75ba64d89bcd3bfa">SF_Pixel</a>)</td></tr>
+<tr class="memitem:a84cfe0db1eba8450c773eb3384a91284" id="r_a84cfe0db1eba8450c773eb3384a91284"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a84cfe0db1eba8450c773eb3384a91284">DEFINE_GPU_DRAWCALL_STAT</a> (Basepass)</td></tr>
+<tr class="memitem:aff2893bdb07f819d3b7618ebeb7cbac7" id="r_aff2893bdb07f819d3b7618ebeb7cbac7"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aff2893bdb07f819d3b7618ebeb7cbac7">DECLARE_CYCLE_STAT</a> (<a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;DeferredShadingSceneRenderer ClearGBufferAtMaxZ&quot;), STAT_FDeferredShadingSceneRenderer_ClearGBufferAtMaxZ, STATGROUP_SceneRendering)</td></tr>
+<tr class="memitem:a1e8a41effff31a5eccbf6981bce399a2" id="r_a1e8a41effff31a5eccbf6981bce399a2"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a1e8a41effff31a5eccbf6981bce399a2">DECLARE_CYCLE_STAT</a> (<a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;DeferredShadingSceneRenderer ViewExtensionPostRenderBasePass&quot;), STAT_FDeferredShadingSceneRenderer_ViewExtensionPostRenderBasePass, STATGROUP_SceneRendering)</td></tr>
+<tr class="memitem:aa8dda742e7e5663b9b12ec38c9a452e6" id="r_aa8dda742e7e5663b9b12ec38c9a452e6"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa8dda742e7e5663b9b12ec38c9a452e6">DEFINE_GPU_STAT</a> (NaniteBasePass)</td></tr>
+<tr class="memitem:a5c4e5d19b8cfca0bac0b325bd88510cc" id="r_a5c4e5d19b8cfca0bac0b325bd88510cc"><td class="memTemplParams" colspan="2">template&lt;<a class="el" href="../../dd/de9/preprocessor_8c.html#a1134b580f8da4de94ca6b1de4d37975e">uint32</a> StencilRef&gt; </td></tr>
+<tr class="memitem:a5c4e5d19b8cfca0bac0b325bd88510cc template"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../df/d63/_typed_element_query_capabilities_8inl.html#a72343342ce64c0755563ee6c5e27868d">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5c4e5d19b8cfca0bac0b325bd88510cc">SetTranslucentPassDepthStencilState</a> (<a class="el" href="../../d7/d96/struct_f_mesh_pass_processor_render_state.html">FMeshPassProcessorRenderState</a> &amp;DrawRenderState, <a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a> bDisableDepthTest)</td></tr>
+<tr class="memitem:a38caaf853893138ea55775d4e5c1b1cc" id="r_a38caaf853893138ea55775d4e5c1b1cc"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a38caaf853893138ea55775d4e5c1b1cc">TranslucentRenderStateNeedsStencilMask</a> (const <a class="el" href="../../dc/d8e/class_f_material.html">FMaterial</a> &amp;Material, <a class="el" href="../../d0/d2e/namespace_e_translucency_pass.html#af872fc629ddab2c3af68359c0077563d">ETranslucencyPass::Type</a> InTranslucencyPassType)</td></tr>
+<tr class="memitem:a6d3b1414d472da9d26685f6ab7e72787" id="r_a6d3b1414d472da9d26685f6ab7e72787"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../df/d63/_typed_element_query_capabilities_8inl.html#a72343342ce64c0755563ee6c5e27868d">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6d3b1414d472da9d26685f6ab7e72787">SetTranslucentRenderState</a> (<a class="el" href="../../d7/d96/struct_f_mesh_pass_processor_render_state.html">FMeshPassProcessorRenderState</a> &amp;DrawRenderState, const <a class="el" href="../../dc/d8e/class_f_material.html">FMaterial</a> &amp;Material, const <a class="el" href="../../de/d49/_r_h_i_shader_platform_8h.html#a424c00593a28eb7ade584eea91161acd">EShaderPlatform</a> Platform, <a class="el" href="../../d0/d2e/namespace_e_translucency_pass.html#af872fc629ddab2c3af68359c0077563d">ETranslucencyPass::Type</a> InTranslucencyPassType)</td></tr>
+<tr class="memitem:aeef82566e9a4874be021e60652452d7d" id="r_aeef82566e9a4874be021e60652452d7d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../da/dfd/class_f_mesh_draw_command_sort_key.html">FMeshDrawCommandSortKey</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aeef82566e9a4874be021e60652452d7d">CalculateTranslucentMeshStaticSortKey</a> (const <a class="el" href="../../d7/d24/class_f_primitive_scene_proxy.html">FPrimitiveSceneProxy</a> *<a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#aae3356b63849abbe8789dd41648ee90a">RESTRICT</a> PrimitiveSceneProxy, <a class="el" href="../../dd/de9/preprocessor_8c.html#a05f6b0ae8f6a6e135b0e290c25fe0e4e">uint16</a> MeshIdInPrimitive)</td></tr>
+<tr class="memitem:a6b5a32d1cdcc1a3135005e8bf4a157d5" id="r_a6b5a32d1cdcc1a3135005e8bf4a157d5"><td class="memTemplParams" colspan="2">template&lt;<a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a> bDepthTest, <a class="el" href="../../da/dca/_r_h_i_definitions_8h.html#a80d2e12de2886685efc6cbb511f37504">ECompareFunction</a> CompareFunction, <a class="el" href="../../dd/de9/preprocessor_8c.html#a1134b580f8da4de94ca6b1de4d37975e">uint32</a> StencilWriteMask&gt; </td></tr>
+<tr class="memitem:a6b5a32d1cdcc1a3135005e8bf4a157d5 template"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../df/d63/_typed_element_query_capabilities_8inl.html#a72343342ce64c0755563ee6c5e27868d">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6b5a32d1cdcc1a3135005e8bf4a157d5">SetDepthStencilStateForBasePass_Internal</a> (<a class="el" href="../../d7/d96/struct_f_mesh_pass_processor_render_state.html">FMeshPassProcessorRenderState</a> &amp;InDrawRenderState)</td></tr>
+<tr class="memitem:ad0a5d7d8f655bb53698143501d2c9d06" id="r_ad0a5d7d8f655bb53698143501d2c9d06"><td class="memTemplParams" colspan="2">template&lt;<a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a> bDepthTest, <a class="el" href="../../da/dca/_r_h_i_definitions_8h.html#a80d2e12de2886685efc6cbb511f37504">ECompareFunction</a> CompareFunction&gt; </td></tr>
+<tr class="memitem:ad0a5d7d8f655bb53698143501d2c9d06 template"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../df/d63/_typed_element_query_capabilities_8inl.html#a72343342ce64c0755563ee6c5e27868d">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad0a5d7d8f655bb53698143501d2c9d06">SetDepthStencilStateForBasePass_Internal</a> (<a class="el" href="../../d7/d96/struct_f_mesh_pass_processor_render_state.html">FMeshPassProcessorRenderState</a> &amp;InDrawRenderState, <a class="el" href="../../dc/dcf/namespace_e_r_h_i_feature_level.html#a04bc2ae8f7bf478747a40da91e1753dd">ERHIFeatureLevel::Type</a> FeatureLevel)</td></tr>
+<tr class="memitem:a8f65cc53392006188923ed9805e22324" id="r_a8f65cc53392006188923ed9805e22324"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../df/d63/_typed_element_query_capabilities_8inl.html#a72343342ce64c0755563ee6c5e27868d">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8f65cc53392006188923ed9805e22324">SetDepthStencilStateForBasePass</a> (<a class="el" href="../../d7/d96/struct_f_mesh_pass_processor_render_state.html">FMeshPassProcessorRenderState</a> &amp;DrawRenderState, <a class="el" href="../../dc/dcf/namespace_e_r_h_i_feature_level.html#a04bc2ae8f7bf478747a40da91e1753dd">ERHIFeatureLevel::Type</a> FeatureLevel, <a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a> bDitheredLODTransition, const <a class="el" href="../../dc/d8e/class_f_material.html">FMaterial</a> &amp;MaterialResource, <a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a> bEnableReceiveDecalOutput, <a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a> bForceEnableStencilDitherState)</td></tr>
+<tr class="memitem:a2b40348e8d473b71f454c16ca1b8034b" id="r_a2b40348e8d473b71f454c16ca1b8034b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../df/d63/_typed_element_query_capabilities_8inl.html#a72343342ce64c0755563ee6c5e27868d">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2b40348e8d473b71f454c16ca1b8034b">SetupBasePassState</a> (<a class="el" href="../../d2/d1e/class_f_exclusive_depth_stencil.html#a602fa0347a46eda885700bd75f963014">FExclusiveDepthStencil::Type</a> BasePassDepthStencilAccess, const <a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a> bShaderComplexity, <a class="el" href="../../d7/d96/struct_f_mesh_pass_processor_render_state.html">FMeshPassProcessorRenderState</a> &amp;DrawRenderState)</td></tr>
+<tr class="memitem:abda6d9308b122b6175aea1bff565fda9" id="r_abda6d9308b122b6175aea1bff565fda9"><td class="memTemplParams" colspan="2">template&lt;<a class="el" href="../../d0/d0a/_light_map_rendering_8h.html#a715ca627c49d0e186c87dbffaece820a">ELightMapPolicyType</a> Policy, <a class="el" href="../../da/d9b/_g_buffer_info_8h.html#af3c4660f1414ac0926fd3f759991029a">EGBufferLayout</a> GBufferLayout&gt; </td></tr>
+<tr class="memitem:abda6d9308b122b6175aea1bff565fda9 template"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../df/d63/_typed_element_query_capabilities_8inl.html#a72343342ce64c0755563ee6c5e27868d">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#abda6d9308b122b6175aea1bff565fda9">AddUniformBasePassPixelShader</a> (<a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a> bUse128bitRT, <a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a> bIsDebug, <a class="el" href="../../d2/d78/struct_f_material_shader_types.html">FMaterialShaderTypes</a> &amp;OutShaderTypes, <a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a> bIsForOITPass=<a class="el" href="../../d3/df7/radaudio__common_8h.html#ade27a78a51a66a5cfb6f09cf36bcfde9ae9de385ef6fe9bf3360d1038396b884c">false</a>)</td></tr>
+<tr class="memitem:afe91e9e9817920e33e0aeb4d88f74105" id="r_afe91e9e9817920e33e0aeb4d88f74105"><td class="memTemplParams" colspan="2">template&lt;<a class="el" href="../../d0/d0a/_light_map_rendering_8h.html#a715ca627c49d0e186c87dbffaece820a">ELightMapPolicyType</a> Policy&gt; </td></tr>
+<tr class="memitem:afe91e9e9817920e33e0aeb4d88f74105 template"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#afe91e9e9817920e33e0aeb4d88f74105">GetUniformBasePassShaders</a> (const <a class="el" href="../../dc/d8e/class_f_material.html">FMaterial</a> &amp;Material, const <a class="el" href="../../d4/da4/class_f_vertex_factory_type.html">FVertexFactoryType</a> *VertexFactoryType, <a class="el" href="../../dc/dcf/namespace_e_r_h_i_feature_level.html#a04bc2ae8f7bf478747a40da91e1753dd">ERHIFeatureLevel::Type</a> FeatureLevel, <a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a> bUse128bitRT, <a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a> bIsDebug, <a class="el" href="../../da/d9b/_g_buffer_info_8h.html#af3c4660f1414ac0926fd3f759991029a">EGBufferLayout</a> GBufferLayout, <a class="el" href="../../d8/d34/_shader_8h.html#ab6739264464426458ad868ca8d8cc420">TShaderRef</a>&lt; <a class="el" href="../../d3/dc8/_base_pass_rendering_8h.html#aa24f0c2eae4dee0e935a83eb758d3dc0">TBasePassMeshShaderPolicyParamType</a>&lt; <a class="el" href="../../de/d21/class_f_uniform_light_map_policy.html">FUniformLightMapPolicy</a> &gt; &gt; *MeshShader, <a class="el" href="../../d8/d34/_shader_8h.html#ab6739264464426458ad868ca8d8cc420">TShaderRef</a>&lt; <a class="el" href="../../d6/d16/class_t_base_pass_vertex_shader_policy_param_type.html">TBasePassVertexShaderPolicyParamType</a>&lt; <a class="el" href="../../de/d21/class_f_uniform_light_map_policy.html">FUniformLightMapPolicy</a> &gt; &gt; *VertexShader, <a class="el" href="../../d8/d34/_shader_8h.html#ab6739264464426458ad868ca8d8cc420">TShaderRef</a>&lt; <a class="el" href="../../d0/d8f/class_t_base_pass_pixel_shader_policy_param_type.html">TBasePassPixelShaderPolicyParamType</a>&lt; <a class="el" href="../../de/d21/class_f_uniform_light_map_policy.html">FUniformLightMapPolicy</a> &gt; &gt; *PixelShader, <a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a> bIsForOITPass=<a class="el" href="../../d3/df7/radaudio__common_8h.html#ade27a78a51a66a5cfb6f09cf36bcfde9ae9de385ef6fe9bf3360d1038396b884c">false</a>)</td></tr>
+<tr class="memitem:a51800155883d074a52bd3b90aac355f6" id="r_a51800155883d074a52bd3b90aac355f6"><td class="memItemLeft" align="right" valign="top">template&lt;&gt; </td></tr>
+<tr class="memitem:a51800155883d074a52bd3b90aac355f6 template"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a51800155883d074a52bd3b90aac355f6">GetBasePassShaders&lt; FUniformLightMapPolicy &gt;</a> (const <a class="el" href="../../dc/d8e/class_f_material.html">FMaterial</a> &amp;Material, const <a class="el" href="../../d4/da4/class_f_vertex_factory_type.html">FVertexFactoryType</a> *VertexFactoryType, <a class="el" href="../../de/d21/class_f_uniform_light_map_policy.html">FUniformLightMapPolicy</a> LightMapPolicy, <a class="el" href="../../dc/dcf/namespace_e_r_h_i_feature_level.html#a04bc2ae8f7bf478747a40da91e1753dd">ERHIFeatureLevel::Type</a> FeatureLevel, <a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a> bUse128bitRT, <a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a> bIsDebug, <a class="el" href="../../da/d9b/_g_buffer_info_8h.html#af3c4660f1414ac0926fd3f759991029a">EGBufferLayout</a> GBufferLayout, <a class="el" href="../../d8/d34/_shader_8h.html#ab6739264464426458ad868ca8d8cc420">TShaderRef</a>&lt; <a class="el" href="../../d3/dc8/_base_pass_rendering_8h.html#aa24f0c2eae4dee0e935a83eb758d3dc0">TBasePassMeshShaderPolicyParamType</a>&lt; <a class="el" href="../../de/d21/class_f_uniform_light_map_policy.html">FUniformLightMapPolicy</a> &gt; &gt; *MeshShader, <a class="el" href="../../d8/d34/_shader_8h.html#ab6739264464426458ad868ca8d8cc420">TShaderRef</a>&lt; <a class="el" href="../../d6/d16/class_t_base_pass_vertex_shader_policy_param_type.html">TBasePassVertexShaderPolicyParamType</a>&lt; <a class="el" href="../../de/d21/class_f_uniform_light_map_policy.html">FUniformLightMapPolicy</a> &gt; &gt; *VertexShader, <a class="el" href="../../d8/d34/_shader_8h.html#ab6739264464426458ad868ca8d8cc420">TShaderRef</a>&lt; <a class="el" href="../../d0/d8f/class_t_base_pass_pixel_shader_policy_param_type.html">TBasePassPixelShaderPolicyParamType</a>&lt; <a class="el" href="../../de/d21/class_f_uniform_light_map_policy.html">FUniformLightMapPolicy</a> &gt; &gt; *PixelShader, <a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a> bIsForOITPass)</td></tr>
+<tr class="memitem:a76dbaaf2a02d204fd2089b8349b386a9" id="r_a76dbaaf2a02d204fd2089b8349b386a9"><td class="memTemplParams" colspan="2">template&lt;<a class="el" href="../../d0/d0a/_light_map_rendering_8h.html#a715ca627c49d0e186c87dbffaece820a">ELightMapPolicyType</a> Policy&gt; </td></tr>
+<tr class="memitem:a76dbaaf2a02d204fd2089b8349b386a9 template"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../df/d63/_typed_element_query_capabilities_8inl.html#a72343342ce64c0755563ee6c5e27868d">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a76dbaaf2a02d204fd2089b8349b386a9">AddUniformBasePassComputeShader</a> (<a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a> bVoxel, <a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a> bCurve, <a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a> bIsDebug, <a class="el" href="../../da/dca/_r_h_i_definitions_8h.html#a0a3cc83cb6ebc79b66b43fae3ffee64e">EShaderFrequency</a> ShaderFrequency, <a class="el" href="../../d2/d78/struct_f_material_shader_types.html">FMaterialShaderTypes</a> &amp;OutShaderTypes)</td></tr>
+<tr class="memitem:a8fc908cd93135c301ac22f9ac03a126b" id="r_a8fc908cd93135c301ac22f9ac03a126b"><td class="memTemplParams" colspan="2">template&lt;<a class="el" href="../../d0/d0a/_light_map_rendering_8h.html#a715ca627c49d0e186c87dbffaece820a">ELightMapPolicyType</a> Policy&gt; </td></tr>
+<tr class="memitem:a8fc908cd93135c301ac22f9ac03a126b template"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8fc908cd93135c301ac22f9ac03a126b">GetUniformBasePassShader</a> (const <a class="el" href="../../dc/d8e/class_f_material.html">FMaterial</a> &amp;Material, const <a class="el" href="../../d4/da4/class_f_vertex_factory_type.html">FVertexFactoryType</a> *VertexFactoryType, <a class="el" href="../../dc/dcf/namespace_e_r_h_i_feature_level.html#a04bc2ae8f7bf478747a40da91e1753dd">ERHIFeatureLevel::Type</a> FeatureLevel, <a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a> bVoxel, <a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a> bCurve, <a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a> bIsDebug, <a class="el" href="../../da/dca/_r_h_i_definitions_8h.html#a0a3cc83cb6ebc79b66b43fae3ffee64e">EShaderFrequency</a> ShaderFrequency, <a class="el" href="../../d8/d34/_shader_8h.html#ab6739264464426458ad868ca8d8cc420">TShaderRef</a>&lt; <a class="el" href="../../d5/d6a/class_t_base_pass_compute_shader_policy_param_type.html">TBasePassComputeShaderPolicyParamType</a>&lt; <a class="el" href="../../de/d21/class_f_uniform_light_map_policy.html">FUniformLightMapPolicy</a> &gt; &gt; *ComputeShader)</td></tr>
+<tr class="memitem:a6b942317056105c6328570b488d65be1" id="r_a6b942317056105c6328570b488d65be1"><td class="memItemLeft" align="right" valign="top">template&lt;&gt; </td></tr>
+<tr class="memitem:a6b942317056105c6328570b488d65be1 template"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6b942317056105c6328570b488d65be1">GetBasePassShader&lt; FUniformLightMapPolicy &gt;</a> (const <a class="el" href="../../dc/d8e/class_f_material.html">FMaterial</a> &amp;Material, const <a class="el" href="../../d4/da4/class_f_vertex_factory_type.html">FVertexFactoryType</a> *VertexFactoryType, <a class="el" href="../../de/d21/class_f_uniform_light_map_policy.html">FUniformLightMapPolicy</a> LightMapPolicy, <a class="el" href="../../dc/dcf/namespace_e_r_h_i_feature_level.html#a04bc2ae8f7bf478747a40da91e1753dd">ERHIFeatureLevel::Type</a> FeatureLevel, <a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a> bVoxel, <a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a> bCurve, <a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a> bIsDebug, <a class="el" href="../../da/dca/_r_h_i_definitions_8h.html#a0a3cc83cb6ebc79b66b43fae3ffee64e">EShaderFrequency</a> ShaderFrequency, <a class="el" href="../../d8/d34/_shader_8h.html#ab6739264464426458ad868ca8d8cc420">TShaderRef</a>&lt; <a class="el" href="../../d5/d6a/class_t_base_pass_compute_shader_policy_param_type.html">TBasePassComputeShaderPolicyParamType</a>&lt; <a class="el" href="../../de/d21/class_f_uniform_light_map_policy.html">FUniformLightMapPolicy</a> &gt; &gt; *ComputeShader)</td></tr>
+<tr class="memitem:a6716f3cf3ecefb54de50cd361bf3f4bf" id="r_a6716f3cf3ecefb54de50cd361bf3f4bf"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../df/d63/_typed_element_query_capabilities_8inl.html#a72343342ce64c0755563ee6c5e27868d">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6716f3cf3ecefb54de50cd361bf3f4bf">SetForwardLightUniformParametersFromView</a> (<a class="el" href="../../d3/d85/class_f_r_d_g_builder.html">FRDGBuilder</a> &amp;GraphBuilder, const <a class="el" href="../../dd/d2b/class_f_view_info.html">FViewInfo</a> &amp;View, FForwardLightUniformParameters &amp;ForwardLightUniformParameters)</td></tr>
+<tr class="memitem:aa3d21626812da598275223e708316607" id="r_aa3d21626812da598275223e708316607"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../df/d63/_typed_element_query_capabilities_8inl.html#a72343342ce64c0755563ee6c5e27868d">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa3d21626812da598275223e708316607">SetForwardDirLightShadowParametersFromView</a> (<a class="el" href="../../d3/d85/class_f_r_d_g_builder.html">FRDGBuilder</a> &amp;GraphBuilder, const <a class="el" href="../../dd/d2b/class_f_view_info.html">FViewInfo</a> &amp;View, FForwardDirectionalLightShadowMapParameters &amp;Parameters)</td></tr>
+<tr class="memitem:acd1fbb3904e5973770b777a4da1ddbcf" id="r_acd1fbb3904e5973770b777a4da1ddbcf"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../df/d63/_typed_element_query_capabilities_8inl.html#a72343342ce64c0755563ee6c5e27868d">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#acd1fbb3904e5973770b777a4da1ddbcf">SetupSharedBasePassParameters</a> (<a class="el" href="../../d3/d85/class_f_r_d_g_builder.html">FRDGBuilder</a> &amp;GraphBuilder, const <a class="el" href="../../dd/d2b/class_f_view_info.html">FViewInfo</a> &amp;View, const <a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a8dbb3cd84ca9fd010dadfc3815eefa5d">int32</a> ViewIndex, FSharedBasePassUniformParameters &amp;SharedParameters, <a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a> bForRealtimeSkyCapture)</td></tr>
+<tr class="memitem:a340d5b588bcb2afdb52e5c19dd7444fd" id="r_a340d5b588bcb2afdb52e5c19dd7444fd"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d2/d51/_render_graph_fwd_8h.html#ab926b0657e138258b3e140cc660c1545">TRDGUniformBufferRef</a>&lt; FOpaqueBasePassUniformParameters &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a340d5b588bcb2afdb52e5c19dd7444fd">CreateOpaqueBasePassUniformBuffer</a> (<a class="el" href="../../d3/d85/class_f_r_d_g_builder.html">FRDGBuilder</a> &amp;GraphBuilder, const <a class="el" href="../../dd/d2b/class_f_view_info.html">FViewInfo</a> &amp;View, const <a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a8dbb3cd84ca9fd010dadfc3815eefa5d">int32</a> ViewIndex, const <a class="el" href="../../d6/d06/struct_f_forward_base_pass_textures.html">FForwardBasePassTextures</a> &amp;ForwardBasePassTextures, const <a class="el" href="../../d8/da1/struct_f_d_buffer_textures.html">FDBufferTextures</a> &amp;DBufferTextures, <a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a> bEnableSkyLight, <a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a> bForRealtimeSkyCapture)</td></tr>
+<tr class="memitem:afb346f84cbaba1d8f5e5e1847c68837b" id="r_afb346f84cbaba1d8f5e5e1847c68837b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#afb346f84cbaba1d8f5e5e1847c68837b">IsGBufferLayoutSupportedForMaterial</a> (<a class="el" href="../../da/d9b/_g_buffer_info_8h.html#af3c4660f1414ac0926fd3f759991029a">EGBufferLayout</a> Layout, const <a class="el" href="../../d9/d6c/struct_f_mesh_material_shader_permutation_parameters.html">FMeshMaterialShaderPermutationParameters</a> &amp;Parameters)</td></tr>
+<tr class="memitem:a4835b6d2ce17bdd35912f3adf45b541f" id="r_a4835b6d2ce17bdd35912f3adf45b541f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../df/d63/_typed_element_query_capabilities_8inl.html#a72343342ce64c0755563ee6c5e27868d">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4835b6d2ce17bdd35912f3adf45b541f">ModifyBasePassCSPSCompilationEnvironment</a> (const <a class="el" href="../../d9/d6c/struct_f_mesh_material_shader_permutation_parameters.html">FMeshMaterialShaderPermutationParameters</a> &amp;Parameters, <a class="el" href="../../da/d9b/_g_buffer_info_8h.html#af3c4660f1414ac0926fd3f759991029a">EGBufferLayout</a> GBufferLayout, <a class="el" href="../../da/d3c/struct_f_shader_compiler_environment.html">FShaderCompilerEnvironment</a> &amp;OutEnvironment)</td></tr>
+<tr class="memitem:a618fb98829054cde3e0e1722171a4ac6" id="r_a618fb98829054cde3e0e1722171a4ac6"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d3/d56/class_f_mesh_pass_processor.html">FMeshPassProcessor</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a618fb98829054cde3e0e1722171a4ac6">CreateBasePassProcessor</a> (<a class="el" href="../../dc/dcf/namespace_e_r_h_i_feature_level.html#a04bc2ae8f7bf478747a40da91e1753dd">ERHIFeatureLevel::Type</a> FeatureLevel, const <a class="el" href="../../d4/dfa/class_f_scene.html">FScene</a> *Scene, const <a class="el" href="../../d6/d2c/class_f_scene_view.html">FSceneView</a> *InViewIfDynamicMeshCommand, <a class="el" href="../../d7/dd8/class_f_mesh_pass_draw_list_context.html">FMeshPassDrawListContext</a> *InDrawListContext)</td></tr>
+<tr class="memitem:a633e80f16c84fa428067d4e84b2ae51e" id="r_a633e80f16c84fa428067d4e84b2ae51e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d3/d56/class_f_mesh_pass_processor.html">FMeshPassProcessor</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a633e80f16c84fa428067d4e84b2ae51e">CreateTranslucencyStandardPassProcessor</a> (<a class="el" href="../../dc/dcf/namespace_e_r_h_i_feature_level.html#a04bc2ae8f7bf478747a40da91e1753dd">ERHIFeatureLevel::Type</a> FeatureLevel, const <a class="el" href="../../d4/dfa/class_f_scene.html">FScene</a> *Scene, const <a class="el" href="../../d6/d2c/class_f_scene_view.html">FSceneView</a> *InViewIfDynamicMeshCommand, <a class="el" href="../../d7/dd8/class_f_mesh_pass_draw_list_context.html">FMeshPassDrawListContext</a> *InDrawListContext)</td></tr>
+<tr class="memitem:ab39ff2249c257368ddb1c090d126e0b6" id="r_ab39ff2249c257368ddb1c090d126e0b6"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d3/d56/class_f_mesh_pass_processor.html">FMeshPassProcessor</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab39ff2249c257368ddb1c090d126e0b6">CreateTranslucencyStandardModulatePassProcessor</a> (<a class="el" href="../../dc/dcf/namespace_e_r_h_i_feature_level.html#a04bc2ae8f7bf478747a40da91e1753dd">ERHIFeatureLevel::Type</a> FeatureLevel, const <a class="el" href="../../d4/dfa/class_f_scene.html">FScene</a> *Scene, const <a class="el" href="../../d6/d2c/class_f_scene_view.html">FSceneView</a> *InViewIfDynamicMeshCommand, <a class="el" href="../../d7/dd8/class_f_mesh_pass_draw_list_context.html">FMeshPassDrawListContext</a> *InDrawListContext)</td></tr>
+<tr class="memitem:a4f8b7979d7b4c881cba8ec1b24820d13" id="r_a4f8b7979d7b4c881cba8ec1b24820d13"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d3/d56/class_f_mesh_pass_processor.html">FMeshPassProcessor</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4f8b7979d7b4c881cba8ec1b24820d13">CreateTranslucencyAfterDOFProcessor</a> (<a class="el" href="../../dc/dcf/namespace_e_r_h_i_feature_level.html#a04bc2ae8f7bf478747a40da91e1753dd">ERHIFeatureLevel::Type</a> FeatureLevel, const <a class="el" href="../../d4/dfa/class_f_scene.html">FScene</a> *Scene, const <a class="el" href="../../d6/d2c/class_f_scene_view.html">FSceneView</a> *InViewIfDynamicMeshCommand, <a class="el" href="../../d7/dd8/class_f_mesh_pass_draw_list_context.html">FMeshPassDrawListContext</a> *InDrawListContext)</td></tr>
+<tr class="memitem:a036a40b0d52c633a8d5ec119d976f61f" id="r_a036a40b0d52c633a8d5ec119d976f61f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d3/d56/class_f_mesh_pass_processor.html">FMeshPassProcessor</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a036a40b0d52c633a8d5ec119d976f61f">CreateTranslucencyAfterDOFModulateProcessor</a> (<a class="el" href="../../dc/dcf/namespace_e_r_h_i_feature_level.html#a04bc2ae8f7bf478747a40da91e1753dd">ERHIFeatureLevel::Type</a> FeatureLevel, const <a class="el" href="../../d4/dfa/class_f_scene.html">FScene</a> *Scene, const <a class="el" href="../../d6/d2c/class_f_scene_view.html">FSceneView</a> *InViewIfDynamicMeshCommand, <a class="el" href="../../d7/dd8/class_f_mesh_pass_draw_list_context.html">FMeshPassDrawListContext</a> *InDrawListContext)</td></tr>
+<tr class="memitem:a477cfdf08ff28cca7243e140ab86351c" id="r_a477cfdf08ff28cca7243e140ab86351c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d3/d56/class_f_mesh_pass_processor.html">FMeshPassProcessor</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a477cfdf08ff28cca7243e140ab86351c">CreateTranslucencyAfterMotionBlurProcessor</a> (<a class="el" href="../../dc/dcf/namespace_e_r_h_i_feature_level.html#a04bc2ae8f7bf478747a40da91e1753dd">ERHIFeatureLevel::Type</a> FeatureLevel, const <a class="el" href="../../d4/dfa/class_f_scene.html">FScene</a> *Scene, const <a class="el" href="../../d6/d2c/class_f_scene_view.html">FSceneView</a> *InViewIfDynamicMeshCommand, <a class="el" href="../../d7/dd8/class_f_mesh_pass_draw_list_context.html">FMeshPassDrawListContext</a> *InDrawListContext)</td></tr>
+<tr class="memitem:a92239c3a3c5350b61e823a8250882adf" id="r_a92239c3a3c5350b61e823a8250882adf"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d3/d56/class_f_mesh_pass_processor.html">FMeshPassProcessor</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a92239c3a3c5350b61e823a8250882adf">CreateTranslucencyHoldoutPassProcessor</a> (<a class="el" href="../../dc/dcf/namespace_e_r_h_i_feature_level.html#a04bc2ae8f7bf478747a40da91e1753dd">ERHIFeatureLevel::Type</a> FeatureLevel, const <a class="el" href="../../d4/dfa/class_f_scene.html">FScene</a> *Scene, const <a class="el" href="../../d6/d2c/class_f_scene_view.html">FSceneView</a> *InViewIfDynamicMeshCommand, <a class="el" href="../../d7/dd8/class_f_mesh_pass_draw_list_context.html">FMeshPassDrawListContext</a> *InDrawListContext)</td></tr>
+<tr class="memitem:a76304d2d3b4e36c41ad2407603fdb8b4" id="r_a76304d2d3b4e36c41ad2407603fdb8b4"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d3/d56/class_f_mesh_pass_processor.html">FMeshPassProcessor</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a76304d2d3b4e36c41ad2407603fdb8b4">CreateTranslucencyAllPassProcessor</a> (<a class="el" href="../../dc/dcf/namespace_e_r_h_i_feature_level.html#a04bc2ae8f7bf478747a40da91e1753dd">ERHIFeatureLevel::Type</a> FeatureLevel, const <a class="el" href="../../d4/dfa/class_f_scene.html">FScene</a> *Scene, const <a class="el" href="../../d6/d2c/class_f_scene_view.html">FSceneView</a> *InViewIfDynamicMeshCommand, <a class="el" href="../../d7/dd8/class_f_mesh_pass_draw_list_context.html">FMeshPassDrawListContext</a> *InDrawListContext)</td></tr>
+<tr class="memitem:a0051728fd9d4a417559d08009b859ad7" id="r_a0051728fd9d4a417559d08009b859ad7"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a0051728fd9d4a417559d08009b859ad7">REGISTER_MESHPASSPROCESSOR_AND_PSOCOLLECTOR</a> (BasePass, <a class="el" href="#a618fb98829054cde3e0e1722171a4ac6">CreateBasePassProcessor</a>, <a class="el" href="../../d5/d3b/_scene_utils_8h.html#a0102358b8bd21ed9c61c83e3204e9dd2a4ed71db54748b36eeb398876b0c747ac">EShadingPath::Deferred</a>, <a class="el" href="../../d1/d67/namespace_e_mesh_pass.html#a500f45051893a7062c598b29423766a3a6a86328bc93625bb019b6ac96a7a0439">EMeshPass::BasePass</a>, <a class="el" href="../../db/dbe/_mesh_pass_processor_8h.html#a4eb4de480e9ac2f43b1f060203d3016baa391ae0b88766177d69788486ceca1d0">EMeshPassFlags::CachedMeshCommands</a>|<a class="el" href="../../db/dbe/_mesh_pass_processor_8h.html#a4eb4de480e9ac2f43b1f060203d3016baffe65f439f54bfbd4437df5967d4c173">EMeshPassFlags::MainView</a>)</td></tr>
+<tr class="memitem:aa14727a1ee6fee511a6081a16dcc8c81" id="r_aa14727a1ee6fee511a6081a16dcc8c81"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa14727a1ee6fee511a6081a16dcc8c81">REGISTER_MESHPASSPROCESSOR_AND_PSOCOLLECTOR</a> (TranslucencyStandardPass, <a class="el" href="#a633e80f16c84fa428067d4e84b2ae51e">CreateTranslucencyStandardPassProcessor</a>, <a class="el" href="../../d5/d3b/_scene_utils_8h.html#a0102358b8bd21ed9c61c83e3204e9dd2a4ed71db54748b36eeb398876b0c747ac">EShadingPath::Deferred</a>, <a class="el" href="../../d1/d67/namespace_e_mesh_pass.html#a500f45051893a7062c598b29423766a3abd65090643ab22785709e708ec9105c7">EMeshPass::TranslucencyStandard</a>, <a class="el" href="../../db/dbe/_mesh_pass_processor_8h.html#a4eb4de480e9ac2f43b1f060203d3016baffe65f439f54bfbd4437df5967d4c173">EMeshPassFlags::MainView</a>)</td></tr>
+<tr class="memitem:a2bbcfc8ce350206746985448d403e9ce" id="r_a2bbcfc8ce350206746985448d403e9ce"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2bbcfc8ce350206746985448d403e9ce">REGISTER_MESHPASSPROCESSOR_AND_PSOCOLLECTOR</a> (TranslucencyStandardModulatePass, <a class="el" href="#ab39ff2249c257368ddb1c090d126e0b6">CreateTranslucencyStandardModulatePassProcessor</a>, <a class="el" href="../../d5/d3b/_scene_utils_8h.html#a0102358b8bd21ed9c61c83e3204e9dd2a4ed71db54748b36eeb398876b0c747ac">EShadingPath::Deferred</a>, <a class="el" href="../../d1/d67/namespace_e_mesh_pass.html#a500f45051893a7062c598b29423766a3ac1c8fe1a2d286a7e1a4b794be1d47b5c">EMeshPass::TranslucencyStandardModulate</a>, <a class="el" href="../../db/dbe/_mesh_pass_processor_8h.html#a4eb4de480e9ac2f43b1f060203d3016baffe65f439f54bfbd4437df5967d4c173">EMeshPassFlags::MainView</a>)</td></tr>
+<tr class="memitem:a70b14745dcafdf50d42ab8fe7d31583a" id="r_a70b14745dcafdf50d42ab8fe7d31583a"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a70b14745dcafdf50d42ab8fe7d31583a">REGISTER_MESHPASSPROCESSOR_AND_PSOCOLLECTOR</a> (TranslucencyAfterDOFPass, <a class="el" href="#a4f8b7979d7b4c881cba8ec1b24820d13">CreateTranslucencyAfterDOFProcessor</a>, <a class="el" href="../../d5/d3b/_scene_utils_8h.html#a0102358b8bd21ed9c61c83e3204e9dd2a4ed71db54748b36eeb398876b0c747ac">EShadingPath::Deferred</a>, <a class="el" href="../../d1/d67/namespace_e_mesh_pass.html#a500f45051893a7062c598b29423766a3abf256f5971a549fb61fcfaf1509cb059">EMeshPass::TranslucencyAfterDOF</a>, <a class="el" href="../../db/dbe/_mesh_pass_processor_8h.html#a4eb4de480e9ac2f43b1f060203d3016baffe65f439f54bfbd4437df5967d4c173">EMeshPassFlags::MainView</a>)</td></tr>
+<tr class="memitem:a38648b05e53df8043e59cc182b47abb9" id="r_a38648b05e53df8043e59cc182b47abb9"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a38648b05e53df8043e59cc182b47abb9">REGISTER_MESHPASSPROCESSOR_AND_PSOCOLLECTOR</a> (TranslucencyAfterDOFModulatePass, <a class="el" href="#a036a40b0d52c633a8d5ec119d976f61f">CreateTranslucencyAfterDOFModulateProcessor</a>, <a class="el" href="../../d5/d3b/_scene_utils_8h.html#a0102358b8bd21ed9c61c83e3204e9dd2a4ed71db54748b36eeb398876b0c747ac">EShadingPath::Deferred</a>, <a class="el" href="../../d1/d67/namespace_e_mesh_pass.html#a500f45051893a7062c598b29423766a3ab6ebbc578e4ca3410d3c6e57b8c35bd3">EMeshPass::TranslucencyAfterDOFModulate</a>, <a class="el" href="../../db/dbe/_mesh_pass_processor_8h.html#a4eb4de480e9ac2f43b1f060203d3016baffe65f439f54bfbd4437df5967d4c173">EMeshPassFlags::MainView</a>)</td></tr>
+<tr class="memitem:a773816fa205f50b0e76dbdbfe0349b05" id="r_a773816fa205f50b0e76dbdbfe0349b05"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a773816fa205f50b0e76dbdbfe0349b05">REGISTER_MESHPASSPROCESSOR_AND_PSOCOLLECTOR</a> (TranslucencyAfterMotionBlurPass, <a class="el" href="#a477cfdf08ff28cca7243e140ab86351c">CreateTranslucencyAfterMotionBlurProcessor</a>, <a class="el" href="../../d5/d3b/_scene_utils_8h.html#a0102358b8bd21ed9c61c83e3204e9dd2a4ed71db54748b36eeb398876b0c747ac">EShadingPath::Deferred</a>, <a class="el" href="../../d1/d67/namespace_e_mesh_pass.html#a500f45051893a7062c598b29423766a3a8b561c38c8f579ce6108306bc7ba4497">EMeshPass::TranslucencyAfterMotionBlur</a>, <a class="el" href="../../db/dbe/_mesh_pass_processor_8h.html#a4eb4de480e9ac2f43b1f060203d3016baffe65f439f54bfbd4437df5967d4c173">EMeshPassFlags::MainView</a>)</td></tr>
+<tr class="memitem:a210d31d97c381481401a3fe995f71921" id="r_a210d31d97c381481401a3fe995f71921"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a210d31d97c381481401a3fe995f71921">REGISTER_MESHPASSPROCESSOR_AND_PSOCOLLECTOR</a> (TranslucencyHoldoutPass, <a class="el" href="#a92239c3a3c5350b61e823a8250882adf">CreateTranslucencyHoldoutPassProcessor</a>, <a class="el" href="../../d5/d3b/_scene_utils_8h.html#a0102358b8bd21ed9c61c83e3204e9dd2a4ed71db54748b36eeb398876b0c747ac">EShadingPath::Deferred</a>, <a class="el" href="../../d1/d67/namespace_e_mesh_pass.html#a500f45051893a7062c598b29423766a3a92f2a398852113ebccd594e8c478b176">EMeshPass::TranslucencyHoldout</a>, <a class="el" href="../../db/dbe/_mesh_pass_processor_8h.html#a4eb4de480e9ac2f43b1f060203d3016baffe65f439f54bfbd4437df5967d4c173">EMeshPassFlags::MainView</a>)</td></tr>
+<tr class="memitem:aba2b777e680b92a9e60b7f95be158a03" id="r_aba2b777e680b92a9e60b7f95be158a03"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aba2b777e680b92a9e60b7f95be158a03">REGISTER_MESHPASSPROCESSOR_AND_PSOCOLLECTOR</a> (TranslucencyAllPass, <a class="el" href="#a76304d2d3b4e36c41ad2407603fdb8b4">CreateTranslucencyAllPassProcessor</a>, <a class="el" href="../../d5/d3b/_scene_utils_8h.html#a0102358b8bd21ed9c61c83e3204e9dd2a4ed71db54748b36eeb398876b0c747ac">EShadingPath::Deferred</a>, <a class="el" href="../../d1/d67/namespace_e_mesh_pass.html#a500f45051893a7062c598b29423766a3af69b5e9812d7d13b6081c90683f4d233">EMeshPass::TranslucencyAll</a>, <a class="el" href="../../db/dbe/_mesh_pass_processor_8h.html#a4eb4de480e9ac2f43b1f060203d3016baffe65f439f54bfbd4437df5967d4c173">EMeshPassFlags::MainView</a>)</td></tr>
+</table>
+<a name="doc-define-members" id="doc-define-members"></a><h2 id="header-doc-define-members" class="groupheader">宏定义说明</h2>
+<a id="a1766ec0b0eed68f211987c2eee00c034" name="a1766ec0b0eed68f211987c2eee00c034"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1766ec0b0eed68f211987c2eee00c034">&#9670;&#160;</a></span>IMPLEMENT_BASEPASS_COMPUTESHADER_TYPE</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define IMPLEMENT_BASEPASS_COMPUTESHADER_TYPE</td>
+          <td>(</td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>LightMapPolicyType</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>LightMapPolicyName</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>bVoxel</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>VoxelName</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>bCurve</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>CurveName</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>值:</b><div class="fragment"><div class="line">    <span class="keyword">typedef</span> <a class="code hl_class" href="../../db/de7/class_t_base_pass_c_s.html">TBasePassCS&lt;LightMapPolicyType, bVoxel, bCurve, SF_Compute&gt;</a> <a class="code hl_class" href="../../db/de7/class_t_base_pass_c_s.html">TBasePassCS</a>##LightMapPolicyName##VoxelName##CurveName; \</div>
+<div class="line">    IMPLEMENT_MATERIAL_SHADER_TYPE(template&lt;&gt;,<a class="code hl_class" href="../../db/de7/class_t_base_pass_c_s.html">TBasePassCS</a>##LightMapPolicyName##VoxelName##CurveName,<a class="code hl_define" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(<span class="stringliteral">&quot;/Engine/Private/BasePassPixelShader.usf&quot;</span>),<a class="code hl_define" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(<span class="stringliteral">&quot;MainCS&quot;</span>),<a class="code hl_enumvalue" href="../../da/dca/_r_h_i_definitions_8h.html#a0a3cc83cb6ebc79b66b43fae3ffee64ea2a84a18d7ac3d1fac11e3153f0abf73b">SF_Compute</a>);</div>
+<div class="ttc" id="a_core_2_public_2_h_a_l_2_platform_8h_html_a2978f60d40d64f3605b5a99f66f292a9"><div class="ttname"><a href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a></div><div class="ttdeci">#define TEXT(x)</div><div class="ttdef"><b>定义</b> Platform.h:1332</div></div>
+<div class="ttc" id="a_r_h_i_definitions_8h_html_a0a3cc83cb6ebc79b66b43fae3ffee64ea2a84a18d7ac3d1fac11e3153f0abf73b"><div class="ttname"><a href="../../da/dca/_r_h_i_definitions_8h.html#a0a3cc83cb6ebc79b66b43fae3ffee64ea2a84a18d7ac3d1fac11e3153f0abf73b">SF_Compute</a></div><div class="ttdeci">@ SF_Compute</div><div class="ttdef"><b>定义</b> RHIDefinitions.h:195</div></div>
+<div class="ttc" id="aclass_t_base_pass_c_s_html"><div class="ttname"><a href="../../db/de7/class_t_base_pass_c_s.html">TBasePassCS</a></div><div class="ttdef"><b>定义</b> BasePassRendering.h:554</div></div>
+</div><!-- fragment -->
+</div>
+</div>
+<a id="a6f1bb60b5ac549d5d57ed18d8788be77" name="a6f1bb60b5ac549d5d57ed18d8788be77"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6f1bb60b5ac549d5d57ed18d8788be77">&#9670;&#160;</a></span>IMPLEMENT_BASEPASS_LIGHTMAPPED_SHADER_TYPE</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define IMPLEMENT_BASEPASS_LIGHTMAPPED_SHADER_TYPE</td>
+          <td>(</td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>LightMapPolicyType</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>LightMapPolicyName</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>值:</b><div class="fragment"><div class="line">    <a class="code hl_define" href="#a79554946c228e8710204f8fe5e232efc">IMPLEMENT_BASEPASS_MESHSHADER_TYPE</a>(LightMapPolicyType,LightMapPolicyName) \</div>
+<div class="line">    IMPLEMENT_BASEPASS_VERTEXSHADER_TYPE(LightMapPolicyType,LightMapPolicyName) \</div>
+<div class="line">    IMPLEMENT_BASEPASS_PIXELSHADER_TYPE(LightMapPolicyType,LightMapPolicyName,<a class="code hl_enumvalue" href="../../da/d9b/_g_buffer_info_8h.html#af3c4660f1414ac0926fd3f759991029aacbeba8d17683aa9d28dd3c653c2d979c">GBL_Default</a>,) \</div>
+<div class="line">    IMPLEMENT_BASEPASS_PIXELSHADER_TYPE(LightMapPolicyType,LightMapPolicyName,<a class="code hl_enumvalue" href="../../da/d9b/_g_buffer_info_8h.html#af3c4660f1414ac0926fd3f759991029aae682486a7d0ebffc8e9c49e9e283da52">GBL_ForceVelocity</a>,ForceVelocity) \</div>
+<div class="line">    IMPLEMENT_BASEPASS_COMPUTESHADER_TYPE  (LightMapPolicyType,LightMapPolicyName,<span class="keyword">false</span>,     ,<span class="keyword">true</span>, Curve) \</div>
+<div class="line">    IMPLEMENT_BASEPASS_COMPUTESHADER_TYPE  (LightMapPolicyType,LightMapPolicyName,<span class="keyword">true</span>, Voxel,<span class="keyword">false</span>,     ) \</div>
+<div class="line">    IMPLEMENT_BASEPASS_COMPUTESHADER_TYPE  (LightMapPolicyType,LightMapPolicyName,<span class="keyword">false</span>,     ,<span class="keyword">false</span>,     ) \</div>
+<div class="line">    IMPLEMENT_BASEPASS_WORKGRAPHSHADER_TYPE(LightMapPolicyType,LightMapPolicyName,<span class="keyword">false</span>,     ,<span class="keyword">true</span>, Curve) \</div>
+<div class="line">    IMPLEMENT_BASEPASS_WORKGRAPHSHADER_TYPE(LightMapPolicyType,LightMapPolicyName,<span class="keyword">true</span>, Voxel,<span class="keyword">false</span>,     ) \</div>
+<div class="line">    IMPLEMENT_BASEPASS_WORKGRAPHSHADER_TYPE(LightMapPolicyType,LightMapPolicyName,<span class="keyword">false</span>,     ,<span class="keyword">false</span>,     )</div>
+<div class="ttc" id="a_base_pass_rendering_8cpp_html_a79554946c228e8710204f8fe5e232efc"><div class="ttname"><a href="#a79554946c228e8710204f8fe5e232efc">IMPLEMENT_BASEPASS_MESHSHADER_TYPE</a></div><div class="ttdeci">#define IMPLEMENT_BASEPASS_MESHSHADER_TYPE(LightMapPolicyType, LightMapPolicyName)</div><div class="ttdef"><b>定义</b> BasePassRendering.cpp:178</div></div>
+<div class="ttc" id="a_g_buffer_info_8h_html_af3c4660f1414ac0926fd3f759991029aacbeba8d17683aa9d28dd3c653c2d979c"><div class="ttname"><a href="../../da/d9b/_g_buffer_info_8h.html#af3c4660f1414ac0926fd3f759991029aacbeba8d17683aa9d28dd3c653c2d979c">GBL_Default</a></div><div class="ttdeci">@ GBL_Default</div><div class="ttdef"><b>定义</b> GBufferInfo.h:108</div></div>
+<div class="ttc" id="a_g_buffer_info_8h_html_af3c4660f1414ac0926fd3f759991029aae682486a7d0ebffc8e9c49e9e283da52"><div class="ttname"><a href="../../da/d9b/_g_buffer_info_8h.html#af3c4660f1414ac0926fd3f759991029aae682486a7d0ebffc8e9c49e9e283da52">GBL_ForceVelocity</a></div><div class="ttdeci">@ GBL_ForceVelocity</div><div class="ttdef"><b>定义</b> GBufferInfo.h:109</div></div>
+</div><!-- fragment -->
+</div>
+</div>
+<a id="a79554946c228e8710204f8fe5e232efc" name="a79554946c228e8710204f8fe5e232efc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a79554946c228e8710204f8fe5e232efc">&#9670;&#160;</a></span>IMPLEMENT_BASEPASS_MESHSHADER_TYPE</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define IMPLEMENT_BASEPASS_MESHSHADER_TYPE</td>
+          <td>(</td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>LightMapPolicyType</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>LightMapPolicyName</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>值:</b><div class="fragment"><div class="line">    <span class="keyword">typedef</span> <a class="code hl_class" href="../../d0/d2d/class_t_base_pass_m_s.html">TBasePassMS&lt; LightMapPolicyType &gt;</a> <a class="code hl_class" href="../../d0/d2d/class_t_base_pass_m_s.html">TBasePassMS</a>##LightMapPolicyName ; \</div>
+<div class="line">    IMPLEMENT_MATERIAL_SHADER_TYPE(template&lt;&gt;,<a class="code hl_class" href="../../d0/d2d/class_t_base_pass_m_s.html">TBasePassMS</a>##LightMapPolicyName,<a class="code hl_define" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(<span class="stringliteral">&quot;/Engine/Private/BasePassVertexShader.usf&quot;</span>),<a class="code hl_define" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(<span class="stringliteral">&quot;Main&quot;</span>),<a class="code hl_enumvalue" href="../../da/dca/_r_h_i_definitions_8h.html#a0a3cc83cb6ebc79b66b43fae3ffee64ea6cf9f3a454922a8671daa8a862aa627e">SF_Mesh</a>);</div>
+<div class="ttc" id="a_r_h_i_definitions_8h_html_a0a3cc83cb6ebc79b66b43fae3ffee64ea6cf9f3a454922a8671daa8a862aa627e"><div class="ttname"><a href="../../da/dca/_r_h_i_definitions_8h.html#a0a3cc83cb6ebc79b66b43fae3ffee64ea6cf9f3a454922a8671daa8a862aa627e">SF_Mesh</a></div><div class="ttdeci">@ SF_Mesh</div><div class="ttdef"><b>定义</b> RHIDefinitions.h:191</div></div>
+<div class="ttc" id="aclass_t_base_pass_m_s_html"><div class="ttname"><a href="../../d0/d2d/class_t_base_pass_m_s.html">TBasePassMS</a></div><div class="ttdef"><b>定义</b> BasePassRendering.h:322</div></div>
+</div><!-- fragment -->
+</div>
+</div>
+<a id="a7700539cf4b01638c6b25bc132136d2f" name="a7700539cf4b01638c6b25bc132136d2f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7700539cf4b01638c6b25bc132136d2f">&#9670;&#160;</a></span>IMPLEMENT_BASEPASS_PIXELSHADER_TYPE</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define IMPLEMENT_BASEPASS_PIXELSHADER_TYPE</td>
+          <td>(</td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>LightMapPolicyType</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>LightMapPolicyName</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>GBufferLayout</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>LayoutName</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>值:</b><div class="fragment"><div class="line">    <span class="keyword">typedef</span> <a class="code hl_class" href="../../d0/df8/class_t_base_pass_p_s.html">TBasePassPS&lt;LightMapPolicyType, GBufferLayout&gt;</a> <a class="code hl_class" href="../../d0/df8/class_t_base_pass_p_s.html">TBasePassPS</a>##LightMapPolicyName##LayoutName; \</div>
+<div class="line">    IMPLEMENT_MATERIAL_SHADER_TYPE(template&lt;&gt;,<a class="code hl_class" href="../../d0/df8/class_t_base_pass_p_s.html">TBasePassPS</a>##LightMapPolicyName##LayoutName,<a class="code hl_define" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(<span class="stringliteral">&quot;/Engine/Private/BasePassPixelShader.usf&quot;</span>),<a class="code hl_define" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(<span class="stringliteral">&quot;MainPS&quot;</span>),<a class="code hl_enumvalue" href="../../da/dca/_r_h_i_definitions_8h.html#a0a3cc83cb6ebc79b66b43fae3ffee64eaf50bfe1c5c23e92a75ba64d89bcd3bfa">SF_Pixel</a>);</div>
+<div class="ttc" id="a_r_h_i_definitions_8h_html_a0a3cc83cb6ebc79b66b43fae3ffee64eaf50bfe1c5c23e92a75ba64d89bcd3bfa"><div class="ttname"><a href="../../da/dca/_r_h_i_definitions_8h.html#a0a3cc83cb6ebc79b66b43fae3ffee64eaf50bfe1c5c23e92a75ba64d89bcd3bfa">SF_Pixel</a></div><div class="ttdeci">@ SF_Pixel</div><div class="ttdef"><b>定义</b> RHIDefinitions.h:193</div></div>
+<div class="ttc" id="aclass_t_base_pass_p_s_html"><div class="ttname"><a href="../../d0/df8/class_t_base_pass_p_s.html">TBasePassPS</a></div><div class="ttdef"><b>定义</b> BasePassRendering.h:712</div></div>
+</div><!-- fragment -->
+</div>
+</div>
+<a id="ac674ae4270f4d565a313d7e871b3c735" name="ac674ae4270f4d565a313d7e871b3c735"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac674ae4270f4d565a313d7e871b3c735">&#9670;&#160;</a></span>IMPLEMENT_BASEPASS_VERTEXSHADER_TYPE</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define IMPLEMENT_BASEPASS_VERTEXSHADER_TYPE</td>
+          <td>(</td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>LightMapPolicyType</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>LightMapPolicyName</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>值:</b><div class="fragment"><div class="line">    <span class="keyword">typedef</span> <a class="code hl_class" href="../../d8/d99/class_t_base_pass_v_s.html">TBasePassVS&lt; LightMapPolicyType &gt;</a> <a class="code hl_class" href="../../d8/d99/class_t_base_pass_v_s.html">TBasePassVS</a>##LightMapPolicyName ; \</div>
+<div class="line">    IMPLEMENT_MATERIAL_SHADER_TYPE(template&lt;&gt;,<a class="code hl_class" href="../../d8/d99/class_t_base_pass_v_s.html">TBasePassVS</a>##LightMapPolicyName,<a class="code hl_define" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(<span class="stringliteral">&quot;/Engine/Private/BasePassVertexShader.usf&quot;</span>),<a class="code hl_define" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(<span class="stringliteral">&quot;Main&quot;</span>),<a class="code hl_enumvalue" href="../../da/dca/_r_h_i_definitions_8h.html#a0a3cc83cb6ebc79b66b43fae3ffee64ea57b843d1079d918ef496ded337a171d2">SF_Vertex</a>);</div>
+<div class="ttc" id="a_r_h_i_definitions_8h_html_a0a3cc83cb6ebc79b66b43fae3ffee64ea57b843d1079d918ef496ded337a171d2"><div class="ttname"><a href="../../da/dca/_r_h_i_definitions_8h.html#a0a3cc83cb6ebc79b66b43fae3ffee64ea57b843d1079d918ef496ded337a171d2">SF_Vertex</a></div><div class="ttdeci">@ SF_Vertex</div><div class="ttdef"><b>定义</b> RHIDefinitions.h:190</div></div>
+<div class="ttc" id="aclass_t_base_pass_v_s_html"><div class="ttname"><a href="../../d8/d99/class_t_base_pass_v_s.html">TBasePassVS</a></div><div class="ttdef"><b>定义</b> BasePassRendering.h:372</div></div>
+</div><!-- fragment -->
+</div>
+</div>
+<a id="a28518c531fbc8526618ec18df9a77bdf" name="a28518c531fbc8526618ec18df9a77bdf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a28518c531fbc8526618ec18df9a77bdf">&#9670;&#160;</a></span>IMPLEMENT_BASEPASS_WORKGRAPHSHADER_TYPE</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define IMPLEMENT_BASEPASS_WORKGRAPHSHADER_TYPE</td>
+          <td>(</td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>LightMapPolicyType</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>LightMapPolicyName</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>bVoxel</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>VoxelName</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>bCurve</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>CurveName</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>值:</b><div class="fragment"><div class="line">    <span class="keyword">typedef</span> <a class="code hl_class" href="../../db/de7/class_t_base_pass_c_s.html">TBasePassCS&lt;LightMapPolicyType, bVoxel, bCurve, SF_WorkGraphComputeNode&gt;</a> TBasePassWorkGraphCS##LightMapPolicyName##VoxelName##CurveName; \</div>
+<div class="line">    IMPLEMENT_MATERIAL_SHADER_TYPE(template&lt;&gt;,TBasePassWorkGraphCS##LightMapPolicyName##VoxelName##CurveName,<a class="code hl_define" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(<span class="stringliteral">&quot;/Engine/Private/BasePassPixelShader.usf&quot;</span>),<a class="code hl_define" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(<span class="stringliteral">&quot;MainCS&quot;</span>),<a class="code hl_enumvalue" href="../../da/dca/_r_h_i_definitions_8h.html#a0a3cc83cb6ebc79b66b43fae3ffee64eaedea1047ae31538ceace1b54c0b070c3">SF_WorkGraphComputeNode</a>);</div>
+<div class="ttc" id="a_r_h_i_definitions_8h_html_a0a3cc83cb6ebc79b66b43fae3ffee64eaedea1047ae31538ceace1b54c0b070c3"><div class="ttname"><a href="../../da/dca/_r_h_i_definitions_8h.html#a0a3cc83cb6ebc79b66b43fae3ffee64eaedea1047ae31538ceace1b54c0b070c3">SF_WorkGraphComputeNode</a></div><div class="ttdeci">@ SF_WorkGraphComputeNode</div><div class="ttdef"><b>定义</b> RHIDefinitions.h:201</div></div>
+</div><!-- fragment -->
+</div>
+</div>
+<a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">函数说明</h2>
+<a id="a76dbaaf2a02d204fd2089b8349b386a9" name="a76dbaaf2a02d204fd2089b8349b386a9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a76dbaaf2a02d204fd2089b8349b386a9">&#9670;&#160;</a></span>AddUniformBasePassComputeShader()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;<a class="el" href="../../d0/d0a/_light_map_rendering_8h.html#a715ca627c49d0e186c87dbffaece820a">ELightMapPolicyType</a> Policy&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../df/d63/_typed_element_query_capabilities_8inl.html#a72343342ce64c0755563ee6c5e27868d">void</a> AddUniformBasePassComputeShader </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a></td>          <td class="paramname"><span class="paramname"><em>bVoxel</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a></td>          <td class="paramname"><span class="paramname"><em>bCurve</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a></td>          <td class="paramname"><span class="paramname"><em>bIsDebug</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../da/dca/_r_h_i_definitions_8h.html#a0a3cc83cb6ebc79b66b43fae3ffee64e">EShaderFrequency</a></td>          <td class="paramname"><span class="paramname"><em>ShaderFrequency</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d2/d78/struct_f_material_shader_types.html">FMaterialShaderTypes</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>OutShaderTypes</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="abda6d9308b122b6175aea1bff565fda9" name="abda6d9308b122b6175aea1bff565fda9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abda6d9308b122b6175aea1bff565fda9">&#9670;&#160;</a></span>AddUniformBasePassPixelShader()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;<a class="el" href="../../d0/d0a/_light_map_rendering_8h.html#a715ca627c49d0e186c87dbffaece820a">ELightMapPolicyType</a> Policy, <a class="el" href="../../da/d9b/_g_buffer_info_8h.html#af3c4660f1414ac0926fd3f759991029a">EGBufferLayout</a> GBufferLayout&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../df/d63/_typed_element_query_capabilities_8inl.html#a72343342ce64c0755563ee6c5e27868d">void</a> AddUniformBasePassPixelShader </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a></td>          <td class="paramname"><span class="paramname"><em>bUse128bitRT</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a></td>          <td class="paramname"><span class="paramname"><em>bIsDebug</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d2/d78/struct_f_material_shader_types.html">FMaterialShaderTypes</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>OutShaderTypes</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a></td>          <td class="paramname"><span class="paramname"><em>bIsForOITPass</em></span><span class="paramdefsep"> = </span><span class="paramdefval"><a class="el" href="../../d3/df7/radaudio__common_8h.html#ade27a78a51a66a5cfb6f09cf36bcfde9ae9de385ef6fe9bf3360d1038396b884c">false</a></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aeef82566e9a4874be021e60652452d7d" name="aeef82566e9a4874be021e60652452d7d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aeef82566e9a4874be021e60652452d7d">&#9670;&#160;</a></span>CalculateTranslucentMeshStaticSortKey()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../da/dfd/class_f_mesh_draw_command_sort_key.html">FMeshDrawCommandSortKey</a> CalculateTranslucentMeshStaticSortKey </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="../../d7/d24/class_f_primitive_scene_proxy.html">FPrimitiveSceneProxy</a> *<a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#aae3356b63849abbe8789dd41648ee90a">RESTRICT</a></td>          <td class="paramname"><span class="paramname"><em>PrimitiveSceneProxy</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../dd/de9/preprocessor_8c.html#a05f6b0ae8f6a6e135b0e290c25fe0e4e">uint16</a></td>          <td class="paramname"><span class="paramname"><em>MeshIdInPrimitive</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a618fb98829054cde3e0e1722171a4ac6" name="a618fb98829054cde3e0e1722171a4ac6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a618fb98829054cde3e0e1722171a4ac6">&#9670;&#160;</a></span>CreateBasePassProcessor()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d3/d56/class_f_mesh_pass_processor.html">FMeshPassProcessor</a> * CreateBasePassProcessor </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../dc/dcf/namespace_e_r_h_i_feature_level.html#a04bc2ae8f7bf478747a40da91e1753dd">ERHIFeatureLevel::Type</a></td>          <td class="paramname"><span class="paramname"><em>FeatureLevel</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="../../d4/dfa/class_f_scene.html">FScene</a> *</td>          <td class="paramname"><span class="paramname"><em>Scene</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="../../d6/d2c/class_f_scene_view.html">FSceneView</a> *</td>          <td class="paramname"><span class="paramname"><em>InViewIfDynamicMeshCommand</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d7/dd8/class_f_mesh_pass_draw_list_context.html">FMeshPassDrawListContext</a> *</td>          <td class="paramname"><span class="paramname"><em>InDrawListContext</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a340d5b588bcb2afdb52e5c19dd7444fd" name="a340d5b588bcb2afdb52e5c19dd7444fd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a340d5b588bcb2afdb52e5c19dd7444fd">&#9670;&#160;</a></span>CreateOpaqueBasePassUniformBuffer()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d2/d51/_render_graph_fwd_8h.html#ab926b0657e138258b3e140cc660c1545">TRDGUniformBufferRef</a>&lt; FOpaqueBasePassUniformParameters &gt; CreateOpaqueBasePassUniformBuffer </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d3/d85/class_f_r_d_g_builder.html">FRDGBuilder</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>GraphBuilder</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="../../dd/d2b/class_f_view_info.html">FViewInfo</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>View</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a8dbb3cd84ca9fd010dadfc3815eefa5d">int32</a></td>          <td class="paramname"><span class="paramname"><em>ViewIndex</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="../../d6/d06/struct_f_forward_base_pass_textures.html">FForwardBasePassTextures</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>ForwardBasePassTextures</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="../../d8/da1/struct_f_d_buffer_textures.html">FDBufferTextures</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>DBufferTextures</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a></td>          <td class="paramname"><span class="paramname"><em>bEnableSkyLight</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a></td>          <td class="paramname"><span class="paramname"><em>bForRealtimeSkyCapture</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a036a40b0d52c633a8d5ec119d976f61f" name="a036a40b0d52c633a8d5ec119d976f61f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a036a40b0d52c633a8d5ec119d976f61f">&#9670;&#160;</a></span>CreateTranslucencyAfterDOFModulateProcessor()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d3/d56/class_f_mesh_pass_processor.html">FMeshPassProcessor</a> * CreateTranslucencyAfterDOFModulateProcessor </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../dc/dcf/namespace_e_r_h_i_feature_level.html#a04bc2ae8f7bf478747a40da91e1753dd">ERHIFeatureLevel::Type</a></td>          <td class="paramname"><span class="paramname"><em>FeatureLevel</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="../../d4/dfa/class_f_scene.html">FScene</a> *</td>          <td class="paramname"><span class="paramname"><em>Scene</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="../../d6/d2c/class_f_scene_view.html">FSceneView</a> *</td>          <td class="paramname"><span class="paramname"><em>InViewIfDynamicMeshCommand</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d7/dd8/class_f_mesh_pass_draw_list_context.html">FMeshPassDrawListContext</a> *</td>          <td class="paramname"><span class="paramname"><em>InDrawListContext</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a4f8b7979d7b4c881cba8ec1b24820d13" name="a4f8b7979d7b4c881cba8ec1b24820d13"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4f8b7979d7b4c881cba8ec1b24820d13">&#9670;&#160;</a></span>CreateTranslucencyAfterDOFProcessor()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d3/d56/class_f_mesh_pass_processor.html">FMeshPassProcessor</a> * CreateTranslucencyAfterDOFProcessor </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../dc/dcf/namespace_e_r_h_i_feature_level.html#a04bc2ae8f7bf478747a40da91e1753dd">ERHIFeatureLevel::Type</a></td>          <td class="paramname"><span class="paramname"><em>FeatureLevel</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="../../d4/dfa/class_f_scene.html">FScene</a> *</td>          <td class="paramname"><span class="paramname"><em>Scene</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="../../d6/d2c/class_f_scene_view.html">FSceneView</a> *</td>          <td class="paramname"><span class="paramname"><em>InViewIfDynamicMeshCommand</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d7/dd8/class_f_mesh_pass_draw_list_context.html">FMeshPassDrawListContext</a> *</td>          <td class="paramname"><span class="paramname"><em>InDrawListContext</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a477cfdf08ff28cca7243e140ab86351c" name="a477cfdf08ff28cca7243e140ab86351c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a477cfdf08ff28cca7243e140ab86351c">&#9670;&#160;</a></span>CreateTranslucencyAfterMotionBlurProcessor()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d3/d56/class_f_mesh_pass_processor.html">FMeshPassProcessor</a> * CreateTranslucencyAfterMotionBlurProcessor </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../dc/dcf/namespace_e_r_h_i_feature_level.html#a04bc2ae8f7bf478747a40da91e1753dd">ERHIFeatureLevel::Type</a></td>          <td class="paramname"><span class="paramname"><em>FeatureLevel</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="../../d4/dfa/class_f_scene.html">FScene</a> *</td>          <td class="paramname"><span class="paramname"><em>Scene</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="../../d6/d2c/class_f_scene_view.html">FSceneView</a> *</td>          <td class="paramname"><span class="paramname"><em>InViewIfDynamicMeshCommand</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d7/dd8/class_f_mesh_pass_draw_list_context.html">FMeshPassDrawListContext</a> *</td>          <td class="paramname"><span class="paramname"><em>InDrawListContext</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a76304d2d3b4e36c41ad2407603fdb8b4" name="a76304d2d3b4e36c41ad2407603fdb8b4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a76304d2d3b4e36c41ad2407603fdb8b4">&#9670;&#160;</a></span>CreateTranslucencyAllPassProcessor()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d3/d56/class_f_mesh_pass_processor.html">FMeshPassProcessor</a> * CreateTranslucencyAllPassProcessor </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../dc/dcf/namespace_e_r_h_i_feature_level.html#a04bc2ae8f7bf478747a40da91e1753dd">ERHIFeatureLevel::Type</a></td>          <td class="paramname"><span class="paramname"><em>FeatureLevel</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="../../d4/dfa/class_f_scene.html">FScene</a> *</td>          <td class="paramname"><span class="paramname"><em>Scene</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="../../d6/d2c/class_f_scene_view.html">FSceneView</a> *</td>          <td class="paramname"><span class="paramname"><em>InViewIfDynamicMeshCommand</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d7/dd8/class_f_mesh_pass_draw_list_context.html">FMeshPassDrawListContext</a> *</td>          <td class="paramname"><span class="paramname"><em>InDrawListContext</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a92239c3a3c5350b61e823a8250882adf" name="a92239c3a3c5350b61e823a8250882adf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a92239c3a3c5350b61e823a8250882adf">&#9670;&#160;</a></span>CreateTranslucencyHoldoutPassProcessor()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d3/d56/class_f_mesh_pass_processor.html">FMeshPassProcessor</a> * CreateTranslucencyHoldoutPassProcessor </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../dc/dcf/namespace_e_r_h_i_feature_level.html#a04bc2ae8f7bf478747a40da91e1753dd">ERHIFeatureLevel::Type</a></td>          <td class="paramname"><span class="paramname"><em>FeatureLevel</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="../../d4/dfa/class_f_scene.html">FScene</a> *</td>          <td class="paramname"><span class="paramname"><em>Scene</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="../../d6/d2c/class_f_scene_view.html">FSceneView</a> *</td>          <td class="paramname"><span class="paramname"><em>InViewIfDynamicMeshCommand</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d7/dd8/class_f_mesh_pass_draw_list_context.html">FMeshPassDrawListContext</a> *</td>          <td class="paramname"><span class="paramname"><em>InDrawListContext</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ab39ff2249c257368ddb1c090d126e0b6" name="ab39ff2249c257368ddb1c090d126e0b6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab39ff2249c257368ddb1c090d126e0b6">&#9670;&#160;</a></span>CreateTranslucencyStandardModulatePassProcessor()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d3/d56/class_f_mesh_pass_processor.html">FMeshPassProcessor</a> * CreateTranslucencyStandardModulatePassProcessor </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../dc/dcf/namespace_e_r_h_i_feature_level.html#a04bc2ae8f7bf478747a40da91e1753dd">ERHIFeatureLevel::Type</a></td>          <td class="paramname"><span class="paramname"><em>FeatureLevel</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="../../d4/dfa/class_f_scene.html">FScene</a> *</td>          <td class="paramname"><span class="paramname"><em>Scene</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="../../d6/d2c/class_f_scene_view.html">FSceneView</a> *</td>          <td class="paramname"><span class="paramname"><em>InViewIfDynamicMeshCommand</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d7/dd8/class_f_mesh_pass_draw_list_context.html">FMeshPassDrawListContext</a> *</td>          <td class="paramname"><span class="paramname"><em>InDrawListContext</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a633e80f16c84fa428067d4e84b2ae51e" name="a633e80f16c84fa428067d4e84b2ae51e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a633e80f16c84fa428067d4e84b2ae51e">&#9670;&#160;</a></span>CreateTranslucencyStandardPassProcessor()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d3/d56/class_f_mesh_pass_processor.html">FMeshPassProcessor</a> * CreateTranslucencyStandardPassProcessor </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../dc/dcf/namespace_e_r_h_i_feature_level.html#a04bc2ae8f7bf478747a40da91e1753dd">ERHIFeatureLevel::Type</a></td>          <td class="paramname"><span class="paramname"><em>FeatureLevel</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="../../d4/dfa/class_f_scene.html">FScene</a> *</td>          <td class="paramname"><span class="paramname"><em>Scene</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="../../d6/d2c/class_f_scene_view.html">FSceneView</a> *</td>          <td class="paramname"><span class="paramname"><em>InViewIfDynamicMeshCommand</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d7/dd8/class_f_mesh_pass_draw_list_context.html">FMeshPassDrawListContext</a> *</td>          <td class="paramname"><span class="paramname"><em>InDrawListContext</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aff2893bdb07f819d3b7618ebeb7cbac7" name="aff2893bdb07f819d3b7618ebeb7cbac7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aff2893bdb07f819d3b7618ebeb7cbac7">&#9670;&#160;</a></span>DECLARE_CYCLE_STAT() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">DECLARE_CYCLE_STAT </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;DeferredShadingSceneRenderer ClearGBufferAtMaxZ&quot;)</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">STAT_FDeferredShadingSceneRenderer_ClearGBufferAtMaxZ</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">STATGROUP_SceneRendering</td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a1e8a41effff31a5eccbf6981bce399a2" name="a1e8a41effff31a5eccbf6981bce399a2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1e8a41effff31a5eccbf6981bce399a2">&#9670;&#160;</a></span>DECLARE_CYCLE_STAT() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">DECLARE_CYCLE_STAT </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;DeferredShadingSceneRenderer ViewExtensionPostRenderBasePass&quot;)</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">STAT_FDeferredShadingSceneRenderer_ViewExtensionPostRenderBasePass</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">STATGROUP_SceneRendering</td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a84cfe0db1eba8450c773eb3384a91284" name="a84cfe0db1eba8450c773eb3384a91284"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a84cfe0db1eba8450c773eb3384a91284">&#9670;&#160;</a></span>DEFINE_GPU_DRAWCALL_STAT()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">DEFINE_GPU_DRAWCALL_STAT </td>
+          <td>(</td>
+          <td class="paramtype">Basepass</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aa8dda742e7e5663b9b12ec38c9a452e6" name="aa8dda742e7e5663b9b12ec38c9a452e6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa8dda742e7e5663b9b12ec38c9a452e6">&#9670;&#160;</a></span>DEFINE_GPU_STAT()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">DEFINE_GPU_STAT </td>
+          <td>(</td>
+          <td class="paramtype">NaniteBasePass</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a6b942317056105c6328570b488d65be1" name="a6b942317056105c6328570b488d65be1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6b942317056105c6328570b488d65be1">&#9670;&#160;</a></span>GetBasePassShader&lt; FUniformLightMapPolicy &gt;()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a> <a class="el" href="../../d3/dc8/_base_pass_rendering_8h.html#a6b363f46a1de93f7bf0c8e507b575709">GetBasePassShader</a>&lt; <a class="el" href="../../de/d21/class_f_uniform_light_map_policy.html">FUniformLightMapPolicy</a> &gt; </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="../../dc/d8e/class_f_material.html">FMaterial</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>Material</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="../../d4/da4/class_f_vertex_factory_type.html">FVertexFactoryType</a> *</td>          <td class="paramname"><span class="paramname"><em>VertexFactoryType</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../de/d21/class_f_uniform_light_map_policy.html">FUniformLightMapPolicy</a></td>          <td class="paramname"><span class="paramname"><em>LightMapPolicy</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../dc/dcf/namespace_e_r_h_i_feature_level.html#a04bc2ae8f7bf478747a40da91e1753dd">ERHIFeatureLevel::Type</a></td>          <td class="paramname"><span class="paramname"><em>FeatureLevel</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a></td>          <td class="paramname"><span class="paramname"><em>bVoxel</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a></td>          <td class="paramname"><span class="paramname"><em>bCurve</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a></td>          <td class="paramname"><span class="paramname"><em>bIsDebug</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../da/dca/_r_h_i_definitions_8h.html#a0a3cc83cb6ebc79b66b43fae3ffee64e">EShaderFrequency</a></td>          <td class="paramname"><span class="paramname"><em>ShaderFrequency</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d8/d34/_shader_8h.html#ab6739264464426458ad868ca8d8cc420">TShaderRef</a>&lt; <a class="el" href="../../d5/d6a/class_t_base_pass_compute_shader_policy_param_type.html">TBasePassComputeShaderPolicyParamType</a>&lt; <a class="el" href="../../de/d21/class_f_uniform_light_map_policy.html">FUniformLightMapPolicy</a> &gt; &gt; *</td>          <td class="paramname"><span class="paramname"><em>ComputeShader</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a51800155883d074a52bd3b90aac355f6" name="a51800155883d074a52bd3b90aac355f6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a51800155883d074a52bd3b90aac355f6">&#9670;&#160;</a></span>GetBasePassShaders&lt; FUniformLightMapPolicy &gt;()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a> <a class="el" href="../../d3/dc8/_base_pass_rendering_8h.html#a6e52df2463450d9916aab75ca8ce419b">GetBasePassShaders</a>&lt; <a class="el" href="../../de/d21/class_f_uniform_light_map_policy.html">FUniformLightMapPolicy</a> &gt; </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="../../dc/d8e/class_f_material.html">FMaterial</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>Material</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="../../d4/da4/class_f_vertex_factory_type.html">FVertexFactoryType</a> *</td>          <td class="paramname"><span class="paramname"><em>VertexFactoryType</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../de/d21/class_f_uniform_light_map_policy.html">FUniformLightMapPolicy</a></td>          <td class="paramname"><span class="paramname"><em>LightMapPolicy</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../dc/dcf/namespace_e_r_h_i_feature_level.html#a04bc2ae8f7bf478747a40da91e1753dd">ERHIFeatureLevel::Type</a></td>          <td class="paramname"><span class="paramname"><em>FeatureLevel</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a></td>          <td class="paramname"><span class="paramname"><em>bUse128bitRT</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a></td>          <td class="paramname"><span class="paramname"><em>bIsDebug</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../da/d9b/_g_buffer_info_8h.html#af3c4660f1414ac0926fd3f759991029a">EGBufferLayout</a></td>          <td class="paramname"><span class="paramname"><em>GBufferLayout</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d8/d34/_shader_8h.html#ab6739264464426458ad868ca8d8cc420">TShaderRef</a>&lt; <a class="el" href="../../d3/dc8/_base_pass_rendering_8h.html#aa24f0c2eae4dee0e935a83eb758d3dc0">TBasePassMeshShaderPolicyParamType</a>&lt; <a class="el" href="../../de/d21/class_f_uniform_light_map_policy.html">FUniformLightMapPolicy</a> &gt; &gt; *</td>          <td class="paramname"><span class="paramname"><em>MeshShader</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d8/d34/_shader_8h.html#ab6739264464426458ad868ca8d8cc420">TShaderRef</a>&lt; <a class="el" href="../../d6/d16/class_t_base_pass_vertex_shader_policy_param_type.html">TBasePassVertexShaderPolicyParamType</a>&lt; <a class="el" href="../../de/d21/class_f_uniform_light_map_policy.html">FUniformLightMapPolicy</a> &gt; &gt; *</td>          <td class="paramname"><span class="paramname"><em>VertexShader</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d8/d34/_shader_8h.html#ab6739264464426458ad868ca8d8cc420">TShaderRef</a>&lt; <a class="el" href="../../d0/d8f/class_t_base_pass_pixel_shader_policy_param_type.html">TBasePassPixelShaderPolicyParamType</a>&lt; <a class="el" href="../../de/d21/class_f_uniform_light_map_policy.html">FUniformLightMapPolicy</a> &gt; &gt; *</td>          <td class="paramname"><span class="paramname"><em>PixelShader</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a></td>          <td class="paramname"><span class="paramname"><em>bIsForOITPass</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a8fc908cd93135c301ac22f9ac03a126b" name="a8fc908cd93135c301ac22f9ac03a126b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8fc908cd93135c301ac22f9ac03a126b">&#9670;&#160;</a></span>GetUniformBasePassShader()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;<a class="el" href="../../d0/d0a/_light_map_rendering_8h.html#a715ca627c49d0e186c87dbffaece820a">ELightMapPolicyType</a> Policy&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a> GetUniformBasePassShader </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="../../dc/d8e/class_f_material.html">FMaterial</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>Material</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="../../d4/da4/class_f_vertex_factory_type.html">FVertexFactoryType</a> *</td>          <td class="paramname"><span class="paramname"><em>VertexFactoryType</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../dc/dcf/namespace_e_r_h_i_feature_level.html#a04bc2ae8f7bf478747a40da91e1753dd">ERHIFeatureLevel::Type</a></td>          <td class="paramname"><span class="paramname"><em>FeatureLevel</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a></td>          <td class="paramname"><span class="paramname"><em>bVoxel</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a></td>          <td class="paramname"><span class="paramname"><em>bCurve</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a></td>          <td class="paramname"><span class="paramname"><em>bIsDebug</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../da/dca/_r_h_i_definitions_8h.html#a0a3cc83cb6ebc79b66b43fae3ffee64e">EShaderFrequency</a></td>          <td class="paramname"><span class="paramname"><em>ShaderFrequency</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d8/d34/_shader_8h.html#ab6739264464426458ad868ca8d8cc420">TShaderRef</a>&lt; <a class="el" href="../../d5/d6a/class_t_base_pass_compute_shader_policy_param_type.html">TBasePassComputeShaderPolicyParamType</a>&lt; <a class="el" href="../../de/d21/class_f_uniform_light_map_policy.html">FUniformLightMapPolicy</a> &gt; &gt; *</td>          <td class="paramname"><span class="paramname"><em>ComputeShader</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="afe91e9e9817920e33e0aeb4d88f74105" name="afe91e9e9817920e33e0aeb4d88f74105"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afe91e9e9817920e33e0aeb4d88f74105">&#9670;&#160;</a></span>GetUniformBasePassShaders()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;<a class="el" href="../../d0/d0a/_light_map_rendering_8h.html#a715ca627c49d0e186c87dbffaece820a">ELightMapPolicyType</a> Policy&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a> GetUniformBasePassShaders </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="../../dc/d8e/class_f_material.html">FMaterial</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>Material</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="../../d4/da4/class_f_vertex_factory_type.html">FVertexFactoryType</a> *</td>          <td class="paramname"><span class="paramname"><em>VertexFactoryType</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../dc/dcf/namespace_e_r_h_i_feature_level.html#a04bc2ae8f7bf478747a40da91e1753dd">ERHIFeatureLevel::Type</a></td>          <td class="paramname"><span class="paramname"><em>FeatureLevel</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a></td>          <td class="paramname"><span class="paramname"><em>bUse128bitRT</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a></td>          <td class="paramname"><span class="paramname"><em>bIsDebug</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../da/d9b/_g_buffer_info_8h.html#af3c4660f1414ac0926fd3f759991029a">EGBufferLayout</a></td>          <td class="paramname"><span class="paramname"><em>GBufferLayout</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d8/d34/_shader_8h.html#ab6739264464426458ad868ca8d8cc420">TShaderRef</a>&lt; <a class="el" href="../../d3/dc8/_base_pass_rendering_8h.html#aa24f0c2eae4dee0e935a83eb758d3dc0">TBasePassMeshShaderPolicyParamType</a>&lt; <a class="el" href="../../de/d21/class_f_uniform_light_map_policy.html">FUniformLightMapPolicy</a> &gt; &gt; *</td>          <td class="paramname"><span class="paramname"><em>MeshShader</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d8/d34/_shader_8h.html#ab6739264464426458ad868ca8d8cc420">TShaderRef</a>&lt; <a class="el" href="../../d6/d16/class_t_base_pass_vertex_shader_policy_param_type.html">TBasePassVertexShaderPolicyParamType</a>&lt; <a class="el" href="../../de/d21/class_f_uniform_light_map_policy.html">FUniformLightMapPolicy</a> &gt; &gt; *</td>          <td class="paramname"><span class="paramname"><em>VertexShader</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d8/d34/_shader_8h.html#ab6739264464426458ad868ca8d8cc420">TShaderRef</a>&lt; <a class="el" href="../../d0/d8f/class_t_base_pass_pixel_shader_policy_param_type.html">TBasePassPixelShaderPolicyParamType</a>&lt; <a class="el" href="../../de/d21/class_f_uniform_light_map_policy.html">FUniformLightMapPolicy</a> &gt; &gt; *</td>          <td class="paramname"><span class="paramname"><em>PixelShader</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a></td>          <td class="paramname"><span class="paramname"><em>bIsForOITPass</em></span><span class="paramdefsep"> = </span><span class="paramdefval"><a class="el" href="../../d3/df7/radaudio__common_8h.html#ade27a78a51a66a5cfb6f09cf36bcfde9ae9de385ef6fe9bf3360d1038396b884c">false</a></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Get shader templates allowing to redirect between compatible shaders. </p>
+
+</div>
+</div>
+<a id="a3c637eef8086267a81af493ff2b2b078" name="a3c637eef8086267a81af493ff2b2b078"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3c637eef8086267a81af493ff2b2b078">&#9670;&#160;</a></span>IMPLEMENT_BASEPASS_LIGHTMAPPED_SHADER_TYPE() <span class="overload">[1/10]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">IMPLEMENT_BASEPASS_LIGHTMAPPED_SHADER_TYPE </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d4/d29/class_f_self_shadowed_cached_point_indirect_lighting_policy.html">FSelfShadowedCachedPointIndirectLightingPolicy</a></td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d4/d29/class_f_self_shadowed_cached_point_indirect_lighting_policy.html">FSelfShadowedCachedPointIndirectLightingPolicy</a></td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a3986298330cce703355d3d4d9288d550" name="a3986298330cce703355d3d4d9288d550"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3986298330cce703355d3d4d9288d550">&#9670;&#160;</a></span>IMPLEMENT_BASEPASS_LIGHTMAPPED_SHADER_TYPE() <span class="overload">[2/10]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">IMPLEMENT_BASEPASS_LIGHTMAPPED_SHADER_TYPE </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d3/d2b/class_f_self_shadowed_translucency_policy.html">FSelfShadowedTranslucencyPolicy</a></td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d3/d2b/class_f_self_shadowed_translucency_policy.html">FSelfShadowedTranslucencyPolicy</a></td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a4732a4441135929a4d0a94288cf0f9ff" name="a4732a4441135929a4d0a94288cf0f9ff"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4732a4441135929a4d0a94288cf0f9ff">&#9670;&#160;</a></span>IMPLEMENT_BASEPASS_LIGHTMAPPED_SHADER_TYPE() <span class="overload">[3/10]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">IMPLEMENT_BASEPASS_LIGHTMAPPED_SHADER_TYPE </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../da/d27/class_f_self_shadowed_volumetric_lightmap_policy.html">FSelfShadowedVolumetricLightmapPolicy</a></td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../da/d27/class_f_self_shadowed_volumetric_lightmap_policy.html">FSelfShadowedVolumetricLightmapPolicy</a></td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a44c3890728692039f2c78c83eeb72e2a" name="a44c3890728692039f2c78c83eeb72e2a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a44c3890728692039f2c78c83eeb72e2a">&#9670;&#160;</a></span>IMPLEMENT_BASEPASS_LIGHTMAPPED_SHADER_TYPE() <span class="overload">[4/10]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">IMPLEMENT_BASEPASS_LIGHTMAPPED_SHADER_TYPE </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d6/da1/class_t_uniform_light_map_policy.html">TUniformLightMapPolicy</a>&lt; <a class="el" href="../../d0/d0a/_light_map_rendering_8h.html#a715ca627c49d0e186c87dbffaece820aa9e6b637dfb4ebc3481320169e12940c6">LMP_CACHED_POINT_INDIRECT_LIGHTING</a> &gt;</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d4/dce/struct_f_cached_point_indirect_lighting_policy.html">FCachedPointIndirectLightingPolicy</a></td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a82654c4e656000f189a42b1231bdeae1" name="a82654c4e656000f189a42b1231bdeae1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a82654c4e656000f189a42b1231bdeae1">&#9670;&#160;</a></span>IMPLEMENT_BASEPASS_LIGHTMAPPED_SHADER_TYPE() <span class="overload">[5/10]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">IMPLEMENT_BASEPASS_LIGHTMAPPED_SHADER_TYPE </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d6/da1/class_t_uniform_light_map_policy.html">TUniformLightMapPolicy</a>&lt; <a class="el" href="../../d0/d0a/_light_map_rendering_8h.html#a715ca627c49d0e186c87dbffaece820aa34e654d96349dca6f2c0eb41db43f629">LMP_CACHED_VOLUME_INDIRECT_LIGHTING</a> &gt;</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d2/d93/struct_f_cached_volume_indirect_lighting_policy.html">FCachedVolumeIndirectLightingPolicy</a></td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a867f6c1a15334e92dbba55b5e3d6b6e3" name="a867f6c1a15334e92dbba55b5e3d6b6e3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a867f6c1a15334e92dbba55b5e3d6b6e3">&#9670;&#160;</a></span>IMPLEMENT_BASEPASS_LIGHTMAPPED_SHADER_TYPE() <span class="overload">[6/10]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">IMPLEMENT_BASEPASS_LIGHTMAPPED_SHADER_TYPE </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d6/da1/class_t_uniform_light_map_policy.html">TUniformLightMapPolicy</a>&lt; <a class="el" href="../../d0/d0a/_light_map_rendering_8h.html#a715ca627c49d0e186c87dbffaece820aac1284bf9458949510c43cb09ebc9cbbc">LMP_DISTANCE_FIELD_SHADOWS_AND_HQ_LIGHTMAP</a> &gt;</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">TDistanceFieldShadowsAndLightMapPolicyHQ</td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a2f645192c8c888bf279cd6c991ca71fe" name="a2f645192c8c888bf279cd6c991ca71fe"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2f645192c8c888bf279cd6c991ca71fe">&#9670;&#160;</a></span>IMPLEMENT_BASEPASS_LIGHTMAPPED_SHADER_TYPE() <span class="overload">[7/10]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">IMPLEMENT_BASEPASS_LIGHTMAPPED_SHADER_TYPE </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d6/da1/class_t_uniform_light_map_policy.html">TUniformLightMapPolicy</a>&lt; <a class="el" href="../../d0/d0a/_light_map_rendering_8h.html#a715ca627c49d0e186c87dbffaece820aa1a5b7e9673fbc5ff243a82515a902a60">LMP_HQ_LIGHTMAP</a> &gt;</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">TLightMapPolicyHQ</td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a21ba5daaf72a9d4c8a83b33d8f1eea2b" name="a21ba5daaf72a9d4c8a83b33d8f1eea2b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a21ba5daaf72a9d4c8a83b33d8f1eea2b">&#9670;&#160;</a></span>IMPLEMENT_BASEPASS_LIGHTMAPPED_SHADER_TYPE() <span class="overload">[8/10]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">IMPLEMENT_BASEPASS_LIGHTMAPPED_SHADER_TYPE </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d6/da1/class_t_uniform_light_map_policy.html">TUniformLightMapPolicy</a>&lt; <a class="el" href="../../d0/d0a/_light_map_rendering_8h.html#a715ca627c49d0e186c87dbffaece820aaf03f9b5f9145d9670faf6ad6494d8c57">LMP_LQ_LIGHTMAP</a> &gt;</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">TLightMapPolicyLQ</td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a0790cda05d415ede7260cd7005d9baff" name="a0790cda05d415ede7260cd7005d9baff"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0790cda05d415ede7260cd7005d9baff">&#9670;&#160;</a></span>IMPLEMENT_BASEPASS_LIGHTMAPPED_SHADER_TYPE() <span class="overload">[9/10]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">IMPLEMENT_BASEPASS_LIGHTMAPPED_SHADER_TYPE </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d6/da1/class_t_uniform_light_map_policy.html">TUniformLightMapPolicy</a>&lt; <a class="el" href="../../d0/d0a/_light_map_rendering_8h.html#a715ca627c49d0e186c87dbffaece820aa7751396a7b095ab1cc31f49e0eab208d">LMP_NO_LIGHTMAP</a> &gt;</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../de/df4/struct_f_no_light_map_policy.html">FNoLightMapPolicy</a></td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a08af609f8fa693765a4f3a2c94ade1d5" name="a08af609f8fa693765a4f3a2c94ade1d5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a08af609f8fa693765a4f3a2c94ade1d5">&#9670;&#160;</a></span>IMPLEMENT_BASEPASS_LIGHTMAPPED_SHADER_TYPE() <span class="overload">[10/10]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">IMPLEMENT_BASEPASS_LIGHTMAPPED_SHADER_TYPE </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d6/da1/class_t_uniform_light_map_policy.html">TUniformLightMapPolicy</a>&lt; <a class="el" href="../../d0/d0a/_light_map_rendering_8h.html#a715ca627c49d0e186c87dbffaece820aa7a7e30756de9cbc94eb5794138b93e97">LMP_PRECOMPUTED_IRRADIANCE_VOLUME_INDIRECT_LIGHTING</a> &gt;</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d5/d98/struct_f_precomputed_volumetric_lightmap_lighting_policy.html">FPrecomputedVolumetricLightmapLightingPolicy</a></td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a88442c9e33a59912784aa9a86db22d49" name="a88442c9e33a59912784aa9a86db22d49"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a88442c9e33a59912784aa9a86db22d49">&#9670;&#160;</a></span>IMPLEMENT_GLOBAL_SHADER_PARAMETER_STRUCT()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">IMPLEMENT_GLOBAL_SHADER_PARAMETER_STRUCT </td>
+          <td>(</td>
+          <td class="paramtype">FSharedBasePassUniformParameters</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&quot;BasePass&quot;</td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a6397ba9d61d869d694b467849a3bbe28" name="a6397ba9d61d869d694b467849a3bbe28"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6397ba9d61d869d694b467849a3bbe28">&#9670;&#160;</a></span>IMPLEMENT_MATERIAL_SHADER_TYPE()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">IMPLEMENT_MATERIAL_SHADER_TYPE </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../de/dd1/class_f128_bit_r_t_base_pass_p_s.html">F128BitRTBasePassPS</a></td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;/Engine/<a class="el" href="../../d9/db1/namespace_private.html">Private</a>/BasePassPixelShader.usf&quot;)</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;MainPS&quot;)</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../da/dca/_r_h_i_definitions_8h.html#a0a3cc83cb6ebc79b66b43fae3ffee64eaf50bfe1c5c23e92a75ba64d89bcd3bfa">SF_Pixel</a></td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a1ffd966290f499a9be68397718437ceb" name="a1ffd966290f499a9be68397718437ceb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1ffd966290f499a9be68397718437ceb">&#9670;&#160;</a></span>IMPLEMENT_STATIC_UNIFORM_BUFFER_STRUCT() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">IMPLEMENT_STATIC_UNIFORM_BUFFER_STRUCT </td>
+          <td>(</td>
+          <td class="paramtype">FOpaqueBasePassUniformParameters</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&quot;OpaqueBasePass&quot;</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">SceneTextures</td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a960b299fa2f31c4056768d4fd8c9326e" name="a960b299fa2f31c4056768d4fd8c9326e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a960b299fa2f31c4056768d4fd8c9326e">&#9670;&#160;</a></span>IMPLEMENT_STATIC_UNIFORM_BUFFER_STRUCT() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">IMPLEMENT_STATIC_UNIFORM_BUFFER_STRUCT </td>
+          <td>(</td>
+          <td class="paramtype">FTranslucentBasePassUniformParameters</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&quot;TranslucentBasePass&quot;</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">SceneTextures</td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="afb346f84cbaba1d8f5e5e1847c68837b" name="afb346f84cbaba1d8f5e5e1847c68837b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afb346f84cbaba1d8f5e5e1847c68837b">&#9670;&#160;</a></span>IsGBufferLayoutSupportedForMaterial()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a> IsGBufferLayoutSupportedForMaterial </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../da/d9b/_g_buffer_info_8h.html#af3c4660f1414ac0926fd3f759991029a">EGBufferLayout</a></td>          <td class="paramname"><span class="paramname"><em>Layout</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="../../d9/d6c/struct_f_mesh_material_shader_permutation_parameters.html">FMeshMaterialShaderPermutationParameters</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>Parameters</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a4835b6d2ce17bdd35912f3adf45b541f" name="a4835b6d2ce17bdd35912f3adf45b541f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4835b6d2ce17bdd35912f3adf45b541f">&#9670;&#160;</a></span>ModifyBasePassCSPSCompilationEnvironment()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../df/d63/_typed_element_query_capabilities_8inl.html#a72343342ce64c0755563ee6c5e27868d">void</a> ModifyBasePassCSPSCompilationEnvironment </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="../../d9/d6c/struct_f_mesh_material_shader_permutation_parameters.html">FMeshMaterialShaderPermutationParameters</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>Parameters</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../da/d9b/_g_buffer_info_8h.html#af3c4660f1414ac0926fd3f759991029a">EGBufferLayout</a></td>          <td class="paramname"><span class="paramname"><em>GBufferLayout</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../da/d3c/struct_f_shader_compiler_environment.html">FShaderCompilerEnvironment</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>OutEnvironment</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a0051728fd9d4a417559d08009b859ad7" name="a0051728fd9d4a417559d08009b859ad7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0051728fd9d4a417559d08009b859ad7">&#9670;&#160;</a></span>REGISTER_MESHPASSPROCESSOR_AND_PSOCOLLECTOR() <span class="overload">[1/8]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">REGISTER_MESHPASSPROCESSOR_AND_PSOCOLLECTOR </td>
+          <td>(</td>
+          <td class="paramtype">BasePass</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="#a618fb98829054cde3e0e1722171a4ac6">CreateBasePassProcessor</a></td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d5/d3b/_scene_utils_8h.html#a0102358b8bd21ed9c61c83e3204e9dd2a4ed71db54748b36eeb398876b0c747ac">EShadingPath::Deferred</a></td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d1/d67/namespace_e_mesh_pass.html#a500f45051893a7062c598b29423766a3a6a86328bc93625bb019b6ac96a7a0439">EMeshPass::BasePass</a></td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../db/dbe/_mesh_pass_processor_8h.html#a4eb4de480e9ac2f43b1f060203d3016baa391ae0b88766177d69788486ceca1d0">EMeshPassFlags::CachedMeshCommands</a>|<a class="el" href="../../db/dbe/_mesh_pass_processor_8h.html#a4eb4de480e9ac2f43b1f060203d3016baffe65f439f54bfbd4437df5967d4c173">EMeshPassFlags::MainView</a></td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a38648b05e53df8043e59cc182b47abb9" name="a38648b05e53df8043e59cc182b47abb9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a38648b05e53df8043e59cc182b47abb9">&#9670;&#160;</a></span>REGISTER_MESHPASSPROCESSOR_AND_PSOCOLLECTOR() <span class="overload">[2/8]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">REGISTER_MESHPASSPROCESSOR_AND_PSOCOLLECTOR </td>
+          <td>(</td>
+          <td class="paramtype">TranslucencyAfterDOFModulatePass</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="#a036a40b0d52c633a8d5ec119d976f61f">CreateTranslucencyAfterDOFModulateProcessor</a></td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d5/d3b/_scene_utils_8h.html#a0102358b8bd21ed9c61c83e3204e9dd2a4ed71db54748b36eeb398876b0c747ac">EShadingPath::Deferred</a></td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d1/d67/namespace_e_mesh_pass.html#a500f45051893a7062c598b29423766a3ab6ebbc578e4ca3410d3c6e57b8c35bd3">EMeshPass::TranslucencyAfterDOFModulate</a></td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../db/dbe/_mesh_pass_processor_8h.html#a4eb4de480e9ac2f43b1f060203d3016baffe65f439f54bfbd4437df5967d4c173">EMeshPassFlags::MainView</a></td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a70b14745dcafdf50d42ab8fe7d31583a" name="a70b14745dcafdf50d42ab8fe7d31583a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a70b14745dcafdf50d42ab8fe7d31583a">&#9670;&#160;</a></span>REGISTER_MESHPASSPROCESSOR_AND_PSOCOLLECTOR() <span class="overload">[3/8]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">REGISTER_MESHPASSPROCESSOR_AND_PSOCOLLECTOR </td>
+          <td>(</td>
+          <td class="paramtype">TranslucencyAfterDOFPass</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="#a4f8b7979d7b4c881cba8ec1b24820d13">CreateTranslucencyAfterDOFProcessor</a></td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d5/d3b/_scene_utils_8h.html#a0102358b8bd21ed9c61c83e3204e9dd2a4ed71db54748b36eeb398876b0c747ac">EShadingPath::Deferred</a></td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d1/d67/namespace_e_mesh_pass.html#a500f45051893a7062c598b29423766a3abf256f5971a549fb61fcfaf1509cb059">EMeshPass::TranslucencyAfterDOF</a></td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../db/dbe/_mesh_pass_processor_8h.html#a4eb4de480e9ac2f43b1f060203d3016baffe65f439f54bfbd4437df5967d4c173">EMeshPassFlags::MainView</a></td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a773816fa205f50b0e76dbdbfe0349b05" name="a773816fa205f50b0e76dbdbfe0349b05"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a773816fa205f50b0e76dbdbfe0349b05">&#9670;&#160;</a></span>REGISTER_MESHPASSPROCESSOR_AND_PSOCOLLECTOR() <span class="overload">[4/8]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">REGISTER_MESHPASSPROCESSOR_AND_PSOCOLLECTOR </td>
+          <td>(</td>
+          <td class="paramtype">TranslucencyAfterMotionBlurPass</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="#a477cfdf08ff28cca7243e140ab86351c">CreateTranslucencyAfterMotionBlurProcessor</a></td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d5/d3b/_scene_utils_8h.html#a0102358b8bd21ed9c61c83e3204e9dd2a4ed71db54748b36eeb398876b0c747ac">EShadingPath::Deferred</a></td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d1/d67/namespace_e_mesh_pass.html#a500f45051893a7062c598b29423766a3a8b561c38c8f579ce6108306bc7ba4497">EMeshPass::TranslucencyAfterMotionBlur</a></td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../db/dbe/_mesh_pass_processor_8h.html#a4eb4de480e9ac2f43b1f060203d3016baffe65f439f54bfbd4437df5967d4c173">EMeshPassFlags::MainView</a></td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aba2b777e680b92a9e60b7f95be158a03" name="aba2b777e680b92a9e60b7f95be158a03"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aba2b777e680b92a9e60b7f95be158a03">&#9670;&#160;</a></span>REGISTER_MESHPASSPROCESSOR_AND_PSOCOLLECTOR() <span class="overload">[5/8]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">REGISTER_MESHPASSPROCESSOR_AND_PSOCOLLECTOR </td>
+          <td>(</td>
+          <td class="paramtype">TranslucencyAllPass</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="#a76304d2d3b4e36c41ad2407603fdb8b4">CreateTranslucencyAllPassProcessor</a></td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d5/d3b/_scene_utils_8h.html#a0102358b8bd21ed9c61c83e3204e9dd2a4ed71db54748b36eeb398876b0c747ac">EShadingPath::Deferred</a></td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d1/d67/namespace_e_mesh_pass.html#a500f45051893a7062c598b29423766a3af69b5e9812d7d13b6081c90683f4d233">EMeshPass::TranslucencyAll</a></td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../db/dbe/_mesh_pass_processor_8h.html#a4eb4de480e9ac2f43b1f060203d3016baffe65f439f54bfbd4437df5967d4c173">EMeshPassFlags::MainView</a></td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a210d31d97c381481401a3fe995f71921" name="a210d31d97c381481401a3fe995f71921"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a210d31d97c381481401a3fe995f71921">&#9670;&#160;</a></span>REGISTER_MESHPASSPROCESSOR_AND_PSOCOLLECTOR() <span class="overload">[6/8]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">REGISTER_MESHPASSPROCESSOR_AND_PSOCOLLECTOR </td>
+          <td>(</td>
+          <td class="paramtype">TranslucencyHoldoutPass</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="#a92239c3a3c5350b61e823a8250882adf">CreateTranslucencyHoldoutPassProcessor</a></td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d5/d3b/_scene_utils_8h.html#a0102358b8bd21ed9c61c83e3204e9dd2a4ed71db54748b36eeb398876b0c747ac">EShadingPath::Deferred</a></td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d1/d67/namespace_e_mesh_pass.html#a500f45051893a7062c598b29423766a3a92f2a398852113ebccd594e8c478b176">EMeshPass::TranslucencyHoldout</a></td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../db/dbe/_mesh_pass_processor_8h.html#a4eb4de480e9ac2f43b1f060203d3016baffe65f439f54bfbd4437df5967d4c173">EMeshPassFlags::MainView</a></td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a2bbcfc8ce350206746985448d403e9ce" name="a2bbcfc8ce350206746985448d403e9ce"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2bbcfc8ce350206746985448d403e9ce">&#9670;&#160;</a></span>REGISTER_MESHPASSPROCESSOR_AND_PSOCOLLECTOR() <span class="overload">[7/8]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">REGISTER_MESHPASSPROCESSOR_AND_PSOCOLLECTOR </td>
+          <td>(</td>
+          <td class="paramtype">TranslucencyStandardModulatePass</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="#ab39ff2249c257368ddb1c090d126e0b6">CreateTranslucencyStandardModulatePassProcessor</a></td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d5/d3b/_scene_utils_8h.html#a0102358b8bd21ed9c61c83e3204e9dd2a4ed71db54748b36eeb398876b0c747ac">EShadingPath::Deferred</a></td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d1/d67/namespace_e_mesh_pass.html#a500f45051893a7062c598b29423766a3ac1c8fe1a2d286a7e1a4b794be1d47b5c">EMeshPass::TranslucencyStandardModulate</a></td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../db/dbe/_mesh_pass_processor_8h.html#a4eb4de480e9ac2f43b1f060203d3016baffe65f439f54bfbd4437df5967d4c173">EMeshPassFlags::MainView</a></td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aa14727a1ee6fee511a6081a16dcc8c81" name="aa14727a1ee6fee511a6081a16dcc8c81"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa14727a1ee6fee511a6081a16dcc8c81">&#9670;&#160;</a></span>REGISTER_MESHPASSPROCESSOR_AND_PSOCOLLECTOR() <span class="overload">[8/8]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">REGISTER_MESHPASSPROCESSOR_AND_PSOCOLLECTOR </td>
+          <td>(</td>
+          <td class="paramtype">TranslucencyStandardPass</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="#a633e80f16c84fa428067d4e84b2ae51e">CreateTranslucencyStandardPassProcessor</a></td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d5/d3b/_scene_utils_8h.html#a0102358b8bd21ed9c61c83e3204e9dd2a4ed71db54748b36eeb398876b0c747ac">EShadingPath::Deferred</a></td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d1/d67/namespace_e_mesh_pass.html#a500f45051893a7062c598b29423766a3abd65090643ab22785709e708ec9105c7">EMeshPass::TranslucencyStandard</a></td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../db/dbe/_mesh_pass_processor_8h.html#a4eb4de480e9ac2f43b1f060203d3016baffe65f439f54bfbd4437df5967d4c173">EMeshPassFlags::MainView</a></td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a8f65cc53392006188923ed9805e22324" name="a8f65cc53392006188923ed9805e22324"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8f65cc53392006188923ed9805e22324">&#9670;&#160;</a></span>SetDepthStencilStateForBasePass()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../df/d63/_typed_element_query_capabilities_8inl.html#a72343342ce64c0755563ee6c5e27868d">void</a> SetDepthStencilStateForBasePass </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d7/d96/struct_f_mesh_pass_processor_render_state.html">FMeshPassProcessorRenderState</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>DrawRenderState</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../dc/dcf/namespace_e_r_h_i_feature_level.html#a04bc2ae8f7bf478747a40da91e1753dd">ERHIFeatureLevel::Type</a></td>          <td class="paramname"><span class="paramname"><em>FeatureLevel</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a></td>          <td class="paramname"><span class="paramname"><em>bDitheredLODTransition</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="../../dc/d8e/class_f_material.html">FMaterial</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>MaterialResource</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a></td>          <td class="paramname"><span class="paramname"><em>bEnableReceiveDecalOutput</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a></td>          <td class="paramname"><span class="paramname"><em>bForceEnableStencilDitherState</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a6b5a32d1cdcc1a3135005e8bf4a157d5" name="a6b5a32d1cdcc1a3135005e8bf4a157d5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6b5a32d1cdcc1a3135005e8bf4a157d5">&#9670;&#160;</a></span>SetDepthStencilStateForBasePass_Internal() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;<a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a> bDepthTest, <a class="el" href="../../da/dca/_r_h_i_definitions_8h.html#a80d2e12de2886685efc6cbb511f37504">ECompareFunction</a> CompareFunction, <a class="el" href="../../dd/de9/preprocessor_8c.html#a1134b580f8da4de94ca6b1de4d37975e">uint32</a> StencilWriteMask&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../df/d63/_typed_element_query_capabilities_8inl.html#a72343342ce64c0755563ee6c5e27868d">void</a> SetDepthStencilStateForBasePass_Internal </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d7/d96/struct_f_mesh_pass_processor_render_state.html">FMeshPassProcessorRenderState</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>InDrawRenderState</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ad0a5d7d8f655bb53698143501d2c9d06" name="ad0a5d7d8f655bb53698143501d2c9d06"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad0a5d7d8f655bb53698143501d2c9d06">&#9670;&#160;</a></span>SetDepthStencilStateForBasePass_Internal() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;<a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a> bDepthTest, <a class="el" href="../../da/dca/_r_h_i_definitions_8h.html#a80d2e12de2886685efc6cbb511f37504">ECompareFunction</a> CompareFunction&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../df/d63/_typed_element_query_capabilities_8inl.html#a72343342ce64c0755563ee6c5e27868d">void</a> SetDepthStencilStateForBasePass_Internal </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d7/d96/struct_f_mesh_pass_processor_render_state.html">FMeshPassProcessorRenderState</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>InDrawRenderState</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../dc/dcf/namespace_e_r_h_i_feature_level.html#a04bc2ae8f7bf478747a40da91e1753dd">ERHIFeatureLevel::Type</a></td>          <td class="paramname"><span class="paramname"><em>FeatureLevel</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aa3d21626812da598275223e708316607" name="aa3d21626812da598275223e708316607"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa3d21626812da598275223e708316607">&#9670;&#160;</a></span>SetForwardDirLightShadowParametersFromView()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../df/d63/_typed_element_query_capabilities_8inl.html#a72343342ce64c0755563ee6c5e27868d">void</a> SetForwardDirLightShadowParametersFromView </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d3/d85/class_f_r_d_g_builder.html">FRDGBuilder</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>GraphBuilder</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="../../dd/d2b/class_f_view_info.html">FViewInfo</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>View</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">FForwardDirectionalLightShadowMapParameters &amp;</td>          <td class="paramname"><span class="paramname"><em>Parameters</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel extern">extern</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a6716f3cf3ecefb54de50cd361bf3f4bf" name="a6716f3cf3ecefb54de50cd361bf3f4bf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6716f3cf3ecefb54de50cd361bf3f4bf">&#9670;&#160;</a></span>SetForwardLightUniformParametersFromView()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../df/d63/_typed_element_query_capabilities_8inl.html#a72343342ce64c0755563ee6c5e27868d">void</a> SetForwardLightUniformParametersFromView </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d3/d85/class_f_r_d_g_builder.html">FRDGBuilder</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>GraphBuilder</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="../../dd/d2b/class_f_view_info.html">FViewInfo</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>View</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">FForwardLightUniformParameters &amp;</td>          <td class="paramname"><span class="paramname"><em>ForwardLightUniformParameters</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel extern">extern</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a5c4e5d19b8cfca0bac0b325bd88510cc" name="a5c4e5d19b8cfca0bac0b325bd88510cc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5c4e5d19b8cfca0bac0b325bd88510cc">&#9670;&#160;</a></span>SetTranslucentPassDepthStencilState()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;<a class="el" href="../../dd/de9/preprocessor_8c.html#a1134b580f8da4de94ca6b1de4d37975e">uint32</a> StencilRef&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../df/d63/_typed_element_query_capabilities_8inl.html#a72343342ce64c0755563ee6c5e27868d">void</a> SetTranslucentPassDepthStencilState </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d7/d96/struct_f_mesh_pass_processor_render_state.html">FMeshPassProcessorRenderState</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>DrawRenderState</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a></td>          <td class="paramname"><span class="paramname"><em>bDisableDepthTest</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a6d3b1414d472da9d26685f6ab7e72787" name="a6d3b1414d472da9d26685f6ab7e72787"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6d3b1414d472da9d26685f6ab7e72787">&#9670;&#160;</a></span>SetTranslucentRenderState()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../df/d63/_typed_element_query_capabilities_8inl.html#a72343342ce64c0755563ee6c5e27868d">void</a> SetTranslucentRenderState </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d7/d96/struct_f_mesh_pass_processor_render_state.html">FMeshPassProcessorRenderState</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>DrawRenderState</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="../../dc/d8e/class_f_material.html">FMaterial</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>Material</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="../../de/d49/_r_h_i_shader_platform_8h.html#a424c00593a28eb7ade584eea91161acd">EShaderPlatform</a></td>          <td class="paramname"><span class="paramname"><em>Platform</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d0/d2e/namespace_e_translucency_pass.html#af872fc629ddab2c3af68359c0077563d">ETranslucencyPass::Type</a></td>          <td class="paramname"><span class="paramname"><em>InTranslucencyPassType</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a2b40348e8d473b71f454c16ca1b8034b" name="a2b40348e8d473b71f454c16ca1b8034b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2b40348e8d473b71f454c16ca1b8034b">&#9670;&#160;</a></span>SetupBasePassState()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../df/d63/_typed_element_query_capabilities_8inl.html#a72343342ce64c0755563ee6c5e27868d">void</a> SetupBasePassState </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d2/d1e/class_f_exclusive_depth_stencil.html#a602fa0347a46eda885700bd75f963014">FExclusiveDepthStencil::Type</a></td>          <td class="paramname"><span class="paramname"><em>BasePassDepthStencilAccess</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a></td>          <td class="paramname"><span class="paramname"><em>bShaderComplexity</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d7/d96/struct_f_mesh_pass_processor_render_state.html">FMeshPassProcessorRenderState</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>DrawRenderState</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="acd1fbb3904e5973770b777a4da1ddbcf" name="acd1fbb3904e5973770b777a4da1ddbcf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acd1fbb3904e5973770b777a4da1ddbcf">&#9670;&#160;</a></span>SetupSharedBasePassParameters()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../df/d63/_typed_element_query_capabilities_8inl.html#a72343342ce64c0755563ee6c5e27868d">void</a> SetupSharedBasePassParameters </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d3/d85/class_f_r_d_g_builder.html">FRDGBuilder</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>GraphBuilder</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="../../dd/d2b/class_f_view_info.html">FViewInfo</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>View</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a8dbb3cd84ca9fd010dadfc3815eefa5d">int32</a></td>          <td class="paramname"><span class="paramname"><em>ViewIndex</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">FSharedBasePassUniformParameters &amp;</td>          <td class="paramname"><span class="paramname"><em>SharedParameters</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a></td>          <td class="paramname"><span class="paramname"><em>bForRealtimeSkyCapture</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a38caaf853893138ea55775d4e5c1b1cc" name="a38caaf853893138ea55775d4e5c1b1cc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a38caaf853893138ea55775d4e5c1b1cc">&#9670;&#160;</a></span>TranslucentRenderStateNeedsStencilMask()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a> TranslucentRenderStateNeedsStencilMask </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="../../dc/d8e/class_f_material.html">FMaterial</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>Material</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d0/d2e/namespace_e_translucency_pass.html#af872fc629ddab2c3af68359c0077563d">ETranslucencyPass::Type</a></td>          <td class="paramname"><span class="paramname"><em>InTranslucencyPassType</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>True when SetTranslucentRenderState will select a depth-stencil state that writes stencil mask bits for this material/pass, requiring a stencil attachment on the render pass. </p>
+
+</div>
+</div>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<div id="page-nav" class="page-nav-panel">
+<div id="page-nav-resize-handle"></div>
+<div id="page-nav-tree">
+<div id="page-nav-contents">
+</div><!-- page-nav-contents -->
+</div><!-- page-nav-tree -->
+</div><!-- page-nav -->
+</div><!-- container -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a href="../../dir_0b6ee6e7e9547e675db4add2e5de97da.html">Engine</a></li><li class="navelem"><a href="../../dir_9579d1ecb2c7bf48cbe1049c41745cb4.html">Source</a></li><li class="navelem"><a href="../../dir_9f04efef762572853abdf73f62bebfcc.html">Runtime</a></li><li class="navelem"><a href="../../dir_5ed6327f04b0f38d3f6fe5caa38b0445.html">Renderer</a></li><li class="navelem"><a href="../../dir_e317dc6f09036e33460f39c550131623.html">Private</a></li><li class="navelem"><a href="../../d3/dcf/_base_pass_rendering_8cpp.html">BasePassRendering.cpp</a></li>
+    <li class="footer">制作者 <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.15.0 </li>
+  </ul>
+</div>
+</body>
+</html>

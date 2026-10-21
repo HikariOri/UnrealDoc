@@ -1,0 +1,27 @@
+var struct_f_r_h_i_globals_1_1_f_ray_tracing =
+[
+    [ "AccelerationStructureAlignment", "d5/db9/struct_f_r_h_i_globals_1_1_f_ray_tracing.html#ac4f281e73a47b8c41c5ed8eaebc70269", null ],
+    [ "ClusterAccelerationStructureAlignment", "d5/db9/struct_f_r_h_i_globals_1_1_f_ray_tracing.html#a45a9ff12d2542ea18685b170214a6f8c", null ],
+    [ "ClusterAccelerationStructureTemplateAlignment", "d5/db9/struct_f_r_h_i_globals_1_1_f_ray_tracing.html#a4e2e0490b3bc426357cb6223c0d89a67", null ],
+    [ "InstanceDescriptorSize", "d5/db9/struct_f_r_h_i_globals_1_1_f_ray_tracing.html#ad97b954bc8f1a97092ad2d31556f4f3f", null ],
+    [ "RequiresInlineRayTracingSBT", "d5/db9/struct_f_r_h_i_globals_1_1_f_ray_tracing.html#a54cfcbe446e11fe5d584208ea479f938", null ],
+    [ "RequiresSeparateHitGroupContributionsBuffer", "d5/db9/struct_f_r_h_i_globals_1_1_f_ray_tracing.html#ab2836a907e746f1c3e5c1200405d2885", null ],
+    [ "ScratchBufferAlignment", "d5/db9/struct_f_r_h_i_globals_1_1_f_ray_tracing.html#abb987baffc55e8547be08b687f02d5e2", null ],
+    [ "ShaderTableAlignment", "d5/db9/struct_f_r_h_i_globals_1_1_f_ray_tracing.html#a59cdc3942126f3a75ea1d1f320d4c4a4", null ],
+    [ "Supported", "d5/db9/struct_f_r_h_i_globals_1_1_f_ray_tracing.html#a1e2297c8fdc76316a3a8bec43fec4bf5", null ],
+    [ "SupportsAccelerationStructureCompaction", "d5/db9/struct_f_r_h_i_globals_1_1_f_ray_tracing.html#a3c3d4da9532a67086cc38fb584b7854f", null ],
+    [ "SupportsAMDHitToken", "d5/db9/struct_f_r_h_i_globals_1_1_f_ray_tracing.html#ad26353b2f93a2a552a726ffcc915d5db", null ],
+    [ "SupportsAsyncBuildAccelerationStructure", "d5/db9/struct_f_r_h_i_globals_1_1_f_ray_tracing.html#ae03e4a3c51fd5cfac0ab2cd24d3f4f10", null ],
+    [ "SupportsAsyncRayTraceDispatch", "d5/db9/struct_f_r_h_i_globals_1_1_f_ray_tracing.html#ad6795cb5a1e7fdccac568f6e6b653bb5", null ],
+    [ "SupportsBuildTopLevelAccelerationStructureIndirect", "d5/db9/struct_f_r_h_i_globals_1_1_f_ray_tracing.html#acfdf830eb4cbec7a3e10e97172cb22c8", null ],
+    [ "SupportsClusterOps", "d5/db9/struct_f_r_h_i_globals_1_1_f_ray_tracing.html#a0bf2f9306afc906df937a2f69b4e183d", null ],
+    [ "SupportsDispatchIndirect", "d5/db9/struct_f_r_h_i_globals_1_1_f_ray_tracing.html#ac3d14ace10df8024b454c0fda80fda03", null ],
+    [ "SupportsInlinedCallbacks", "d5/db9/struct_f_r_h_i_globals_1_1_f_ray_tracing.html#ac114cc78bc0e6ae797c528a0aed6ba92", null ],
+    [ "SupportsInlineRayTracing", "d5/db9/struct_f_r_h_i_globals_1_1_f_ray_tracing.html#a986092cc83de3998783e4dc8a7d7d8c1", null ],
+    [ "SupportsLinearSweptSpheres", "d5/db9/struct_f_r_h_i_globals_1_1_f_ray_tracing.html#a14fd2e6f6f6e0333cc2ffcae9af551d5", null ],
+    [ "SupportsLooseParamsInShaderRecord", "d5/db9/struct_f_r_h_i_globals_1_1_f_ray_tracing.html#a4a549e6bb9bd0b38cf457432157f6815", null ],
+    [ "SupportsPersistentSBTs", "d5/db9/struct_f_r_h_i_globals_1_1_f_ray_tracing.html#a8bd3918a1b73848f46cf94515515d932", null ],
+    [ "SupportsPSOAdditions", "d5/db9/struct_f_r_h_i_globals_1_1_f_ray_tracing.html#a2656514b3afca855259e227c0e8d5e1b", null ],
+    [ "SupportsSerializeAccelerationStructure", "d5/db9/struct_f_r_h_i_globals_1_1_f_ray_tracing.html#a5fa6a22a54c466c4247cb30db0a97ee9", null ],
+    [ "SupportsShaders", "d5/db9/struct_f_r_h_i_globals_1_1_f_ray_tracing.html#a7085fadc27182b37d142ca63d350f5fd", null ]
+];

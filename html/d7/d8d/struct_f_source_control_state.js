@@ -1,0 +1,27 @@
+var struct_f_source_control_state =
+[
+    [ "FSourceControlState", "d7/d8d/struct_f_source_control_state.html#a81743b582c3732a681d1b8df211cb71a", null ],
+    [ "SetFromStatus", "d7/d8d/struct_f_source_control_state.html#a6be59bbd8e4014bce75adc53cfefdf58", null ],
+    [ "bCanAdd", "d7/d8d/struct_f_source_control_state.html#a01255c503d0f6fec134271478fa639bc", null ],
+    [ "bCanCheckIn", "d7/d8d/struct_f_source_control_state.html#a760b160e2d3f5da66004a9a2886ff71b", null ],
+    [ "bCanCheckOut", "d7/d8d/struct_f_source_control_state.html#a76c281021224adfd6f449da0d4029260", null ],
+    [ "bCanDelete", "d7/d8d/struct_f_source_control_state.html#a5def638c4b2e051fa06dfa34edbf9751", null ],
+    [ "bCanEdit", "d7/d8d/struct_f_source_control_state.html#ae50cfa0612fb6512bcc22e0b8fecdc7c", null ],
+    [ "bCanRevert", "d7/d8d/struct_f_source_control_state.html#a0a7e9327a0e1e2c7424d836b792cb22a", null ],
+    [ "bIsAdded", "d7/d8d/struct_f_source_control_state.html#ac27d481388d0b14890afb0ffa97f7e5e", null ],
+    [ "bIsCheckedOut", "d7/d8d/struct_f_source_control_state.html#a9dbca6e80cafb1cd9768a82ddd6bbb8e", null ],
+    [ "bIsCheckedOutInOtherBranch", "d7/d8d/struct_f_source_control_state.html#a286a3928094c7204ec098df81943050a", null ],
+    [ "bIsCheckedOutOther", "d7/d8d/struct_f_source_control_state.html#a3e0a7e0d5a51e465b7504bb5c2fe4329", null ],
+    [ "bIsConflicted", "d7/d8d/struct_f_source_control_state.html#abd8dcc1b2cacbd966b0aa1ed397cd077", null ],
+    [ "bIsCurrent", "d7/d8d/struct_f_source_control_state.html#a2990350502f256f7e80f137c7793d517", null ],
+    [ "bIsDeleted", "d7/d8d/struct_f_source_control_state.html#ab45f663afcb006d8d5e9a2b70be5d3d2", null ],
+    [ "bIsIgnored", "d7/d8d/struct_f_source_control_state.html#a44689b9455740dd275c629085c6a3838", null ],
+    [ "bIsModified", "d7/d8d/struct_f_source_control_state.html#a0f25199d670971095e0b2225f45837d3", null ],
+    [ "bIsModifiedInOtherBranch", "d7/d8d/struct_f_source_control_state.html#a7757eb36e3bffba2b713085999647592", null ],
+    [ "bIsSourceControlled", "d7/d8d/struct_f_source_control_state.html#a128311ee7e667fcfaf78e8950f0e0720", null ],
+    [ "bIsUnknown", "d7/d8d/struct_f_source_control_state.html#a200e9c4461b5e444f1de0696a1a0a0f2", null ],
+    [ "bIsValid", "d7/d8d/struct_f_source_control_state.html#ad45e8e883993eada7ad5c50f115970cc", null ],
+    [ "CheckedOutOther", "d7/d8d/struct_f_source_control_state.html#a6bcf3590e09de59242406c724e2599fb", null ],
+    [ "Filename", "d7/d8d/struct_f_source_control_state.html#a8bebade49ae9de974504cb77028e73bc", null ],
+    [ "PreviousUser", "d7/d8d/struct_f_source_control_state.html#af08c2a73f1e537421d13531867faf614", null ]
+];

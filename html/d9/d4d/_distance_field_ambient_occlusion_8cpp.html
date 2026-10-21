@@ -1,0 +1,1730 @@
+<!-- HTML header for doxygen 1.15.0-->
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh">
+<head>
+  <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=11" />
+  <meta name="generator" content="Doxygen 1.15.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>UE 5.8.4: Engine/Source/Runtime/Renderer/Private/DistanceFieldAmbientOcclusion.cpp 文件参考</title>
+  <link rel="icon" href="../../EdIconDefault.bmp" type="image/x-icon" />
+  <link href="../../tabs.css" rel="stylesheet" type="text/css" />
+  <script type="text/javascript" src="../../jquery.js"></script>
+  <script type="text/javascript" src="../../dynsections.js"></script>
+  <link href="../../navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../navtreedata.js"></script>
+<script type="text/javascript" src="../../navtree.js"></script>
+<script type="text/javascript" src="../../cookie.js"></script>
+  <link href="../../search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../search/searchdata.js"></script>
+<script type="text/javascript" src="../../search/search.js"></script>
+  <script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  extensions: ["tex2jax.js"],
+  jax: ["input/TeX","output/HTML-CSS"],
+});
+</script>
+<script type="text/javascript" async="async" src="https://cdn.jsdelivr.net/npm/mathjax@2/MathJax.js"></script>
+  <link href="../../doxygen.css" rel="stylesheet" type="text/css" />
+  <link href="../../doxygen-awesome.css" rel="stylesheet" type="text/css"/>
+<link href="../../doxygen-awesome-sidebar-only.css" rel="stylesheet" type="text/css"/>
+<link href="../../doxygen-awesome-sidebar-only-darkmode-toggle.css" rel="stylesheet" type="text/css"/>
+  <!-- ... other metadata & script includes ... -->
+  <script type="text/javascript" src="../../doxygen-awesome-darkmode-toggle.js"></script>
+  <script type="text/javascript">
+    DoxygenAwesomeDarkModeToggle.title = "Zwischen hellem/dunklem Modus wechseln"
+    DoxygenAwesomeDarkModeToggle.lightModeIcon = '🌞'
+    // icon from https://fonts.google.com/icons
+    DoxygenAwesomeDarkModeToggle.darkModeIcon = `<svg xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 24 24" height="24px" viewBox="0 0 24 24" width="24px" fill="#009793"><g><rect fill="none" height="24" width="24"/></g><g><g><path d="M8.1,14.15C9.77,14.63,11,16.17,11,18c0,0.68-0.19,1.31-0.48,1.87c0.48,0.09,0.97,0.14,1.48,0.14 c1.48,0,2.9-0.41,4.13-1.15c-2.62-0.92-5.23-2.82-6.8-5.86C7.74,9.94,7.78,7.09,8.29,4.9c-2.57,1.33-4.3,4.01-4.3,7.1c0,0,0,0,0,0 c0.01,0,0.01,0,0.02,0C5.66,12,7.18,12.83,8.1,14.15z" opacity=".3"/><path d="M19.78,17.51c-2.47,0-6.57-1.33-8.68-5.43C8.77,7.57,10.6,3.6,11.63,2.01C6.27,2.2,1.98,6.59,1.98,12 c0,0.14,0.02,0.28,0.02,0.42C2.61,12.16,3.28,12,3.98,12c0,0,0,0,0,0c0-3.09,1.73-5.77,4.3-7.1C7.78,7.09,7.74,9.94,9.32,13 c1.57,3.04,4.18,4.95,6.8,5.86c-1.23,0.74-2.65,1.15-4.13,1.15c-0.5,0-1-0.05-1.48-0.14c-0.37,0.7-0.94,1.27-1.64,1.64 c0.98,0.32,2.03,0.5,3.11,0.5c3.5,0,6.58-1.8,8.37-4.52C20.18,17.5,19.98,17.51,19.78,17.51z"/><path d="M7,16l-0.18,0C6.4,14.84,5.3,14,4,14c-1.66,0-3,1.34-3,3s1.34,3,3,3c0.62,0,2.49,0,3,0c1.1,0,2-0.9,2-2 C9,16.9,8.1,16,7,16z"/></g></g></svg>`
+    DoxygenAwesomeDarkModeToggle.init()
+  </script>
+  <script type="text/javascript" src="../../doxygen-awesome-fragment-copy-button.js"></script>
+  <script type="text/javascript">
+    DoxygenAwesomeFragmentCopyButton.title = "In die Zwischenablage kopieren"
+    // DoxygenAwesomeFragmentCopyButton.copyIcon = `<svg ...>`
+    // DoxygenAwesomeFragmentCopyButton.successIcon = `<svg ...>`
+    DoxygenAwesomeFragmentCopyButton.init()
+  </script>
+  <script type="text/javascript" src="../../doxygen-awesome-paragraph-link.js"></script>
+  <script type="text/javascript">
+    DoxygenAwesomeParagraphLink.title = "Abschnitt verknüpfen"
+    DoxygenAwesomeParagraphLink.icon = "¶"
+    DoxygenAwesomeParagraphLink.init()
+  </script>
+  <script type="text/javascript" src="../../doxygen-awesome-interactive-toc.js"></script>
+  <script type="text/javascript">
+    DoxygenAwesomeInteractiveToc.topOffset = 45
+    DoxygenAwesomeInteractiveToc.hideMobileMenu = false
+    DoxygenAwesomeInteractiveToc.init()
+  </script>
+</head>
+<body>
+    <div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+      <div id="titlearea">
+        <table cellspacing="0" cellpadding="0">
+          <tbody>
+            <tr id="projectrow">
+              <td id="projectlogo"><img alt="Logo" src="../../EdIconDefault.bmp"  /></td>
+              <td id="projectalign">
+                <div id="projectname">UE 5.8.4
+                </div>
+                <div id="projectbrief">Unreal Engine</div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <!-- end header part -->
+<!-- 制作者 Doxygen 1.15.0 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "../../search/",'.html');
+</script>
+<script type="text/javascript">
+$(function() { codefold.init(); });
+</script>
+<script type="text/javascript" src="../../menudata.js"></script>
+<script type="text/javascript" src="../../menu.js"></script>
+<script type="text/javascript">
+$(function() {
+  initMenu('../../',true,false,'search.php','搜索',true);
+  $(function() { init_search(); });
+});
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(function(){initNavTree('d9/d4d/_distance_field_ambient_occlusion_8cpp.html','../../',''); });
+</script>
+<div id="container">
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">载入中...</div>
+<div class="SRStatus" id="Searching">搜索中...</div>
+<div class="SRStatus" id="NoMatches">未找到</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">DistanceFieldAmbientOcclusion.cpp 文件参考</div></div>
+</div><!--header-->
+<div class="contents">
+<div class="textblock"><code>#include &quot;<a class="el" href="../../da/d72/_distance_field_ambient_occlusion_8h_source.html">DistanceFieldAmbientOcclusion.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d8/df3/_data_driven_shader_platform_info_8h_source.html">DataDrivenShaderPlatformInfo.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../db/d71/_deferred_shading_renderer_8h_source.html">DeferredShadingRenderer.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d5/d66/_post_processing_8h_source.html">PostProcess/PostProcessing.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d0/d19/_scene_filter_rendering_8h_source.html">PostProcess/SceneFilterRendering.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../da/dd9/_distance_field_lighting_shared_8h_source.html">DistanceFieldLightingShared.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../df/d95/_screen_rendering_8h_source.html">ScreenRendering.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../dd/da1/_distance_field_lighting_post_8h_source.html">DistanceFieldLightingPost.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../da/ddb/_one_color_shader_8h_source.html">OneColorShader.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d9/df1/_global_distance_field_8h_source.html">GlobalDistanceField.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../dd/d45/_f_x_system_8h_source.html">FXSystem.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d1/da9/_log_renderer_8h_source.html">LogRenderer.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../df/db5/_pipeline_state_cache_8h_source.html">PipelineStateCache.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../de/d89/_visualize_texture_8h_source.html">VisualizeTexture.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../db/ded/_raytracing_options_8h_source.html">RayTracing/RaytracingOptions.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../dd/d4b/_lumen_8h_source.html">Lumen/Lumen.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d6/d39/_mega_lights_8h_source.html">MegaLights/MegaLights.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d5/dbc/_scene_private_8h_source.html">ScenePrivate.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d5/d09/_sky_light_scene_proxy_8h_source.html">SceneProxies/SkyLightSceneProxy.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d1/df1/_substrate_8h_source.html">Substrate/Substrate.h</a>&quot;</code><br />
+</div><div class="textblock"><div class="dynheader">
+DistanceFieldAmbientOcclusion.cpp 的引用(Include)关系图:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../de/db8/_distance_field_ambient_occlusion_8cpp__incl.svg" width="4594" height="939"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+</div><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-nested-classes" class="groupheader"><a id="nested-classes" name="nested-classes"></a>
+类</h2></td></tr>
+<tr class="memitem:FComputeDistanceFieldNormalPS" id="r_FComputeDistanceFieldNormalPS"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/d7d/class_f_compute_distance_field_normal_p_s.html">FComputeDistanceFieldNormalPS</a></td></tr>
+<tr class="memitem:FComputeDistanceFieldNormalCS" id="r_FComputeDistanceFieldNormalCS"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/d15/class_f_compute_distance_field_normal_c_s.html">FComputeDistanceFieldNormalCS</a></td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-func-members" class="groupheader"><a id="func-members" name="func-members"></a>
+函数</h2></td></tr>
+<tr class="memitem:a0cea4d2d58e19621eecbdebe7d921520" id="r_a0cea4d2d58e19621eecbdebe7d921520"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a0cea4d2d58e19621eecbdebe7d921520">DEFINE_LOG_CATEGORY</a> (LogDistanceField)</td></tr>
+<tr class="memitem:ae051897f9e6b7c07031478297852238f" id="r_ae051897f9e6b7c07031478297852238f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d2/d79/class_f_auto_console_variable_ref.html">FAutoConsoleVariableRef</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae051897f9e6b7c07031478297852238f">CVarDistanceFieldAO</a> (<a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;r.DistanceFieldAO&quot;), <a class="el" href="#afee0fec1dd83aa0c3bccaabc57b6e213">GDistanceFieldAO</a>, <a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;Whether the distance field AO feature is allowed, which is used to implement shadows of Movable sky lights from static meshes.&quot;), <a class="el" href="../../d4/dd9/_i_console_manager_8h.html#a7f594f23c2b2c5687f1a502ebb3ba105a5fb4e7a0526f4a0c350d71e18956527c">ECVF_Scalability</a>|<a class="el" href="../../d4/dd9/_i_console_manager_8h.html#a7f594f23c2b2c5687f1a502ebb3ba105a774ea60f41417af093a7ca56c4204a70">ECVF_RenderThreadSafe</a>)</td></tr>
+<tr class="memitem:a1e0d623bd7e32902483281a8cf66c1d4" id="r_a1e0d623bd7e32902483281a8cf66c1d4"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d2/d79/class_f_auto_console_variable_ref.html">FAutoConsoleVariableRef</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a1e0d623bd7e32902483281a8cf66c1d4">CVarMobileDistanceFieldAO</a> (<a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;r.Mobile.DistanceFieldAO&quot;), <a class="el" href="#a15c9dbf1354031969876e9daf6822176">GMobileDistanceFieldAO</a>, <a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;Whether the distance field AO feature is allowed <a class="el" href="../../d3/db8/binka__ue__decode__test_8cpp.html#ac1ee511585a5c7a2d58c146185895b72">for</a> Mobile Platforms, which is used to implement shadows of Movable sky lights from static meshes.&quot;), <a class="el" href="../../d4/dd9/_i_console_manager_8h.html#a7f594f23c2b2c5687f1a502ebb3ba105ae46c8f2e23889626e29de22874c4cf1d">ECVF_ReadOnly</a>|<a class="el" href="../../d4/dd9/_i_console_manager_8h.html#a7f594f23c2b2c5687f1a502ebb3ba105a774ea60f41417af093a7ca56c4204a70">ECVF_RenderThreadSafe</a>)</td></tr>
+<tr class="memitem:a12afd03b81ba2a606547c902266468e5" id="r_a12afd03b81ba2a606547c902266468e5"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d2/d79/class_f_auto_console_variable_ref.html">FAutoConsoleVariableRef</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a12afd03b81ba2a606547c902266468e5">CVarDistanceFieldAOMultiView</a> (<a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;r.DistanceFieldAO.MultiView&quot;), <a class="el" href="#a9c34aa5724509f0ec6c2ef0b266ef6b5">GDistanceFieldAOMultiView</a>, <a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;Whether the distance field AO feature is allowed when rendering multiple views.&quot;), <a class="el" href="../../d4/dd9/_i_console_manager_8h.html#a7f594f23c2b2c5687f1a502ebb3ba105a5fb4e7a0526f4a0c350d71e18956527c">ECVF_Scalability</a>|<a class="el" href="../../d4/dd9/_i_console_manager_8h.html#a7f594f23c2b2c5687f1a502ebb3ba105a774ea60f41417af093a7ca56c4204a70">ECVF_RenderThreadSafe</a>)</td></tr>
+<tr class="memitem:af1cf02cb4d72cfaecde83d8371d5243e" id="r_af1cf02cb4d72cfaecde83d8371d5243e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d2/d79/class_f_auto_console_variable_ref.html">FAutoConsoleVariableRef</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af1cf02cb4d72cfaecde83d8371d5243e">CVarDistanceFieldAOQuality</a> (<a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;r.AOQuality&quot;), <a class="el" href="#ac7afd75e7f116189cc6d55bb4affb2c5">GDistanceFieldAOQuality</a>, <a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot; 0:off, 1:medium, 2:high (default)&quot;), ECVF_Scalability|<a class="el" href="../../d4/dd9/_i_console_manager_8h.html#a7f594f23c2b2c5687f1a502ebb3ba105a774ea60f41417af093a7ca56c4204a70">ECVF_RenderThreadSafe</a>)</td></tr>
+<tr class="memitem:aea682bf8295e2948ce3b2d76fb634186" id="r_aea682bf8295e2948ce3b2d76fb634186"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d2/d79/class_f_auto_console_variable_ref.html">FAutoConsoleVariableRef</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aea682bf8295e2948ce3b2d76fb634186">CVarDistanceFieldAOApplyToStaticIndirect</a> (<a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;r.AOApplyToStaticIndirect&quot;), <a class="el" href="#ab424f0258fd7b5816888c0475ee5a148">GDistanceFieldAOApplyToStaticIndirect</a>, <a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;Whether to apply DFAO as indirect shadowing even to static indirect sources (lightmaps + stationary skylight + reflection captures)&quot;), ECVF_Scalability|<a class="el" href="../../d4/dd9/_i_console_manager_8h.html#a7f594f23c2b2c5687f1a502ebb3ba105a774ea60f41417af093a7ca56c4204a70">ECVF_RenderThreadSafe</a>)</td></tr>
+<tr class="memitem:a94742b32efead6345236e1e4fdd1f049" id="r_a94742b32efead6345236e1e4fdd1f049"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d2/d79/class_f_auto_console_variable_ref.html">FAutoConsoleVariableRef</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a94742b32efead6345236e1e4fdd1f049">CVarDistanceFieldAOSpecularOcclusionMode</a> (<a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;r.AOSpecularOcclusionMode&quot;), <a class="el" href="#a8c00c8ee04667c0fc10130f37c416c04">GDistanceFieldAOSpecularOcclusionMode</a>, <a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;1: (default) Intersect the reflection cone with the unoccluded cone produced by DFAO.  This gives more accurate occlusion than 0, but can bring out DFAO sampling artifacts.\n&quot;), <a class="el" href="../../d4/dd9/_i_console_manager_8h.html#a7f594f23c2b2c5687f1a502ebb3ba105a5fb4e7a0526f4a0c350d71e18956527c">ECVF_Scalability</a>|<a class="el" href="../../d4/dd9/_i_console_manager_8h.html#a7f594f23c2b2c5687f1a502ebb3ba105a774ea60f41417af093a7ca56c4204a70">ECVF_RenderThreadSafe</a>)</td></tr>
+<tr class="memitem:aa183f8f5c48e45867b4b408d58dfc4ea" id="r_aa183f8f5c48e45867b4b408d58dfc4ea"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa183f8f5c48e45867b4b408d58dfc4ea">UseDistanceFieldAO</a> ()</td></tr>
+<tr class="memitem:a301bb023c391039815fe78d8829aeb90" id="r_a301bb023c391039815fe78d8829aeb90"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a301bb023c391039815fe78d8829aeb90">UseAOObjectDistanceField</a> ()</td></tr>
+<tr class="memitem:a537ff0dfd775942ad8e9b8e457eb4336" id="r_a537ff0dfd775942ad8e9b8e457eb4336"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../df/d63/_typed_element_query_capabilities_8inl.html#a72343342ce64c0755563ee6c5e27868d">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a537ff0dfd775942ad8e9b8e457eb4336">TileIntersectionModifyCompilationEnvironment</a> (<a class="el" href="../../de/d49/_r_h_i_shader_platform_8h.html#a424c00593a28eb7ade584eea91161acd">EShaderPlatform</a> Platform, <a class="el" href="../../da/d3c/struct_f_shader_compiler_environment.html">FShaderCompilerEnvironment</a> &amp;OutEnvironment)</td></tr>
+<tr class="memitem:ac8fb52a2e61e14ba384d56071ae1925a" id="r_ac8fb52a2e61e14ba384d56071ae1925a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d0/df6/_math_fwd_8h.html#af6853de5e4fcb2bad3bd5fdd2e50bffd">FIntPoint</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac8fb52a2e61e14ba384d56071ae1925a">GetBufferSizeForAO</a> (const <a class="el" href="../../dd/d2b/class_f_view_info.html">FViewInfo</a> &amp;View)</td></tr>
+<tr class="memitem:aa6a092351ddc81ecec03a1df02cd867b" id="r_aa6a092351ddc81ecec03a1df02cd867b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../df/d2a/_s_anim_notify_shared_8h.html#ac7c94e837fed3f8e4bb3dd94d7bd2ecf">float</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa6a092351ddc81ecec03a1df02cd867b">TemporalHalton2</a> (<a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a8dbb3cd84ca9fd010dadfc3815eefa5d">int32</a> <a class="el" href="../../df/dd5/radfft_8cpp.html#a353b84469a01fbe28e2db978bdf1fb86">Index</a>, <a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a8dbb3cd84ca9fd010dadfc3815eefa5d">int32</a> Base)</td></tr>
+<tr class="memitem:a1b588839abf8611b14578ce30c24c155" id="r_a1b588839abf8611b14578ce30c24c155"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../df/d63/_typed_element_query_capabilities_8inl.html#a72343342ce64c0755563ee6c5e27868d">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a1b588839abf8611b14578ce30c24c155">GetSpacedVectors</a> (<a class="el" href="../../dd/de9/preprocessor_8c.html#a1134b580f8da4de94ca6b1de4d37975e">uint32</a> FrameNumber, <a class="el" href="../../d6/db1/class_t_array.html">TArray</a>&lt; <a class="el" href="../../d0/df6/_math_fwd_8h.html#adda141358ecae99df7ba663b9e637078">FVector</a>, <a class="el" href="../../dc/d3d/_container_allocation_policies_8h.html#a955ebaff17aade3efe4ecd32109bedea">TInlineAllocator</a>&lt; 9 &gt; &gt; &amp;OutVectors)</td></tr>
+<tr class="memitem:a281beda054494484c27ed9eaceae3264" id="r_a281beda054494484c27ed9eaceae3264"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../df/d63/_typed_element_query_capabilities_8inl.html#a72343342ce64c0755563ee6c5e27868d">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a281beda054494484c27ed9eaceae3264">OnListMemory</a> (<a class="el" href="../../de/d4d/class_u_world.html">UWorld</a> *InWorld)</td></tr>
+<tr class="memitem:a04f5562fa69b533d997fe08b44455409" id="r_a04f5562fa69b533d997fe08b44455409"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../df/d63/_typed_element_query_capabilities_8inl.html#a72343342ce64c0755563ee6c5e27868d">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a04f5562fa69b533d997fe08b44455409">OnListMeshDistanceFields</a> (<a class="el" href="../../de/d4d/class_u_world.html">UWorld</a> *InWorld)</td></tr>
+<tr class="memitem:a8a92deadbf906cb038a5e1391606ee4a" id="r_a8a92deadbf906cb038a5e1391606ee4a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8a92deadbf906cb038a5e1391606ee4a">ShouldCompileDFNormalShaders</a> (<a class="el" href="../../de/d49/_r_h_i_shader_platform_8h.html#a424c00593a28eb7ade584eea91161acd">EShaderPlatform</a> ShaderPlatform)</td></tr>
+<tr class="memitem:aaaa523252870835dff3ceb6eaf04d5d1" id="r_aaaa523252870835dff3ceb6eaf04d5d1"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aaaa523252870835dff3ceb6eaf04d5d1">IMPLEMENT_GLOBAL_SHADER</a> (<a class="el" href="../../d7/d7d/class_f_compute_distance_field_normal_p_s.html">FComputeDistanceFieldNormalPS</a>, &quot;/Engine/<a class="el" href="../../d9/db1/namespace_private.html">Private</a>/DistanceFieldScreenGridLighting.usf&quot;, &quot;ComputeDistanceFieldNormalPS&quot;, <a class="el" href="../../da/dca/_r_h_i_definitions_8h.html#a0a3cc83cb6ebc79b66b43fae3ffee64eaf50bfe1c5c23e92a75ba64d89bcd3bfa">SF_Pixel</a>)</td></tr>
+<tr class="memitem:a84b8aab6b913da739950a5a13f8b017d" id="r_a84b8aab6b913da739950a5a13f8b017d"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a84b8aab6b913da739950a5a13f8b017d">IMPLEMENT_GLOBAL_SHADER</a> (<a class="el" href="../../d3/d15/class_f_compute_distance_field_normal_c_s.html">FComputeDistanceFieldNormalCS</a>, &quot;/Engine/<a class="el" href="../../d9/db1/namespace_private.html">Private</a>/DistanceFieldScreenGridLighting.usf&quot;, &quot;ComputeDistanceFieldNormalCS&quot;, <a class="el" href="../../da/dca/_r_h_i_definitions_8h.html#a0a3cc83cb6ebc79b66b43fae3ffee64ea2a84a18d7ac3d1fac11e3153f0abf73b">SF_Compute</a>)</td></tr>
+<tr class="memitem:a4794878cfe983a0aeb846c6b046efc60" id="r_a4794878cfe983a0aeb846c6b046efc60"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../df/d63/_typed_element_query_capabilities_8inl.html#a72343342ce64c0755563ee6c5e27868d">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4794878cfe983a0aeb846c6b046efc60">ComputeDistanceFieldNormal</a> (<a class="el" href="../../d3/d85/class_f_r_d_g_builder.html">FRDGBuilder</a> &amp;GraphBuilder, const <a class="el" href="../../dd/d2b/class_f_view_info.html">FViewInfo</a> &amp;View, const <a class="el" href="../../d1/d9e/struct_f_scene_textures.html">FSceneTextures</a> &amp;SceneTextures, <a class="el" href="../../d6/d6d/_canvas_types_8h.html#aea265cf57883ec58a09111d4a17b8448">FRDGTextureRef</a> DistanceFieldNormal, const <a class="el" href="../../d6/d58/class_f_distance_field_a_o_parameters.html">FDistanceFieldAOParameters</a> &amp;Parameters)</td></tr>
+<tr class="memitem:a458a9db25c787dd739500e3ba9f9f56f" id="r_a458a9db25c787dd739500e3ba9f9f56f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d0/df6/_math_fwd_8h.html#adda141358ecae99df7ba663b9e637078">FVector</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a458a9db25c787dd739500e3ba9f9f56f">GetUnitPosition2</a> (<a class="el" href="../../df/d5a/struct_f_random_stream.html">FRandomStream</a> &amp;RandomStream)</td></tr>
+<tr class="memitem:abb5a1b1aa179145460495b23fef146dc" id="r_abb5a1b1aa179145460495b23fef146dc"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d0/df6/_math_fwd_8h.html#adda141358ecae99df7ba663b9e637078">FVector</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#abb5a1b1aa179145460495b23fef146dc">GetUnitVector2</a> (<a class="el" href="../../df/d5a/struct_f_random_stream.html">FRandomStream</a> &amp;RandomStream)</td></tr>
+<tr class="memitem:a3a1665af43b372b3d026b16e4264eb25" id="r_a3a1665af43b372b3d026b16e4264eb25"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../df/d63/_typed_element_query_capabilities_8inl.html#a72343342ce64c0755563ee6c5e27868d">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a3a1665af43b372b3d026b16e4264eb25">GenerateBestSpacedVectors</a> ()</td></tr>
+<tr class="memitem:a27b8bcc9088158d952dbee726e74b51e" id="r_a27b8bcc9088158d952dbee726e74b51e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../df/d63/_typed_element_query_capabilities_8inl.html#a72343342ce64c0755563ee6c5e27868d">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a27b8bcc9088158d952dbee726e74b51e">AllocateTileIntersectionBuffers</a> (<a class="el" href="../../d3/d85/class_f_r_d_g_builder.html">FRDGBuilder</a> &amp;GraphBuilder, <a class="el" href="../../d0/df6/_math_fwd_8h.html#af6853de5e4fcb2bad3bd5fdd2e50bffd">FIntPoint</a> TileListGroupSize, <a class="el" href="../../dd/de9/preprocessor_8c.html#a1134b580f8da4de94ca6b1de4d37975e">uint32</a> MaxSceneObjects, <a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a> bAllow16BitIndices, <a class="el" href="../../d9/de1/_n_n_e_runtime_r_d_g_8h.html#a934d7411e595a58728f7ba3bb9aae740">FRDGBufferRef</a> &amp;OutObjectTilesIndirectArguments, FTileIntersectionParameters &amp;OutParameters)</td></tr>
+<tr class="memitem:a8271edada5d9b3d56c10ed5fef81fc51" id="r_a8271edada5d9b3d56c10ed5fef81fc51"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../df/d63/_typed_element_query_capabilities_8inl.html#a72343342ce64c0755563ee6c5e27868d">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8271edada5d9b3d56c10ed5fef81fc51">ListDistanceFieldLightingMemory</a> (const <a class="el" href="../../d4/dfa/class_f_scene.html">FScene</a> *Scene, <a class="el" href="../../d9/d6f/class_f_scene_renderer.html">FSceneRenderer</a> &amp;SceneRenderer)</td></tr>
+<tr class="memitem:adb6ff2b10251a73d6a01b75a2ca3073d" id="r_adb6ff2b10251a73d6a01b75a2ca3073d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#adb6ff2b10251a73d6a01b75a2ca3073d">SupportsDistanceFieldAO</a> (<a class="el" href="../../dc/dcf/namespace_e_r_h_i_feature_level.html#a04bc2ae8f7bf478747a40da91e1753dd">ERHIFeatureLevel::Type</a> FeatureLevel, <a class="el" href="../../de/d49/_r_h_i_shader_platform_8h.html#a424c00593a28eb7ade584eea91161acd">EShaderPlatform</a> ShaderPlatform)</td></tr>
+<tr class="memitem:a9582d1df5e74b5d0c5c008e039c27c80" id="r_a9582d1df5e74b5d0c5c008e039c27c80"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9582d1df5e74b5d0c5c008e039c27c80">ShouldRenderDeferredDynamicSkyLight</a> (const <a class="el" href="../../d4/dfa/class_f_scene.html">FScene</a> *Scene, const <a class="el" href="../../d1/d57/class_f_scene_view_family.html">FSceneViewFamily</a> &amp;ViewFamily)</td></tr>
+<tr class="memitem:a6533e12d9d42e9de20ae1429b444e071" id="r_a6533e12d9d42e9de20ae1429b444e071"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6533e12d9d42e9de20ae1429b444e071">ShouldDoReflectionEnvironment</a> (const <a class="el" href="../../d4/dfa/class_f_scene.html">FScene</a> *Scene, const <a class="el" href="../../d1/d57/class_f_scene_view_family.html">FSceneViewFamily</a> &amp;ViewFamily)</td></tr>
+<tr class="memitem:a79e86323b32d00bb4ee213532833366b" id="r_a79e86323b32d00bb4ee213532833366b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a79e86323b32d00bb4ee213532833366b">ShouldPrepareForDistanceFieldAO</a> (const <a class="el" href="../../d4/dfa/class_f_scene.html">FScene</a> *Scene, const <a class="el" href="../../d1/d57/class_f_scene_view_family.html">FSceneViewFamily</a> &amp;ViewFamily, <a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a> bAnyViewHasGIMethodSupportingDFAO)</td></tr>
+<tr class="memitem:a00e27d15c29f49be1e347048c884c39f" id="r_a00e27d15c29f49be1e347048c884c39f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a00e27d15c29f49be1e347048c884c39f">ShouldPrepareForDistanceFieldAO</a> (const <a class="el" href="../../db/dac/struct_f_scene_render_update_inputs.html">FSceneRenderUpdateInputs</a> &amp;SceneUpdateInputs)</td></tr>
+<tr class="memitem:a3752bde0b7c97f982f0b9d0c0a69cd15" id="r_a3752bde0b7c97f982f0b9d0c0a69cd15"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a3752bde0b7c97f982f0b9d0c0a69cd15">ShouldPrepareGlobalDistanceField</a> (const <a class="el" href="../../d9/d6f/class_f_scene_renderer.html">FSceneRenderer</a> *Renderer)</td></tr>
+<tr class="memitem:a10d8179cfbe4431527d20cf1fe459b84" id="r_a10d8179cfbe4431527d20cf1fe459b84"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a10d8179cfbe4431527d20cf1fe459b84">ShouldPrepareDistanceFieldScene</a> (const <a class="el" href="../../db/dac/struct_f_scene_render_update_inputs.html">FSceneRenderUpdateInputs</a> &amp;SceneUpdateInputs)</td></tr>
+<tr class="memitem:a5efdafcc42f31921d7278b9cc0682c81" id="r_a5efdafcc42f31921d7278b9cc0682c81"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5efdafcc42f31921d7278b9cc0682c81">ShouldRenderDistanceFieldLighting</a> (const <a class="el" href="../../da/d78/class_f_distance_field_scene_data.html">FDistanceFieldSceneData</a> &amp;SceneData, TConstArrayView&lt; <a class="el" href="../../dd/d2b/class_f_view_info.html">FViewInfo</a> &gt; Views)</td></tr>
+<tr class="memitem:a8f9ca13c4c64a7ecf726aa9eee85dc67" id="r_a8f9ca13c4c64a7ecf726aa9eee85dc67"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8f9ca13c4c64a7ecf726aa9eee85dc67">ShouldRenderDistanceFieldAO</a> (TConstArrayView&lt; <a class="el" href="../../dd/d2b/class_f_view_info.html">FViewInfo</a> &gt; Views, const <a class="el" href="../../d4/dac/struct_f_engine_show_flags.html">FEngineShowFlags</a> &amp;EngineShowFlags, <a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a> bAnyViewHasGIMethodSupportingDFAO)</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-var-members" class="groupheader"><a id="var-members" name="var-members"></a>
+变量</h2></td></tr>
+<tr class="memitem:afee0fec1dd83aa0c3bccaabc57b6e213" id="r_afee0fec1dd83aa0c3bccaabc57b6e213"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a8dbb3cd84ca9fd010dadfc3815eefa5d">int32</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#afee0fec1dd83aa0c3bccaabc57b6e213">GDistanceFieldAO</a> = 1</td></tr>
+<tr class="memitem:a15c9dbf1354031969876e9daf6822176" id="r_a15c9dbf1354031969876e9daf6822176"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a8dbb3cd84ca9fd010dadfc3815eefa5d">int32</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a15c9dbf1354031969876e9daf6822176">GMobileDistanceFieldAO</a> = 0</td></tr>
+<tr class="memitem:a9c34aa5724509f0ec6c2ef0b266ef6b5" id="r_a9c34aa5724509f0ec6c2ef0b266ef6b5"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a8dbb3cd84ca9fd010dadfc3815eefa5d">int32</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9c34aa5724509f0ec6c2ef0b266ef6b5">GDistanceFieldAOMultiView</a> = 1</td></tr>
+<tr class="memitem:ac7afd75e7f116189cc6d55bb4affb2c5" id="r_ac7afd75e7f116189cc6d55bb4affb2c5"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a8dbb3cd84ca9fd010dadfc3815eefa5d">int32</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac7afd75e7f116189cc6d55bb4affb2c5">GDistanceFieldAOQuality</a> = 2</td></tr>
+<tr class="memitem:ab424f0258fd7b5816888c0475ee5a148" id="r_ab424f0258fd7b5816888c0475ee5a148"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a8dbb3cd84ca9fd010dadfc3815eefa5d">int32</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab424f0258fd7b5816888c0475ee5a148">GDistanceFieldAOApplyToStaticIndirect</a> = 0</td></tr>
+<tr class="memitem:a8c00c8ee04667c0fc10130f37c416c04" id="r_a8c00c8ee04667c0fc10130f37c416c04"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a8dbb3cd84ca9fd010dadfc3815eefa5d">int32</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8c00c8ee04667c0fc10130f37c416c04">GDistanceFieldAOSpecularOcclusionMode</a> = 1</td></tr>
+<tr class="memitem:a46b7461d0f250347e09d0a1a15bcc9aa" id="r_a46b7461d0f250347e09d0a1a15bcc9aa"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../df/d2a/_s_anim_notify_shared_8h.html#ac7c94e837fed3f8e4bb3dd94d7bd2ecf">float</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a46b7461d0f250347e09d0a1a15bcc9aa">GAOStepExponentScale</a> = .5f</td></tr>
+<tr class="memitem:a27c11cedb70c8e9a9e80dbc7eda3274f" id="r_a27c11cedb70c8e9a9e80dbc7eda3274f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d2/d79/class_f_auto_console_variable_ref.html">FAutoConsoleVariableRef</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a27c11cedb70c8e9a9e80dbc7eda3274f">CVarAOStepExponentScale</a> (<a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;r.AOStepExponentScale&quot;), <a class="el" href="#a46b7461d0f250347e09d0a1a15bcc9aa">GAOStepExponentScale</a>, <a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;Exponent used to distribute AO samples along a cone direction.&quot;), <a class="el" href="../../d4/dd9/_i_console_manager_8h.html#a7f594f23c2b2c5687f1a502ebb3ba105a774ea60f41417af093a7ca56c4204a70">ECVF_RenderThreadSafe</a>)</td></tr>
+<tr class="memitem:a7acf6c726d3a139d8aedb8f985a54a9f" id="r_a7acf6c726d3a139d8aedb8f985a54a9f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../df/d2a/_s_anim_notify_shared_8h.html#ac7c94e837fed3f8e4bb3dd94d7bd2ecf">float</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7acf6c726d3a139d8aedb8f985a54a9f">GAOMaxViewDistance</a> = 20000</td></tr>
+<tr class="memitem:a1fdc454c32a2ea54c02344114039d59f" id="r_a1fdc454c32a2ea54c02344114039d59f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d2/d79/class_f_auto_console_variable_ref.html">FAutoConsoleVariableRef</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a1fdc454c32a2ea54c02344114039d59f">CVarAOMaxViewDistance</a> (<a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;r.AOMaxViewDistance&quot;), <a class="el" href="#a7acf6c726d3a139d8aedb8f985a54a9f">GAOMaxViewDistance</a>, <a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;The maximum distance that AO will be computed at.&quot;), <a class="el" href="../../d4/dd9/_i_console_manager_8h.html#a7f594f23c2b2c5687f1a502ebb3ba105a774ea60f41417af093a7ca56c4204a70">ECVF_RenderThreadSafe</a>)</td></tr>
+<tr class="memitem:af091b2441cba04a8c3d5858c437b0fb4" id="r_af091b2441cba04a8c3d5858c437b0fb4"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a8dbb3cd84ca9fd010dadfc3815eefa5d">int32</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af091b2441cba04a8c3d5858c437b0fb4">GAOComputeShaderNormalCalculation</a> = 0</td></tr>
+<tr class="memitem:a2a052b649c3ab5c7ac116b8e1f3eafd9" id="r_a2a052b649c3ab5c7ac116b8e1f3eafd9"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d2/d79/class_f_auto_console_variable_ref.html">FAutoConsoleVariableRef</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2a052b649c3ab5c7ac116b8e1f3eafd9">CVarAOComputeShaderNormalCalculation</a> (<a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;r.AOComputeShaderNormalCalculation&quot;), <a class="el" href="#af091b2441cba04a8c3d5858c437b0fb4">GAOComputeShaderNormalCalculation</a>, <a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;Whether to use the compute shader version of the distance field normal computation.&quot;), <a class="el" href="../../d4/dd9/_i_console_manager_8h.html#a7f594f23c2b2c5687f1a502ebb3ba105a774ea60f41417af093a7ca56c4204a70">ECVF_RenderThreadSafe</a>)</td></tr>
+<tr class="memitem:aa321a82c575bea65e428a31d3e87c2fe" id="r_aa321a82c575bea65e428a31d3e87c2fe"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a8dbb3cd84ca9fd010dadfc3815eefa5d">int32</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa321a82c575bea65e428a31d3e87c2fe">GAOSampleSet</a> = 1</td></tr>
+<tr class="memitem:a6f3f16775c1c77c72ee72357ebff83b2" id="r_a6f3f16775c1c77c72ee72357ebff83b2"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d2/d79/class_f_auto_console_variable_ref.html">FAutoConsoleVariableRef</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6f3f16775c1c77c72ee72357ebff83b2">CVarAOSampleSet</a> (<a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;r.AOSampleSet&quot;), <a class="el" href="#aa321a82c575bea65e428a31d3e87c2fe">GAOSampleSet</a>, <a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;0 = Original set, 1 = Relaxed set&quot;), <a class="el" href="../../d4/dd9/_i_console_manager_8h.html#a7f594f23c2b2c5687f1a502ebb3ba105a774ea60f41417af093a7ca56c4204a70">ECVF_RenderThreadSafe</a>)</td></tr>
+<tr class="memitem:ab90813aba198535cd45b137dfbd371db" id="r_ab90813aba198535cd45b137dfbd371db"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a8dbb3cd84ca9fd010dadfc3815eefa5d">int32</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab90813aba198535cd45b137dfbd371db">GAOOverwriteSceneColor</a> = 0</td></tr>
+<tr class="memitem:abf40a9eda014296558ca1a3bafff412a" id="r_abf40a9eda014296558ca1a3bafff412a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d2/d79/class_f_auto_console_variable_ref.html">FAutoConsoleVariableRef</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#abf40a9eda014296558ca1a3bafff412a">CVarAOOverwriteSceneColor</a> (<a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;r.AOOverwriteSceneColor&quot;), <a class="el" href="#ab90813aba198535cd45b137dfbd371db">GAOOverwriteSceneColor</a>, <a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;&quot;), <a class="el" href="../../d4/dd9/_i_console_manager_8h.html#a7f594f23c2b2c5687f1a502ebb3ba105a774ea60f41417af093a7ca56c4204a70">ECVF_RenderThreadSafe</a>)</td></tr>
+<tr class="memitem:a24ec1209fdc81f316ab501dab497450a" id="r_a24ec1209fdc81f316ab501dab497450a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a8dbb3cd84ca9fd010dadfc3815eefa5d">int32</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a24ec1209fdc81f316ab501dab497450a">GAOJitterConeDirections</a> = 0</td></tr>
+<tr class="memitem:aa9f9e77ccc588f443e577b001193d891" id="r_aa9f9e77ccc588f443e577b001193d891"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d2/d79/class_f_auto_console_variable_ref.html">FAutoConsoleVariableRef</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa9f9e77ccc588f443e577b001193d891">CVarAOJitterConeDirections</a> (<a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;r.AOJitterConeDirections&quot;), <a class="el" href="#a24ec1209fdc81f316ab501dab497450a">GAOJitterConeDirections</a>, <a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;&quot;), <a class="el" href="../../d4/dd9/_i_console_manager_8h.html#a7f594f23c2b2c5687f1a502ebb3ba105a774ea60f41417af093a7ca56c4204a70">ECVF_RenderThreadSafe</a>)</td></tr>
+<tr class="memitem:ad4dcff48d25a46cbd333efd68943a235" id="r_ad4dcff48d25a46cbd333efd68943a235"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a8dbb3cd84ca9fd010dadfc3815eefa5d">int32</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad4dcff48d25a46cbd333efd68943a235">GAOObjectDistanceField</a> = 1</td></tr>
+<tr class="memitem:a89e0dbb0017b7798032d8d30dbd00b2a" id="r_a89e0dbb0017b7798032d8d30dbd00b2a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d2/d79/class_f_auto_console_variable_ref.html">FAutoConsoleVariableRef</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a89e0dbb0017b7798032d8d30dbd00b2a">CVarAOObjectDistanceField</a> (<a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;r.AOObjectDistanceField&quot;), <a class="el" href="#ad4dcff48d25a46cbd333efd68943a235">GAOObjectDistanceField</a>, <a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;Only global distance field will be used when this option is disabled.\n&quot;), <a class="el" href="../../d4/dd9/_i_console_manager_8h.html#a7f594f23c2b2c5687f1a502ebb3ba105a774ea60f41417af093a7ca56c4204a70">ECVF_RenderThreadSafe</a>)</td></tr>
+<tr class="memitem:a297d8c57130765a703c5fa9780896ffa" id="r_a297d8c57130765a703c5fa9780896ffa"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a8dbb3cd84ca9fd010dadfc3815eefa5d">int32</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a297d8c57130765a703c5fa9780896ffa">GAOGlobalDistanceFieldDetailedNecessityCheck</a> = 1</td></tr>
+<tr class="memitem:a4eb46a5cdfd756f2bd35806d744d4e44" id="r_a4eb46a5cdfd756f2bd35806d744d4e44"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d2/d79/class_f_auto_console_variable_ref.html">FAutoConsoleVariableRef</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4eb46a5cdfd756f2bd35806d744d4e44">CVarAOGlobalDistanceFieldDetailedCheck</a> (<a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;r.AOGlobalDistanceField.DetailedNecessityCheck&quot;), <a class="el" href="#a297d8c57130765a703c5fa9780896ffa">GAOGlobalDistanceFieldDetailedNecessityCheck</a>, <a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;Whether to perform detailed necessity <a class="el" href="../../d4/d75/_assertion_macros_8h.html#a586e110623cde145b8a5bdefb429e144">check</a> in <a class="el" href="#a3752bde0b7c97f982f0b9d0c0a69cd15">FSceneRenderer::ShouldPrepareGlobalDistanceField</a>().&quot;), ECVF_RenderThreadSafe)</td></tr>
+<tr class="memitem:addc318180c1f3b7022fe29a1b88901f8" id="r_addc318180c1f3b7022fe29a1b88901f8"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a8dbb3cd84ca9fd010dadfc3815eefa5d">int32</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#addc318180c1f3b7022fe29a1b88901f8">GGlobalDistanceFieldDetailedNecessitySufficient</a> = 0</td></tr>
+<tr class="memitem:af8b3b6b81db2fabf1070f743e85e1e39" id="r_af8b3b6b81db2fabf1070f743e85e1e39"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d2/d79/class_f_auto_console_variable_ref.html">FAutoConsoleVariableRef</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af8b3b6b81db2fabf1070f743e85e1e39">CVarGlobalDistanceFieldDetailedSufficient</a> (<a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;r.GlobalDistanceField.DetailedNecessitySufficient&quot;), <a class="el" href="#addc318180c1f3b7022fe29a1b88901f8">GGlobalDistanceFieldDetailedNecessitySufficient</a>, <a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;Whether detailed necessity checks in <a class="el" href="#a3752bde0b7c97f982f0b9d0c0a69cd15">FSceneRenderer::ShouldPrepareGlobalDistanceField</a>() is sufficient to enabled GDF.&quot;), <a class="el" href="../../d4/dd9/_i_console_manager_8h.html#a7f594f23c2b2c5687f1a502ebb3ba105a774ea60f41417af093a7ca56c4204a70">ECVF_RenderThreadSafe</a>)</td></tr>
+<tr class="memitem:aeb8f1c029e2d0d0a6ffbfadd9ef01d54" id="r_aeb8f1c029e2d0d0a6ffbfadd9ef01d54"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a8dbb3cd84ca9fd010dadfc3815eefa5d">int32</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aeb8f1c029e2d0d0a6ffbfadd9ef01d54">GDistanceFieldAOTileSizeX</a> = 16</td></tr>
+<tr class="memitem:a528c10ddc686781b0fde910cc7b3bc33" id="r_a528c10ddc686781b0fde910cc7b3bc33"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a8dbb3cd84ca9fd010dadfc3815eefa5d">int32</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a528c10ddc686781b0fde910cc7b3bc33">GDistanceFieldAOTileSizeY</a> = 16</td></tr>
+<tr class="memitem:a8cbe38fbfd6cb4b08f0e33e06f0463b6" id="r_a8cbe38fbfd6cb4b08f0e33e06f0463b6"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="../../d0/df6/_math_fwd_8h.html#adda141358ecae99df7ba663b9e637078">FVector</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8cbe38fbfd6cb4b08f0e33e06f0463b6">SpacedVectors9</a> []</td></tr>
+<tr class="memitem:aa444ea784ee9187b673b0957a1792001" id="r_aa444ea784ee9187b673b0957a1792001"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="../../d0/df6/_math_fwd_8h.html#adda141358ecae99df7ba663b9e637078">FVector</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa444ea784ee9187b673b0957a1792001">RelaxedSpacedVectors9</a> []</td></tr>
+<tr class="memitem:a6f6579cf12010a57b8806912cd09b3ae" id="r_a6f6579cf12010a57b8806912cd09b3ae"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../df/d2a/_s_anim_notify_shared_8h.html#ac7c94e837fed3f8e4bb3dd94d7bd2ecf">float</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6f6579cf12010a57b8806912cd09b3ae">GAOConeHalfAngle</a> = FMath::Acos(1 - 1.0f / (<a class="el" href="../../df/d2a/_s_anim_notify_shared_8h.html#ac7c94e837fed3f8e4bb3dd94d7bd2ecf">float</a>)<a class="el" href="../../d2/dd1/_unreal_template_8h.html#ae8428b8628e371707a13a9ae07947217">UE_ARRAY_COUNT</a>(<a class="el" href="#a8cbe38fbfd6cb4b08f0e33e06f0463b6">SpacedVectors9</a>))</td></tr>
+<tr class="memitem:ade078dac445d9771c3383670290acfb1" id="r_ade078dac445d9771c3383670290acfb1"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../dd/de9/preprocessor_8c.html#a1134b580f8da4de94ca6b1de4d37975e">uint32</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ade078dac445d9771c3383670290acfb1">GAONumConeSteps</a> = 10</td></tr>
+<tr class="memitem:a0de22939e01cfe65a2cffd5130731919" id="r_a0de22939e01cfe65a2cffd5130731919"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../df/d2a/_s_anim_notify_shared_8h.html#ac7c94e837fed3f8e4bb3dd94d7bd2ecf">float</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a0de22939e01cfe65a2cffd5130731919">GAOViewFadeDistanceScale</a></td></tr>
+<tr class="memitem:af53bf675e48ef118b1bfa5e62eb54ffe" id="r_af53bf675e48ef118b1bfa5e62eb54ffe"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af53bf675e48ef118b1bfa5e62eb54ffe">bListMemoryNextFrame</a> = <a class="el" href="../../d3/df7/radaudio__common_8h.html#ade27a78a51a66a5cfb6f09cf36bcfde9ae9de385ef6fe9bf3360d1038396b884c">false</a></td></tr>
+<tr class="memitem:a4be3e002071e72b458fc347b0e152c0e" id="r_a4be3e002071e72b458fc347b0e152c0e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d5/d1c/class_f_auto_console_command_with_world.html">FAutoConsoleCommandWithWorld</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4be3e002071e72b458fc347b0e152c0e">ListMemoryConsoleCommand</a> (<a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;r.AOListMemory&quot;), <a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;&quot;), FConsoleCommandWithWorldDelegate::CreateStatic(<a class="el" href="#a281beda054494484c27ed9eaceae3264">OnListMemory</a>))</td></tr>
+<tr class="memitem:ada1db383f837f0bca5c8973583ca048c" id="r_ada1db383f837f0bca5c8973583ca048c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ada1db383f837f0bca5c8973583ca048c">bListMeshDistanceFieldsMemoryNextFrame</a> = <a class="el" href="../../d3/df7/radaudio__common_8h.html#ade27a78a51a66a5cfb6f09cf36bcfde9ae9de385ef6fe9bf3360d1038396b884c">false</a></td></tr>
+<tr class="memitem:a5e1adca541c0d4736f7181de5fd6fd51" id="r_a5e1adca541c0d4736f7181de5fd6fd51"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d5/d1c/class_f_auto_console_command_with_world.html">FAutoConsoleCommandWithWorld</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5e1adca541c0d4736f7181de5fd6fd51">ListMeshDistanceFieldsMemoryConsoleCommand</a> (<a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;r.AOListMeshDistanceFields&quot;), <a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;&quot;), FConsoleCommandWithWorldDelegate::CreateStatic(<a class="el" href="#a04f5562fa69b533d997fe08b44455409">OnListMeshDistanceFields</a>))</td></tr>
+</table>
+<a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">函数说明</h2>
+<a id="a27b8bcc9088158d952dbee726e74b51e" name="a27b8bcc9088158d952dbee726e74b51e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a27b8bcc9088158d952dbee726e74b51e">&#9670;&#160;</a></span>AllocateTileIntersectionBuffers()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../df/d63/_typed_element_query_capabilities_8inl.html#a72343342ce64c0755563ee6c5e27868d">void</a> AllocateTileIntersectionBuffers </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d3/d85/class_f_r_d_g_builder.html">FRDGBuilder</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>GraphBuilder</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d0/df6/_math_fwd_8h.html#af6853de5e4fcb2bad3bd5fdd2e50bffd">FIntPoint</a></td>          <td class="paramname"><span class="paramname"><em>TileListGroupSize</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../dd/de9/preprocessor_8c.html#a1134b580f8da4de94ca6b1de4d37975e">uint32</a></td>          <td class="paramname"><span class="paramname"><em>MaxSceneObjects</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a></td>          <td class="paramname"><span class="paramname"><em>bAllow16BitIndices</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d9/de1/_n_n_e_runtime_r_d_g_8h.html#a934d7411e595a58728f7ba3bb9aae740">FRDGBufferRef</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>OutObjectTilesIndirectArguments</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">FTileIntersectionParameters &amp;</td>          <td class="paramname"><span class="paramname"><em>OutParameters</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a4794878cfe983a0aeb846c6b046efc60" name="a4794878cfe983a0aeb846c6b046efc60"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4794878cfe983a0aeb846c6b046efc60">&#9670;&#160;</a></span>ComputeDistanceFieldNormal()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../df/d63/_typed_element_query_capabilities_8inl.html#a72343342ce64c0755563ee6c5e27868d">void</a> ComputeDistanceFieldNormal </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d3/d85/class_f_r_d_g_builder.html">FRDGBuilder</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>GraphBuilder</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="../../dd/d2b/class_f_view_info.html">FViewInfo</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>View</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="../../d1/d9e/struct_f_scene_textures.html">FSceneTextures</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>SceneTextures</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d6/d6d/_canvas_types_8h.html#aea265cf57883ec58a09111d4a17b8448">FRDGTextureRef</a></td>          <td class="paramname"><span class="paramname"><em>DistanceFieldNormal</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="../../d6/d58/class_f_distance_field_a_o_parameters.html">FDistanceFieldAOParameters</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>Parameters</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ae051897f9e6b7c07031478297852238f" name="ae051897f9e6b7c07031478297852238f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae051897f9e6b7c07031478297852238f">&#9670;&#160;</a></span>CVarDistanceFieldAO()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d2/d79/class_f_auto_console_variable_ref.html">FAutoConsoleVariableRef</a> CVarDistanceFieldAO </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;r.DistanceFieldAO&quot;)</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="#afee0fec1dd83aa0c3bccaabc57b6e213">GDistanceFieldAO</a></td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;Whether the distance field AO feature is allowed, which is used to implement shadows of Movable sky lights from static meshes.&quot;)</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d4/dd9/_i_console_manager_8h.html#a7f594f23c2b2c5687f1a502ebb3ba105a5fb4e7a0526f4a0c350d71e18956527c">ECVF_Scalability</a>|</td>          <td class="paramname"><span class="paramname"><em>ECVF_RenderThreadSafe</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aea682bf8295e2948ce3b2d76fb634186" name="aea682bf8295e2948ce3b2d76fb634186"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aea682bf8295e2948ce3b2d76fb634186">&#9670;&#160;</a></span>CVarDistanceFieldAOApplyToStaticIndirect()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d2/d79/class_f_auto_console_variable_ref.html">FAutoConsoleVariableRef</a> CVarDistanceFieldAOApplyToStaticIndirect </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;r.AOApplyToStaticIndirect&quot;)</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="#ab424f0258fd7b5816888c0475ee5a148">GDistanceFieldAOApplyToStaticIndirect</a></td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;Whether to apply DFAO as indirect shadowing even to static indirect sources (lightmaps + stationary skylight + reflection captures)&quot;)</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d4/dd9/_i_console_manager_8h.html#a7f594f23c2b2c5687f1a502ebb3ba105a5fb4e7a0526f4a0c350d71e18956527c">ECVF_Scalability</a>|</td>          <td class="paramname"><span class="paramname"><em>ECVF_RenderThreadSafe</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a12afd03b81ba2a606547c902266468e5" name="a12afd03b81ba2a606547c902266468e5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a12afd03b81ba2a606547c902266468e5">&#9670;&#160;</a></span>CVarDistanceFieldAOMultiView()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d2/d79/class_f_auto_console_variable_ref.html">FAutoConsoleVariableRef</a> CVarDistanceFieldAOMultiView </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;r.DistanceFieldAO.MultiView&quot;)</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="#a9c34aa5724509f0ec6c2ef0b266ef6b5">GDistanceFieldAOMultiView</a></td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;Whether the distance field AO feature is allowed when rendering multiple views.&quot;)</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d4/dd9/_i_console_manager_8h.html#a7f594f23c2b2c5687f1a502ebb3ba105a5fb4e7a0526f4a0c350d71e18956527c">ECVF_Scalability</a>|</td>          <td class="paramname"><span class="paramname"><em>ECVF_RenderThreadSafe</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="af1cf02cb4d72cfaecde83d8371d5243e" name="af1cf02cb4d72cfaecde83d8371d5243e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af1cf02cb4d72cfaecde83d8371d5243e">&#9670;&#160;</a></span>CVarDistanceFieldAOQuality()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d2/d79/class_f_auto_console_variable_ref.html">FAutoConsoleVariableRef</a> CVarDistanceFieldAOQuality </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;r.AOQuality&quot;)</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="#ac7afd75e7f116189cc6d55bb4affb2c5">GDistanceFieldAOQuality</a></td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot; 0:off, 1:medium, 2:high (default)&quot;)</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d4/dd9/_i_console_manager_8h.html#a7f594f23c2b2c5687f1a502ebb3ba105a5fb4e7a0526f4a0c350d71e18956527c">ECVF_Scalability</a>|</td>          <td class="paramname"><span class="paramname"><em>ECVF_RenderThreadSafe</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a94742b32efead6345236e1e4fdd1f049" name="a94742b32efead6345236e1e4fdd1f049"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a94742b32efead6345236e1e4fdd1f049">&#9670;&#160;</a></span>CVarDistanceFieldAOSpecularOcclusionMode()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d2/d79/class_f_auto_console_variable_ref.html">FAutoConsoleVariableRef</a> CVarDistanceFieldAOSpecularOcclusionMode </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;r.AOSpecularOcclusionMode&quot;)</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="#a8c00c8ee04667c0fc10130f37c416c04">GDistanceFieldAOSpecularOcclusionMode</a></td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;1: (default) Intersect the reflection cone with the unoccluded cone produced by DFAO.  This gives more accurate occlusion than 0, but can bring out DFAO sampling artifacts.\n&quot;)</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d4/dd9/_i_console_manager_8h.html#a7f594f23c2b2c5687f1a502ebb3ba105a5fb4e7a0526f4a0c350d71e18956527c">ECVF_Scalability</a>|</td>          <td class="paramname"><span class="paramname"><em>ECVF_RenderThreadSafe</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a1e0d623bd7e32902483281a8cf66c1d4" name="a1e0d623bd7e32902483281a8cf66c1d4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1e0d623bd7e32902483281a8cf66c1d4">&#9670;&#160;</a></span>CVarMobileDistanceFieldAO()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d2/d79/class_f_auto_console_variable_ref.html">FAutoConsoleVariableRef</a> CVarMobileDistanceFieldAO </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;r.Mobile.DistanceFieldAO&quot;)</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="#a15c9dbf1354031969876e9daf6822176">GMobileDistanceFieldAO</a></td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;Whether the distance field AO feature is allowed <a class="el" href="../../d3/db8/binka__ue__decode__test_8cpp.html#ac1ee511585a5c7a2d58c146185895b72">for</a> Mobile Platforms, which is used to implement shadows of Movable sky lights from static meshes.&quot;)</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d4/dd9/_i_console_manager_8h.html#a7f594f23c2b2c5687f1a502ebb3ba105ae46c8f2e23889626e29de22874c4cf1d">ECVF_ReadOnly</a>|</td>          <td class="paramname"><span class="paramname"><em>ECVF_RenderThreadSafe</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a0cea4d2d58e19621eecbdebe7d921520" name="a0cea4d2d58e19621eecbdebe7d921520"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0cea4d2d58e19621eecbdebe7d921520">&#9670;&#160;</a></span>DEFINE_LOG_CATEGORY()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">DEFINE_LOG_CATEGORY </td>
+          <td>(</td>
+          <td class="paramtype">LogDistanceField</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a3a1665af43b372b3d026b16e4264eb25" name="a3a1665af43b372b3d026b16e4264eb25"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3a1665af43b372b3d026b16e4264eb25">&#9670;&#160;</a></span>GenerateBestSpacedVectors()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../df/d63/_typed_element_query_capabilities_8inl.html#a72343342ce64c0755563ee6c5e27868d">void</a> GenerateBestSpacedVectors </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ac8fb52a2e61e14ba384d56071ae1925a" name="ac8fb52a2e61e14ba384d56071ae1925a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac8fb52a2e61e14ba384d56071ae1925a">&#9670;&#160;</a></span>GetBufferSizeForAO()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d0/df6/_math_fwd_8h.html#af6853de5e4fcb2bad3bd5fdd2e50bffd">FIntPoint</a> GetBufferSizeForAO </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="../../dd/d2b/class_f_view_info.html">FViewInfo</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>View</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a1b588839abf8611b14578ce30c24c155" name="a1b588839abf8611b14578ce30c24c155"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1b588839abf8611b14578ce30c24c155">&#9670;&#160;</a></span>GetSpacedVectors()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../df/d63/_typed_element_query_capabilities_8inl.html#a72343342ce64c0755563ee6c5e27868d">void</a> GetSpacedVectors </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../dd/de9/preprocessor_8c.html#a1134b580f8da4de94ca6b1de4d37975e">uint32</a></td>          <td class="paramname"><span class="paramname"><em>FrameNumber</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d6/db1/class_t_array.html">TArray</a>&lt; <a class="el" href="../../d0/df6/_math_fwd_8h.html#adda141358ecae99df7ba663b9e637078">FVector</a>, <a class="el" href="../../dc/d3d/_container_allocation_policies_8h.html#a955ebaff17aade3efe4ecd32109bedea">TInlineAllocator</a>&lt; 9 &gt; &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>OutVectors</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a458a9db25c787dd739500e3ba9f9f56f" name="a458a9db25c787dd739500e3ba9f9f56f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a458a9db25c787dd739500e3ba9f9f56f">&#9670;&#160;</a></span>GetUnitPosition2()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d0/df6/_math_fwd_8h.html#adda141358ecae99df7ba663b9e637078">FVector</a> GetUnitPosition2 </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../df/d5a/struct_f_random_stream.html">FRandomStream</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>RandomStream</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Generates a pseudo-random position inside the unit sphere, uniformly distributed over the volume of the sphere. </p>
+
+</div>
+</div>
+<a id="abb5a1b1aa179145460495b23fef146dc" name="abb5a1b1aa179145460495b23fef146dc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abb5a1b1aa179145460495b23fef146dc">&#9670;&#160;</a></span>GetUnitVector2()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d0/df6/_math_fwd_8h.html#adda141358ecae99df7ba663b9e637078">FVector</a> GetUnitVector2 </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../df/d5a/struct_f_random_stream.html">FRandomStream</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>RandomStream</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Generates a pseudo-random unit vector, uniformly distributed over all directions. </p>
+
+</div>
+</div>
+<a id="a84b8aab6b913da739950a5a13f8b017d" name="a84b8aab6b913da739950a5a13f8b017d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a84b8aab6b913da739950a5a13f8b017d">&#9670;&#160;</a></span>IMPLEMENT_GLOBAL_SHADER() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">IMPLEMENT_GLOBAL_SHADER </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d3/d15/class_f_compute_distance_field_normal_c_s.html">FComputeDistanceFieldNormalCS</a></td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&quot;/Engine/<a class="el" href="../../d9/db1/namespace_private.html">Private</a>/DistanceFieldScreenGridLighting.usf&quot;</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&quot;ComputeDistanceFieldNormalCS&quot;</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../da/dca/_r_h_i_definitions_8h.html#a0a3cc83cb6ebc79b66b43fae3ffee64ea2a84a18d7ac3d1fac11e3153f0abf73b">SF_Compute</a></td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aaaa523252870835dff3ceb6eaf04d5d1" name="aaaa523252870835dff3ceb6eaf04d5d1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aaaa523252870835dff3ceb6eaf04d5d1">&#9670;&#160;</a></span>IMPLEMENT_GLOBAL_SHADER() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">IMPLEMENT_GLOBAL_SHADER </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d7/d7d/class_f_compute_distance_field_normal_p_s.html">FComputeDistanceFieldNormalPS</a></td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&quot;/Engine/<a class="el" href="../../d9/db1/namespace_private.html">Private</a>/DistanceFieldScreenGridLighting.usf&quot;</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&quot;ComputeDistanceFieldNormalPS&quot;</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../da/dca/_r_h_i_definitions_8h.html#a0a3cc83cb6ebc79b66b43fae3ffee64eaf50bfe1c5c23e92a75ba64d89bcd3bfa">SF_Pixel</a></td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a8271edada5d9b3d56c10ed5fef81fc51" name="a8271edada5d9b3d56c10ed5fef81fc51"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8271edada5d9b3d56c10ed5fef81fc51">&#9670;&#160;</a></span>ListDistanceFieldLightingMemory()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../df/d63/_typed_element_query_capabilities_8inl.html#a72343342ce64c0755563ee6c5e27868d">void</a> ListDistanceFieldLightingMemory </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="../../d4/dfa/class_f_scene.html">FScene</a> *</td>          <td class="paramname"><span class="paramname"><em>Scene</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d9/d6f/class_f_scene_renderer.html">FSceneRenderer</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>SceneRenderer</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a281beda054494484c27ed9eaceae3264" name="a281beda054494484c27ed9eaceae3264"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a281beda054494484c27ed9eaceae3264">&#9670;&#160;</a></span>OnListMemory()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../df/d63/_typed_element_query_capabilities_8inl.html#a72343342ce64c0755563ee6c5e27868d">void</a> OnListMemory </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../de/d4d/class_u_world.html">UWorld</a> *</td>          <td class="paramname"><span class="paramname"><em>InWorld</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a04f5562fa69b533d997fe08b44455409" name="a04f5562fa69b533d997fe08b44455409"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a04f5562fa69b533d997fe08b44455409">&#9670;&#160;</a></span>OnListMeshDistanceFields()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../df/d63/_typed_element_query_capabilities_8inl.html#a72343342ce64c0755563ee6c5e27868d">void</a> OnListMeshDistanceFields </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../de/d4d/class_u_world.html">UWorld</a> *</td>          <td class="paramname"><span class="paramname"><em>InWorld</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a8a92deadbf906cb038a5e1391606ee4a" name="a8a92deadbf906cb038a5e1391606ee4a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8a92deadbf906cb038a5e1391606ee4a">&#9670;&#160;</a></span>ShouldCompileDFNormalShaders()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a> ShouldCompileDFNormalShaders </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../de/d49/_r_h_i_shader_platform_8h.html#a424c00593a28eb7ade584eea91161acd">EShaderPlatform</a></td>          <td class="paramname"><span class="paramname"><em>ShaderPlatform</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a6533e12d9d42e9de20ae1429b444e071" name="a6533e12d9d42e9de20ae1429b444e071"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6533e12d9d42e9de20ae1429b444e071">&#9670;&#160;</a></span>ShouldDoReflectionEnvironment()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a> ShouldDoReflectionEnvironment </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="../../d4/dfa/class_f_scene.html">FScene</a> *</td>          <td class="paramname"><span class="paramname"><em>Scene</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="../../d1/d57/class_f_scene_view_family.html">FSceneViewFamily</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>ViewFamily</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a10d8179cfbe4431527d20cf1fe459b84" name="a10d8179cfbe4431527d20cf1fe459b84"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a10d8179cfbe4431527d20cf1fe459b84">&#9670;&#160;</a></span>ShouldPrepareDistanceFieldScene()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a> ShouldPrepareDistanceFieldScene </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="../../db/dac/struct_f_scene_render_update_inputs.html">FSceneRenderUpdateInputs</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>SceneUpdateInputs</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a79e86323b32d00bb4ee213532833366b" name="a79e86323b32d00bb4ee213532833366b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a79e86323b32d00bb4ee213532833366b">&#9670;&#160;</a></span>ShouldPrepareForDistanceFieldAO() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a> ShouldPrepareForDistanceFieldAO </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="../../d4/dfa/class_f_scene.html">FScene</a> *</td>          <td class="paramname"><span class="paramname"><em>Scene</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="../../d1/d57/class_f_scene_view_family.html">FSceneViewFamily</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>ViewFamily</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a></td>          <td class="paramname"><span class="paramname"><em>bAnyViewHasGIMethodSupportingDFAO</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a00e27d15c29f49be1e347048c884c39f" name="a00e27d15c29f49be1e347048c884c39f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a00e27d15c29f49be1e347048c884c39f">&#9670;&#160;</a></span>ShouldPrepareForDistanceFieldAO() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a> ShouldPrepareForDistanceFieldAO </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="../../db/dac/struct_f_scene_render_update_inputs.html">FSceneRenderUpdateInputs</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>SceneUpdateInputs</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a3752bde0b7c97f982f0b9d0c0a69cd15" name="a3752bde0b7c97f982f0b9d0c0a69cd15"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3752bde0b7c97f982f0b9d0c0a69cd15">&#9670;&#160;</a></span>ShouldPrepareGlobalDistanceField()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a> ShouldPrepareGlobalDistanceField </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="../../d9/d6f/class_f_scene_renderer.html">FSceneRenderer</a> *</td>          <td class="paramname"><span class="paramname"><em>Renderer</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a9582d1df5e74b5d0c5c008e039c27c80" name="a9582d1df5e74b5d0c5c008e039c27c80"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9582d1df5e74b5d0c5c008e039c27c80">&#9670;&#160;</a></span>ShouldRenderDeferredDynamicSkyLight()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a> ShouldRenderDeferredDynamicSkyLight </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="../../d4/dfa/class_f_scene.html">FScene</a> *</td>          <td class="paramname"><span class="paramname"><em>Scene</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="../../d1/d57/class_f_scene_view_family.html">FSceneViewFamily</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>ViewFamily</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a8f9ca13c4c64a7ecf726aa9eee85dc67" name="a8f9ca13c4c64a7ecf726aa9eee85dc67"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8f9ca13c4c64a7ecf726aa9eee85dc67">&#9670;&#160;</a></span>ShouldRenderDistanceFieldAO()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a> ShouldRenderDistanceFieldAO </td>
+          <td>(</td>
+          <td class="paramtype">TConstArrayView&lt; <a class="el" href="../../dd/d2b/class_f_view_info.html">FViewInfo</a> &gt;</td>          <td class="paramname"><span class="paramname"><em>Views</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="../../d4/dac/struct_f_engine_show_flags.html">FEngineShowFlags</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>EngineShowFlags</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a></td>          <td class="paramname"><span class="paramname"><em>bAnyViewHasGIMethodSupportingDFAO</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a5efdafcc42f31921d7278b9cc0682c81" name="a5efdafcc42f31921d7278b9cc0682c81"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5efdafcc42f31921d7278b9cc0682c81">&#9670;&#160;</a></span>ShouldRenderDistanceFieldLighting()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a> ShouldRenderDistanceFieldLighting </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="../../da/d78/class_f_distance_field_scene_data.html">FDistanceFieldSceneData</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>SceneData</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">TConstArrayView&lt; <a class="el" href="../../dd/d2b/class_f_view_info.html">FViewInfo</a> &gt;</td>          <td class="paramname"><span class="paramname"><em>Views</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="adb6ff2b10251a73d6a01b75a2ca3073d" name="adb6ff2b10251a73d6a01b75a2ca3073d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adb6ff2b10251a73d6a01b75a2ca3073d">&#9670;&#160;</a></span>SupportsDistanceFieldAO()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a> SupportsDistanceFieldAO </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../dc/dcf/namespace_e_r_h_i_feature_level.html#a04bc2ae8f7bf478747a40da91e1753dd">ERHIFeatureLevel::Type</a></td>          <td class="paramname"><span class="paramname"><em>FeatureLevel</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../de/d49/_r_h_i_shader_platform_8h.html#a424c00593a28eb7ade584eea91161acd">EShaderPlatform</a></td>          <td class="paramname"><span class="paramname"><em>ShaderPlatform</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aa6a092351ddc81ecec03a1df02cd867b" name="aa6a092351ddc81ecec03a1df02cd867b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa6a092351ddc81ecec03a1df02cd867b">&#9670;&#160;</a></span>TemporalHalton2()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../df/d2a/_s_anim_notify_shared_8h.html#ac7c94e837fed3f8e4bb3dd94d7bd2ecf">float</a> TemporalHalton2 </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a8dbb3cd84ca9fd010dadfc3815eefa5d">int32</a></td>          <td class="paramname"><span class="paramname"><em>Index</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a8dbb3cd84ca9fd010dadfc3815eefa5d">int32</a></td>          <td class="paramname"><span class="paramname"><em>Base</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a537ff0dfd775942ad8e9b8e457eb4336" name="a537ff0dfd775942ad8e9b8e457eb4336"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a537ff0dfd775942ad8e9b8e457eb4336">&#9670;&#160;</a></span>TileIntersectionModifyCompilationEnvironment()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../df/d63/_typed_element_query_capabilities_8inl.html#a72343342ce64c0755563ee6c5e27868d">void</a> TileIntersectionModifyCompilationEnvironment </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../de/d49/_r_h_i_shader_platform_8h.html#a424c00593a28eb7ade584eea91161acd">EShaderPlatform</a></td>          <td class="paramname"><span class="paramname"><em>Platform</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../da/d3c/struct_f_shader_compiler_environment.html">FShaderCompilerEnvironment</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>OutEnvironment</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a301bb023c391039815fe78d8829aeb90" name="a301bb023c391039815fe78d8829aeb90"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a301bb023c391039815fe78d8829aeb90">&#9670;&#160;</a></span>UseAOObjectDistanceField()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a> UseAOObjectDistanceField </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aa183f8f5c48e45867b4b408d58dfc4ea" name="aa183f8f5c48e45867b4b408d58dfc4ea"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa183f8f5c48e45867b4b408d58dfc4ea">&#9670;&#160;</a></span>UseDistanceFieldAO()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a> UseDistanceFieldAO </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a name="doc-var-members" id="doc-var-members"></a><h2 id="header-doc-var-members" class="groupheader">变量说明</h2>
+<a id="af53bf675e48ef118b1bfa5e62eb54ffe" name="af53bf675e48ef118b1bfa5e62eb54ffe"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af53bf675e48ef118b1bfa5e62eb54ffe">&#9670;&#160;</a></span>bListMemoryNextFrame</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a> bListMemoryNextFrame = <a class="el" href="../../d3/df7/radaudio__common_8h.html#ade27a78a51a66a5cfb6f09cf36bcfde9ae9de385ef6fe9bf3360d1038396b884c">false</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ada1db383f837f0bca5c8973583ca048c" name="ada1db383f837f0bca5c8973583ca048c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ada1db383f837f0bca5c8973583ca048c">&#9670;&#160;</a></span>bListMeshDistanceFieldsMemoryNextFrame</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a> bListMeshDistanceFieldsMemoryNextFrame = <a class="el" href="../../d3/df7/radaudio__common_8h.html#ade27a78a51a66a5cfb6f09cf36bcfde9ae9de385ef6fe9bf3360d1038396b884c">false</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a2a052b649c3ab5c7ac116b8e1f3eafd9" name="a2a052b649c3ab5c7ac116b8e1f3eafd9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2a052b649c3ab5c7ac116b8e1f3eafd9">&#9670;&#160;</a></span>CVarAOComputeShaderNormalCalculation</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d2/d79/class_f_auto_console_variable_ref.html">FAutoConsoleVariableRef</a> CVarAOComputeShaderNormalCalculation(<a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;r.AOComputeShaderNormalCalculation&quot;), <a class="el" href="#af091b2441cba04a8c3d5858c437b0fb4">GAOComputeShaderNormalCalculation</a>, <a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;Whether to use the compute shader version of the distance field normal computation.&quot;), <a class="el" href="../../d4/dd9/_i_console_manager_8h.html#a7f594f23c2b2c5687f1a502ebb3ba105a774ea60f41417af093a7ca56c4204a70">ECVF_RenderThreadSafe</a>) </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;r.AOComputeShaderNormalCalculation&quot;)</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="#af091b2441cba04a8c3d5858c437b0fb4">GAOComputeShaderNormalCalculation</a></td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;Whether to use the compute shader version of the distance field normal computation.&quot;)</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d4/dd9/_i_console_manager_8h.html#a7f594f23c2b2c5687f1a502ebb3ba105a774ea60f41417af093a7ca56c4204a70">ECVF_RenderThreadSafe</a></td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a4eb46a5cdfd756f2bd35806d744d4e44" name="a4eb46a5cdfd756f2bd35806d744d4e44"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4eb46a5cdfd756f2bd35806d744d4e44">&#9670;&#160;</a></span>CVarAOGlobalDistanceFieldDetailedCheck</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d2/d79/class_f_auto_console_variable_ref.html">FAutoConsoleVariableRef</a> CVarAOGlobalDistanceFieldDetailedCheck(<a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;r.AOGlobalDistanceField.DetailedNecessityCheck&quot;), <a class="el" href="#a297d8c57130765a703c5fa9780896ffa">GAOGlobalDistanceFieldDetailedNecessityCheck</a>, <a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;Whether to perform detailed necessity <a class="el" href="../../d4/d75/_assertion_macros_8h.html#a586e110623cde145b8a5bdefb429e144">check</a> in <a class="el" href="#a3752bde0b7c97f982f0b9d0c0a69cd15">FSceneRenderer::ShouldPrepareGlobalDistanceField</a>().&quot;), ECVF_RenderThreadSafe) </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;r.AOGlobalDistanceField.DetailedNecessityCheck&quot;)</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="#a297d8c57130765a703c5fa9780896ffa">GAOGlobalDistanceFieldDetailedNecessityCheck</a></td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;Whether to perform detailed necessity <a class="el" href="../../d4/d75/_assertion_macros_8h.html#a586e110623cde145b8a5bdefb429e144">check</a> in <a class="el" href="#a3752bde0b7c97f982f0b9d0c0a69cd15">FSceneRenderer::ShouldPrepareGlobalDistanceField</a>().&quot;)</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d4/dd9/_i_console_manager_8h.html#a7f594f23c2b2c5687f1a502ebb3ba105a774ea60f41417af093a7ca56c4204a70">ECVF_RenderThreadSafe</a></td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aa9f9e77ccc588f443e577b001193d891" name="aa9f9e77ccc588f443e577b001193d891"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa9f9e77ccc588f443e577b001193d891">&#9670;&#160;</a></span>CVarAOJitterConeDirections</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d2/d79/class_f_auto_console_variable_ref.html">FAutoConsoleVariableRef</a> CVarAOJitterConeDirections(<a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;r.AOJitterConeDirections&quot;), <a class="el" href="#a24ec1209fdc81f316ab501dab497450a">GAOJitterConeDirections</a>, <a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;&quot;), <a class="el" href="../../d4/dd9/_i_console_manager_8h.html#a7f594f23c2b2c5687f1a502ebb3ba105a774ea60f41417af093a7ca56c4204a70">ECVF_RenderThreadSafe</a>) </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;r.AOJitterConeDirections&quot;)</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="#a24ec1209fdc81f316ab501dab497450a">GAOJitterConeDirections</a></td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;&quot;)</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d4/dd9/_i_console_manager_8h.html#a7f594f23c2b2c5687f1a502ebb3ba105a774ea60f41417af093a7ca56c4204a70">ECVF_RenderThreadSafe</a></td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a1fdc454c32a2ea54c02344114039d59f" name="a1fdc454c32a2ea54c02344114039d59f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1fdc454c32a2ea54c02344114039d59f">&#9670;&#160;</a></span>CVarAOMaxViewDistance</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d2/d79/class_f_auto_console_variable_ref.html">FAutoConsoleVariableRef</a> CVarAOMaxViewDistance(<a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;r.AOMaxViewDistance&quot;), <a class="el" href="#a7acf6c726d3a139d8aedb8f985a54a9f">GAOMaxViewDistance</a>, <a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;The maximum distance that AO will be computed at.&quot;), <a class="el" href="../../d4/dd9/_i_console_manager_8h.html#a7f594f23c2b2c5687f1a502ebb3ba105a774ea60f41417af093a7ca56c4204a70">ECVF_RenderThreadSafe</a>) </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;r.AOMaxViewDistance&quot;)</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="#a7acf6c726d3a139d8aedb8f985a54a9f">GAOMaxViewDistance</a></td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;The maximum distance that AO will be computed at.&quot;)</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d4/dd9/_i_console_manager_8h.html#a7f594f23c2b2c5687f1a502ebb3ba105a774ea60f41417af093a7ca56c4204a70">ECVF_RenderThreadSafe</a></td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a89e0dbb0017b7798032d8d30dbd00b2a" name="a89e0dbb0017b7798032d8d30dbd00b2a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a89e0dbb0017b7798032d8d30dbd00b2a">&#9670;&#160;</a></span>CVarAOObjectDistanceField</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d2/d79/class_f_auto_console_variable_ref.html">FAutoConsoleVariableRef</a> CVarAOObjectDistanceField(<a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;r.AOObjectDistanceField&quot;), <a class="el" href="#ad4dcff48d25a46cbd333efd68943a235">GAOObjectDistanceField</a>, <a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;Only global distance field will be used when this option is disabled.\n&quot;), <a class="el" href="../../d4/dd9/_i_console_manager_8h.html#a7f594f23c2b2c5687f1a502ebb3ba105a774ea60f41417af093a7ca56c4204a70">ECVF_RenderThreadSafe</a>) </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;r.AOObjectDistanceField&quot;)</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="#ad4dcff48d25a46cbd333efd68943a235">GAOObjectDistanceField</a></td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;Only global distance field will be used when this option is disabled.\n&quot;)</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d4/dd9/_i_console_manager_8h.html#a7f594f23c2b2c5687f1a502ebb3ba105a774ea60f41417af093a7ca56c4204a70">ECVF_RenderThreadSafe</a></td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="abf40a9eda014296558ca1a3bafff412a" name="abf40a9eda014296558ca1a3bafff412a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abf40a9eda014296558ca1a3bafff412a">&#9670;&#160;</a></span>CVarAOOverwriteSceneColor</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d2/d79/class_f_auto_console_variable_ref.html">FAutoConsoleVariableRef</a> CVarAOOverwriteSceneColor(<a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;r.AOOverwriteSceneColor&quot;), <a class="el" href="#ab90813aba198535cd45b137dfbd371db">GAOOverwriteSceneColor</a>, <a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;&quot;), <a class="el" href="../../d4/dd9/_i_console_manager_8h.html#a7f594f23c2b2c5687f1a502ebb3ba105a774ea60f41417af093a7ca56c4204a70">ECVF_RenderThreadSafe</a>) </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;r.AOOverwriteSceneColor&quot;)</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="#ab90813aba198535cd45b137dfbd371db">GAOOverwriteSceneColor</a></td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;&quot;)</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d4/dd9/_i_console_manager_8h.html#a7f594f23c2b2c5687f1a502ebb3ba105a774ea60f41417af093a7ca56c4204a70">ECVF_RenderThreadSafe</a></td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a6f3f16775c1c77c72ee72357ebff83b2" name="a6f3f16775c1c77c72ee72357ebff83b2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6f3f16775c1c77c72ee72357ebff83b2">&#9670;&#160;</a></span>CVarAOSampleSet</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d2/d79/class_f_auto_console_variable_ref.html">FAutoConsoleVariableRef</a> CVarAOSampleSet(<a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;r.AOSampleSet&quot;), <a class="el" href="#aa321a82c575bea65e428a31d3e87c2fe">GAOSampleSet</a>, <a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;0 = Original set, 1 = Relaxed set&quot;), <a class="el" href="../../d4/dd9/_i_console_manager_8h.html#a7f594f23c2b2c5687f1a502ebb3ba105a774ea60f41417af093a7ca56c4204a70">ECVF_RenderThreadSafe</a>) </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;r.AOSampleSet&quot;)</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="#aa321a82c575bea65e428a31d3e87c2fe">GAOSampleSet</a></td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;0 = Original set, 1 = Relaxed set&quot;)</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d4/dd9/_i_console_manager_8h.html#a7f594f23c2b2c5687f1a502ebb3ba105a774ea60f41417af093a7ca56c4204a70">ECVF_RenderThreadSafe</a></td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a27c11cedb70c8e9a9e80dbc7eda3274f" name="a27c11cedb70c8e9a9e80dbc7eda3274f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a27c11cedb70c8e9a9e80dbc7eda3274f">&#9670;&#160;</a></span>CVarAOStepExponentScale</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d2/d79/class_f_auto_console_variable_ref.html">FAutoConsoleVariableRef</a> CVarAOStepExponentScale(<a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;r.AOStepExponentScale&quot;), <a class="el" href="#a46b7461d0f250347e09d0a1a15bcc9aa">GAOStepExponentScale</a>, <a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;Exponent used to distribute AO samples along a cone direction.&quot;), <a class="el" href="../../d4/dd9/_i_console_manager_8h.html#a7f594f23c2b2c5687f1a502ebb3ba105a774ea60f41417af093a7ca56c4204a70">ECVF_RenderThreadSafe</a>) </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;r.AOStepExponentScale&quot;)</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="#a46b7461d0f250347e09d0a1a15bcc9aa">GAOStepExponentScale</a></td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;Exponent used to distribute AO samples along a cone direction.&quot;)</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d4/dd9/_i_console_manager_8h.html#a7f594f23c2b2c5687f1a502ebb3ba105a774ea60f41417af093a7ca56c4204a70">ECVF_RenderThreadSafe</a></td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="af8b3b6b81db2fabf1070f743e85e1e39" name="af8b3b6b81db2fabf1070f743e85e1e39"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af8b3b6b81db2fabf1070f743e85e1e39">&#9670;&#160;</a></span>CVarGlobalDistanceFieldDetailedSufficient</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d2/d79/class_f_auto_console_variable_ref.html">FAutoConsoleVariableRef</a> CVarGlobalDistanceFieldDetailedSufficient(<a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;r.GlobalDistanceField.DetailedNecessitySufficient&quot;), <a class="el" href="#addc318180c1f3b7022fe29a1b88901f8">GGlobalDistanceFieldDetailedNecessitySufficient</a>, <a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;Whether detailed necessity checks in <a class="el" href="#a3752bde0b7c97f982f0b9d0c0a69cd15">FSceneRenderer::ShouldPrepareGlobalDistanceField</a>() is sufficient to enabled GDF.&quot;), <a class="el" href="../../d4/dd9/_i_console_manager_8h.html#a7f594f23c2b2c5687f1a502ebb3ba105a774ea60f41417af093a7ca56c4204a70">ECVF_RenderThreadSafe</a>) </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;r.GlobalDistanceField.DetailedNecessitySufficient&quot;)</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="#addc318180c1f3b7022fe29a1b88901f8">GGlobalDistanceFieldDetailedNecessitySufficient</a></td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;Whether detailed necessity checks in <a class="el" href="#a3752bde0b7c97f982f0b9d0c0a69cd15">FSceneRenderer::ShouldPrepareGlobalDistanceField</a>() is sufficient to enabled GDF.&quot;)</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d4/dd9/_i_console_manager_8h.html#a7f594f23c2b2c5687f1a502ebb3ba105a774ea60f41417af093a7ca56c4204a70">ECVF_RenderThreadSafe</a></td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="af091b2441cba04a8c3d5858c437b0fb4" name="af091b2441cba04a8c3d5858c437b0fb4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af091b2441cba04a8c3d5858c437b0fb4">&#9670;&#160;</a></span>GAOComputeShaderNormalCalculation</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a8dbb3cd84ca9fd010dadfc3815eefa5d">int32</a> GAOComputeShaderNormalCalculation = 0</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a6f6579cf12010a57b8806912cd09b3ae" name="a6f6579cf12010a57b8806912cd09b3ae"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6f6579cf12010a57b8806912cd09b3ae">&#9670;&#160;</a></span>GAOConeHalfAngle</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../df/d2a/_s_anim_notify_shared_8h.html#ac7c94e837fed3f8e4bb3dd94d7bd2ecf">float</a> GAOConeHalfAngle = FMath::Acos(1 - 1.0f / (<a class="el" href="../../df/d2a/_s_anim_notify_shared_8h.html#ac7c94e837fed3f8e4bb3dd94d7bd2ecf">float</a>)<a class="el" href="../../d2/dd1/_unreal_template_8h.html#ae8428b8628e371707a13a9ae07947217">UE_ARRAY_COUNT</a>(<a class="el" href="#a8cbe38fbfd6cb4b08f0e33e06f0463b6">SpacedVectors9</a>))</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a297d8c57130765a703c5fa9780896ffa" name="a297d8c57130765a703c5fa9780896ffa"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a297d8c57130765a703c5fa9780896ffa">&#9670;&#160;</a></span>GAOGlobalDistanceFieldDetailedNecessityCheck</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a8dbb3cd84ca9fd010dadfc3815eefa5d">int32</a> GAOGlobalDistanceFieldDetailedNecessityCheck = 1</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a24ec1209fdc81f316ab501dab497450a" name="a24ec1209fdc81f316ab501dab497450a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a24ec1209fdc81f316ab501dab497450a">&#9670;&#160;</a></span>GAOJitterConeDirections</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a8dbb3cd84ca9fd010dadfc3815eefa5d">int32</a> GAOJitterConeDirections = 0</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a7acf6c726d3a139d8aedb8f985a54a9f" name="a7acf6c726d3a139d8aedb8f985a54a9f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7acf6c726d3a139d8aedb8f985a54a9f">&#9670;&#160;</a></span>GAOMaxViewDistance</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../df/d2a/_s_anim_notify_shared_8h.html#ac7c94e837fed3f8e4bb3dd94d7bd2ecf">float</a> GAOMaxViewDistance = 20000</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ade078dac445d9771c3383670290acfb1" name="ade078dac445d9771c3383670290acfb1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ade078dac445d9771c3383670290acfb1">&#9670;&#160;</a></span>GAONumConeSteps</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../dd/de9/preprocessor_8c.html#a1134b580f8da4de94ca6b1de4d37975e">uint32</a> GAONumConeSteps = 10</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ad4dcff48d25a46cbd333efd68943a235" name="ad4dcff48d25a46cbd333efd68943a235"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad4dcff48d25a46cbd333efd68943a235">&#9670;&#160;</a></span>GAOObjectDistanceField</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a8dbb3cd84ca9fd010dadfc3815eefa5d">int32</a> GAOObjectDistanceField = 1</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ab90813aba198535cd45b137dfbd371db" name="ab90813aba198535cd45b137dfbd371db"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab90813aba198535cd45b137dfbd371db">&#9670;&#160;</a></span>GAOOverwriteSceneColor</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a8dbb3cd84ca9fd010dadfc3815eefa5d">int32</a> GAOOverwriteSceneColor = 0</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aa321a82c575bea65e428a31d3e87c2fe" name="aa321a82c575bea65e428a31d3e87c2fe"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa321a82c575bea65e428a31d3e87c2fe">&#9670;&#160;</a></span>GAOSampleSet</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a8dbb3cd84ca9fd010dadfc3815eefa5d">int32</a> GAOSampleSet = 1</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a46b7461d0f250347e09d0a1a15bcc9aa" name="a46b7461d0f250347e09d0a1a15bcc9aa"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a46b7461d0f250347e09d0a1a15bcc9aa">&#9670;&#160;</a></span>GAOStepExponentScale</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../df/d2a/_s_anim_notify_shared_8h.html#ac7c94e837fed3f8e4bb3dd94d7bd2ecf">float</a> GAOStepExponentScale = .5f</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a0de22939e01cfe65a2cffd5130731919" name="a0de22939e01cfe65a2cffd5130731919"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0de22939e01cfe65a2cffd5130731919">&#9670;&#160;</a></span>GAOViewFadeDistanceScale</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../df/d2a/_s_anim_notify_shared_8h.html#ac7c94e837fed3f8e4bb3dd94d7bd2ecf">float</a> GAOViewFadeDistanceScale</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel extern">extern</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="afee0fec1dd83aa0c3bccaabc57b6e213" name="afee0fec1dd83aa0c3bccaabc57b6e213"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afee0fec1dd83aa0c3bccaabc57b6e213">&#9670;&#160;</a></span>GDistanceFieldAO</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a8dbb3cd84ca9fd010dadfc3815eefa5d">int32</a> GDistanceFieldAO = 1</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ab424f0258fd7b5816888c0475ee5a148" name="ab424f0258fd7b5816888c0475ee5a148"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab424f0258fd7b5816888c0475ee5a148">&#9670;&#160;</a></span>GDistanceFieldAOApplyToStaticIndirect</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a8dbb3cd84ca9fd010dadfc3815eefa5d">int32</a> GDistanceFieldAOApplyToStaticIndirect = 0</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a9c34aa5724509f0ec6c2ef0b266ef6b5" name="a9c34aa5724509f0ec6c2ef0b266ef6b5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9c34aa5724509f0ec6c2ef0b266ef6b5">&#9670;&#160;</a></span>GDistanceFieldAOMultiView</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a8dbb3cd84ca9fd010dadfc3815eefa5d">int32</a> GDistanceFieldAOMultiView = 1</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ac7afd75e7f116189cc6d55bb4affb2c5" name="ac7afd75e7f116189cc6d55bb4affb2c5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac7afd75e7f116189cc6d55bb4affb2c5">&#9670;&#160;</a></span>GDistanceFieldAOQuality</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a8dbb3cd84ca9fd010dadfc3815eefa5d">int32</a> GDistanceFieldAOQuality = 2</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a8c00c8ee04667c0fc10130f37c416c04" name="a8c00c8ee04667c0fc10130f37c416c04"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8c00c8ee04667c0fc10130f37c416c04">&#9670;&#160;</a></span>GDistanceFieldAOSpecularOcclusionMode</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a8dbb3cd84ca9fd010dadfc3815eefa5d">int32</a> GDistanceFieldAOSpecularOcclusionMode = 1</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aeb8f1c029e2d0d0a6ffbfadd9ef01d54" name="aeb8f1c029e2d0d0a6ffbfadd9ef01d54"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aeb8f1c029e2d0d0a6ffbfadd9ef01d54">&#9670;&#160;</a></span>GDistanceFieldAOTileSizeX</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a8dbb3cd84ca9fd010dadfc3815eefa5d">int32</a> GDistanceFieldAOTileSizeX = 16</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Tile sized used for most AO compute shaders. </p>
+
+</div>
+</div>
+<a id="a528c10ddc686781b0fde910cc7b3bc33" name="a528c10ddc686781b0fde910cc7b3bc33"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a528c10ddc686781b0fde910cc7b3bc33">&#9670;&#160;</a></span>GDistanceFieldAOTileSizeY</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a8dbb3cd84ca9fd010dadfc3815eefa5d">int32</a> GDistanceFieldAOTileSizeY = 16</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="addc318180c1f3b7022fe29a1b88901f8" name="addc318180c1f3b7022fe29a1b88901f8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#addc318180c1f3b7022fe29a1b88901f8">&#9670;&#160;</a></span>GGlobalDistanceFieldDetailedNecessitySufficient</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a8dbb3cd84ca9fd010dadfc3815eefa5d">int32</a> GGlobalDistanceFieldDetailedNecessitySufficient = 0</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a15c9dbf1354031969876e9daf6822176" name="a15c9dbf1354031969876e9daf6822176"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a15c9dbf1354031969876e9daf6822176">&#9670;&#160;</a></span>GMobileDistanceFieldAO</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a8dbb3cd84ca9fd010dadfc3815eefa5d">int32</a> GMobileDistanceFieldAO = 0</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a4be3e002071e72b458fc347b0e152c0e" name="a4be3e002071e72b458fc347b0e152c0e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4be3e002071e72b458fc347b0e152c0e">&#9670;&#160;</a></span>ListMemoryConsoleCommand</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d5/d1c/class_f_auto_console_command_with_world.html">FAutoConsoleCommandWithWorld</a> ListMemoryConsoleCommand(<a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;r.AOListMemory&quot;), <a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;&quot;), FConsoleCommandWithWorldDelegate::CreateStatic(<a class="el" href="#a281beda054494484c27ed9eaceae3264">OnListMemory</a>)) </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;r.AOListMemory&quot;)</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;&quot;)</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">FConsoleCommandWithWorldDelegate::CreateStatic(<a class="el" href="#a281beda054494484c27ed9eaceae3264">OnListMemory</a>)</td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a5e1adca541c0d4736f7181de5fd6fd51" name="a5e1adca541c0d4736f7181de5fd6fd51"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5e1adca541c0d4736f7181de5fd6fd51">&#9670;&#160;</a></span>ListMeshDistanceFieldsMemoryConsoleCommand</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d5/d1c/class_f_auto_console_command_with_world.html">FAutoConsoleCommandWithWorld</a> ListMeshDistanceFieldsMemoryConsoleCommand(<a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;r.AOListMeshDistanceFields&quot;), <a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;&quot;), FConsoleCommandWithWorldDelegate::CreateStatic(<a class="el" href="#a04f5562fa69b533d997fe08b44455409">OnListMeshDistanceFields</a>)) </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;r.AOListMeshDistanceFields&quot;)</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;&quot;)</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">FConsoleCommandWithWorldDelegate::CreateStatic(<a class="el" href="#a04f5562fa69b533d997fe08b44455409">OnListMeshDistanceFields</a>)</td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aa444ea784ee9187b673b0957a1792001" name="aa444ea784ee9187b673b0957a1792001"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa444ea784ee9187b673b0957a1792001">&#9670;&#160;</a></span>RelaxedSpacedVectors9</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const <a class="el" href="../../d0/df6/_math_fwd_8h.html#adda141358ecae99df7ba663b9e637078">FVector</a> RelaxedSpacedVectors9[]</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>初始值:</b><div class="fragment"><div class="line">= </div>
+<div class="line">{</div>
+<div class="line">    <a class="code hl_define" href="../../de/de7/_instruments_external_profiler_8cpp.html#a9f40673c5388a6a4f79fe5a13b4f5a78">FVector</a>(-0.467612, 0.739424, 0.484347),</div>
+<div class="line">    <a class="code hl_define" href="../../de/de7/_instruments_external_profiler_8cpp.html#a9f40673c5388a6a4f79fe5a13b4f5a78">FVector</a>(0.517459, -0.705440, 0.484346),</div>
+<div class="line">    <a class="code hl_define" href="../../de/de7/_instruments_external_profiler_8cpp.html#a9f40673c5388a6a4f79fe5a13b4f5a78">FVector</a>(-0.419848, -0.767551, 0.484347),</div>
+<div class="line">    <a class="code hl_define" href="../../de/de7/_instruments_external_profiler_8cpp.html#a9f40673c5388a6a4f79fe5a13b4f5a78">FVector</a>(0.343077, 0.804802, 0.484347),</div>
+<div class="line">    <a class="code hl_define" href="../../de/de7/_instruments_external_profiler_8cpp.html#a9f40673c5388a6a4f79fe5a13b4f5a78">FVector</a>(0.364239, 0.244290, 0.898695),</div>
+<div class="line">    <a class="code hl_define" href="../../de/de7/_instruments_external_profiler_8cpp.html#a9f40673c5388a6a4f79fe5a13b4f5a78">FVector</a>(-0.381547, 0.185815, 0.905481),</div>
+<div class="line">    <a class="code hl_define" href="../../de/de7/_instruments_external_profiler_8cpp.html#a9f40673c5388a6a4f79fe5a13b4f5a78">FVector</a>(-0.870176, -0.090559, 0.484347),</div>
+<div class="line">    <a class="code hl_define" href="../../de/de7/_instruments_external_profiler_8cpp.html#a9f40673c5388a6a4f79fe5a13b4f5a78">FVector</a>(0.874448, 0.027390, 0.484346),</div>
+<div class="line">    <a class="code hl_define" href="../../de/de7/_instruments_external_profiler_8cpp.html#a9f40673c5388a6a4f79fe5a13b4f5a78">FVector</a>(0.032967, -0.435625, 0.899524)</div>
+<div class="line">}</div>
+<div class="ttc" id="a_instruments_external_profiler_8cpp_html_a9f40673c5388a6a4f79fe5a13b4f5a78"><div class="ttname"><a href="../../de/de7/_instruments_external_profiler_8cpp.html#a9f40673c5388a6a4f79fe5a13b4f5a78">FVector</a></div><div class="ttdeci">#define FVector</div><div class="ttdef"><b>定义</b> InstrumentsExternalProfiler.cpp:6</div></div>
+</div><!-- fragment -->
+</div>
+</div>
+<a id="a8cbe38fbfd6cb4b08f0e33e06f0463b6" name="a8cbe38fbfd6cb4b08f0e33e06f0463b6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8cbe38fbfd6cb4b08f0e33e06f0463b6">&#9670;&#160;</a></span>SpacedVectors9</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const <a class="el" href="../../d0/df6/_math_fwd_8h.html#adda141358ecae99df7ba663b9e637078">FVector</a> SpacedVectors9[]</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>初始值:</b><div class="fragment"><div class="line">= </div>
+<div class="line">{</div>
+<div class="line">    <a class="code hl_define" href="../../de/de7/_instruments_external_profiler_8cpp.html#a9f40673c5388a6a4f79fe5a13b4f5a78">FVector</a>(-0.573257625, 0.625250816, 0.529563010),</div>
+<div class="line">    <a class="code hl_define" href="../../de/de7/_instruments_external_profiler_8cpp.html#a9f40673c5388a6a4f79fe5a13b4f5a78">FVector</a>(0.253354192, -0.840093017, 0.479640961),</div>
+<div class="line">    <a class="code hl_define" href="../../de/de7/_instruments_external_profiler_8cpp.html#a9f40673c5388a6a4f79fe5a13b4f5a78">FVector</a>(-0.421664953, -0.718063235, 0.553700149),</div>
+<div class="line">    <a class="code hl_define" href="../../de/de7/_instruments_external_profiler_8cpp.html#a9f40673c5388a6a4f79fe5a13b4f5a78">FVector</a>(0.249163717, 0.796005428, 0.551627457),</div>
+<div class="line">    <a class="code hl_define" href="../../de/de7/_instruments_external_profiler_8cpp.html#a9f40673c5388a6a4f79fe5a13b4f5a78">FVector</a>(0.375082791, 0.295851320, 0.878512800),</div>
+<div class="line">    <a class="code hl_define" href="../../de/de7/_instruments_external_profiler_8cpp.html#a9f40673c5388a6a4f79fe5a13b4f5a78">FVector</a>(-0.217619032, 0.00193520682, 0.976031899),</div>
+<div class="line">    <a class="code hl_define" href="../../de/de7/_instruments_external_profiler_8cpp.html#a9f40673c5388a6a4f79fe5a13b4f5a78">FVector</a>(-0.852834642, 0.0111727007, 0.522061586),</div>
+<div class="line">    <a class="code hl_define" href="../../de/de7/_instruments_external_profiler_8cpp.html#a9f40673c5388a6a4f79fe5a13b4f5a78">FVector</a>(0.745701790, 0.239393353, 0.621787369),</div>
+<div class="line">    <a class="code hl_define" href="../../de/de7/_instruments_external_profiler_8cpp.html#a9f40673c5388a6a4f79fe5a13b4f5a78">FVector</a>(-0.151036426, -0.465937436, 0.871831656)</div>
+<div class="line">}</div>
+</div><!-- fragment -->
+</div>
+</div>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<div id="page-nav" class="page-nav-panel">
+<div id="page-nav-resize-handle"></div>
+<div id="page-nav-tree">
+<div id="page-nav-contents">
+</div><!-- page-nav-contents -->
+</div><!-- page-nav-tree -->
+</div><!-- page-nav -->
+</div><!-- container -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a href="../../dir_0b6ee6e7e9547e675db4add2e5de97da.html">Engine</a></li><li class="navelem"><a href="../../dir_9579d1ecb2c7bf48cbe1049c41745cb4.html">Source</a></li><li class="navelem"><a href="../../dir_9f04efef762572853abdf73f62bebfcc.html">Runtime</a></li><li class="navelem"><a href="../../dir_5ed6327f04b0f38d3f6fe5caa38b0445.html">Renderer</a></li><li class="navelem"><a href="../../dir_e317dc6f09036e33460f39c550131623.html">Private</a></li><li class="navelem"><a href="../../d9/d4d/_distance_field_ambient_occlusion_8cpp.html">DistanceFieldAmbientOcclusion.cpp</a></li>
+    <li class="footer">制作者 <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.15.0 </li>
+  </ul>
+</div>
+</body>
+</html>

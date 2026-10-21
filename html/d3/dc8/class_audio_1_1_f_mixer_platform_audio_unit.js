@@ -1,0 +1,25 @@
+var class_audio_1_1_f_mixer_platform_audio_unit =
+[
+    [ "FMixerPlatformAudioUnit", "d3/dc8/class_audio_1_1_f_mixer_platform_audio_unit.html#a0acd834ac389c6117c04c2d6521f9938", null ],
+    [ "~FMixerPlatformAudioUnit", "d3/dc8/class_audio_1_1_f_mixer_platform_audio_unit.html#a179982a4ae75752dc735faaab118ec01", null ],
+    [ "CheckAudioDeviceChange", "d3/dc8/class_audio_1_1_f_mixer_platform_audio_unit.html#a0da5aedcadf1434fff6095d2d5692ede", null ],
+    [ "CloseAudioStream", "d3/dc8/class_audio_1_1_f_mixer_platform_audio_unit.html#a4522586a43ab2b5b78b3a45c348a91ab", null ],
+    [ "GetDefaultDeviceName", "d3/dc8/class_audio_1_1_f_mixer_platform_audio_unit.html#a6d41bc858dcbc09f933cada093d3ce4a", null ],
+    [ "GetDefaultOutputDeviceIndex", "d3/dc8/class_audio_1_1_f_mixer_platform_audio_unit.html#a14a7ecdf5315316c0b041424ff439dfb", null ],
+    [ "GetNumFrames", "d3/dc8/class_audio_1_1_f_mixer_platform_audio_unit.html#ad4b6f9f7752006e4e76e0e8ac50d8d85", null ],
+    [ "GetNumOutputDevices", "d3/dc8/class_audio_1_1_f_mixer_platform_audio_unit.html#a2fceb0d25267d7027e0fdab68eaccc7f", null ],
+    [ "GetOutputDeviceInfo", "d3/dc8/class_audio_1_1_f_mixer_platform_audio_unit.html#acff95da000404272b423ac580416a182", null ],
+    [ "GetPlatformApi", "d3/dc8/class_audio_1_1_f_mixer_platform_audio_unit.html#a66a48337ac4b66bbbbf1d1fe1e15f654", null ],
+    [ "GetPlatformDeviceInfo", "d3/dc8/class_audio_1_1_f_mixer_platform_audio_unit.html#aaf345038c2ba86600928b2a5fb685ce0", null ],
+    [ "GetPlatformSettings", "d3/dc8/class_audio_1_1_f_mixer_platform_audio_unit.html#a18d88b9e5eecf7bd1f6ac5b89c096d0f", null ],
+    [ "InitializeHardware", "d3/dc8/class_audio_1_1_f_mixer_platform_audio_unit.html#a027d5faeb325bb5805c5e126601912bc", null ],
+    [ "IsInitialized", "d3/dc8/class_audio_1_1_f_mixer_platform_audio_unit.html#af740bfc11e3599fb291718476abe9afd", null ],
+    [ "MoveAudioStreamToNewAudioDevice", "d3/dc8/class_audio_1_1_f_mixer_platform_audio_unit.html#a38190dfcee74d34c4111b9159978e0e8", null ],
+    [ "OpenAudioStream", "d3/dc8/class_audio_1_1_f_mixer_platform_audio_unit.html#ad89b6fab3b594420f5d0617732224d8b", null ],
+    [ "ResumeContext", "d3/dc8/class_audio_1_1_f_mixer_platform_audio_unit.html#a07de833739dc09a127097b495be2faa4", null ],
+    [ "StartAudioStream", "d3/dc8/class_audio_1_1_f_mixer_platform_audio_unit.html#a6cde0b33245a0e0b24066296521a6639", null ],
+    [ "StopAudioStream", "d3/dc8/class_audio_1_1_f_mixer_platform_audio_unit.html#a255c5c6ffd79c9764f74f3907fe3ab1b", null ],
+    [ "SubmitBuffer", "d3/dc8/class_audio_1_1_f_mixer_platform_audio_unit.html#aab5d4e8cd870e5af5be21f33ec355f89", null ],
+    [ "SuspendContext", "d3/dc8/class_audio_1_1_f_mixer_platform_audio_unit.html#a825bf2d3323d120ce2381dd9b86bc733", null ],
+    [ "TeardownHardware", "d3/dc8/class_audio_1_1_f_mixer_platform_audio_unit.html#a6e7a4532ab3d0905c545dda44b5c88aa", null ]
+];

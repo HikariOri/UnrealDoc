@@ -1,0 +1,27 @@
+var class_audio_1_1_f_chorus =
+[
+    [ "FChorus", "d5/d9d/class_audio_1_1_f_chorus.html#a52b055b501921f025826af27f5df95df", null ],
+    [ "~FChorus", "d5/d9d/class_audio_1_1_f_chorus.html#ac81f39f84ea1b8f922196b32a45b1c03", null ],
+    [ "GetNumChannels", "d5/d9d/class_audio_1_1_f_chorus.html#a84f2a94da65cd801f16d58e1f37eae4d", null ],
+    [ "Init", "d5/d9d/class_audio_1_1_f_chorus.html#a90839a0b745cd0ad7a81e382895b3b63", null ],
+    [ "ProcessAudio", "d5/d9d/class_audio_1_1_f_chorus.html#af2c17ab9aaac66e0c8aa4c060a92e920", null ],
+    [ "ProcessAudioFrame", "d5/d9d/class_audio_1_1_f_chorus.html#ab89a840eab8c0b11b95734b167d84ef2", null ],
+    [ "SetDepth", "d5/d9d/class_audio_1_1_f_chorus.html#a28797f201aa12a8ce80710e25d62597c", null ],
+    [ "SetDryLevel", "d5/d9d/class_audio_1_1_f_chorus.html#adf0821989441905b00e24f4604d5028b", null ],
+    [ "SetFeedback", "d5/d9d/class_audio_1_1_f_chorus.html#a6a5ecf400dd3f9fcd41035906592a7e8", null ],
+    [ "SetFrequency", "d5/d9d/class_audio_1_1_f_chorus.html#a6bf6dc2ebbe8544ab3d9ba75ba5f8133", null ],
+    [ "SetSpread", "d5/d9d/class_audio_1_1_f_chorus.html#a7190832eaa05d43d7a7f81a350246ae6", null ],
+    [ "SetWetLevel", "d5/d9d/class_audio_1_1_f_chorus.html#a298e4204a17fc275804a22cc4dbd663c", null ],
+    [ "DelayRangeMsec", "d5/d9d/class_audio_1_1_f_chorus.html#aeede15cf32846dea1f41404e12dc2ad0", null ],
+    [ "Delays", "d5/d9d/class_audio_1_1_f_chorus.html#a07f117797a2bdb359cb597d9e49b7fe7", null ],
+    [ "Depth", "d5/d9d/class_audio_1_1_f_chorus.html#a0269aefe223c3068815d10f7922a5de3", null ],
+    [ "DryLevel", "d5/d9d/class_audio_1_1_f_chorus.html#a00e80d96ade4f12fc5b392d91a765541", null ],
+    [ "Feedback", "d5/d9d/class_audio_1_1_f_chorus.html#ae57a2b12a89e0475b32bfd2efc686f1f", null ],
+    [ "LFOs", "d5/d9d/class_audio_1_1_f_chorus.html#a31dd15a13ba10869f65095b242db3fc2", null ],
+    [ "MaxDelayMsec", "d5/d9d/class_audio_1_1_f_chorus.html#a9703b58580903b9f1ec882af262c78ce", null ],
+    [ "MaxFrequencySpread", "d5/d9d/class_audio_1_1_f_chorus.html#a88a0371b9b0b4f6c8950d5350e0a17b3", null ],
+    [ "MinDelayMsec", "d5/d9d/class_audio_1_1_f_chorus.html#af96c2c02b2de6046c9a311ec56084cdc", null ],
+    [ "NumChannels", "d5/d9d/class_audio_1_1_f_chorus.html#a84e6acaaf951762ddb1cb4adfd6971f5", null ],
+    [ "Spread", "d5/d9d/class_audio_1_1_f_chorus.html#af89b78f474c42143e6ce3af6ac33011c", null ],
+    [ "WetLevel", "d5/d9d/class_audio_1_1_f_chorus.html#ab902dbe402561881b1cb1ae369335f95", null ]
+];

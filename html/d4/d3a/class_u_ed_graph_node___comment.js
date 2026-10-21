@@ -1,0 +1,37 @@
+var class_u_ed_graph_node___comment =
+[
+    [ "ESelectionState", "d4/d3a/class_u_ed_graph_node___comment.html#a4978451578e91399a8c981b8893a62a3", [
+      [ "Inherited", "d4/d3a/class_u_ed_graph_node___comment.html#a4978451578e91399a8c981b8893a62a3ab0b517d3de3f2b55489e488a238a8c25", null ],
+      [ "Selected", "d4/d3a/class_u_ed_graph_node___comment.html#a4978451578e91399a8c981b8893a62a3a91b442d385b54e1418d81adc34871053", null ],
+      [ "Deselected", "d4/d3a/class_u_ed_graph_node___comment.html#a4978451578e91399a8c981b8893a62a3ad654878909f880dbfea86e1ab67b8e13", null ]
+    ] ],
+    [ "UEdGraphNode_Comment", "d4/d3a/class_u_ed_graph_node___comment.html#a5c20b7f096bf9338aa7e91ecc7f5bd97", null ],
+    [ "AddNodeUnderComment", "d4/d3a/class_u_ed_graph_node___comment.html#a0529c140a3a669afbc2f5cb8ce2d8b10", null ],
+    [ "AllocateDefaultPins", "d4/d3a/class_u_ed_graph_node___comment.html#a7ae843b80149fcee4cfc9981416db13d", null ],
+    [ "ClearNodesUnderComment", "d4/d3a/class_u_ed_graph_node___comment.html#a0d45cb4992fe4be76164e36c2367cdff", null ],
+    [ "GetDocumentationExcerptName", "d4/d3a/class_u_ed_graph_node___comment.html#a87d8c12837c451d2b12fa7ab792536d0", null ],
+    [ "GetDocumentationLink", "d4/d3a/class_u_ed_graph_node___comment.html#a8c008f2931878fbfc228924c507c26a4", null ],
+    [ "GetFontSize", "d4/d3a/class_u_ed_graph_node___comment.html#abdf844a822e248b5b292ef4280abc1fb", null ],
+    [ "GetIconAndTint", "d4/d3a/class_u_ed_graph_node___comment.html#a98b1b2fe199cff532cebc92a1eb12547", null ],
+    [ "GetNodeCommentColor", "d4/d3a/class_u_ed_graph_node___comment.html#a71c74f754ba7940c6b4fc269b4f22d3b", null ],
+    [ "GetNodesUnderComment", "d4/d3a/class_u_ed_graph_node___comment.html#ad70a24a9a91d1d3791a5bd7fb1eda112", null ],
+    [ "GetNodeTitle", "d4/d3a/class_u_ed_graph_node___comment.html#a5849fc671e04f36683e90b73b01bb981", null ],
+    [ "GetPinNameOverride", "d4/d3a/class_u_ed_graph_node___comment.html#ab95fa405cbf45f032fcb02304f4679e7", null ],
+    [ "GetTooltipText", "d4/d3a/class_u_ed_graph_node___comment.html#a776255f41aa169046cbd0738f4b39e04", null ],
+    [ "IsSelectedInEditor", "d4/d3a/class_u_ed_graph_node___comment.html#ab01038a408e8e4118029a1ac4cb59b4d", null ],
+    [ "MakeNameValidator", "d4/d3a/class_u_ed_graph_node___comment.html#add81ddd77ec199eff5da6d05da4b9636", null ],
+    [ "OnRenameNode", "d4/d3a/class_u_ed_graph_node___comment.html#a201bd6c596f36c2877f1bca462d4be1e", null ],
+    [ "PostEditChangeProperty", "d4/d3a/class_u_ed_graph_node___comment.html#af4bd02cca1c1b245a00c4629744b4a8f", null ],
+    [ "PostPlacedNewNode", "d4/d3a/class_u_ed_graph_node___comment.html#ab01865ac4bdc7e8ba35f60833fec6f68", null ],
+    [ "ResizeNode", "d4/d3a/class_u_ed_graph_node___comment.html#ad58ab86b076ac04778d7070173ed91bf", null ],
+    [ "SetBounds", "d4/d3a/class_u_ed_graph_node___comment.html#a604e5b946d469af50b77352c2ca77ccf", null ],
+    [ "SetSelectionState", "d4/d3a/class_u_ed_graph_node___comment.html#acd658f22ef3e592b2e16d85e3ee0f278", null ],
+    [ "ShouldOverridePinNames", "d4/d3a/class_u_ed_graph_node___comment.html#a1961f01127cbf5d0e4c3ccd69d399a3c", null ],
+    [ "bColorCommentBubble", "d4/d3a/class_u_ed_graph_node___comment.html#a8b899230447ae97e4cc112c6e40646a4", null ],
+    [ "bCommentBubbleVisible_InDetailsPanel", "d4/d3a/class_u_ed_graph_node___comment.html#aa7caf96a840abfcb3b2031c52052cd32", null ],
+    [ "CommentColor", "d4/d3a/class_u_ed_graph_node___comment.html#af6243ef97b31e39fa8a297f1412a308c", null ],
+    [ "CommentDepth", "d4/d3a/class_u_ed_graph_node___comment.html#afc40f91e3ba5bfcf11cae82c582d0f1b", null ],
+    [ "FontSize", "d4/d3a/class_u_ed_graph_node___comment.html#a1818126b560fb83170022c952efcdb15", null ],
+    [ "MoveMode", "d4/d3a/class_u_ed_graph_node___comment.html#aed4e1a93fd86de850e667128648c7a6e", null ],
+    [ "NodeDetails", "d4/d3a/class_u_ed_graph_node___comment.html#a1262c7d9c68fcd1597b00e375a2b4c71", null ]
+];

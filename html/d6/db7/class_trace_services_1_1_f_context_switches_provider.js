@@ -1,0 +1,26 @@
+var class_trace_services_1_1_f_context_switches_provider =
+[
+    [ "FContextSwitchesProvider", "d6/db7/class_trace_services_1_1_f_context_switches_provider.html#a23c11ce026a84abdc7a54fc5831e5eda", null ],
+    [ "~FContextSwitchesProvider", "d6/db7/class_trace_services_1_1_f_context_switches_provider.html#a2aeb0b76a65544a2726b25bdbef446bf", null ],
+    [ "AddThreadInfo", "d6/db7/class_trace_services_1_1_f_context_switches_provider.html#a15c685526b257ec696699634cd7be3ee", null ],
+    [ "AddThreadName", "d6/db7/class_trace_services_1_1_f_context_switches_provider.html#aca3db6064c57fe18989fd6a384e3d63a", null ],
+    [ "AddTimingEvent", "d6/db7/class_trace_services_1_1_f_context_switches_provider.html#ac75c1b9f25f38fc07a9a870007e791ff", null ],
+    [ "BeginEdit", "d6/db7/class_trace_services_1_1_f_context_switches_provider.html#a5b012bac370b0ce7a52e129ca649fc23", null ],
+    [ "BeginRead", "d6/db7/class_trace_services_1_1_f_context_switches_provider.html#a8f3a82f795b7566f375f1333b2f0d2d8", null ],
+    [ "EditAccessCheck", "d6/db7/class_trace_services_1_1_f_context_switches_provider.html#a37152e0576614e0a01bd8e1f1600066c", null ],
+    [ "EndEdit", "d6/db7/class_trace_services_1_1_f_context_switches_provider.html#a3752b578ae613e11dfa82b3003772a92", null ],
+    [ "EndRead", "d6/db7/class_trace_services_1_1_f_context_switches_provider.html#aa4fea851b46d19de58a5b690af12ff90", null ],
+    [ "EnumerateContextSwitches", "d6/db7/class_trace_services_1_1_f_context_switches_provider.html#a5f3e93cfdd0d08994a2ae75b4981a1ef", null ],
+    [ "EnumerateCpuCoreEvents", "d6/db7/class_trace_services_1_1_f_context_switches_provider.html#aefed12ecac18dd9f28e576d9c32314bf", null ],
+    [ "EnumerateCpuCoreEventsBackwards", "d6/db7/class_trace_services_1_1_f_context_switches_provider.html#a0a096d136e28cc74f2ed52ad87f2bb55", null ],
+    [ "EnumerateCpuCores", "d6/db7/class_trace_services_1_1_f_context_switches_provider.html#a65b97bb15485bbd62e5b07fd3ea8153e", null ],
+    [ "GetCoreNumber", "d6/db7/class_trace_services_1_1_f_context_switches_provider.html#a5ff34d9b08e50ea019d6b0e480c91292", null ],
+    [ "GetCpuCoresSerial", "d6/db7/class_trace_services_1_1_f_context_switches_provider.html#a50fab143dedb8f665815adc6627e07f0", null ],
+    [ "GetSystemThreadId", "d6/db7/class_trace_services_1_1_f_context_switches_provider.html#ad27dd8c2d22f2bc162a3d05a2569535d", null ],
+    [ "GetSystemThreadId", "d6/db7/class_trace_services_1_1_f_context_switches_provider.html#a5f6b916078878fccb204642f5f5beeb3", null ],
+    [ "GetThreadId", "d6/db7/class_trace_services_1_1_f_context_switches_provider.html#ac58dd667e5b03888a268d3e3038895f1", null ],
+    [ "GetThreadId", "d6/db7/class_trace_services_1_1_f_context_switches_provider.html#aea8a9f3a42e62bbc645b8bdad5dd724e", null ],
+    [ "GetThreadsSerial", "d6/db7/class_trace_services_1_1_f_context_switches_provider.html#a9425284eb7114147faa8e6ebcc7816bf", null ],
+    [ "HasData", "d6/db7/class_trace_services_1_1_f_context_switches_provider.html#a8ff398e78e80246e1f50849dd4b93ffa", null ],
+    [ "ReadAccessCheck", "d6/db7/class_trace_services_1_1_f_context_switches_provider.html#a2134a46559295fdd308d267ea7224fbe", null ]
+];

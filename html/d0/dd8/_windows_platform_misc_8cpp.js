@@ -1,0 +1,25 @@
+var _windows_platform_misc_8cpp =
+[
+    [ "FWindowsDialog", "d2/d21/class_f_windows_dialog.html", null ],
+    [ "FGetMainWindowHandleData", "dd/dfb/struct_f_get_main_window_handle_data.html", "dd/dfb/struct_f_get_main_window_handle_data" ],
+    [ "FCPUIDQueriedData", "d9/db2/class_f_c_p_u_i_d_queried_data.html", "d9/db2/class_f_c_p_u_i_d_queried_data" ],
+    [ "FNLMEventListener", "d7/df5/class_f_n_l_m_event_listener.html", "d7/df5/class_f_n_l_m_event_listener" ],
+    [ "ALLOW_COLLECT_STORAGE_INFORMATION", "d0/dd8/_windows_platform_misc_8cpp.html#ac702b0b6a1cdba9f827eb03c68457f2f", null ],
+    [ "DEVICEFAMILYDEVICEFORM_GAMING_HANDHELD", "d0/dd8/_windows_platform_misc_8cpp.html#a3f4b805c8680bd2ffc6d2dfb1a2f7dca", null ],
+    [ "SM_CONVERTIBLESLATEMODE", "d0/dd8/_windows_platform_misc_8cpp.html#ac49f60457d756cb7a387ba1234edeccf", null ],
+    [ "UE_CPUID", "d0/dd8/_windows_platform_misc_8cpp.html#abb37ff5a109ca9022fc83cb1782f8b07", null ],
+    [ "USE_SP_ALTPLATFORM_INFO_V1", "d0/dd8/_windows_platform_misc_8cpp.html#a9eba57553d4d5276f598e5349bd51557", null ],
+    [ "USE_SP_ALTPLATFORM_INFO_V3", "d0/dd8/_windows_platform_misc_8cpp.html#af6ec53bba2a13c7ced360c947a9b5654", null ],
+    [ "USE_SP_BACKUP_QUEUE_PARAMS_V1", "d0/dd8/_windows_platform_misc_8cpp.html#a8e40acf854fa550906dbc51628a6419c", null ],
+    [ "USE_SP_DRVINFO_DATA_V1", "d0/dd8/_windows_platform_misc_8cpp.html#a9b3b8d19a7f00dde3007402d052ae182", null ],
+    [ "USE_SP_INF_SIGNER_INFO_V1", "d0/dd8/_windows_platform_misc_8cpp.html#aa3d0b1650eaa4216f2ce6533a4431db3", null ],
+    [ "WITH_FIREWALL_SUPPORT", "d0/dd8/_windows_platform_misc_8cpp.html#af1fdb66a2e2b76ff2d2dfaa14c643ed0", null ],
+    [ "GetMainWindowHandleCallback", "d0/dd8/_windows_platform_misc_8cpp.html#a62c65d0c54b4bd093b457b3d58f16ece", null ],
+    [ "GetOSVersionsHelper", "d0/dd8/_windows_platform_misc_8cpp.html#af8e9a9fa991fc043065ab4a660ea1696", null ],
+    [ "LexToString", "d0/dd8/_windows_platform_misc_8cpp.html#a7227206b48a4694d369760e116343788", null ],
+    [ "LexToString", "d0/dd8/_windows_platform_misc_8cpp.html#ac4cecbc741f2d92342f45fa97a3aa734", null ],
+    [ "NumberOfProcessorGroupsInternal", "d0/dd8/_windows_platform_misc_8cpp.html#aceea8a6f3a8b1d3bb85377b7820478f2", null ],
+    [ "DefaultPureCallHandler", "d0/dd8/_windows_platform_misc_8cpp.html#ae5ddf54a658040f1221cbd7ad511d4b1", null ],
+    [ "GCollectStorageInformationAsync", "d0/dd8/_windows_platform_misc_8cpp.html#ab5a149cd51738aaabcac2ecb1e8402b5", null ],
+    [ "hInstance", "d0/dd8/_windows_platform_misc_8cpp.html#a8d362587ab2a21f8844ef27ce0e25c14", null ]
+];

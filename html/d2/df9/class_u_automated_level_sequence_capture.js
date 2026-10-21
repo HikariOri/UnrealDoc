@@ -1,0 +1,26 @@
+var class_u_automated_level_sequence_capture =
+[
+    [ "UAutomatedLevelSequenceCapture", "d2/df9/class_u_automated_level_sequence_capture.html#ac50dba6e557d2b9f75e52dd2986188ef", null ],
+    [ "AddFormatMappings", "d2/df9/class_u_automated_level_sequence_capture.html#a99311c34a158f69c5d343b1dad46f363", null ],
+    [ "Close", "d2/df9/class_u_automated_level_sequence_capture.html#ae72752bf2f524c9a6616fb385c1a5d8d", null ],
+    [ "DeserializeAdditionalJson", "d2/df9/class_u_automated_level_sequence_capture.html#a739ff602b0fc902f52a3df83108cf777", null ],
+    [ "GetEstimatedCaptureDurationSeconds", "d2/df9/class_u_automated_level_sequence_capture.html#adab83d814a32d08bf9049f4e40e5ca87", null ],
+    [ "Initialize", "d2/df9/class_u_automated_level_sequence_capture.html#a8c30975267dbd43993e8af77dabe31ed", null ],
+    [ "LoadFromConfig", "d2/df9/class_u_automated_level_sequence_capture.html#aab8c5942332b8138c70a303e4b7d30e7", null ],
+    [ "SaveToConfig", "d2/df9/class_u_automated_level_sequence_capture.html#a835e72f90699ae8ed252d2283f1d44ee", null ],
+    [ "SerializeAdditionalJson", "d2/df9/class_u_automated_level_sequence_capture.html#afdd765b3f8636d06c40ff759ec7709b5", null ],
+    [ "SetFrameOverrides", "d2/df9/class_u_automated_level_sequence_capture.html#a7d43bbeadd8d9f3cfe28a474e5d472f4", null ],
+    [ "BurnInOptions", "d2/df9/class_u_automated_level_sequence_capture.html#a33aec9e0e6ea65357385ed903cc4ea76", null ],
+    [ "bUseCustomEndFrame", "d2/df9/class_u_automated_level_sequence_capture.html#a74d9ced474684104b7a0d938f9f99bf8", null ],
+    [ "bUseCustomStartFrame", "d2/df9/class_u_automated_level_sequence_capture.html#a6b3d55b43fca36c83fb7388e361a3821", null ],
+    [ "bWriteEditDecisionList", "d2/df9/class_u_automated_level_sequence_capture.html#ad214cc21cded07a61d2fe372ac8c8a6e", null ],
+    [ "bWriteFinalCutProXML", "d2/df9/class_u_automated_level_sequence_capture.html#af6edcf9e3c12bce3f07f2b93648247f2", null ],
+    [ "CustomEndFrame", "d2/df9/class_u_automated_level_sequence_capture.html#a7ffa4fa8427c8be63c721e8c736b0f53", null ],
+    [ "CustomStartFrame", "d2/df9/class_u_automated_level_sequence_capture.html#a6bccf8fb6e2c2aa6fd682c79d2a6d798", null ],
+    [ "DelayBeforeShotWarmUp", "d2/df9/class_u_automated_level_sequence_capture.html#a349dbf888732a04e6a811d3fafb390f6", null ],
+    [ "DelayBeforeWarmUp", "d2/df9/class_u_automated_level_sequence_capture.html#a34420735e19a090d754d5a2ec37430b8", null ],
+    [ "DelayEveryFrame", "d2/df9/class_u_automated_level_sequence_capture.html#a2384fed4dc7941f54a5bb95253fdeaba", null ],
+    [ "LevelSequenceAsset", "d2/df9/class_u_automated_level_sequence_capture.html#ae2f293b4ad364acab9af23da5306d2eb", null ],
+    [ "ShotName", "d2/df9/class_u_automated_level_sequence_capture.html#a408f586acabacb8cf98dbdb4e94bcc1a", null ],
+    [ "WarmUpFrameCount", "d2/df9/class_u_automated_level_sequence_capture.html#ad4c7a7fc0f30f4babc82a4fbe6fc4186", null ]
+];

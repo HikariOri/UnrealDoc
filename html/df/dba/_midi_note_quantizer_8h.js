@@ -1,0 +1,38 @@
+var _midi_note_quantizer_8h =
+[
+    [ "Audio::ScaleDegreeSet", "df/d8c/struct_audio_1_1_scale_degree_set.html", "df/d8c/struct_audio_1_1_scale_degree_set" ],
+    [ "Audio::FMidiNoteQuantizer", "d8/dcc/class_audio_1_1_f_midi_note_quantizer.html", null ],
+    [ "Audio::EMusicalScale::Scale", "d3/d3b/namespace_audio_1_1_e_musical_scale.html#a98348b6438e546beaa5ba6e65f1043e6", [
+      [ "Audio::EMusicalScale::Major", "d3/d3b/namespace_audio_1_1_e_musical_scale.html#a98348b6438e546beaa5ba6e65f1043e6ae00523ff45de31d839f8d193feec4ae4", null ],
+      [ "Audio::EMusicalScale::Minor_Dorian", "d3/d3b/namespace_audio_1_1_e_musical_scale.html#a98348b6438e546beaa5ba6e65f1043e6a63d227eb22e82b5702cd9cabd50d32fd", null ],
+      [ "Audio::EMusicalScale::Phrygian", "d3/d3b/namespace_audio_1_1_e_musical_scale.html#a98348b6438e546beaa5ba6e65f1043e6a6cb66aa4a6ef83c6a80a15318b9ad4ad", null ],
+      [ "Audio::EMusicalScale::Lydian", "d3/d3b/namespace_audio_1_1_e_musical_scale.html#a98348b6438e546beaa5ba6e65f1043e6a851f37370489553f860037a4c8d789bd", null ],
+      [ "Audio::EMusicalScale::Dominant7th_Mixolydian", "d3/d3b/namespace_audio_1_1_e_musical_scale.html#a98348b6438e546beaa5ba6e65f1043e6a0843d493e64241f8c9eb5028959a2460", null ],
+      [ "Audio::EMusicalScale::NaturalMinor_Aeolian", "d3/d3b/namespace_audio_1_1_e_musical_scale.html#a98348b6438e546beaa5ba6e65f1043e6a9e927fb49ce5f090d79e89bc60db3aad", null ],
+      [ "Audio::EMusicalScale::HalfDiminished_Locrian", "d3/d3b/namespace_audio_1_1_e_musical_scale.html#a98348b6438e546beaa5ba6e65f1043e6ada50fcf6b38da42a5c575b3cbe102ba0", null ],
+      [ "Audio::EMusicalScale::Chromatic", "d3/d3b/namespace_audio_1_1_e_musical_scale.html#a98348b6438e546beaa5ba6e65f1043e6a13db7cf35f7908597cacc6e484b92132", null ],
+      [ "Audio::EMusicalScale::WholeTone", "d3/d3b/namespace_audio_1_1_e_musical_scale.html#a98348b6438e546beaa5ba6e65f1043e6a88e4a89614d783b71e34dd1538a5de8b", null ],
+      [ "Audio::EMusicalScale::DiminishedWholeTone", "d3/d3b/namespace_audio_1_1_e_musical_scale.html#a98348b6438e546beaa5ba6e65f1043e6aebf0faa82daeb80743736f8e45c0f9dd", null ],
+      [ "Audio::EMusicalScale::MajorPentatonic", "d3/d3b/namespace_audio_1_1_e_musical_scale.html#a98348b6438e546beaa5ba6e65f1043e6aa255af5bdc484bcd74256815f02df43e", null ],
+      [ "Audio::EMusicalScale::MinorPentatonic", "d3/d3b/namespace_audio_1_1_e_musical_scale.html#a98348b6438e546beaa5ba6e65f1043e6abf6c8bbdaed8affd1d0bf6d825aef265", null ],
+      [ "Audio::EMusicalScale::Blues", "d3/d3b/namespace_audio_1_1_e_musical_scale.html#a98348b6438e546beaa5ba6e65f1043e6a1b1150d78f7be31b5a2f46268187230b", null ],
+      [ "Audio::EMusicalScale::Bebop_Major", "d3/d3b/namespace_audio_1_1_e_musical_scale.html#a98348b6438e546beaa5ba6e65f1043e6a5b807358feb9ffa2ab671d0083fd1d3b", null ],
+      [ "Audio::EMusicalScale::Bebop_Minor", "d3/d3b/namespace_audio_1_1_e_musical_scale.html#a98348b6438e546beaa5ba6e65f1043e6a0bf306ab904d20c92b0562d5ce2bff5f", null ],
+      [ "Audio::EMusicalScale::Bebop_MinorNumber2", "d3/d3b/namespace_audio_1_1_e_musical_scale.html#a98348b6438e546beaa5ba6e65f1043e6a0fd4401db3eec3463a9e67d7c5774281", null ],
+      [ "Audio::EMusicalScale::Bebop_Dominant", "d3/d3b/namespace_audio_1_1_e_musical_scale.html#a98348b6438e546beaa5ba6e65f1043e6a669c85d08fa4000923af845eb411dba6", null ],
+      [ "Audio::EMusicalScale::HarmonicMajor", "d3/d3b/namespace_audio_1_1_e_musical_scale.html#a98348b6438e546beaa5ba6e65f1043e6a90c9a8fe8b7629dfebad0a206062f699", null ],
+      [ "Audio::EMusicalScale::HarmonicMinor", "d3/d3b/namespace_audio_1_1_e_musical_scale.html#a98348b6438e546beaa5ba6e65f1043e6abb471adb7d52edfc517eae15c5304942", null ],
+      [ "Audio::EMusicalScale::MelodicMinor", "d3/d3b/namespace_audio_1_1_e_musical_scale.html#a98348b6438e546beaa5ba6e65f1043e6a097a65e2281e3b9f2f0afc7e6a92f05a", null ],
+      [ "Audio::EMusicalScale::SixthModeOfHarmonicMinor", "d3/d3b/namespace_audio_1_1_e_musical_scale.html#a98348b6438e546beaa5ba6e65f1043e6a55d6db35a89f5083050085dd530d4043", null ],
+      [ "Audio::EMusicalScale::LydianAugmented", "d3/d3b/namespace_audio_1_1_e_musical_scale.html#a98348b6438e546beaa5ba6e65f1043e6acadbeeed4e76eafeb6e46917accf39c2", null ],
+      [ "Audio::EMusicalScale::LydianDominant", "d3/d3b/namespace_audio_1_1_e_musical_scale.html#a98348b6438e546beaa5ba6e65f1043e6a1f2559d786ac84ad977048ef9ea6563f", null ],
+      [ "Audio::EMusicalScale::Augmented", "d3/d3b/namespace_audio_1_1_e_musical_scale.html#a98348b6438e546beaa5ba6e65f1043e6a03906ede5a15ca742e25926a96b396c9", null ],
+      [ "Audio::EMusicalScale::Diminished", "d3/d3b/namespace_audio_1_1_e_musical_scale.html#a98348b6438e546beaa5ba6e65f1043e6a3da58c3263d4b32e437289a94ab0a7f8", null ],
+      [ "Audio::EMusicalScale::Diminished_BeginWithHalfStep", "d3/d3b/namespace_audio_1_1_e_musical_scale.html#a98348b6438e546beaa5ba6e65f1043e6a0cdf2d23252c6df536b925005f656290", null ],
+      [ "Audio::EMusicalScale::Diminished_BeginWithWholeStep", "d3/d3b/namespace_audio_1_1_e_musical_scale.html#a98348b6438e546beaa5ba6e65f1043e6a929dd24fe4e07dd77cb7f17bcd2a4947", null ],
+      [ "Audio::EMusicalScale::HalfDiminished_LocrianNumber2", "d3/d3b/namespace_audio_1_1_e_musical_scale.html#a98348b6438e546beaa5ba6e65f1043e6a23d721d4fb6b8f5a1544d280f07e4803", null ],
+      [ "Audio::EMusicalScale::Spanish_or_Jewish", "d3/d3b/namespace_audio_1_1_e_musical_scale.html#a98348b6438e546beaa5ba6e65f1043e6a32790dc3da08f0c4c13db43a0be28a50", null ],
+      [ "Audio::EMusicalScale::Hindu", "d3/d3b/namespace_audio_1_1_e_musical_scale.html#a98348b6438e546beaa5ba6e65f1043e6af5de3ff99e9e249b2dce345582251aa4", null ],
+      [ "Audio::EMusicalScale::Count", "d3/d3b/namespace_audio_1_1_e_musical_scale.html#a98348b6438e546beaa5ba6e65f1043e6adbfb9e30a25bf80f5b37db34a15a8228", null ]
+    ] ]
+];

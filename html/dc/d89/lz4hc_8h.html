@@ -1,0 +1,754 @@
+<!-- HTML header for doxygen 1.15.0-->
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh">
+<head>
+  <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=11" />
+  <meta name="generator" content="Doxygen 1.15.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>UE 5.8.4: Engine/Source/Runtime/Core/Public/Compression/lz4hc.h 文件参考</title>
+  <link rel="icon" href="../../EdIconDefault.bmp" type="image/x-icon" />
+  <link href="../../tabs.css" rel="stylesheet" type="text/css" />
+  <script type="text/javascript" src="../../jquery.js"></script>
+  <script type="text/javascript" src="../../dynsections.js"></script>
+  <link href="../../navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../navtreedata.js"></script>
+<script type="text/javascript" src="../../navtree.js"></script>
+<script type="text/javascript" src="../../cookie.js"></script>
+  <link href="../../search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../search/searchdata.js"></script>
+<script type="text/javascript" src="../../search/search.js"></script>
+  <script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  extensions: ["tex2jax.js"],
+  jax: ["input/TeX","output/HTML-CSS"],
+});
+</script>
+<script type="text/javascript" async="async" src="https://cdn.jsdelivr.net/npm/mathjax@2/MathJax.js"></script>
+  <link href="../../doxygen.css" rel="stylesheet" type="text/css" />
+  <link href="../../doxygen-awesome.css" rel="stylesheet" type="text/css"/>
+<link href="../../doxygen-awesome-sidebar-only.css" rel="stylesheet" type="text/css"/>
+<link href="../../doxygen-awesome-sidebar-only-darkmode-toggle.css" rel="stylesheet" type="text/css"/>
+  <!-- ... other metadata & script includes ... -->
+  <script type="text/javascript" src="../../doxygen-awesome-darkmode-toggle.js"></script>
+  <script type="text/javascript">
+    DoxygenAwesomeDarkModeToggle.title = "Zwischen hellem/dunklem Modus wechseln"
+    DoxygenAwesomeDarkModeToggle.lightModeIcon = '🌞'
+    // icon from https://fonts.google.com/icons
+    DoxygenAwesomeDarkModeToggle.darkModeIcon = `<svg xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 24 24" height="24px" viewBox="0 0 24 24" width="24px" fill="#009793"><g><rect fill="none" height="24" width="24"/></g><g><g><path d="M8.1,14.15C9.77,14.63,11,16.17,11,18c0,0.68-0.19,1.31-0.48,1.87c0.48,0.09,0.97,0.14,1.48,0.14 c1.48,0,2.9-0.41,4.13-1.15c-2.62-0.92-5.23-2.82-6.8-5.86C7.74,9.94,7.78,7.09,8.29,4.9c-2.57,1.33-4.3,4.01-4.3,7.1c0,0,0,0,0,0 c0.01,0,0.01,0,0.02,0C5.66,12,7.18,12.83,8.1,14.15z" opacity=".3"/><path d="M19.78,17.51c-2.47,0-6.57-1.33-8.68-5.43C8.77,7.57,10.6,3.6,11.63,2.01C6.27,2.2,1.98,6.59,1.98,12 c0,0.14,0.02,0.28,0.02,0.42C2.61,12.16,3.28,12,3.98,12c0,0,0,0,0,0c0-3.09,1.73-5.77,4.3-7.1C7.78,7.09,7.74,9.94,9.32,13 c1.57,3.04,4.18,4.95,6.8,5.86c-1.23,0.74-2.65,1.15-4.13,1.15c-0.5,0-1-0.05-1.48-0.14c-0.37,0.7-0.94,1.27-1.64,1.64 c0.98,0.32,2.03,0.5,3.11,0.5c3.5,0,6.58-1.8,8.37-4.52C20.18,17.5,19.98,17.51,19.78,17.51z"/><path d="M7,16l-0.18,0C6.4,14.84,5.3,14,4,14c-1.66,0-3,1.34-3,3s1.34,3,3,3c0.62,0,2.49,0,3,0c1.1,0,2-0.9,2-2 C9,16.9,8.1,16,7,16z"/></g></g></svg>`
+    DoxygenAwesomeDarkModeToggle.init()
+  </script>
+  <script type="text/javascript" src="../../doxygen-awesome-fragment-copy-button.js"></script>
+  <script type="text/javascript">
+    DoxygenAwesomeFragmentCopyButton.title = "In die Zwischenablage kopieren"
+    // DoxygenAwesomeFragmentCopyButton.copyIcon = `<svg ...>`
+    // DoxygenAwesomeFragmentCopyButton.successIcon = `<svg ...>`
+    DoxygenAwesomeFragmentCopyButton.init()
+  </script>
+  <script type="text/javascript" src="../../doxygen-awesome-paragraph-link.js"></script>
+  <script type="text/javascript">
+    DoxygenAwesomeParagraphLink.title = "Abschnitt verknüpfen"
+    DoxygenAwesomeParagraphLink.icon = "¶"
+    DoxygenAwesomeParagraphLink.init()
+  </script>
+  <script type="text/javascript" src="../../doxygen-awesome-interactive-toc.js"></script>
+  <script type="text/javascript">
+    DoxygenAwesomeInteractiveToc.topOffset = 45
+    DoxygenAwesomeInteractiveToc.hideMobileMenu = false
+    DoxygenAwesomeInteractiveToc.init()
+  </script>
+</head>
+<body>
+    <div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+      <div id="titlearea">
+        <table cellspacing="0" cellpadding="0">
+          <tbody>
+            <tr id="projectrow">
+              <td id="projectlogo"><img alt="Logo" src="../../EdIconDefault.bmp"  /></td>
+              <td id="projectalign">
+                <div id="projectname">UE 5.8.4
+                </div>
+                <div id="projectbrief">Unreal Engine</div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <!-- end header part -->
+<!-- 制作者 Doxygen 1.15.0 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "../../search/",'.html');
+</script>
+<script type="text/javascript">
+$(function() { codefold.init(); });
+</script>
+<script type="text/javascript" src="../../menudata.js"></script>
+<script type="text/javascript" src="../../menu.js"></script>
+<script type="text/javascript">
+$(function() {
+  initMenu('../../',true,false,'search.php','搜索',true);
+  $(function() { init_search(); });
+});
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(function(){initNavTree('dc/d89/lz4hc_8h.html','../../',''); });
+</script>
+<div id="container">
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">载入中...</div>
+<div class="SRStatus" id="Searching">搜索中...</div>
+<div class="SRStatus" id="NoMatches">未找到</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">lz4hc.h 文件参考</div></div>
+</div><!--header-->
+<div class="contents">
+<div class="textblock"><code>#include &quot;<a class="el" href="../../d2/d22/_core_2_public_2_compression_2lz4_8h_source.html">lz4.h</a>&quot;</code><br />
+</div><div class="textblock"><div class="dynheader">
+lz4hc.h 的引用(Include)关系图:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d4/da8/lz4hc_8h__incl.svg" width="1480" height="987"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+</div><div class="textblock"><div class="dynheader">
+此图展示该文件被哪些文件直接或间接地引用了:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../de/ddb/lz4hc_8h__dep__incl.svg" width="451" height="176"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+</div>
+<p><a href="../../dc/d89/lz4hc_8h_source.html">浏览该文件的源代码.</a></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-nested-classes" class="groupheader"><a id="nested-classes" name="nested-classes"></a>
+类</h2></td></tr>
+<tr class="memitem:LZ4HC_5FCCtx_5Finternal" id="r_LZ4HC_5FCCtx_5Finternal"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/d94/struct_l_z4_h_c___c_ctx__internal.html">LZ4HC_CCtx_internal</a></td></tr>
+<tr class="memitem:LZ4_5FstreamHC_5Fu" id="r_LZ4_5FstreamHC_5Fu"><td class="memItemLeft" align="right" valign="top">union &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d8/d40/union_l_z4__stream_h_c__u.html">LZ4_streamHC_u</a></td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-define-members" class="groupheader"><a id="define-members" name="define-members"></a>
+宏定义</h2></td></tr>
+<tr class="memitem:ada33967a43e8ad88d35d2f7ff34dd55f" id="r_ada33967a43e8ad88d35d2f7ff34dd55f"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ada33967a43e8ad88d35d2f7ff34dd55f">LZ4HC_CLEVEL_MIN</a>&#160;&#160;&#160;3</td></tr>
+<tr class="memitem:a5970bd99df195c47c0132be154a2699a" id="r_a5970bd99df195c47c0132be154a2699a"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5970bd99df195c47c0132be154a2699a">LZ4HC_CLEVEL_DEFAULT</a>&#160;&#160;&#160;9</td></tr>
+<tr class="memitem:a334c01e3ba3eae87a4464be109dd56a8" id="r_a334c01e3ba3eae87a4464be109dd56a8"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a334c01e3ba3eae87a4464be109dd56a8">LZ4HC_CLEVEL_OPT_MIN</a>&#160;&#160;&#160;10</td></tr>
+<tr class="memitem:aa18088983f5e11e63a24275682820206" id="r_aa18088983f5e11e63a24275682820206"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa18088983f5e11e63a24275682820206">LZ4HC_CLEVEL_MAX</a>&#160;&#160;&#160;12</td></tr>
+<tr class="memitem:a3f434b2eff71bf37005679d682e99fb1" id="r_a3f434b2eff71bf37005679d682e99fb1"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a3f434b2eff71bf37005679d682e99fb1">LZ4HC_DICTIONARY_LOGSIZE</a>&#160;&#160;&#160;16</td></tr>
+<tr class="memitem:a56d9327620a01c904315d4f40e2f8e32" id="r_a56d9327620a01c904315d4f40e2f8e32"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a56d9327620a01c904315d4f40e2f8e32">LZ4HC_MAXD</a>&#160;&#160;&#160;(1&lt;&lt;<a class="el" href="#a3f434b2eff71bf37005679d682e99fb1">LZ4HC_DICTIONARY_LOGSIZE</a>)</td></tr>
+<tr class="memitem:ab2ae3b877082e907febf4bae13db2354" id="r_ab2ae3b877082e907febf4bae13db2354"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab2ae3b877082e907febf4bae13db2354">LZ4HC_MAXD_MASK</a>&#160;&#160;&#160;(<a class="el" href="#a56d9327620a01c904315d4f40e2f8e32">LZ4HC_MAXD</a> - 1)</td></tr>
+<tr class="memitem:a0735fcc165ec1ed0e6701d0808487654" id="r_a0735fcc165ec1ed0e6701d0808487654"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a0735fcc165ec1ed0e6701d0808487654">LZ4HC_HASH_LOG</a>&#160;&#160;&#160;15</td></tr>
+<tr class="memitem:a762ee6317dfa5bc114546ceada49bd95" id="r_a762ee6317dfa5bc114546ceada49bd95"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a762ee6317dfa5bc114546ceada49bd95">LZ4HC_HASHTABLESIZE</a>&#160;&#160;&#160;(1 &lt;&lt; <a class="el" href="#a0735fcc165ec1ed0e6701d0808487654">LZ4HC_HASH_LOG</a>)</td></tr>
+<tr class="memitem:adc1d3fcfd3ac974904645b51b57544e4" id="r_adc1d3fcfd3ac974904645b51b57544e4"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#adc1d3fcfd3ac974904645b51b57544e4">LZ4HC_HASH_MASK</a>&#160;&#160;&#160;(<a class="el" href="#a762ee6317dfa5bc114546ceada49bd95">LZ4HC_HASHTABLESIZE</a> - 1)</td></tr>
+<tr class="memitem:a098180e73afecf79abdc16d2394d5acf" id="r_a098180e73afecf79abdc16d2394d5acf"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a098180e73afecf79abdc16d2394d5acf">LZ4_STREAMHC_MINSIZE</a>&#160;&#160;&#160;262200  /* static size, <a class="el" href="../../d3/db8/binka__ue__decode__test_8cpp.html#ac1ee511585a5c7a2d58c146185895b72">for</a> inter-version compatibility */</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-typedef-members" class="groupheader"><a id="typedef-members" name="typedef-members"></a>
+类型定义</h2></td></tr>
+<tr class="memitem:ab18a47bd8fc9e2f55d4a76b4ed1cac20" id="r_ab18a47bd8fc9e2f55d4a76b4ed1cac20"><td class="memItemLeft" align="right" valign="top">typedef union <a class="el" href="../../d8/d40/union_l_z4__stream_h_c__u.html">LZ4_streamHC_u</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab18a47bd8fc9e2f55d4a76b4ed1cac20">LZ4_streamHC_t</a></td></tr>
+<tr class="memitem:a99299c0069b82a7dbcfa2135bba26508" id="r_a99299c0069b82a7dbcfa2135bba26508"><td class="memItemLeft" align="right" valign="top">typedef struct LZ4HC_CCtx_internal&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a99299c0069b82a7dbcfa2135bba26508">LZ4HC_CCtx_internal</a></td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-func-members" class="groupheader"><a id="func-members" name="func-members"></a>
+函数</h2></td></tr>
+<tr class="memitem:aa7d36f4c84154fe095e90ea2d4121363" id="r_aa7d36f4c84154fe095e90ea2d4121363"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d2/d22/_core_2_public_2_compression_2lz4_8h.html#a00a61e1435005f8a621edf4bbe0ef844">LZ4LIB_API</a> int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa7d36f4c84154fe095e90ea2d4121363">LZ4_compress_HC</a> (const char *src, char *<a class="el" href="../../d4/dc6/_trace_log_2_private_2_trace_2_l_z4_2lz4_8h.html#a961c13eb7fcda15b167b953cac1ab3ec">dst</a>, int <a class="el" href="../../d4/dc6/_trace_log_2_private_2_trace_2_l_z4_2lz4_8h.html#a0f93ad4b0b04b77f089a39036b3814dc">srcSize</a>, int dstCapacity, int compressionLevel)</td></tr>
+<tr class="memitem:a1af8f4c677a9fd53f2155e9053ccbddb" id="r_a1af8f4c677a9fd53f2155e9053ccbddb"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d2/d22/_core_2_public_2_compression_2lz4_8h.html#a00a61e1435005f8a621edf4bbe0ef844">LZ4LIB_API</a> int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a1af8f4c677a9fd53f2155e9053ccbddb">LZ4_sizeofStateHC</a> (<a class="el" href="../../df/d63/_typed_element_query_capabilities_8inl.html#a72343342ce64c0755563ee6c5e27868d">void</a>)</td></tr>
+<tr class="memitem:afeadb1cf4fa953c84edb47a81b42f90b" id="r_afeadb1cf4fa953c84edb47a81b42f90b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d2/d22/_core_2_public_2_compression_2lz4_8h.html#a00a61e1435005f8a621edf4bbe0ef844">LZ4LIB_API</a> int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#afeadb1cf4fa953c84edb47a81b42f90b">LZ4_compress_HC_extStateHC</a> (<a class="el" href="../../df/d63/_typed_element_query_capabilities_8inl.html#a72343342ce64c0755563ee6c5e27868d">void</a> *stateHC, const char *src, char *<a class="el" href="../../d4/dc6/_trace_log_2_private_2_trace_2_l_z4_2lz4_8h.html#a961c13eb7fcda15b167b953cac1ab3ec">dst</a>, int <a class="el" href="../../d4/dc6/_trace_log_2_private_2_trace_2_l_z4_2lz4_8h.html#a0f93ad4b0b04b77f089a39036b3814dc">srcSize</a>, int <a class="el" href="../../d4/dc6/_trace_log_2_private_2_trace_2_l_z4_2lz4_8h.html#a6c2299958529e6037c34f9b36f25f4d0">maxDstSize</a>, int compressionLevel)</td></tr>
+<tr class="memitem:ab0b2b564075b5000cafc014dab12e5c5" id="r_ab0b2b564075b5000cafc014dab12e5c5"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d2/d22/_core_2_public_2_compression_2lz4_8h.html#a00a61e1435005f8a621edf4bbe0ef844">LZ4LIB_API</a> int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab0b2b564075b5000cafc014dab12e5c5">LZ4_compress_HC_destSize</a> (<a class="el" href="../../df/d63/_typed_element_query_capabilities_8inl.html#a72343342ce64c0755563ee6c5e27868d">void</a> *stateHC, const char *src, char *<a class="el" href="../../d4/dc6/_trace_log_2_private_2_trace_2_l_z4_2lz4_8h.html#a961c13eb7fcda15b167b953cac1ab3ec">dst</a>, int *srcSizePtr, int targetDstSize, int compressionLevel)</td></tr>
+<tr class="memitem:a94bb7ceece559cc10c664611e6ac7924" id="r_a94bb7ceece559cc10c664611e6ac7924"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d2/d22/_core_2_public_2_compression_2lz4_8h.html#a00a61e1435005f8a621edf4bbe0ef844">LZ4LIB_API</a> <a class="el" href="#ab18a47bd8fc9e2f55d4a76b4ed1cac20">LZ4_streamHC_t</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a94bb7ceece559cc10c664611e6ac7924">LZ4_createStreamHC</a> (<a class="el" href="../../df/d63/_typed_element_query_capabilities_8inl.html#a72343342ce64c0755563ee6c5e27868d">void</a>)</td></tr>
+<tr class="memitem:a9e36a9b0ade32ede603cd21f3a1f61ab" id="r_a9e36a9b0ade32ede603cd21f3a1f61ab"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d2/d22/_core_2_public_2_compression_2lz4_8h.html#a00a61e1435005f8a621edf4bbe0ef844">LZ4LIB_API</a> int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9e36a9b0ade32ede603cd21f3a1f61ab">LZ4_freeStreamHC</a> (<a class="el" href="#ab18a47bd8fc9e2f55d4a76b4ed1cac20">LZ4_streamHC_t</a> *streamHCPtr)</td></tr>
+<tr class="memitem:aa0b8eece9982480ae6e999a30255a41e" id="r_aa0b8eece9982480ae6e999a30255a41e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d2/d22/_core_2_public_2_compression_2lz4_8h.html#a00a61e1435005f8a621edf4bbe0ef844">LZ4LIB_API</a> <a class="el" href="../../df/d63/_typed_element_query_capabilities_8inl.html#a72343342ce64c0755563ee6c5e27868d">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa0b8eece9982480ae6e999a30255a41e">LZ4_resetStreamHC_fast</a> (<a class="el" href="#ab18a47bd8fc9e2f55d4a76b4ed1cac20">LZ4_streamHC_t</a> *streamHCPtr, int compressionLevel)</td></tr>
+<tr class="memitem:a6af4d20e1eadb9ea2d8d7c90fde1fc23" id="r_a6af4d20e1eadb9ea2d8d7c90fde1fc23"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d2/d22/_core_2_public_2_compression_2lz4_8h.html#a00a61e1435005f8a621edf4bbe0ef844">LZ4LIB_API</a> int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6af4d20e1eadb9ea2d8d7c90fde1fc23">LZ4_loadDictHC</a> (<a class="el" href="#ab18a47bd8fc9e2f55d4a76b4ed1cac20">LZ4_streamHC_t</a> *streamHCPtr, const char *dictionary, int dictSize)</td></tr>
+<tr class="memitem:a93dc17a54a9c05e8e945c93d1f00605e" id="r_a93dc17a54a9c05e8e945c93d1f00605e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d2/d22/_core_2_public_2_compression_2lz4_8h.html#a00a61e1435005f8a621edf4bbe0ef844">LZ4LIB_API</a> int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a93dc17a54a9c05e8e945c93d1f00605e">LZ4_compress_HC_continue</a> (<a class="el" href="#ab18a47bd8fc9e2f55d4a76b4ed1cac20">LZ4_streamHC_t</a> *streamHCPtr, const char *src, char *<a class="el" href="../../d4/dc6/_trace_log_2_private_2_trace_2_l_z4_2lz4_8h.html#a961c13eb7fcda15b167b953cac1ab3ec">dst</a>, int <a class="el" href="../../d4/dc6/_trace_log_2_private_2_trace_2_l_z4_2lz4_8h.html#a0f93ad4b0b04b77f089a39036b3814dc">srcSize</a>, int <a class="el" href="../../d4/dc6/_trace_log_2_private_2_trace_2_l_z4_2lz4_8h.html#a6c2299958529e6037c34f9b36f25f4d0">maxDstSize</a>)</td></tr>
+<tr class="memitem:a4be9c46103d28f6509f545752c80934d" id="r_a4be9c46103d28f6509f545752c80934d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d2/d22/_core_2_public_2_compression_2lz4_8h.html#a00a61e1435005f8a621edf4bbe0ef844">LZ4LIB_API</a> int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4be9c46103d28f6509f545752c80934d">LZ4_compress_HC_continue_destSize</a> (<a class="el" href="#ab18a47bd8fc9e2f55d4a76b4ed1cac20">LZ4_streamHC_t</a> *LZ4_streamHCPtr, const char *src, char *<a class="el" href="../../d4/dc6/_trace_log_2_private_2_trace_2_l_z4_2lz4_8h.html#a961c13eb7fcda15b167b953cac1ab3ec">dst</a>, int *srcSizePtr, int targetDstSize)</td></tr>
+<tr class="memitem:a9a41b9462577b6130c88c907373c1323" id="r_a9a41b9462577b6130c88c907373c1323"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d2/d22/_core_2_public_2_compression_2lz4_8h.html#a00a61e1435005f8a621edf4bbe0ef844">LZ4LIB_API</a> int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9a41b9462577b6130c88c907373c1323">LZ4_saveDictHC</a> (<a class="el" href="#ab18a47bd8fc9e2f55d4a76b4ed1cac20">LZ4_streamHC_t</a> *streamHCPtr, char *safeBuffer, int maxDictSize)</td></tr>
+<tr class="memitem:af2753bcd153794acebfd98f4be71df34" id="r_af2753bcd153794acebfd98f4be71df34"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d2/d22/_core_2_public_2_compression_2lz4_8h.html#a00a61e1435005f8a621edf4bbe0ef844">LZ4LIB_API</a> <a class="el" href="#ab18a47bd8fc9e2f55d4a76b4ed1cac20">LZ4_streamHC_t</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af2753bcd153794acebfd98f4be71df34">LZ4_initStreamHC</a> (<a class="el" href="../../df/d63/_typed_element_query_capabilities_8inl.html#a72343342ce64c0755563ee6c5e27868d">void</a> *buffer, size_t size)</td></tr>
+<tr class="memitem:abde0130b33209581fea71c46d2f9f9da" id="r_abde0130b33209581fea71c46d2f9f9da"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d2/d22/_core_2_public_2_compression_2lz4_8h.html#a00a61e1435005f8a621edf4bbe0ef844">LZ4LIB_API</a> <a class="el" href="../../df/d63/_typed_element_query_capabilities_8inl.html#a72343342ce64c0755563ee6c5e27868d">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#abde0130b33209581fea71c46d2f9f9da">LZ4_resetStreamHC</a> (<a class="el" href="#ab18a47bd8fc9e2f55d4a76b4ed1cac20">LZ4_streamHC_t</a> *streamHCPtr, int compressionLevel)</td></tr>
+</table>
+<a name="doc-define-members" id="doc-define-members"></a><h2 id="header-doc-define-members" class="groupheader">宏定义说明</h2>
+<a id="a098180e73afecf79abdc16d2394d5acf" name="a098180e73afecf79abdc16d2394d5acf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a098180e73afecf79abdc16d2394d5acf">&#9670;&#160;</a></span>LZ4_STREAMHC_MINSIZE</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define LZ4_STREAMHC_MINSIZE&#160;&#160;&#160;262200  /* static size, <a class="el" href="../../d3/db8/binka__ue__decode__test_8cpp.html#ac1ee511585a5c7a2d58c146185895b72">for</a> inter-version compatibility */</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a5970bd99df195c47c0132be154a2699a" name="a5970bd99df195c47c0132be154a2699a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5970bd99df195c47c0132be154a2699a">&#9670;&#160;</a></span>LZ4HC_CLEVEL_DEFAULT</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define LZ4HC_CLEVEL_DEFAULT&#160;&#160;&#160;9</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aa18088983f5e11e63a24275682820206" name="aa18088983f5e11e63a24275682820206"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa18088983f5e11e63a24275682820206">&#9670;&#160;</a></span>LZ4HC_CLEVEL_MAX</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define LZ4HC_CLEVEL_MAX&#160;&#160;&#160;12</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ada33967a43e8ad88d35d2f7ff34dd55f" name="ada33967a43e8ad88d35d2f7ff34dd55f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ada33967a43e8ad88d35d2f7ff34dd55f">&#9670;&#160;</a></span>LZ4HC_CLEVEL_MIN</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define LZ4HC_CLEVEL_MIN&#160;&#160;&#160;3</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a334c01e3ba3eae87a4464be109dd56a8" name="a334c01e3ba3eae87a4464be109dd56a8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a334c01e3ba3eae87a4464be109dd56a8">&#9670;&#160;</a></span>LZ4HC_CLEVEL_OPT_MIN</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define LZ4HC_CLEVEL_OPT_MIN&#160;&#160;&#160;10</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a3f434b2eff71bf37005679d682e99fb1" name="a3f434b2eff71bf37005679d682e99fb1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3f434b2eff71bf37005679d682e99fb1">&#9670;&#160;</a></span>LZ4HC_DICTIONARY_LOGSIZE</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define LZ4HC_DICTIONARY_LOGSIZE&#160;&#160;&#160;16</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a0735fcc165ec1ed0e6701d0808487654" name="a0735fcc165ec1ed0e6701d0808487654"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0735fcc165ec1ed0e6701d0808487654">&#9670;&#160;</a></span>LZ4HC_HASH_LOG</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define LZ4HC_HASH_LOG&#160;&#160;&#160;15</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="adc1d3fcfd3ac974904645b51b57544e4" name="adc1d3fcfd3ac974904645b51b57544e4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adc1d3fcfd3ac974904645b51b57544e4">&#9670;&#160;</a></span>LZ4HC_HASH_MASK</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define LZ4HC_HASH_MASK&#160;&#160;&#160;(<a class="el" href="#a762ee6317dfa5bc114546ceada49bd95">LZ4HC_HASHTABLESIZE</a> - 1)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a762ee6317dfa5bc114546ceada49bd95" name="a762ee6317dfa5bc114546ceada49bd95"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a762ee6317dfa5bc114546ceada49bd95">&#9670;&#160;</a></span>LZ4HC_HASHTABLESIZE</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define LZ4HC_HASHTABLESIZE&#160;&#160;&#160;(1 &lt;&lt; <a class="el" href="#a0735fcc165ec1ed0e6701d0808487654">LZ4HC_HASH_LOG</a>)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a56d9327620a01c904315d4f40e2f8e32" name="a56d9327620a01c904315d4f40e2f8e32"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a56d9327620a01c904315d4f40e2f8e32">&#9670;&#160;</a></span>LZ4HC_MAXD</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define LZ4HC_MAXD&#160;&#160;&#160;(1&lt;&lt;<a class="el" href="#a3f434b2eff71bf37005679d682e99fb1">LZ4HC_DICTIONARY_LOGSIZE</a>)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ab2ae3b877082e907febf4bae13db2354" name="ab2ae3b877082e907febf4bae13db2354"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab2ae3b877082e907febf4bae13db2354">&#9670;&#160;</a></span>LZ4HC_MAXD_MASK</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define LZ4HC_MAXD_MASK&#160;&#160;&#160;(<a class="el" href="#a56d9327620a01c904315d4f40e2f8e32">LZ4HC_MAXD</a> - 1)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a name="doc-typedef-members" id="doc-typedef-members"></a><h2 id="header-doc-typedef-members" class="groupheader">类型定义说明</h2>
+<a id="ab18a47bd8fc9e2f55d4a76b4ed1cac20" name="ab18a47bd8fc9e2f55d4a76b4ed1cac20"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab18a47bd8fc9e2f55d4a76b4ed1cac20">&#9670;&#160;</a></span>LZ4_streamHC_t</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef union <a class="el" href="../../d8/d40/union_l_z4__stream_h_c__u.html">LZ4_streamHC_u</a> <a class="el" href="#ab18a47bd8fc9e2f55d4a76b4ed1cac20">LZ4_streamHC_t</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a99299c0069b82a7dbcfa2135bba26508" name="a99299c0069b82a7dbcfa2135bba26508"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a99299c0069b82a7dbcfa2135bba26508">&#9670;&#160;</a></span>LZ4HC_CCtx_internal</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef struct LZ4HC_CCtx_internal LZ4HC_CCtx_internal</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">函数说明</h2>
+<a id="aa7d36f4c84154fe095e90ea2d4121363" name="aa7d36f4c84154fe095e90ea2d4121363"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa7d36f4c84154fe095e90ea2d4121363">&#9670;&#160;</a></span>LZ4_compress_HC()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d2/d22/_core_2_public_2_compression_2lz4_8h.html#a00a61e1435005f8a621edf4bbe0ef844">LZ4LIB_API</a> int LZ4_compress_HC </td>
+          <td>(</td>
+          <td class="paramtype">const char *</td>          <td class="paramname"><span class="paramname"><em>src</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char *</td>          <td class="paramname"><span class="paramname"><em>dst</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>srcSize</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>dstCapacity</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>compressionLevel</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p><a class="el" href="#aa7d36f4c84154fe095e90ea2d4121363">LZ4_compress_HC()</a> : Compress data from <span class="tt">src</span> into <span class="tt"><a class="el" href="../../d4/dc6/_trace_log_2_private_2_trace_2_l_z4_2lz4_8h.html#a961c13eb7fcda15b167b953cac1ab3ec">dst</a></span>, using the powerful but slower "HC" algorithm. <span class="tt"><a class="el" href="../../d4/dc6/_trace_log_2_private_2_trace_2_l_z4_2lz4_8h.html#a961c13eb7fcda15b167b953cac1ab3ec">dst</a></span> must be already allocated. Compression is guaranteed to succeed if <span class="tt">dstCapacity &gt;= LZ4_compressBound(srcSize)</span> (see "lz4.h") Max supported <span class="tt"><a class="el" href="../../d4/dc6/_trace_log_2_private_2_trace_2_l_z4_2lz4_8h.html#a0f93ad4b0b04b77f089a39036b3814dc">srcSize</a></span> value is LZ4_MAX_INPUT_SIZE (see "lz4.h") <span class="tt">compressionLevel</span> : any value between 1 and LZ4HC_CLEVEL_MAX will work. Values &gt; LZ4HC_CLEVEL_MAX behave the same as LZ4HC_CLEVEL_MAX. </p><dl class="section return"><dt>返回</dt><dd>: the number of bytes written into 'dst' or 0 if compression fails. </dd></dl>
+
+</div>
+</div>
+<a id="a93dc17a54a9c05e8e945c93d1f00605e" name="a93dc17a54a9c05e8e945c93d1f00605e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a93dc17a54a9c05e8e945c93d1f00605e">&#9670;&#160;</a></span>LZ4_compress_HC_continue()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d2/d22/_core_2_public_2_compression_2lz4_8h.html#a00a61e1435005f8a621edf4bbe0ef844">LZ4LIB_API</a> int LZ4_compress_HC_continue </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="#ab18a47bd8fc9e2f55d4a76b4ed1cac20">LZ4_streamHC_t</a> *</td>          <td class="paramname"><span class="paramname"><em>streamHCPtr</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const char *</td>          <td class="paramname"><span class="paramname"><em>src</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char *</td>          <td class="paramname"><span class="paramname"><em>dst</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>srcSize</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>maxDstSize</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a4be9c46103d28f6509f545752c80934d" name="a4be9c46103d28f6509f545752c80934d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4be9c46103d28f6509f545752c80934d">&#9670;&#160;</a></span>LZ4_compress_HC_continue_destSize()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d2/d22/_core_2_public_2_compression_2lz4_8h.html#a00a61e1435005f8a621edf4bbe0ef844">LZ4LIB_API</a> int LZ4_compress_HC_continue_destSize </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="#ab18a47bd8fc9e2f55d4a76b4ed1cac20">LZ4_streamHC_t</a> *</td>          <td class="paramname"><span class="paramname"><em>LZ4_streamHCPtr</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const char *</td>          <td class="paramname"><span class="paramname"><em>src</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char *</td>          <td class="paramname"><span class="paramname"><em>dst</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int *</td>          <td class="paramname"><span class="paramname"><em>srcSizePtr</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>targetDstSize</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p><a class="el" href="#a4be9c46103d28f6509f545752c80934d">LZ4_compress_HC_continue_destSize()</a> : v1.9.0+ Similar to <a class="el" href="#a93dc17a54a9c05e8e945c93d1f00605e">LZ4_compress_HC_continue()</a>, but will read as much data as possible from <span class="tt">src</span> to fit into <span class="tt">targetDstSize</span> budget. Result is provided into 2 parts : </p><dl class="section return"><dt>返回</dt><dd>: the number of bytes written into 'dst' (necessarily &lt;= targetDstSize) or 0 if compression fails. <span class="tt">srcSizePtr</span> : on success, *srcSizePtr will be updated to indicate how much bytes were read from <span class="tt">src</span>. Note that this function may not consume the entire input. </dd></dl>
+
+</div>
+</div>
+<a id="ab0b2b564075b5000cafc014dab12e5c5" name="ab0b2b564075b5000cafc014dab12e5c5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab0b2b564075b5000cafc014dab12e5c5">&#9670;&#160;</a></span>LZ4_compress_HC_destSize()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d2/d22/_core_2_public_2_compression_2lz4_8h.html#a00a61e1435005f8a621edf4bbe0ef844">LZ4LIB_API</a> int LZ4_compress_HC_destSize </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../df/d63/_typed_element_query_capabilities_8inl.html#a72343342ce64c0755563ee6c5e27868d">void</a> *</td>          <td class="paramname"><span class="paramname"><em>stateHC</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const char *</td>          <td class="paramname"><span class="paramname"><em>src</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char *</td>          <td class="paramname"><span class="paramname"><em>dst</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int *</td>          <td class="paramname"><span class="paramname"><em>srcSizePtr</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>targetDstSize</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>compressionLevel</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p><a class="el" href="#ab0b2b564075b5000cafc014dab12e5c5">LZ4_compress_HC_destSize()</a> : v1.9.0+ Will compress as much data as possible from <span class="tt">src</span> to fit into <span class="tt">targetDstSize</span> budget. Result is provided in 2 parts : </p><dl class="section return"><dt>返回</dt><dd>: the number of bytes written into 'dst' (necessarily &lt;= targetDstSize) or 0 if compression fails. <span class="tt">srcSizePtr</span> : on success, *srcSizePtr is updated to indicate how much bytes were read from <span class="tt">src</span> </dd></dl>
+
+</div>
+</div>
+<a id="afeadb1cf4fa953c84edb47a81b42f90b" name="afeadb1cf4fa953c84edb47a81b42f90b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afeadb1cf4fa953c84edb47a81b42f90b">&#9670;&#160;</a></span>LZ4_compress_HC_extStateHC()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d2/d22/_core_2_public_2_compression_2lz4_8h.html#a00a61e1435005f8a621edf4bbe0ef844">LZ4LIB_API</a> int LZ4_compress_HC_extStateHC </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../df/d63/_typed_element_query_capabilities_8inl.html#a72343342ce64c0755563ee6c5e27868d">void</a> *</td>          <td class="paramname"><span class="paramname"><em>stateHC</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const char *</td>          <td class="paramname"><span class="paramname"><em>src</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char *</td>          <td class="paramname"><span class="paramname"><em>dst</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>srcSize</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>maxDstSize</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>compressionLevel</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a94bb7ceece559cc10c664611e6ac7924" name="a94bb7ceece559cc10c664611e6ac7924"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a94bb7ceece559cc10c664611e6ac7924">&#9670;&#160;</a></span>LZ4_createStreamHC()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d2/d22/_core_2_public_2_compression_2lz4_8h.html#a00a61e1435005f8a621edf4bbe0ef844">LZ4LIB_API</a> <a class="el" href="#ab18a47bd8fc9e2f55d4a76b4ed1cac20">LZ4_streamHC_t</a> * LZ4_createStreamHC </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../df/d63/_typed_element_query_capabilities_8inl.html#a72343342ce64c0755563ee6c5e27868d">void</a></td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p><a class="el" href="#a94bb7ceece559cc10c664611e6ac7924">LZ4_createStreamHC()</a> and <a class="el" href="#a9e36a9b0ade32ede603cd21f3a1f61ab">LZ4_freeStreamHC()</a> : These functions create and release memory for LZ4 HC streaming state. Newly created states are automatically initialized. A same state can be used multiple times consecutively, starting with <a class="el" href="#aa0b8eece9982480ae6e999a30255a41e">LZ4_resetStreamHC_fast()</a> to start a new stream of blocks. </p>
+
+</div>
+</div>
+<a id="a9e36a9b0ade32ede603cd21f3a1f61ab" name="a9e36a9b0ade32ede603cd21f3a1f61ab"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9e36a9b0ade32ede603cd21f3a1f61ab">&#9670;&#160;</a></span>LZ4_freeStreamHC()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d2/d22/_core_2_public_2_compression_2lz4_8h.html#a00a61e1435005f8a621edf4bbe0ef844">LZ4LIB_API</a> int LZ4_freeStreamHC </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="#ab18a47bd8fc9e2f55d4a76b4ed1cac20">LZ4_streamHC_t</a> *</td>          <td class="paramname"><span class="paramname"><em>streamHCPtr</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="af2753bcd153794acebfd98f4be71df34" name="af2753bcd153794acebfd98f4be71df34"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af2753bcd153794acebfd98f4be71df34">&#9670;&#160;</a></span>LZ4_initStreamHC()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d2/d22/_core_2_public_2_compression_2lz4_8h.html#a00a61e1435005f8a621edf4bbe0ef844">LZ4LIB_API</a> <a class="el" href="#ab18a47bd8fc9e2f55d4a76b4ed1cac20">LZ4_streamHC_t</a> * LZ4_initStreamHC </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../df/d63/_typed_element_query_capabilities_8inl.html#a72343342ce64c0755563ee6c5e27868d">void</a> *</td>          <td class="paramname"><span class="paramname"><em>buffer</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">size_t</td>          <td class="paramname"><span class="paramname"><em>size</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a6af4d20e1eadb9ea2d8d7c90fde1fc23" name="a6af4d20e1eadb9ea2d8d7c90fde1fc23"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6af4d20e1eadb9ea2d8d7c90fde1fc23">&#9670;&#160;</a></span>LZ4_loadDictHC()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d2/d22/_core_2_public_2_compression_2lz4_8h.html#a00a61e1435005f8a621edf4bbe0ef844">LZ4LIB_API</a> int LZ4_loadDictHC </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="#ab18a47bd8fc9e2f55d4a76b4ed1cac20">LZ4_streamHC_t</a> *</td>          <td class="paramname"><span class="paramname"><em>streamHCPtr</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const char *</td>          <td class="paramname"><span class="paramname"><em>dictionary</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>dictSize</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="abde0130b33209581fea71c46d2f9f9da" name="abde0130b33209581fea71c46d2f9f9da"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abde0130b33209581fea71c46d2f9f9da">&#9670;&#160;</a></span>LZ4_resetStreamHC()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d2/d22/_core_2_public_2_compression_2lz4_8h.html#a00a61e1435005f8a621edf4bbe0ef844">LZ4LIB_API</a> <a class="el" href="../../df/d63/_typed_element_query_capabilities_8inl.html#a72343342ce64c0755563ee6c5e27868d">void</a> LZ4_resetStreamHC </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="#ab18a47bd8fc9e2f55d4a76b4ed1cac20">LZ4_streamHC_t</a> *</td>          <td class="paramname"><span class="paramname"><em>streamHCPtr</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>compressionLevel</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aa0b8eece9982480ae6e999a30255a41e" name="aa0b8eece9982480ae6e999a30255a41e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa0b8eece9982480ae6e999a30255a41e">&#9670;&#160;</a></span>LZ4_resetStreamHC_fast()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d2/d22/_core_2_public_2_compression_2lz4_8h.html#a00a61e1435005f8a621edf4bbe0ef844">LZ4LIB_API</a> <a class="el" href="../../df/d63/_typed_element_query_capabilities_8inl.html#a72343342ce64c0755563ee6c5e27868d">void</a> LZ4_resetStreamHC_fast </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="#ab18a47bd8fc9e2f55d4a76b4ed1cac20">LZ4_streamHC_t</a> *</td>          <td class="paramname"><span class="paramname"><em>streamHCPtr</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>compressionLevel</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a9a41b9462577b6130c88c907373c1323" name="a9a41b9462577b6130c88c907373c1323"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9a41b9462577b6130c88c907373c1323">&#9670;&#160;</a></span>LZ4_saveDictHC()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d2/d22/_core_2_public_2_compression_2lz4_8h.html#a00a61e1435005f8a621edf4bbe0ef844">LZ4LIB_API</a> int LZ4_saveDictHC </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="#ab18a47bd8fc9e2f55d4a76b4ed1cac20">LZ4_streamHC_t</a> *</td>          <td class="paramname"><span class="paramname"><em>streamHCPtr</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char *</td>          <td class="paramname"><span class="paramname"><em>safeBuffer</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>maxDictSize</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a1af8f4c677a9fd53f2155e9053ccbddb" name="a1af8f4c677a9fd53f2155e9053ccbddb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1af8f4c677a9fd53f2155e9053ccbddb">&#9670;&#160;</a></span>LZ4_sizeofStateHC()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d2/d22/_core_2_public_2_compression_2lz4_8h.html#a00a61e1435005f8a621edf4bbe0ef844">LZ4LIB_API</a> int LZ4_sizeofStateHC </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../df/d63/_typed_element_query_capabilities_8inl.html#a72343342ce64c0755563ee6c5e27868d">void</a></td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p><a class="el" href="#afeadb1cf4fa953c84edb47a81b42f90b">LZ4_compress_HC_extStateHC()</a> : Same as <a class="el" href="#aa7d36f4c84154fe095e90ea2d4121363">LZ4_compress_HC()</a>, but using an externally allocated memory segment for <span class="tt">state</span>. <span class="tt">state</span> size is provided by <a class="el" href="#a1af8f4c677a9fd53f2155e9053ccbddb">LZ4_sizeofStateHC()</a>. Memory segment must be aligned on 8-bytes boundaries (which a normal malloc() should do properly). </p>
+
+</div>
+</div>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<div id="page-nav" class="page-nav-panel">
+<div id="page-nav-resize-handle"></div>
+<div id="page-nav-tree">
+<div id="page-nav-contents">
+</div><!-- page-nav-contents -->
+</div><!-- page-nav-tree -->
+</div><!-- page-nav -->
+</div><!-- container -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a href="../../dir_0b6ee6e7e9547e675db4add2e5de97da.html">Engine</a></li><li class="navelem"><a href="../../dir_9579d1ecb2c7bf48cbe1049c41745cb4.html">Source</a></li><li class="navelem"><a href="../../dir_9f04efef762572853abdf73f62bebfcc.html">Runtime</a></li><li class="navelem"><a href="../../dir_3de6fe8d63806cea4bedcdcf5470dc5e.html">Core</a></li><li class="navelem"><a href="../../dir_399a9fb0bb7a487bf3d85aef916cb8c0.html">Public</a></li><li class="navelem"><a href="../../dir_8259e85b27ad3ad24b63651ee440b912.html">Compression</a></li><li class="navelem"><a href="../../dc/d89/lz4hc_8h.html">lz4hc.h</a></li>
+    <li class="footer">制作者 <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.15.0 </li>
+  </ul>
+</div>
+</body>
+</html>

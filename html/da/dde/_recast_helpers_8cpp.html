@@ -1,0 +1,409 @@
+<!-- HTML header for doxygen 1.15.0-->
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh">
+<head>
+  <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=11" />
+  <meta name="generator" content="Doxygen 1.15.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>UE 5.8.4: Engine/Source/Runtime/NavigationSystem/Private/NavMesh/RecastHelpers.cpp 文件参考</title>
+  <link rel="icon" href="../../EdIconDefault.bmp" type="image/x-icon" />
+  <link href="../../tabs.css" rel="stylesheet" type="text/css" />
+  <script type="text/javascript" src="../../jquery.js"></script>
+  <script type="text/javascript" src="../../dynsections.js"></script>
+  <link href="../../navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../navtreedata.js"></script>
+<script type="text/javascript" src="../../navtree.js"></script>
+<script type="text/javascript" src="../../cookie.js"></script>
+  <link href="../../search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../search/searchdata.js"></script>
+<script type="text/javascript" src="../../search/search.js"></script>
+  <script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  extensions: ["tex2jax.js"],
+  jax: ["input/TeX","output/HTML-CSS"],
+});
+</script>
+<script type="text/javascript" async="async" src="https://cdn.jsdelivr.net/npm/mathjax@2/MathJax.js"></script>
+  <link href="../../doxygen.css" rel="stylesheet" type="text/css" />
+  <link href="../../doxygen-awesome.css" rel="stylesheet" type="text/css"/>
+<link href="../../doxygen-awesome-sidebar-only.css" rel="stylesheet" type="text/css"/>
+<link href="../../doxygen-awesome-sidebar-only-darkmode-toggle.css" rel="stylesheet" type="text/css"/>
+  <!-- ... other metadata & script includes ... -->
+  <script type="text/javascript" src="../../doxygen-awesome-darkmode-toggle.js"></script>
+  <script type="text/javascript">
+    DoxygenAwesomeDarkModeToggle.title = "Zwischen hellem/dunklem Modus wechseln"
+    DoxygenAwesomeDarkModeToggle.lightModeIcon = '🌞'
+    // icon from https://fonts.google.com/icons
+    DoxygenAwesomeDarkModeToggle.darkModeIcon = `<svg xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 24 24" height="24px" viewBox="0 0 24 24" width="24px" fill="#009793"><g><rect fill="none" height="24" width="24"/></g><g><g><path d="M8.1,14.15C9.77,14.63,11,16.17,11,18c0,0.68-0.19,1.31-0.48,1.87c0.48,0.09,0.97,0.14,1.48,0.14 c1.48,0,2.9-0.41,4.13-1.15c-2.62-0.92-5.23-2.82-6.8-5.86C7.74,9.94,7.78,7.09,8.29,4.9c-2.57,1.33-4.3,4.01-4.3,7.1c0,0,0,0,0,0 c0.01,0,0.01,0,0.02,0C5.66,12,7.18,12.83,8.1,14.15z" opacity=".3"/><path d="M19.78,17.51c-2.47,0-6.57-1.33-8.68-5.43C8.77,7.57,10.6,3.6,11.63,2.01C6.27,2.2,1.98,6.59,1.98,12 c0,0.14,0.02,0.28,0.02,0.42C2.61,12.16,3.28,12,3.98,12c0,0,0,0,0,0c0-3.09,1.73-5.77,4.3-7.1C7.78,7.09,7.74,9.94,9.32,13 c1.57,3.04,4.18,4.95,6.8,5.86c-1.23,0.74-2.65,1.15-4.13,1.15c-0.5,0-1-0.05-1.48-0.14c-0.37,0.7-0.94,1.27-1.64,1.64 c0.98,0.32,2.03,0.5,3.11,0.5c3.5,0,6.58-1.8,8.37-4.52C20.18,17.5,19.98,17.51,19.78,17.51z"/><path d="M7,16l-0.18,0C6.4,14.84,5.3,14,4,14c-1.66,0-3,1.34-3,3s1.34,3,3,3c0.62,0,2.49,0,3,0c1.1,0,2-0.9,2-2 C9,16.9,8.1,16,7,16z"/></g></g></svg>`
+    DoxygenAwesomeDarkModeToggle.init()
+  </script>
+  <script type="text/javascript" src="../../doxygen-awesome-fragment-copy-button.js"></script>
+  <script type="text/javascript">
+    DoxygenAwesomeFragmentCopyButton.title = "In die Zwischenablage kopieren"
+    // DoxygenAwesomeFragmentCopyButton.copyIcon = `<svg ...>`
+    // DoxygenAwesomeFragmentCopyButton.successIcon = `<svg ...>`
+    DoxygenAwesomeFragmentCopyButton.init()
+  </script>
+  <script type="text/javascript" src="../../doxygen-awesome-paragraph-link.js"></script>
+  <script type="text/javascript">
+    DoxygenAwesomeParagraphLink.title = "Abschnitt verknüpfen"
+    DoxygenAwesomeParagraphLink.icon = "¶"
+    DoxygenAwesomeParagraphLink.init()
+  </script>
+  <script type="text/javascript" src="../../doxygen-awesome-interactive-toc.js"></script>
+  <script type="text/javascript">
+    DoxygenAwesomeInteractiveToc.topOffset = 45
+    DoxygenAwesomeInteractiveToc.hideMobileMenu = false
+    DoxygenAwesomeInteractiveToc.init()
+  </script>
+</head>
+<body>
+    <div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+      <div id="titlearea">
+        <table cellspacing="0" cellpadding="0">
+          <tbody>
+            <tr id="projectrow">
+              <td id="projectlogo"><img alt="Logo" src="../../EdIconDefault.bmp"  /></td>
+              <td id="projectalign">
+                <div id="projectname">UE 5.8.4
+                </div>
+                <div id="projectbrief">Unreal Engine</div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <!-- end header part -->
+<!-- 制作者 Doxygen 1.15.0 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "../../search/",'.html');
+</script>
+<script type="text/javascript">
+$(function() { codefold.init(); });
+</script>
+<script type="text/javascript" src="../../menudata.js"></script>
+<script type="text/javascript" src="../../menu.js"></script>
+<script type="text/javascript">
+$(function() {
+  initMenu('../../',true,false,'search.php','搜索',true);
+  $(function() { init_search(); });
+});
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(function(){initNavTree('da/dde/_recast_helpers_8cpp.html','../../',''); });
+</script>
+<div id="container">
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">载入中...</div>
+<div class="SRStatus" id="Searching">搜索中...</div>
+<div class="SRStatus" id="NoMatches">未找到</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">RecastHelpers.cpp 文件参考</div></div>
+</div><!--header-->
+<div class="contents">
+<div class="textblock"><code>#include &quot;<a class="el" href="../../de/d44/_recast_helpers_8h_source.html">NavMesh/RecastHelpers.h</a>&quot;</code><br />
+</div><div class="textblock"><div class="dynheader">
+RecastHelpers.cpp 的引用(Include)关系图:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d1/d9f/_recast_helpers_8cpp__incl.svg" width="4636" height="1691"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+</div><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-func-members" class="groupheader"><a id="func-members" name="func-members"></a>
+函数</h2></td></tr>
+<tr class="memitem:ae433adae726f09de81fd40f8722610cf" id="r_ae433adae726f09de81fd40f8722610cf"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d0/df6/_math_fwd_8h.html#adda141358ecae99df7ba663b9e637078">FVector</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae433adae726f09de81fd40f8722610cf">Unreal2RecastPoint</a> (const <a class="el" href="../../d0/df6/_math_fwd_8h.html#adda141358ecae99df7ba663b9e637078">FVector</a> &amp;UnrealPoint)</td></tr>
+<tr class="memitem:a076313130836bcb2ca6f68d9512b52ce" id="r_a076313130836bcb2ca6f68d9512b52ce"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d0/df6/_math_fwd_8h.html#adda141358ecae99df7ba663b9e637078">FVector</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a076313130836bcb2ca6f68d9512b52ce">Unreal2RecastPoint</a> (const <a class="el" href="../../d3/d03/struct_u_e_1_1_math_1_1_t_vector.html#a85799c7129bc3dd94ae1e9f067ea6e87">FVector::FReal</a> *UnrealPoint)</td></tr>
+<tr class="memitem:a60d9208b895c1fd70810cb5b2d9c0116" id="r_a60d9208b895c1fd70810cb5b2d9c0116"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d0/df6/_math_fwd_8h.html#adda141358ecae99df7ba663b9e637078">FVector</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a60d9208b895c1fd70810cb5b2d9c0116">Unreal2RecastPoint</a> (const <a class="el" href="../../df/d2a/_s_anim_notify_shared_8h.html#ac7c94e837fed3f8e4bb3dd94d7bd2ecf">float</a> *UnrealPoint)</td></tr>
+<tr class="memitem:a64753e85842a1061ed796249cecf56da" id="r_a64753e85842a1061ed796249cecf56da"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d0/df6/_math_fwd_8h.html#a350cede18bbf158b2cf2224afe37b8de">FBox</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a64753e85842a1061ed796249cecf56da">Unreal2RecastBox</a> (const <a class="el" href="../../d0/df6/_math_fwd_8h.html#a350cede18bbf158b2cf2224afe37b8de">FBox</a> &amp;UnrealBox)</td></tr>
+<tr class="memitem:a95ab4eb53edfc900ad3a80a9c7bb8e2f" id="r_a95ab4eb53edfc900ad3a80a9c7bb8e2f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d0/df6/_math_fwd_8h.html#ae2f14b7680a0cbff5852407c51bedc6b">FMatrix</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a95ab4eb53edfc900ad3a80a9c7bb8e2f">Unreal2RecastMatrix</a> ()</td></tr>
+<tr class="memitem:a78975db50b1fef024f79be763981ea77" id="r_a78975db50b1fef024f79be763981ea77"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d0/df6/_math_fwd_8h.html#adda141358ecae99df7ba663b9e637078">FVector</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a78975db50b1fef024f79be763981ea77">Recast2UnrealPoint</a> (const <a class="el" href="../../d3/d03/struct_u_e_1_1_math_1_1_t_vector.html#a85799c7129bc3dd94ae1e9f067ea6e87">FVector::FReal</a> *RecastPoint)</td></tr>
+<tr class="memitem:afdbe69e3a7c6ba353f4892c50e2af636" id="r_afdbe69e3a7c6ba353f4892c50e2af636"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d0/df6/_math_fwd_8h.html#adda141358ecae99df7ba663b9e637078">FVector</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#afdbe69e3a7c6ba353f4892c50e2af636">Recast2UnrealPoint</a> (const <a class="el" href="../../df/d2a/_s_anim_notify_shared_8h.html#ac7c94e837fed3f8e4bb3dd94d7bd2ecf">float</a> *RecastPoint)</td></tr>
+<tr class="memitem:ad40853e034117c8cc50c3b3542da16ea" id="r_ad40853e034117c8cc50c3b3542da16ea"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d0/df6/_math_fwd_8h.html#adda141358ecae99df7ba663b9e637078">FVector</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad40853e034117c8cc50c3b3542da16ea">Recast2UnrealPoint</a> (const <a class="el" href="../../d0/df6/_math_fwd_8h.html#adda141358ecae99df7ba663b9e637078">FVector</a> &amp;RecastPoint)</td></tr>
+<tr class="memitem:ac8baf4ca5b45c56e48331d8b0b5d575c" id="r_ac8baf4ca5b45c56e48331d8b0b5d575c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d0/df6/_math_fwd_8h.html#a350cede18bbf158b2cf2224afe37b8de">FBox</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac8baf4ca5b45c56e48331d8b0b5d575c">Recast2UnrealBox</a> (const <a class="el" href="../../d3/d03/struct_u_e_1_1_math_1_1_t_vector.html#a85799c7129bc3dd94ae1e9f067ea6e87">FVector::FReal</a> *RecastMin, const <a class="el" href="../../d3/d03/struct_u_e_1_1_math_1_1_t_vector.html#a85799c7129bc3dd94ae1e9f067ea6e87">FVector::FReal</a> *RecastMax)</td></tr>
+<tr class="memitem:a262e6ffe86b7de578b7d3ad5dd112dba" id="r_a262e6ffe86b7de578b7d3ad5dd112dba"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d0/df6/_math_fwd_8h.html#a350cede18bbf158b2cf2224afe37b8de">FBox</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a262e6ffe86b7de578b7d3ad5dd112dba">Recast2UnrealBox</a> (const <a class="el" href="../../df/d2a/_s_anim_notify_shared_8h.html#ac7c94e837fed3f8e4bb3dd94d7bd2ecf">float</a> *RecastMin, const <a class="el" href="../../df/d2a/_s_anim_notify_shared_8h.html#ac7c94e837fed3f8e4bb3dd94d7bd2ecf">float</a> *RecastMax)</td></tr>
+<tr class="memitem:a70b2f760f067744e96628b0aaf6d02d8" id="r_a70b2f760f067744e96628b0aaf6d02d8"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d0/df6/_math_fwd_8h.html#a350cede18bbf158b2cf2224afe37b8de">FBox</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a70b2f760f067744e96628b0aaf6d02d8">Recast2UnrealBox</a> (const <a class="el" href="../../d0/df6/_math_fwd_8h.html#a350cede18bbf158b2cf2224afe37b8de">FBox</a> &amp;RecastBox)</td></tr>
+<tr class="memitem:ae62feae2aaf97fcc7c7fe12e189c3455" id="r_ae62feae2aaf97fcc7c7fe12e189c3455"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d0/df6/_math_fwd_8h.html#ae2f14b7680a0cbff5852407c51bedc6b">FMatrix</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae62feae2aaf97fcc7c7fe12e189c3455">Recast2UnrealMatrix</a> ()</td></tr>
+<tr class="memitem:af391b4e318ce6821c87def7aca5d5be7" id="r_af391b4e318ce6821c87def7aca5d5be7"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d8/dce/struct_f_color.html">FColor</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af391b4e318ce6821c87def7aca5d5be7">Recast2UnrealColor</a> (const unsigned int RecastColor)</td></tr>
+</table>
+<a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">函数说明</h2>
+<a id="a70b2f760f067744e96628b0aaf6d02d8" name="a70b2f760f067744e96628b0aaf6d02d8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a70b2f760f067744e96628b0aaf6d02d8">&#9670;&#160;</a></span>Recast2UnrealBox() <span class="overload">[1/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d0/df6/_math_fwd_8h.html#a350cede18bbf158b2cf2224afe37b8de">FBox</a> Recast2UnrealBox </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="../../d0/df6/_math_fwd_8h.html#a350cede18bbf158b2cf2224afe37b8de">FBox</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>RecastBox</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a262e6ffe86b7de578b7d3ad5dd112dba" name="a262e6ffe86b7de578b7d3ad5dd112dba"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a262e6ffe86b7de578b7d3ad5dd112dba">&#9670;&#160;</a></span>Recast2UnrealBox() <span class="overload">[2/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d0/df6/_math_fwd_8h.html#a350cede18bbf158b2cf2224afe37b8de">FBox</a> Recast2UnrealBox </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="../../df/d2a/_s_anim_notify_shared_8h.html#ac7c94e837fed3f8e4bb3dd94d7bd2ecf">float</a> *</td>          <td class="paramname"><span class="paramname"><em>RecastMin</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="../../df/d2a/_s_anim_notify_shared_8h.html#ac7c94e837fed3f8e4bb3dd94d7bd2ecf">float</a> *</td>          <td class="paramname"><span class="paramname"><em>RecastMax</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ac8baf4ca5b45c56e48331d8b0b5d575c" name="ac8baf4ca5b45c56e48331d8b0b5d575c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac8baf4ca5b45c56e48331d8b0b5d575c">&#9670;&#160;</a></span>Recast2UnrealBox() <span class="overload">[3/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d0/df6/_math_fwd_8h.html#a350cede18bbf158b2cf2224afe37b8de">FBox</a> Recast2UnrealBox </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="../../d3/d03/struct_u_e_1_1_math_1_1_t_vector.html#a85799c7129bc3dd94ae1e9f067ea6e87">FVector::FReal</a> *</td>          <td class="paramname"><span class="paramname"><em>RecastMin</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="../../d3/d03/struct_u_e_1_1_math_1_1_t_vector.html#a85799c7129bc3dd94ae1e9f067ea6e87">FVector::FReal</a> *</td>          <td class="paramname"><span class="paramname"><em>RecastMax</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="af391b4e318ce6821c87def7aca5d5be7" name="af391b4e318ce6821c87def7aca5d5be7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af391b4e318ce6821c87def7aca5d5be7">&#9670;&#160;</a></span>Recast2UnrealColor()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d8/dce/struct_f_color.html">FColor</a> Recast2UnrealColor </td>
+          <td>(</td>
+          <td class="paramtype">const unsigned int</td>          <td class="paramname"><span class="paramname"><em>RecastColor</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ae62feae2aaf97fcc7c7fe12e189c3455" name="ae62feae2aaf97fcc7c7fe12e189c3455"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae62feae2aaf97fcc7c7fe12e189c3455">&#9670;&#160;</a></span>Recast2UnrealMatrix()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d0/df6/_math_fwd_8h.html#ae2f14b7680a0cbff5852407c51bedc6b">FMatrix</a> Recast2UnrealMatrix </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="afdbe69e3a7c6ba353f4892c50e2af636" name="afdbe69e3a7c6ba353f4892c50e2af636"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afdbe69e3a7c6ba353f4892c50e2af636">&#9670;&#160;</a></span>Recast2UnrealPoint() <span class="overload">[1/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d0/df6/_math_fwd_8h.html#adda141358ecae99df7ba663b9e637078">FVector</a> Recast2UnrealPoint </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="../../df/d2a/_s_anim_notify_shared_8h.html#ac7c94e837fed3f8e4bb3dd94d7bd2ecf">float</a> *</td>          <td class="paramname"><span class="paramname"><em>RecastPoint</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ad40853e034117c8cc50c3b3542da16ea" name="ad40853e034117c8cc50c3b3542da16ea"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad40853e034117c8cc50c3b3542da16ea">&#9670;&#160;</a></span>Recast2UnrealPoint() <span class="overload">[2/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d0/df6/_math_fwd_8h.html#adda141358ecae99df7ba663b9e637078">FVector</a> Recast2UnrealPoint </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="../../d0/df6/_math_fwd_8h.html#adda141358ecae99df7ba663b9e637078">FVector</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>RecastPoint</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a78975db50b1fef024f79be763981ea77" name="a78975db50b1fef024f79be763981ea77"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a78975db50b1fef024f79be763981ea77">&#9670;&#160;</a></span>Recast2UnrealPoint() <span class="overload">[3/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d0/df6/_math_fwd_8h.html#adda141358ecae99df7ba663b9e637078">FVector</a> Recast2UnrealPoint </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="../../d3/d03/struct_u_e_1_1_math_1_1_t_vector.html#a85799c7129bc3dd94ae1e9f067ea6e87">FVector::FReal</a> *</td>          <td class="paramname"><span class="paramname"><em>RecastPoint</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a64753e85842a1061ed796249cecf56da" name="a64753e85842a1061ed796249cecf56da"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a64753e85842a1061ed796249cecf56da">&#9670;&#160;</a></span>Unreal2RecastBox()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d0/df6/_math_fwd_8h.html#a350cede18bbf158b2cf2224afe37b8de">FBox</a> Unreal2RecastBox </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="../../d0/df6/_math_fwd_8h.html#a350cede18bbf158b2cf2224afe37b8de">FBox</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>UnrealBox</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a95ab4eb53edfc900ad3a80a9c7bb8e2f" name="a95ab4eb53edfc900ad3a80a9c7bb8e2f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a95ab4eb53edfc900ad3a80a9c7bb8e2f">&#9670;&#160;</a></span>Unreal2RecastMatrix()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d0/df6/_math_fwd_8h.html#ae2f14b7680a0cbff5852407c51bedc6b">FMatrix</a> Unreal2RecastMatrix </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a60d9208b895c1fd70810cb5b2d9c0116" name="a60d9208b895c1fd70810cb5b2d9c0116"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a60d9208b895c1fd70810cb5b2d9c0116">&#9670;&#160;</a></span>Unreal2RecastPoint() <span class="overload">[1/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d0/df6/_math_fwd_8h.html#adda141358ecae99df7ba663b9e637078">FVector</a> Unreal2RecastPoint </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="../../df/d2a/_s_anim_notify_shared_8h.html#ac7c94e837fed3f8e4bb3dd94d7bd2ecf">float</a> *</td>          <td class="paramname"><span class="paramname"><em>UnrealPoint</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ae433adae726f09de81fd40f8722610cf" name="ae433adae726f09de81fd40f8722610cf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae433adae726f09de81fd40f8722610cf">&#9670;&#160;</a></span>Unreal2RecastPoint() <span class="overload">[2/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d0/df6/_math_fwd_8h.html#adda141358ecae99df7ba663b9e637078">FVector</a> Unreal2RecastPoint </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="../../d0/df6/_math_fwd_8h.html#adda141358ecae99df7ba663b9e637078">FVector</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>UnrealPoint</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a076313130836bcb2ca6f68d9512b52ce" name="a076313130836bcb2ca6f68d9512b52ce"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a076313130836bcb2ca6f68d9512b52ce">&#9670;&#160;</a></span>Unreal2RecastPoint() <span class="overload">[3/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d0/df6/_math_fwd_8h.html#adda141358ecae99df7ba663b9e637078">FVector</a> Unreal2RecastPoint </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="../../d3/d03/struct_u_e_1_1_math_1_1_t_vector.html#a85799c7129bc3dd94ae1e9f067ea6e87">FVector::FReal</a> *</td>          <td class="paramname"><span class="paramname"><em>UnrealPoint</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Coord system utilities</p>
+<p>Translates between Unreal and Recast coords. Unreal: x, y, z Recast: -x, z, -y </p>
+
+</div>
+</div>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<div id="page-nav" class="page-nav-panel">
+<div id="page-nav-resize-handle"></div>
+<div id="page-nav-tree">
+<div id="page-nav-contents">
+</div><!-- page-nav-contents -->
+</div><!-- page-nav-tree -->
+</div><!-- page-nav -->
+</div><!-- container -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a href="../../dir_0b6ee6e7e9547e675db4add2e5de97da.html">Engine</a></li><li class="navelem"><a href="../../dir_9579d1ecb2c7bf48cbe1049c41745cb4.html">Source</a></li><li class="navelem"><a href="../../dir_9f04efef762572853abdf73f62bebfcc.html">Runtime</a></li><li class="navelem"><a href="../../dir_5c03b5142364a6cd4ba02fb992bdac54.html">NavigationSystem</a></li><li class="navelem"><a href="../../dir_b1ed8816e0f9111b0bc05d1e9b5593ca.html">Private</a></li><li class="navelem"><a href="../../dir_8798a4dfa4dd2bce34e7e89d73a42b26.html">NavMesh</a></li><li class="navelem"><a href="../../da/dde/_recast_helpers_8cpp.html">RecastHelpers.cpp</a></li>
+    <li class="footer">制作者 <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.15.0 </li>
+  </ul>
+</div>
+</body>
+</html>

@@ -1,0 +1,26 @@
+var _build_settings_8h =
+[
+    [ "BuildSettings::GetBranchName", "d9/dea/namespace_build_settings.html#af1440c3dcec7d424e6f0bf4d06c2062f", null ],
+    [ "BuildSettings::GetBuildDate", "d9/dea/namespace_build_settings.html#a56d28b675253be95e7325df103e9bdf4", null ],
+    [ "BuildSettings::GetBuildMachine", "d9/dea/namespace_build_settings.html#a46c3c4814653161d6c5475f89ff168fe", null ],
+    [ "BuildSettings::GetBuildTime", "d9/dea/namespace_build_settings.html#aeaf45b873d9c04484520ac2a7b6b7806", null ],
+    [ "BuildSettings::GetBuildURL", "d9/dea/namespace_build_settings.html#a14cf567149c11eeab51fe9b64fb8323b", null ],
+    [ "BuildSettings::GetBuildUser", "d9/dea/namespace_build_settings.html#aac49e2f131a39b1ce62c9350aa1f36aa", null ],
+    [ "BuildSettings::GetBuildUserDomain", "d9/dea/namespace_build_settings.html#a592ccd86d5dd2568b6672c592f31337e", null ],
+    [ "BuildSettings::GetBuildVersion", "d9/dea/namespace_build_settings.html#a8148a73482761991bbb69f1bf156babe", null ],
+    [ "BuildSettings::GetCompatibleChangelist", "d9/dea/namespace_build_settings.html#a966c620b4b06a3c5a96ff36e7ee8b00a", null ],
+    [ "BuildSettings::GetCurrentChangelist", "d9/dea/namespace_build_settings.html#a45c5e02672848500aac6dc25f9a782f4", null ],
+    [ "BuildSettings::GetEngineVersionHotfix", "d9/dea/namespace_build_settings.html#ab43a025eb6b247928e6e5f38a44f9242", null ],
+    [ "BuildSettings::GetEngineVersionMajor", "d9/dea/namespace_build_settings.html#a0cd37808a65c7d019861f695529c94c1", null ],
+    [ "BuildSettings::GetEngineVersionMinor", "d9/dea/namespace_build_settings.html#a1a48d886d64da9f384724c1628c09ed9", null ],
+    [ "BuildSettings::GetEngineVersionString", "d9/dea/namespace_build_settings.html#ad87d4b089da121be07633e479cbd3e96", null ],
+    [ "BuildSettings::GetLiveCodingEngineDir", "d9/dea/namespace_build_settings.html#a6b47c8249640db473572941bd56050a8", null ],
+    [ "BuildSettings::GetLiveCodingProject", "d9/dea/namespace_build_settings.html#a134f8afdf652331395e54ac0f433184d", null ],
+    [ "BuildSettings::GetPersistentAllocatorReserveSize", "d9/dea/namespace_build_settings.html#af658465bce57e246f3bb4c324e7d3048", null ],
+    [ "BuildSettings::GetVariable", "d9/dea/namespace_build_settings.html#a96d3090b2c674a888c7280fee81e66b8", null ],
+    [ "BuildSettings::GetVfsPaths", "d9/dea/namespace_build_settings.html#ab0cba62aedd95e551d46e534cb695fa1", null ],
+    [ "BuildSettings::GetVfsPathsWide", "d9/dea/namespace_build_settings.html#ae67ae8111441a3a9623aa8e546d92a6c", null ],
+    [ "BuildSettings::IsLicenseeVersion", "d9/dea/namespace_build_settings.html#ac69a64af5c2617b3f51b307009b497da", null ],
+    [ "BuildSettings::IsPromotedBuild", "d9/dea/namespace_build_settings.html#a4f7543ee22bfb7169e70ea69bf461073", null ],
+    [ "BuildSettings::IsWithDebugInfo", "d9/dea/namespace_build_settings.html#a713237e76cfe3406a3c66d90b8b7888a", null ]
+];

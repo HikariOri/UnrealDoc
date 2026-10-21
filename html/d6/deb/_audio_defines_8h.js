@@ -1,0 +1,28 @@
+var _audio_defines_8h =
+[
+    [ "DEFAULT_HIGH_FREQUENCY", "d6/deb/_audio_defines_8h.html#a91320b2512638dea5e32a9ce824a2f4e", null ],
+    [ "DEFAULT_LOW_FREQUENCY", "d6/deb/_audio_defines_8h.html#a08a4cdd97a9953ee600f2ddc763bdde0", null ],
+    [ "DEFAULT_MID_FREQUENCY", "d6/deb/_audio_defines_8h.html#acd4198aeb45c98b269a2ad439e0c82f3", null ],
+    [ "DEFAULT_SUBTITLE_PRIORITY", "d6/deb/_audio_defines_8h.html#a7679fd86010d8c3ad63c31fd2ce65ae1", null ],
+    [ "ENABLE_AUDIO_DEBUG", "d6/deb/_audio_defines_8h.html#abfda1419640c812a940b54eadca7bf06", null ],
+    [ "INDEFINITELY_LOOPING_DURATION", "d6/deb/_audio_defines_8h.html#aeb98d0b569566b5c23ffa87c452cb3c2", null ],
+    [ "MAX_AUDIOCHANNELS", "d6/deb/_audio_defines_8h.html#a00c4a0374cd584266594c201dc8f7421", null ],
+    [ "MAX_FILTER_BANDWIDTH", "d6/deb/_audio_defines_8h.html#a9e1892aaab3d272ef2d5440b0182ac3d", null ],
+    [ "MAX_FILTER_FREQUENCY", "d6/deb/_audio_defines_8h.html#a8b49601e423d780d2f5d242e1ab2c2cb", null ],
+    [ "MAX_FILTER_GAIN", "d6/deb/_audio_defines_8h.html#a895491852b825fc405eea6b3cea9a6f6", null ],
+    [ "MAX_PITCH", "d6/deb/_audio_defines_8h.html#a181b3776d3993d4ca6fb776597968d8b", null ],
+    [ "MAX_SOUND_PRIORITY", "d6/deb/_audio_defines_8h.html#a57e9da98ba265e2555edd1857b30a9ee", null ],
+    [ "MAX_VOLUME", "d6/deb/_audio_defines_8h.html#a7ed6a6db7ec466a04b820f3de267708a", null ],
+    [ "MIN_FILTER_BANDWIDTH", "d6/deb/_audio_defines_8h.html#a9f98bc1997063052f452cf7f524a0a39", null ],
+    [ "MIN_FILTER_FREQUENCY", "d6/deb/_audio_defines_8h.html#a13e26f9770e982e65aa8292697fcd836", null ],
+    [ "MIN_FILTER_GAIN", "d6/deb/_audio_defines_8h.html#a4452cb13a22f3a87268cdf8b88b8f015", null ],
+    [ "MIN_PITCH", "d6/deb/_audio_defines_8h.html#a5769ea0f3e7d23aaade611975b4fcf9e", null ],
+    [ "MIN_SOUND_PRIORITY", "d6/deb/_audio_defines_8h.html#ac4371db4bc6512c93f2e91bb69684a37", null ],
+    [ "MIN_VOLUME_DECIBELS", "d6/deb/_audio_defines_8h.html#a48d757017ac3a864f2d243a03c965479", null ],
+    [ "MIN_VOLUME_LINEAR", "d6/deb/_audio_defines_8h.html#aaca4ddc27f8538ce63d143a861e1e1cd", null ],
+    [ "SPEAKER_COUNT", "d6/deb/_audio_defines_8h.html#aff4f451c411081c71d3a569b7556d5fc", null ],
+    [ "Audio::FDeviceId", "dc/d26/namespace_audio.html#aefc43c56cc71b34a5f69775718168ddc", null ],
+    [ "Audio::MonoUpmixEqualPower", "dc/d26/namespace_audio.html#a3e863bf55f06b76ea0f265edced6bbd7", null ],
+    [ "Audio::MonoUpmixFullVolume", "dc/d26/namespace_audio.html#ae16ba5f0276ee42ce4de09949f5d7b07", null ],
+    [ "Audio::MonoUpmixLinear", "dc/d26/namespace_audio.html#a33549f0d4c5b909875c934ae1cf3a895", null ]
+];

@@ -1,0 +1,411 @@
+<!-- HTML header for doxygen 1.15.0-->
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh">
+<head>
+  <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=11" />
+  <meta name="generator" content="Doxygen 1.15.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>UE 5.8.4: Engine/Source/Runtime/ImageCore/Private/DDSFile.cpp 文件参考</title>
+  <link rel="icon" href="../../EdIconDefault.bmp" type="image/x-icon" />
+  <link href="../../tabs.css" rel="stylesheet" type="text/css" />
+  <script type="text/javascript" src="../../jquery.js"></script>
+  <script type="text/javascript" src="../../dynsections.js"></script>
+  <link href="../../navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../navtreedata.js"></script>
+<script type="text/javascript" src="../../navtree.js"></script>
+<script type="text/javascript" src="../../cookie.js"></script>
+  <link href="../../search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../search/searchdata.js"></script>
+<script type="text/javascript" src="../../search/search.js"></script>
+  <script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  extensions: ["tex2jax.js"],
+  jax: ["input/TeX","output/HTML-CSS"],
+});
+</script>
+<script type="text/javascript" async="async" src="https://cdn.jsdelivr.net/npm/mathjax@2/MathJax.js"></script>
+  <link href="../../doxygen.css" rel="stylesheet" type="text/css" />
+  <link href="../../doxygen-awesome.css" rel="stylesheet" type="text/css"/>
+<link href="../../doxygen-awesome-sidebar-only.css" rel="stylesheet" type="text/css"/>
+<link href="../../doxygen-awesome-sidebar-only-darkmode-toggle.css" rel="stylesheet" type="text/css"/>
+  <!-- ... other metadata & script includes ... -->
+  <script type="text/javascript" src="../../doxygen-awesome-darkmode-toggle.js"></script>
+  <script type="text/javascript">
+    DoxygenAwesomeDarkModeToggle.title = "Zwischen hellem/dunklem Modus wechseln"
+    DoxygenAwesomeDarkModeToggle.lightModeIcon = '🌞'
+    // icon from https://fonts.google.com/icons
+    DoxygenAwesomeDarkModeToggle.darkModeIcon = `<svg xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 24 24" height="24px" viewBox="0 0 24 24" width="24px" fill="#009793"><g><rect fill="none" height="24" width="24"/></g><g><g><path d="M8.1,14.15C9.77,14.63,11,16.17,11,18c0,0.68-0.19,1.31-0.48,1.87c0.48,0.09,0.97,0.14,1.48,0.14 c1.48,0,2.9-0.41,4.13-1.15c-2.62-0.92-5.23-2.82-6.8-5.86C7.74,9.94,7.78,7.09,8.29,4.9c-2.57,1.33-4.3,4.01-4.3,7.1c0,0,0,0,0,0 c0.01,0,0.01,0,0.02,0C5.66,12,7.18,12.83,8.1,14.15z" opacity=".3"/><path d="M19.78,17.51c-2.47,0-6.57-1.33-8.68-5.43C8.77,7.57,10.6,3.6,11.63,2.01C6.27,2.2,1.98,6.59,1.98,12 c0,0.14,0.02,0.28,0.02,0.42C2.61,12.16,3.28,12,3.98,12c0,0,0,0,0,0c0-3.09,1.73-5.77,4.3-7.1C7.78,7.09,7.74,9.94,9.32,13 c1.57,3.04,4.18,4.95,6.8,5.86c-1.23,0.74-2.65,1.15-4.13,1.15c-0.5,0-1-0.05-1.48-0.14c-0.37,0.7-0.94,1.27-1.64,1.64 c0.98,0.32,2.03,0.5,3.11,0.5c3.5,0,6.58-1.8,8.37-4.52C20.18,17.5,19.98,17.51,19.78,17.51z"/><path d="M7,16l-0.18,0C6.4,14.84,5.3,14,4,14c-1.66,0-3,1.34-3,3s1.34,3,3,3c0.62,0,2.49,0,3,0c1.1,0,2-0.9,2-2 C9,16.9,8.1,16,7,16z"/></g></g></svg>`
+    DoxygenAwesomeDarkModeToggle.init()
+  </script>
+  <script type="text/javascript" src="../../doxygen-awesome-fragment-copy-button.js"></script>
+  <script type="text/javascript">
+    DoxygenAwesomeFragmentCopyButton.title = "In die Zwischenablage kopieren"
+    // DoxygenAwesomeFragmentCopyButton.copyIcon = `<svg ...>`
+    // DoxygenAwesomeFragmentCopyButton.successIcon = `<svg ...>`
+    DoxygenAwesomeFragmentCopyButton.init()
+  </script>
+  <script type="text/javascript" src="../../doxygen-awesome-paragraph-link.js"></script>
+  <script type="text/javascript">
+    DoxygenAwesomeParagraphLink.title = "Abschnitt verknüpfen"
+    DoxygenAwesomeParagraphLink.icon = "¶"
+    DoxygenAwesomeParagraphLink.init()
+  </script>
+  <script type="text/javascript" src="../../doxygen-awesome-interactive-toc.js"></script>
+  <script type="text/javascript">
+    DoxygenAwesomeInteractiveToc.topOffset = 45
+    DoxygenAwesomeInteractiveToc.hideMobileMenu = false
+    DoxygenAwesomeInteractiveToc.init()
+  </script>
+</head>
+<body>
+    <div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+      <div id="titlearea">
+        <table cellspacing="0" cellpadding="0">
+          <tbody>
+            <tr id="projectrow">
+              <td id="projectlogo"><img alt="Logo" src="../../EdIconDefault.bmp"  /></td>
+              <td id="projectalign">
+                <div id="projectname">UE 5.8.4
+                </div>
+                <div id="projectbrief">Unreal Engine</div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <!-- end header part -->
+<!-- 制作者 Doxygen 1.15.0 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "../../search/",'.html');
+</script>
+<script type="text/javascript">
+$(function() { codefold.init(); });
+</script>
+<script type="text/javascript" src="../../menudata.js"></script>
+<script type="text/javascript" src="../../menu.js"></script>
+<script type="text/javascript">
+$(function() {
+  initMenu('../../',true,false,'search.php','搜索',true);
+  $(function() { init_search(); });
+});
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(function(){initNavTree('d9/dd1/_d_d_s_file_8cpp.html','../../',''); });
+</script>
+<div id="container">
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">载入中...</div>
+<div class="SRStatus" id="Searching">搜索中...</div>
+<div class="SRStatus" id="NoMatches">未找到</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">DDSFile.cpp 文件参考</div></div>
+</div><!--header-->
+<div class="contents">
+<div class="textblock"><code>#include &quot;<a class="el" href="../../d8/d1b/_d_d_s_file_8h_source.html">DDSFile.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d7/dcd/_log_macros_8h_source.html">Logging/LogMacros.h</a>&quot;</code><br />
+</div><div class="textblock"><div class="dynheader">
+DDSFile.cpp 的引用(Include)关系图:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d4/df4/_d_d_s_file_8cpp__incl.svg" width="4307" height="1510"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+</div><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-nested-classes" class="groupheader"><a id="nested-classes" name="nested-classes"></a>
+类</h2></td></tr>
+<tr class="memitem:UE_3A_3ADDS_3A_3AFDDSPixelFormat" id="r_UE_3A_3ADDS_3A_3AFDDSPixelFormat"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d4b/struct_u_e_1_1_d_d_s_1_1_f_d_d_s_pixel_format.html">UE::DDS::FDDSPixelFormat</a></td></tr>
+<tr class="memitem:UE_3A_3ADDS_3A_3AFDDSHeaderWithMagic" id="r_UE_3A_3ADDS_3A_3AFDDSHeaderWithMagic"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/d96/struct_u_e_1_1_d_d_s_1_1_f_d_d_s_header_with_magic.html">UE::DDS::FDDSHeaderWithMagic</a></td></tr>
+<tr class="memitem:UE_3A_3ADDS_3A_3AFDDSHeaderDX10" id="r_UE_3A_3ADDS_3A_3AFDDSHeaderDX10"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d8/df1/struct_u_e_1_1_d_d_s_1_1_f_d_d_s_header_d_x10.html">UE::DDS::FDDSHeaderDX10</a></td></tr>
+<tr class="memitem:UE_3A_3ADDS_3A_3AFDXGIFormatName" id="r_UE_3A_3ADDS_3A_3AFDXGIFormatName"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d2e/struct_u_e_1_1_d_d_s_1_1_f_d_x_g_i_format_name.html">UE::DDS::FDXGIFormatName</a></td></tr>
+<tr class="memitem:UE_3A_3ADDS_3A_3AFBitmaskToDXGI" id="r_UE_3A_3ADDS_3A_3AFBitmaskToDXGI"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/daa/struct_u_e_1_1_d_d_s_1_1_f_bitmask_to_d_x_g_i.html">UE::DDS::FBitmaskToDXGI</a></td></tr>
+<tr class="memitem:UE_3A_3ADDS_3A_3AFFOURCCToDXGI" id="r_UE_3A_3ADDS_3A_3AFFOURCCToDXGI"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d9e/struct_u_e_1_1_d_d_s_1_1_f_f_o_u_r_c_c_to_d_x_g_i.html">UE::DDS::FFOURCCToDXGI</a></td></tr>
+<tr class="memitem:UE_3A_3ADDS_3A_3AFDXGIFormatInfo" id="r_UE_3A_3ADDS_3A_3AFDXGIFormatInfo"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/dd7/struct_u_e_1_1_d_d_s_1_1_f_d_x_g_i_format_info.html">UE::DDS::FDXGIFormatInfo</a></td></tr>
+<tr class="memitem:UE_3A_3ADDS_3A_3AFDXGIFormatRawFormatMapping" id="r_UE_3A_3ADDS_3A_3AFDXGIFormatRawFormatMapping"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/de3/struct_u_e_1_1_d_d_s_1_1_f_d_x_g_i_format_raw_format_mapping.html">UE::DDS::FDXGIFormatRawFormatMapping</a></td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-namespaces" class="groupheader"><a id="namespaces" name="namespaces"></a>
+命名空间</h2></td></tr>
+<tr class="memitem:UE" id="r_UE"><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/de5/namespace_u_e.html">UE</a></td></tr>
+<tr class="memitem:UE_3A_3ADDS" id="r_UE_3A_3ADDS"><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d8f/namespace_u_e_1_1_d_d_s.html">UE::DDS</a></td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-define-members" class="groupheader"><a id="define-members" name="define-members"></a>
+宏定义</h2></td></tr>
+<tr class="memitem:ad2a27727a3a618885336b7c2019351e3" id="r_ad2a27727a3a618885336b7c2019351e3"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad2a27727a3a618885336b7c2019351e3">RGBFMT</a>(<a class="el" href="../../dd/de9/preprocessor_8c.html#aaf1bd07e95aeff0f585394fccaf479ab">name</a>,  id,  bypu)</td></tr>
+<tr class="memitem:a33e201827efb1e99af2452c4b2af8c4d" id="r_a33e201827efb1e99af2452c4b2af8c4d"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a33e201827efb1e99af2452c4b2af8c4d">BCNFMT</a>(<a class="el" href="../../dd/de9/preprocessor_8c.html#aaf1bd07e95aeff0f585394fccaf479ab">name</a>,  id,  bypu)</td></tr>
+<tr class="memitem:a0a6bda02352554a1d2d90734dc95152d" id="r_a0a6bda02352554a1d2d90734dc95152d"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a0a6bda02352554a1d2d90734dc95152d">ODDFMT</a>(<a class="el" href="../../dd/de9/preprocessor_8c.html#aaf1bd07e95aeff0f585394fccaf479ab">name</a>,  id)</td></tr>
+<tr class="memitem:a82b8359db85c9f7135429b964670caeb" id="r_a82b8359db85c9f7135429b964670caeb"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a82b8359db85c9f7135429b964670caeb">RGBFMT</a>(<a class="el" href="../../dd/de9/preprocessor_8c.html#aaf1bd07e95aeff0f585394fccaf479ab">name</a>,  id,  bypu)</td></tr>
+<tr class="memitem:a4a77f3c69b3f32260daffcf5ae3eac5f" id="r_a4a77f3c69b3f32260daffcf5ae3eac5f"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4a77f3c69b3f32260daffcf5ae3eac5f">BCNFMT</a>(<a class="el" href="../../dd/de9/preprocessor_8c.html#aaf1bd07e95aeff0f585394fccaf479ab">name</a>,  id,  bypu)</td></tr>
+<tr class="memitem:a70ed1ad01698b1900284a5230a8b6b89" id="r_a70ed1ad01698b1900284a5230a8b6b89"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a70ed1ad01698b1900284a5230a8b6b89">ODDFMT</a>(<a class="el" href="../../dd/de9/preprocessor_8c.html#aaf1bd07e95aeff0f585394fccaf479ab">name</a>,  id)</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-func-members" class="groupheader"><a id="func-members" name="func-members"></a>
+函数</h2></td></tr>
+<tr class="memitem:af1d136730c4df1b5611205ea767c551a" id="r_af1d136730c4df1b5611205ea767c551a"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af1d136730c4df1b5611205ea767c551a">DEFINE_LOG_CATEGORY_STATIC</a> (LogDDSFile, Log, <a class="el" href="../../db/da0/_hair_strands_composition_8cpp.html#a01ae254fc9c19378956c218ed4e9c32da54991d225c58ce0af43461d4e9a82312">All</a>)</td></tr>
+<tr class="memitem:aed0bcd7973f34c905dcbb8285be48f60" id="r_aed0bcd7973f34c905dcbb8285be48f60"><td class="memItemLeft" align="right" valign="top">constexpr <a class="el" href="../../dd/de9/preprocessor_8c.html#a1134b580f8da4de94ca6b1de4d37975e">uint32</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d8f/namespace_u_e_1_1_d_d_s.html#aed0bcd7973f34c905dcbb8285be48f60">UE::DDS::MakeFOURCC</a> (<a class="el" href="../../dd/de9/preprocessor_8c.html#a1134b580f8da4de94ca6b1de4d37975e">uint32</a> a, <a class="el" href="../../dd/de9/preprocessor_8c.html#a1134b580f8da4de94ca6b1de4d37975e">uint32</a> b, <a class="el" href="../../dd/de9/preprocessor_8c.html#a1134b580f8da4de94ca6b1de4d37975e">uint32</a> c, <a class="el" href="../../dd/de9/preprocessor_8c.html#a1134b580f8da4de94ca6b1de4d37975e">uint32</a> d)</td></tr>
+<tr class="memitem:a7413af96d1e438cd536c68cd6d831a79" id="r_a7413af96d1e438cd536c68cd6d831a79"><td class="memItemLeft" align="right" valign="top">const TCHAR *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d8f/namespace_u_e_1_1_d_d_s.html#a7413af96d1e438cd536c68cd6d831a79">UE::DDS::DXGIFormatGetName</a> (<a class="el" href="../../d6/d8f/namespace_u_e_1_1_d_d_s.html#a9b366afc30192387e9b66eede0a36637">EDXGIFormat</a> <a class="el" href="../../d0/d6f/2_89_810_2include_2oodle2tex_8h.html#a32e4774196f67f9ed5634a3123b06619">fmt</a>)</td></tr>
+<tr class="memitem:ab4e4892074fc34a8377c43944f83dac0" id="r_ab4e4892074fc34a8377c43944f83dac0"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d8f/namespace_u_e_1_1_d_d_s.html#ab4e4892074fc34a8377c43944f83dac0">UE::DDS::DXGIFormatIsSRGB</a> (<a class="el" href="../../d6/d8f/namespace_u_e_1_1_d_d_s.html#a9b366afc30192387e9b66eede0a36637">EDXGIFormat</a> Format)</td></tr>
+<tr class="memitem:ad7da637d050a653f7ed1da03998507d4" id="r_ad7da637d050a653f7ed1da03998507d4"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d8f/namespace_u_e_1_1_d_d_s.html#ad7da637d050a653f7ed1da03998507d4">UE::DDS::DXGIFormatHasLinearAndSRGBForm</a> (<a class="el" href="../../d6/d8f/namespace_u_e_1_1_d_d_s.html#a9b366afc30192387e9b66eede0a36637">EDXGIFormat</a> Format)</td></tr>
+<tr class="memitem:a4de30eff7b1bd8c6b7514ea7aa41b3a0" id="r_a4de30eff7b1bd8c6b7514ea7aa41b3a0"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d6/d8f/namespace_u_e_1_1_d_d_s.html#a9b366afc30192387e9b66eede0a36637">EDXGIFormat</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d8f/namespace_u_e_1_1_d_d_s.html#a4de30eff7b1bd8c6b7514ea7aa41b3a0">UE::DDS::DXGIFormatRemoveSRGB</a> (<a class="el" href="../../d6/d8f/namespace_u_e_1_1_d_d_s.html#a9b366afc30192387e9b66eede0a36637">EDXGIFormat</a> <a class="el" href="../../d0/d6f/2_89_810_2include_2oodle2tex_8h.html#a32e4774196f67f9ed5634a3123b06619">fmt</a>)</td></tr>
+<tr class="memitem:aeb079d9f3afaddd802d13e2e63f32719" id="r_aeb079d9f3afaddd802d13e2e63f32719"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d6/d8f/namespace_u_e_1_1_d_d_s.html#a9b366afc30192387e9b66eede0a36637">EDXGIFormat</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d8f/namespace_u_e_1_1_d_d_s.html#aeb079d9f3afaddd802d13e2e63f32719">UE::DDS::DXGIFormatAddSRGB</a> (<a class="el" href="../../d6/d8f/namespace_u_e_1_1_d_d_s.html#a9b366afc30192387e9b66eede0a36637">EDXGIFormat</a> <a class="el" href="../../d0/d6f/2_89_810_2include_2oodle2tex_8h.html#a32e4774196f67f9ed5634a3123b06619">fmt</a>)</td></tr>
+<tr class="memitem:a9a498a5b18b2ab5af4bbfed9983ccf2b" id="r_a9a498a5b18b2ab5af4bbfed9983ccf2b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a89241ea7101f26f05a4f1efd6be26b32">int64</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d8f/namespace_u_e_1_1_d_d_s.html#a9a498a5b18b2ab5af4bbfed9983ccf2b">UE::DDS::GetDDSHeaderMaximalSize</a> ()</td></tr>
+<tr class="memitem:a6b6ee0832d64cc724a0dcf9d5c1296f6" id="r_a6b6ee0832d64cc724a0dcf9d5c1296f6"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a89241ea7101f26f05a4f1efd6be26b32">int64</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d8f/namespace_u_e_1_1_d_d_s.html#a6b6ee0832d64cc724a0dcf9d5c1296f6">UE::DDS::GetDDSHeaderMinimalSize</a> ()</td></tr>
+<tr class="memitem:a0ca3b9446cf8574dac0799cc0f86509a" id="r_a0ca3b9446cf8574dac0799cc0f86509a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d8/de3/namespace_e_raw_image_format.html#a4b872ffdd67b29fbdc0aa02a79f72c47">ERawImageFormat::Type</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d8f/namespace_u_e_1_1_d_d_s.html#a0ca3b9446cf8574dac0799cc0f86509a">UE::DDS::DXGIFormatGetClosestRawFormat</a> (<a class="el" href="../../d6/d8f/namespace_u_e_1_1_d_d_s.html#a9b366afc30192387e9b66eede0a36637">EDXGIFormat</a> <a class="el" href="../../d0/d6f/2_89_810_2include_2oodle2tex_8h.html#a32e4774196f67f9ed5634a3123b06619">fmt</a>, <a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a> *pIsExactMatch)</td></tr>
+<tr class="memitem:acb47806cfeaca93ccd7d8ee9b03885a7" id="r_acb47806cfeaca93ccd7d8ee9b03885a7"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d6/d8f/namespace_u_e_1_1_d_d_s.html#a9b366afc30192387e9b66eede0a36637">EDXGIFormat</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d8f/namespace_u_e_1_1_d_d_s.html#acb47806cfeaca93ccd7d8ee9b03885a7">UE::DDS::DXGIFormatFromRawFormat</a> (<a class="el" href="../../d8/de3/namespace_e_raw_image_format.html#a4b872ffdd67b29fbdc0aa02a79f72c47">ERawImageFormat::Type</a> RawFormat, <a class="el" href="../../d9/df8/_color_8h.html#abc131b39d8780cf84c0408b3b7532f01">EGammaSpace</a> GammaSpace)</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-var-members" class="groupheader"><a id="var-members" name="var-members"></a>
+变量</h2></td></tr>
+<tr class="memitem:a2318592c91bd28e0849bdf782490b318" id="r_a2318592c91bd28e0849bdf782490b318"><td class="memItemLeft" align="right" valign="top">constexpr <a class="el" href="../../dd/de9/preprocessor_8c.html#a1134b580f8da4de94ca6b1de4d37975e">uint32</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d8f/namespace_u_e_1_1_d_d_s.html#a2318592c91bd28e0849bdf782490b318">UE::DDS::DDSD_CAPS</a> = 0x00000001</td></tr>
+<tr class="memitem:a22f69ed3e8369fe22436595d7a6f37bf" id="r_a22f69ed3e8369fe22436595d7a6f37bf"><td class="memItemLeft" align="right" valign="top">constexpr <a class="el" href="../../dd/de9/preprocessor_8c.html#a1134b580f8da4de94ca6b1de4d37975e">uint32</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d8f/namespace_u_e_1_1_d_d_s.html#a22f69ed3e8369fe22436595d7a6f37bf">UE::DDS::DDSD_HEIGHT</a> = 0x00000002</td></tr>
+<tr class="memitem:ad7ea243a72d7e63f53a84f82f94cf944" id="r_ad7ea243a72d7e63f53a84f82f94cf944"><td class="memItemLeft" align="right" valign="top">constexpr <a class="el" href="../../dd/de9/preprocessor_8c.html#a1134b580f8da4de94ca6b1de4d37975e">uint32</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d8f/namespace_u_e_1_1_d_d_s.html#ad7ea243a72d7e63f53a84f82f94cf944">UE::DDS::DDSD_WIDTH</a> = 0x00000004</td></tr>
+<tr class="memitem:a086166303b70825f929614499a8830ac" id="r_a086166303b70825f929614499a8830ac"><td class="memItemLeft" align="right" valign="top">constexpr <a class="el" href="../../dd/de9/preprocessor_8c.html#a1134b580f8da4de94ca6b1de4d37975e">uint32</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d8f/namespace_u_e_1_1_d_d_s.html#a086166303b70825f929614499a8830ac">UE::DDS::DDSD_PITCH</a> = 0x00000008</td></tr>
+<tr class="memitem:a01351d9be70d347d00e2fd383fa4d1b5" id="r_a01351d9be70d347d00e2fd383fa4d1b5"><td class="memItemLeft" align="right" valign="top">constexpr <a class="el" href="../../dd/de9/preprocessor_8c.html#a1134b580f8da4de94ca6b1de4d37975e">uint32</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d8f/namespace_u_e_1_1_d_d_s.html#a01351d9be70d347d00e2fd383fa4d1b5">UE::DDS::DDSD_PIXELFORMAT</a> = 0x00001000</td></tr>
+<tr class="memitem:af9cd43b14eec0eb86589d15ea14afa59" id="r_af9cd43b14eec0eb86589d15ea14afa59"><td class="memItemLeft" align="right" valign="top">constexpr <a class="el" href="../../dd/de9/preprocessor_8c.html#a1134b580f8da4de94ca6b1de4d37975e">uint32</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d8f/namespace_u_e_1_1_d_d_s.html#af9cd43b14eec0eb86589d15ea14afa59">UE::DDS::DDSD_MIPMAPCOUNT</a> = 0x00020000</td></tr>
+<tr class="memitem:ad62b5fa91115af5724c5ee4c44d9875e" id="r_ad62b5fa91115af5724c5ee4c44d9875e"><td class="memItemLeft" align="right" valign="top">constexpr <a class="el" href="../../dd/de9/preprocessor_8c.html#a1134b580f8da4de94ca6b1de4d37975e">uint32</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d8f/namespace_u_e_1_1_d_d_s.html#ad62b5fa91115af5724c5ee4c44d9875e">UE::DDS::DDSD_DEPTH</a> = 0x00800000</td></tr>
+<tr class="memitem:aee4b86dab11bf2439cd24aa29a442a54" id="r_aee4b86dab11bf2439cd24aa29a442a54"><td class="memItemLeft" align="right" valign="top">constexpr <a class="el" href="../../dd/de9/preprocessor_8c.html#a1134b580f8da4de94ca6b1de4d37975e">uint32</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d8f/namespace_u_e_1_1_d_d_s.html#aee4b86dab11bf2439cd24aa29a442a54">UE::DDS::DDPF_ALPHA</a> = 0x00000002</td></tr>
+<tr class="memitem:a9253cb4ef9617ec4d822b7bed879be67" id="r_a9253cb4ef9617ec4d822b7bed879be67"><td class="memItemLeft" align="right" valign="top">constexpr <a class="el" href="../../dd/de9/preprocessor_8c.html#a1134b580f8da4de94ca6b1de4d37975e">uint32</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d8f/namespace_u_e_1_1_d_d_s.html#a9253cb4ef9617ec4d822b7bed879be67">UE::DDS::DDPF_FOURCC</a> = 0x00000004</td></tr>
+<tr class="memitem:ae5fa25320f5b99085bf0ca7ec6576949" id="r_ae5fa25320f5b99085bf0ca7ec6576949"><td class="memItemLeft" align="right" valign="top">constexpr <a class="el" href="../../dd/de9/preprocessor_8c.html#a1134b580f8da4de94ca6b1de4d37975e">uint32</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d8f/namespace_u_e_1_1_d_d_s.html#ae5fa25320f5b99085bf0ca7ec6576949">UE::DDS::DDPF_RGB</a> = 0x00000040</td></tr>
+<tr class="memitem:a63af16a59f7f33345d0ccb65d575dbb9" id="r_a63af16a59f7f33345d0ccb65d575dbb9"><td class="memItemLeft" align="right" valign="top">constexpr <a class="el" href="../../dd/de9/preprocessor_8c.html#a1134b580f8da4de94ca6b1de4d37975e">uint32</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d8f/namespace_u_e_1_1_d_d_s.html#a63af16a59f7f33345d0ccb65d575dbb9">UE::DDS::DDPF_LUMINANCE</a> = 0x00020000</td></tr>
+<tr class="memitem:a8ac8bb86ea991b7e94266ca32d576916" id="r_a8ac8bb86ea991b7e94266ca32d576916"><td class="memItemLeft" align="right" valign="top">constexpr <a class="el" href="../../dd/de9/preprocessor_8c.html#a1134b580f8da4de94ca6b1de4d37975e">uint32</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d8f/namespace_u_e_1_1_d_d_s.html#a8ac8bb86ea991b7e94266ca32d576916">UE::DDS::DDPF_BUMPDUDV</a> = 0x00080000</td></tr>
+<tr class="memitem:afb2e82a8d66f05b973546b59a8e00eea" id="r_afb2e82a8d66f05b973546b59a8e00eea"><td class="memItemLeft" align="right" valign="top">constexpr <a class="el" href="../../dd/de9/preprocessor_8c.html#a1134b580f8da4de94ca6b1de4d37975e">uint32</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d8f/namespace_u_e_1_1_d_d_s.html#afb2e82a8d66f05b973546b59a8e00eea">UE::DDS::DDSCAPS_COMPLEX</a> = 0x00000008</td></tr>
+<tr class="memitem:a697a728ae590b8ea6bd0e42c5f9c8bd5" id="r_a697a728ae590b8ea6bd0e42c5f9c8bd5"><td class="memItemLeft" align="right" valign="top">constexpr <a class="el" href="../../dd/de9/preprocessor_8c.html#a1134b580f8da4de94ca6b1de4d37975e">uint32</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d8f/namespace_u_e_1_1_d_d_s.html#a697a728ae590b8ea6bd0e42c5f9c8bd5">UE::DDS::DDSCAPS_TEXTURE</a> = 0x00001000</td></tr>
+<tr class="memitem:a2dfea5014b98317c0c973eee01707c83" id="r_a2dfea5014b98317c0c973eee01707c83"><td class="memItemLeft" align="right" valign="top">constexpr <a class="el" href="../../dd/de9/preprocessor_8c.html#a1134b580f8da4de94ca6b1de4d37975e">uint32</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d8f/namespace_u_e_1_1_d_d_s.html#a2dfea5014b98317c0c973eee01707c83">UE::DDS::DDSCAPS_MIPMAP</a> = 0x00400000</td></tr>
+<tr class="memitem:af59069cbfb89c027e4323f91fdb10049" id="r_af59069cbfb89c027e4323f91fdb10049"><td class="memItemLeft" align="right" valign="top">constexpr <a class="el" href="../../dd/de9/preprocessor_8c.html#a1134b580f8da4de94ca6b1de4d37975e">uint32</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d8f/namespace_u_e_1_1_d_d_s.html#af59069cbfb89c027e4323f91fdb10049">UE::DDS::DDSCAPS2_CUBEMAP</a> = 0x00000200</td></tr>
+<tr class="memitem:a5a14d6dc50c6dd348f43b4af6a115887" id="r_a5a14d6dc50c6dd348f43b4af6a115887"><td class="memItemLeft" align="right" valign="top">constexpr <a class="el" href="../../dd/de9/preprocessor_8c.html#a1134b580f8da4de94ca6b1de4d37975e">uint32</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d8f/namespace_u_e_1_1_d_d_s.html#a5a14d6dc50c6dd348f43b4af6a115887">UE::DDS::DDSCAPS2_VOLUME</a> = 0x00200000</td></tr>
+<tr class="memitem:ad6d0e78ef1195aefad1ba5d710fe757f" id="r_ad6d0e78ef1195aefad1ba5d710fe757f"><td class="memItemLeft" align="right" valign="top">constexpr <a class="el" href="../../dd/de9/preprocessor_8c.html#a1134b580f8da4de94ca6b1de4d37975e">uint32</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d8f/namespace_u_e_1_1_d_d_s.html#ad6d0e78ef1195aefad1ba5d710fe757f">UE::DDS::RESOURCE_DIMENSION_UNKNOWN</a> = 0</td></tr>
+<tr class="memitem:a14481e6c8761bef2cfee8e139ba72c92" id="r_a14481e6c8761bef2cfee8e139ba72c92"><td class="memItemLeft" align="right" valign="top">constexpr <a class="el" href="../../dd/de9/preprocessor_8c.html#a1134b580f8da4de94ca6b1de4d37975e">uint32</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d8f/namespace_u_e_1_1_d_d_s.html#a14481e6c8761bef2cfee8e139ba72c92">UE::DDS::RESOURCE_DIMENSION_BUFFER</a> = 1</td></tr>
+<tr class="memitem:ad33ae8130e7dca2f6e3b246209918198" id="r_ad33ae8130e7dca2f6e3b246209918198"><td class="memItemLeft" align="right" valign="top">constexpr <a class="el" href="../../dd/de9/preprocessor_8c.html#a1134b580f8da4de94ca6b1de4d37975e">uint32</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d8f/namespace_u_e_1_1_d_d_s.html#ad33ae8130e7dca2f6e3b246209918198">UE::DDS::RESOURCE_DIMENSION_TEXTURE1D</a> = 2</td></tr>
+<tr class="memitem:a35e2a7d81401af0fa523476abe7aac93" id="r_a35e2a7d81401af0fa523476abe7aac93"><td class="memItemLeft" align="right" valign="top">constexpr <a class="el" href="../../dd/de9/preprocessor_8c.html#a1134b580f8da4de94ca6b1de4d37975e">uint32</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d8f/namespace_u_e_1_1_d_d_s.html#a35e2a7d81401af0fa523476abe7aac93">UE::DDS::RESOURCE_DIMENSION_TEXTURE2D</a> = 3</td></tr>
+<tr class="memitem:a977ee6fdf4309350cfa094e3143762d0" id="r_a977ee6fdf4309350cfa094e3143762d0"><td class="memItemLeft" align="right" valign="top">constexpr <a class="el" href="../../dd/de9/preprocessor_8c.html#a1134b580f8da4de94ca6b1de4d37975e">uint32</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d8f/namespace_u_e_1_1_d_d_s.html#a977ee6fdf4309350cfa094e3143762d0">UE::DDS::RESOURCE_DIMENSION_TEXTURE3D</a> = 4</td></tr>
+<tr class="memitem:ad4700ecea107d302ee29d9a4bf02351f" id="r_ad4700ecea107d302ee29d9a4bf02351f"><td class="memItemLeft" align="right" valign="top">constexpr <a class="el" href="../../dd/de9/preprocessor_8c.html#a1134b580f8da4de94ca6b1de4d37975e">uint32</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d8f/namespace_u_e_1_1_d_d_s.html#ad4700ecea107d302ee29d9a4bf02351f">UE::DDS::RESOURCE_MISC_TEXTURECUBE</a> = 0x00000004</td></tr>
+<tr class="memitem:a9ce416ffd9facfded21dab7881b2d8d0" id="r_a9ce416ffd9facfded21dab7881b2d8d0"><td class="memItemLeft" align="right" valign="top">constexpr <a class="el" href="../../dd/de9/preprocessor_8c.html#a1134b580f8da4de94ca6b1de4d37975e">uint32</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d8f/namespace_u_e_1_1_d_d_s.html#a9ce416ffd9facfded21dab7881b2d8d0">UE::DDS::DDS_MAGIC</a> = <a class="el" href="../../d6/d8f/namespace_u_e_1_1_d_d_s.html#aed0bcd7973f34c905dcbb8285be48f60">MakeFOURCC</a>('D', 'D', 'S', ' ')</td></tr>
+<tr class="memitem:a1e0d271b913363b600abc6f3c85c7bdc" id="r_a1e0d271b913363b600abc6f3c85c7bdc"><td class="memItemLeft" align="right" valign="top">constexpr <a class="el" href="../../dd/de9/preprocessor_8c.html#a1134b580f8da4de94ca6b1de4d37975e">uint32</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d8f/namespace_u_e_1_1_d_d_s.html#a1e0d271b913363b600abc6f3c85c7bdc">UE::DDS::DX10_MAGIC</a> = <a class="el" href="../../d6/d8f/namespace_u_e_1_1_d_d_s.html#aed0bcd7973f34c905dcbb8285be48f60">MakeFOURCC</a>('D', '<a class="el" href="../../dc/d9d/_s_d_c_e_token_8h.html#a8f2ffc904d927a1b8c9b7c51aeb8b79f">X</a>', '1', '0')</td></tr>
+<tr class="memitem:ad9c3ec354ba330208ba6c04f449facec" id="r_ad9c3ec354ba330208ba6c04f449facec"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../dc/de3/struct_u_e_1_1_d_d_s_1_1_f_d_x_g_i_format_raw_format_mapping.html">FDXGIFormatRawFormatMapping</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d8f/namespace_u_e_1_1_d_d_s.html#ad9c3ec354ba330208ba6c04f449facec">UE::DDS::DXGIRawFormatMap</a> []</td></tr>
+</table>
+<a name="doc-define-members" id="doc-define-members"></a><h2 id="header-doc-define-members" class="groupheader">宏定义说明</h2>
+<a id="a4a77f3c69b3f32260daffcf5ae3eac5f" name="a4a77f3c69b3f32260daffcf5ae3eac5f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4a77f3c69b3f32260daffcf5ae3eac5f">&#9670;&#160;</a></span>BCNFMT <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define BCNFMT</td>
+          <td>(</td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em><a class="el" href="../../dd/de9/preprocessor_8c.html#aaf1bd07e95aeff0f585394fccaf479ab">name</a></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>id</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>bypu</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>值:</b><div class="fragment"><div class="line">{ EDXGIFormat::name, 4,4, bypu },</div>
+</div><!-- fragment -->
+</div>
+</div>
+<a id="a33e201827efb1e99af2452c4b2af8c4d" name="a33e201827efb1e99af2452c4b2af8c4d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a33e201827efb1e99af2452c4b2af8c4d">&#9670;&#160;</a></span>BCNFMT <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define BCNFMT</td>
+          <td>(</td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em><a class="el" href="../../dd/de9/preprocessor_8c.html#aaf1bd07e95aeff0f585394fccaf479ab">name</a></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>id</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>bypu</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>值:</b><div class="fragment"><div class="line">{ EDXGIFormat::name, <a class="code hl_define" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(#<a class="code hl_variable" href="../../dd/de9/preprocessor_8c.html#aaf1bd07e95aeff0f585394fccaf479ab">name</a>) },</div>
+<div class="ttc" id="a_core_2_public_2_h_a_l_2_platform_8h_html_a2978f60d40d64f3605b5a99f66f292a9"><div class="ttname"><a href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a></div><div class="ttdeci">#define TEXT(x)</div><div class="ttdef"><b>定义</b> Platform.h:1332</div></div>
+<div class="ttc" id="apreprocessor_8c_html_aaf1bd07e95aeff0f585394fccaf479ab"><div class="ttname"><a href="../../dd/de9/preprocessor_8c.html#aaf1bd07e95aeff0f585394fccaf479ab">name</a></div><div class="ttdeci">char name[8]</div><div class="ttdef"><b>定义</b> preprocessor.c:145</div></div>
+</div><!-- fragment -->
+</div>
+</div>
+<a id="a70ed1ad01698b1900284a5230a8b6b89" name="a70ed1ad01698b1900284a5230a8b6b89"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a70ed1ad01698b1900284a5230a8b6b89">&#9670;&#160;</a></span>ODDFMT <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define ODDFMT</td>
+          <td>(</td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em><a class="el" href="../../dd/de9/preprocessor_8c.html#aaf1bd07e95aeff0f585394fccaf479ab">name</a></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>id</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a0a6bda02352554a1d2d90734dc95152d" name="a0a6bda02352554a1d2d90734dc95152d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0a6bda02352554a1d2d90734dc95152d">&#9670;&#160;</a></span>ODDFMT <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define ODDFMT</td>
+          <td>(</td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em><a class="el" href="../../dd/de9/preprocessor_8c.html#aaf1bd07e95aeff0f585394fccaf479ab">name</a></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>id</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>值:</b><div class="fragment"><div class="line">{ EDXGIFormat::name, <a class="code hl_define" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(#<a class="code hl_variable" href="../../dd/de9/preprocessor_8c.html#aaf1bd07e95aeff0f585394fccaf479ab">name</a>) },</div>
+</div><!-- fragment -->
+</div>
+</div>
+<a id="a82b8359db85c9f7135429b964670caeb" name="a82b8359db85c9f7135429b964670caeb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a82b8359db85c9f7135429b964670caeb">&#9670;&#160;</a></span>RGBFMT <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define RGBFMT</td>
+          <td>(</td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em><a class="el" href="../../dd/de9/preprocessor_8c.html#aaf1bd07e95aeff0f585394fccaf479ab">name</a></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>id</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>bypu</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>值:</b><div class="fragment"><div class="line">{ EDXGIFormat::name, 1,1, bypu },</div>
+</div><!-- fragment -->
+</div>
+</div>
+<a id="ad2a27727a3a618885336b7c2019351e3" name="ad2a27727a3a618885336b7c2019351e3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad2a27727a3a618885336b7c2019351e3">&#9670;&#160;</a></span>RGBFMT <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define RGBFMT</td>
+          <td>(</td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em><a class="el" href="../../dd/de9/preprocessor_8c.html#aaf1bd07e95aeff0f585394fccaf479ab">name</a></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>id</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>bypu</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>值:</b><div class="fragment"><div class="line">{ EDXGIFormat::name, <a class="code hl_define" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(#<a class="code hl_variable" href="../../dd/de9/preprocessor_8c.html#aaf1bd07e95aeff0f585394fccaf479ab">name</a>) },</div>
+</div><!-- fragment -->
+</div>
+</div>
+<a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">函数说明</h2>
+<a id="af1d136730c4df1b5611205ea767c551a" name="af1d136730c4df1b5611205ea767c551a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af1d136730c4df1b5611205ea767c551a">&#9670;&#160;</a></span>DEFINE_LOG_CATEGORY_STATIC()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">DEFINE_LOG_CATEGORY_STATIC </td>
+          <td>(</td>
+          <td class="paramtype">LogDDSFile</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Log</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../db/da0/_hair_strands_composition_8cpp.html#a01ae254fc9c19378956c218ed4e9c32da54991d225c58ce0af43461d4e9a82312">All</a></td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<div id="page-nav" class="page-nav-panel">
+<div id="page-nav-resize-handle"></div>
+<div id="page-nav-tree">
+<div id="page-nav-contents">
+</div><!-- page-nav-contents -->
+</div><!-- page-nav-tree -->
+</div><!-- page-nav -->
+</div><!-- container -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a href="../../dir_0b6ee6e7e9547e675db4add2e5de97da.html">Engine</a></li><li class="navelem"><a href="../../dir_9579d1ecb2c7bf48cbe1049c41745cb4.html">Source</a></li><li class="navelem"><a href="../../dir_9f04efef762572853abdf73f62bebfcc.html">Runtime</a></li><li class="navelem"><a href="../../dir_4969526c1c4a65b7de01bd452b460ef2.html">ImageCore</a></li><li class="navelem"><a href="../../dir_83c2b8d1e6ac684a87403963c2129431.html">Private</a></li><li class="navelem"><a href="../../d9/dd1/_d_d_s_file_8cpp.html">DDSFile.cpp</a></li>
+    <li class="footer">制作者 <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.15.0 </li>
+  </ul>
+</div>
+</body>
+</html>

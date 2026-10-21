@@ -1,0 +1,1437 @@
+<!-- HTML header for doxygen 1.15.0-->
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh">
+<head>
+  <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=11" />
+  <meta name="generator" content="Doxygen 1.15.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>UE 5.8.4: Engine/Source/Runtime/Renderer/Private/PostProcess/PostProcessSubsurface.cpp 文件参考</title>
+  <link rel="icon" href="../../EdIconDefault.bmp" type="image/x-icon" />
+  <link href="../../tabs.css" rel="stylesheet" type="text/css" />
+  <script type="text/javascript" src="../../jquery.js"></script>
+  <script type="text/javascript" src="../../dynsections.js"></script>
+  <link href="../../navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../navtreedata.js"></script>
+<script type="text/javascript" src="../../navtree.js"></script>
+<script type="text/javascript" src="../../cookie.js"></script>
+  <link href="../../search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../search/searchdata.js"></script>
+<script type="text/javascript" src="../../search/search.js"></script>
+  <script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  extensions: ["tex2jax.js"],
+  jax: ["input/TeX","output/HTML-CSS"],
+});
+</script>
+<script type="text/javascript" async="async" src="https://cdn.jsdelivr.net/npm/mathjax@2/MathJax.js"></script>
+  <link href="../../doxygen.css" rel="stylesheet" type="text/css" />
+  <link href="../../doxygen-awesome.css" rel="stylesheet" type="text/css"/>
+<link href="../../doxygen-awesome-sidebar-only.css" rel="stylesheet" type="text/css"/>
+<link href="../../doxygen-awesome-sidebar-only-darkmode-toggle.css" rel="stylesheet" type="text/css"/>
+  <!-- ... other metadata & script includes ... -->
+  <script type="text/javascript" src="../../doxygen-awesome-darkmode-toggle.js"></script>
+  <script type="text/javascript">
+    DoxygenAwesomeDarkModeToggle.title = "Zwischen hellem/dunklem Modus wechseln"
+    DoxygenAwesomeDarkModeToggle.lightModeIcon = '🌞'
+    // icon from https://fonts.google.com/icons
+    DoxygenAwesomeDarkModeToggle.darkModeIcon = `<svg xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 24 24" height="24px" viewBox="0 0 24 24" width="24px" fill="#009793"><g><rect fill="none" height="24" width="24"/></g><g><g><path d="M8.1,14.15C9.77,14.63,11,16.17,11,18c0,0.68-0.19,1.31-0.48,1.87c0.48,0.09,0.97,0.14,1.48,0.14 c1.48,0,2.9-0.41,4.13-1.15c-2.62-0.92-5.23-2.82-6.8-5.86C7.74,9.94,7.78,7.09,8.29,4.9c-2.57,1.33-4.3,4.01-4.3,7.1c0,0,0,0,0,0 c0.01,0,0.01,0,0.02,0C5.66,12,7.18,12.83,8.1,14.15z" opacity=".3"/><path d="M19.78,17.51c-2.47,0-6.57-1.33-8.68-5.43C8.77,7.57,10.6,3.6,11.63,2.01C6.27,2.2,1.98,6.59,1.98,12 c0,0.14,0.02,0.28,0.02,0.42C2.61,12.16,3.28,12,3.98,12c0,0,0,0,0,0c0-3.09,1.73-5.77,4.3-7.1C7.78,7.09,7.74,9.94,9.32,13 c1.57,3.04,4.18,4.95,6.8,5.86c-1.23,0.74-2.65,1.15-4.13,1.15c-0.5,0-1-0.05-1.48-0.14c-0.37,0.7-0.94,1.27-1.64,1.64 c0.98,0.32,2.03,0.5,3.11,0.5c3.5,0,6.58-1.8,8.37-4.52C20.18,17.5,19.98,17.51,19.78,17.51z"/><path d="M7,16l-0.18,0C6.4,14.84,5.3,14,4,14c-1.66,0-3,1.34-3,3s1.34,3,3,3c0.62,0,2.49,0,3,0c1.1,0,2-0.9,2-2 C9,16.9,8.1,16,7,16z"/></g></g></svg>`
+    DoxygenAwesomeDarkModeToggle.init()
+  </script>
+  <script type="text/javascript" src="../../doxygen-awesome-fragment-copy-button.js"></script>
+  <script type="text/javascript">
+    DoxygenAwesomeFragmentCopyButton.title = "In die Zwischenablage kopieren"
+    // DoxygenAwesomeFragmentCopyButton.copyIcon = `<svg ...>`
+    // DoxygenAwesomeFragmentCopyButton.successIcon = `<svg ...>`
+    DoxygenAwesomeFragmentCopyButton.init()
+  </script>
+  <script type="text/javascript" src="../../doxygen-awesome-paragraph-link.js"></script>
+  <script type="text/javascript">
+    DoxygenAwesomeParagraphLink.title = "Abschnitt verknüpfen"
+    DoxygenAwesomeParagraphLink.icon = "¶"
+    DoxygenAwesomeParagraphLink.init()
+  </script>
+  <script type="text/javascript" src="../../doxygen-awesome-interactive-toc.js"></script>
+  <script type="text/javascript">
+    DoxygenAwesomeInteractiveToc.topOffset = 45
+    DoxygenAwesomeInteractiveToc.hideMobileMenu = false
+    DoxygenAwesomeInteractiveToc.init()
+  </script>
+</head>
+<body>
+    <div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+      <div id="titlearea">
+        <table cellspacing="0" cellpadding="0">
+          <tbody>
+            <tr id="projectrow">
+              <td id="projectlogo"><img alt="Logo" src="../../EdIconDefault.bmp"  /></td>
+              <td id="projectalign">
+                <div id="projectname">UE 5.8.4
+                </div>
+                <div id="projectbrief">Unreal Engine</div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <!-- end header part -->
+<!-- 制作者 Doxygen 1.15.0 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "../../search/",'.html');
+</script>
+<script type="text/javascript">
+$(function() { codefold.init(); });
+</script>
+<script type="text/javascript" src="../../menudata.js"></script>
+<script type="text/javascript" src="../../menu.js"></script>
+<script type="text/javascript">
+$(function() {
+  initMenu('../../',true,false,'search.php','搜索',true);
+  $(function() { init_search(); });
+});
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(function(){initNavTree('d6/db5/_post_process_subsurface_8cpp.html','../../',''); });
+</script>
+<div id="container">
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">载入中...</div>
+<div class="SRStatus" id="Searching">搜索中...</div>
+<div class="SRStatus" id="NoMatches">未找到</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">PostProcessSubsurface.cpp 文件参考</div></div>
+</div><!--header-->
+<div class="contents">
+<div class="textblock"><code>#include &quot;<a class="el" href="../../de/df9/_post_process_subsurface_8h_source.html">PostProcess/PostProcessSubsurface.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d5/d0f/_scene_render_targets_8h_source.html">PostProcess/SceneRenderTargets.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d8/df3/_data_driven_shader_platform_info_8h_source.html">DataDrivenShaderPlatformInfo.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d2/df4/_subsurface_profile_8h_source.html">Engine/SubsurfaceProfile.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d6/d6d/_canvas_types_8h_source.html">CanvasTypes.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d6/dfc/_generate_mips_8h_source.html">GenerateMips.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d2/d2b/_clear_quad_8h_source.html">ClearQuad.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d1/df1/_substrate_8h_source.html">Substrate/Substrate.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d3/d93/_temporal_a_a_8h_source.html">PostProcess/TemporalAA.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d2/d08/_subsurface_tiles_8h_source.html">SubsurfaceTiles.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d6/d57/_unreal_engine_8h_source.html">UnrealEngine.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../dc/dc6/_scene_view_state_8h_source.html">SceneViewState.h</a>&quot;</code><br />
+</div><div class="textblock"><div class="dynheader">
+PostProcessSubsurface.cpp 的引用(Include)关系图:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d5/dc4/_post_process_subsurface_8cpp__incl.svg" width="3175" height="699"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+</div><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-nested-classes" class="groupheader"><a id="nested-classes" name="nested-classes"></a>
+类</h2></td></tr>
+<tr class="memitem:FSubsurfaceShader" id="r_FSubsurfaceShader"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/d83/class_f_subsurface_shader.html">FSubsurfaceShader</a></td></tr>
+<tr class="memitem:FSubsurfaceVisualizePS" id="r_FSubsurfaceVisualizePS"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/de1/class_f_subsurface_visualize_p_s.html">FSubsurfaceVisualizePS</a></td></tr>
+<tr class="memitem:FSubsurfaceViewportCopyPS" id="r_FSubsurfaceViewportCopyPS"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/d88/class_f_subsurface_viewport_copy_p_s.html">FSubsurfaceViewportCopyPS</a></td></tr>
+<tr class="memitem:FSubsurfaceInitValueBufferCS" id="r_FSubsurfaceInitValueBufferCS"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d60/class_f_subsurface_init_value_buffer_c_s.html">FSubsurfaceInitValueBufferCS</a></td></tr>
+<tr class="memitem:FFillMipsConditionBufferCS" id="r_FFillMipsConditionBufferCS"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/d47/class_f_fill_mips_condition_buffer_c_s.html">FFillMipsConditionBufferCS</a></td></tr>
+<tr class="memitem:FSubsurfaceBuildIndirectDispatchArgsCS" id="r_FSubsurfaceBuildIndirectDispatchArgsCS"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/d60/class_f_subsurface_build_indirect_dispatch_args_c_s.html">FSubsurfaceBuildIndirectDispatchArgsCS</a></td></tr>
+<tr class="memitem:FSubsurfaceIndirectDispatchSetupCS" id="r_FSubsurfaceIndirectDispatchSetupCS"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/dc0/class_f_subsurface_indirect_dispatch_setup_c_s.html">FSubsurfaceIndirectDispatchSetupCS</a></td></tr>
+<tr class="memitem:FSubsurfaceIndirectDispatchCS" id="r_FSubsurfaceIndirectDispatchCS"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d2/d1e/class_f_subsurface_indirect_dispatch_c_s.html">FSubsurfaceIndirectDispatchCS</a></td></tr>
+<tr class="memitem:FSubsurfaceSRVResolvePS" id="r_FSubsurfaceSRVResolvePS"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/d3f/class_f_subsurface_s_r_v_resolve_p_s.html">FSubsurfaceSRVResolvePS</a></td></tr>
+<tr class="memitem:FSubsurfaceRecombinePS" id="r_FSubsurfaceRecombinePS"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d2/da9/class_f_subsurface_recombine_p_s.html">FSubsurfaceRecombinePS</a></td></tr>
+<tr class="memitem:FSubsurfaceRecombineCopyPS" id="r_FSubsurfaceRecombineCopyPS"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d38/class_f_subsurface_recombine_copy_p_s.html">FSubsurfaceRecombineCopyPS</a></td></tr>
+<tr class="memitem:FSubsurfaceDiffuseInitPassPS" id="r_FSubsurfaceDiffuseInitPassPS"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/d70/class_f_subsurface_diffuse_init_pass_p_s.html">FSubsurfaceDiffuseInitPassPS</a></td></tr>
+<tr class="memitem:FSubsurfaceDebugCS" id="r_FSubsurfaceDebugCS"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/d02/class_f_subsurface_debug_c_s.html">FSubsurfaceDebugCS</a></td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-define-members" class="groupheader"><a id="define-members" name="define-members"></a>
+宏定义</h2></td></tr>
+<tr class="memitem:a0870cb701b4753b200b2bd9b2f1a6a73" id="r_a0870cb701b4753b200b2bd9b2f1a6a73"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a0870cb701b4753b200b2bd9b2f1a6a73">USE_CUSTOM_CLEAR_UAV</a></td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-typedef-members" class="groupheader"><a id="typedef-members" name="typedef-members"></a>
+类型定义</h2></td></tr>
+<tr class="memitem:ae58ae98e8c86d64a4d8e782bf82fde0e" id="r_ae58ae98e8c86d64a4d8e782bf82fde0e"><td class="memItemLeft" align="right" valign="top">typedef <a class="el" href="../../d6/d09/class_t_uniform_buffer_ref.html">TUniformBufferRef</a>&lt; FSubsurfaceUniformParameters &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae58ae98e8c86d64a4d8e782bf82fde0e">FSubsurfaceUniformRef</a></td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-enum-members" class="groupheader"><a id="enum-members" name="enum-members"></a>
+枚举</h2></td></tr>
+<tr class="memitem:a8342deca8c31c3d266a50af372ad3c7e" id="r_a8342deca8c31c3d266a50af372ad3c7e"><td class="memItemLeft" align="right" valign="top">enum class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8342deca8c31c3d266a50af372ad3c7e">ESubsurfaceMode</a> : uint32 { <a class="el" href="#a8342deca8c31c3d266a50af372ad3c7eac1d8e99f546fb2e4f76396ba20d32395">FullRes</a>
+, <a class="el" href="#a8342deca8c31c3d266a50af372ad3c7ea7a43a40ca382563672e6fbc27c02c725">HalfRes</a>
+, <a class="el" href="#a8342deca8c31c3d266a50af372ad3c7ea5ce88c4d66118388a69c6fd4262ca3a1">Bypass</a>
+, <a class="el" href="#a8342deca8c31c3d266a50af372ad3c7ea26a4b44a837bf97b972628509912b4a5">MAX</a>
+ }</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-func-members" class="groupheader"><a id="func-members" name="func-members"></a>
+函数</h2></td></tr>
+<tr class="memitem:a44610cd6dd62b25806cd9ab6de77fe71" id="r_a44610cd6dd62b25806cd9ab6de77fe71"><td class="memItemLeft" align="right" valign="top">const TCHAR *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a44610cd6dd62b25806cd9ab6de77fe71">GetEventName</a> (<a class="el" href="#a8342deca8c31c3d266a50af372ad3c7e">ESubsurfaceMode</a> SubsurfaceMode)</td></tr>
+<tr class="memitem:ae6910ed0e6728e9897269854f7a37567" id="r_ae6910ed0e6728e9897269854f7a37567"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../df/d2a/_s_anim_notify_shared_8h.html#ac7c94e837fed3f8e4bb3dd94d7bd2ecf">float</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae6910ed0e6728e9897269854f7a37567">GetSubsurfaceRadiusScale</a> ()</td></tr>
+<tr class="memitem:af32de041ad2bcceb6b551fd3aefd98f3" id="r_af32de041ad2bcceb6b551fd3aefd98f3"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a8dbb3cd84ca9fd010dadfc3815eefa5d">int32</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af32de041ad2bcceb6b551fd3aefd98f3">GetSSSFilter</a> ()</td></tr>
+<tr class="memitem:a732b95a5ab57cc47ec35853515eb1b16" id="r_a732b95a5ab57cc47ec35853515eb1b16"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a8dbb3cd84ca9fd010dadfc3815eefa5d">int32</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a732b95a5ab57cc47ec35853515eb1b16">GetSSSSampleSet</a> ()</td></tr>
+<tr class="memitem:a4275f61d30d69ab6e1b54de9fb723b0f" id="r_a4275f61d30d69ab6e1b54de9fb723b0f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a8dbb3cd84ca9fd010dadfc3815eefa5d">int32</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4275f61d30d69ab6e1b54de9fb723b0f">GetSSSQuality</a> ()</td></tr>
+<tr class="memitem:afbcfcaf383d3b48cdde1060bd48851ea" id="r_afbcfcaf383d3b48cdde1060bd48851ea"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a8dbb3cd84ca9fd010dadfc3815eefa5d">int32</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#afbcfcaf383d3b48cdde1060bd48851ea">GetSSSBurleyBilateralFilterKernelFunctionType</a> ()</td></tr>
+<tr class="memitem:aaa8e3bb055955024fcba3913e5f9e3b3" id="r_aaa8e3bb055955024fcba3913e5f9e3b3"><td class="memItemLeft" align="right" valign="top"><a class="el" href="#a8342deca8c31c3d266a50af372ad3c7e">ESubsurfaceMode</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aaa8e3bb055955024fcba3913e5f9e3b3">GetSubsurfaceModeForView</a> (const <a class="el" href="../../dd/d2b/class_f_view_info.html">FViewInfo</a> &amp;View)</td></tr>
+<tr class="memitem:aa477d2fdd61a01ad3c8ac598cd96e343" id="r_aa477d2fdd61a01ad3c8ac598cd96e343"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa477d2fdd61a01ad3c8ac598cd96e343">END_SHADER_PARAMETER_STRUCT</a> ()</td></tr>
+<tr class="memitem:ad6c09abb26e6553edc564dcc182f0e4c" id="r_ad6c09abb26e6553edc564dcc182f0e4c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../dd/de9/preprocessor_8c.html#a1134b580f8da4de94ca6b1de4d37975e">uint32</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad6c09abb26e6553edc564dcc182f0e4c">GetSSSMipmapsMinTileCount</a> (const <a class="el" href="../../dd/d2b/class_f_view_info.html">FViewInfo</a> &amp;View)</td></tr>
+<tr class="memitem:a294886c9b01ba7ddf0f6e59d658de5d2" id="r_a294886c9b01ba7ddf0f6e59d658de5d2"><td class="memItemLeft" align="right" valign="top">FSubsurfaceParameters&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a294886c9b01ba7ddf0f6e59d658de5d2">GetSubsurfaceCommonParameters</a> (<a class="el" href="../../d3/d85/class_f_r_d_g_builder.html">FRDGBuilder</a> &amp;GraphBuilder, const <a class="el" href="../../dd/d2b/class_f_view_info.html">FViewInfo</a> &amp;View, <a class="el" href="../../d2/d51/_render_graph_fwd_8h.html#ab926b0657e138258b3e140cc660c1545">TRDGUniformBufferRef</a>&lt; FSceneTextureUniformParameters &gt; SceneTextures)</td></tr>
+<tr class="memitem:ad0913f2b635f3af76104200d0111e01e" id="r_ad0913f2b635f3af76104200d0111e01e"><td class="memItemLeft" align="right" valign="top">FSubsurfaceInput&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad0913f2b635f3af76104200d0111e01e">GetSubsurfaceInput</a> (<a class="el" href="../../d6/d6d/_canvas_types_8h.html#aea265cf57883ec58a09111d4a17b8448">FRDGTextureRef</a> Texture, const FScreenPassTextureViewportParameters &amp;ViewportParameters)</td></tr>
+<tr class="memitem:a4a3074080260b2e8bea3037428451363" id="r_a4a3074080260b2e8bea3037428451363"><td class="memItemLeft" align="right" valign="top">FSubsurfaceSRVInput&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4a3074080260b2e8bea3037428451363">GetSubsurfaceSRVInput</a> (<a class="el" href="../../d2/d51/_render_graph_fwd_8h.html#a092bea9e10fbb6524acb24616d2a4d0e">FRDGTextureSRVRef</a> Texture, const FScreenPassTextureViewportParameters &amp;ViewportParameters)</td></tr>
+<tr class="memitem:a5b6431a60832c1997ae55df1580596be" id="r_a5b6431a60832c1997ae55df1580596be"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5b6431a60832c1997ae55df1580596be">IsSubsurfaceEnabled</a> (const <a class="el" href="../../d4/dac/struct_f_engine_show_flags.html">FEngineShowFlags</a> &amp;EngineShowFlags)</td></tr>
+<tr class="memitem:aec3ec579a478ed645d71692aaa43f17c" id="r_aec3ec579a478ed645d71692aaa43f17c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aec3ec579a478ed645d71692aaa43f17c">IsSubsurfaceRequiredForView</a> (const <a class="el" href="../../dd/d2b/class_f_view_info.html">FViewInfo</a> &amp;View)</td></tr>
+<tr class="memitem:a1d98ddcd7f26bd8787e8197fb81452a6" id="r_a1d98ddcd7f26bd8787e8197fb81452a6"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a1d98ddcd7f26bd8787e8197fb81452a6">IsProfileIdCacheEnabled</a> ()</td></tr>
+<tr class="memitem:a31f0a276f669a46f5dfed673145f72ad" id="r_a31f0a276f669a46f5dfed673145f72ad"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a31f0a276f669a46f5dfed673145f72ad">UseSeparatedSubsurfaceDiffuse</a> (<a class="el" href="../../de/d49/_r_h_i_shader_platform_8h.html#a424c00593a28eb7ade584eea91161acd">EShaderPlatform</a> ShaderPlatform)</td></tr>
+<tr class="memitem:acda3953d4f3bc7e48fc8c61dd8dcc84b" id="r_acda3953d4f3bc7e48fc8c61dd8dcc84b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../dd/de9/preprocessor_8c.html#a1134b580f8da4de94ca6b1de4d37975e">uint32</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#acda3953d4f3bc7e48fc8c61dd8dcc84b">GetSubsurfaceRequiredViewMask</a> (<a class="el" href="../../d2/ddb/class_t_array_view.html">TArrayView</a>&lt; const <a class="el" href="../../dd/d2b/class_f_view_info.html">FViewInfo</a> &gt; Views)</td></tr>
+<tr class="memitem:a7e0b75167de97e2739660e449f5ab23d" id="r_a7e0b75167de97e2739660e449f5ab23d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7e0b75167de97e2739660e449f5ab23d">IsSubsurfaceCheckerboardFormat</a> (<a class="el" href="../../d5/db6/_pixel_format_8h.html#aaefcb820f58db492c4c56dc4d7a93f23">EPixelFormat</a> SceneColorFormat, <a class="el" href="../../de/d49/_r_h_i_shader_platform_8h.html#a424c00593a28eb7ade584eea91161acd">EShaderPlatform</a> ShaderPlatform)</td></tr>
+<tr class="memitem:a304d56def878b3e8d09fcbdeda581833" id="r_a304d56def878b3e8d09fcbdeda581833"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a304d56def878b3e8d09fcbdeda581833">IsSubsurfaceCheckerboardFormat</a> (<a class="el" href="../../d5/db6/_pixel_format_8h.html#aaefcb820f58db492c4c56dc4d7a93f23">EPixelFormat</a> SceneColorFormat, const <a class="el" href="../../dd/d2b/class_f_view_info.html">FViewInfo</a> &amp;View)</td></tr>
+<tr class="memitem:a111a4df2e76033b65d2d311576ad1fea" id="r_a111a4df2e76033b65d2d311576ad1fea"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a111a4df2e76033b65d2d311576ad1fea">IsSeparatedDiffuseLuminanceEnabled</a> (const <a class="el" href="../../d4/dac/struct_f_engine_show_flags.html">FEngineShowFlags</a> &amp;EngineShowFlags, <a class="el" href="../../d5/db6/_pixel_format_8h.html#aaefcb820f58db492c4c56dc4d7a93f23">EPixelFormat</a> SceneColorFormat, <a class="el" href="../../de/d49/_r_h_i_shader_platform_8h.html#a424c00593a28eb7ade584eea91161acd">EShaderPlatform</a> ShaderPlatform)</td></tr>
+<tr class="memitem:aad01b834bc10e6081e816fb8823b6c59" id="r_aad01b834bc10e6081e816fb8823b6c59"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aad01b834bc10e6081e816fb8823b6c59">IMPLEMENT_GLOBAL_SHADER</a> (<a class="el" href="../../db/de1/class_f_subsurface_visualize_p_s.html">FSubsurfaceVisualizePS</a>, &quot;/Engine/<a class="el" href="../../d9/db1/namespace_private.html">Private</a>/PostProcessSubsurface.usf&quot;, &quot;VisualizePS&quot;, <a class="el" href="../../da/dca/_r_h_i_definitions_8h.html#a0a3cc83cb6ebc79b66b43fae3ffee64eaf50bfe1c5c23e92a75ba64d89bcd3bfa">SF_Pixel</a>)</td></tr>
+<tr class="memitem:a9ad004a392375d3dc1f443f042ac8e4b" id="r_a9ad004a392375d3dc1f443f042ac8e4b"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9ad004a392375d3dc1f443f042ac8e4b">IMPLEMENT_GLOBAL_SHADER</a> (<a class="el" href="../../d0/d88/class_f_subsurface_viewport_copy_p_s.html">FSubsurfaceViewportCopyPS</a>, &quot;/Engine/<a class="el" href="../../d9/db1/namespace_private.html">Private</a>/PostProcessSubsurface.usf&quot;, &quot;SubsurfaceViewportCopyPS&quot;, <a class="el" href="../../da/dca/_r_h_i_definitions_8h.html#a0a3cc83cb6ebc79b66b43fae3ffee64eaf50bfe1c5c23e92a75ba64d89bcd3bfa">SF_Pixel</a>)</td></tr>
+<tr class="memitem:a17d7931d97990b0b247b1fca7e2bf284" id="r_a17d7931d97990b0b247b1fca7e2bf284"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a17d7931d97990b0b247b1fca7e2bf284">IMPLEMENT_GLOBAL_SHADER_PARAMETER_STRUCT</a> (FSubsurfaceUniformParameters, &quot;SubsurfaceUniformParameters&quot;)</td></tr>
+<tr class="memitem:a67d331ee45cbcb992113df7935a6eadc" id="r_a67d331ee45cbcb992113df7935a6eadc"><td class="memItemLeft" align="right" valign="top"><a class="el" href="#ae58ae98e8c86d64a4d8e782bf82fde0e">FSubsurfaceUniformRef</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a67d331ee45cbcb992113df7935a6eadc">CreateUniformBuffer</a> (<a class="el" href="../../dd/d2b/class_f_view_info.html">FViewInfo</a> const &amp;View, <a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a8dbb3cd84ca9fd010dadfc3815eefa5d">int32</a> MaxGroupCount)</td></tr>
+<tr class="memitem:a877bb2bca390c0b60f4aa164e64f3f98" id="r_a877bb2bca390c0b60f4aa164e64f3f98"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a877bb2bca390c0b60f4aa164e64f3f98">IMPLEMENT_GLOBAL_SHADER</a> (<a class="el" href="../../d6/d60/class_f_subsurface_init_value_buffer_c_s.html">FSubsurfaceInitValueBufferCS</a>, &quot;/Engine/<a class="el" href="../../d9/db1/namespace_private.html">Private</a>/PostProcessSubsurface.usf&quot;, &quot;InitValueBufferCS&quot;, <a class="el" href="../../da/dca/_r_h_i_definitions_8h.html#a0a3cc83cb6ebc79b66b43fae3ffee64ea2a84a18d7ac3d1fac11e3153f0abf73b">SF_Compute</a>)</td></tr>
+<tr class="memitem:a4033189e0b7dde3f9b6a5e17b9c1c365" id="r_a4033189e0b7dde3f9b6a5e17b9c1c365"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4033189e0b7dde3f9b6a5e17b9c1c365">IMPLEMENT_GLOBAL_SHADER</a> (<a class="el" href="../../d5/d47/class_f_fill_mips_condition_buffer_c_s.html">FFillMipsConditionBufferCS</a>, &quot;/Engine/<a class="el" href="../../d9/db1/namespace_private.html">Private</a>/PostProcessSubsurface.usf&quot;, &quot;FillMipsConditionBufferCS&quot;, <a class="el" href="../../da/dca/_r_h_i_definitions_8h.html#a0a3cc83cb6ebc79b66b43fae3ffee64ea2a84a18d7ac3d1fac11e3153f0abf73b">SF_Compute</a>)</td></tr>
+<tr class="memitem:a5f3f0de461260c833096d828c8432aae" id="r_a5f3f0de461260c833096d828c8432aae"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5f3f0de461260c833096d828c8432aae">IMPLEMENT_GLOBAL_SHADER</a> (<a class="el" href="../../dc/d60/class_f_subsurface_build_indirect_dispatch_args_c_s.html">FSubsurfaceBuildIndirectDispatchArgsCS</a>, &quot;/Engine/<a class="el" href="../../d9/db1/namespace_private.html">Private</a>/PostProcessSubsurface.usf&quot;, &quot;BuildIndirectDispatchArgsCS&quot;, <a class="el" href="../../da/dca/_r_h_i_definitions_8h.html#a0a3cc83cb6ebc79b66b43fae3ffee64ea2a84a18d7ac3d1fac11e3153f0abf73b">SF_Compute</a>)</td></tr>
+<tr class="memitem:a0d50ae3a6297c618d5f067c56855a502" id="r_a0d50ae3a6297c618d5f067c56855a502"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a0d50ae3a6297c618d5f067c56855a502">IMPLEMENT_GLOBAL_SHADER</a> (<a class="el" href="../../dd/dc0/class_f_subsurface_indirect_dispatch_setup_c_s.html">FSubsurfaceIndirectDispatchSetupCS</a>, &quot;/Engine/<a class="el" href="../../d9/db1/namespace_private.html">Private</a>/PostProcessSubsurface.usf&quot;, &quot;SetupIndirectCS&quot;, <a class="el" href="../../da/dca/_r_h_i_definitions_8h.html#a0a3cc83cb6ebc79b66b43fae3ffee64ea2a84a18d7ac3d1fac11e3153f0abf73b">SF_Compute</a>)</td></tr>
+<tr class="memitem:afc0579611d707211b434220a7abcabd1" id="r_afc0579611d707211b434220a7abcabd1"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#afc0579611d707211b434220a7abcabd1">IMPLEMENT_GLOBAL_SHADER</a> (<a class="el" href="../../d2/d1e/class_f_subsurface_indirect_dispatch_c_s.html">FSubsurfaceIndirectDispatchCS</a>, &quot;/Engine/<a class="el" href="../../d9/db1/namespace_private.html">Private</a>/PostProcessSubsurface.usf&quot;, &quot;MainIndirectDispatchCS&quot;, <a class="el" href="../../da/dca/_r_h_i_definitions_8h.html#a0a3cc83cb6ebc79b66b43fae3ffee64ea2a84a18d7ac3d1fac11e3153f0abf73b">SF_Compute</a>)</td></tr>
+<tr class="memitem:a8442861a8eb64de22fdd74dd1fc6e231" id="r_a8442861a8eb64de22fdd74dd1fc6e231"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8442861a8eb64de22fdd74dd1fc6e231">IMPLEMENT_GLOBAL_SHADER</a> (<a class="el" href="../../d9/d3f/class_f_subsurface_s_r_v_resolve_p_s.html">FSubsurfaceSRVResolvePS</a>, &quot;/Engine/<a class="el" href="../../d9/db1/namespace_private.html">Private</a>/PostProcessSubsurface.usf&quot;, &quot;SubsurfaceViewportCopyPS&quot;, <a class="el" href="../../da/dca/_r_h_i_definitions_8h.html#a0a3cc83cb6ebc79b66b43fae3ffee64eaf50bfe1c5c23e92a75ba64d89bcd3bfa">SF_Pixel</a>)</td></tr>
+<tr class="memitem:a942ac5fc9b100b2787b05e9325c771c9" id="r_a942ac5fc9b100b2787b05e9325c771c9"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d6/d6d/_canvas_types_8h.html#aea265cf57883ec58a09111d4a17b8448">FRDGTextureRef</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a942ac5fc9b100b2787b05e9325c771c9">CreateBlackUAVTexture</a> (<a class="el" href="../../d3/d85/class_f_r_d_g_builder.html">FRDGBuilder</a> &amp;GraphBuilder, <a class="el" href="../../d9/d87/struct_f_r_d_g_texture_desc.html">FRDGTextureDesc</a> SRVDesc, const TCHAR *Name, const <a class="el" href="../../dd/d2b/class_f_view_info.html">FViewInfo</a> &amp;View, const <a class="el" href="../../d2/d36/class_f_screen_pass_texture_viewport.html">FScreenPassTextureViewport</a> &amp;SceneViewport)</td></tr>
+<tr class="memitem:a951b68dc17a0781862e2fa804ef488de" id="r_a951b68dc17a0781862e2fa804ef488de"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d6/d6d/_canvas_types_8h.html#aea265cf57883ec58a09111d4a17b8448">FRDGTextureRef</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a951b68dc17a0781862e2fa804ef488de">CreateBlackUAVTexture</a> (<a class="el" href="../../d3/d85/class_f_r_d_g_builder.html">FRDGBuilder</a> &amp;GraphBuilder, <a class="el" href="../../d9/d87/struct_f_r_d_g_texture_desc.html">FRDGTextureDesc</a> SRVDesc, const TCHAR *TextureName, <a class="el" href="../../d6/dd7/class_f_r_d_g_event_name.html">FRDGEventName</a> &amp;&amp;PassName, const <a class="el" href="../../d2/d36/class_f_screen_pass_texture_viewport.html">FScreenPassTextureViewport</a> &amp;SceneViewport, <a class="el" href="../../d9/de1/_n_n_e_runtime_r_d_g_8h.html#a934d7411e595a58728f7ba3bb9aae740">FRDGBufferRef</a> ConditionBuffer, <a class="el" href="../../dd/de9/preprocessor_8c.html#a1134b580f8da4de94ca6b1de4d37975e">uint32</a> Offset)</td></tr>
+<tr class="memitem:a680a44c5b98a867cbc0715771511c7c2" id="r_a680a44c5b98a867cbc0715771511c7c2"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d6/d6d/_canvas_types_8h.html#aea265cf57883ec58a09111d4a17b8448">FRDGTextureRef</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a680a44c5b98a867cbc0715771511c7c2">RegisterExternalRenderTarget</a> (<a class="el" href="../../d3/d85/class_f_r_d_g_builder.html">FRDGBuilder</a> &amp;GraphBuilder, <a class="el" href="../../d7/d10/class_t_ref_count_ptr.html">TRefCountPtr</a>&lt; <a class="el" href="../../dd/db5/struct_i_pooled_render_target.html">IPooledRenderTarget</a> &gt; *PtrExternalTexture, <a class="el" href="../../d0/df6/_math_fwd_8h.html#af6853de5e4fcb2bad3bd5fdd2e50bffd">FIntPoint</a> CurentViewExtent, const TCHAR *Name)</td></tr>
+<tr class="memitem:a757cb289ff9aaf23474e5d003e4420fe" id="r_a757cb289ff9aaf23474e5d003e4420fe"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a757cb289ff9aaf23474e5d003e4420fe">IMPLEMENT_GLOBAL_SHADER</a> (<a class="el" href="../../d2/da9/class_f_subsurface_recombine_p_s.html">FSubsurfaceRecombinePS</a>, &quot;/Engine/<a class="el" href="../../d9/db1/namespace_private.html">Private</a>/PostProcessSubsurface.usf&quot;, &quot;SubsurfaceRecombinePS&quot;, <a class="el" href="../../da/dca/_r_h_i_definitions_8h.html#a0a3cc83cb6ebc79b66b43fae3ffee64eaf50bfe1c5c23e92a75ba64d89bcd3bfa">SF_Pixel</a>)</td></tr>
+<tr class="memitem:afb69fa7974148a37dd590960d711dc76" id="r_afb69fa7974148a37dd590960d711dc76"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#afb69fa7974148a37dd590960d711dc76">IMPLEMENT_GLOBAL_SHADER</a> (<a class="el" href="../../df/d38/class_f_subsurface_recombine_copy_p_s.html">FSubsurfaceRecombineCopyPS</a>, &quot;/Engine/<a class="el" href="../../d9/db1/namespace_private.html">Private</a>/PostProcessSubsurface.usf&quot;, &quot;SubsurfaceRecombineCopyPS&quot;, <a class="el" href="../../da/dca/_r_h_i_definitions_8h.html#a0a3cc83cb6ebc79b66b43fae3ffee64eaf50bfe1c5c23e92a75ba64d89bcd3bfa">SF_Pixel</a>)</td></tr>
+<tr class="memitem:aacf49d59d8db89704bc2f53281fd643f" id="r_aacf49d59d8db89704bc2f53281fd643f"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aacf49d59d8db89704bc2f53281fd643f">IMPLEMENT_GLOBAL_SHADER</a> (<a class="el" href="../../de/d70/class_f_subsurface_diffuse_init_pass_p_s.html">FSubsurfaceDiffuseInitPassPS</a>, &quot;/Engine/<a class="el" href="../../d9/db1/namespace_private.html">Private</a>/PostProcessSubsurfaceDiffuse.usf&quot;, &quot;SubsurfaceDiffuseInitPassPS&quot;, <a class="el" href="../../da/dca/_r_h_i_definitions_8h.html#a0a3cc83cb6ebc79b66b43fae3ffee64eaf50bfe1c5c23e92a75ba64d89bcd3bfa">SF_Pixel</a>)</td></tr>
+<tr class="memitem:a8f72fa23bfd477f81e090d43510aaf25" id="r_a8f72fa23bfd477f81e090d43510aaf25"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8f72fa23bfd477f81e090d43510aaf25">IMPLEMENT_GLOBAL_SHADER</a> (<a class="el" href="../../dd/d02/class_f_subsurface_debug_c_s.html">FSubsurfaceDebugCS</a>, &quot;/Engine/<a class="el" href="../../d9/db1/namespace_private.html">Private</a>/PostProcessSubsurface.usf&quot;, &quot;SubsurfaceDebugCS&quot;, <a class="el" href="../../da/dca/_r_h_i_definitions_8h.html#a0a3cc83cb6ebc79b66b43fae3ffee64ea2a84a18d7ac3d1fac11e3153f0abf73b">SF_Compute</a>)</td></tr>
+<tr class="memitem:a5cdcfd6062622deee3974bccabf1e313" id="r_a5cdcfd6062622deee3974bccabf1e313"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../df/d63/_typed_element_query_capabilities_8inl.html#a72343342ce64c0755563ee6c5e27868d">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5cdcfd6062622deee3974bccabf1e313">SetupSubsurfaceDiffuseWriteParameters</a> (<a class="el" href="../../d3/d85/class_f_r_d_g_builder.html">FRDGBuilder</a> &amp;GraphBuilder, const <a class="el" href="../../dd/d2b/class_f_view_info.html">FViewInfo</a> &amp;View, FSubsurfaceDiffuseWriteParameters &amp;OutParameters)</td></tr>
+<tr class="memitem:a2b01983a3362cb4158c71521c0790d5e" id="r_a2b01983a3362cb4158c71521c0790d5e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../df/d63/_typed_element_query_capabilities_8inl.html#a72343342ce64c0755563ee6c5e27868d">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2b01983a3362cb4158c71521c0790d5e">SetupSubsurfaceDiffuseReadParameters</a> (<a class="el" href="../../d3/d85/class_f_r_d_g_builder.html">FRDGBuilder</a> &amp;GraphBuilder, const <a class="el" href="../../dd/d2b/class_f_view_info.html">FViewInfo</a> &amp;View, FSubsurfaceDiffuseReadParameters &amp;OutParameters)</td></tr>
+<tr class="memitem:a491a4e9f9ae1f6f2cdbb6d1acfd619d8" id="r_a491a4e9f9ae1f6f2cdbb6d1acfd619d8"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../df/d63/_typed_element_query_capabilities_8inl.html#a72343342ce64c0755563ee6c5e27868d">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a491a4e9f9ae1f6f2cdbb6d1acfd619d8">RenderSubsurfaceDiffuseInitPass</a> (<a class="el" href="../../d3/d85/class_f_r_d_g_builder.html">FRDGBuilder</a> &amp;GraphBuilder, <a class="el" href="../../d2/ddb/class_t_array_view.html">TArrayView</a>&lt; const <a class="el" href="../../dd/d2b/class_f_view_info.html">FViewInfo</a> &gt; Views, const <a class="el" href="../../d1/d9e/struct_f_scene_textures.html">FSceneTextures</a> &amp;SceneTextures, <a class="el" href="../../d6/db1/class_t_array.html">TArray</a>&lt; <a class="el" href="../../d5/d68/struct_f_subsurface_tiles.html">FSubsurfaceTiles</a> &gt; &amp;OutPerViewTiles)</td></tr>
+<tr class="memitem:a090a9d1ce733ebe1c1d8805852d916f5" id="r_a090a9d1ce733ebe1c1d8805852d916f5"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../df/d63/_typed_element_query_capabilities_8inl.html#a72343342ce64c0755563ee6c5e27868d">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a090a9d1ce733ebe1c1d8805852d916f5">AddSubsurfaceViewPass</a> (<a class="el" href="../../d3/d85/class_f_r_d_g_builder.html">FRDGBuilder</a> &amp;GraphBuilder, const <a class="el" href="../../dd/d2b/class_f_view_info.html">FViewInfo</a> &amp;View, const <a class="el" href="../../d5/d68/struct_f_subsurface_tiles.html">FSubsurfaceTiles</a> *PrebuiltTiles, const <a class="el" href="../../d1/d9e/struct_f_scene_textures.html">FSceneTextures</a> &amp;SceneTextures, <a class="el" href="../../d6/d6d/_canvas_types_8h.html#aea265cf57883ec58a09111d4a17b8448">FRDGTextureRef</a> SceneColorTextureOutput, <a class="el" href="../../da/dca/_r_h_i_definitions_8h.html#ade9cba1bfb915996e4921f5e3dd9202d">ERenderTargetLoadAction</a> SceneColorTextureLoadAction)</td></tr>
+<tr class="memitem:a9d7e9441ec169aea624c574f22a64a86" id="r_a9d7e9441ec169aea624c574f22a64a86"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d6/d6d/_canvas_types_8h.html#aea265cf57883ec58a09111d4a17b8448">FRDGTextureRef</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9d7e9441ec169aea624c574f22a64a86">AddSubsurfacePass</a> (<a class="el" href="../../d3/d85/class_f_r_d_g_builder.html">FRDGBuilder</a> &amp;GraphBuilder, <a class="el" href="../../d2/ddb/class_t_array_view.html">TArrayView</a>&lt; const <a class="el" href="../../dd/d2b/class_f_view_info.html">FViewInfo</a> &gt; Views, const <a class="el" href="../../d6/db1/class_t_array.html">TArray</a>&lt; <a class="el" href="../../d5/d68/struct_f_subsurface_tiles.html">FSubsurfaceTiles</a> &gt; &amp;PrebuiltTiles, const <a class="el" href="../../dd/de9/preprocessor_8c.html#a1134b580f8da4de94ca6b1de4d37975e">uint32</a> ViewMask, const <a class="el" href="../../d1/d9e/struct_f_scene_textures.html">FSceneTextures</a> &amp;SceneTextures, <a class="el" href="../../d6/d6d/_canvas_types_8h.html#aea265cf57883ec58a09111d4a17b8448">FRDGTextureRef</a> SceneColorTextureOutput)</td></tr>
+<tr class="memitem:acf96138cb99dc4119c4580cf7b1f7043" id="r_acf96138cb99dc4119c4580cf7b1f7043"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d3/df7/struct_f_screen_pass_texture.html">FScreenPassTexture</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#acf96138cb99dc4119c4580cf7b1f7043">AddVisualizeSubsurfacePass</a> (<a class="el" href="../../d3/d85/class_f_r_d_g_builder.html">FRDGBuilder</a> &amp;GraphBuilder, const <a class="el" href="../../dd/d2b/class_f_view_info.html">FViewInfo</a> &amp;View, const <a class="el" href="../../de/d10/struct_f_visualize_subsurface_inputs.html">FVisualizeSubsurfaceInputs</a> &amp;Inputs)</td></tr>
+<tr class="memitem:a7a5e9812583ce3373fac6c6bbf4aa59e" id="r_a7a5e9812583ce3373fac6c6bbf4aa59e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../df/d63/_typed_element_query_capabilities_8inl.html#a72343342ce64c0755563ee6c5e27868d">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7a5e9812583ce3373fac6c6bbf4aa59e">AddSubsurfacePass</a> (<a class="el" href="../../d3/d85/class_f_r_d_g_builder.html">FRDGBuilder</a> &amp;GraphBuilder, <a class="el" href="../../d1/d9e/struct_f_scene_textures.html">FSceneTextures</a> &amp;SceneTextures, <a class="el" href="../../d2/ddb/class_t_array_view.html">TArrayView</a>&lt; const <a class="el" href="../../dd/d2b/class_f_view_info.html">FViewInfo</a> &gt; Views, const <a class="el" href="../../d6/db1/class_t_array.html">TArray</a>&lt; <a class="el" href="../../d5/d68/struct_f_subsurface_tiles.html">FSubsurfaceTiles</a> &gt; &amp;PrebuiltTiles)</td></tr>
+</table>
+<a name="doc-define-members" id="doc-define-members"></a><h2 id="header-doc-define-members" class="groupheader">宏定义说明</h2>
+<a id="a0870cb701b4753b200b2bd9b2f1a6a73" name="a0870cb701b4753b200b2bd9b2f1a6a73"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0870cb701b4753b200b2bd9b2f1a6a73">&#9670;&#160;</a></span>USE_CUSTOM_CLEAR_UAV</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define USE_CUSTOM_CLEAR_UAV</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a name="doc-typedef-members" id="doc-typedef-members"></a><h2 id="header-doc-typedef-members" class="groupheader">类型定义说明</h2>
+<a id="ae58ae98e8c86d64a4d8e782bf82fde0e" name="ae58ae98e8c86d64a4d8e782bf82fde0e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae58ae98e8c86d64a4d8e782bf82fde0e">&#9670;&#160;</a></span>FSubsurfaceUniformRef</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef <a class="el" href="../../d6/d09/class_t_uniform_buffer_ref.html">TUniformBufferRef</a>&lt;FSubsurfaceUniformParameters&gt; <a class="el" href="#ae58ae98e8c86d64a4d8e782bf82fde0e">FSubsurfaceUniformRef</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a name="doc-enum-members" id="doc-enum-members"></a><h2 id="header-doc-enum-members" class="groupheader">枚举类型说明</h2>
+<a id="a8342deca8c31c3d266a50af372ad3c7e" name="a8342deca8c31c3d266a50af372ad3c7e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8342deca8c31c3d266a50af372ad3c7e">&#9670;&#160;</a></span>ESubsurfaceMode</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum class <a class="el" href="#a8342deca8c31c3d266a50af372ad3c7e">ESubsurfaceMode</a> : <a class="el" href="../../dd/de9/preprocessor_8c.html#a1134b580f8da4de94ca6b1de4d37975e">uint32</a></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel strong">strong</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<table class="fieldtable">
+<tr><th colspan="2">枚举值</th></tr><tr><td class="fieldname"><a id="a8342deca8c31c3d266a50af372ad3c7eac1d8e99f546fb2e4f76396ba20d32395" name="a8342deca8c31c3d266a50af372ad3c7eac1d8e99f546fb2e4f76396ba20d32395"></a>FullRes&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a8342deca8c31c3d266a50af372ad3c7ea7a43a40ca382563672e6fbc27c02c725" name="a8342deca8c31c3d266a50af372ad3c7ea7a43a40ca382563672e6fbc27c02c725"></a>HalfRes&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a8342deca8c31c3d266a50af372ad3c7ea5ce88c4d66118388a69c6fd4262ca3a1" name="a8342deca8c31c3d266a50af372ad3c7ea5ce88c4d66118388a69c6fd4262ca3a1"></a>Bypass&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a8342deca8c31c3d266a50af372ad3c7ea26a4b44a837bf97b972628509912b4a5" name="a8342deca8c31c3d266a50af372ad3c7ea26a4b44a837bf97b972628509912b4a5"></a>MAX&#160;</td><td class="fielddoc"></td></tr>
+</table>
+
+</div>
+</div>
+<a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">函数说明</h2>
+<a id="a7a5e9812583ce3373fac6c6bbf4aa59e" name="a7a5e9812583ce3373fac6c6bbf4aa59e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7a5e9812583ce3373fac6c6bbf4aa59e">&#9670;&#160;</a></span>AddSubsurfacePass() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../df/d63/_typed_element_query_capabilities_8inl.html#a72343342ce64c0755563ee6c5e27868d">void</a> AddSubsurfacePass </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d3/d85/class_f_r_d_g_builder.html">FRDGBuilder</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>GraphBuilder</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d1/d9e/struct_f_scene_textures.html">FSceneTextures</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>SceneTextures</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d2/ddb/class_t_array_view.html">TArrayView</a>&lt; const <a class="el" href="../../dd/d2b/class_f_view_info.html">FViewInfo</a> &gt;</td>          <td class="paramname"><span class="paramname"><em>Views</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="../../d6/db1/class_t_array.html">TArray</a>&lt; <a class="el" href="../../d5/d68/struct_f_subsurface_tiles.html">FSubsurfaceTiles</a> &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>PrebuiltTiles</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a9d7e9441ec169aea624c574f22a64a86" name="a9d7e9441ec169aea624c574f22a64a86"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9d7e9441ec169aea624c574f22a64a86">&#9670;&#160;</a></span>AddSubsurfacePass() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d6/d6d/_canvas_types_8h.html#aea265cf57883ec58a09111d4a17b8448">FRDGTextureRef</a> AddSubsurfacePass </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d3/d85/class_f_r_d_g_builder.html">FRDGBuilder</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>GraphBuilder</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d2/ddb/class_t_array_view.html">TArrayView</a>&lt; const <a class="el" href="../../dd/d2b/class_f_view_info.html">FViewInfo</a> &gt;</td>          <td class="paramname"><span class="paramname"><em>Views</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="../../d6/db1/class_t_array.html">TArray</a>&lt; <a class="el" href="../../d5/d68/struct_f_subsurface_tiles.html">FSubsurfaceTiles</a> &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>PrebuiltTiles</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="../../dd/de9/preprocessor_8c.html#a1134b580f8da4de94ca6b1de4d37975e">uint32</a></td>          <td class="paramname"><span class="paramname"><em>ViewMask</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="../../d1/d9e/struct_f_scene_textures.html">FSceneTextures</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>SceneTextures</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d6/d6d/_canvas_types_8h.html#aea265cf57883ec58a09111d4a17b8448">FRDGTextureRef</a></td>          <td class="paramname"><span class="paramname"><em>SceneColorTextureOutput</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a090a9d1ce733ebe1c1d8805852d916f5" name="a090a9d1ce733ebe1c1d8805852d916f5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a090a9d1ce733ebe1c1d8805852d916f5">&#9670;&#160;</a></span>AddSubsurfaceViewPass()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../df/d63/_typed_element_query_capabilities_8inl.html#a72343342ce64c0755563ee6c5e27868d">void</a> AddSubsurfaceViewPass </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d3/d85/class_f_r_d_g_builder.html">FRDGBuilder</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>GraphBuilder</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="../../dd/d2b/class_f_view_info.html">FViewInfo</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>View</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="../../d5/d68/struct_f_subsurface_tiles.html">FSubsurfaceTiles</a> *</td>          <td class="paramname"><span class="paramname"><em>PrebuiltTiles</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="../../d1/d9e/struct_f_scene_textures.html">FSceneTextures</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>SceneTextures</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d6/d6d/_canvas_types_8h.html#aea265cf57883ec58a09111d4a17b8448">FRDGTextureRef</a></td>          <td class="paramname"><span class="paramname"><em>SceneColorTextureOutput</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../da/dca/_r_h_i_definitions_8h.html#ade9cba1bfb915996e4921f5e3dd9202d">ERenderTargetLoadAction</a></td>          <td class="paramname"><span class="paramname"><em>SceneColorTextureLoadAction</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>All subsurface passes within the screen-space subsurface effect can operate at half or full resolution, depending on the subsurface mode. The values are precomputed and shared among all Subsurface textures.</p>
+<p>When in bypass mode, the setup and convolution passes are skipped, but lighting reconstruction is still performed in the recombine pass.</p>
+<p>See the related comment above in the prepare pass. The scene viewport is used as both the target and texture viewport in order to ensure that the correct pixel is sampled for checkerboard rendering.</p>
+
+</div>
+</div>
+<a id="acf96138cb99dc4119c4580cf7b1f7043" name="acf96138cb99dc4119c4580cf7b1f7043"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acf96138cb99dc4119c4580cf7b1f7043">&#9670;&#160;</a></span>AddVisualizeSubsurfacePass()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d3/df7/struct_f_screen_pass_texture.html">FScreenPassTexture</a> AddVisualizeSubsurfacePass </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d3/d85/class_f_r_d_g_builder.html">FRDGBuilder</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>GraphBuilder</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="../../dd/d2b/class_f_view_info.html">FViewInfo</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>View</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="../../de/d10/struct_f_visualize_subsurface_inputs.html">FVisualizeSubsurfaceInputs</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>Inputs</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a942ac5fc9b100b2787b05e9325c771c9" name="a942ac5fc9b100b2787b05e9325c771c9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a942ac5fc9b100b2787b05e9325c771c9">&#9670;&#160;</a></span>CreateBlackUAVTexture() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d6/d6d/_canvas_types_8h.html#aea265cf57883ec58a09111d4a17b8448">FRDGTextureRef</a> CreateBlackUAVTexture </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d3/d85/class_f_r_d_g_builder.html">FRDGBuilder</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>GraphBuilder</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d9/d87/struct_f_r_d_g_texture_desc.html">FRDGTextureDesc</a></td>          <td class="paramname"><span class="paramname"><em>SRVDesc</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const TCHAR *</td>          <td class="paramname"><span class="paramname"><em>Name</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="../../dd/d2b/class_f_view_info.html">FViewInfo</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>View</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="../../d2/d36/class_f_screen_pass_texture_viewport.html">FScreenPassTextureViewport</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>SceneViewport</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a951b68dc17a0781862e2fa804ef488de" name="a951b68dc17a0781862e2fa804ef488de"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a951b68dc17a0781862e2fa804ef488de">&#9670;&#160;</a></span>CreateBlackUAVTexture() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d6/d6d/_canvas_types_8h.html#aea265cf57883ec58a09111d4a17b8448">FRDGTextureRef</a> CreateBlackUAVTexture </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d3/d85/class_f_r_d_g_builder.html">FRDGBuilder</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>GraphBuilder</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d9/d87/struct_f_r_d_g_texture_desc.html">FRDGTextureDesc</a></td>          <td class="paramname"><span class="paramname"><em>SRVDesc</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const TCHAR *</td>          <td class="paramname"><span class="paramname"><em>TextureName</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d6/dd7/class_f_r_d_g_event_name.html">FRDGEventName</a> &amp;&amp;</td>          <td class="paramname"><span class="paramname"><em>PassName</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="../../d2/d36/class_f_screen_pass_texture_viewport.html">FScreenPassTextureViewport</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>SceneViewport</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d9/de1/_n_n_e_runtime_r_d_g_8h.html#a934d7411e595a58728f7ba3bb9aae740">FRDGBufferRef</a></td>          <td class="paramname"><span class="paramname"><em>ConditionBuffer</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../dd/de9/preprocessor_8c.html#a1134b580f8da4de94ca6b1de4d37975e">uint32</a></td>          <td class="paramname"><span class="paramname"><em>Offset</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a67d331ee45cbcb992113df7935a6eadc" name="a67d331ee45cbcb992113df7935a6eadc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a67d331ee45cbcb992113df7935a6eadc">&#9670;&#160;</a></span>CreateUniformBuffer()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="#ae58ae98e8c86d64a4d8e782bf82fde0e">FSubsurfaceUniformRef</a> CreateUniformBuffer </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../dd/d2b/class_f_view_info.html">FViewInfo</a> const &amp;</td>          <td class="paramname"><span class="paramname"><em>View</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a8dbb3cd84ca9fd010dadfc3815eefa5d">int32</a></td>          <td class="paramname"><span class="paramname"><em>MaxGroupCount</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aa477d2fdd61a01ad3c8ac598cd96e343" name="aa477d2fdd61a01ad3c8ac598cd96e343"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa477d2fdd61a01ad3c8ac598cd96e343">&#9670;&#160;</a></span>END_SHADER_PARAMETER_STRUCT()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">END_SHADER_PARAMETER_STRUCT </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a44610cd6dd62b25806cd9ab6de77fe71" name="a44610cd6dd62b25806cd9ab6de77fe71"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a44610cd6dd62b25806cd9ab6de77fe71">&#9670;&#160;</a></span>GetEventName()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const TCHAR * GetEventName </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="#a8342deca8c31c3d266a50af372ad3c7e">ESubsurfaceMode</a></td>          <td class="paramname"><span class="paramname"><em>SubsurfaceMode</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="afbcfcaf383d3b48cdde1060bd48851ea" name="afbcfcaf383d3b48cdde1060bd48851ea"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afbcfcaf383d3b48cdde1060bd48851ea">&#9670;&#160;</a></span>GetSSSBurleyBilateralFilterKernelFunctionType()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a8dbb3cd84ca9fd010dadfc3815eefa5d">int32</a> GetSSSBurleyBilateralFilterKernelFunctionType </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="af32de041ad2bcceb6b551fd3aefd98f3" name="af32de041ad2bcceb6b551fd3aefd98f3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af32de041ad2bcceb6b551fd3aefd98f3">&#9670;&#160;</a></span>GetSSSFilter()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a8dbb3cd84ca9fd010dadfc3815eefa5d">int32</a> GetSSSFilter </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ad6c09abb26e6553edc564dcc182f0e4c" name="ad6c09abb26e6553edc564dcc182f0e4c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad6c09abb26e6553edc564dcc182f0e4c">&#9670;&#160;</a></span>GetSSSMipmapsMinTileCount()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../dd/de9/preprocessor_8c.html#a1134b580f8da4de94ca6b1de4d37975e">uint32</a> GetSSSMipmapsMinTileCount </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="../../dd/d2b/class_f_view_info.html">FViewInfo</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>View</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a4275f61d30d69ab6e1b54de9fb723b0f" name="a4275f61d30d69ab6e1b54de9fb723b0f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4275f61d30d69ab6e1b54de9fb723b0f">&#9670;&#160;</a></span>GetSSSQuality()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a8dbb3cd84ca9fd010dadfc3815eefa5d">int32</a> GetSSSQuality </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a732b95a5ab57cc47ec35853515eb1b16" name="a732b95a5ab57cc47ec35853515eb1b16"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a732b95a5ab57cc47ec35853515eb1b16">&#9670;&#160;</a></span>GetSSSSampleSet()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a8dbb3cd84ca9fd010dadfc3815eefa5d">int32</a> GetSSSSampleSet </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a294886c9b01ba7ddf0f6e59d658de5d2" name="a294886c9b01ba7ddf0f6e59d658de5d2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a294886c9b01ba7ddf0f6e59d658de5d2">&#9670;&#160;</a></span>GetSubsurfaceCommonParameters()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">FSubsurfaceParameters GetSubsurfaceCommonParameters </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d3/d85/class_f_r_d_g_builder.html">FRDGBuilder</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>GraphBuilder</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="../../dd/d2b/class_f_view_info.html">FViewInfo</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>View</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d2/d51/_render_graph_fwd_8h.html#ab926b0657e138258b3e140cc660c1545">TRDGUniformBufferRef</a>&lt; FSceneTextureUniformParameters &gt;</td>          <td class="paramname"><span class="paramname"><em>SceneTextures</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ad0913f2b635f3af76104200d0111e01e" name="ad0913f2b635f3af76104200d0111e01e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad0913f2b635f3af76104200d0111e01e">&#9670;&#160;</a></span>GetSubsurfaceInput()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">FSubsurfaceInput GetSubsurfaceInput </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d6/d6d/_canvas_types_8h.html#aea265cf57883ec58a09111d4a17b8448">FRDGTextureRef</a></td>          <td class="paramname"><span class="paramname"><em>Texture</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const FScreenPassTextureViewportParameters &amp;</td>          <td class="paramname"><span class="paramname"><em>ViewportParameters</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aaa8e3bb055955024fcba3913e5f9e3b3" name="aaa8e3bb055955024fcba3913e5f9e3b3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aaa8e3bb055955024fcba3913e5f9e3b3">&#9670;&#160;</a></span>GetSubsurfaceModeForView()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="#a8342deca8c31c3d266a50af372ad3c7e">ESubsurfaceMode</a> GetSubsurfaceModeForView </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="../../dd/d2b/class_f_view_info.html">FViewInfo</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>View</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ae6910ed0e6728e9897269854f7a37567" name="ae6910ed0e6728e9897269854f7a37567"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae6910ed0e6728e9897269854f7a37567">&#9670;&#160;</a></span>GetSubsurfaceRadiusScale()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../df/d2a/_s_anim_notify_shared_8h.html#ac7c94e837fed3f8e4bb3dd94d7bd2ecf">float</a> GetSubsurfaceRadiusScale </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="acda3953d4f3bc7e48fc8c61dd8dcc84b" name="acda3953d4f3bc7e48fc8c61dd8dcc84b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acda3953d4f3bc7e48fc8c61dd8dcc84b">&#9670;&#160;</a></span>GetSubsurfaceRequiredViewMask()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../dd/de9/preprocessor_8c.html#a1134b580f8da4de94ca6b1de4d37975e">uint32</a> GetSubsurfaceRequiredViewMask </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d2/ddb/class_t_array_view.html">TArrayView</a>&lt; const <a class="el" href="../../dd/d2b/class_f_view_info.html">FViewInfo</a> &gt;</td>          <td class="paramname"><span class="paramname"><em>Views</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a4a3074080260b2e8bea3037428451363" name="a4a3074080260b2e8bea3037428451363"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4a3074080260b2e8bea3037428451363">&#9670;&#160;</a></span>GetSubsurfaceSRVInput()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">FSubsurfaceSRVInput GetSubsurfaceSRVInput </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d2/d51/_render_graph_fwd_8h.html#a092bea9e10fbb6524acb24616d2a4d0e">FRDGTextureSRVRef</a></td>          <td class="paramname"><span class="paramname"><em>Texture</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const FScreenPassTextureViewportParameters &amp;</td>          <td class="paramname"><span class="paramname"><em>ViewportParameters</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a4033189e0b7dde3f9b6a5e17b9c1c365" name="a4033189e0b7dde3f9b6a5e17b9c1c365"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4033189e0b7dde3f9b6a5e17b9c1c365">&#9670;&#160;</a></span>IMPLEMENT_GLOBAL_SHADER() <span class="overload">[1/12]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">IMPLEMENT_GLOBAL_SHADER </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d5/d47/class_f_fill_mips_condition_buffer_c_s.html">FFillMipsConditionBufferCS</a></td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&quot;/Engine/<a class="el" href="../../d9/db1/namespace_private.html">Private</a>/PostProcessSubsurface.usf&quot;</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&quot;FillMipsConditionBufferCS&quot;</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../da/dca/_r_h_i_definitions_8h.html#a0a3cc83cb6ebc79b66b43fae3ffee64ea2a84a18d7ac3d1fac11e3153f0abf73b">SF_Compute</a></td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a5f3f0de461260c833096d828c8432aae" name="a5f3f0de461260c833096d828c8432aae"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5f3f0de461260c833096d828c8432aae">&#9670;&#160;</a></span>IMPLEMENT_GLOBAL_SHADER() <span class="overload">[2/12]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">IMPLEMENT_GLOBAL_SHADER </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../dc/d60/class_f_subsurface_build_indirect_dispatch_args_c_s.html">FSubsurfaceBuildIndirectDispatchArgsCS</a></td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&quot;/Engine/<a class="el" href="../../d9/db1/namespace_private.html">Private</a>/PostProcessSubsurface.usf&quot;</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&quot;BuildIndirectDispatchArgsCS&quot;</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../da/dca/_r_h_i_definitions_8h.html#a0a3cc83cb6ebc79b66b43fae3ffee64ea2a84a18d7ac3d1fac11e3153f0abf73b">SF_Compute</a></td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a8f72fa23bfd477f81e090d43510aaf25" name="a8f72fa23bfd477f81e090d43510aaf25"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8f72fa23bfd477f81e090d43510aaf25">&#9670;&#160;</a></span>IMPLEMENT_GLOBAL_SHADER() <span class="overload">[3/12]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">IMPLEMENT_GLOBAL_SHADER </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../dd/d02/class_f_subsurface_debug_c_s.html">FSubsurfaceDebugCS</a></td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&quot;/Engine/<a class="el" href="../../d9/db1/namespace_private.html">Private</a>/PostProcessSubsurface.usf&quot;</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&quot;SubsurfaceDebugCS&quot;</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../da/dca/_r_h_i_definitions_8h.html#a0a3cc83cb6ebc79b66b43fae3ffee64ea2a84a18d7ac3d1fac11e3153f0abf73b">SF_Compute</a></td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aacf49d59d8db89704bc2f53281fd643f" name="aacf49d59d8db89704bc2f53281fd643f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aacf49d59d8db89704bc2f53281fd643f">&#9670;&#160;</a></span>IMPLEMENT_GLOBAL_SHADER() <span class="overload">[4/12]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">IMPLEMENT_GLOBAL_SHADER </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../de/d70/class_f_subsurface_diffuse_init_pass_p_s.html">FSubsurfaceDiffuseInitPassPS</a></td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&quot;/Engine/<a class="el" href="../../d9/db1/namespace_private.html">Private</a>/PostProcessSubsurfaceDiffuse.usf&quot;</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&quot;SubsurfaceDiffuseInitPassPS&quot;</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../da/dca/_r_h_i_definitions_8h.html#a0a3cc83cb6ebc79b66b43fae3ffee64eaf50bfe1c5c23e92a75ba64d89bcd3bfa">SF_Pixel</a></td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="afc0579611d707211b434220a7abcabd1" name="afc0579611d707211b434220a7abcabd1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afc0579611d707211b434220a7abcabd1">&#9670;&#160;</a></span>IMPLEMENT_GLOBAL_SHADER() <span class="overload">[5/12]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">IMPLEMENT_GLOBAL_SHADER </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d2/d1e/class_f_subsurface_indirect_dispatch_c_s.html">FSubsurfaceIndirectDispatchCS</a></td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&quot;/Engine/<a class="el" href="../../d9/db1/namespace_private.html">Private</a>/PostProcessSubsurface.usf&quot;</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&quot;MainIndirectDispatchCS&quot;</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../da/dca/_r_h_i_definitions_8h.html#a0a3cc83cb6ebc79b66b43fae3ffee64ea2a84a18d7ac3d1fac11e3153f0abf73b">SF_Compute</a></td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a0d50ae3a6297c618d5f067c56855a502" name="a0d50ae3a6297c618d5f067c56855a502"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0d50ae3a6297c618d5f067c56855a502">&#9670;&#160;</a></span>IMPLEMENT_GLOBAL_SHADER() <span class="overload">[6/12]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">IMPLEMENT_GLOBAL_SHADER </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../dd/dc0/class_f_subsurface_indirect_dispatch_setup_c_s.html">FSubsurfaceIndirectDispatchSetupCS</a></td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&quot;/Engine/<a class="el" href="../../d9/db1/namespace_private.html">Private</a>/PostProcessSubsurface.usf&quot;</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&quot;SetupIndirectCS&quot;</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../da/dca/_r_h_i_definitions_8h.html#a0a3cc83cb6ebc79b66b43fae3ffee64ea2a84a18d7ac3d1fac11e3153f0abf73b">SF_Compute</a></td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a877bb2bca390c0b60f4aa164e64f3f98" name="a877bb2bca390c0b60f4aa164e64f3f98"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a877bb2bca390c0b60f4aa164e64f3f98">&#9670;&#160;</a></span>IMPLEMENT_GLOBAL_SHADER() <span class="overload">[7/12]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">IMPLEMENT_GLOBAL_SHADER </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d6/d60/class_f_subsurface_init_value_buffer_c_s.html">FSubsurfaceInitValueBufferCS</a></td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&quot;/Engine/<a class="el" href="../../d9/db1/namespace_private.html">Private</a>/PostProcessSubsurface.usf&quot;</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&quot;InitValueBufferCS&quot;</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../da/dca/_r_h_i_definitions_8h.html#a0a3cc83cb6ebc79b66b43fae3ffee64ea2a84a18d7ac3d1fac11e3153f0abf73b">SF_Compute</a></td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="afb69fa7974148a37dd590960d711dc76" name="afb69fa7974148a37dd590960d711dc76"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afb69fa7974148a37dd590960d711dc76">&#9670;&#160;</a></span>IMPLEMENT_GLOBAL_SHADER() <span class="overload">[8/12]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">IMPLEMENT_GLOBAL_SHADER </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../df/d38/class_f_subsurface_recombine_copy_p_s.html">FSubsurfaceRecombineCopyPS</a></td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&quot;/Engine/<a class="el" href="../../d9/db1/namespace_private.html">Private</a>/PostProcessSubsurface.usf&quot;</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&quot;SubsurfaceRecombineCopyPS&quot;</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../da/dca/_r_h_i_definitions_8h.html#a0a3cc83cb6ebc79b66b43fae3ffee64eaf50bfe1c5c23e92a75ba64d89bcd3bfa">SF_Pixel</a></td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a757cb289ff9aaf23474e5d003e4420fe" name="a757cb289ff9aaf23474e5d003e4420fe"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a757cb289ff9aaf23474e5d003e4420fe">&#9670;&#160;</a></span>IMPLEMENT_GLOBAL_SHADER() <span class="overload">[9/12]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">IMPLEMENT_GLOBAL_SHADER </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d2/da9/class_f_subsurface_recombine_p_s.html">FSubsurfaceRecombinePS</a></td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&quot;/Engine/<a class="el" href="../../d9/db1/namespace_private.html">Private</a>/PostProcessSubsurface.usf&quot;</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&quot;SubsurfaceRecombinePS&quot;</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../da/dca/_r_h_i_definitions_8h.html#a0a3cc83cb6ebc79b66b43fae3ffee64eaf50bfe1c5c23e92a75ba64d89bcd3bfa">SF_Pixel</a></td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a8442861a8eb64de22fdd74dd1fc6e231" name="a8442861a8eb64de22fdd74dd1fc6e231"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8442861a8eb64de22fdd74dd1fc6e231">&#9670;&#160;</a></span>IMPLEMENT_GLOBAL_SHADER() <span class="overload">[10/12]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">IMPLEMENT_GLOBAL_SHADER </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d9/d3f/class_f_subsurface_s_r_v_resolve_p_s.html">FSubsurfaceSRVResolvePS</a></td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&quot;/Engine/<a class="el" href="../../d9/db1/namespace_private.html">Private</a>/PostProcessSubsurface.usf&quot;</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&quot;SubsurfaceViewportCopyPS&quot;</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../da/dca/_r_h_i_definitions_8h.html#a0a3cc83cb6ebc79b66b43fae3ffee64eaf50bfe1c5c23e92a75ba64d89bcd3bfa">SF_Pixel</a></td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a9ad004a392375d3dc1f443f042ac8e4b" name="a9ad004a392375d3dc1f443f042ac8e4b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9ad004a392375d3dc1f443f042ac8e4b">&#9670;&#160;</a></span>IMPLEMENT_GLOBAL_SHADER() <span class="overload">[11/12]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">IMPLEMENT_GLOBAL_SHADER </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d0/d88/class_f_subsurface_viewport_copy_p_s.html">FSubsurfaceViewportCopyPS</a></td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&quot;/Engine/<a class="el" href="../../d9/db1/namespace_private.html">Private</a>/PostProcessSubsurface.usf&quot;</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&quot;SubsurfaceViewportCopyPS&quot;</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../da/dca/_r_h_i_definitions_8h.html#a0a3cc83cb6ebc79b66b43fae3ffee64eaf50bfe1c5c23e92a75ba64d89bcd3bfa">SF_Pixel</a></td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aad01b834bc10e6081e816fb8823b6c59" name="aad01b834bc10e6081e816fb8823b6c59"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aad01b834bc10e6081e816fb8823b6c59">&#9670;&#160;</a></span>IMPLEMENT_GLOBAL_SHADER() <span class="overload">[12/12]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">IMPLEMENT_GLOBAL_SHADER </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../db/de1/class_f_subsurface_visualize_p_s.html">FSubsurfaceVisualizePS</a></td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&quot;/Engine/<a class="el" href="../../d9/db1/namespace_private.html">Private</a>/PostProcessSubsurface.usf&quot;</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&quot;VisualizePS&quot;</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../da/dca/_r_h_i_definitions_8h.html#a0a3cc83cb6ebc79b66b43fae3ffee64eaf50bfe1c5c23e92a75ba64d89bcd3bfa">SF_Pixel</a></td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a17d7931d97990b0b247b1fca7e2bf284" name="a17d7931d97990b0b247b1fca7e2bf284"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a17d7931d97990b0b247b1fca7e2bf284">&#9670;&#160;</a></span>IMPLEMENT_GLOBAL_SHADER_PARAMETER_STRUCT()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">IMPLEMENT_GLOBAL_SHADER_PARAMETER_STRUCT </td>
+          <td>(</td>
+          <td class="paramtype">FSubsurfaceUniformParameters</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&quot;SubsurfaceUniformParameters&quot;</td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a1d98ddcd7f26bd8787e8197fb81452a6" name="a1d98ddcd7f26bd8787e8197fb81452a6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1d98ddcd7f26bd8787e8197fb81452a6">&#9670;&#160;</a></span>IsProfileIdCacheEnabled()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a> IsProfileIdCacheEnabled </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a111a4df2e76033b65d2d311576ad1fea" name="a111a4df2e76033b65d2d311576ad1fea"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a111a4df2e76033b65d2d311576ad1fea">&#9670;&#160;</a></span>IsSeparatedDiffuseLuminanceEnabled()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a> IsSeparatedDiffuseLuminanceEnabled </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="../../d4/dac/struct_f_engine_show_flags.html">FEngineShowFlags</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>EngineShowFlags</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d5/db6/_pixel_format_8h.html#aaefcb820f58db492c4c56dc4d7a93f23">EPixelFormat</a></td>          <td class="paramname"><span class="paramname"><em>SceneColorFormat</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../de/d49/_r_h_i_shader_platform_8h.html#a424c00593a28eb7ade584eea91161acd">EShaderPlatform</a></td>          <td class="paramname"><span class="paramname"><em>ShaderPlatform</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a304d56def878b3e8d09fcbdeda581833" name="a304d56def878b3e8d09fcbdeda581833"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a304d56def878b3e8d09fcbdeda581833">&#9670;&#160;</a></span>IsSubsurfaceCheckerboardFormat() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a> IsSubsurfaceCheckerboardFormat </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d5/db6/_pixel_format_8h.html#aaefcb820f58db492c4c56dc4d7a93f23">EPixelFormat</a></td>          <td class="paramname"><span class="paramname"><em>SceneColorFormat</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="../../dd/d2b/class_f_view_info.html">FViewInfo</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>View</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a7e0b75167de97e2739660e449f5ab23d" name="a7e0b75167de97e2739660e449f5ab23d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7e0b75167de97e2739660e449f5ab23d">&#9670;&#160;</a></span>IsSubsurfaceCheckerboardFormat() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a> IsSubsurfaceCheckerboardFormat </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d5/db6/_pixel_format_8h.html#aaefcb820f58db492c4c56dc4d7a93f23">EPixelFormat</a></td>          <td class="paramname"><span class="paramname"><em>SceneColorFormat</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../de/d49/_r_h_i_shader_platform_8h.html#a424c00593a28eb7ade584eea91161acd">EShaderPlatform</a></td>          <td class="paramname"><span class="paramname"><em>ShaderPlatform</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a5b6431a60832c1997ae55df1580596be" name="a5b6431a60832c1997ae55df1580596be"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5b6431a60832c1997ae55df1580596be">&#9670;&#160;</a></span>IsSubsurfaceEnabled()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a> IsSubsurfaceEnabled </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="../../d4/dac/struct_f_engine_show_flags.html">FEngineShowFlags</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>EngineShowFlags</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aec3ec579a478ed645d71692aaa43f17c" name="aec3ec579a478ed645d71692aaa43f17c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aec3ec579a478ed645d71692aaa43f17c">&#9670;&#160;</a></span>IsSubsurfaceRequiredForView()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a> IsSubsurfaceRequiredForView </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="../../dd/d2b/class_f_view_info.html">FViewInfo</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>View</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a680a44c5b98a867cbc0715771511c7c2" name="a680a44c5b98a867cbc0715771511c7c2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a680a44c5b98a867cbc0715771511c7c2">&#9670;&#160;</a></span>RegisterExternalRenderTarget()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d6/d6d/_canvas_types_8h.html#aea265cf57883ec58a09111d4a17b8448">FRDGTextureRef</a> RegisterExternalRenderTarget </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d3/d85/class_f_r_d_g_builder.html">FRDGBuilder</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>GraphBuilder</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d7/d10/class_t_ref_count_ptr.html">TRefCountPtr</a>&lt; <a class="el" href="../../dd/db5/struct_i_pooled_render_target.html">IPooledRenderTarget</a> &gt; *</td>          <td class="paramname"><span class="paramname"><em>PtrExternalTexture</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d0/df6/_math_fwd_8h.html#af6853de5e4fcb2bad3bd5fdd2e50bffd">FIntPoint</a></td>          <td class="paramname"><span class="paramname"><em>CurentViewExtent</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const TCHAR *</td>          <td class="paramname"><span class="paramname"><em>Name</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a491a4e9f9ae1f6f2cdbb6d1acfd619d8" name="a491a4e9f9ae1f6f2cdbb6d1acfd619d8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a491a4e9f9ae1f6f2cdbb6d1acfd619d8">&#9670;&#160;</a></span>RenderSubsurfaceDiffuseInitPass()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../df/d63/_typed_element_query_capabilities_8inl.html#a72343342ce64c0755563ee6c5e27868d">void</a> RenderSubsurfaceDiffuseInitPass </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d3/d85/class_f_r_d_g_builder.html">FRDGBuilder</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>GraphBuilder</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d2/ddb/class_t_array_view.html">TArrayView</a>&lt; const <a class="el" href="../../dd/d2b/class_f_view_info.html">FViewInfo</a> &gt;</td>          <td class="paramname"><span class="paramname"><em>Views</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="../../d1/d9e/struct_f_scene_textures.html">FSceneTextures</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>SceneTextures</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d6/db1/class_t_array.html">TArray</a>&lt; <a class="el" href="../../d5/d68/struct_f_subsurface_tiles.html">FSubsurfaceTiles</a> &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>OutPerViewTiles</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a2b01983a3362cb4158c71521c0790d5e" name="a2b01983a3362cb4158c71521c0790d5e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2b01983a3362cb4158c71521c0790d5e">&#9670;&#160;</a></span>SetupSubsurfaceDiffuseReadParameters()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../df/d63/_typed_element_query_capabilities_8inl.html#a72343342ce64c0755563ee6c5e27868d">void</a> SetupSubsurfaceDiffuseReadParameters </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d3/d85/class_f_r_d_g_builder.html">FRDGBuilder</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>GraphBuilder</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="../../dd/d2b/class_f_view_info.html">FViewInfo</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>View</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">FSubsurfaceDiffuseReadParameters &amp;</td>          <td class="paramname"><span class="paramname"><em>OutParameters</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a5cdcfd6062622deee3974bccabf1e313" name="a5cdcfd6062622deee3974bccabf1e313"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5cdcfd6062622deee3974bccabf1e313">&#9670;&#160;</a></span>SetupSubsurfaceDiffuseWriteParameters()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../df/d63/_typed_element_query_capabilities_8inl.html#a72343342ce64c0755563ee6c5e27868d">void</a> SetupSubsurfaceDiffuseWriteParameters </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d3/d85/class_f_r_d_g_builder.html">FRDGBuilder</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>GraphBuilder</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="../../dd/d2b/class_f_view_info.html">FViewInfo</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>View</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">FSubsurfaceDiffuseWriteParameters &amp;</td>          <td class="paramname"><span class="paramname"><em>OutParameters</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a31f0a276f669a46f5dfed673145f72ad" name="a31f0a276f669a46f5dfed673145f72ad"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a31f0a276f669a46f5dfed673145f72ad">&#9670;&#160;</a></span>UseSeparatedSubsurfaceDiffuse()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a> UseSeparatedSubsurfaceDiffuse </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../de/d49/_r_h_i_shader_platform_8h.html#a424c00593a28eb7ade584eea91161acd">EShaderPlatform</a></td>          <td class="paramname"><span class="paramname"><em>ShaderPlatform</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<div id="page-nav" class="page-nav-panel">
+<div id="page-nav-resize-handle"></div>
+<div id="page-nav-tree">
+<div id="page-nav-contents">
+</div><!-- page-nav-contents -->
+</div><!-- page-nav-tree -->
+</div><!-- page-nav -->
+</div><!-- container -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a href="../../dir_0b6ee6e7e9547e675db4add2e5de97da.html">Engine</a></li><li class="navelem"><a href="../../dir_9579d1ecb2c7bf48cbe1049c41745cb4.html">Source</a></li><li class="navelem"><a href="../../dir_9f04efef762572853abdf73f62bebfcc.html">Runtime</a></li><li class="navelem"><a href="../../dir_5ed6327f04b0f38d3f6fe5caa38b0445.html">Renderer</a></li><li class="navelem"><a href="../../dir_e317dc6f09036e33460f39c550131623.html">Private</a></li><li class="navelem"><a href="../../dir_f2aa76ded130b077846bc18bb76bacc2.html">PostProcess</a></li><li class="navelem"><a href="../../d6/db5/_post_process_subsurface_8cpp.html">PostProcessSubsurface.cpp</a></li>
+    <li class="footer">制作者 <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.15.0 </li>
+  </ul>
+</div>
+</body>
+</html>

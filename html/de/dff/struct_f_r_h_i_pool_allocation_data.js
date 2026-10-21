@@ -1,0 +1,27 @@
+var struct_f_r_h_i_pool_allocation_data =
+[
+    [ "AddAlias", "de/dff/struct_f_r_h_i_pool_allocation_data.html#a699ffacdb04dc9b3b423af7b8231c1d7", null ],
+    [ "GetAlignment", "de/dff/struct_f_r_h_i_pool_allocation_data.html#aeefb5810de618f272fe68c55c46c0fec", null ],
+    [ "GetFirstAlias", "de/dff/struct_f_r_h_i_pool_allocation_data.html#ae8e4be9051a1358b65e25595ad611491", null ],
+    [ "GetNext", "de/dff/struct_f_r_h_i_pool_allocation_data.html#a189598ad5c830bc72332735f1ded3af1", null ],
+    [ "GetOffset", "de/dff/struct_f_r_h_i_pool_allocation_data.html#ad24e66f852ee3f8cc709cd33037b2535", null ],
+    [ "GetOwner", "de/dff/struct_f_r_h_i_pool_allocation_data.html#a280f7adc5041a5d31ab78a2e73b9a012", null ],
+    [ "GetPoolIndex", "de/dff/struct_f_r_h_i_pool_allocation_data.html#a6c4f2783861d31bc5212c6edc9010032", null ],
+    [ "GetPrev", "de/dff/struct_f_r_h_i_pool_allocation_data.html#a8481df8a42cc1424bdd103455ce1aa43", null ],
+    [ "GetSize", "de/dff/struct_f_r_h_i_pool_allocation_data.html#a8762fb9e18b52115806b28b0140d13a5", null ],
+    [ "InitAsAllocated", "de/dff/struct_f_r_h_i_pool_allocation_data.html#a5c03a22b16dc3c2d1de5cb6ad3b10b65", null ],
+    [ "InitAsFree", "de/dff/struct_f_r_h_i_pool_allocation_data.html#a6f2cbbd1c6b8b659903303887d7a4b8d", null ],
+    [ "InitAsHead", "de/dff/struct_f_r_h_i_pool_allocation_data.html#ae87003686bb0a65e3592c8ce46681f44", null ],
+    [ "IsAllocated", "de/dff/struct_f_r_h_i_pool_allocation_data.html#ab55357f47219cf8414f255b14fe3b434", null ],
+    [ "IsFree", "de/dff/struct_f_r_h_i_pool_allocation_data.html#aba46820f6f4b290a04d140ab3bb508bb", null ],
+    [ "IsHead", "de/dff/struct_f_r_h_i_pool_allocation_data.html#aed9b656a61c7dc49fe59adecfa9ad509", null ],
+    [ "IsLocked", "de/dff/struct_f_r_h_i_pool_allocation_data.html#a635dc4ce1d6e967e3ff5bc309252673f", null ],
+    [ "MarkFree", "de/dff/struct_f_r_h_i_pool_allocation_data.html#adf2f582f8c0f316069307dd0e5f20b9a", null ],
+    [ "MoveFrom", "de/dff/struct_f_r_h_i_pool_allocation_data.html#a5b02d225465880b46992f0252b58fe81", null ],
+    [ "RemoveAlias", "de/dff/struct_f_r_h_i_pool_allocation_data.html#a36c2bd0afb7b01a453b9e32bae4271ea", null ],
+    [ "Reset", "de/dff/struct_f_r_h_i_pool_allocation_data.html#ae6ad50a4581c5d7b95820323a897c12e", null ],
+    [ "SetOwner", "de/dff/struct_f_r_h_i_pool_allocation_data.html#acccb65a20b768b48d603a91641699433", null ],
+    [ "Unlock", "de/dff/struct_f_r_h_i_pool_allocation_data.html#ae61e6bbfdc848ca6ffaed1c0c5dd01c7", null ],
+    [ "FRHIMemoryPool", "de/dff/struct_f_r_h_i_pool_allocation_data.html#ab6928879a61f802551be491e0c15425b", null ],
+    [ "FRHIPoolAllocator", "de/dff/struct_f_r_h_i_pool_allocation_data.html#ad16dd2568bac77dbabe4455071a59cac", null ]
+];

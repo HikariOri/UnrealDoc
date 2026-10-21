@@ -1,0 +1,590 @@
+<!-- HTML header for doxygen 1.15.0-->
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh">
+<head>
+  <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=11" />
+  <meta name="generator" content="Doxygen 1.15.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>UE 5.8.4: Engine/Source/Editor/SourceControlWindows/Private/SSourceControlChangelistRows.h 源文件</title>
+  <link rel="icon" href="../../EdIconDefault.bmp" type="image/x-icon" />
+  <link href="../../tabs.css" rel="stylesheet" type="text/css" />
+  <script type="text/javascript" src="../../jquery.js"></script>
+  <script type="text/javascript" src="../../dynsections.js"></script>
+  <link href="../../navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../navtreedata.js"></script>
+<script type="text/javascript" src="../../navtree.js"></script>
+<script type="text/javascript" src="../../cookie.js"></script>
+  <link href="../../search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../search/searchdata.js"></script>
+<script type="text/javascript" src="../../search/search.js"></script>
+  <link href="../../doxygen.css" rel="stylesheet" type="text/css" />
+  <link href="../../doxygen-awesome.css" rel="stylesheet" type="text/css"/>
+<link href="../../doxygen-awesome-sidebar-only.css" rel="stylesheet" type="text/css"/>
+<link href="../../doxygen-awesome-sidebar-only-darkmode-toggle.css" rel="stylesheet" type="text/css"/>
+  <!-- ... other metadata & script includes ... -->
+  <script type="text/javascript" src="../../doxygen-awesome-darkmode-toggle.js"></script>
+  <script type="text/javascript">
+    DoxygenAwesomeDarkModeToggle.title = "Zwischen hellem/dunklem Modus wechseln"
+    DoxygenAwesomeDarkModeToggle.lightModeIcon = '🌞'
+    // icon from https://fonts.google.com/icons
+    DoxygenAwesomeDarkModeToggle.darkModeIcon = `<svg xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 24 24" height="24px" viewBox="0 0 24 24" width="24px" fill="#009793"><g><rect fill="none" height="24" width="24"/></g><g><g><path d="M8.1,14.15C9.77,14.63,11,16.17,11,18c0,0.68-0.19,1.31-0.48,1.87c0.48,0.09,0.97,0.14,1.48,0.14 c1.48,0,2.9-0.41,4.13-1.15c-2.62-0.92-5.23-2.82-6.8-5.86C7.74,9.94,7.78,7.09,8.29,4.9c-2.57,1.33-4.3,4.01-4.3,7.1c0,0,0,0,0,0 c0.01,0,0.01,0,0.02,0C5.66,12,7.18,12.83,8.1,14.15z" opacity=".3"/><path d="M19.78,17.51c-2.47,0-6.57-1.33-8.68-5.43C8.77,7.57,10.6,3.6,11.63,2.01C6.27,2.2,1.98,6.59,1.98,12 c0,0.14,0.02,0.28,0.02,0.42C2.61,12.16,3.28,12,3.98,12c0,0,0,0,0,0c0-3.09,1.73-5.77,4.3-7.1C7.78,7.09,7.74,9.94,9.32,13 c1.57,3.04,4.18,4.95,6.8,5.86c-1.23,0.74-2.65,1.15-4.13,1.15c-0.5,0-1-0.05-1.48-0.14c-0.37,0.7-0.94,1.27-1.64,1.64 c0.98,0.32,2.03,0.5,3.11,0.5c3.5,0,6.58-1.8,8.37-4.52C20.18,17.5,19.98,17.51,19.78,17.51z"/><path d="M7,16l-0.18,0C6.4,14.84,5.3,14,4,14c-1.66,0-3,1.34-3,3s1.34,3,3,3c0.62,0,2.49,0,3,0c1.1,0,2-0.9,2-2 C9,16.9,8.1,16,7,16z"/></g></g></svg>`
+    DoxygenAwesomeDarkModeToggle.init()
+  </script>
+  <script type="text/javascript" src="../../doxygen-awesome-fragment-copy-button.js"></script>
+  <script type="text/javascript">
+    DoxygenAwesomeFragmentCopyButton.title = "In die Zwischenablage kopieren"
+    // DoxygenAwesomeFragmentCopyButton.copyIcon = `<svg ...>`
+    // DoxygenAwesomeFragmentCopyButton.successIcon = `<svg ...>`
+    DoxygenAwesomeFragmentCopyButton.init()
+  </script>
+  <script type="text/javascript" src="../../doxygen-awesome-paragraph-link.js"></script>
+  <script type="text/javascript">
+    DoxygenAwesomeParagraphLink.title = "Abschnitt verknüpfen"
+    DoxygenAwesomeParagraphLink.icon = "¶"
+    DoxygenAwesomeParagraphLink.init()
+  </script>
+  <script type="text/javascript" src="../../doxygen-awesome-interactive-toc.js"></script>
+  <script type="text/javascript">
+    DoxygenAwesomeInteractiveToc.topOffset = 45
+    DoxygenAwesomeInteractiveToc.hideMobileMenu = false
+    DoxygenAwesomeInteractiveToc.init()
+  </script>
+</head>
+<body>
+    <div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+      <div id="titlearea">
+        <table cellspacing="0" cellpadding="0">
+          <tbody>
+            <tr id="projectrow">
+              <td id="projectlogo"><img alt="Logo" src="../../EdIconDefault.bmp"  /></td>
+              <td id="projectalign">
+                <div id="projectname">UE 5.8.4
+                </div>
+                <div id="projectbrief">Unreal Engine</div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <!-- end header part -->
+<!-- 制作者 Doxygen 1.15.0 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "../../search/",'.html');
+</script>
+<script type="text/javascript">
+$(function() { codefold.init(); });
+</script>
+<script type="text/javascript" src="../../menudata.js"></script>
+<script type="text/javascript" src="../../menu.js"></script>
+<script type="text/javascript">
+$(function() {
+  initMenu('../../',true,false,'search.php','搜索',true);
+  $(function() { init_search(); });
+});
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(function(){initNavTree('da/dea/_s_source_control_changelist_rows_8h_source.html','../../',''); });
+</script>
+<div id="container">
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">载入中...</div>
+<div class="SRStatus" id="Searching">搜索中...</div>
+<div class="SRStatus" id="NoMatches">未找到</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">SSourceControlChangelistRows.h</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="../../da/dea/_s_source_control_changelist_rows_8h.html">浏览该文件的文档.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="comment">// Copyright Epic Games, Inc. All Rights Reserved.</span></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span> </div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="preprocessor">#pragma once</span></div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span> </div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="preprocessor">#include &quot;<a class="code" href="../../dc/d5e/_core_minimal_8h.html">CoreMinimal.h</a>&quot;</span></div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span> </div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="preprocessor">#include &quot;<a class="code" href="../../d0/d23/_enum_class_flags_8h.html">Misc/EnumClassFlags.h</a>&quot;</span></div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="preprocessor">#include &quot;<a class="code" href="../../d0/df9/_s_compound_widget_8h.html">Widgets/SCompoundWidget.h</a>&quot;</span></div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="preprocessor">#include &quot;<a class="code" href="../../df/dea/_s_table_row_8h.html">Widgets/Views/STableRow.h</a>&quot;</span></div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="preprocessor">#include &quot;<a class="code" href="../../d8/d56/_s_tree_view_8h.html">Widgets/Views/STreeView.h</a>&quot;</span></div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="preprocessor">#include &quot;<a class="code" href="../../d9/d22/_drag_and_drop_8h.html">Input/DragAndDrop.h</a>&quot;</span></div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="preprocessor">#include &quot;<a class="code" href="../../da/d65/_s_source_control_common_8h.html">SSourceControlCommon.h</a>&quot;</span></div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span></div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span><span class="keyword">namespace </span><a class="code hl_namespace" href="../../d9/deb/namespace_source_control_file_view_column.html">SourceControlFileViewColumn</a></div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span>{</div>
+<div class="foldopen" id="foldopen00018" data-start="{" data-end="}">
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno"><a class="line" href="../../de/d88/namespace_source_control_file_view_column_1_1_check_box.html">   18</a></span>    <span class="keyword">namespace </span><a class="code hl_namespace" href="../../de/d88/namespace_source_control_file_view_column_1_1_check_box.html">CheckBox</a></div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>    {</div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>        <a class="code hl_class" href="../../d5/dd5/class_f_name.html">FName</a> <a class="code hl_function" href="../../de/d88/namespace_source_control_file_view_column_1_1_check_box.html#abca8eda72c9a9bbab74a3ff6405cae2a">Id</a>();</div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>    }</div>
+</div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span></div>
+<div class="foldopen" id="foldopen00024" data-start="{" data-end="}">
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno"><a class="line" href="../../da/d42/namespace_source_control_file_view_column_1_1_icon.html">   24</a></span>    <span class="keyword">namespace </span><a class="code hl_namespace" href="../../da/d42/namespace_source_control_file_view_column_1_1_icon.html">Icon</a></div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>    {</div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>        <a class="code hl_class" href="../../d5/dd5/class_f_name.html">FName</a> <a class="code hl_function" href="../../da/d42/namespace_source_control_file_view_column_1_1_icon.html#ab51f3e0e09bc78828d82a11944949f1b">Id</a>();</div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>        <a class="code hl_class" href="../../da/d46/class_f_text.html">FText</a> <a class="code hl_function" href="../../da/d42/namespace_source_control_file_view_column_1_1_icon.html#af09ff683d8b2fc1c23a31d19106a7d3f">GetDisplayText</a>();</div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>        <a class="code hl_class" href="../../da/d46/class_f_text.html">FText</a> <a class="code hl_function" href="../../da/d42/namespace_source_control_file_view_column_1_1_icon.html#ad4949c6fc4e4854219a4f6d905cfca07">GetToolTipText</a>();</div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>    }</div>
+</div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span></div>
+<div class="foldopen" id="foldopen00032" data-start="{" data-end="}">
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno"><a class="line" href="../../de/dcc/namespace_source_control_file_view_column_1_1_shelve.html">   32</a></span>    <span class="keyword">namespace </span><a class="code hl_namespace" href="../../de/dcc/namespace_source_control_file_view_column_1_1_shelve.html">Shelve</a></div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>    {</div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>        <a class="code hl_class" href="../../d5/dd5/class_f_name.html">FName</a> <a class="code hl_function" href="../../de/dcc/namespace_source_control_file_view_column_1_1_shelve.html#a9aea5984bb0dade7ea595d79f19c5cff">Id</a>();</div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>        <a class="code hl_class" href="../../da/d46/class_f_text.html">FText</a> <a class="code hl_function" href="../../de/dcc/namespace_source_control_file_view_column_1_1_shelve.html#a0cca53d2d4e6bad71bedf9c4d3986c60">GetDisplayText</a>();</div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>        <a class="code hl_class" href="../../da/d46/class_f_text.html">FText</a> <a class="code hl_function" href="../../de/dcc/namespace_source_control_file_view_column_1_1_shelve.html#a5594d0e149d24fd775cadd0f02a04703">GetToolTipText</a>();</div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>    }</div>
+</div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span></div>
+<div class="foldopen" id="foldopen00040" data-start="{" data-end="}">
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno"><a class="line" href="../../d5/d13/namespace_source_control_file_view_column_1_1_name.html">   40</a></span>    <span class="keyword">namespace </span><a class="code hl_namespace" href="../../d5/d13/namespace_source_control_file_view_column_1_1_name.html">Name</a></div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>    {</div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>        <a class="code hl_class" href="../../d5/dd5/class_f_name.html">FName</a> <a class="code hl_function" href="../../d5/d13/namespace_source_control_file_view_column_1_1_name.html#aa4423a2282e79bcfb652fcc07fd8debe">Id</a>();</div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>        <a class="code hl_class" href="../../da/d46/class_f_text.html">FText</a> <a class="code hl_function" href="../../d5/d13/namespace_source_control_file_view_column_1_1_name.html#a3889730aa2e7dc1130c3bc294391dac6">GetDisplayText</a>();</div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>        <a class="code hl_class" href="../../da/d46/class_f_text.html">FText</a> <a class="code hl_function" href="../../d5/d13/namespace_source_control_file_view_column_1_1_name.html#a644833f502917bfd053439f3d3fff33a">GetToolTipText</a>();</div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>    }</div>
+</div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>    </div>
+<div class="foldopen" id="foldopen00048" data-start="{" data-end="}">
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno"><a class="line" href="../../da/d7d/namespace_source_control_file_view_column_1_1_path.html">   48</a></span>    <span class="keyword">namespace </span><a class="code hl_namespace" href="../../da/d7d/namespace_source_control_file_view_column_1_1_path.html">Path</a></div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>    {</div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>        <a class="code hl_class" href="../../d5/dd5/class_f_name.html">FName</a> <a class="code hl_function" href="../../da/d7d/namespace_source_control_file_view_column_1_1_path.html#a94d79951af06ec5fa030c11c3895a18e">Id</a>();</div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>        <a class="code hl_class" href="../../da/d46/class_f_text.html">FText</a> <a class="code hl_function" href="../../da/d7d/namespace_source_control_file_view_column_1_1_path.html#a27ec2c36986fe1db99f9a5fa06a60941">GetDisplayText</a>();</div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>        <a class="code hl_class" href="../../da/d46/class_f_text.html">FText</a> <a class="code hl_function" href="../../da/d7d/namespace_source_control_file_view_column_1_1_path.html#ae7ad13adc30dd946282ea798cf95b6ae">GetToolTipText</a>();</div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>    }</div>
+</div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span></div>
+<div class="foldopen" id="foldopen00056" data-start="{" data-end="}">
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno"><a class="line" href="../../d7/d0a/namespace_source_control_file_view_column_1_1_type.html">   56</a></span>    <span class="keyword">namespace </span><a class="code hl_namespace" href="../../d7/d0a/namespace_source_control_file_view_column_1_1_type.html">Type</a></div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>    {</div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>        <a class="code hl_class" href="../../d5/dd5/class_f_name.html">FName</a> <a class="code hl_function" href="../../d7/d0a/namespace_source_control_file_view_column_1_1_type.html#a18c2eb046dad7b02a014449d4848ca61">Id</a>();</div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>        <a class="code hl_class" href="../../da/d46/class_f_text.html">FText</a> <a class="code hl_function" href="../../d7/d0a/namespace_source_control_file_view_column_1_1_type.html#a988a72fa51283ed74bcd7138519bb322">GetDisplayText</a>();</div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>        <a class="code hl_class" href="../../da/d46/class_f_text.html">FText</a> <a class="code hl_function" href="../../d7/d0a/namespace_source_control_file_view_column_1_1_type.html#a358b66d389d1c889dce1ce2840864208">GetToolTipText</a>();</div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>    }</div>
+</div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span></div>
+<div class="foldopen" id="foldopen00064" data-start="{" data-end="}">
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno"><a class="line" href="../../d0/d67/namespace_source_control_file_view_column_1_1_last_modified_timestamp.html">   64</a></span>    <span class="keyword">namespace </span><a class="code hl_namespace" href="../../d0/d67/namespace_source_control_file_view_column_1_1_last_modified_timestamp.html">LastModifiedTimestamp</a></div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>    {</div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span>        <a class="code hl_class" href="../../d5/dd5/class_f_name.html">FName</a> <a class="code hl_function" href="../../d0/d67/namespace_source_control_file_view_column_1_1_last_modified_timestamp.html#ad0b94592af1f5711f2fca8e06d98220f">Id</a>();</div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>        <a class="code hl_class" href="../../da/d46/class_f_text.html">FText</a> <a class="code hl_function" href="../../d0/d67/namespace_source_control_file_view_column_1_1_last_modified_timestamp.html#ab4963f8dca864fe8b0e6aadf351b838b">GetDisplayText</a>();</div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>        <a class="code hl_class" href="../../da/d46/class_f_text.html">FText</a> <a class="code hl_function" href="../../d0/d67/namespace_source_control_file_view_column_1_1_last_modified_timestamp.html#a0e6549f59b1fcfcca042283428623236">GetToolTipText</a>();</div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>    }</div>
+</div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span></div>
+<div class="foldopen" id="foldopen00072" data-start="{" data-end="}">
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno"><a class="line" href="../../d6/d58/namespace_source_control_file_view_column_1_1_checked_out_by_user.html">   72</a></span>    <span class="keyword">namespace </span><a class="code hl_namespace" href="../../d6/d58/namespace_source_control_file_view_column_1_1_checked_out_by_user.html">CheckedOutByUser</a></div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>    {</div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>        <a class="code hl_class" href="../../d5/dd5/class_f_name.html">FName</a> <a class="code hl_function" href="../../d6/d58/namespace_source_control_file_view_column_1_1_checked_out_by_user.html#a528c9070b8a2b530c75ccb53df582b2d">Id</a>();</div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>        <a class="code hl_class" href="../../da/d46/class_f_text.html">FText</a> <a class="code hl_function" href="../../d6/d58/namespace_source_control_file_view_column_1_1_checked_out_by_user.html#ac21f3d986c4df0f6e120f9c1d5cca569">GetDisplayText</a>();</div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>        <a class="code hl_class" href="../../da/d46/class_f_text.html">FText</a> <a class="code hl_function" href="../../d6/d58/namespace_source_control_file_view_column_1_1_checked_out_by_user.html#af7cc10ed48e838c5cd085dd05ee6fada">GetToolTipText</a>();</div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span>    }</div>
+</div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span></div>
+<div class="foldopen" id="foldopen00080" data-start="{" data-end="}">
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno"><a class="line" href="../../d0/dee/namespace_source_control_file_view_column_1_1_changelist.html">   80</a></span>    <span class="keyword">namespace </span><a class="code hl_namespace" href="../../d0/dee/namespace_source_control_file_view_column_1_1_changelist.html">Changelist</a></div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>    {</div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span>        <a class="code hl_class" href="../../d5/dd5/class_f_name.html">FName</a> <a class="code hl_function" href="../../d0/dee/namespace_source_control_file_view_column_1_1_changelist.html#a6c8732be2fa4548d18f2113ecc14c856">Id</a>();</div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span>        <a class="code hl_class" href="../../da/d46/class_f_text.html">FText</a> <a class="code hl_function" href="../../d0/dee/namespace_source_control_file_view_column_1_1_changelist.html#af110c60f5f1f21c0ccf1968d24ee7c73">GetDisplayText</a>();</div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span>        <a class="code hl_class" href="../../da/d46/class_f_text.html">FText</a> <a class="code hl_function" href="../../d0/dee/namespace_source_control_file_view_column_1_1_changelist.html#afcac9fce1e86969f7072cf3ac124b2aa">GetToolTipText</a>();</div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span>    }</div>
+</div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span></div>
+<div class="foldopen" id="foldopen00088" data-start="{" data-end="}">
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno"><a class="line" href="../../dd/da3/namespace_source_control_file_view_column_1_1_dirty.html">   88</a></span>    <span class="keyword">namespace </span><a class="code hl_namespace" href="../../dd/da3/namespace_source_control_file_view_column_1_1_dirty.html">Dirty</a></div>
+<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span>    {</div>
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span>        <a class="code hl_class" href="../../d5/dd5/class_f_name.html">FName</a> <a class="code hl_function" href="../../dd/da3/namespace_source_control_file_view_column_1_1_dirty.html#a09985878bd9d13d39c17883a9de3cc9c">Id</a>();</div>
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span>        <a class="code hl_class" href="../../da/d46/class_f_text.html">FText</a> <a class="code hl_function" href="../../dd/da3/namespace_source_control_file_view_column_1_1_dirty.html#a5f090de8382560b1a07f78808af54fd6">GetDisplayText</a>();</div>
+<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span>        <a class="code hl_class" href="../../da/d46/class_f_text.html">FText</a> <a class="code hl_function" href="../../dd/da3/namespace_source_control_file_view_column_1_1_dirty.html#aebb1626de45763437be7d7ee9f294f2b">GetToolTipText</a>();</div>
+<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span>    }</div>
+</div>
+<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span></div>
+<div class="foldopen" id="foldopen00096" data-start="{" data-end="}">
+<div class="line"><a id="l00096" name="l00096"></a><span class="lineno"><a class="line" href="../../dd/d31/namespace_source_control_file_view_column_1_1_discard.html">   96</a></span>    <span class="keyword">namespace </span><a class="code hl_namespace" href="../../dd/d31/namespace_source_control_file_view_column_1_1_discard.html">Discard</a></div>
+<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span>    {</div>
+<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span>        <a class="code hl_class" href="../../d5/dd5/class_f_name.html">FName</a> <a class="code hl_function" href="../../dd/d31/namespace_source_control_file_view_column_1_1_discard.html#a7e9c0dc4bb3acaa52a497348f44cf7cb">Id</a>();</div>
+<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span>        <a class="code hl_class" href="../../da/d46/class_f_text.html">FText</a> <a class="code hl_function" href="../../dd/d31/namespace_source_control_file_view_column_1_1_discard.html#a3a97e14f17761e1f96dd2a0530aef088">GetDisplayText</a>();</div>
+<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span>        <a class="code hl_class" href="../../da/d46/class_f_text.html">FText</a> <a class="code hl_function" href="../../dd/d31/namespace_source_control_file_view_column_1_1_discard.html#a557dca2504dc48cd7c0673f329bcfb39">GetToolTipText</a>();</div>
+<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span>    }</div>
+</div>
+<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span> </div>
+<div class="foldopen" id="foldopen00103" data-start="{" data-end="};">
+<div class="line"><a id="l00103" name="l00103"></a><span class="lineno"><a class="line" href="../../d9/deb/namespace_source_control_file_view_column.html#af183b4c9d8d234adf4e64e3a281911fe">  103</a></span>    <span class="keyword">enum class</span> <a class="code hl_enumeration" href="../../d9/deb/namespace_source_control_file_view_column.html#af183b4c9d8d234adf4e64e3a281911fe">EPathFlags</a></div>
+<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span>    {</div>
+<div class="line"><a id="l00105" name="l00105"></a><span class="lineno"><a class="line" href="../../d9/deb/namespace_source_control_file_view_column.html#af183b4c9d8d234adf4e64e3a281911fea7a1920d61156abc05a60135aefe8bc67">  105</a></span>        <a class="code hl_enumvalue" href="../../d9/deb/namespace_source_control_file_view_column.html#af183b4c9d8d234adf4e64e3a281911fea7a1920d61156abc05a60135aefe8bc67">Default</a> = 0,</div>
+<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span> </div>
+<div class="line"><a id="l00107" name="l00107"></a><span class="lineno"><a class="line" href="../../d9/deb/namespace_source_control_file_view_column.html#af183b4c9d8d234adf4e64e3a281911fea477db1753d8cbc51006ebff0980e8d2f">  107</a></span>        <a class="code hl_enumvalue" href="../../d9/deb/namespace_source_control_file_view_column.html#af183b4c9d8d234adf4e64e3a281911fea477db1753d8cbc51006ebff0980e8d2f">ShowingPackageName</a> = 1 &lt;&lt; 0,</div>
+<div class="line"><a id="l00108" name="l00108"></a><span class="lineno"><a class="line" href="../../d9/deb/namespace_source_control_file_view_column.html#af183b4c9d8d234adf4e64e3a281911fea91b59ac7be500d59ce54b26a7aa26825">  108</a></span>        <a class="code hl_enumvalue" href="../../d9/deb/namespace_source_control_file_view_column.html#af183b4c9d8d234adf4e64e3a281911fea91b59ac7be500d59ce54b26a7aa26825">ShowingVersePath</a> = 1 &lt;&lt; 1,</div>
+<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span>    };</div>
+</div>
+<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span>    <a class="code hl_define" href="../../d0/d23/_enum_class_flags_8h.html#a80975a5eda8bee64896556c6df5807d7">ENUM_CLASS_FLAGS</a>(<a class="code hl_enumeration" href="../../d9/deb/namespace_source_control_file_view_column.html#af183b4c9d8d234adf4e64e3a281911fe">EPathFlags</a>)</div>
+<div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span> </div>
+<div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span>    <a class="code hl_class" href="../../df/de8/class_t_function.html">TFunction</a>&lt;<a class="code hl_typedef" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a8dbb3cd84ca9fd010dadfc3815eefa5d">int32</a>(<span class="keyword">const</span> <a class="code hl_struct" href="../../d5/dde/struct_i_file_view_tree_item.html">IFileViewTreeItem</a>&amp;, <span class="keyword">const</span> <a class="code hl_struct" href="../../d5/dde/struct_i_file_view_tree_item.html">IFileViewTreeItem</a>&amp;)&gt; <a class="code hl_function" href="../../d9/deb/namespace_source_control_file_view_column.html#ad481c7702beb806734a242503495c3ce">GetColumnComparer</a>(<a class="code hl_class" href="../../d5/dd5/class_f_name.html">FName</a> ColumnId, <a class="code hl_enumeration" href="../../d9/deb/namespace_source_control_file_view_column.html#af183b4c9d8d234adf4e64e3a281911fe">EPathFlags</a> PathFlags);</div>
+<div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span> </div>
+<div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span>    <a class="code hl_class" href="../../df/de8/class_t_function.html">TFunction</a>&lt;<a class="code hl_variable" href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a>(<span class="keyword">const</span> <a class="code hl_struct" href="../../d5/dde/struct_i_file_view_tree_item.html">IFileViewTreeItem</a>&amp;, <span class="keyword">const</span> <a class="code hl_struct" href="../../d5/dde/struct_i_file_view_tree_item.html">IFileViewTreeItem</a>&amp;)&gt; <a class="code hl_function" href="../../d9/deb/namespace_source_control_file_view_column.html#a4fd1d37c8bf0ca9b1d0e7e6e4743e081">GetSortPredicate</a>(<a class="code hl_enumeration" href="../../d8/d1b/namespace_e_column_sort_mode.html#ad64cc0e5350e2f1e65580112fde0f9f7">EColumnSortMode::Type</a>, <a class="code hl_class" href="../../d5/dd5/class_f_name.html">FName</a> ColumnId, <a class="code hl_enumeration" href="../../d9/deb/namespace_source_control_file_view_column.html#af183b4c9d8d234adf4e64e3a281911fe">EPathFlags</a> PathFlags);</div>
+<div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span>}</div>
+<div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span> </div>
+<div class="line"><a id="l00117" name="l00117"></a><span class="lineno">  117</span></div>
+<div class="foldopen" id="foldopen00119" data-start="{" data-end="};">
+<div class="line"><a id="l00119" name="l00119"></a><span class="lineno"><a class="line" href="../../df/d0e/class_s_changelist_table_row.html">  119</a></span><span class="keyword">class </span><a class="code hl_class" href="../../df/d0e/class_s_changelist_table_row.html">SChangelistTableRow</a> : <span class="keyword">public</span> <a class="code hl_function" href="../../d6/d4e/class_s_table_row.html#add142d6acc5b3ed5900f221f000ddbf8">STableRow</a>&lt;TSharedPtr&lt;IChangelistTreeItem&gt;&gt;</div>
+<div class="line"><a id="l00120" name="l00120"></a><span class="lineno">  120</span>{</div>
+<div class="line"><a id="l00121" name="l00121"></a><span class="lineno">  121</span><span class="keyword">public</span>:</div>
+<div class="foldopen" id="foldopen00122" data-start="{" data-end="}">
+<div class="line"><a id="l00122" name="l00122"></a><span class="lineno"><a class="line" href="../../df/d0e/class_s_changelist_table_row.html#a93617584d0d1616c6a2c53129c4284db">  122</a></span>    <a class="code hl_function" href="../../df/d0e/class_s_changelist_table_row.html#a93617584d0d1616c6a2c53129c4284db">SLATE_BEGIN_ARGS</a>(<a class="code hl_class" href="../../df/d0e/class_s_changelist_table_row.html">SChangelistTableRow</a>)</div>
+<div class="line"><a id="l00123" name="l00123"></a><span class="lineno">  123</span>        : _TreeItemToVisualize()</div>
+<div class="line"><a id="l00124" name="l00124"></a><span class="lineno">  124</span>        , _HighlightText()</div>
+<div class="line"><a id="l00125" name="l00125"></a><span class="lineno">  125</span>        , _OnPostDrop()</div>
+<div class="line"><a id="l00126" name="l00126"></a><span class="lineno">  126</span>    {</div>
+<div class="line"><a id="l00127" name="l00127"></a><span class="lineno">  127</span>    }</div>
+</div>
+<div class="line"><a id="l00128" name="l00128"></a><span class="lineno">  128</span>        <a class="code hl_define" href="../../d8/d1a/_declarative_syntax_support_8h.html#aff602d57f7d91f68885c12e002262266">SLATE_ARGUMENT</a>(<a class="code hl_typedef" href="../../da/d65/_s_source_control_common_8h.html#ad037d0a3674e42fc940483db0aa458af">FChangelistTreeItemPtr</a>, TreeItemToVisualize)</div>
+<div class="line"><a id="l00129" name="l00129"></a><span class="lineno">  129</span>        <a class="code hl_define" href="../../d8/d1a/_declarative_syntax_support_8h.html#a414db14979d7ecd99fe0bdc3e193e36a">SLATE_ATTRIBUTE</a>(<a class="code hl_class" href="../../da/d46/class_f_text.html">FText</a>, HighlightText)</div>
+<div class="line"><a id="l00130" name="l00130"></a><span class="lineno">  130</span>        <a class="code hl_define" href="../../d8/d1a/_declarative_syntax_support_8h.html#ab753f97c9f301948b5371ef962a75879">SLATE_EVENT</a>(FSimpleDelegate, OnPostDrop)</div>
+<div class="line"><a id="l00131" name="l00131"></a><span class="lineno">  131</span>    <a class="code hl_define" href="../../d8/d1a/_declarative_syntax_support_8h.html#ac6acf04f0f1af9cef1f45f719719f286">SLATE_END_ARGS</a>()</div>
+<div class="line"><a id="l00132" name="l00132"></a><span class="lineno">  132</span> </div>
+<div class="line"><a id="l00133" name="l00133"></a><span class="lineno">  133</span>public:</div>
+<div class="line"><a id="l00139" name="l00139"></a><span class="lineno">  139</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="../../dc/dbf/_s_color_themes_8h.html#a962ae95c971fc31c7e9c2e43280de3ac">Construct</a>(const <a class="code hl_class" href="../../d6/d4e/class_s_table_row.html">FArguments</a>&amp; InArgs, const <a class="code hl_class" href="../../de/dd8/class_t_shared_ref.html">TSharedRef</a>&lt;<a class="code hl_class" href="../../d2/da3/class_s_table_view_base.html">STableViewBase</a>&gt;&amp; InOwner);</div>
+<div class="line"><a id="l00140" name="l00140"></a><span class="lineno">  140</span> </div>
+<div class="line"><a id="l00141" name="l00141"></a><span class="lineno">  141</span>    <a class="code hl_class" href="../../da/d46/class_f_text.html">FText</a> <a class="code hl_function" href="../../df/d0e/class_s_changelist_table_row.html#a867382516f47e34f6f2b218c9a45f705">GetChangelistText</a>() const;</div>
+<div class="line"><a id="l00142" name="l00142"></a><span class="lineno">  142</span>    <a class="code hl_class" href="../../da/d46/class_f_text.html">FText</a> <a class="code hl_function" href="../../df/d0e/class_s_changelist_table_row.html#a22d050625c1efed986f65d66e5d19b3e">GetChangelistDescriptionText</a>() const;</div>
+<div class="line"><a id="l00143" name="l00143"></a><span class="lineno">  143</span>    <a class="code hl_class" href="../../da/d46/class_f_text.html">FText</a> <a class="code hl_function" href="../../df/d0e/class_s_changelist_table_row.html#a8747e2b7097f698d2cf39168b660df8e">GetChangelistDescriptionSingleLineText</a>() const;</div>
+<div class="line"><a id="l00144" name="l00144"></a><span class="lineno">  144</span> </div>
+<div class="line"><a id="l00145" name="l00145"></a><span class="lineno">  145</span>    static <span class="keywordtype">void</span> <a class="code hl_function" href="../../df/d0e/class_s_changelist_table_row.html#a4e78f377fdf873897fb24dde609dfaa6">PopulateSearchString</a>(const <a class="code hl_struct" href="../../d1/d35/struct_f_changelist_tree_item.html">FChangelistTreeItem</a>&amp; <a class="code hl_enumvalue" href="../../d9/d32/_i_detail_tree_node_8h.html#aac2bb5803c39cf25c813657bcf82869fa7d74f3b92b19da5e606d737d339a9679">Item</a>, <a class="code hl_class" href="../../d6/db1/class_t_array.html">TArray</a>&lt;<a class="code hl_variable" href="../../d2/d8e/_s_anim_notify_panel_8h.html#a7483aa7f043c623f8990a95320be654d">FString</a>&gt;&amp; OutStrings);</div>
+<div class="line"><a id="l00146" name="l00146"></a><span class="lineno">  146</span> </div>
+<div class="line"><a id="l00147" name="l00147"></a><span class="lineno">  147</span>protected:</div>
+<div class="line"><a id="l00148" name="l00148"></a><span class="lineno">  148</span>    <span class="comment">//~ Begin STableRow Interface.</span></div>
+<div class="line"><a id="l00149" name="l00149"></a><span class="lineno">  149</span>    virtual <a class="code hl_class" href="../../da/d8e/class_f_reply.html">FReply</a> <a class="code hl_function" href="../../df/d0e/class_s_changelist_table_row.html#ad4bd8f1aa2b7cae0ec5a1899d2e2a7f9">OnDrop</a>(const <a class="code hl_struct" href="../../d5/dba/struct_f_geometry.html">FGeometry</a>&amp; InGeometry, const <a class="code hl_class" href="../../dd/d99/class_f_drag_drop_event.html">FDragDropEvent</a>&amp; InDragDropEvent) override;</div>
+<div class="line"><a id="l00150" name="l00150"></a><span class="lineno">  150</span> </div>
+<div class="line"><a id="l00151" name="l00151"></a><span class="lineno">  151</span>private:</div>
+<div class="line"><a id="l00153" name="l00153"></a><span class="lineno">  153</span>    <a class="code hl_struct" href="../../d1/d35/struct_f_changelist_tree_item.html">FChangelistTreeItem</a>* TreeItem;</div>
+<div class="line"><a id="l00154" name="l00154"></a><span class="lineno">  154</span></div>
+<div class="line"><a id="l00156" name="l00156"></a><span class="lineno">  156</span>    FSimpleDelegate OnPostDrop;</div>
+<div class="line"><a id="l00157" name="l00157"></a><span class="lineno">  157</span>};</div>
+</div>
+<div class="line"><a id="l00158" name="l00158"></a><span class="lineno">  158</span> </div>
+<div class="line"><a id="l00159" name="l00159"></a><span class="lineno">  159</span></div>
+<div class="foldopen" id="foldopen00161" data-start="{" data-end="};">
+<div class="line"><a id="l00161" name="l00161"></a><span class="lineno"><a class="line" href="../../d1/dbd/class_s_uncontrolled_changelist_table_row.html">  161</a></span>class <a class="code hl_class" href="../../d1/dbd/class_s_uncontrolled_changelist_table_row.html">SUncontrolledChangelistTableRow</a> : public <a class="code hl_function" href="../../d6/d4e/class_s_table_row.html#add142d6acc5b3ed5900f221f000ddbf8">STableRow</a>&lt;<a class="code hl_typedef" href="../../da/d65/_s_source_control_common_8h.html#ad037d0a3674e42fc940483db0aa458af">FChangelistTreeItemPtr</a>&gt;</div>
+<div class="line"><a id="l00162" name="l00162"></a><span class="lineno">  162</span>{</div>
+<div class="line"><a id="l00163" name="l00163"></a><span class="lineno">  163</span><span class="keyword">public</span>:</div>
+<div class="foldopen" id="foldopen00164" data-start="{" data-end="}">
+<div class="line"><a id="l00164" name="l00164"></a><span class="lineno"><a class="line" href="../../d1/dbd/class_s_uncontrolled_changelist_table_row.html#a22940f1d3aa53bff01663791a3bb1948">  164</a></span>    <a class="code hl_function" href="../../d1/dbd/class_s_uncontrolled_changelist_table_row.html#a22940f1d3aa53bff01663791a3bb1948">SLATE_BEGIN_ARGS</a>(<a class="code hl_class" href="../../d1/dbd/class_s_uncontrolled_changelist_table_row.html">SUncontrolledChangelistTableRow</a>)</div>
+<div class="line"><a id="l00165" name="l00165"></a><span class="lineno">  165</span>        : _TreeItemToVisualize()</div>
+<div class="line"><a id="l00166" name="l00166"></a><span class="lineno">  166</span>        , _HighlightText()</div>
+<div class="line"><a id="l00167" name="l00167"></a><span class="lineno">  167</span>        , _OnPostDrop()</div>
+<div class="line"><a id="l00168" name="l00168"></a><span class="lineno">  168</span>    {</div>
+<div class="line"><a id="l00169" name="l00169"></a><span class="lineno">  169</span>    }</div>
+</div>
+<div class="line"><a id="l00170" name="l00170"></a><span class="lineno">  170</span>        <a class="code hl_define" href="../../d8/d1a/_declarative_syntax_support_8h.html#aff602d57f7d91f68885c12e002262266">SLATE_ARGUMENT</a>(<a class="code hl_typedef" href="../../da/d65/_s_source_control_common_8h.html#ad037d0a3674e42fc940483db0aa458af">FChangelistTreeItemPtr</a>, TreeItemToVisualize)</div>
+<div class="line"><a id="l00171" name="l00171"></a><span class="lineno">  171</span>        <a class="code hl_define" href="../../d8/d1a/_declarative_syntax_support_8h.html#a414db14979d7ecd99fe0bdc3e193e36a">SLATE_ATTRIBUTE</a>(<a class="code hl_class" href="../../da/d46/class_f_text.html">FText</a>, HighlightText)</div>
+<div class="line"><a id="l00172" name="l00172"></a><span class="lineno">  172</span>        <a class="code hl_define" href="../../d8/d1a/_declarative_syntax_support_8h.html#ab753f97c9f301948b5371ef962a75879">SLATE_EVENT</a>(FSimpleDelegate, OnPostDrop)</div>
+<div class="line"><a id="l00173" name="l00173"></a><span class="lineno">  173</span>    <a class="code hl_define" href="../../d8/d1a/_declarative_syntax_support_8h.html#ac6acf04f0f1af9cef1f45f719719f286">SLATE_END_ARGS</a>()</div>
+<div class="line"><a id="l00174" name="l00174"></a><span class="lineno">  174</span> </div>
+<div class="line"><a id="l00175" name="l00175"></a><span class="lineno">  175</span>public:</div>
+<div class="line"><a id="l00181" name="l00181"></a><span class="lineno">  181</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="../../dc/dbf/_s_color_themes_8h.html#a962ae95c971fc31c7e9c2e43280de3ac">Construct</a>(const <a class="code hl_class" href="../../d6/d4e/class_s_table_row.html">FArguments</a>&amp; InArgs, const <a class="code hl_class" href="../../de/dd8/class_t_shared_ref.html">TSharedRef</a>&lt;<a class="code hl_class" href="../../d2/da3/class_s_table_view_base.html">STableViewBase</a>&gt;&amp; InOwner);</div>
+<div class="line"><a id="l00182" name="l00182"></a><span class="lineno">  182</span> </div>
+<div class="line"><a id="l00183" name="l00183"></a><span class="lineno">  183</span>    <a class="code hl_class" href="../../da/d46/class_f_text.html">FText</a> <a class="code hl_function" href="../../df/d0e/class_s_changelist_table_row.html#a867382516f47e34f6f2b218c9a45f705">GetChangelistText</a>() const;</div>
+<div class="line"><a id="l00184" name="l00184"></a><span class="lineno">  184</span> </div>
+<div class="line"><a id="l00185" name="l00185"></a><span class="lineno">  185</span>    static <span class="keywordtype">void</span> <a class="code hl_function" href="../../df/d0e/class_s_changelist_table_row.html#a4e78f377fdf873897fb24dde609dfaa6">PopulateSearchString</a>(const <a class="code hl_struct" href="../../dd/dcf/struct_f_uncontrolled_changelist_tree_item.html">FUncontrolledChangelistTreeItem</a>&amp; <a class="code hl_enumvalue" href="../../d9/d32/_i_detail_tree_node_8h.html#aac2bb5803c39cf25c813657bcf82869fa7d74f3b92b19da5e606d737d339a9679">Item</a>, <a class="code hl_class" href="../../d6/db1/class_t_array.html">TArray</a>&lt;<a class="code hl_variable" href="../../d2/d8e/_s_anim_notify_panel_8h.html#a7483aa7f043c623f8990a95320be654d">FString</a>&gt;&amp; OutStrings);</div>
+<div class="line"><a id="l00186" name="l00186"></a><span class="lineno">  186</span> </div>
+<div class="line"><a id="l00187" name="l00187"></a><span class="lineno">  187</span>protected:</div>
+<div class="line"><a id="l00188" name="l00188"></a><span class="lineno">  188</span>    <span class="comment">//~ Begin STableRow Interface.</span></div>
+<div class="line"><a id="l00189" name="l00189"></a><span class="lineno">  189</span>    virtual <a class="code hl_class" href="../../da/d8e/class_f_reply.html">FReply</a> <a class="code hl_function" href="../../df/d0e/class_s_changelist_table_row.html#ad4bd8f1aa2b7cae0ec5a1899d2e2a7f9">OnDrop</a>(const <a class="code hl_struct" href="../../d5/dba/struct_f_geometry.html">FGeometry</a>&amp; InGeometry, const <a class="code hl_class" href="../../dd/d99/class_f_drag_drop_event.html">FDragDropEvent</a>&amp; InDragDropEvent) override;</div>
+<div class="line"><a id="l00190" name="l00190"></a><span class="lineno">  190</span> </div>
+<div class="line"><a id="l00191" name="l00191"></a><span class="lineno">  191</span>private:</div>
+<div class="line"><a id="l00193" name="l00193"></a><span class="lineno">  193</span>    <a class="code hl_struct" href="../../dd/dcf/struct_f_uncontrolled_changelist_tree_item.html">FUncontrolledChangelistTreeItem</a>* TreeItem;</div>
+<div class="line"><a id="l00194" name="l00194"></a><span class="lineno">  194</span></div>
+<div class="line"><a id="l00196" name="l00196"></a><span class="lineno">  196</span>    FSimpleDelegate OnPostDrop;</div>
+<div class="line"><a id="l00197" name="l00197"></a><span class="lineno">  197</span>};</div>
+</div>
+<div class="line"><a id="l00198" name="l00198"></a><span class="lineno">  198</span></div>
+<div class="foldopen" id="foldopen00200" data-start="{" data-end="};">
+<div class="line"><a id="l00200" name="l00200"></a><span class="lineno"><a class="line" href="../../da/d13/class_s_unsaved_assets_table_row.html">  200</a></span>class <a class="code hl_class" href="../../da/d13/class_s_unsaved_assets_table_row.html">SUnsavedAssetsTableRow</a> : public <a class="code hl_function" href="../../d6/d4e/class_s_table_row.html#add142d6acc5b3ed5900f221f000ddbf8">STableRow</a>&lt;<a class="code hl_typedef" href="../../da/d65/_s_source_control_common_8h.html#ad037d0a3674e42fc940483db0aa458af">FChangelistTreeItemPtr</a>&gt;</div>
+<div class="line"><a id="l00201" name="l00201"></a><span class="lineno">  201</span>{</div>
+<div class="line"><a id="l00202" name="l00202"></a><span class="lineno">  202</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00208" name="l00208"></a><span class="lineno">  208</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="../../df/d0e/class_s_changelist_table_row.html#a105a4149d89980b3dd4911b45b698dd9">Construct</a>(<span class="keyword">const</span> <a class="code hl_class" href="../../d6/d4e/class_s_table_row.html">FArguments</a>&amp; InArgs, <span class="keyword">const</span> <a class="code hl_class" href="../../de/dd8/class_t_shared_ref.html">TSharedRef&lt;STableViewBase&gt;</a>&amp; InOwner);</div>
+<div class="line"><a id="l00209" name="l00209"></a><span class="lineno">  209</span>};</div>
+</div>
+<div class="line"><a id="l00210" name="l00210"></a><span class="lineno">  210</span></div>
+<div class="foldopen" id="foldopen00212" data-start="{" data-end="};">
+<div class="line"><a id="l00212" name="l00212"></a><span class="lineno"><a class="line" href="../../da/d6b/class_s_file_table_row.html">  212</a></span><span class="keyword">class </span><a class="code hl_class" href="../../da/d6b/class_s_file_table_row.html">SFileTableRow</a> : <span class="keyword">public</span> <a class="code hl_class" href="../../d8/d6c/class_s_multi_column_table_row.html">SMultiColumnTableRow</a>&lt;FChangelistTreeItemPtr&gt;</div>
+<div class="line"><a id="l00213" name="l00213"></a><span class="lineno">  213</span>{</div>
+<div class="line"><a id="l00214" name="l00214"></a><span class="lineno">  214</span><span class="keyword">public</span>:</div>
+<div class="foldopen" id="foldopen00215" data-start="{" data-end="}">
+<div class="line"><a id="l00215" name="l00215"></a><span class="lineno"><a class="line" href="../../da/d6b/class_s_file_table_row.html#aee929a6040647c04c9bbd824b1ecf755">  215</a></span>    <a class="code hl_function" href="../../da/d6b/class_s_file_table_row.html#aee929a6040647c04c9bbd824b1ecf755">SLATE_BEGIN_ARGS</a>(<a class="code hl_class" href="../../da/d6b/class_s_file_table_row.html">SFileTableRow</a>)</div>
+<div class="line"><a id="l00216" name="l00216"></a><span class="lineno">  216</span>        : _TreeItemToVisualize(nullptr)</div>
+<div class="line"><a id="l00217" name="l00217"></a><span class="lineno">  217</span>        , _HighlightText()</div>
+<div class="line"><a id="l00218" name="l00218"></a><span class="lineno">  218</span>        , _PathFlags(<a class="code hl_namespace" href="../../d9/deb/namespace_source_control_file_view_column.html">SourceControlFileViewColumn</a>::EPathFlags::<a class="code hl_enumvalue" href="../../da/d67/_c_q_test_8h.html#aa104d032e3d0471701bf78543f59c0a4a7a1920d61156abc05a60135aefe8bc67">Default</a>)</div>
+<div class="line"><a id="l00219" name="l00219"></a><span class="lineno">  219</span>    {</div>
+<div class="line"><a id="l00220" name="l00220"></a><span class="lineno">  220</span>    }</div>
+</div>
+<div class="line"><a id="l00221" name="l00221"></a><span class="lineno">  221</span>        <a class="code hl_define" href="../../d8/d1a/_declarative_syntax_support_8h.html#aff602d57f7d91f68885c12e002262266">SLATE_ARGUMENT</a>(<a class="code hl_typedef" href="../../da/d65/_s_source_control_common_8h.html#ad037d0a3674e42fc940483db0aa458af">FChangelistTreeItemPtr</a>, TreeItemToVisualize)</div>
+<div class="line"><a id="l00222" name="l00222"></a><span class="lineno">  222</span>        <a class="code hl_define" href="../../d8/d1a/_declarative_syntax_support_8h.html#a414db14979d7ecd99fe0bdc3e193e36a">SLATE_ATTRIBUTE</a>(<a class="code hl_class" href="../../da/d46/class_f_text.html">FText</a>, HighlightText)</div>
+<div class="line"><a id="l00223" name="l00223"></a><span class="lineno">  223</span>        <a class="code hl_define" href="../../d8/d1a/_declarative_syntax_support_8h.html#a414db14979d7ecd99fe0bdc3e193e36a">SLATE_ATTRIBUTE</a>(<a class="code hl_enumeration" href="../../d9/deb/namespace_source_control_file_view_column.html#af183b4c9d8d234adf4e64e3a281911fe">SourceControlFileViewColumn::EPathFlags</a>, PathFlags)</div>
+<div class="line"><a id="l00224" name="l00224"></a><span class="lineno">  224</span>        <a class="code hl_define" href="../../d8/d1a/_declarative_syntax_support_8h.html#ab753f97c9f301948b5371ef962a75879">SLATE_EVENT</a>(<a class="code hl_variable" href="../../d2/d0b/_slate_delegates_8h.html#acbc5c5e9fa72a40dc251e41723423a11">FOnDragDetected</a>, OnDragDetected)</div>
+<div class="line"><a id="l00225" name="l00225"></a><span class="lineno">  225</span>    <a class="code hl_define" href="../../d8/d1a/_declarative_syntax_support_8h.html#ac6acf04f0f1af9cef1f45f719719f286">SLATE_END_ARGS</a>()</div>
+<div class="line"><a id="l00226" name="l00226"></a><span class="lineno">  226</span> </div>
+<div class="line"><a id="l00227" name="l00227"></a><span class="lineno">  227</span>public:</div>
+<div class="line"><a id="l00233" name="l00233"></a><span class="lineno">  233</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="../../dc/dbf/_s_color_themes_8h.html#a962ae95c971fc31c7e9c2e43280de3ac">Construct</a>(const <a class="code hl_class" href="../../d6/d4e/class_s_table_row.html">FArguments</a>&amp; InArgs, const <a class="code hl_class" href="../../de/dd8/class_t_shared_ref.html">TSharedRef</a>&lt;<a class="code hl_class" href="../../d2/da3/class_s_table_view_base.html">STableViewBase</a>&gt;&amp; InOwner);</div>
+<div class="line"><a id="l00234" name="l00234"></a><span class="lineno">  234</span> </div>
+<div class="line"><a id="l00235" name="l00235"></a><span class="lineno">  235</span>    <span class="comment">// SMultiColumnTableRow overrides</span></div>
+<div class="line"><a id="l00236" name="l00236"></a><span class="lineno">  236</span>    virtual <a class="code hl_class" href="../../de/dd8/class_t_shared_ref.html">TSharedRef</a>&lt;<a class="code hl_class" href="../../d6/d75/class_s_widget.html">SWidget</a>&gt; GenerateWidgetForColumn(const <a class="code hl_class" href="../../d5/dd5/class_f_name.html">FName</a>&amp; ColumnName) override;</div>
+<div class="line"><a id="l00237" name="l00237"></a><span class="lineno">  237</span> </div>
+<div class="line"><a id="l00238" name="l00238"></a><span class="lineno">  238</span>    <a class="code hl_enumeration" href="../../d0/dc3/_slate_types_8h.html#aa58df8be679c007ed2d6c9ea71718efa">ECheckBoxState</a> GetCheckBoxState() const;</div>
+<div class="line"><a id="l00239" name="l00239"></a><span class="lineno">  239</span>    <span class="keywordtype">void</span> SetCheckBoxState(<a class="code hl_enumeration" href="../../d0/dc3/_slate_types_8h.html#aa58df8be679c007ed2d6c9ea71718efa">ECheckBoxState</a> NewState);</div>
+<div class="line"><a id="l00240" name="l00240"></a><span class="lineno">  240</span>    <a class="code hl_class" href="../../da/d46/class_f_text.html">FText</a> GetDisplayName() const;</div>
+<div class="line"><a id="l00241" name="l00241"></a><span class="lineno">  241</span>    <a class="code hl_class" href="../../da/d46/class_f_text.html">FText</a> <a class="code hl_function" href="../../d1/ddd/_build_patch_manifest_8cpp.html#a7116078d0757d29cbc997f16931623a4">GetFilename</a>() const;</div>
+<div class="line"><a id="l00242" name="l00242"></a><span class="lineno">  242</span>    <a class="code hl_class" href="../../da/d46/class_f_text.html">FText</a> GetDisplayPath() const;</div>
+<div class="line"><a id="l00243" name="l00243"></a><span class="lineno">  243</span>    <a class="code hl_class" href="../../da/d46/class_f_text.html">FText</a> GetDisplayType() const;</div>
+<div class="line"><a id="l00244" name="l00244"></a><span class="lineno">  244</span>    <a class="code hl_struct" href="../../da/dfc/struct_f_slate_color.html">FSlateColor</a> GetDisplayColor() const;</div>
+<div class="line"><a id="l00245" name="l00245"></a><span class="lineno">  245</span>    <a class="code hl_class" href="../../da/d46/class_f_text.html">FText</a> GetLastModifiedTimestamp() const;</div>
+<div class="line"><a id="l00246" name="l00246"></a><span class="lineno">  246</span>    <a class="code hl_class" href="../../da/d46/class_f_text.html">FText</a> GetCheckedOutByUser() const;</div>
+<div class="line"><a id="l00247" name="l00247"></a><span class="lineno">  247</span> </div>
+<div class="line"><a id="l00248" name="l00248"></a><span class="lineno">  248</span>    static <span class="keywordtype">void</span> PopulateSearchString(const <a class="code hl_struct" href="../../d0/d95/struct_f_file_tree_item.html">FFileTreeItem</a>&amp; <a class="code hl_enumvalue" href="../../d9/d32/_i_detail_tree_node_8h.html#aac2bb5803c39cf25c813657bcf82869fa7d74f3b92b19da5e606d737d339a9679">Item</a>, <a class="code hl_namespace" href="../../d9/deb/namespace_source_control_file_view_column.html">SourceControlFileViewColumn</a>::EPathFlags PathFlags, <a class="code hl_class" href="../../d6/db1/class_t_array.html">TArray</a>&lt;<a class="code hl_variable" href="../../d2/d8e/_s_anim_notify_panel_8h.html#a7483aa7f043c623f8990a95320be654d">FString</a>&gt;&amp; OutStrings);</div>
+<div class="line"><a id="l00249" name="l00249"></a><span class="lineno">  249</span> </div>
+<div class="line"><a id="l00250" name="l00250"></a><span class="lineno">  250</span>protected:</div>
+<div class="line"><a id="l00251" name="l00251"></a><span class="lineno">  251</span>    <span class="comment">//~ Begin STableRow Interface.</span></div>
+<div class="line"><a id="l00252" name="l00252"></a><span class="lineno">  252</span>    virtual <span class="keywordtype">void</span> OnDragEnter(<a class="code hl_struct" href="../../d5/dba/struct_f_geometry.html">FGeometry</a> const&amp; InGeometry, <a class="code hl_class" href="../../dd/d99/class_f_drag_drop_event.html">FDragDropEvent</a> const&amp; InDragDropEvent) override;</div>
+<div class="line"><a id="l00253" name="l00253"></a><span class="lineno">  253</span>    virtual <span class="keywordtype">void</span> OnDragLeave(<a class="code hl_class" href="../../dd/d99/class_f_drag_drop_event.html">FDragDropEvent</a> const&amp; InDragDropEvent) override;</div>
+<div class="line"><a id="l00254" name="l00254"></a><span class="lineno">  254</span>    <span class="comment">//~ End STableRow Interface.</span></div>
+<div class="line"><a id="l00255" name="l00255"></a><span class="lineno">  255</span> </div>
+<div class="line"><a id="l00256" name="l00256"></a><span class="lineno">  256</span>private:</div>
+<div class="line"><a id="l00258" name="l00258"></a><span class="lineno">  258</span>    <a class="code hl_struct" href="../../d0/d95/struct_f_file_tree_item.html">FFileTreeItem</a>* TreeItem;</div>
+<div class="line"><a id="l00259" name="l00259"></a><span class="lineno">  259</span></div>
+<div class="line"><a id="l00261" name="l00261"></a><span class="lineno">  261</span>    <a class="code hl_class" href="../../da/d3c/class_t_attribute.html">TAttribute</a>&lt;<a class="code hl_class" href="../../da/d46/class_f_text.html">FText</a>&gt; HighlightText;</div>
+<div class="line"><a id="l00262" name="l00262"></a><span class="lineno">  262</span> </div>
+<div class="line"><a id="l00263" name="l00263"></a><span class="lineno">  263</span>    <a class="code hl_class" href="../../da/d3c/class_t_attribute.html">TAttribute</a>&lt;<a class="code hl_namespace" href="../../d9/deb/namespace_source_control_file_view_column.html">SourceControlFileViewColumn</a>::EPathFlags&gt; PathFlags;</div>
+<div class="line"><a id="l00264" name="l00264"></a><span class="lineno">  264</span>};</div>
+</div>
+<div class="line"><a id="l00265" name="l00265"></a><span class="lineno">  265</span> </div>
+<div class="line"><a id="l00266" name="l00266"></a><span class="lineno">  266</span></div>
+<div class="foldopen" id="foldopen00268" data-start="{" data-end="};">
+<div class="line"><a id="l00268" name="l00268"></a><span class="lineno"><a class="line" href="../../dc/d73/class_s_shelved_files_table_row.html">  268</a></span>class <a class="code hl_class" href="../../dc/d73/class_s_shelved_files_table_row.html">SShelvedFilesTableRow</a> : public <a class="code hl_function" href="../../d6/d4e/class_s_table_row.html#add142d6acc5b3ed5900f221f000ddbf8">STableRow</a>&lt;<a class="code hl_class" href="../../dd/dba/class_t_shared_ptr.html">TSharedPtr</a>&lt;<a class="code hl_struct" href="../../df/dd8/struct_i_changelist_tree_item.html">IChangelistTreeItem</a>&gt;&gt;</div>
+<div class="line"><a id="l00269" name="l00269"></a><span class="lineno">  269</span>{</div>
+<div class="line"><a id="l00270" name="l00270"></a><span class="lineno">  270</span><span class="keyword">public</span>:</div>
+<div class="foldopen" id="foldopen00271" data-start="{" data-end="}">
+<div class="line"><a id="l00271" name="l00271"></a><span class="lineno"><a class="line" href="../../dc/d73/class_s_shelved_files_table_row.html#a82d05239487083644e0d932bfbe8daa8">  271</a></span>    <a class="code hl_function" href="../../dc/d73/class_s_shelved_files_table_row.html#a82d05239487083644e0d932bfbe8daa8">SLATE_BEGIN_ARGS</a>(<a class="code hl_class" href="../../dc/d73/class_s_shelved_files_table_row.html">SShelvedFilesTableRow</a>)</div>
+<div class="line"><a id="l00272" name="l00272"></a><span class="lineno">  272</span>        : _TreeItemToVisualize()</div>
+<div class="line"><a id="l00273" name="l00273"></a><span class="lineno">  273</span>        , _HighlightText()</div>
+<div class="line"><a id="l00274" name="l00274"></a><span class="lineno">  274</span>    {</div>
+<div class="line"><a id="l00275" name="l00275"></a><span class="lineno">  275</span>    }</div>
+</div>
+<div class="line"><a id="l00276" name="l00276"></a><span class="lineno">  276</span>        <a class="code hl_define" href="../../d8/d1a/_declarative_syntax_support_8h.html#aff602d57f7d91f68885c12e002262266">SLATE_ARGUMENT</a>(<a class="code hl_typedef" href="../../da/d65/_s_source_control_common_8h.html#ad037d0a3674e42fc940483db0aa458af">FChangelistTreeItemPtr</a>, TreeItemToVisualize)</div>
+<div class="line"><a id="l00277" name="l00277"></a><span class="lineno">  277</span>        <a class="code hl_define" href="../../d8/d1a/_declarative_syntax_support_8h.html#a414db14979d7ecd99fe0bdc3e193e36a">SLATE_ATTRIBUTE</a>(<a class="code hl_class" href="../../da/d46/class_f_text.html">FText</a>, HighlightText)</div>
+<div class="line"><a id="l00278" name="l00278"></a><span class="lineno">  278</span>    <a class="code hl_define" href="../../d8/d1a/_declarative_syntax_support_8h.html#ac6acf04f0f1af9cef1f45f719719f286">SLATE_END_ARGS</a>()</div>
+<div class="line"><a id="l00279" name="l00279"></a><span class="lineno">  279</span> </div>
+<div class="line"><a id="l00280" name="l00280"></a><span class="lineno">  280</span>public:</div>
+<div class="line"><a id="l00281" name="l00281"></a><span class="lineno">  281</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="../../dc/dbf/_s_color_themes_8h.html#a962ae95c971fc31c7e9c2e43280de3ac">Construct</a>(const <a class="code hl_class" href="../../d6/d4e/class_s_table_row.html">FArguments</a>&amp; InArgs, const <a class="code hl_class" href="../../de/dd8/class_t_shared_ref.html">TSharedRef</a>&lt;<a class="code hl_class" href="../../d2/da3/class_s_table_view_base.html">STableViewBase</a>&gt;&amp; InOwnerTableView);</div>
+<div class="line"><a id="l00282" name="l00282"></a><span class="lineno">  282</span>    static <span class="keywordtype">void</span> PopulateSearchString(const <a class="code hl_struct" href="../../d5/d8c/struct_f_shelved_changelist_tree_item.html">FShelvedChangelistTreeItem</a>&amp; <a class="code hl_enumvalue" href="../../d9/d32/_i_detail_tree_node_8h.html#aac2bb5803c39cf25c813657bcf82869fa7d74f3b92b19da5e606d737d339a9679">Item</a>, <a class="code hl_class" href="../../d6/db1/class_t_array.html">TArray</a>&lt;<a class="code hl_variable" href="../../d2/d8e/_s_anim_notify_panel_8h.html#a7483aa7f043c623f8990a95320be654d">FString</a>&gt;&amp; OutStrings);</div>
+<div class="line"><a id="l00283" name="l00283"></a><span class="lineno">  283</span> </div>
+<div class="line"><a id="l00284" name="l00284"></a><span class="lineno">  284</span>private:</div>
+<div class="line"><a id="l00285" name="l00285"></a><span class="lineno">  285</span>    <a class="code hl_struct" href="../../d5/d8c/struct_f_shelved_changelist_tree_item.html">FShelvedChangelistTreeItem</a>* TreeItem;</div>
+<div class="line"><a id="l00286" name="l00286"></a><span class="lineno">  286</span></div>
+<div class="line"><a id="l00288" name="l00288"></a><span class="lineno">  288</span>    <a class="code hl_class" href="../../da/d3c/class_t_attribute.html">TAttribute</a>&lt;<a class="code hl_class" href="../../da/d46/class_f_text.html">FText</a>&gt; HighlightText;</div>
+<div class="line"><a id="l00289" name="l00289"></a><span class="lineno">  289</span>};</div>
+</div>
+<div class="line"><a id="l00290" name="l00290"></a><span class="lineno">  290</span> </div>
+<div class="line"><a id="l00291" name="l00291"></a><span class="lineno">  291</span></div>
+<div class="foldopen" id="foldopen00293" data-start="{" data-end="};">
+<div class="line"><a id="l00293" name="l00293"></a><span class="lineno"><a class="line" href="../../de/d98/class_s_offline_file_table_row.html">  293</a></span>class <a class="code hl_class" href="../../de/d98/class_s_offline_file_table_row.html">SOfflineFileTableRow</a> : public <a class="code hl_class" href="../../d8/d6c/class_s_multi_column_table_row.html">SMultiColumnTableRow</a>&lt;<a class="code hl_typedef" href="../../da/d65/_s_source_control_common_8h.html#ad037d0a3674e42fc940483db0aa458af">FChangelistTreeItemPtr</a>&gt;</div>
+<div class="line"><a id="l00294" name="l00294"></a><span class="lineno">  294</span>{</div>
+<div class="line"><a id="l00295" name="l00295"></a><span class="lineno">  295</span><span class="keyword">public</span>:</div>
+<div class="foldopen" id="foldopen00296" data-start="{" data-end="}">
+<div class="line"><a id="l00296" name="l00296"></a><span class="lineno"><a class="line" href="../../de/d98/class_s_offline_file_table_row.html#af0003c96e8ee0c807a01a8e50d2178d5">  296</a></span>    <a class="code hl_function" href="../../de/d98/class_s_offline_file_table_row.html#af0003c96e8ee0c807a01a8e50d2178d5">SLATE_BEGIN_ARGS</a>(<a class="code hl_class" href="../../de/d98/class_s_offline_file_table_row.html">SOfflineFileTableRow</a>)</div>
+<div class="line"><a id="l00297" name="l00297"></a><span class="lineno">  297</span>        : _TreeItemToVisualize()</div>
+<div class="line"><a id="l00298" name="l00298"></a><span class="lineno">  298</span>        , _HighlightText()</div>
+<div class="line"><a id="l00299" name="l00299"></a><span class="lineno">  299</span>        , _PathFlags(<a class="code hl_namespace" href="../../d9/deb/namespace_source_control_file_view_column.html">SourceControlFileViewColumn</a>::EPathFlags::<a class="code hl_enumvalue" href="../../da/d67/_c_q_test_8h.html#aa104d032e3d0471701bf78543f59c0a4a7a1920d61156abc05a60135aefe8bc67">Default</a>)</div>
+<div class="line"><a id="l00300" name="l00300"></a><span class="lineno">  300</span>    {</div>
+<div class="line"><a id="l00301" name="l00301"></a><span class="lineno">  301</span>    }</div>
+</div>
+<div class="line"><a id="l00302" name="l00302"></a><span class="lineno">  302</span>        <a class="code hl_define" href="../../d8/d1a/_declarative_syntax_support_8h.html#aff602d57f7d91f68885c12e002262266">SLATE_ARGUMENT</a>(<a class="code hl_typedef" href="../../da/d65/_s_source_control_common_8h.html#ad037d0a3674e42fc940483db0aa458af">FChangelistTreeItemPtr</a>, TreeItemToVisualize)</div>
+<div class="line"><a id="l00303" name="l00303"></a><span class="lineno">  303</span>        <a class="code hl_define" href="../../d8/d1a/_declarative_syntax_support_8h.html#a414db14979d7ecd99fe0bdc3e193e36a">SLATE_ATTRIBUTE</a>(<a class="code hl_class" href="../../da/d46/class_f_text.html">FText</a>, HighlightText)</div>
+<div class="line"><a id="l00304" name="l00304"></a><span class="lineno">  304</span>        <a class="code hl_define" href="../../d8/d1a/_declarative_syntax_support_8h.html#a414db14979d7ecd99fe0bdc3e193e36a">SLATE_ATTRIBUTE</a>(<a class="code hl_enumeration" href="../../d9/deb/namespace_source_control_file_view_column.html#af183b4c9d8d234adf4e64e3a281911fe">SourceControlFileViewColumn::EPathFlags</a>, PathFlags)</div>
+<div class="line"><a id="l00305" name="l00305"></a><span class="lineno">  305</span>        <a class="code hl_define" href="../../d8/d1a/_declarative_syntax_support_8h.html#ab753f97c9f301948b5371ef962a75879">SLATE_EVENT</a>(<a class="code hl_variable" href="../../d2/d0b/_slate_delegates_8h.html#acbc5c5e9fa72a40dc251e41723423a11">FOnDragDetected</a>, OnDragDetected)</div>
+<div class="line"><a id="l00306" name="l00306"></a><span class="lineno">  306</span>    <a class="code hl_define" href="../../d8/d1a/_declarative_syntax_support_8h.html#ac6acf04f0f1af9cef1f45f719719f286">SLATE_END_ARGS</a>()</div>
+<div class="line"><a id="l00307" name="l00307"></a><span class="lineno">  307</span> </div>
+<div class="line"><a id="l00308" name="l00308"></a><span class="lineno">  308</span>public:</div>
+<div class="line"><a id="l00314" name="l00314"></a><span class="lineno">  314</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="../../dc/dbf/_s_color_themes_8h.html#a962ae95c971fc31c7e9c2e43280de3ac">Construct</a>(const <a class="code hl_class" href="../../d6/d4e/class_s_table_row.html">FArguments</a>&amp; InArgs, const <a class="code hl_class" href="../../de/dd8/class_t_shared_ref.html">TSharedRef</a>&lt;<a class="code hl_class" href="../../d2/da3/class_s_table_view_base.html">STableViewBase</a>&gt;&amp; InOwner);</div>
+<div class="line"><a id="l00315" name="l00315"></a><span class="lineno">  315</span> </div>
+<div class="line"><a id="l00316" name="l00316"></a><span class="lineno">  316</span>    <span class="comment">// SMultiColumnTableRow overrides</span></div>
+<div class="line"><a id="l00317" name="l00317"></a><span class="lineno">  317</span>    virtual <a class="code hl_class" href="../../de/dd8/class_t_shared_ref.html">TSharedRef</a>&lt;<a class="code hl_class" href="../../d6/d75/class_s_widget.html">SWidget</a>&gt; GenerateWidgetForColumn(const <a class="code hl_class" href="../../d5/dd5/class_f_name.html">FName</a>&amp; ColumnName) override;</div>
+<div class="line"><a id="l00318" name="l00318"></a><span class="lineno">  318</span> </div>
+<div class="line"><a id="l00319" name="l00319"></a><span class="lineno">  319</span>    <a class="code hl_enumeration" href="../../d0/dc3/_slate_types_8h.html#aa58df8be679c007ed2d6c9ea71718efa">ECheckBoxState</a> GetCheckBoxState() const;</div>
+<div class="line"><a id="l00320" name="l00320"></a><span class="lineno">  320</span>    <span class="keywordtype">void</span> SetCheckBoxState(<a class="code hl_enumeration" href="../../d0/dc3/_slate_types_8h.html#aa58df8be679c007ed2d6c9ea71718efa">ECheckBoxState</a> NewState);</div>
+<div class="line"><a id="l00321" name="l00321"></a><span class="lineno">  321</span>    <a class="code hl_class" href="../../da/d46/class_f_text.html">FText</a> GetDisplayName() const;</div>
+<div class="line"><a id="l00322" name="l00322"></a><span class="lineno">  322</span>    <a class="code hl_class" href="../../da/d46/class_f_text.html">FText</a> <a class="code hl_function" href="../../d1/ddd/_build_patch_manifest_8cpp.html#a7116078d0757d29cbc997f16931623a4">GetFilename</a>() const;</div>
+<div class="line"><a id="l00323" name="l00323"></a><span class="lineno">  323</span>    <a class="code hl_class" href="../../da/d46/class_f_text.html">FText</a> GetDisplayPath() const;</div>
+<div class="line"><a id="l00324" name="l00324"></a><span class="lineno">  324</span>    <a class="code hl_class" href="../../da/d46/class_f_text.html">FText</a> GetDisplayType() const;</div>
+<div class="line"><a id="l00325" name="l00325"></a><span class="lineno">  325</span>    <a class="code hl_struct" href="../../da/dfc/struct_f_slate_color.html">FSlateColor</a> GetDisplayColor() const;</div>
+<div class="line"><a id="l00326" name="l00326"></a><span class="lineno">  326</span>    <a class="code hl_class" href="../../da/d46/class_f_text.html">FText</a> GetLastModifiedTimestamp() const;</div>
+<div class="line"><a id="l00327" name="l00327"></a><span class="lineno">  327</span> </div>
+<div class="line"><a id="l00328" name="l00328"></a><span class="lineno">  328</span>    static <span class="keywordtype">void</span> PopulateSearchString(const <a class="code hl_struct" href="../../d5/df1/struct_f_offline_file_tree_item.html">FOfflineFileTreeItem</a>&amp; <a class="code hl_enumvalue" href="../../d9/d32/_i_detail_tree_node_8h.html#aac2bb5803c39cf25c813657bcf82869fa7d74f3b92b19da5e606d737d339a9679">Item</a>, <a class="code hl_namespace" href="../../d9/deb/namespace_source_control_file_view_column.html">SourceControlFileViewColumn</a>::EPathFlags PathFlags, <a class="code hl_class" href="../../d6/db1/class_t_array.html">TArray</a>&lt;<a class="code hl_variable" href="../../d2/d8e/_s_anim_notify_panel_8h.html#a7483aa7f043c623f8990a95320be654d">FString</a>&gt;&amp; OutStrings);</div>
+<div class="line"><a id="l00329" name="l00329"></a><span class="lineno">  329</span> </div>
+<div class="line"><a id="l00330" name="l00330"></a><span class="lineno">  330</span>protected:</div>
+<div class="line"><a id="l00331" name="l00331"></a><span class="lineno">  331</span>    <span class="comment">//~ Begin STableRow Interface.</span></div>
+<div class="line"><a id="l00332" name="l00332"></a><span class="lineno">  332</span>    virtual <span class="keywordtype">void</span> OnDragEnter(<a class="code hl_struct" href="../../d5/dba/struct_f_geometry.html">FGeometry</a> const&amp; InGeometry, <a class="code hl_class" href="../../dd/d99/class_f_drag_drop_event.html">FDragDropEvent</a> const&amp; InDragDropEvent) override;</div>
+<div class="line"><a id="l00333" name="l00333"></a><span class="lineno">  333</span>    virtual <span class="keywordtype">void</span> OnDragLeave(<a class="code hl_class" href="../../dd/d99/class_f_drag_drop_event.html">FDragDropEvent</a> const&amp; InDragDropEvent) override;</div>
+<div class="line"><a id="l00334" name="l00334"></a><span class="lineno">  334</span>    <span class="comment">//~ End STableRow Interface.</span></div>
+<div class="line"><a id="l00335" name="l00335"></a><span class="lineno">  335</span> </div>
+<div class="line"><a id="l00336" name="l00336"></a><span class="lineno">  336</span>private:</div>
+<div class="line"><a id="l00338" name="l00338"></a><span class="lineno">  338</span>    <a class="code hl_struct" href="../../d5/df1/struct_f_offline_file_tree_item.html">FOfflineFileTreeItem</a>* TreeItem;</div>
+<div class="line"><a id="l00339" name="l00339"></a><span class="lineno">  339</span></div>
+<div class="line"><a id="l00341" name="l00341"></a><span class="lineno">  341</span>    <a class="code hl_class" href="../../da/d3c/class_t_attribute.html">TAttribute</a>&lt;<a class="code hl_class" href="../../da/d46/class_f_text.html">FText</a>&gt; HighlightText;</div>
+<div class="line"><a id="l00342" name="l00342"></a><span class="lineno">  342</span> </div>
+<div class="line"><a id="l00343" name="l00343"></a><span class="lineno">  343</span>    <a class="code hl_class" href="../../da/d3c/class_t_attribute.html">TAttribute</a>&lt;<a class="code hl_namespace" href="../../d9/deb/namespace_source_control_file_view_column.html">SourceControlFileViewColumn</a>::EPathFlags&gt; PathFlags;</div>
+<div class="line"><a id="l00344" name="l00344"></a><span class="lineno">  344</span>};</div>
+</div>
+<div class="ttc" id="a_build_patch_manifest_8cpp_html_a7116078d0757d29cbc997f16931623a4"><div class="ttname"><a href="../../d1/ddd/_build_patch_manifest_8cpp.html#a7116078d0757d29cbc997f16931623a4">GetFilename</a></div><div class="ttdeci">FString GetFilename(const FFileManifest &amp;FileManifest, const FString &amp;RootDirectory, bool bIsStaged)</div><div class="ttdef"><b>定义</b> BuildPatchManifest.cpp:86</div></div>
+<div class="ttc" id="a_c_q_test_8h_html_aa104d032e3d0471701bf78543f59c0a4a7a1920d61156abc05a60135aefe8bc67"><div class="ttname"><a href="../../da/d67/_c_q_test_8h.html#aa104d032e3d0471701bf78543f59c0a4a7a1920d61156abc05a60135aefe8bc67">ECQTestSuppressLogBehavior::Default</a></div><div class="ttdeci">@ Default</div><div class="ttdef"><b>定义</b> CQTest.h:62</div></div>
+<div class="ttc" id="a_core_2_public_2_h_a_l_2_platform_8h_html_a8dbb3cd84ca9fd010dadfc3815eefa5d"><div class="ttname"><a href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a8dbb3cd84ca9fd010dadfc3815eefa5d">int32</a></div><div class="ttdeci">FPlatformTypes::int32 int32</div><div class="ttdoc">A 32-bit signed integer.</div><div class="ttdef"><b>定义</b> Platform.h:1190</div></div>
+<div class="ttc" id="a_core_minimal_8h_html"><div class="ttname"><a href="../../dc/d5e/_core_minimal_8h.html">CoreMinimal.h</a></div></div>
+<div class="ttc" id="a_declarative_syntax_support_8h_html_a414db14979d7ecd99fe0bdc3e193e36a"><div class="ttname"><a href="../../d8/d1a/_declarative_syntax_support_8h.html#a414db14979d7ecd99fe0bdc3e193e36a">SLATE_ATTRIBUTE</a></div><div class="ttdeci">#define SLATE_ATTRIBUTE(AttrType, AttrName)</div><div class="ttdef"><b>定义</b> DeclarativeSyntaxSupport.h:192</div></div>
+<div class="ttc" id="a_declarative_syntax_support_8h_html_ab753f97c9f301948b5371ef962a75879"><div class="ttname"><a href="../../d8/d1a/_declarative_syntax_support_8h.html#ab753f97c9f301948b5371ef962a75879">SLATE_EVENT</a></div><div class="ttdeci">#define SLATE_EVENT(DelegateName, EventName)</div><div class="ttdef"><b>定义</b> DeclarativeSyntaxSupport.h:458</div></div>
+<div class="ttc" id="a_declarative_syntax_support_8h_html_ac6acf04f0f1af9cef1f45f719719f286"><div class="ttname"><a href="../../d8/d1a/_declarative_syntax_support_8h.html#ac6acf04f0f1af9cef1f45f719719f286">SLATE_END_ARGS</a></div><div class="ttdeci">#define SLATE_END_ARGS()</div><div class="ttdef"><b>定义</b> DeclarativeSyntaxSupport.h:116</div></div>
+<div class="ttc" id="a_declarative_syntax_support_8h_html_aff602d57f7d91f68885c12e002262266"><div class="ttname"><a href="../../d8/d1a/_declarative_syntax_support_8h.html#aff602d57f7d91f68885c12e002262266">SLATE_ARGUMENT</a></div><div class="ttdeci">#define SLATE_ARGUMENT(ArgType, ArgName)</div><div class="ttdef"><b>定义</b> DeclarativeSyntaxSupport.h:208</div></div>
+<div class="ttc" id="a_drag_and_drop_8h_html"><div class="ttname"><a href="../../d9/d22/_drag_and_drop_8h.html">DragAndDrop.h</a></div></div>
+<div class="ttc" id="a_enum_class_flags_8h_html"><div class="ttname"><a href="../../d0/d23/_enum_class_flags_8h.html">EnumClassFlags.h</a></div></div>
+<div class="ttc" id="a_enum_class_flags_8h_html_a80975a5eda8bee64896556c6df5807d7"><div class="ttname"><a href="../../d0/d23/_enum_class_flags_8h.html#a80975a5eda8bee64896556c6df5807d7">ENUM_CLASS_FLAGS</a></div><div class="ttdeci">#define ENUM_CLASS_FLAGS(Enum)</div><div class="ttdef"><b>定义</b> EnumClassFlags.h:8</div></div>
+<div class="ttc" id="a_i_detail_tree_node_8h_html_aac2bb5803c39cf25c813657bcf82869fa7d74f3b92b19da5e606d737d339a9679"><div class="ttname"><a href="../../d9/d32/_i_detail_tree_node_8h.html#aac2bb5803c39cf25c813657bcf82869fa7d74f3b92b19da5e606d737d339a9679">EDetailNodeType::Item</a></div><div class="ttdeci">@ Item</div><div class="ttdef"><b>定义</b> IDetailTreeNode.h:18</div></div>
+<div class="ttc" id="a_s_anim_notify_panel_8h_html_a7483aa7f043c623f8990a95320be654d"><div class="ttname"><a href="../../d2/d8e/_s_anim_notify_panel_8h.html#a7483aa7f043c623f8990a95320be654d">FString</a></div><div class="ttdeci">FOnGetScrubValue FString</div><div class="ttdef"><b>定义</b> SAnimNotifyPanel.h:38</div></div>
+<div class="ttc" id="a_s_color_themes_8h_html_a962ae95c971fc31c7e9c2e43280de3ac"><div class="ttname"><a href="../../dc/dbf/_s_color_themes_8h.html#a962ae95c971fc31c7e9c2e43280de3ac">Construct</a></div><div class="ttdeci">void Construct(const FArguments &amp;InArgs)</div></div>
+<div class="ttc" id="a_s_compound_widget_8h_html"><div class="ttname"><a href="../../d0/df9/_s_compound_widget_8h.html">SCompoundWidget.h</a></div></div>
+<div class="ttc" id="a_s_scrub_widget_8h_html_a12f5121024847061486bba3a83c9f3ad"><div class="ttname"><a href="../../db/d5b/_s_scrub_widget_8h.html#a12f5121024847061486bba3a83c9f3ad">bool</a></div><div class="ttdeci">bool</div><div class="ttdef"><b>定义</b> SScrubWidget.h:36</div></div>
+<div class="ttc" id="a_s_source_control_common_8h_html"><div class="ttname"><a href="../../da/d65/_s_source_control_common_8h.html">SSourceControlCommon.h</a></div></div>
+<div class="ttc" id="a_s_source_control_common_8h_html_ad037d0a3674e42fc940483db0aa458af"><div class="ttname"><a href="../../da/d65/_s_source_control_common_8h.html#ad037d0a3674e42fc940483db0aa458af">FChangelistTreeItemPtr</a></div><div class="ttdeci">TSharedPtr&lt; IChangelistTreeItem &gt; FChangelistTreeItemPtr</div><div class="ttdef"><b>定义</b> SSourceControlCommon.h:465</div></div>
+<div class="ttc" id="a_s_table_row_8h_html"><div class="ttname"><a href="../../df/dea/_s_table_row_8h.html">STableRow.h</a></div></div>
+<div class="ttc" id="a_s_tree_view_8h_html"><div class="ttname"><a href="../../d8/d56/_s_tree_view_8h.html">STreeView.h</a></div></div>
+<div class="ttc" id="a_slate_delegates_8h_html_acbc5c5e9fa72a40dc251e41723423a11"><div class="ttname"><a href="../../d2/d0b/_slate_delegates_8h.html#acbc5c5e9fa72a40dc251e41723423a11">FOnDragDetected</a></div><div class="ttdeci">FOnDragDetected</div><div class="ttdef"><b>定义</b> SlateDelegates.h:24</div></div>
+<div class="ttc" id="a_slate_types_8h_html_aa58df8be679c007ed2d6c9ea71718efa"><div class="ttname"><a href="../../d0/dc3/_slate_types_8h.html#aa58df8be679c007ed2d6c9ea71718efa">ECheckBoxState</a></div><div class="ttdeci">ECheckBoxState</div><div class="ttdef"><b>定义</b> SlateTypes.h:65</div></div>
+<div class="ttc" id="aclass_f_drag_drop_event_html"><div class="ttname"><a href="../../dd/d99/class_f_drag_drop_event.html">FDragDropEvent</a></div><div class="ttdef"><b>定义</b> DragAndDrop.h:146</div></div>
+<div class="ttc" id="aclass_f_name_html"><div class="ttname"><a href="../../d5/dd5/class_f_name.html">FName</a></div><div class="ttdef"><b>定义</b> NameTypes.h:632</div></div>
+<div class="ttc" id="aclass_f_reply_html"><div class="ttname"><a href="../../da/d8e/class_f_reply.html">FReply</a></div><div class="ttdef"><b>定义</b> Reply.h:24</div></div>
+<div class="ttc" id="aclass_f_text_html"><div class="ttname"><a href="../../da/d46/class_f_text.html">FText</a></div><div class="ttdef"><b>定义</b> Text.h:407</div></div>
+<div class="ttc" id="aclass_s_changelist_table_row_html"><div class="ttname"><a href="../../df/d0e/class_s_changelist_table_row.html">SChangelistTableRow</a></div><div class="ttdef"><b>定义</b> SSourceControlChangelistRows.h:120</div></div>
+<div class="ttc" id="aclass_s_changelist_table_row_html_a105a4149d89980b3dd4911b45b698dd9"><div class="ttname"><a href="../../df/d0e/class_s_changelist_table_row.html#a105a4149d89980b3dd4911b45b698dd9">SChangelistTableRow::Construct</a></div><div class="ttdeci">void Construct(const FArguments &amp;InArgs, const TSharedRef&lt; STableViewBase &gt; &amp;InOwner)</div><div class="ttdef"><b>定义</b> SSourceControlChangelistRows.cpp:261</div></div>
+<div class="ttc" id="aclass_s_changelist_table_row_html_a22d050625c1efed986f65d66e5d19b3e"><div class="ttname"><a href="../../df/d0e/class_s_changelist_table_row.html#a22d050625c1efed986f65d66e5d19b3e">SChangelistTableRow::GetChangelistDescriptionText</a></div><div class="ttdeci">FText GetChangelistDescriptionText() const</div><div class="ttdef"><b>定义</b> SSourceControlChangelistRows.cpp:324</div></div>
+<div class="ttc" id="aclass_s_changelist_table_row_html_a4e78f377fdf873897fb24dde609dfaa6"><div class="ttname"><a href="../../df/d0e/class_s_changelist_table_row.html#a4e78f377fdf873897fb24dde609dfaa6">SChangelistTableRow::PopulateSearchString</a></div><div class="ttdeci">static void PopulateSearchString(const FChangelistTreeItem &amp;Item, TArray&lt; FString &gt; &amp;OutStrings)</div><div class="ttdef"><b>定义</b> SSourceControlChangelistRows.cpp:313</div></div>
+<div class="ttc" id="aclass_s_changelist_table_row_html_a867382516f47e34f6f2b218c9a45f705"><div class="ttname"><a href="../../df/d0e/class_s_changelist_table_row.html#a867382516f47e34f6f2b218c9a45f705">SChangelistTableRow::GetChangelistText</a></div><div class="ttdeci">FText GetChangelistText() const</div><div class="ttdef"><b>定义</b> SSourceControlChangelistRows.cpp:319</div></div>
+<div class="ttc" id="aclass_s_changelist_table_row_html_a8747e2b7097f698d2cf39168b660df8e"><div class="ttname"><a href="../../df/d0e/class_s_changelist_table_row.html#a8747e2b7097f698d2cf39168b660df8e">SChangelistTableRow::GetChangelistDescriptionSingleLineText</a></div><div class="ttdeci">FText GetChangelistDescriptionSingleLineText() const</div><div class="ttdef"><b>定义</b> SSourceControlChangelistRows.cpp:329</div></div>
+<div class="ttc" id="aclass_s_changelist_table_row_html_a93617584d0d1616c6a2c53129c4284db"><div class="ttname"><a href="../../df/d0e/class_s_changelist_table_row.html#a93617584d0d1616c6a2c53129c4284db">SChangelistTableRow::SLATE_BEGIN_ARGS</a></div><div class="ttdeci">SLATE_BEGIN_ARGS(SChangelistTableRow)</div><div class="ttdef"><b>定义</b> SSourceControlChangelistRows.h:122</div></div>
+<div class="ttc" id="aclass_s_changelist_table_row_html_ad4bd8f1aa2b7cae0ec5a1899d2e2a7f9"><div class="ttname"><a href="../../df/d0e/class_s_changelist_table_row.html#ad4bd8f1aa2b7cae0ec5a1899d2e2a7f9">SChangelistTableRow::OnDrop</a></div><div class="ttdeci">virtual FReply OnDrop(const FGeometry &amp;InGeometry, const FDragDropEvent &amp;InDragDropEvent) override</div><div class="ttdef"><b>定义</b> SSourceControlChangelistRows.cpp:335</div></div>
+<div class="ttc" id="aclass_s_file_table_row_html"><div class="ttname"><a href="../../da/d6b/class_s_file_table_row.html">SFileTableRow</a></div><div class="ttdef"><b>定义</b> SSourceControlChangelistRows.h:213</div></div>
+<div class="ttc" id="aclass_s_file_table_row_html_aee929a6040647c04c9bbd824b1ecf755"><div class="ttname"><a href="../../da/d6b/class_s_file_table_row.html#aee929a6040647c04c9bbd824b1ecf755">SFileTableRow::SLATE_BEGIN_ARGS</a></div><div class="ttdeci">SLATE_BEGIN_ARGS(SFileTableRow)</div><div class="ttdef"><b>定义</b> SSourceControlChangelistRows.h:215</div></div>
+<div class="ttc" id="aclass_s_multi_column_table_row_html"><div class="ttname"><a href="../../d8/d6c/class_s_multi_column_table_row.html">SMultiColumnTableRow</a></div><div class="ttdef"><b>定义</b> STableRow.h:1339</div></div>
+<div class="ttc" id="aclass_s_offline_file_table_row_html"><div class="ttname"><a href="../../de/d98/class_s_offline_file_table_row.html">SOfflineFileTableRow</a></div><div class="ttdef"><b>定义</b> SSourceControlChangelistRows.h:294</div></div>
+<div class="ttc" id="aclass_s_offline_file_table_row_html_af0003c96e8ee0c807a01a8e50d2178d5"><div class="ttname"><a href="../../de/d98/class_s_offline_file_table_row.html#af0003c96e8ee0c807a01a8e50d2178d5">SOfflineFileTableRow::SLATE_BEGIN_ARGS</a></div><div class="ttdeci">SLATE_BEGIN_ARGS(SOfflineFileTableRow)</div><div class="ttdef"><b>定义</b> SSourceControlChangelistRows.h:296</div></div>
+<div class="ttc" id="aclass_s_shelved_files_table_row_html"><div class="ttname"><a href="../../dc/d73/class_s_shelved_files_table_row.html">SShelvedFilesTableRow</a></div><div class="ttdef"><b>定义</b> SSourceControlChangelistRows.h:269</div></div>
+<div class="ttc" id="aclass_s_shelved_files_table_row_html_a82d05239487083644e0d932bfbe8daa8"><div class="ttname"><a href="../../dc/d73/class_s_shelved_files_table_row.html#a82d05239487083644e0d932bfbe8daa8">SShelvedFilesTableRow::SLATE_BEGIN_ARGS</a></div><div class="ttdeci">SLATE_BEGIN_ARGS(SShelvedFilesTableRow)</div><div class="ttdef"><b>定义</b> SSourceControlChangelistRows.h:271</div></div>
+<div class="ttc" id="aclass_s_table_row_html"><div class="ttname"><a href="../../d6/d4e/class_s_table_row.html">FArguments</a></div></div>
+<div class="ttc" id="aclass_s_table_row_html_add142d6acc5b3ed5900f221f000ddbf8"><div class="ttname"><a href="../../d6/d4e/class_s_table_row.html#add142d6acc5b3ed5900f221f000ddbf8">STableRow&lt; TSharedPtr&lt; IChangelistTreeItem &gt; &gt;::STableRow</a></div><div class="ttdeci">STableRow()</div><div class="ttdef"><b>定义</b> STableRow.h:1128</div></div>
+<div class="ttc" id="aclass_s_table_view_base_html"><div class="ttname"><a href="../../d2/da3/class_s_table_view_base.html">STableViewBase</a></div><div class="ttdef"><b>定义</b> STableViewBase.h:118</div></div>
+<div class="ttc" id="aclass_s_uncontrolled_changelist_table_row_html"><div class="ttname"><a href="../../d1/dbd/class_s_uncontrolled_changelist_table_row.html">SUncontrolledChangelistTableRow</a></div><div class="ttdef"><b>定义</b> SSourceControlChangelistRows.h:162</div></div>
+<div class="ttc" id="aclass_s_uncontrolled_changelist_table_row_html_a22940f1d3aa53bff01663791a3bb1948"><div class="ttname"><a href="../../d1/dbd/class_s_uncontrolled_changelist_table_row.html#a22940f1d3aa53bff01663791a3bb1948">SUncontrolledChangelistTableRow::SLATE_BEGIN_ARGS</a></div><div class="ttdeci">SLATE_BEGIN_ARGS(SUncontrolledChangelistTableRow)</div><div class="ttdef"><b>定义</b> SSourceControlChangelistRows.h:164</div></div>
+<div class="ttc" id="aclass_s_unsaved_assets_table_row_html"><div class="ttname"><a href="../../da/d13/class_s_unsaved_assets_table_row.html">SUnsavedAssetsTableRow</a></div><div class="ttdef"><b>定义</b> SSourceControlChangelistRows.h:201</div></div>
+<div class="ttc" id="aclass_s_widget_html"><div class="ttname"><a href="../../d6/d75/class_s_widget.html">SWidget</a></div><div class="ttdef"><b>定义</b> SWidget.h:166</div></div>
+<div class="ttc" id="aclass_t_array_html"><div class="ttname"><a href="../../d6/db1/class_t_array.html">TArray</a></div><div class="ttdef"><b>定义</b> Array.h:768</div></div>
+<div class="ttc" id="aclass_t_attribute_html"><div class="ttname"><a href="../../da/d3c/class_t_attribute.html">TAttribute</a></div><div class="ttdef"><b>定义</b> Attribute.h:17</div></div>
+<div class="ttc" id="aclass_t_function_html"><div class="ttname"><a href="../../df/de8/class_t_function.html">TFunction</a></div><div class="ttdef"><b>定义</b> ZenStoreWriter.h:50</div></div>
+<div class="ttc" id="aclass_t_shared_ptr_html"><div class="ttname"><a href="../../dd/dba/class_t_shared_ptr.html">TSharedPtr</a></div><div class="ttdef"><b>定义</b> SharedPointer.h:697</div></div>
+<div class="ttc" id="aclass_t_shared_ref_html"><div class="ttname"><a href="../../de/dd8/class_t_shared_ref.html">TSharedRef</a></div><div class="ttdef"><b>定义</b> SharedPointer.h:154</div></div>
+<div class="ttc" id="anamespace_e_column_sort_mode_html_ad64cc0e5350e2f1e65580112fde0f9f7"><div class="ttname"><a href="../../d8/d1b/namespace_e_column_sort_mode.html#ad64cc0e5350e2f1e65580112fde0f9f7">EColumnSortMode::Type</a></div><div class="ttdeci">Type</div><div class="ttdef"><b>定义</b> SHeaderRow.h:36</div></div>
+<div class="ttc" id="anamespace_source_control_file_view_column_1_1_changelist_html"><div class="ttname"><a href="../../d0/dee/namespace_source_control_file_view_column_1_1_changelist.html">SourceControlFileViewColumn::Changelist</a></div><div class="ttdef"><b>定义</b> SSourceControlChangelistRows.h:81</div></div>
+<div class="ttc" id="anamespace_source_control_file_view_column_1_1_changelist_html_a6c8732be2fa4548d18f2113ecc14c856"><div class="ttname"><a href="../../d0/dee/namespace_source_control_file_view_column_1_1_changelist.html#a6c8732be2fa4548d18f2113ecc14c856">SourceControlFileViewColumn::Changelist::Id</a></div><div class="ttdeci">FName Id()</div><div class="ttdef"><b>定义</b> SSourceControlChangelistRows.cpp:97</div></div>
+<div class="ttc" id="anamespace_source_control_file_view_column_1_1_changelist_html_af110c60f5f1f21c0ccf1968d24ee7c73"><div class="ttname"><a href="../../d0/dee/namespace_source_control_file_view_column_1_1_changelist.html#af110c60f5f1f21c0ccf1968d24ee7c73">SourceControlFileViewColumn::Changelist::GetDisplayText</a></div><div class="ttdeci">FText GetDisplayText()</div><div class="ttdef"><b>定义</b> SSourceControlChangelistRows.cpp:98</div></div>
+<div class="ttc" id="anamespace_source_control_file_view_column_1_1_changelist_html_afcac9fce1e86969f7072cf3ac124b2aa"><div class="ttname"><a href="../../d0/dee/namespace_source_control_file_view_column_1_1_changelist.html#afcac9fce1e86969f7072cf3ac124b2aa">SourceControlFileViewColumn::Changelist::GetToolTipText</a></div><div class="ttdeci">FText GetToolTipText()</div><div class="ttdef"><b>定义</b> SSourceControlChangelistRows.cpp:99</div></div>
+<div class="ttc" id="anamespace_source_control_file_view_column_1_1_check_box_html"><div class="ttname"><a href="../../de/d88/namespace_source_control_file_view_column_1_1_check_box.html">SourceControlFileViewColumn::CheckBox</a></div><div class="ttdef"><b>定义</b> SSourceControlChangelistRows.h:19</div></div>
+<div class="ttc" id="anamespace_source_control_file_view_column_1_1_check_box_html_abca8eda72c9a9bbab74a3ff6405cae2a"><div class="ttname"><a href="../../de/d88/namespace_source_control_file_view_column_1_1_check_box.html#abca8eda72c9a9bbab74a3ff6405cae2a">SourceControlFileViewColumn::CheckBox::Id</a></div><div class="ttdeci">FName Id()</div><div class="ttdef"><b>定义</b> SSourceControlChangelistRows.cpp:67</div></div>
+<div class="ttc" id="anamespace_source_control_file_view_column_1_1_checked_out_by_user_html"><div class="ttname"><a href="../../d6/d58/namespace_source_control_file_view_column_1_1_checked_out_by_user.html">SourceControlFileViewColumn::CheckedOutByUser</a></div><div class="ttdef"><b>定义</b> SSourceControlChangelistRows.h:73</div></div>
+<div class="ttc" id="anamespace_source_control_file_view_column_1_1_checked_out_by_user_html_a528c9070b8a2b530c75ccb53df582b2d"><div class="ttname"><a href="../../d6/d58/namespace_source_control_file_view_column_1_1_checked_out_by_user.html#a528c9070b8a2b530c75ccb53df582b2d">SourceControlFileViewColumn::CheckedOutByUser::Id</a></div><div class="ttdeci">FName Id()</div><div class="ttdef"><b>定义</b> SSourceControlChangelistRows.cpp:93</div></div>
+<div class="ttc" id="anamespace_source_control_file_view_column_1_1_checked_out_by_user_html_ac21f3d986c4df0f6e120f9c1d5cca569"><div class="ttname"><a href="../../d6/d58/namespace_source_control_file_view_column_1_1_checked_out_by_user.html#ac21f3d986c4df0f6e120f9c1d5cca569">SourceControlFileViewColumn::CheckedOutByUser::GetDisplayText</a></div><div class="ttdeci">FText GetDisplayText()</div><div class="ttdef"><b>定义</b> SSourceControlChangelistRows.cpp:94</div></div>
+<div class="ttc" id="anamespace_source_control_file_view_column_1_1_checked_out_by_user_html_af7cc10ed48e838c5cd085dd05ee6fada"><div class="ttname"><a href="../../d6/d58/namespace_source_control_file_view_column_1_1_checked_out_by_user.html#af7cc10ed48e838c5cd085dd05ee6fada">SourceControlFileViewColumn::CheckedOutByUser::GetToolTipText</a></div><div class="ttdeci">FText GetToolTipText()</div><div class="ttdef"><b>定义</b> SSourceControlChangelistRows.cpp:95</div></div>
+<div class="ttc" id="anamespace_source_control_file_view_column_1_1_dirty_html"><div class="ttname"><a href="../../dd/da3/namespace_source_control_file_view_column_1_1_dirty.html">SourceControlFileViewColumn::Dirty</a></div><div class="ttdef"><b>定义</b> SSourceControlChangelistRows.h:89</div></div>
+<div class="ttc" id="anamespace_source_control_file_view_column_1_1_dirty_html_a09985878bd9d13d39c17883a9de3cc9c"><div class="ttname"><a href="../../dd/da3/namespace_source_control_file_view_column_1_1_dirty.html#a09985878bd9d13d39c17883a9de3cc9c">SourceControlFileViewColumn::Dirty::Id</a></div><div class="ttdeci">FName Id()</div><div class="ttdef"><b>定义</b> SSourceControlChangelistRows.cpp:101</div></div>
+<div class="ttc" id="anamespace_source_control_file_view_column_1_1_dirty_html_a5f090de8382560b1a07f78808af54fd6"><div class="ttname"><a href="../../dd/da3/namespace_source_control_file_view_column_1_1_dirty.html#a5f090de8382560b1a07f78808af54fd6">SourceControlFileViewColumn::Dirty::GetDisplayText</a></div><div class="ttdeci">FText GetDisplayText()</div><div class="ttdef"><b>定义</b> SSourceControlChangelistRows.cpp:102</div></div>
+<div class="ttc" id="anamespace_source_control_file_view_column_1_1_dirty_html_aebb1626de45763437be7d7ee9f294f2b"><div class="ttname"><a href="../../dd/da3/namespace_source_control_file_view_column_1_1_dirty.html#aebb1626de45763437be7d7ee9f294f2b">SourceControlFileViewColumn::Dirty::GetToolTipText</a></div><div class="ttdeci">FText GetToolTipText()</div><div class="ttdef"><b>定义</b> SSourceControlChangelistRows.cpp:103</div></div>
+<div class="ttc" id="anamespace_source_control_file_view_column_1_1_discard_html"><div class="ttname"><a href="../../dd/d31/namespace_source_control_file_view_column_1_1_discard.html">SourceControlFileViewColumn::Discard</a></div><div class="ttdef"><b>定义</b> SSourceControlChangelistRows.h:97</div></div>
+<div class="ttc" id="anamespace_source_control_file_view_column_1_1_discard_html_a3a97e14f17761e1f96dd2a0530aef088"><div class="ttname"><a href="../../dd/d31/namespace_source_control_file_view_column_1_1_discard.html#a3a97e14f17761e1f96dd2a0530aef088">SourceControlFileViewColumn::Discard::GetDisplayText</a></div><div class="ttdeci">FText GetDisplayText()</div><div class="ttdef"><b>定义</b> SSourceControlChangelistRows.cpp:106</div></div>
+<div class="ttc" id="anamespace_source_control_file_view_column_1_1_discard_html_a557dca2504dc48cd7c0673f329bcfb39"><div class="ttname"><a href="../../dd/d31/namespace_source_control_file_view_column_1_1_discard.html#a557dca2504dc48cd7c0673f329bcfb39">SourceControlFileViewColumn::Discard::GetToolTipText</a></div><div class="ttdeci">FText GetToolTipText()</div><div class="ttdef"><b>定义</b> SSourceControlChangelistRows.cpp:107</div></div>
+<div class="ttc" id="anamespace_source_control_file_view_column_1_1_discard_html_a7e9c0dc4bb3acaa52a497348f44cf7cb"><div class="ttname"><a href="../../dd/d31/namespace_source_control_file_view_column_1_1_discard.html#a7e9c0dc4bb3acaa52a497348f44cf7cb">SourceControlFileViewColumn::Discard::Id</a></div><div class="ttdeci">FName Id()</div><div class="ttdef"><b>定义</b> SSourceControlChangelistRows.cpp:105</div></div>
+<div class="ttc" id="anamespace_source_control_file_view_column_1_1_icon_html"><div class="ttname"><a href="../../da/d42/namespace_source_control_file_view_column_1_1_icon.html">SourceControlFileViewColumn::Icon</a></div><div class="ttdef"><b>定义</b> SSourceControlChangelistRows.h:25</div></div>
+<div class="ttc" id="anamespace_source_control_file_view_column_1_1_icon_html_ab51f3e0e09bc78828d82a11944949f1b"><div class="ttname"><a href="../../da/d42/namespace_source_control_file_view_column_1_1_icon.html#ab51f3e0e09bc78828d82a11944949f1b">SourceControlFileViewColumn::Icon::Id</a></div><div class="ttdeci">FName Id()</div><div class="ttdef"><b>定义</b> SSourceControlChangelistRows.cpp:69</div></div>
+<div class="ttc" id="anamespace_source_control_file_view_column_1_1_icon_html_ad4949c6fc4e4854219a4f6d905cfca07"><div class="ttname"><a href="../../da/d42/namespace_source_control_file_view_column_1_1_icon.html#ad4949c6fc4e4854219a4f6d905cfca07">SourceControlFileViewColumn::Icon::GetToolTipText</a></div><div class="ttdeci">FText GetToolTipText()</div><div class="ttdef"><b>定义</b> SSourceControlChangelistRows.cpp:71</div></div>
+<div class="ttc" id="anamespace_source_control_file_view_column_1_1_icon_html_af09ff683d8b2fc1c23a31d19106a7d3f"><div class="ttname"><a href="../../da/d42/namespace_source_control_file_view_column_1_1_icon.html#af09ff683d8b2fc1c23a31d19106a7d3f">SourceControlFileViewColumn::Icon::GetDisplayText</a></div><div class="ttdeci">FText GetDisplayText()</div><div class="ttdef"><b>定义</b> SSourceControlChangelistRows.cpp:70</div></div>
+<div class="ttc" id="anamespace_source_control_file_view_column_1_1_last_modified_timestamp_html"><div class="ttname"><a href="../../d0/d67/namespace_source_control_file_view_column_1_1_last_modified_timestamp.html">SourceControlFileViewColumn::LastModifiedTimestamp</a></div><div class="ttdef"><b>定义</b> SSourceControlChangelistRows.h:65</div></div>
+<div class="ttc" id="anamespace_source_control_file_view_column_1_1_last_modified_timestamp_html_a0e6549f59b1fcfcca042283428623236"><div class="ttname"><a href="../../d0/d67/namespace_source_control_file_view_column_1_1_last_modified_timestamp.html#a0e6549f59b1fcfcca042283428623236">SourceControlFileViewColumn::LastModifiedTimestamp::GetToolTipText</a></div><div class="ttdeci">FText GetToolTipText()</div><div class="ttdef"><b>定义</b> SSourceControlChangelistRows.cpp:91</div></div>
+<div class="ttc" id="anamespace_source_control_file_view_column_1_1_last_modified_timestamp_html_ab4963f8dca864fe8b0e6aadf351b838b"><div class="ttname"><a href="../../d0/d67/namespace_source_control_file_view_column_1_1_last_modified_timestamp.html#ab4963f8dca864fe8b0e6aadf351b838b">SourceControlFileViewColumn::LastModifiedTimestamp::GetDisplayText</a></div><div class="ttdeci">FText GetDisplayText()</div><div class="ttdef"><b>定义</b> SSourceControlChangelistRows.cpp:90</div></div>
+<div class="ttc" id="anamespace_source_control_file_view_column_1_1_last_modified_timestamp_html_ad0b94592af1f5711f2fca8e06d98220f"><div class="ttname"><a href="../../d0/d67/namespace_source_control_file_view_column_1_1_last_modified_timestamp.html#ad0b94592af1f5711f2fca8e06d98220f">SourceControlFileViewColumn::LastModifiedTimestamp::Id</a></div><div class="ttdeci">FName Id()</div><div class="ttdef"><b>定义</b> SSourceControlChangelistRows.cpp:89</div></div>
+<div class="ttc" id="anamespace_source_control_file_view_column_1_1_name_html"><div class="ttname"><a href="../../d5/d13/namespace_source_control_file_view_column_1_1_name.html">SourceControlFileViewColumn::Name</a></div><div class="ttdef"><b>定义</b> SSourceControlChangelistRows.h:41</div></div>
+<div class="ttc" id="anamespace_source_control_file_view_column_1_1_name_html_a3889730aa2e7dc1130c3bc294391dac6"><div class="ttname"><a href="../../d5/d13/namespace_source_control_file_view_column_1_1_name.html#a3889730aa2e7dc1130c3bc294391dac6">SourceControlFileViewColumn::Name::GetDisplayText</a></div><div class="ttdeci">FText GetDisplayText()</div><div class="ttdef"><b>定义</b> SSourceControlChangelistRows.cpp:78</div></div>
+<div class="ttc" id="anamespace_source_control_file_view_column_1_1_name_html_a644833f502917bfd053439f3d3fff33a"><div class="ttname"><a href="../../d5/d13/namespace_source_control_file_view_column_1_1_name.html#a644833f502917bfd053439f3d3fff33a">SourceControlFileViewColumn::Name::GetToolTipText</a></div><div class="ttdeci">FText GetToolTipText()</div><div class="ttdef"><b>定义</b> SSourceControlChangelistRows.cpp:79</div></div>
+<div class="ttc" id="anamespace_source_control_file_view_column_1_1_name_html_aa4423a2282e79bcfb652fcc07fd8debe"><div class="ttname"><a href="../../d5/d13/namespace_source_control_file_view_column_1_1_name.html#aa4423a2282e79bcfb652fcc07fd8debe">SourceControlFileViewColumn::Name::Id</a></div><div class="ttdeci">FName Id()</div><div class="ttdef"><b>定义</b> SSourceControlChangelistRows.cpp:77</div></div>
+<div class="ttc" id="anamespace_source_control_file_view_column_1_1_path_html"><div class="ttname"><a href="../../da/d7d/namespace_source_control_file_view_column_1_1_path.html">SourceControlFileViewColumn::Path</a></div><div class="ttdef"><b>定义</b> SSourceControlChangelistRows.h:49</div></div>
+<div class="ttc" id="anamespace_source_control_file_view_column_1_1_path_html_a27ec2c36986fe1db99f9a5fa06a60941"><div class="ttname"><a href="../../da/d7d/namespace_source_control_file_view_column_1_1_path.html#a27ec2c36986fe1db99f9a5fa06a60941">SourceControlFileViewColumn::Path::GetDisplayText</a></div><div class="ttdeci">FText GetDisplayText()</div><div class="ttdef"><b>定义</b> SSourceControlChangelistRows.cpp:82</div></div>
+<div class="ttc" id="anamespace_source_control_file_view_column_1_1_path_html_a94d79951af06ec5fa030c11c3895a18e"><div class="ttname"><a href="../../da/d7d/namespace_source_control_file_view_column_1_1_path.html#a94d79951af06ec5fa030c11c3895a18e">SourceControlFileViewColumn::Path::Id</a></div><div class="ttdeci">FName Id()</div><div class="ttdef"><b>定义</b> SSourceControlChangelistRows.cpp:81</div></div>
+<div class="ttc" id="anamespace_source_control_file_view_column_1_1_path_html_ae7ad13adc30dd946282ea798cf95b6ae"><div class="ttname"><a href="../../da/d7d/namespace_source_control_file_view_column_1_1_path.html#ae7ad13adc30dd946282ea798cf95b6ae">SourceControlFileViewColumn::Path::GetToolTipText</a></div><div class="ttdeci">FText GetToolTipText()</div><div class="ttdef"><b>定义</b> SSourceControlChangelistRows.cpp:83</div></div>
+<div class="ttc" id="anamespace_source_control_file_view_column_1_1_shelve_html"><div class="ttname"><a href="../../de/dcc/namespace_source_control_file_view_column_1_1_shelve.html">SourceControlFileViewColumn::Shelve</a></div><div class="ttdef"><b>定义</b> SSourceControlChangelistRows.h:33</div></div>
+<div class="ttc" id="anamespace_source_control_file_view_column_1_1_shelve_html_a0cca53d2d4e6bad71bedf9c4d3986c60"><div class="ttname"><a href="../../de/dcc/namespace_source_control_file_view_column_1_1_shelve.html#a0cca53d2d4e6bad71bedf9c4d3986c60">SourceControlFileViewColumn::Shelve::GetDisplayText</a></div><div class="ttdeci">FText GetDisplayText()</div><div class="ttdef"><b>定义</b> SSourceControlChangelistRows.cpp:74</div></div>
+<div class="ttc" id="anamespace_source_control_file_view_column_1_1_shelve_html_a5594d0e149d24fd775cadd0f02a04703"><div class="ttname"><a href="../../de/dcc/namespace_source_control_file_view_column_1_1_shelve.html#a5594d0e149d24fd775cadd0f02a04703">SourceControlFileViewColumn::Shelve::GetToolTipText</a></div><div class="ttdeci">FText GetToolTipText()</div><div class="ttdef"><b>定义</b> SSourceControlChangelistRows.cpp:75</div></div>
+<div class="ttc" id="anamespace_source_control_file_view_column_1_1_shelve_html_a9aea5984bb0dade7ea595d79f19c5cff"><div class="ttname"><a href="../../de/dcc/namespace_source_control_file_view_column_1_1_shelve.html#a9aea5984bb0dade7ea595d79f19c5cff">SourceControlFileViewColumn::Shelve::Id</a></div><div class="ttdeci">FName Id()</div><div class="ttdef"><b>定义</b> SSourceControlChangelistRows.cpp:73</div></div>
+<div class="ttc" id="anamespace_source_control_file_view_column_1_1_type_html"><div class="ttname"><a href="../../d7/d0a/namespace_source_control_file_view_column_1_1_type.html">SourceControlFileViewColumn::Type</a></div><div class="ttdef"><b>定义</b> SSourceControlChangelistRows.h:57</div></div>
+<div class="ttc" id="anamespace_source_control_file_view_column_1_1_type_html_a18c2eb046dad7b02a014449d4848ca61"><div class="ttname"><a href="../../d7/d0a/namespace_source_control_file_view_column_1_1_type.html#a18c2eb046dad7b02a014449d4848ca61">SourceControlFileViewColumn::Type::Id</a></div><div class="ttdeci">FName Id()</div><div class="ttdef"><b>定义</b> SSourceControlChangelistRows.cpp:85</div></div>
+<div class="ttc" id="anamespace_source_control_file_view_column_1_1_type_html_a358b66d389d1c889dce1ce2840864208"><div class="ttname"><a href="../../d7/d0a/namespace_source_control_file_view_column_1_1_type.html#a358b66d389d1c889dce1ce2840864208">SourceControlFileViewColumn::Type::GetToolTipText</a></div><div class="ttdeci">FText GetToolTipText()</div><div class="ttdef"><b>定义</b> SSourceControlChangelistRows.cpp:87</div></div>
+<div class="ttc" id="anamespace_source_control_file_view_column_1_1_type_html_a988a72fa51283ed74bcd7138519bb322"><div class="ttname"><a href="../../d7/d0a/namespace_source_control_file_view_column_1_1_type.html#a988a72fa51283ed74bcd7138519bb322">SourceControlFileViewColumn::Type::GetDisplayText</a></div><div class="ttdeci">FText GetDisplayText()</div><div class="ttdef"><b>定义</b> SSourceControlChangelistRows.cpp:86</div></div>
+<div class="ttc" id="anamespace_source_control_file_view_column_html"><div class="ttname"><a href="../../d9/deb/namespace_source_control_file_view_column.html">SourceControlFileViewColumn</a></div><div class="ttdef"><b>定义</b> SSourceControlChangelistRows.cpp:110</div></div>
+<div class="ttc" id="anamespace_source_control_file_view_column_html_a4fd1d37c8bf0ca9b1d0e7e6e4743e081"><div class="ttname"><a href="../../d9/deb/namespace_source_control_file_view_column.html#a4fd1d37c8bf0ca9b1d0e7e6e4743e081">SourceControlFileViewColumn::GetSortPredicate</a></div><div class="ttdeci">TFunction&lt; bool(const IFileViewTreeItem &amp;, const IFileViewTreeItem &amp;)&gt; GetSortPredicate(EColumnSortMode::Type SortMode, FName ColumnId, EPathFlags PathFlags)</div><div class="ttdef"><b>定义</b> SSourceControlChangelistRows.cpp:208</div></div>
+<div class="ttc" id="anamespace_source_control_file_view_column_html_ad481c7702beb806734a242503495c3ce"><div class="ttname"><a href="../../d9/deb/namespace_source_control_file_view_column.html#ad481c7702beb806734a242503495c3ce">SourceControlFileViewColumn::GetColumnComparer</a></div><div class="ttdeci">TFunction&lt; int32(const IFileViewTreeItem &amp;, const IFileViewTreeItem &amp;)&gt; GetColumnComparer(FName ColumnId, EPathFlags PathFlags)</div><div class="ttdef"><b>定义</b> SSourceControlChangelistRows.cpp:111</div></div>
+<div class="ttc" id="anamespace_source_control_file_view_column_html_af183b4c9d8d234adf4e64e3a281911fe"><div class="ttname"><a href="../../d9/deb/namespace_source_control_file_view_column.html#af183b4c9d8d234adf4e64e3a281911fe">SourceControlFileViewColumn::EPathFlags</a></div><div class="ttdeci">EPathFlags</div><div class="ttdef"><b>定义</b> SSourceControlChangelistRows.h:104</div></div>
+<div class="ttc" id="anamespace_source_control_file_view_column_html_af183b4c9d8d234adf4e64e3a281911fea477db1753d8cbc51006ebff0980e8d2f"><div class="ttname"><a href="../../d9/deb/namespace_source_control_file_view_column.html#af183b4c9d8d234adf4e64e3a281911fea477db1753d8cbc51006ebff0980e8d2f">SourceControlFileViewColumn::EPathFlags::ShowingPackageName</a></div><div class="ttdeci">@ ShowingPackageName</div><div class="ttdef"><b>定义</b> SSourceControlChangelistRows.h:107</div></div>
+<div class="ttc" id="anamespace_source_control_file_view_column_html_af183b4c9d8d234adf4e64e3a281911fea7a1920d61156abc05a60135aefe8bc67"><div class="ttname"><a href="../../d9/deb/namespace_source_control_file_view_column.html#af183b4c9d8d234adf4e64e3a281911fea7a1920d61156abc05a60135aefe8bc67">SourceControlFileViewColumn::EPathFlags::Default</a></div><div class="ttdeci">@ Default</div><div class="ttdef"><b>定义</b> SSourceControlChangelistRows.h:105</div></div>
+<div class="ttc" id="anamespace_source_control_file_view_column_html_af183b4c9d8d234adf4e64e3a281911fea91b59ac7be500d59ce54b26a7aa26825"><div class="ttname"><a href="../../d9/deb/namespace_source_control_file_view_column.html#af183b4c9d8d234adf4e64e3a281911fea91b59ac7be500d59ce54b26a7aa26825">SourceControlFileViewColumn::EPathFlags::ShowingVersePath</a></div><div class="ttdeci">@ ShowingVersePath</div><div class="ttdef"><b>定义</b> SSourceControlChangelistRows.h:108</div></div>
+<div class="ttc" id="astruct_f_changelist_tree_item_html"><div class="ttname"><a href="../../d1/d35/struct_f_changelist_tree_item.html">FChangelistTreeItem</a></div><div class="ttdef"><b>定义</b> SSourceControlCommon.h:163</div></div>
+<div class="ttc" id="astruct_f_file_tree_item_html"><div class="ttname"><a href="../../d0/d95/struct_f_file_tree_item.html">FFileTreeItem</a></div><div class="ttdef"><b>定义</b> SSourceControlCommon.h:235</div></div>
+<div class="ttc" id="astruct_f_geometry_html"><div class="ttname"><a href="../../d5/dba/struct_f_geometry.html">FGeometry</a></div><div class="ttdef"><b>定义</b> Geometry.h:40</div></div>
+<div class="ttc" id="astruct_f_offline_file_tree_item_html"><div class="ttname"><a href="../../d5/df1/struct_f_offline_file_tree_item.html">FOfflineFileTreeItem</a></div><div class="ttdef"><b>定义</b> SSourceControlCommon.h:361</div></div>
+<div class="ttc" id="astruct_f_shelved_changelist_tree_item_html"><div class="ttname"><a href="../../d5/d8c/struct_f_shelved_changelist_tree_item.html">FShelvedChangelistTreeItem</a></div><div class="ttdef"><b>定义</b> SSourceControlCommon.h:155</div></div>
+<div class="ttc" id="astruct_f_slate_color_html"><div class="ttname"><a href="../../da/dfc/struct_f_slate_color.html">FSlateColor</a></div><div class="ttdef"><b>定义</b> SlateColor.h:42</div></div>
+<div class="ttc" id="astruct_f_uncontrolled_changelist_tree_item_html"><div class="ttname"><a href="../../dd/dcf/struct_f_uncontrolled_changelist_tree_item.html">FUncontrolledChangelistTreeItem</a></div><div class="ttdef"><b>定义</b> SSourceControlCommon.h:197</div></div>
+<div class="ttc" id="astruct_i_changelist_tree_item_html"><div class="ttname"><a href="../../df/dd8/struct_i_changelist_tree_item.html">IChangelistTreeItem</a></div><div class="ttdef"><b>定义</b> SSourceControlCommon.h:35</div></div>
+<div class="ttc" id="astruct_i_file_view_tree_item_html"><div class="ttname"><a href="../../d5/dde/struct_i_file_view_tree_item.html">IFileViewTreeItem</a></div><div class="ttdef"><b>定义</b> SSourceControlCommon.h:94</div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+</div><!-- container -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a href="../../dir_0b6ee6e7e9547e675db4add2e5de97da.html">Engine</a></li><li class="navelem"><a href="../../dir_9579d1ecb2c7bf48cbe1049c41745cb4.html">Source</a></li><li class="navelem"><a href="../../dir_c6cb6fb3292d721ac39edcf45c3f2a55.html">Editor</a></li><li class="navelem"><a href="../../dir_afbc40d532a12d2fc2aedd40c635f804.html">SourceControlWindows</a></li><li class="navelem"><a href="../../dir_d1531fdfa2970b9c5381e02afd96d110.html">Private</a></li><li class="navelem"><a href="../../da/dea/_s_source_control_changelist_rows_8h.html">SSourceControlChangelistRows.h</a></li>
+    <li class="footer">制作者 <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.15.0 </li>
+  </ul>
+</div>
+</body>
+</html>

@@ -1,0 +1,26 @@
+var struct_f_data_driven_platform_info =
+[
+    [ "GetCookPlatformName", "d5/d5d/struct_f_data_driven_platform_info.html#a0bc91c33d1f26b7bce1b0cbbae40eebf", null ],
+    [ "AdditionalRestrictedFolders", "d5/d5d/struct_f_data_driven_platform_info.html#a54c6129c6212d60f23ae8bff601651c9", null ],
+    [ "bCanChangeGamepadType", "d5/d5d/struct_f_data_driven_platform_info.html#a424d37cc7dcfdac4355baffd439dd2ac", null ],
+    [ "bDefaultInputStandardKeyboard", "d5/d5d/struct_f_data_driven_platform_info.html#a84983f3351df91c35a3cd1d1c97cd9ba", null ],
+    [ "bHasDedicatedGamepad", "d5/d5d/struct_f_data_driven_platform_info.html#a6aa427757688b4e076f9308effaaa7d1", null ],
+    [ "bInputSupportConfigurable", "d5/d5d/struct_f_data_driven_platform_info.html#a72f04f8593c9aea28d93d7761b511e09", null ],
+    [ "bIsConfidential", "d5/d5d/struct_f_data_driven_platform_info.html#af2e9608612a509ff14a8c28287b1c2e4", null ],
+    [ "bIsFakePlatform", "d5/d5d/struct_f_data_driven_platform_info.html#a181bd7095623d26f6499ae941a364d2d", null ],
+    [ "bSupportsGamepad", "d5/d5d/struct_f_data_driven_platform_info.html#a220b2efddd7786fa812e76d73031a83a", null ],
+    [ "bSupportsMouseAndKeyboard", "d5/d5d/struct_f_data_driven_platform_info.html#a047cad1218178b57aa1dcb1d50604a26", null ],
+    [ "bSupportsTouch", "d5/d5d/struct_f_data_driven_platform_info.html#ab0572cedda6f4ed7d7afb9d1c5a4885a", null ],
+    [ "DefaultInputType", "d5/d5d/struct_f_data_driven_platform_info.html#a80289a80e07f1789d3203ed6e6231ce6", null ],
+    [ "Freezing_b32Bit", "d5/d5d/struct_f_data_driven_platform_info.html#a13d6d1b96a6e0c774a98d4c9a364d5fc", null ],
+    [ "Freezing_bAlignBases", "d5/d5d/struct_f_data_driven_platform_info.html#a3b36638b78d819b81528b3df074683f4", null ],
+    [ "Freezing_bForce64BitMemoryImagePointers", "d5/d5d/struct_f_data_driven_platform_info.html#a9d1ceafcef3f001611c94506594d583a", null ],
+    [ "Freezing_MaxFieldAlignment", "d5/d5d/struct_f_data_driven_platform_info.html#a396dbf1c05ab374af0565119b366ecff", null ],
+    [ "GlobalIdentifier", "d5/d5d/struct_f_data_driven_platform_info.html#abe6df6c378bda2a14b1f59623d750693", null ],
+    [ "HardwareCompressionFormat", "d5/d5d/struct_f_data_driven_platform_info.html#a11f2af8da7176c3ae3bc24a7d37ec1da", null ],
+    [ "ICUDataVersion", "d5/d5d/struct_f_data_driven_platform_info.html#a1da27e9270b6cab7d2b081ae8a922c2b", null ],
+    [ "IniParentChain", "d5/d5d/struct_f_data_driven_platform_info.html#a325a2fe8dcd5cf4896baa5335c637a76", null ],
+    [ "IniPlatformName", "d5/d5d/struct_f_data_driven_platform_info.html#a13e06d9e4cc1f32048f3159cdc55913b", null ],
+    [ "OverrideCookPlatformName", "d5/d5d/struct_f_data_driven_platform_info.html#a6c1a1ed269857c0a32b483c757625e4a", null ],
+    [ "TargetSettingsIniSectionName", "d5/d5d/struct_f_data_driven_platform_info.html#ad5bcc7f1117fafd4daec078f0f4e0668", null ]
+];

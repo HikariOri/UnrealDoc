@@ -1,0 +1,415 @@
+<!-- HTML header for doxygen 1.15.0-->
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh">
+<head>
+  <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=11" />
+  <meta name="generator" content="Doxygen 1.15.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>UE 5.8.4: Engine/Source/Runtime/Core/Public/Async/AtomicRefCount.h 源文件</title>
+  <link rel="icon" href="../../EdIconDefault.bmp" type="image/x-icon" />
+  <link href="../../tabs.css" rel="stylesheet" type="text/css" />
+  <script type="text/javascript" src="../../jquery.js"></script>
+  <script type="text/javascript" src="../../dynsections.js"></script>
+  <link href="../../navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../navtreedata.js"></script>
+<script type="text/javascript" src="../../navtree.js"></script>
+<script type="text/javascript" src="../../cookie.js"></script>
+  <link href="../../search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../search/searchdata.js"></script>
+<script type="text/javascript" src="../../search/search.js"></script>
+  <link href="../../doxygen.css" rel="stylesheet" type="text/css" />
+  <link href="../../doxygen-awesome.css" rel="stylesheet" type="text/css"/>
+<link href="../../doxygen-awesome-sidebar-only.css" rel="stylesheet" type="text/css"/>
+<link href="../../doxygen-awesome-sidebar-only-darkmode-toggle.css" rel="stylesheet" type="text/css"/>
+  <!-- ... other metadata & script includes ... -->
+  <script type="text/javascript" src="../../doxygen-awesome-darkmode-toggle.js"></script>
+  <script type="text/javascript">
+    DoxygenAwesomeDarkModeToggle.title = "Zwischen hellem/dunklem Modus wechseln"
+    DoxygenAwesomeDarkModeToggle.lightModeIcon = '🌞'
+    // icon from https://fonts.google.com/icons
+    DoxygenAwesomeDarkModeToggle.darkModeIcon = `<svg xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 24 24" height="24px" viewBox="0 0 24 24" width="24px" fill="#009793"><g><rect fill="none" height="24" width="24"/></g><g><g><path d="M8.1,14.15C9.77,14.63,11,16.17,11,18c0,0.68-0.19,1.31-0.48,1.87c0.48,0.09,0.97,0.14,1.48,0.14 c1.48,0,2.9-0.41,4.13-1.15c-2.62-0.92-5.23-2.82-6.8-5.86C7.74,9.94,7.78,7.09,8.29,4.9c-2.57,1.33-4.3,4.01-4.3,7.1c0,0,0,0,0,0 c0.01,0,0.01,0,0.02,0C5.66,12,7.18,12.83,8.1,14.15z" opacity=".3"/><path d="M19.78,17.51c-2.47,0-6.57-1.33-8.68-5.43C8.77,7.57,10.6,3.6,11.63,2.01C6.27,2.2,1.98,6.59,1.98,12 c0,0.14,0.02,0.28,0.02,0.42C2.61,12.16,3.28,12,3.98,12c0,0,0,0,0,0c0-3.09,1.73-5.77,4.3-7.1C7.78,7.09,7.74,9.94,9.32,13 c1.57,3.04,4.18,4.95,6.8,5.86c-1.23,0.74-2.65,1.15-4.13,1.15c-0.5,0-1-0.05-1.48-0.14c-0.37,0.7-0.94,1.27-1.64,1.64 c0.98,0.32,2.03,0.5,3.11,0.5c3.5,0,6.58-1.8,8.37-4.52C20.18,17.5,19.98,17.51,19.78,17.51z"/><path d="M7,16l-0.18,0C6.4,14.84,5.3,14,4,14c-1.66,0-3,1.34-3,3s1.34,3,3,3c0.62,0,2.49,0,3,0c1.1,0,2-0.9,2-2 C9,16.9,8.1,16,7,16z"/></g></g></svg>`
+    DoxygenAwesomeDarkModeToggle.init()
+  </script>
+  <script type="text/javascript" src="../../doxygen-awesome-fragment-copy-button.js"></script>
+  <script type="text/javascript">
+    DoxygenAwesomeFragmentCopyButton.title = "In die Zwischenablage kopieren"
+    // DoxygenAwesomeFragmentCopyButton.copyIcon = `<svg ...>`
+    // DoxygenAwesomeFragmentCopyButton.successIcon = `<svg ...>`
+    DoxygenAwesomeFragmentCopyButton.init()
+  </script>
+  <script type="text/javascript" src="../../doxygen-awesome-paragraph-link.js"></script>
+  <script type="text/javascript">
+    DoxygenAwesomeParagraphLink.title = "Abschnitt verknüpfen"
+    DoxygenAwesomeParagraphLink.icon = "¶"
+    DoxygenAwesomeParagraphLink.init()
+  </script>
+  <script type="text/javascript" src="../../doxygen-awesome-interactive-toc.js"></script>
+  <script type="text/javascript">
+    DoxygenAwesomeInteractiveToc.topOffset = 45
+    DoxygenAwesomeInteractiveToc.hideMobileMenu = false
+    DoxygenAwesomeInteractiveToc.init()
+  </script>
+</head>
+<body>
+    <div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+      <div id="titlearea">
+        <table cellspacing="0" cellpadding="0">
+          <tbody>
+            <tr id="projectrow">
+              <td id="projectlogo"><img alt="Logo" src="../../EdIconDefault.bmp"  /></td>
+              <td id="projectalign">
+                <div id="projectname">UE 5.8.4
+                </div>
+                <div id="projectbrief">Unreal Engine</div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <!-- end header part -->
+<!-- 制作者 Doxygen 1.15.0 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "../../search/",'.html');
+</script>
+<script type="text/javascript">
+$(function() { codefold.init(); });
+</script>
+<script type="text/javascript" src="../../menudata.js"></script>
+<script type="text/javascript" src="../../menu.js"></script>
+<script type="text/javascript">
+$(function() {
+  initMenu('../../',true,false,'search.php','搜索',true);
+  $(function() { init_search(); });
+});
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(function(){initNavTree('d2/d7a/_atomic_ref_count_8h_source.html','../../',''); });
+</script>
+<div id="container">
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">载入中...</div>
+<div class="SRStatus" id="Searching">搜索中...</div>
+<div class="SRStatus" id="NoMatches">未找到</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">AtomicRefCount.h</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="../../d2/d7a/_atomic_ref_count_8h.html">浏览该文件的文档.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="comment">// Copyright Epic Games, Inc. All Rights Reserved.</span></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span> </div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="preprocessor">#pragma once</span></div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span> </div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="preprocessor">#include &quot;<a class="code" href="../../da/d83/_auto_r_t_f_m_8h.html">AutoRTFM.h</a>&quot;</span></div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="preprocessor">#include &quot;<a class="code" href="../../db/d04/_core_types_8h.html">CoreTypes.h</a>&quot;</span></div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span> </div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="preprocessor">#include &lt;atomic&gt;</span></div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span> </div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="keyword">namespace </span><a class="code hl_namespace" href="../../d6/d38/namespace_u_e_1_1_private.html">UE::Private</a></div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span>{</div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span> </div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span>CORE_API <span class="keywordtype">void</span> <a class="code hl_function" href="../../d6/d38/namespace_u_e_1_1_private.html#a68f070679770fe410a4b0d514241a702">CheckRefCountIsNonZero</a>();</div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span> </div>
+<div class="foldopen" id="foldopen00015" data-start="{" data-end="};">
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno"><a class="line" href="../../d6/d38/namespace_u_e_1_1_private.html#a71b8c5e77889fe1b342f14059c20ccc5">   15</a></span><span class="keyword">enum class</span> <a class="code hl_enumeration" href="../../d6/d38/namespace_u_e_1_1_private.html#a71b8c5e77889fe1b342f14059c20ccc5">ERefCountIsQueryable</a> : <span class="keywordtype">bool</span></div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span>{</div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno"><a class="line" href="../../d6/d38/namespace_u_e_1_1_private.html#a71b8c5e77889fe1b342f14059c20ccc5a93cba07454f06a4a960172bbd6e2a435">   17</a></span>    <a class="code hl_enumvalue" href="../../d6/d38/namespace_u_e_1_1_private.html#a71b8c5e77889fe1b342f14059c20ccc5a93cba07454f06a4a960172bbd6e2a435">Yes</a> = <span class="keyword">true</span>,</div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno"><a class="line" href="../../d6/d38/namespace_u_e_1_1_private.html#a71b8c5e77889fe1b342f14059c20ccc5abafd7322c6e97d25b6299b5d6fe8920b">   18</a></span>    <a class="code hl_enumvalue" href="../../d6/d38/namespace_u_e_1_1_private.html#a71b8c5e77889fe1b342f14059c20ccc5abafd7322c6e97d25b6299b5d6fe8920b">No</a> = <span class="keyword">false</span>,</div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>};</div>
+</div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span> </div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno"><a class="line" href="../../df/dec/struct_u_e_1_1_private_1_1_t_queryable_transactional_type.html">   21</a></span><span class="keyword">template</span> &lt;<span class="keyword">typename</span> IntType, ERefCountIsQueryable Queryable&gt; <span class="keyword">struct </span><a class="code hl_struct" href="../../df/dec/struct_u_e_1_1_private_1_1_t_queryable_transactional_type.html">TQueryableTransactionalType</a>;</div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span> </div>
+<div class="foldopen" id="foldopen00023" data-start="{" data-end="};">
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno"><a class="line" href="../../d9/d42/struct_u_e_1_1_private_1_1_t_queryable_transactional_type_3_01_int_type_00_01_e_ref_count_is_queryable_1_1_yes_01_4.html">   23</a></span><span class="keyword">template</span> &lt;<span class="keyword">typename</span> IntType&gt; <span class="keyword">struct </span><a class="code hl_function" href="../../d9/d42/struct_u_e_1_1_private_1_1_t_queryable_transactional_type_3_01_int_type_00_01_e_ref_count_is_queryable_1_1_yes_01_4.html#a4f42e9772f4b5a55d8d35c9b86a6954f">TQueryableTransactionalType</a>&lt;IntType, <a class="code hl_enumeration" href="../../d6/d38/namespace_u_e_1_1_private.html#a71b8c5e77889fe1b342f14059c20ccc5">ERefCountIsQueryable</a>::<a class="code hl_enumvalue" href="../../d6/d38/namespace_u_e_1_1_private.html#a71b8c5e77889fe1b342f14059c20ccc5a93cba07454f06a4a960172bbd6e2a435">Yes</a>&gt;</div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>{</div>
+<div class="foldopen" id="foldopen00025" data-start="{" data-end="}">
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno"><a class="line" href="../../d9/d42/struct_u_e_1_1_private_1_1_t_queryable_transactional_type_3_01_int_type_00_01_e_ref_count_is_queryable_1_1_yes_01_4.html#a4f42e9772f4b5a55d8d35c9b86a6954f">   25</a></span>    <a class="code hl_function" href="../../d9/d42/struct_u_e_1_1_private_1_1_t_queryable_transactional_type_3_01_int_type_00_01_e_ref_count_is_queryable_1_1_yes_01_4.html#a4f42e9772f4b5a55d8d35c9b86a6954f">TQueryableTransactionalType</a>(IntType <a class="code hl_function" href="../../d9/dcd/_lock_free_list_8h.html#aa047b58bcb6849c4d471a2ce95fc901e">Init</a>)</div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>        : Payload(<a class="code hl_function" href="../../d9/dcd/_lock_free_list_8h.html#aa047b58bcb6849c4d471a2ce95fc901e">Init</a>)</div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>    {</div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>    }</div>
+</div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span> </div>
+<div class="foldopen" id="foldopen00030" data-start="{" data-end="}">
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno"><a class="line" href="../../d9/d42/struct_u_e_1_1_private_1_1_t_queryable_transactional_type_3_01_int_type_00_01_e_ref_count_is_queryable_1_1_yes_01_4.html#af18280324be71ceed5dab30d12a0801d">   30</a></span>    IntType <a class="code hl_function" href="../../d9/d42/struct_u_e_1_1_private_1_1_t_queryable_transactional_type_3_01_int_type_00_01_e_ref_count_is_queryable_1_1_yes_01_4.html#af18280324be71ceed5dab30d12a0801d">operator++</a>(<span class="keywordtype">int</span>)</div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>    {</div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>        <span class="keywordflow">return</span> Payload++;</div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>    }</div>
+</div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span> </div>
+<div class="foldopen" id="foldopen00035" data-start="{" data-end="}">
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno"><a class="line" href="../../d9/d42/struct_u_e_1_1_private_1_1_t_queryable_transactional_type_3_01_int_type_00_01_e_ref_count_is_queryable_1_1_yes_01_4.html#a8b7b8f2c9da7c40b02ad7956b494fd5c">   35</a></span>    IntType <a class="code hl_function" href="../../d9/d42/struct_u_e_1_1_private_1_1_t_queryable_transactional_type_3_01_int_type_00_01_e_ref_count_is_queryable_1_1_yes_01_4.html#a8b7b8f2c9da7c40b02ad7956b494fd5c">operator--</a>(<span class="keywordtype">int</span>)</div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>    {</div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>        <span class="keywordflow">return</span> Payload--;</div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>    }</div>
+</div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span> </div>
+<div class="foldopen" id="foldopen00040" data-start="{" data-end="}">
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno"><a class="line" href="../../d9/d42/struct_u_e_1_1_private_1_1_t_queryable_transactional_type_3_01_int_type_00_01_e_ref_count_is_queryable_1_1_yes_01_4.html#af11031f675365030ec90130e59ebc1d5">   40</a></span>    <span class="keyword">operator</span> IntType()<span class="keyword"> const</span></div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span><span class="keyword">    </span>{</div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>        <span class="keywordflow">return</span> Payload;</div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>    }</div>
+</div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span><span class="keyword">private</span>:</div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>    IntType Payload = 0;</div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>};</div>
+</div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span> </div>
+<div class="foldopen" id="foldopen00048" data-start="{" data-end="};">
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno"><a class="line" href="../../d8/df2/struct_u_e_1_1_private_1_1_t_queryable_transactional_type_3_01_int_type_00_01_e_ref_count_is_queryable_1_1_no_01_4.html">   48</a></span><span class="keyword">template</span> &lt;<span class="keyword">typename</span> IntType&gt; <span class="keyword">struct </span><a class="code hl_function" href="../../d8/df2/struct_u_e_1_1_private_1_1_t_queryable_transactional_type_3_01_int_type_00_01_e_ref_count_is_queryable_1_1_no_01_4.html#a26db5604777a97ce7c796fc87840725f">TQueryableTransactionalType</a>&lt;IntType, <a class="code hl_enumeration" href="../../d6/d38/namespace_u_e_1_1_private.html#a71b8c5e77889fe1b342f14059c20ccc5">ERefCountIsQueryable</a>::<a class="code hl_enumvalue" href="../../d6/d38/namespace_u_e_1_1_private.html#a71b8c5e77889fe1b342f14059c20ccc5abafd7322c6e97d25b6299b5d6fe8920b">No</a>&gt;</div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>{</div>
+<div class="foldopen" id="foldopen00050" data-start="{" data-end="}">
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno"><a class="line" href="../../d8/df2/struct_u_e_1_1_private_1_1_t_queryable_transactional_type_3_01_int_type_00_01_e_ref_count_is_queryable_1_1_no_01_4.html#a26db5604777a97ce7c796fc87840725f">   50</a></span>    <a class="code hl_function" href="../../d8/df2/struct_u_e_1_1_private_1_1_t_queryable_transactional_type_3_01_int_type_00_01_e_ref_count_is_queryable_1_1_no_01_4.html#a26db5604777a97ce7c796fc87840725f">TQueryableTransactionalType</a>(IntType <a class="code hl_function" href="../../d9/dcd/_lock_free_list_8h.html#aa047b58bcb6849c4d471a2ce95fc901e">Init</a>)</div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>    {</div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>    }</div>
+</div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span> </div>
+<div class="foldopen" id="foldopen00054" data-start="{" data-end="}">
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno"><a class="line" href="../../d8/df2/struct_u_e_1_1_private_1_1_t_queryable_transactional_type_3_01_int_type_00_01_e_ref_count_is_queryable_1_1_no_01_4.html#aca001fe8a39f84b9b3bcd068e62008a6">   54</a></span>    <span class="keyword">operator</span> IntType()<span class="keyword"> const</span></div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span><span class="keyword">    </span>{</div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>        <span class="keywordflow">return</span> 0;</div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>    }</div>
+</div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>};</div>
+</div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span></div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span><span class="keyword">template</span> &lt;<span class="keyword">typename</span> IntType, ERefCountIsQueryable Queryable = ERefCountIsQueryable::Yes&gt;</div>
+<div class="foldopen" id="foldopen00066" data-start="{" data-end="};">
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno"><a class="line" href="../../d5/d90/class_u_e_1_1_private_1_1_t_atomic_ref_count.html">   66</a></span><span class="keyword">class </span><a class="code hl_function" href="../../d5/d90/class_u_e_1_1_private_1_1_t_atomic_ref_count.html#a454c34c82ddf13caaa225993ad12d528">TAtomicRefCount</a></div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>{</div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno"><a class="line" href="../../d5/d90/class_u_e_1_1_private_1_1_t_atomic_ref_count.html#a454c34c82ddf13caaa225993ad12d528">   69</a></span>    <a class="code hl_function" href="../../d5/d90/class_u_e_1_1_private_1_1_t_atomic_ref_count.html#a454c34c82ddf13caaa225993ad12d528">TAtomicRefCount</a>() = <span class="keywordflow">default</span>;</div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span> </div>
+<div class="foldopen" id="foldopen00071" data-start="{" data-end="}">
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno"><a class="line" href="../../d5/d90/class_u_e_1_1_private_1_1_t_atomic_ref_count.html#af2815b1958ca9542649f32ee8991986f">   71</a></span>    <span class="keyword">explicit</span> <a class="code hl_function" href="../../d5/d90/class_u_e_1_1_private_1_1_t_atomic_ref_count.html#af2815b1958ca9542649f32ee8991986f">TAtomicRefCount</a>(IntType InitialRefCount)</div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>        : RefCount(InitialRefCount)</div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>    {</div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>    }</div>
+</div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span> </div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>    <span class="keyword">template</span> &lt;auto DeleteFn&gt;</div>
+<div class="foldopen" id="foldopen00077" data-start="{" data-end="}">
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno"><a class="line" href="../../d5/d90/class_u_e_1_1_private_1_1_t_atomic_ref_count.html#a8e84c6fa1f374721ad2452d01bc920bb">   77</a></span>    IntType <a class="code hl_function" href="../../d5/d90/class_u_e_1_1_private_1_1_t_atomic_ref_count.html#a8e84c6fa1f374721ad2452d01bc920bb">AddRef</a>()<span class="keyword"> const</span></div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span><span class="keyword">    </span>{</div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>        <span class="keywordflow">if</span> (!AutoRTFM::IsClosed())</div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>        {</div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>            <span class="keywordflow">return</span> ++RefCount;</div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span>        }</div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span> </div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span>        IntType Refs;</div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span> </div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span>        UE_AUTORTFM_OPEN</div>
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span>        {</div>
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span>            Refs = RefCount.fetch_add(1, std::memory_order_relaxed);</div>
+<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span>        };</div>
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span> </div>
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span>        <span class="comment">// As we are inside a transaction, the rollback must undo our refcount bump.</span></div>
+<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span>        <span class="comment">// In general, this is best handled by Release(). However, there is one case </span></div>
+<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span>        <span class="comment">// that needs to be handled with special care. A brand-new object has a</span></div>
+<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span>        <span class="comment">// refcount of zero, and a rollback must return it to this zero-refcount state.</span></div>
+<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span>        <span class="comment">// However, calling AddRef() followed by Release() would not accomplish this;</span></div>
+<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span>        <span class="comment">// instead, it would free the object entirely! We need to guard against this,</span></div>
+<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span>        <span class="comment">// since it could lead to a double-free, so we detect the zero-reference case</span></div>
+<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span>        <span class="comment">// and special-case it.</span></div>
+<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span>        <span class="keywordflow">if</span> (Refs == 0)</div>
+<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span>        {</div>
+<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span>            UE_AUTORTFM_ONABORT(<span class="keyword">this</span>)</div>
+<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span>            {</div>
+<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span>                RefCount.fetch_sub(1, std::memory_order_release);</div>
+<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span>                <span class="comment">// The refcount is likely zero now, but leaving the object alive isn&#39;t a leak.</span></div>
+<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span>                <span class="comment">// We are restoring the object back to its initial &quot;just-created&quot; state.</span></div>
+<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span>            };</div>
+<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span>        }</div>
+<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span>        <span class="keywordflow">else</span></div>
+<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span>        {</div>
+<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span>            UE_AUTORTFM_ONABORT(<span class="keyword">this</span>)</div>
+<div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span>            {</div>
+<div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span>                <a class="code hl_function" href="../../d5/d90/class_u_e_1_1_private_1_1_t_atomic_ref_count.html#a2d0b23538f8b2a006f2c64c9423fbe72">Release&lt;DeleteFn&gt;</a>();</div>
+<div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span>            };</div>
+<div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span>        }</div>
+<div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span> </div>
+<div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span>        <span class="keywordflow">return</span> Refs + 1 - TransactionallyDeferredReleaseCount;</div>
+<div class="line"><a id="l00117" name="l00117"></a><span class="lineno">  117</span>    }</div>
+</div>
+<div class="line"><a id="l00118" name="l00118"></a><span class="lineno">  118</span> </div>
+<div class="line"><a id="l00119" name="l00119"></a><span class="lineno">  119</span>    <span class="keyword">template</span> &lt;auto DeleteFn&gt;</div>
+<div class="foldopen" id="foldopen00120" data-start="{" data-end="}">
+<div class="line"><a id="l00120" name="l00120"></a><span class="lineno"><a class="line" href="../../d5/d90/class_u_e_1_1_private_1_1_t_atomic_ref_count.html#a2d0b23538f8b2a006f2c64c9423fbe72">  120</a></span>    IntType <a class="code hl_function" href="../../d5/d90/class_u_e_1_1_private_1_1_t_atomic_ref_count.html#a2d0b23538f8b2a006f2c64c9423fbe72">Release</a>()<span class="keyword"> const</span></div>
+<div class="line"><a id="l00121" name="l00121"></a><span class="lineno">  121</span><span class="keyword">    </span>{</div>
+<div class="line"><a id="l00122" name="l00122"></a><span class="lineno">  122</span><span class="preprocessor">    #if DO_GUARD_SLOW</span></div>
+<div class="line"><a id="l00123" name="l00123"></a><span class="lineno">  123</span>        <span class="keywordflow">if</span> (RefCount.load(std::memory_order_relaxed) == 0)</div>
+<div class="line"><a id="l00124" name="l00124"></a><span class="lineno">  124</span>        {</div>
+<div class="line"><a id="l00125" name="l00125"></a><span class="lineno">  125</span>            <a class="code hl_function" href="../../d6/d38/namespace_u_e_1_1_private.html#a68f070679770fe410a4b0d514241a702">CheckRefCountIsNonZero</a>();</div>
+<div class="line"><a id="l00126" name="l00126"></a><span class="lineno">  126</span>        }</div>
+<div class="line"><a id="l00127" name="l00127"></a><span class="lineno">  127</span><span class="preprocessor">    #endif</span></div>
+<div class="line"><a id="l00128" name="l00128"></a><span class="lineno">  128</span> </div>
+<div class="line"><a id="l00129" name="l00129"></a><span class="lineno">  129</span>        <span class="keywordflow">if</span> (AutoRTFM::IsClosed())</div>
+<div class="line"><a id="l00130" name="l00130"></a><span class="lineno">  130</span>        {</div>
+<div class="line"><a id="l00131" name="l00131"></a><span class="lineno">  131</span>            IntType Refs;</div>
+<div class="line"><a id="l00132" name="l00132"></a><span class="lineno">  132</span> </div>
+<div class="line"><a id="l00133" name="l00133"></a><span class="lineno">  133</span>            UE_AUTORTFM_OPEN</div>
+<div class="line"><a id="l00134" name="l00134"></a><span class="lineno">  134</span>            {</div>
+<div class="line"><a id="l00135" name="l00135"></a><span class="lineno">  135</span>                <span class="keywordflow">if</span> <span class="keyword">constexpr</span> (Queryable == <a class="code hl_enumvalue" href="../../d6/d38/namespace_u_e_1_1_private.html#a71b8c5e77889fe1b342f14059c20ccc5a93cba07454f06a4a960172bbd6e2a435">ERefCountIsQueryable::Yes</a>)</div>
+<div class="line"><a id="l00136" name="l00136"></a><span class="lineno">  136</span>                {</div>
+<div class="line"><a id="l00137" name="l00137"></a><span class="lineno">  137</span>                    TransactionallyDeferredReleaseCount++;</div>
+<div class="line"><a id="l00138" name="l00138"></a><span class="lineno">  138</span>                }</div>
+<div class="line"><a id="l00139" name="l00139"></a><span class="lineno">  139</span>                Refs = RefCount.load(std::memory_order_relaxed) - TransactionallyDeferredReleaseCount;</div>
+<div class="line"><a id="l00140" name="l00140"></a><span class="lineno">  140</span>            };</div>
+<div class="line"><a id="l00141" name="l00141"></a><span class="lineno">  141</span> </div>
+<div class="line"><a id="l00142" name="l00142"></a><span class="lineno">  142</span>            <span class="keywordflow">if</span> <span class="keyword">constexpr</span> (Queryable == <a class="code hl_enumvalue" href="../../d6/d38/namespace_u_e_1_1_private.html#a71b8c5e77889fe1b342f14059c20ccc5a93cba07454f06a4a960172bbd6e2a435">ERefCountIsQueryable::Yes</a>)</div>
+<div class="line"><a id="l00143" name="l00143"></a><span class="lineno">  143</span>            {</div>
+<div class="line"><a id="l00144" name="l00144"></a><span class="lineno">  144</span>                UE_AUTORTFM_ONABORT(<span class="keyword">this</span>)</div>
+<div class="line"><a id="l00145" name="l00145"></a><span class="lineno">  145</span>                {</div>
+<div class="line"><a id="l00146" name="l00146"></a><span class="lineno">  146</span><span class="preprocessor">                #if DO_GUARD_SLOW</span></div>
+<div class="line"><a id="l00147" name="l00147"></a><span class="lineno">  147</span>                    <span class="keywordflow">if</span> (TransactionallyDeferredReleaseCount == 0)</div>
+<div class="line"><a id="l00148" name="l00148"></a><span class="lineno">  148</span>                    {</div>
+<div class="line"><a id="l00149" name="l00149"></a><span class="lineno">  149</span>                        <a class="code hl_function" href="../../d6/d38/namespace_u_e_1_1_private.html#a68f070679770fe410a4b0d514241a702">CheckRefCountIsNonZero</a>();</div>
+<div class="line"><a id="l00150" name="l00150"></a><span class="lineno">  150</span>                    }</div>
+<div class="line"><a id="l00151" name="l00151"></a><span class="lineno">  151</span><span class="preprocessor">                #endif</span></div>
+<div class="line"><a id="l00152" name="l00152"></a><span class="lineno">  152</span>                    TransactionallyDeferredReleaseCount--;</div>
+<div class="line"><a id="l00153" name="l00153"></a><span class="lineno">  153</span>                };</div>
+<div class="line"><a id="l00154" name="l00154"></a><span class="lineno">  154</span>            }</div>
+<div class="line"><a id="l00155" name="l00155"></a><span class="lineno">  155</span> </div>
+<div class="line"><a id="l00156" name="l00156"></a><span class="lineno">  156</span>            <span class="comment">// Refcount changes and frees are deferred until the transaction is concluded.</span></div>
+<div class="line"><a id="l00157" name="l00157"></a><span class="lineno">  157</span>            UE_AUTORTFM_ONCOMMIT(<span class="keyword">this</span>)</div>
+<div class="line"><a id="l00158" name="l00158"></a><span class="lineno">  158</span>            {</div>
+<div class="line"><a id="l00159" name="l00159"></a><span class="lineno">  159</span>                <span class="keywordflow">if</span> <span class="keyword">constexpr</span> (Queryable == <a class="code hl_enumvalue" href="../../d6/d38/namespace_u_e_1_1_private.html#a71b8c5e77889fe1b342f14059c20ccc5a93cba07454f06a4a960172bbd6e2a435">ERefCountIsQueryable::Yes</a>)</div>
+<div class="line"><a id="l00160" name="l00160"></a><span class="lineno">  160</span>                {</div>
+<div class="line"><a id="l00161" name="l00161"></a><span class="lineno">  161</span><span class="preprocessor">                #if DO_GUARD_SLOW</span></div>
+<div class="line"><a id="l00162" name="l00162"></a><span class="lineno">  162</span>                    <span class="keywordflow">if</span> (TransactionallyDeferredReleaseCount == 0)</div>
+<div class="line"><a id="l00163" name="l00163"></a><span class="lineno">  163</span>                    {</div>
+<div class="line"><a id="l00164" name="l00164"></a><span class="lineno">  164</span>                        <a class="code hl_function" href="../../d6/d38/namespace_u_e_1_1_private.html#a68f070679770fe410a4b0d514241a702">CheckRefCountIsNonZero</a>();</div>
+<div class="line"><a id="l00165" name="l00165"></a><span class="lineno">  165</span>                    }</div>
+<div class="line"><a id="l00166" name="l00166"></a><span class="lineno">  166</span><span class="preprocessor">                #endif</span></div>
+<div class="line"><a id="l00167" name="l00167"></a><span class="lineno">  167</span>                    TransactionallyDeferredReleaseCount--;</div>
+<div class="line"><a id="l00168" name="l00168"></a><span class="lineno">  168</span>                }</div>
+<div class="line"><a id="l00169" name="l00169"></a><span class="lineno">  169</span>                ImmediatelyRelease&lt;DeleteFn&gt;();</div>
+<div class="line"><a id="l00170" name="l00170"></a><span class="lineno">  170</span>            };</div>
+<div class="line"><a id="l00171" name="l00171"></a><span class="lineno">  171</span> </div>
+<div class="line"><a id="l00172" name="l00172"></a><span class="lineno">  172</span>            <span class="keywordflow">return</span> Refs;</div>
+<div class="line"><a id="l00173" name="l00173"></a><span class="lineno">  173</span>        }</div>
+<div class="line"><a id="l00174" name="l00174"></a><span class="lineno">  174</span>        <span class="keywordflow">else</span></div>
+<div class="line"><a id="l00175" name="l00175"></a><span class="lineno">  175</span>        {</div>
+<div class="line"><a id="l00176" name="l00176"></a><span class="lineno">  176</span>            <span class="keywordflow">return</span> ImmediatelyRelease&lt;DeleteFn&gt;() - 1;</div>
+<div class="line"><a id="l00177" name="l00177"></a><span class="lineno">  177</span>        }</div>
+<div class="line"><a id="l00178" name="l00178"></a><span class="lineno">  178</span>    }</div>
+</div>
+<div class="line"><a id="l00179" name="l00179"></a><span class="lineno">  179</span> </div>
+<div class="line"><a id="l00180" name="l00180"></a><span class="lineno">  180</span>    <span class="comment">// This is equivalent to https://en.cppreference.com/w/cpp/memory/shared_ptr/use_count</span></div>
+<div class="line"><a id="l00181" name="l00181"></a><span class="lineno">  181</span>    <span class="comment">// This loads with a relaxed memory ordering because a &#39;live&#39; reference count is</span></div>
+<div class="line"><a id="l00182" name="l00182"></a><span class="lineno">  182</span>    <span class="comment">// unstable by nature and so there&#39;s no benefit to try and enforce memory ordering</span></div>
+<div class="line"><a id="l00183" name="l00183"></a><span class="lineno">  183</span>    <span class="comment">// around the reading of it.</span></div>
+<div class="foldopen" id="foldopen00184" data-start="{" data-end="}">
+<div class="line"><a id="l00184" name="l00184"></a><span class="lineno"><a class="line" href="../../d5/d90/class_u_e_1_1_private_1_1_t_atomic_ref_count.html#a830ef346e6298a0d6dff7b91ad18877f">  184</a></span>    IntType <a class="code hl_function" href="../../d5/d90/class_u_e_1_1_private_1_1_t_atomic_ref_count.html#a830ef346e6298a0d6dff7b91ad18877f">GetRefCount</a>() const</div>
+<div class="line"><a id="l00185" name="l00185"></a><span class="lineno">  185</span>        requires (Queryable == <a class="code hl_enumeration" href="../../d6/d38/namespace_u_e_1_1_private.html#a71b8c5e77889fe1b342f14059c20ccc5">ERefCountIsQueryable</a>::<a class="code hl_enumvalue" href="../../d6/d38/namespace_u_e_1_1_private.html#a71b8c5e77889fe1b342f14059c20ccc5a93cba07454f06a4a960172bbd6e2a435">Yes</a>)</div>
+<div class="line"><a id="l00186" name="l00186"></a><span class="lineno">  186</span>    {</div>
+<div class="line"><a id="l00187" name="l00187"></a><span class="lineno">  187</span>        <span class="keywordflow">if</span> (AutoRTFM::IsClosed())</div>
+<div class="line"><a id="l00188" name="l00188"></a><span class="lineno">  188</span>        {</div>
+<div class="line"><a id="l00189" name="l00189"></a><span class="lineno">  189</span>            IntType Refs;</div>
+<div class="line"><a id="l00190" name="l00190"></a><span class="lineno">  190</span>            UE_AUTORTFM_OPEN</div>
+<div class="line"><a id="l00191" name="l00191"></a><span class="lineno">  191</span>            {</div>
+<div class="line"><a id="l00192" name="l00192"></a><span class="lineno">  192</span>                Refs = RefCount.load(std::memory_order_relaxed) - TransactionallyDeferredReleaseCount;</div>
+<div class="line"><a id="l00193" name="l00193"></a><span class="lineno">  193</span>            };</div>
+<div class="line"><a id="l00194" name="l00194"></a><span class="lineno">  194</span>            <span class="keywordflow">return</span> Refs;</div>
+<div class="line"><a id="l00195" name="l00195"></a><span class="lineno">  195</span>        }</div>
+<div class="line"><a id="l00196" name="l00196"></a><span class="lineno">  196</span>        <span class="keywordflow">else</span></div>
+<div class="line"><a id="l00197" name="l00197"></a><span class="lineno">  197</span>        {</div>
+<div class="line"><a id="l00198" name="l00198"></a><span class="lineno">  198</span>            <span class="keywordflow">return</span> RefCount.load(std::memory_order_relaxed);</div>
+<div class="line"><a id="l00199" name="l00199"></a><span class="lineno">  199</span>        }</div>
+<div class="line"><a id="l00200" name="l00200"></a><span class="lineno">  200</span>    }</div>
+</div>
+<div class="line"><a id="l00201" name="l00201"></a><span class="lineno">  201</span> </div>
+<div class="line"><a id="l00202" name="l00202"></a><span class="lineno">  202</span><span class="keyword">private</span>:</div>
+<div class="line"><a id="l00203" name="l00203"></a><span class="lineno">  203</span>    <span class="keyword">template</span> &lt;auto DeleteFn&gt;</div>
+<div class="line"><a id="l00204" name="l00204"></a><span class="lineno">  204</span>    IntType ImmediatelyRelease()<span class="keyword"> const</span></div>
+<div class="line"><a id="l00205" name="l00205"></a><span class="lineno">  205</span><span class="keyword">    </span>{</div>
+<div class="line"><a id="l00206" name="l00206"></a><span class="lineno">  206</span>        <span class="comment">// fetch_sub returns the refcount _before_ it was decremented. std::memory_order_acq_rel is</span></div>
+<div class="line"><a id="l00207" name="l00207"></a><span class="lineno">  207</span>        <span class="comment">// used so that, if we do end up executing the destructor, it&#39;s not possible for side effects </span></div>
+<div class="line"><a id="l00208" name="l00208"></a><span class="lineno">  208</span>        <span class="comment">// from executing the destructor to end up being visible before we&#39;ve determined that the </span></div>
+<div class="line"><a id="l00209" name="l00209"></a><span class="lineno">  209</span>        <span class="comment">// reference count is actually zero.</span></div>
+<div class="line"><a id="l00210" name="l00210"></a><span class="lineno">  210</span>        IntType RefsBeforeRelease = RefCount.fetch_sub(1, std::memory_order_acq_rel);</div>
+<div class="line"><a id="l00211" name="l00211"></a><span class="lineno">  211</span> </div>
+<div class="line"><a id="l00212" name="l00212"></a><span class="lineno">  212</span><span class="preprocessor">    #if DO_GUARD_SLOW</span></div>
+<div class="line"><a id="l00213" name="l00213"></a><span class="lineno">  213</span>        <span class="comment">// A check-failure is issued if an object is over-released.</span></div>
+<div class="line"><a id="l00214" name="l00214"></a><span class="lineno">  214</span>        <span class="keywordflow">if</span> (RefsBeforeRelease == 0)</div>
+<div class="line"><a id="l00215" name="l00215"></a><span class="lineno">  215</span>        {</div>
+<div class="line"><a id="l00216" name="l00216"></a><span class="lineno">  216</span>            <a class="code hl_function" href="../../d6/d38/namespace_u_e_1_1_private.html#a68f070679770fe410a4b0d514241a702">CheckRefCountIsNonZero</a>();</div>
+<div class="line"><a id="l00217" name="l00217"></a><span class="lineno">  217</span>        }</div>
+<div class="line"><a id="l00218" name="l00218"></a><span class="lineno">  218</span><span class="preprocessor">    #endif</span></div>
+<div class="line"><a id="l00219" name="l00219"></a><span class="lineno">  219</span> </div>
+<div class="line"><a id="l00220" name="l00220"></a><span class="lineno">  220</span>        <span class="comment">// We immediately free the object if its refcount has become zero.</span></div>
+<div class="line"><a id="l00221" name="l00221"></a><span class="lineno">  221</span>        <span class="keywordflow">if</span> (RefsBeforeRelease == 1)</div>
+<div class="line"><a id="l00222" name="l00222"></a><span class="lineno">  222</span>        {</div>
+<div class="line"><a id="l00223" name="l00223"></a><span class="lineno">  223</span>            DeleteFn(<span class="keyword">const_cast&lt;</span><a class="code hl_function" href="../../d5/d90/class_u_e_1_1_private_1_1_t_atomic_ref_count.html#a454c34c82ddf13caaa225993ad12d528">TAtomicRefCount</a>*<span class="keyword">&gt;</span>(<span class="keyword">this</span>));</div>
+<div class="line"><a id="l00224" name="l00224"></a><span class="lineno">  224</span>        }</div>
+<div class="line"><a id="l00225" name="l00225"></a><span class="lineno">  225</span> </div>
+<div class="line"><a id="l00226" name="l00226"></a><span class="lineno">  226</span>        <span class="keywordflow">return</span> RefsBeforeRelease;</div>
+<div class="line"><a id="l00227" name="l00227"></a><span class="lineno">  227</span>    }</div>
+<div class="line"><a id="l00228" name="l00228"></a><span class="lineno">  228</span> </div>
+<div class="line"><a id="l00229" name="l00229"></a><span class="lineno">  229</span>    <span class="keyword">mutable</span> std::atomic&lt;IntType&gt; RefCount = 0;</div>
+<div class="line"><a id="l00230" name="l00230"></a><span class="lineno">  230</span>    <a class="code hl_define" href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a95bf5fc470887704f45273f39a634e83">UE_NO_UNIQUE_ADDRESS</a> <span class="keyword">mutable</span> TQueryableTransactionalType&lt;IntType, Queryable&gt; TransactionallyDeferredReleaseCount = 0;</div>
+<div class="line"><a id="l00231" name="l00231"></a><span class="lineno">  231</span>};</div>
+</div>
+<div class="line"><a id="l00232" name="l00232"></a><span class="lineno">  232</span> </div>
+<div class="line"><a id="l00233" name="l00233"></a><span class="lineno">  233</span>} <span class="comment">// UE::Private</span></div>
+<div class="ttc" id="a_auto_r_t_f_m_8h_html"><div class="ttname"><a href="../../da/d83/_auto_r_t_f_m_8h.html">AutoRTFM.h</a></div></div>
+<div class="ttc" id="a_core_2_public_2_h_a_l_2_platform_8h_html_a95bf5fc470887704f45273f39a634e83"><div class="ttname"><a href="../../d4/d54/_core_2_public_2_h_a_l_2_platform_8h.html#a95bf5fc470887704f45273f39a634e83">UE_NO_UNIQUE_ADDRESS</a></div><div class="ttdeci">#define UE_NO_UNIQUE_ADDRESS</div><div class="ttdef"><b>定义</b> Platform.h:851</div></div>
+<div class="ttc" id="a_core_types_8h_html"><div class="ttname"><a href="../../db/d04/_core_types_8h.html">CoreTypes.h</a></div></div>
+<div class="ttc" id="a_lock_free_list_8h_html_aa047b58bcb6849c4d471a2ce95fc901e"><div class="ttname"><a href="../../d9/dcd/_lock_free_list_8h.html#aa047b58bcb6849c4d471a2ce95fc901e">Init</a></div><div class="ttdeci">void Init()</div><div class="ttdef"><b>定义</b> LockFreeList.h:4</div></div>
+<div class="ttc" id="aclass_u_e_1_1_private_1_1_t_atomic_ref_count_html_a2d0b23538f8b2a006f2c64c9423fbe72"><div class="ttname"><a href="../../d5/d90/class_u_e_1_1_private_1_1_t_atomic_ref_count.html#a2d0b23538f8b2a006f2c64c9423fbe72">UE::Private::TAtomicRefCount::Release</a></div><div class="ttdeci">IntType Release() const</div><div class="ttdef"><b>定义</b> AtomicRefCount.h:120</div></div>
+<div class="ttc" id="aclass_u_e_1_1_private_1_1_t_atomic_ref_count_html_a454c34c82ddf13caaa225993ad12d528"><div class="ttname"><a href="../../d5/d90/class_u_e_1_1_private_1_1_t_atomic_ref_count.html#a454c34c82ddf13caaa225993ad12d528">UE::Private::TAtomicRefCount::TAtomicRefCount</a></div><div class="ttdeci">TAtomicRefCount()=default</div></div>
+<div class="ttc" id="aclass_u_e_1_1_private_1_1_t_atomic_ref_count_html_a830ef346e6298a0d6dff7b91ad18877f"><div class="ttname"><a href="../../d5/d90/class_u_e_1_1_private_1_1_t_atomic_ref_count.html#a830ef346e6298a0d6dff7b91ad18877f">UE::Private::TAtomicRefCount::GetRefCount</a></div><div class="ttdeci">IntType GetRefCount() const</div><div class="ttdef"><b>定义</b> AtomicRefCount.h:184</div></div>
+<div class="ttc" id="aclass_u_e_1_1_private_1_1_t_atomic_ref_count_html_a8e84c6fa1f374721ad2452d01bc920bb"><div class="ttname"><a href="../../d5/d90/class_u_e_1_1_private_1_1_t_atomic_ref_count.html#a8e84c6fa1f374721ad2452d01bc920bb">UE::Private::TAtomicRefCount::AddRef</a></div><div class="ttdeci">IntType AddRef() const</div><div class="ttdef"><b>定义</b> AtomicRefCount.h:77</div></div>
+<div class="ttc" id="aclass_u_e_1_1_private_1_1_t_atomic_ref_count_html_af2815b1958ca9542649f32ee8991986f"><div class="ttname"><a href="../../d5/d90/class_u_e_1_1_private_1_1_t_atomic_ref_count.html#af2815b1958ca9542649f32ee8991986f">UE::Private::TAtomicRefCount::TAtomicRefCount</a></div><div class="ttdeci">TAtomicRefCount(IntType InitialRefCount)</div><div class="ttdef"><b>定义</b> AtomicRefCount.h:71</div></div>
+<div class="ttc" id="anamespace_u_e_1_1_private_html"><div class="ttname"><a href="../../d6/d38/namespace_u_e_1_1_private.html">UE::Private</a></div><div class="ttdef"><b>定义</b> AssetTools.cpp:127</div></div>
+<div class="ttc" id="anamespace_u_e_1_1_private_html_a68f070679770fe410a4b0d514241a702"><div class="ttname"><a href="../../d6/d38/namespace_u_e_1_1_private.html#a68f070679770fe410a4b0d514241a702">UE::Private::CheckRefCountIsNonZero</a></div><div class="ttdeci">CORE_API void CheckRefCountIsNonZero()</div><div class="ttdef"><b>定义</b> AtomicRefCount.cpp:6</div></div>
+<div class="ttc" id="anamespace_u_e_1_1_private_html_a71b8c5e77889fe1b342f14059c20ccc5"><div class="ttname"><a href="../../d6/d38/namespace_u_e_1_1_private.html#a71b8c5e77889fe1b342f14059c20ccc5">UE::Private::ERefCountIsQueryable</a></div><div class="ttdeci">ERefCountIsQueryable</div><div class="ttdef"><b>定义</b> AtomicRefCount.h:16</div></div>
+<div class="ttc" id="anamespace_u_e_1_1_private_html_a71b8c5e77889fe1b342f14059c20ccc5a93cba07454f06a4a960172bbd6e2a435"><div class="ttname"><a href="../../d6/d38/namespace_u_e_1_1_private.html#a71b8c5e77889fe1b342f14059c20ccc5a93cba07454f06a4a960172bbd6e2a435">UE::Private::ERefCountIsQueryable::Yes</a></div><div class="ttdeci">@ Yes</div><div class="ttdef"><b>定义</b> AtomicRefCount.h:17</div></div>
+<div class="ttc" id="anamespace_u_e_1_1_private_html_a71b8c5e77889fe1b342f14059c20ccc5abafd7322c6e97d25b6299b5d6fe8920b"><div class="ttname"><a href="../../d6/d38/namespace_u_e_1_1_private.html#a71b8c5e77889fe1b342f14059c20ccc5abafd7322c6e97d25b6299b5d6fe8920b">UE::Private::ERefCountIsQueryable::No</a></div><div class="ttdeci">@ No</div><div class="ttdef"><b>定义</b> AtomicRefCount.h:18</div></div>
+<div class="ttc" id="astruct_u_e_1_1_private_1_1_t_queryable_transactional_type_3_01_int_type_00_01_e_ref_count_is_queryable_1_1_no_01_4_html_a26db5604777a97ce7c796fc87840725f"><div class="ttname"><a href="../../d8/df2/struct_u_e_1_1_private_1_1_t_queryable_transactional_type_3_01_int_type_00_01_e_ref_count_is_queryable_1_1_no_01_4.html#a26db5604777a97ce7c796fc87840725f">UE::Private::TQueryableTransactionalType&lt; IntType, ERefCountIsQueryable::No &gt;::TQueryableTransactionalType</a></div><div class="ttdeci">TQueryableTransactionalType(IntType Init)</div><div class="ttdef"><b>定义</b> AtomicRefCount.h:50</div></div>
+<div class="ttc" id="astruct_u_e_1_1_private_1_1_t_queryable_transactional_type_3_01_int_type_00_01_e_ref_count_is_queryable_1_1_yes_01_4_html_a4f42e9772f4b5a55d8d35c9b86a6954f"><div class="ttname"><a href="../../d9/d42/struct_u_e_1_1_private_1_1_t_queryable_transactional_type_3_01_int_type_00_01_e_ref_count_is_queryable_1_1_yes_01_4.html#a4f42e9772f4b5a55d8d35c9b86a6954f">UE::Private::TQueryableTransactionalType&lt; IntType, ERefCountIsQueryable::Yes &gt;::TQueryableTransactionalType</a></div><div class="ttdeci">TQueryableTransactionalType(IntType Init)</div><div class="ttdef"><b>定义</b> AtomicRefCount.h:25</div></div>
+<div class="ttc" id="astruct_u_e_1_1_private_1_1_t_queryable_transactional_type_3_01_int_type_00_01_e_ref_count_is_queryable_1_1_yes_01_4_html_a8b7b8f2c9da7c40b02ad7956b494fd5c"><div class="ttname"><a href="../../d9/d42/struct_u_e_1_1_private_1_1_t_queryable_transactional_type_3_01_int_type_00_01_e_ref_count_is_queryable_1_1_yes_01_4.html#a8b7b8f2c9da7c40b02ad7956b494fd5c">UE::Private::TQueryableTransactionalType&lt; IntType, ERefCountIsQueryable::Yes &gt;::operator--</a></div><div class="ttdeci">IntType operator--(int)</div><div class="ttdef"><b>定义</b> AtomicRefCount.h:35</div></div>
+<div class="ttc" id="astruct_u_e_1_1_private_1_1_t_queryable_transactional_type_3_01_int_type_00_01_e_ref_count_is_queryable_1_1_yes_01_4_html_af18280324be71ceed5dab30d12a0801d"><div class="ttname"><a href="../../d9/d42/struct_u_e_1_1_private_1_1_t_queryable_transactional_type_3_01_int_type_00_01_e_ref_count_is_queryable_1_1_yes_01_4.html#af18280324be71ceed5dab30d12a0801d">UE::Private::TQueryableTransactionalType&lt; IntType, ERefCountIsQueryable::Yes &gt;::operator++</a></div><div class="ttdeci">IntType operator++(int)</div><div class="ttdef"><b>定义</b> AtomicRefCount.h:30</div></div>
+<div class="ttc" id="astruct_u_e_1_1_private_1_1_t_queryable_transactional_type_html"><div class="ttname"><a href="../../df/dec/struct_u_e_1_1_private_1_1_t_queryable_transactional_type.html">UE::Private::TQueryableTransactionalType</a></div><div class="ttdef"><b>定义</b> AtomicRefCount.h:21</div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+</div><!-- container -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a href="../../dir_0b6ee6e7e9547e675db4add2e5de97da.html">Engine</a></li><li class="navelem"><a href="../../dir_9579d1ecb2c7bf48cbe1049c41745cb4.html">Source</a></li><li class="navelem"><a href="../../dir_9f04efef762572853abdf73f62bebfcc.html">Runtime</a></li><li class="navelem"><a href="../../dir_3de6fe8d63806cea4bedcdcf5470dc5e.html">Core</a></li><li class="navelem"><a href="../../dir_399a9fb0bb7a487bf3d85aef916cb8c0.html">Public</a></li><li class="navelem"><a href="../../dir_da9c299670302ef50a438f29319708cb.html">Async</a></li><li class="navelem"><a href="../../d2/d7a/_atomic_ref_count_8h.html">AtomicRefCount.h</a></li>
+    <li class="footer">制作者 <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.15.0 </li>
+  </ul>
+</div>
+</body>
+</html>

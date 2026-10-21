@@ -1,0 +1,4 @@
+var struct_t_shader_permutation_sparse_int_3_01_t_is_specialization_00_01_t_unique_value_00_01_ts_8_8_8_01_4 =
+[
+    [ "Type", "d6/d6f/struct_t_shader_permutation_sparse_int_3_01_t_is_specialization_00_01_t_unique_value_00_01_ts_8_8_8_01_4.html#a8d3509ce0194e1067879d5fc3cfe79e0", null ]
+];

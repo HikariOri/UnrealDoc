@@ -1,0 +1,27 @@
+var _developer_2_graph_color_2_private_2stack_8h =
+[
+    [ "stack", "d4/d11/structstack.html", "d4/d11/structstack" ],
+    [ "sp_GetCapacity", "d4/db3/_developer_2_graph_color_2_private_2stack_8h.html#aa0d68c2dad46e18c3b176efc1349fbb4", null ],
+    [ "sp_Pop", "d4/db3/_developer_2_graph_color_2_private_2stack_8h.html#aa2ff91f0b020c94d3adfcfe229df1c2f", null ],
+    [ "sp_Pop2", "d4/db3/_developer_2_graph_color_2_private_2stack_8h.html#a29e8466f5b9b23e2b7ac2f4b9f520011", null ],
+    [ "sp_Push", "d4/db3/_developer_2_graph_color_2_private_2stack_8h.html#ae6bc29bdcaec6fe523b75d6c0f1d5519", null ],
+    [ "sp_Push2", "d4/db3/_developer_2_graph_color_2_private_2stack_8h.html#a60d053373af6ca3eacacec25840f218f", null ],
+    [ "stackP", "d4/db3/_developer_2_graph_color_2_private_2stack_8h.html#acea074d866cbc3f2d8b7e863caa31a8f", null ],
+    [ "sp__Pop", "d4/db3/_developer_2_graph_color_2_private_2stack_8h.html#a60df530d7660f87352457afe0f9208f5", null ],
+    [ "sp__Pop2", "d4/db3/_developer_2_graph_color_2_private_2stack_8h.html#ae7b58c4063e980fb6e7ceff4b09be4eb", null ],
+    [ "sp__Push", "d4/db3/_developer_2_graph_color_2_private_2stack_8h.html#a4219e1a73be446b9da07e71c12d5ba4b", null ],
+    [ "sp__Push2", "d4/db3/_developer_2_graph_color_2_private_2stack_8h.html#af6aff0f86e0036e4dbf7f031752f7327", null ],
+    [ "sp_ClearStack", "d4/db3/_developer_2_graph_color_2_private_2stack_8h.html#a27dc763bd3b49816e775a447f1bc0207", null ],
+    [ "sp_Copy", "d4/db3/_developer_2_graph_color_2_private_2stack_8h.html#afecf14f6f56aa279512b96eae74847c9", null ],
+    [ "sp_CopyContent", "d4/db3/_developer_2_graph_color_2_private_2stack_8h.html#adf60b02f032acf392b95c6a9a3b05634", null ],
+    [ "sp_Duplicate", "d4/db3/_developer_2_graph_color_2_private_2stack_8h.html#a0a264eb5c1b62ad84957181ab53f019e", null ],
+    [ "sp_Free", "d4/db3/_developer_2_graph_color_2_private_2stack_8h.html#ae6aac741c772cd8ecb748c6ad7dec8f2", null ],
+    [ "sp_Get", "d4/db3/_developer_2_graph_color_2_private_2stack_8h.html#a3e307fa0ca8844cd0ef2c91452c82ff9", null ],
+    [ "sp_GetCurrentSize", "d4/db3/_developer_2_graph_color_2_private_2stack_8h.html#ab831cb2bed2fb5ac0fb167558e3c96ef", null ],
+    [ "sp_IsEmpty", "d4/db3/_developer_2_graph_color_2_private_2stack_8h.html#a63a2bcf7fc15764f363c763ef9dfe84f", null ],
+    [ "sp_New", "d4/db3/_developer_2_graph_color_2_private_2stack_8h.html#afc0a2f4c13f2bca87275ae71dc7db08a", null ],
+    [ "sp_NonEmpty", "d4/db3/_developer_2_graph_color_2_private_2stack_8h.html#a8e949d67ced3542abb971e44a1177d15", null ],
+    [ "sp_Set", "d4/db3/_developer_2_graph_color_2_private_2stack_8h.html#ab9feae9da9bfc5d879c95760cddad8dc", null ],
+    [ "sp_SetCurrentSize", "d4/db3/_developer_2_graph_color_2_private_2stack_8h.html#a0af6f3d6df1bfb2937b17f75e70f5f55", null ],
+    [ "sp_Top", "d4/db3/_developer_2_graph_color_2_private_2stack_8h.html#a501ee3816814f0e91adc892f6c668b7f", null ]
+];

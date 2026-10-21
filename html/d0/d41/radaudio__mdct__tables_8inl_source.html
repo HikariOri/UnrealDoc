@@ -1,0 +1,467 @@
+<!-- HTML header for doxygen 1.15.0-->
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh">
+<head>
+  <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=11" />
+  <meta name="generator" content="Doxygen 1.15.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>UE 5.8.4: Engine/Source/Runtime/RadAudioCodec/SDK/Src/RadAudio/radaudio_mdct_tables.inl 源文件</title>
+  <link rel="icon" href="../../EdIconDefault.bmp" type="image/x-icon" />
+  <link href="../../tabs.css" rel="stylesheet" type="text/css" />
+  <script type="text/javascript" src="../../jquery.js"></script>
+  <script type="text/javascript" src="../../dynsections.js"></script>
+  <link href="../../navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../navtreedata.js"></script>
+<script type="text/javascript" src="../../navtree.js"></script>
+<script type="text/javascript" src="../../cookie.js"></script>
+  <link href="../../search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../search/searchdata.js"></script>
+<script type="text/javascript" src="../../search/search.js"></script>
+  <link href="../../doxygen.css" rel="stylesheet" type="text/css" />
+  <link href="../../doxygen-awesome.css" rel="stylesheet" type="text/css"/>
+<link href="../../doxygen-awesome-sidebar-only.css" rel="stylesheet" type="text/css"/>
+<link href="../../doxygen-awesome-sidebar-only-darkmode-toggle.css" rel="stylesheet" type="text/css"/>
+  <!-- ... other metadata & script includes ... -->
+  <script type="text/javascript" src="../../doxygen-awesome-darkmode-toggle.js"></script>
+  <script type="text/javascript">
+    DoxygenAwesomeDarkModeToggle.title = "Zwischen hellem/dunklem Modus wechseln"
+    DoxygenAwesomeDarkModeToggle.lightModeIcon = '🌞'
+    // icon from https://fonts.google.com/icons
+    DoxygenAwesomeDarkModeToggle.darkModeIcon = `<svg xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 24 24" height="24px" viewBox="0 0 24 24" width="24px" fill="#009793"><g><rect fill="none" height="24" width="24"/></g><g><g><path d="M8.1,14.15C9.77,14.63,11,16.17,11,18c0,0.68-0.19,1.31-0.48,1.87c0.48,0.09,0.97,0.14,1.48,0.14 c1.48,0,2.9-0.41,4.13-1.15c-2.62-0.92-5.23-2.82-6.8-5.86C7.74,9.94,7.78,7.09,8.29,4.9c-2.57,1.33-4.3,4.01-4.3,7.1c0,0,0,0,0,0 c0.01,0,0.01,0,0.02,0C5.66,12,7.18,12.83,8.1,14.15z" opacity=".3"/><path d="M19.78,17.51c-2.47,0-6.57-1.33-8.68-5.43C8.77,7.57,10.6,3.6,11.63,2.01C6.27,2.2,1.98,6.59,1.98,12 c0,0.14,0.02,0.28,0.02,0.42C2.61,12.16,3.28,12,3.98,12c0,0,0,0,0,0c0-3.09,1.73-5.77,4.3-7.1C7.78,7.09,7.74,9.94,9.32,13 c1.57,3.04,4.18,4.95,6.8,5.86c-1.23,0.74-2.65,1.15-4.13,1.15c-0.5,0-1-0.05-1.48-0.14c-0.37,0.7-0.94,1.27-1.64,1.64 c0.98,0.32,2.03,0.5,3.11,0.5c3.5,0,6.58-1.8,8.37-4.52C20.18,17.5,19.98,17.51,19.78,17.51z"/><path d="M7,16l-0.18,0C6.4,14.84,5.3,14,4,14c-1.66,0-3,1.34-3,3s1.34,3,3,3c0.62,0,2.49,0,3,0c1.1,0,2-0.9,2-2 C9,16.9,8.1,16,7,16z"/></g></g></svg>`
+    DoxygenAwesomeDarkModeToggle.init()
+  </script>
+  <script type="text/javascript" src="../../doxygen-awesome-fragment-copy-button.js"></script>
+  <script type="text/javascript">
+    DoxygenAwesomeFragmentCopyButton.title = "In die Zwischenablage kopieren"
+    // DoxygenAwesomeFragmentCopyButton.copyIcon = `<svg ...>`
+    // DoxygenAwesomeFragmentCopyButton.successIcon = `<svg ...>`
+    DoxygenAwesomeFragmentCopyButton.init()
+  </script>
+  <script type="text/javascript" src="../../doxygen-awesome-paragraph-link.js"></script>
+  <script type="text/javascript">
+    DoxygenAwesomeParagraphLink.title = "Abschnitt verknüpfen"
+    DoxygenAwesomeParagraphLink.icon = "¶"
+    DoxygenAwesomeParagraphLink.init()
+  </script>
+  <script type="text/javascript" src="../../doxygen-awesome-interactive-toc.js"></script>
+  <script type="text/javascript">
+    DoxygenAwesomeInteractiveToc.topOffset = 45
+    DoxygenAwesomeInteractiveToc.hideMobileMenu = false
+    DoxygenAwesomeInteractiveToc.init()
+  </script>
+</head>
+<body>
+    <div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+      <div id="titlearea">
+        <table cellspacing="0" cellpadding="0">
+          <tbody>
+            <tr id="projectrow">
+              <td id="projectlogo"><img alt="Logo" src="../../EdIconDefault.bmp"  /></td>
+              <td id="projectalign">
+                <div id="projectname">UE 5.8.4
+                </div>
+                <div id="projectbrief">Unreal Engine</div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <!-- end header part -->
+<!-- 制作者 Doxygen 1.15.0 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "../../search/",'.html');
+</script>
+<script type="text/javascript">
+$(function() { codefold.init(); });
+</script>
+<script type="text/javascript" src="../../menudata.js"></script>
+<script type="text/javascript" src="../../menu.js"></script>
+<script type="text/javascript">
+$(function() {
+  initMenu('../../',true,false,'search.php','搜索',true);
+  $(function() { init_search(); });
+});
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(function(){initNavTree('d0/d41/radaudio__mdct__tables_8inl_source.html','../../',''); });
+</script>
+<div id="container">
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">载入中...</div>
+<div class="SRStatus" id="Searching">搜索中...</div>
+<div class="SRStatus" id="NoMatches">未找到</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">radaudio_mdct_tables.inl</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="../../d0/d41/radaudio__mdct__tables_8inl.html">浏览该文件的文档.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="comment">// Copyright Epic Games Tools, LLC. All Rights Reserved.</span></div>
+<div class="foldopen" id="foldopen00002" data-start="{" data-end="}">
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno"><a class="line" href="../../d0/d41/radaudio__mdct__tables_8inl.html#a0a26de49792157d68c6c2f8ad643f4ef">    2</a></span><a class="code hl_define" href="../../d3/df7/radaudio__common_8h.html#ac682c4b7d237992f52f66975ee413be4">FFT_ALIGN</a>(<span class="keywordtype">float</span>, s_fft_twiddles[1024]) = {</div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span>     0x0.000000p+0,   0x0.000000p+0,   0x0.000000p+0,  0x1.1a6264p-53,   0x0.000000p+0,   0x1.000000p+0,  0x1.1a6264p-53,  -0x1.000000p+0, </div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span>     0x0.000000p+0,   0x1.6a09e6p-1,   0x1.000000p+0,   0x1.6a09e6p-1,  0x1.1a6264p-53,  -0x1.6a09e6p-1,  -0x1.000000p+0,  -0x1.6a09e6p-1, </div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span>     0x0.000000p+0,   0x1.87de2ap-2,   0x1.6a09e6p-1,   0x1.d906bcp-1,   0x1.000000p+0,   0x1.d906bcp-1,   0x1.6a09e6p-1,   0x1.87de2ap-2, </div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span>    0x1.1a6264p-53,  -0x1.87de2ap-2,  -0x1.6a09e6p-1,  -0x1.d906bcp-1,  -0x1.000000p+0,  -0x1.d906bcp-1,  -0x1.6a09e6p-1,  -0x1.87de2ap-2, </div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span>     0x0.000000p+0,   0x1.8f8b84p-3,   0x1.87de2ap-2,   0x1.1c73b4p-1,   0x1.6a09e6p-1,   0x1.a9b662p-1,   0x1.d906bcp-1,   0x1.f6297cp-1, </div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span>     0x1.000000p+0,   0x1.f6297cp-1,   0x1.d906bcp-1,   0x1.a9b662p-1,   0x1.6a09e6p-1,   0x1.1c73b4p-1,   0x1.87de2ap-2,   0x1.8f8b84p-3, </div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span>    0x1.1a6264p-53,  -0x1.8f8b84p-3,  -0x1.87de2ap-2,  -0x1.1c73b4p-1,  -0x1.6a09e6p-1,  -0x1.a9b662p-1,  -0x1.d906bcp-1,  -0x1.f6297cp-1, </div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span>    -0x1.000000p+0,  -0x1.f6297cp-1,  -0x1.d906bcp-1,  -0x1.a9b662p-1,  -0x1.6a09e6p-1,  -0x1.1c73b4p-1,  -0x1.87de2ap-2,  -0x1.8f8b84p-3, </div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span>     0x0.000000p+0,   0x1.917a6cp-4,   0x1.8f8b84p-3,   0x1.294062p-2,   0x1.87de2ap-2,   0x1.e2b5d4p-2,   0x1.1c73b4p-1,   0x1.44cf32p-1, </div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span>     0x1.6a09e6p-1,   0x1.8bc806p-1,   0x1.a9b662p-1,   0x1.c38b30p-1,   0x1.d906bcp-1,   0x1.e9f416p-1,   0x1.f6297cp-1,   0x1.fd88dap-1, </div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span>     0x1.000000p+0,   0x1.fd88dap-1,   0x1.f6297cp-1,   0x1.e9f416p-1,   0x1.d906bcp-1,   0x1.c38b30p-1,   0x1.a9b662p-1,   0x1.8bc806p-1, </div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span>     0x1.6a09e6p-1,   0x1.44cf32p-1,   0x1.1c73b4p-1,   0x1.e2b5d4p-2,   0x1.87de2ap-2,   0x1.294062p-2,   0x1.8f8b84p-3,   0x1.917a6cp-4, </div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span>    0x1.1a6264p-53,  -0x1.917a6cp-4,  -0x1.8f8b84p-3,  -0x1.294062p-2,  -0x1.87de2ap-2,  -0x1.e2b5d4p-2,  -0x1.1c73b4p-1,  -0x1.44cf32p-1, </div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span>    -0x1.6a09e6p-1,  -0x1.8bc806p-1,  -0x1.a9b662p-1,  -0x1.c38b30p-1,  -0x1.d906bcp-1,  -0x1.e9f416p-1,  -0x1.f6297cp-1,  -0x1.fd88dap-1, </div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span>    -0x1.000000p+0,  -0x1.fd88dap-1,  -0x1.f6297cp-1,  -0x1.e9f416p-1,  -0x1.d906bcp-1,  -0x1.c38b30p-1,  -0x1.a9b662p-1,  -0x1.8bc806p-1, </div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>    -0x1.6a09e6p-1,  -0x1.44cf32p-1,  -0x1.1c73b4p-1,  -0x1.e2b5d4p-2,  -0x1.87de2ap-2,  -0x1.294062p-2,  -0x1.8f8b84p-3,  -0x1.917a6cp-4, </div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>     0x0.000000p+0,   0x1.91f660p-5,   0x1.917a6cp-4,   0x1.2c8106p-3,   0x1.8f8b84p-3,   0x1.f19f98p-3,   0x1.294062p-2,   0x1.58f9a8p-2, </div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>     0x1.87de2ap-2,   0x1.b5d100p-2,   0x1.e2b5d4p-2,   0x1.07387ap-1,   0x1.1c73b4p-1,   0x1.30ff80p-1,   0x1.44cf32p-1,   0x1.57d694p-1, </div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>     0x1.6a09e6p-1,   0x1.7b5df2p-1,   0x1.8bc806p-1,   0x1.9b3e04p-1,   0x1.a9b662p-1,   0x1.b72834p-1,   0x1.c38b30p-1,   0x1.ced7b0p-1, </div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>     0x1.d906bcp-1,   0x1.e21210p-1,   0x1.e9f416p-1,   0x1.f0a7f0p-1,   0x1.f6297cp-1,   0x1.fa7558p-1,   0x1.fd88dap-1,   0x1.ff621ep-1, </div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>     0x1.000000p+0,   0x1.ff621ep-1,   0x1.fd88dap-1,   0x1.fa7558p-1,   0x1.f6297cp-1,   0x1.f0a7f0p-1,   0x1.e9f416p-1,   0x1.e21210p-1, </div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>     0x1.d906bcp-1,   0x1.ced7b0p-1,   0x1.c38b30p-1,   0x1.b72834p-1,   0x1.a9b662p-1,   0x1.9b3e04p-1,   0x1.8bc806p-1,   0x1.7b5df2p-1, </div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>     0x1.6a09e6p-1,   0x1.57d694p-1,   0x1.44cf32p-1,   0x1.30ff80p-1,   0x1.1c73b4p-1,   0x1.07387ap-1,   0x1.e2b5d4p-2,   0x1.b5d100p-2, </div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>     0x1.87de2ap-2,   0x1.58f9a8p-2,   0x1.294062p-2,   0x1.f19f98p-3,   0x1.8f8b84p-3,   0x1.2c8106p-3,   0x1.917a6cp-4,   0x1.91f660p-5, </div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>    0x1.1a6264p-53,  -0x1.91f660p-5,  -0x1.917a6cp-4,  -0x1.2c8106p-3,  -0x1.8f8b84p-3,  -0x1.f19f98p-3,  -0x1.294062p-2,  -0x1.58f9a8p-2, </div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>    -0x1.87de2ap-2,  -0x1.b5d100p-2,  -0x1.e2b5d4p-2,  -0x1.07387ap-1,  -0x1.1c73b4p-1,  -0x1.30ff80p-1,  -0x1.44cf32p-1,  -0x1.57d694p-1, </div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>    -0x1.6a09e6p-1,  -0x1.7b5df2p-1,  -0x1.8bc806p-1,  -0x1.9b3e04p-1,  -0x1.a9b662p-1,  -0x1.b72834p-1,  -0x1.c38b30p-1,  -0x1.ced7b0p-1, </div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>    -0x1.d906bcp-1,  -0x1.e21210p-1,  -0x1.e9f416p-1,  -0x1.f0a7f0p-1,  -0x1.f6297cp-1,  -0x1.fa7558p-1,  -0x1.fd88dap-1,  -0x1.ff621ep-1, </div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>    -0x1.000000p+0,  -0x1.ff621ep-1,  -0x1.fd88dap-1,  -0x1.fa7558p-1,  -0x1.f6297cp-1,  -0x1.f0a7f0p-1,  -0x1.e9f416p-1,  -0x1.e21210p-1, </div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>    -0x1.d906bcp-1,  -0x1.ced7b0p-1,  -0x1.c38b30p-1,  -0x1.b72834p-1,  -0x1.a9b662p-1,  -0x1.9b3e04p-1,  -0x1.8bc806p-1,  -0x1.7b5df2p-1, </div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>    -0x1.6a09e6p-1,  -0x1.57d694p-1,  -0x1.44cf32p-1,  -0x1.30ff80p-1,  -0x1.1c73b4p-1,  -0x1.07387ap-1,  -0x1.e2b5d4p-2,  -0x1.b5d100p-2, </div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>    -0x1.87de2ap-2,  -0x1.58f9a8p-2,  -0x1.294062p-2,  -0x1.f19f98p-3,  -0x1.8f8b84p-3,  -0x1.2c8106p-3,  -0x1.917a6cp-4,  -0x1.91f660p-5, </div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>     0x0.000000p+0,   0x1.921560p-6,   0x1.91f660p-5,   0x1.2d520ap-4,   0x1.917a6cp-4,   0x1.f564e6p-4,   0x1.2c8106p-3,   0x1.5e2144p-3, </div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>     0x1.8f8b84p-3,   0x1.c0b826p-3,   0x1.f19f98p-3,   0x1.111d26p-2,   0x1.294062p-2,   0x1.4135cap-2,   0x1.58f9a8p-2,   0x1.708854p-2, </div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>     0x1.87de2ap-2,   0x1.9ef794p-2,   0x1.b5d100p-2,   0x1.cc66eap-2,   0x1.e2b5d4p-2,   0x1.f8ba4ep-2,   0x1.07387ap-1,   0x1.11eb36p-1, </div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>     0x1.1c73b4p-1,   0x1.26d054p-1,   0x1.30ff80p-1,   0x1.3affa2p-1,   0x1.44cf32p-1,   0x1.4e6cacp-1,   0x1.57d694p-1,   0x1.610b76p-1, </div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>     0x1.6a09e6p-1,   0x1.72d084p-1,   0x1.7b5df2p-1,   0x1.83b0e0p-1,   0x1.8bc806p-1,   0x1.93a224p-1,   0x1.9b3e04p-1,   0x1.a29a7ap-1, </div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>     0x1.a9b662p-1,   0x1.b090a6p-1,   0x1.b72834p-1,   0x1.bd7c0ap-1,   0x1.c38b30p-1,   0x1.c954b2p-1,   0x1.ced7b0p-1,   0x1.d4134ep-1, </div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>     0x1.d906bcp-1,   0x1.ddb13cp-1,   0x1.e21210p-1,   0x1.e6288ep-1,   0x1.e9f416p-1,   0x1.ed740ep-1,   0x1.f0a7f0p-1,   0x1.f38f3ap-1, </div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>     0x1.f6297cp-1,   0x1.f87650p-1,   0x1.fa7558p-1,   0x1.fc2648p-1,   0x1.fd88dap-1,   0x1.fe9cdap-1,   0x1.ff621ep-1,   0x1.ffd886p-1, </div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>     0x1.000000p+0,   0x1.ffd886p-1,   0x1.ff621ep-1,   0x1.fe9cdap-1,   0x1.fd88dap-1,   0x1.fc2648p-1,   0x1.fa7558p-1,   0x1.f87650p-1, </div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>     0x1.f6297cp-1,   0x1.f38f3ap-1,   0x1.f0a7f0p-1,   0x1.ed740ep-1,   0x1.e9f416p-1,   0x1.e6288ep-1,   0x1.e21210p-1,   0x1.ddb13cp-1, </div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>     0x1.d906bcp-1,   0x1.d4134ep-1,   0x1.ced7b0p-1,   0x1.c954b2p-1,   0x1.c38b30p-1,   0x1.bd7c0ap-1,   0x1.b72834p-1,   0x1.b090a6p-1, </div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>     0x1.a9b662p-1,   0x1.a29a7ap-1,   0x1.9b3e04p-1,   0x1.93a224p-1,   0x1.8bc806p-1,   0x1.83b0e0p-1,   0x1.7b5df2p-1,   0x1.72d084p-1, </div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>     0x1.6a09e6p-1,   0x1.610b76p-1,   0x1.57d694p-1,   0x1.4e6cacp-1,   0x1.44cf32p-1,   0x1.3affa2p-1,   0x1.30ff80p-1,   0x1.26d054p-1, </div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>     0x1.1c73b4p-1,   0x1.11eb36p-1,   0x1.07387ap-1,   0x1.f8ba4ep-2,   0x1.e2b5d4p-2,   0x1.cc66eap-2,   0x1.b5d100p-2,   0x1.9ef794p-2, </div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>     0x1.87de2ap-2,   0x1.708854p-2,   0x1.58f9a8p-2,   0x1.4135cap-2,   0x1.294062p-2,   0x1.111d26p-2,   0x1.f19f98p-3,   0x1.c0b826p-3, </div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>     0x1.8f8b84p-3,   0x1.5e2144p-3,   0x1.2c8106p-3,   0x1.f564e6p-4,   0x1.917a6cp-4,   0x1.2d520ap-4,   0x1.91f660p-5,   0x1.921560p-6, </div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>    0x1.1a6264p-53,  -0x1.921560p-6,  -0x1.91f660p-5,  -0x1.2d520ap-4,  -0x1.917a6cp-4,  -0x1.f564e6p-4,  -0x1.2c8106p-3,  -0x1.5e2144p-3, </div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>    -0x1.8f8b84p-3,  -0x1.c0b826p-3,  -0x1.f19f98p-3,  -0x1.111d26p-2,  -0x1.294062p-2,  -0x1.4135cap-2,  -0x1.58f9a8p-2,  -0x1.708854p-2, </div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>    -0x1.87de2ap-2,  -0x1.9ef794p-2,  -0x1.b5d100p-2,  -0x1.cc66eap-2,  -0x1.e2b5d4p-2,  -0x1.f8ba4ep-2,  -0x1.07387ap-1,  -0x1.11eb36p-1, </div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>    -0x1.1c73b4p-1,  -0x1.26d054p-1,  -0x1.30ff80p-1,  -0x1.3affa2p-1,  -0x1.44cf32p-1,  -0x1.4e6cacp-1,  -0x1.57d694p-1,  -0x1.610b76p-1, </div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>    -0x1.6a09e6p-1,  -0x1.72d084p-1,  -0x1.7b5df2p-1,  -0x1.83b0e0p-1,  -0x1.8bc806p-1,  -0x1.93a224p-1,  -0x1.9b3e04p-1,  -0x1.a29a7ap-1, </div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>    -0x1.a9b662p-1,  -0x1.b090a6p-1,  -0x1.b72834p-1,  -0x1.bd7c0ap-1,  -0x1.c38b30p-1,  -0x1.c954b2p-1,  -0x1.ced7b0p-1,  -0x1.d4134ep-1, </div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>    -0x1.d906bcp-1,  -0x1.ddb13cp-1,  -0x1.e21210p-1,  -0x1.e6288ep-1,  -0x1.e9f416p-1,  -0x1.ed740ep-1,  -0x1.f0a7f0p-1,  -0x1.f38f3ap-1, </div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>    -0x1.f6297cp-1,  -0x1.f87650p-1,  -0x1.fa7558p-1,  -0x1.fc2648p-1,  -0x1.fd88dap-1,  -0x1.fe9cdap-1,  -0x1.ff621ep-1,  -0x1.ffd886p-1, </div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>    -0x1.000000p+0,  -0x1.ffd886p-1,  -0x1.ff621ep-1,  -0x1.fe9cdap-1,  -0x1.fd88dap-1,  -0x1.fc2648p-1,  -0x1.fa7558p-1,  -0x1.f87650p-1, </div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>    -0x1.f6297cp-1,  -0x1.f38f3ap-1,  -0x1.f0a7f0p-1,  -0x1.ed740ep-1,  -0x1.e9f416p-1,  -0x1.e6288ep-1,  -0x1.e21210p-1,  -0x1.ddb13cp-1, </div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>    -0x1.d906bcp-1,  -0x1.d4134ep-1,  -0x1.ced7b0p-1,  -0x1.c954b2p-1,  -0x1.c38b30p-1,  -0x1.bd7c0ap-1,  -0x1.b72834p-1,  -0x1.b090a6p-1, </div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>    -0x1.a9b662p-1,  -0x1.a29a7ap-1,  -0x1.9b3e04p-1,  -0x1.93a224p-1,  -0x1.8bc806p-1,  -0x1.83b0e0p-1,  -0x1.7b5df2p-1,  -0x1.72d084p-1, </div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>    -0x1.6a09e6p-1,  -0x1.610b76p-1,  -0x1.57d694p-1,  -0x1.4e6cacp-1,  -0x1.44cf32p-1,  -0x1.3affa2p-1,  -0x1.30ff80p-1,  -0x1.26d054p-1, </div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>    -0x1.1c73b4p-1,  -0x1.11eb36p-1,  -0x1.07387ap-1,  -0x1.f8ba4ep-2,  -0x1.e2b5d4p-2,  -0x1.cc66eap-2,  -0x1.b5d100p-2,  -0x1.9ef794p-2, </div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>    -0x1.87de2ap-2,  -0x1.708854p-2,  -0x1.58f9a8p-2,  -0x1.4135cap-2,  -0x1.294062p-2,  -0x1.111d26p-2,  -0x1.f19f98p-3,  -0x1.c0b826p-3, </div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span>    -0x1.8f8b84p-3,  -0x1.5e2144p-3,  -0x1.2c8106p-3,  -0x1.f564e6p-4,  -0x1.917a6cp-4,  -0x1.2d520ap-4,  -0x1.91f660p-5,  -0x1.921560p-6, </div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>     0x0.000000p+0,   0x1.921d20p-7,   0x1.921560p-6,   0x1.2d8658p-5,   0x1.91f660p-5,   0x1.f656e8p-5,   0x1.2d520ap-4,   0x1.5f6d00p-4, </div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>     0x1.917a6cp-4,   0x1.c3785cp-4,   0x1.f564e6p-4,   0x1.139f0cp-3,   0x1.2c8106p-3,   0x1.45576cp-3,   0x1.5e2144p-3,   0x1.76dd9ep-3, </div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>     0x1.8f8b84p-3,   0x1.a82a02p-3,   0x1.c0b826p-3,   0x1.d934fep-3,   0x1.f19f98p-3,   0x1.04fb80p-2,   0x1.111d26p-2,   0x1.1d3444p-2, </div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>     0x1.294062p-2,   0x1.35410cp-2,   0x1.4135cap-2,   0x1.4d1e24p-2,   0x1.58f9a8p-2,   0x1.64c7dep-2,   0x1.708854p-2,   0x1.7c3a94p-2, </div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>     0x1.87de2ap-2,   0x1.9372a6p-2,   0x1.9ef794p-2,   0x1.aa6c82p-2,   0x1.b5d100p-2,   0x1.c1249ep-2,   0x1.cc66eap-2,   0x1.d79776p-2, </div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>     0x1.e2b5d4p-2,   0x1.edc196p-2,   0x1.f8ba4ep-2,   0x1.01cfc8p-1,   0x1.07387ap-1,   0x1.0c9704p-1,   0x1.11eb36p-1,   0x1.1734d6p-1, </div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>     0x1.1c73b4p-1,   0x1.21a79ap-1,   0x1.26d054p-1,   0x1.2bedb2p-1,   0x1.30ff80p-1,   0x1.36058cp-1,   0x1.3affa2p-1,   0x1.3fed96p-1, </div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>     0x1.44cf32p-1,   0x1.49a44ap-1,   0x1.4e6cacp-1,   0x1.53282ap-1,   0x1.57d694p-1,   0x1.5c77bcp-1,   0x1.610b76p-1,   0x1.659192p-1, </div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>     0x1.6a09e6p-1,   0x1.6e7446p-1,   0x1.72d084p-1,   0x1.771e76p-1,   0x1.7b5df2p-1,   0x1.7f8ecep-1,   0x1.83b0e0p-1,   0x1.87c400p-1, </div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>     0x1.8bc806p-1,   0x1.8fbccap-1,   0x1.93a224p-1,   0x1.9777f0p-1,   0x1.9b3e04p-1,   0x1.9ef43ep-1,   0x1.a29a7ap-1,   0x1.a63092p-1, </div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span>     0x1.a9b662p-1,   0x1.ad2bcap-1,   0x1.b090a6p-1,   0x1.b3e4d4p-1,   0x1.b72834p-1,   0x1.ba5aa6p-1,   0x1.bd7c0ap-1,   0x1.c08c42p-1, </div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>     0x1.c38b30p-1,   0x1.c678b4p-1,   0x1.c954b2p-1,   0x1.cc1f10p-1,   0x1.ced7b0p-1,   0x1.d17e78p-1,   0x1.d4134ep-1,   0x1.d69618p-1, </div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>     0x1.d906bcp-1,   0x1.db6526p-1,   0x1.ddb13cp-1,   0x1.dfeae6p-1,   0x1.e21210p-1,   0x1.e426a4p-1,   0x1.e6288ep-1,   0x1.e817bap-1, </div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>     0x1.e9f416p-1,   0x1.ebbd8cp-1,   0x1.ed740ep-1,   0x1.ef178ap-1,   0x1.f0a7f0p-1,   0x1.f22530p-1,   0x1.f38f3ap-1,   0x1.f4e604p-1, </div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>     0x1.f6297cp-1,   0x1.f7599ap-1,   0x1.f87650p-1,   0x1.f97f92p-1,   0x1.fa7558p-1,   0x1.fb5798p-1,   0x1.fc2648p-1,   0x1.fce160p-1, </div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span>     0x1.fd88dap-1,   0x1.fe1cb0p-1,   0x1.fe9cdap-1,   0x1.ff0956p-1,   0x1.ff621ep-1,   0x1.ffa72ep-1,   0x1.ffd886p-1,   0x1.fff622p-1, </div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span>     0x1.000000p+0,   0x1.fff622p-1,   0x1.ffd886p-1,   0x1.ffa72ep-1,   0x1.ff621ep-1,   0x1.ff0956p-1,   0x1.fe9cdap-1,   0x1.fe1cb0p-1, </div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span>     0x1.fd88dap-1,   0x1.fce160p-1,   0x1.fc2648p-1,   0x1.fb5798p-1,   0x1.fa7558p-1,   0x1.f97f92p-1,   0x1.f87650p-1,   0x1.f7599ap-1, </div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span>     0x1.f6297cp-1,   0x1.f4e604p-1,   0x1.f38f3ap-1,   0x1.f22530p-1,   0x1.f0a7f0p-1,   0x1.ef178ap-1,   0x1.ed740ep-1,   0x1.ebbd8cp-1, </div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span>     0x1.e9f416p-1,   0x1.e817bap-1,   0x1.e6288ep-1,   0x1.e426a4p-1,   0x1.e21210p-1,   0x1.dfeae6p-1,   0x1.ddb13cp-1,   0x1.db6526p-1, </div>
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span>     0x1.d906bcp-1,   0x1.d69618p-1,   0x1.d4134ep-1,   0x1.d17e78p-1,   0x1.ced7b0p-1,   0x1.cc1f10p-1,   0x1.c954b2p-1,   0x1.c678b4p-1, </div>
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span>     0x1.c38b30p-1,   0x1.c08c42p-1,   0x1.bd7c0ap-1,   0x1.ba5aa6p-1,   0x1.b72834p-1,   0x1.b3e4d4p-1,   0x1.b090a6p-1,   0x1.ad2bcap-1, </div>
+<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span>     0x1.a9b662p-1,   0x1.a63092p-1,   0x1.a29a7ap-1,   0x1.9ef43ep-1,   0x1.9b3e04p-1,   0x1.9777f0p-1,   0x1.93a224p-1,   0x1.8fbccap-1, </div>
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span>     0x1.8bc806p-1,   0x1.87c400p-1,   0x1.83b0e0p-1,   0x1.7f8ecep-1,   0x1.7b5df2p-1,   0x1.771e76p-1,   0x1.72d084p-1,   0x1.6e7446p-1, </div>
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span>     0x1.6a09e6p-1,   0x1.659192p-1,   0x1.610b76p-1,   0x1.5c77bcp-1,   0x1.57d694p-1,   0x1.53282ap-1,   0x1.4e6cacp-1,   0x1.49a44ap-1, </div>
+<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span>     0x1.44cf32p-1,   0x1.3fed96p-1,   0x1.3affa2p-1,   0x1.36058cp-1,   0x1.30ff80p-1,   0x1.2bedb2p-1,   0x1.26d054p-1,   0x1.21a79ap-1, </div>
+<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span>     0x1.1c73b4p-1,   0x1.1734d6p-1,   0x1.11eb36p-1,   0x1.0c9704p-1,   0x1.07387ap-1,   0x1.01cfc8p-1,   0x1.f8ba4ep-2,   0x1.edc196p-2, </div>
+<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span>     0x1.e2b5d4p-2,   0x1.d79776p-2,   0x1.cc66eap-2,   0x1.c1249ep-2,   0x1.b5d100p-2,   0x1.aa6c82p-2,   0x1.9ef794p-2,   0x1.9372a6p-2, </div>
+<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span>     0x1.87de2ap-2,   0x1.7c3a94p-2,   0x1.708854p-2,   0x1.64c7dep-2,   0x1.58f9a8p-2,   0x1.4d1e24p-2,   0x1.4135cap-2,   0x1.35410cp-2, </div>
+<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span>     0x1.294062p-2,   0x1.1d3444p-2,   0x1.111d26p-2,   0x1.04fb80p-2,   0x1.f19f98p-3,   0x1.d934fep-3,   0x1.c0b826p-3,   0x1.a82a02p-3, </div>
+<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span>     0x1.8f8b84p-3,   0x1.76dd9ep-3,   0x1.5e2144p-3,   0x1.45576cp-3,   0x1.2c8106p-3,   0x1.139f0cp-3,   0x1.f564e6p-4,   0x1.c3785cp-4, </div>
+<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span>     0x1.917a6cp-4,   0x1.5f6d00p-4,   0x1.2d520ap-4,   0x1.f656e8p-5,   0x1.91f660p-5,   0x1.2d8658p-5,   0x1.921560p-6,   0x1.921d20p-7, </div>
+<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span>    0x1.1a6264p-53,  -0x1.921d20p-7,  -0x1.921560p-6,  -0x1.2d8658p-5,  -0x1.91f660p-5,  -0x1.f656e8p-5,  -0x1.2d520ap-4,  -0x1.5f6d00p-4, </div>
+<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span>    -0x1.917a6cp-4,  -0x1.c3785cp-4,  -0x1.f564e6p-4,  -0x1.139f0cp-3,  -0x1.2c8106p-3,  -0x1.45576cp-3,  -0x1.5e2144p-3,  -0x1.76dd9ep-3, </div>
+<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span>    -0x1.8f8b84p-3,  -0x1.a82a02p-3,  -0x1.c0b826p-3,  -0x1.d934fep-3,  -0x1.f19f98p-3,  -0x1.04fb80p-2,  -0x1.111d26p-2,  -0x1.1d3444p-2, </div>
+<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span>    -0x1.294062p-2,  -0x1.35410cp-2,  -0x1.4135cap-2,  -0x1.4d1e24p-2,  -0x1.58f9a8p-2,  -0x1.64c7dep-2,  -0x1.708854p-2,  -0x1.7c3a94p-2, </div>
+<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span>    -0x1.87de2ap-2,  -0x1.9372a6p-2,  -0x1.9ef794p-2,  -0x1.aa6c82p-2,  -0x1.b5d100p-2,  -0x1.c1249ep-2,  -0x1.cc66eap-2,  -0x1.d79776p-2, </div>
+<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span>    -0x1.e2b5d4p-2,  -0x1.edc196p-2,  -0x1.f8ba4ep-2,  -0x1.01cfc8p-1,  -0x1.07387ap-1,  -0x1.0c9704p-1,  -0x1.11eb36p-1,  -0x1.1734d6p-1, </div>
+<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span>    -0x1.1c73b4p-1,  -0x1.21a79ap-1,  -0x1.26d054p-1,  -0x1.2bedb2p-1,  -0x1.30ff80p-1,  -0x1.36058cp-1,  -0x1.3affa2p-1,  -0x1.3fed96p-1, </div>
+<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span>    -0x1.44cf32p-1,  -0x1.49a44ap-1,  -0x1.4e6cacp-1,  -0x1.53282ap-1,  -0x1.57d694p-1,  -0x1.5c77bcp-1,  -0x1.610b76p-1,  -0x1.659192p-1, </div>
+<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span>    -0x1.6a09e6p-1,  -0x1.6e7446p-1,  -0x1.72d084p-1,  -0x1.771e76p-1,  -0x1.7b5df2p-1,  -0x1.7f8ecep-1,  -0x1.83b0e0p-1,  -0x1.87c400p-1, </div>
+<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span>    -0x1.8bc806p-1,  -0x1.8fbccap-1,  -0x1.93a224p-1,  -0x1.9777f0p-1,  -0x1.9b3e04p-1,  -0x1.9ef43ep-1,  -0x1.a29a7ap-1,  -0x1.a63092p-1, </div>
+<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span>    -0x1.a9b662p-1,  -0x1.ad2bcap-1,  -0x1.b090a6p-1,  -0x1.b3e4d4p-1,  -0x1.b72834p-1,  -0x1.ba5aa6p-1,  -0x1.bd7c0ap-1,  -0x1.c08c42p-1, </div>
+<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span>    -0x1.c38b30p-1,  -0x1.c678b4p-1,  -0x1.c954b2p-1,  -0x1.cc1f10p-1,  -0x1.ced7b0p-1,  -0x1.d17e78p-1,  -0x1.d4134ep-1,  -0x1.d69618p-1, </div>
+<div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span>    -0x1.d906bcp-1,  -0x1.db6526p-1,  -0x1.ddb13cp-1,  -0x1.dfeae6p-1,  -0x1.e21210p-1,  -0x1.e426a4p-1,  -0x1.e6288ep-1,  -0x1.e817bap-1, </div>
+<div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span>    -0x1.e9f416p-1,  -0x1.ebbd8cp-1,  -0x1.ed740ep-1,  -0x1.ef178ap-1,  -0x1.f0a7f0p-1,  -0x1.f22530p-1,  -0x1.f38f3ap-1,  -0x1.f4e604p-1, </div>
+<div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span>    -0x1.f6297cp-1,  -0x1.f7599ap-1,  -0x1.f87650p-1,  -0x1.f97f92p-1,  -0x1.fa7558p-1,  -0x1.fb5798p-1,  -0x1.fc2648p-1,  -0x1.fce160p-1, </div>
+<div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span>    -0x1.fd88dap-1,  -0x1.fe1cb0p-1,  -0x1.fe9cdap-1,  -0x1.ff0956p-1,  -0x1.ff621ep-1,  -0x1.ffa72ep-1,  -0x1.ffd886p-1,  -0x1.fff622p-1, </div>
+<div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span>    -0x1.000000p+0,  -0x1.fff622p-1,  -0x1.ffd886p-1,  -0x1.ffa72ep-1,  -0x1.ff621ep-1,  -0x1.ff0956p-1,  -0x1.fe9cdap-1,  -0x1.fe1cb0p-1, </div>
+<div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span>    -0x1.fd88dap-1,  -0x1.fce160p-1,  -0x1.fc2648p-1,  -0x1.fb5798p-1,  -0x1.fa7558p-1,  -0x1.f97f92p-1,  -0x1.f87650p-1,  -0x1.f7599ap-1, </div>
+<div class="line"><a id="l00117" name="l00117"></a><span class="lineno">  117</span>    -0x1.f6297cp-1,  -0x1.f4e604p-1,  -0x1.f38f3ap-1,  -0x1.f22530p-1,  -0x1.f0a7f0p-1,  -0x1.ef178ap-1,  -0x1.ed740ep-1,  -0x1.ebbd8cp-1, </div>
+<div class="line"><a id="l00118" name="l00118"></a><span class="lineno">  118</span>    -0x1.e9f416p-1,  -0x1.e817bap-1,  -0x1.e6288ep-1,  -0x1.e426a4p-1,  -0x1.e21210p-1,  -0x1.dfeae6p-1,  -0x1.ddb13cp-1,  -0x1.db6526p-1, </div>
+<div class="line"><a id="l00119" name="l00119"></a><span class="lineno">  119</span>    -0x1.d906bcp-1,  -0x1.d69618p-1,  -0x1.d4134ep-1,  -0x1.d17e78p-1,  -0x1.ced7b0p-1,  -0x1.cc1f10p-1,  -0x1.c954b2p-1,  -0x1.c678b4p-1, </div>
+<div class="line"><a id="l00120" name="l00120"></a><span class="lineno">  120</span>    -0x1.c38b30p-1,  -0x1.c08c42p-1,  -0x1.bd7c0ap-1,  -0x1.ba5aa6p-1,  -0x1.b72834p-1,  -0x1.b3e4d4p-1,  -0x1.b090a6p-1,  -0x1.ad2bcap-1, </div>
+<div class="line"><a id="l00121" name="l00121"></a><span class="lineno">  121</span>    -0x1.a9b662p-1,  -0x1.a63092p-1,  -0x1.a29a7ap-1,  -0x1.9ef43ep-1,  -0x1.9b3e04p-1,  -0x1.9777f0p-1,  -0x1.93a224p-1,  -0x1.8fbccap-1, </div>
+<div class="line"><a id="l00122" name="l00122"></a><span class="lineno">  122</span>    -0x1.8bc806p-1,  -0x1.87c400p-1,  -0x1.83b0e0p-1,  -0x1.7f8ecep-1,  -0x1.7b5df2p-1,  -0x1.771e76p-1,  -0x1.72d084p-1,  -0x1.6e7446p-1, </div>
+<div class="line"><a id="l00123" name="l00123"></a><span class="lineno">  123</span>    -0x1.6a09e6p-1,  -0x1.659192p-1,  -0x1.610b76p-1,  -0x1.5c77bcp-1,  -0x1.57d694p-1,  -0x1.53282ap-1,  -0x1.4e6cacp-1,  -0x1.49a44ap-1, </div>
+<div class="line"><a id="l00124" name="l00124"></a><span class="lineno">  124</span>    -0x1.44cf32p-1,  -0x1.3fed96p-1,  -0x1.3affa2p-1,  -0x1.36058cp-1,  -0x1.30ff80p-1,  -0x1.2bedb2p-1,  -0x1.26d054p-1,  -0x1.21a79ap-1, </div>
+<div class="line"><a id="l00125" name="l00125"></a><span class="lineno">  125</span>    -0x1.1c73b4p-1,  -0x1.1734d6p-1,  -0x1.11eb36p-1,  -0x1.0c9704p-1,  -0x1.07387ap-1,  -0x1.01cfc8p-1,  -0x1.f8ba4ep-2,  -0x1.edc196p-2, </div>
+<div class="line"><a id="l00126" name="l00126"></a><span class="lineno">  126</span>    -0x1.e2b5d4p-2,  -0x1.d79776p-2,  -0x1.cc66eap-2,  -0x1.c1249ep-2,  -0x1.b5d100p-2,  -0x1.aa6c82p-2,  -0x1.9ef794p-2,  -0x1.9372a6p-2, </div>
+<div class="line"><a id="l00127" name="l00127"></a><span class="lineno">  127</span>    -0x1.87de2ap-2,  -0x1.7c3a94p-2,  -0x1.708854p-2,  -0x1.64c7dep-2,  -0x1.58f9a8p-2,  -0x1.4d1e24p-2,  -0x1.4135cap-2,  -0x1.35410cp-2, </div>
+<div class="line"><a id="l00128" name="l00128"></a><span class="lineno">  128</span>    -0x1.294062p-2,  -0x1.1d3444p-2,  -0x1.111d26p-2,  -0x1.04fb80p-2,  -0x1.f19f98p-3,  -0x1.d934fep-3,  -0x1.c0b826p-3,  -0x1.a82a02p-3, </div>
+<div class="line"><a id="l00129" name="l00129"></a><span class="lineno">  129</span>    -0x1.8f8b84p-3,  -0x1.76dd9ep-3,  -0x1.5e2144p-3,  -0x1.45576cp-3,  -0x1.2c8106p-3,  -0x1.139f0cp-3,  -0x1.f564e6p-4,  -0x1.c3785cp-4, </div>
+<div class="line"><a id="l00130" name="l00130"></a><span class="lineno">  130</span>    -0x1.917a6cp-4,  -0x1.5f6d00p-4,  -0x1.2d520ap-4,  -0x1.f656e8p-5,  -0x1.91f660p-5,  -0x1.2d8658p-5,  -0x1.921560p-6,  -0x1.921d20p-7, </div>
+<div class="line"><a id="l00131" name="l00131"></a><span class="lineno">  131</span>};</div>
+</div>
+<div class="line"><a id="l00132" name="l00132"></a><span class="lineno">  132</span> </div>
+<div class="foldopen" id="foldopen00133" data-start="{" data-end="}">
+<div class="line"><a id="l00133" name="l00133"></a><span class="lineno"><a class="line" href="../../d0/d41/radaudio__mdct__tables_8inl.html#aa55f0f56b9016b02f2dd583d27112d3e">  133</a></span><a class="code hl_define" href="../../d3/df7/radaudio__common_8h.html#ac682c4b7d237992f52f66975ee413be4">FFT_ALIGN</a>(<span class="keywordtype">float</span>, s_mdct_short_twiddles[128]) = {</div>
+<div class="line"><a id="l00134" name="l00134"></a><span class="lineno">  134</span>    -0x1.6a0976p-2,  -0x1.69e692p-2,  -0x1.698be0p-2,  -0x1.68f96cp-2,  -0x1.682f4ep-2,  -0x1.672da6p-2,  -0x1.65f49ap-2,  -0x1.64845cp-2, </div>
+<div class="line"><a id="l00135" name="l00135"></a><span class="lineno">  135</span>    -0x1.62dd24p-2,  -0x1.60ff34p-2,  -0x1.5eead4p-2,  -0x1.5ca056p-2,  -0x1.5a2018p-2,  -0x1.576a78p-2,  -0x1.547fe4p-2,  -0x1.5160cep-2, </div>
+<div class="line"><a id="l00136" name="l00136"></a><span class="lineno">  136</span>    -0x1.4e0db2p-2,  -0x1.4a8712p-2,  -0x1.46cd7ap-2,  -0x1.42e17ep-2,  -0x1.3ec3b8p-2,  -0x1.3a74c8p-2,  -0x1.35f55cp-2,  -0x1.314624p-2, </div>
+<div class="line"><a id="l00137" name="l00137"></a><span class="lineno">  137</span>    -0x1.2c67dap-2,  -0x1.275b3ap-2,  -0x1.222110p-2,  -0x1.1cba2ap-2,  -0x1.17275ap-2,  -0x1.116980p-2,  -0x1.0b817cp-2,  -0x1.057036p-2, </div>
+<div class="line"><a id="l00138" name="l00138"></a><span class="lineno">  138</span>    -0x1.fe6d42p-3,  -0x1.f1ab62p-3,  -0x1.e49cc4p-3,  -0x1.d7436ap-3,  -0x1.c9a166p-3,  -0x1.bbb8cep-3,  -0x1.ad8bcap-3,  -0x1.9f1c8ap-3, </div>
+<div class="line"><a id="l00139" name="l00139"></a><span class="lineno">  139</span>    -0x1.906d48p-3,  -0x1.818044p-3,  -0x1.7257d0p-3,  -0x1.62f63ep-3,  -0x1.535df0p-3,  -0x1.43914ep-3,  -0x1.3392c6p-3,  -0x1.2364d0p-3, </div>
+<div class="line"><a id="l00140" name="l00140"></a><span class="lineno">  140</span>    -0x1.1309ecp-3,  -0x1.02849ep-3,  -0x1.e3aee4p-4,  -0x1.c209f6p-4,  -0x1.a01fa2p-4,  -0x1.7df524p-4,  -0x1.5b8fbep-4,  -0x1.38f4c2p-4, </div>
+<div class="line"><a id="l00141" name="l00141"></a><span class="lineno">  141</span>    -0x1.162982p-4,  -0x1.e666b8p-5,  -0x1.a02f6ep-5,  -0x1.59b7f6p-5,  -0x1.130b2ep-5,  -0x1.9867f8p-6,  -0x1.0a7a98p-6,  -0x1.f1908cp-8, </div>
+<div class="line"><a id="l00142" name="l00142"></a><span class="lineno">  142</span>    0x1.1c5814p-10,   0x1.3fd8d0p-7,   0x1.2dfaa6p-6,   0x1.bbda52p-6,   0x1.24bac6p-5,   0x1.6b5b40p-5,   0x1.b1c3b2p-5,   0x1.f7e940p-5, </div>
+<div class="line"><a id="l00143" name="l00143"></a><span class="lineno">  143</span>     0x1.1ee08cp-4,   0x1.41a03cp-4,   0x1.642e54p-4,   0x1.86857ep-4,   0x1.a8a070p-4,   0x1.ca79e6p-4,   0x1.ec0cacp-4,   0x1.06a9c8p-3, </div>
+<div class="line"><a id="l00144" name="l00144"></a><span class="lineno">  144</span>     0x1.1724b8p-3,   0x1.27749ep-3,   0x1.3796f4p-3,   0x1.47893ep-3,   0x1.574904p-3,   0x1.66d3dcp-3,   0x1.76275ep-3,   0x1.85412ep-3, </div>
+<div class="line"><a id="l00145" name="l00145"></a><span class="lineno">  145</span>     0x1.941ef8p-3,   0x1.a2be72p-3,   0x1.b11d58p-3,   0x1.bf3974p-3,   0x1.cd109ap-3,   0x1.daa0a6p-3,   0x1.e7e782p-3,   0x1.f4e320p-3, </div>
+<div class="line"><a id="l00146" name="l00146"></a><span class="lineno">  146</span>     0x1.00c8c0p-2,   0x1.06f858p-2,   0x1.0cff64p-2,   0x1.12dcf4p-2,   0x1.189020p-2,   0x1.1e180ap-2,   0x1.2373d6p-2,   0x1.28a2b0p-2, </div>
+<div class="line"><a id="l00147" name="l00147"></a><span class="lineno">  147</span>     0x1.2da3ccp-2,   0x1.327664p-2,   0x1.3719bap-2,   0x1.3b8d16p-2,   0x1.3fcfcap-2,   0x1.43e12ep-2,   0x1.47c0a0p-2,   0x1.4b6d86p-2, </div>
+<div class="line"><a id="l00148" name="l00148"></a><span class="lineno">  148</span>     0x1.4ee752p-2,   0x1.522d78p-2,   0x1.553f7ap-2,   0x1.581cdap-2,   0x1.5ac52cp-2,   0x1.5d3804p-2,   0x1.5f7502p-2,   0x1.617bcep-2, </div>
+<div class="line"><a id="l00149" name="l00149"></a><span class="lineno">  149</span>     0x1.634c16p-2,   0x1.64e596p-2,   0x1.66480cp-2,   0x1.677344p-2,   0x1.68670cp-2,   0x1.692342p-2,   0x1.69a7c6p-2,   0x1.69f488p-2, </div>
+<div class="line"><a id="l00150" name="l00150"></a><span class="lineno">  150</span>};</div>
+</div>
+<div class="line"><a id="l00151" name="l00151"></a><span class="lineno">  151</span> </div>
+<div class="foldopen" id="foldopen00152" data-start="{" data-end="}">
+<div class="line"><a id="l00152" name="l00152"></a><span class="lineno"><a class="line" href="../../d0/d41/radaudio__mdct__tables_8inl.html#ac6747feb37ea308768139b2dc07a1130">  152</a></span><a class="code hl_define" href="../../d3/df7/radaudio__common_8h.html#ac682c4b7d237992f52f66975ee413be4">FFT_ALIGN</a>(<span class="keywordtype">float</span>, s_mdct_long_twiddles[1024]) = {</div>
+<div class="line"><a id="l00153" name="l00153"></a><span class="lineno">  153</span>    -0x1.ae89f8p-3,  -0x1.ae8952p-3,  -0x1.ae87a2p-3,  -0x1.ae84e8p-3,  -0x1.ae8126p-3,  -0x1.ae7c5ap-3,  -0x1.ae7684p-3,  -0x1.ae6fa4p-3, </div>
+<div class="line"><a id="l00154" name="l00154"></a><span class="lineno">  154</span>    -0x1.ae67bcp-3,  -0x1.ae5ecap-3,  -0x1.ae54cep-3,  -0x1.ae49c8p-3,  -0x1.ae3dbap-3,  -0x1.ae30a2p-3,  -0x1.ae2280p-3,  -0x1.ae1356p-3, </div>
+<div class="line"><a id="l00155" name="l00155"></a><span class="lineno">  155</span>    -0x1.ae0322p-3,  -0x1.adf1e4p-3,  -0x1.addf9ep-3,  -0x1.adcc4ep-3,  -0x1.adb7f6p-3,  -0x1.ada294p-3,  -0x1.ad8c28p-3,  -0x1.ad74b4p-3, </div>
+<div class="line"><a id="l00156" name="l00156"></a><span class="lineno">  156</span>    -0x1.ad5c38p-3,  -0x1.ad42b2p-3,  -0x1.ad2824p-3,  -0x1.ad0c8cp-3,  -0x1.acefecp-3,  -0x1.acd244p-3,  -0x1.acb394p-3,  -0x1.ac93dap-3, </div>
+<div class="line"><a id="l00157" name="l00157"></a><span class="lineno">  157</span>    -0x1.ac7318p-3,  -0x1.ac514ep-3,  -0x1.ac2e7cp-3,  -0x1.ac0aa2p-3,  -0x1.abe5c0p-3,  -0x1.abbfd4p-3,  -0x1.ab98e2p-3,  -0x1.ab70e8p-3, </div>
+<div class="line"><a id="l00158" name="l00158"></a><span class="lineno">  158</span>    -0x1.ab47e8p-3,  -0x1.ab1ddep-3,  -0x1.aaf2cep-3,  -0x1.aac6b6p-3,  -0x1.aa9996p-3,  -0x1.aa6b70p-3,  -0x1.aa3c42p-3,  -0x1.aa0c0ep-3, </div>
+<div class="line"><a id="l00159" name="l00159"></a><span class="lineno">  159</span>    -0x1.a9dad2p-3,  -0x1.a9a890p-3,  -0x1.a97548p-3,  -0x1.a940fap-3,  -0x1.a90ba4p-3,  -0x1.a8d548p-3,  -0x1.a89de8p-3,  -0x1.a86580p-3, </div>
+<div class="line"><a id="l00160" name="l00160"></a><span class="lineno">  160</span>    -0x1.a82c12p-3,  -0x1.a7f1a0p-3,  -0x1.a7b628p-3,  -0x1.a779aap-3,  -0x1.a73c26p-3,  -0x1.a6fd9ep-3,  -0x1.a6be12p-3,  -0x1.a67d80p-3, </div>
+<div class="line"><a id="l00161" name="l00161"></a><span class="lineno">  161</span>    -0x1.a63beap-3,  -0x1.a5f950p-3,  -0x1.a5b5b0p-3,  -0x1.a5710cp-3,  -0x1.a52b66p-3,  -0x1.a4e4bap-3,  -0x1.a49d0cp-3,  -0x1.a4545ap-3, </div>
+<div class="line"><a id="l00162" name="l00162"></a><span class="lineno">  162</span>    -0x1.a40aa4p-3,  -0x1.a3bfecp-3,  -0x1.a37432p-3,  -0x1.a32774p-3,  -0x1.a2d9b2p-3,  -0x1.a28af0p-3,  -0x1.a23b2ap-3,  -0x1.a1ea64p-3, </div>
+<div class="line"><a id="l00163" name="l00163"></a><span class="lineno">  163</span>    -0x1.a1989ap-3,  -0x1.a145d0p-3,  -0x1.a0f204p-3,  -0x1.a09d36p-3,  -0x1.a04768p-3,  -0x1.9ff09ap-3,  -0x1.9f98cap-3,  -0x1.9f3ffap-3, </div>
+<div class="line"><a id="l00164" name="l00164"></a><span class="lineno">  164</span>    -0x1.9ee62ap-3,  -0x1.9e8b5ap-3,  -0x1.9e2f8ap-3,  -0x1.9dd2bcp-3,  -0x1.9d74eep-3,  -0x1.9d1620p-3,  -0x1.9cb654p-3,  -0x1.9c5588p-3, </div>
+<div class="line"><a id="l00165" name="l00165"></a><span class="lineno">  165</span>    -0x1.9bf3c0p-3,  -0x1.9b90f8p-3,  -0x1.9b2d34p-3,  -0x1.9ac870p-3,  -0x1.9a62b0p-3,  -0x1.99fbf2p-3,  -0x1.999438p-3,  -0x1.992b82p-3, </div>
+<div class="line"><a id="l00166" name="l00166"></a><span class="lineno">  166</span>    -0x1.98c1cep-3,  -0x1.985720p-3,  -0x1.97eb74p-3,  -0x1.977eccp-3,  -0x1.97112ap-3,  -0x1.96a28ep-3,  -0x1.9632f6p-3,  -0x1.95c262p-3, </div>
+<div class="line"><a id="l00167" name="l00167"></a><span class="lineno">  167</span>    -0x1.9550d6p-3,  -0x1.94de4ep-3,  -0x1.946acep-3,  -0x1.93f654p-3,  -0x1.9380e0p-3,  -0x1.930a74p-3,  -0x1.92930ep-3,  -0x1.921ab0p-3, </div>
+<div class="line"><a id="l00168" name="l00168"></a><span class="lineno">  168</span>    -0x1.91a15cp-3,  -0x1.91270ep-3,  -0x1.90abcap-3,  -0x1.902f8ep-3,  -0x1.8fb25cp-3,  -0x1.8f3432p-3,  -0x1.8eb514p-3,  -0x1.8e34fep-3, </div>
+<div class="line"><a id="l00169" name="l00169"></a><span class="lineno">  169</span>    -0x1.8db3f2p-3,  -0x1.8d31f2p-3,  -0x1.8caefep-3,  -0x1.8c2b14p-3,  -0x1.8ba634p-3,  -0x1.8b2062p-3,  -0x1.8a999cp-3,  -0x1.8a11e2p-3, </div>
+<div class="line"><a id="l00170" name="l00170"></a><span class="lineno">  170</span>    -0x1.898936p-3,  -0x1.88ff96p-3,  -0x1.887506p-3,  -0x1.87e982p-3,  -0x1.875d0cp-3,  -0x1.86cfa4p-3,  -0x1.86414cp-3,  -0x1.85b204p-3, </div>
+<div class="line"><a id="l00171" name="l00171"></a><span class="lineno">  171</span>    -0x1.8521cap-3,  -0x1.8490a0p-3,  -0x1.83fe88p-3,  -0x1.836b80p-3,  -0x1.82d788p-3,  -0x1.8242a2p-3,  -0x1.81accep-3,  -0x1.81160cp-3, </div>
+<div class="line"><a id="l00172" name="l00172"></a><span class="lineno">  172</span>    -0x1.807e5cp-3,  -0x1.7fe5c0p-3,  -0x1.7f4c36p-3,  -0x1.7eb1c0p-3,  -0x1.7e165ep-3,  -0x1.7d7a10p-3,  -0x1.7cdcd8p-3,  -0x1.7c3eb4p-3, </div>
+<div class="line"><a id="l00173" name="l00173"></a><span class="lineno">  173</span>    -0x1.7b9fa4p-3,  -0x1.7affacp-3,  -0x1.7a5ecap-3,  -0x1.79bcfep-3,  -0x1.791a48p-3,  -0x1.7876acp-3,  -0x1.77d226p-3,  -0x1.772cb8p-3, </div>
+<div class="line"><a id="l00174" name="l00174"></a><span class="lineno">  174</span>    -0x1.768662p-3,  -0x1.75df26p-3,  -0x1.753704p-3,  -0x1.748dfap-3,  -0x1.73e40cp-3,  -0x1.733938p-3,  -0x1.728d80p-3,  -0x1.71e0e2p-3, </div>
+<div class="line"><a id="l00175" name="l00175"></a><span class="lineno">  175</span>    -0x1.713360p-3,  -0x1.7084fap-3,  -0x1.6fd5b2p-3,  -0x1.6f2586p-3,  -0x1.6e7478p-3,  -0x1.6dc286p-3,  -0x1.6d0fb4p-3,  -0x1.6c5c02p-3, </div>
+<div class="line"><a id="l00176" name="l00176"></a><span class="lineno">  176</span>    -0x1.6ba76ep-3,  -0x1.6af1fap-3,  -0x1.6a3ba6p-3,  -0x1.698472p-3,  -0x1.68cc60p-3,  -0x1.68136ep-3,  -0x1.6759a0p-3,  -0x1.669ef2p-3, </div>
+<div class="line"><a id="l00177" name="l00177"></a><span class="lineno">  177</span>    -0x1.65e368p-3,  -0x1.652702p-3,  -0x1.6469bep-3,  -0x1.63aba0p-3,  -0x1.62eca4p-3,  -0x1.622cd0p-3,  -0x1.616c20p-3,  -0x1.60aa96p-3, </div>
+<div class="line"><a id="l00178" name="l00178"></a><span class="lineno">  178</span>    -0x1.5fe832p-3,  -0x1.5f24f6p-3,  -0x1.5e60e2p-3,  -0x1.5d9bf4p-3,  -0x1.5cd630p-3,  -0x1.5c0f94p-3,  -0x1.5b4820p-3,  -0x1.5a7fd8p-3, </div>
+<div class="line"><a id="l00179" name="l00179"></a><span class="lineno">  179</span>    -0x1.59b6b8p-3,  -0x1.58ecc4p-3,  -0x1.5821fcp-3,  -0x1.575660p-3,  -0x1.5689eep-3,  -0x1.55bcaap-3,  -0x1.54ee94p-3,  -0x1.541faap-3, </div>
+<div class="line"><a id="l00180" name="l00180"></a><span class="lineno">  180</span>    -0x1.534ff0p-3,  -0x1.527f64p-3,  -0x1.51ae06p-3,  -0x1.50dbd8p-3,  -0x1.5008dcp-3,  -0x1.4f3510p-3,  -0x1.4e6074p-3,  -0x1.4d8b0ap-3, </div>
+<div class="line"><a id="l00181" name="l00181"></a><span class="lineno">  181</span>    -0x1.4cb4d4p-3,  -0x1.4bddd0p-3,  -0x1.4b05fep-3,  -0x1.4a2d60p-3,  -0x1.4953f8p-3,  -0x1.4879c4p-3,  -0x1.479ec4p-3,  -0x1.46c2fcp-3, </div>
+<div class="line"><a id="l00182" name="l00182"></a><span class="lineno">  182</span>    -0x1.45e66ap-3,  -0x1.45090ep-3,  -0x1.442aeap-3,  -0x1.434bfep-3,  -0x1.426c4ap-3,  -0x1.418bd0p-3,  -0x1.40aa90p-3,  -0x1.3fc88ap-3, </div>
+<div class="line"><a id="l00183" name="l00183"></a><span class="lineno">  183</span>    -0x1.3ee5bep-3,  -0x1.3e022ep-3,  -0x1.3d1dd8p-3,  -0x1.3c38c0p-3,  -0x1.3b52e6p-3,  -0x1.3a6c48p-3,  -0x1.3984e8p-3,  -0x1.389cc8p-3, </div>
+<div class="line"><a id="l00184" name="l00184"></a><span class="lineno">  184</span>    -0x1.37b3e6p-3,  -0x1.36ca44p-3,  -0x1.35dfe2p-3,  -0x1.34f4c0p-3,  -0x1.3408e0p-3,  -0x1.331c42p-3,  -0x1.322ee8p-3,  -0x1.3140d0p-3, </div>
+<div class="line"><a id="l00185" name="l00185"></a><span class="lineno">  185</span>    -0x1.3051fcp-3,  -0x1.2f626cp-3,  -0x1.2e7220p-3,  -0x1.2d811cp-3,  -0x1.2c8f5cp-3,  -0x1.2b9ce2p-3,  -0x1.2aa9b0p-3,  -0x1.29b5c6p-3, </div>
+<div class="line"><a id="l00186" name="l00186"></a><span class="lineno">  186</span>    -0x1.28c124p-3,  -0x1.27cbccp-3,  -0x1.26d5bcp-3,  -0x1.25def8p-3,  -0x1.24e77ep-3,  -0x1.23ef4ep-3,  -0x1.22f66cp-3,  -0x1.21fcd4p-3, </div>
+<div class="line"><a id="l00187" name="l00187"></a><span class="lineno">  187</span>    -0x1.21028cp-3,  -0x1.200790p-3,  -0x1.1f0be2p-3,  -0x1.1e0f84p-3,  -0x1.1d1274p-3,  -0x1.1c14b6p-3,  -0x1.1b1648p-3,  -0x1.1a172cp-3, </div>
+<div class="line"><a id="l00188" name="l00188"></a><span class="lineno">  188</span>    -0x1.191760p-3,  -0x1.1816e8p-3,  -0x1.1715c4p-3,  -0x1.1613f2p-3,  -0x1.151176p-3,  -0x1.140e4ep-3,  -0x1.130a7ep-3,  -0x1.120602p-3, </div>
+<div class="line"><a id="l00189" name="l00189"></a><span class="lineno">  189</span>    -0x1.1100dep-3,  -0x1.0ffb10p-3,  -0x1.0ef49cp-3,  -0x1.0ded80p-3,  -0x1.0ce5bep-3,  -0x1.0bdd56p-3,  -0x1.0ad448p-3,  -0x1.09ca96p-3, </div>
+<div class="line"><a id="l00190" name="l00190"></a><span class="lineno">  190</span>    -0x1.08c040p-3,  -0x1.07b548p-3,  -0x1.06a9acp-3,  -0x1.059d6ep-3,  -0x1.04908ep-3,  -0x1.03830ep-3,  -0x1.0274eep-3,  -0x1.016630p-3, </div>
+<div class="line"><a id="l00191" name="l00191"></a><span class="lineno">  191</span>    -0x1.0056d0p-3,  -0x1.fe8daap-4,  -0x1.fc6c76p-4,  -0x1.fa4a08p-4,  -0x1.f82662p-4,  -0x1.f60186p-4,  -0x1.f3db74p-4,  -0x1.f1b42ep-4, </div>
+<div class="line"><a id="l00192" name="l00192"></a><span class="lineno">  192</span>    -0x1.ef8bb4p-4,  -0x1.ed6208p-4,  -0x1.eb372cp-4,  -0x1.e90b22p-4,  -0x1.e6ddeap-4,  -0x1.e4af84p-4,  -0x1.e27ff6p-4,  -0x1.e04f3cp-4, </div>
+<div class="line"><a id="l00193" name="l00193"></a><span class="lineno">  193</span>    -0x1.de1d5ap-4,  -0x1.dbea52p-4,  -0x1.d9b624p-4,  -0x1.d780d2p-4,  -0x1.d54a5cp-4,  -0x1.d312c6p-4,  -0x1.d0da10p-4,  -0x1.cea03ap-4, </div>
+<div class="line"><a id="l00194" name="l00194"></a><span class="lineno">  194</span>    -0x1.cc6548p-4,  -0x1.ca2938p-4,  -0x1.c7ec10p-4,  -0x1.c5adccp-4,  -0x1.c36e72p-4,  -0x1.c12e02p-4,  -0x1.beec7cp-4,  -0x1.bca9e2p-4, </div>
+<div class="line"><a id="l00195" name="l00195"></a><span class="lineno">  195</span>    -0x1.ba6636p-4,  -0x1.b82178p-4,  -0x1.b5dbacp-4,  -0x1.b394d2p-4,  -0x1.b14ceap-4,  -0x1.af03f8p-4,  -0x1.acb9fcp-4,  -0x1.aa6ef8p-4, </div>
+<div class="line"><a id="l00196" name="l00196"></a><span class="lineno">  196</span>    -0x1.a822ecp-4,  -0x1.a5d5dap-4,  -0x1.a387c4p-4,  -0x1.a138acp-4,  -0x1.9ee892p-4,  -0x1.9c9778p-4,  -0x1.9a4560p-4,  -0x1.97f24ap-4, </div>
+<div class="line"><a id="l00197" name="l00197"></a><span class="lineno">  197</span>    -0x1.959e3ap-4,  -0x1.93492ep-4,  -0x1.90f32ap-4,  -0x1.8e9c30p-4,  -0x1.8c443ep-4,  -0x1.89eb58p-4,  -0x1.879180p-4,  -0x1.8536b6p-4, </div>
+<div class="line"><a id="l00198" name="l00198"></a><span class="lineno">  198</span>    -0x1.82dafcp-4,  -0x1.807e52p-4,  -0x1.7e20bcp-4,  -0x1.7bc23cp-4,  -0x1.7962d0p-4,  -0x1.77027ap-4,  -0x1.74a13ep-4,  -0x1.723f1cp-4, </div>
+<div class="line"><a id="l00199" name="l00199"></a><span class="lineno">  199</span>    -0x1.6fdc16p-4,  -0x1.6d782cp-4,  -0x1.6b1362p-4,  -0x1.68adb8p-4,  -0x1.66472ep-4,  -0x1.63dfc8p-4,  -0x1.617786p-4,  -0x1.5f0e6ap-4, </div>
+<div class="line"><a id="l00200" name="l00200"></a><span class="lineno">  200</span>    -0x1.5ca476p-4,  -0x1.5a39acp-4,  -0x1.57ce0ap-4,  -0x1.556196p-4,  -0x1.52f44ep-4,  -0x1.508636p-4,  -0x1.4e174ep-4,  -0x1.4ba796p-4, </div>
+<div class="line"><a id="l00201" name="l00201"></a><span class="lineno">  201</span>    -0x1.493714p-4,  -0x1.46c5c6p-4,  -0x1.4453aep-4,  -0x1.41e0d0p-4,  -0x1.3f6d28p-4,  -0x1.3cf8bep-4,  -0x1.3a8390p-4,  -0x1.380d9ep-4, </div>
+<div class="line"><a id="l00202" name="l00202"></a><span class="lineno">  202</span>    -0x1.3596eep-4,  -0x1.331f7ep-4,  -0x1.30a750p-4,  -0x1.2e2e66p-4,  -0x1.2bb4c2p-4,  -0x1.293a66p-4,  -0x1.26bf52p-4,  -0x1.244388p-4, </div>
+<div class="line"><a id="l00203" name="l00203"></a><span class="lineno">  203</span>    -0x1.21c708p-4,  -0x1.1f49d8p-4,  -0x1.1ccbf6p-4,  -0x1.1a4d64p-4,  -0x1.17ce24p-4,  -0x1.154e38p-4,  -0x1.12cda0p-4,  -0x1.104c5ep-4, </div>
+<div class="line"><a id="l00204" name="l00204"></a><span class="lineno">  204</span>    -0x1.0dca76p-4,  -0x1.0b47e6p-4,  -0x1.08c4b2p-4,  -0x1.0640dap-4,  -0x1.03bc60p-4,  -0x1.013746p-4,  -0x1.fd631cp-5,  -0x1.f85670p-5, </div>
+<div class="line"><a id="l00205" name="l00205"></a><span class="lineno">  205</span>    -0x1.f3488ep-5,  -0x1.ee3978p-5,  -0x1.e92932p-5,  -0x1.e417bcp-5,  -0x1.df051ep-5,  -0x1.d9f156p-5,  -0x1.d4dc6cp-5,  -0x1.cfc65ep-5, </div>
+<div class="line"><a id="l00206" name="l00206"></a><span class="lineno">  206</span>    -0x1.caaf34p-5,  -0x1.c596eep-5,  -0x1.c07d92p-5,  -0x1.bb6320p-5,  -0x1.b6479cp-5,  -0x1.b12b0ap-5,  -0x1.ac0d6ep-5,  -0x1.a6eec8p-5, </div>
+<div class="line"><a id="l00207" name="l00207"></a><span class="lineno">  207</span>    -0x1.a1cf1ep-5,  -0x1.9cae74p-5,  -0x1.978ccap-5,  -0x1.926a24p-5,  -0x1.8d4686p-5,  -0x1.8821f2p-5,  -0x1.82fc6ep-5,  -0x1.7dd5fap-5, </div>
+<div class="line"><a id="l00208" name="l00208"></a><span class="lineno">  208</span>    -0x1.78ae9cp-5,  -0x1.738654p-5,  -0x1.6e5d28p-5,  -0x1.69331ap-5,  -0x1.64082cp-5,  -0x1.5edc64p-5,  -0x1.59afc2p-5,  -0x1.54824cp-5, </div>
+<div class="line"><a id="l00209" name="l00209"></a><span class="lineno">  209</span>    -0x1.4f5402p-5,  -0x1.4a24ecp-5,  -0x1.44f508p-5,  -0x1.3fc45cp-5,  -0x1.3a92ecp-5,  -0x1.3560bap-5,  -0x1.302dc8p-5,  -0x1.2afa1ap-5, </div>
+<div class="line"><a id="l00210" name="l00210"></a><span class="lineno">  210</span>    -0x1.25c5b4p-5,  -0x1.20909ap-5,  -0x1.1b5accp-5,  -0x1.162450p-5,  -0x1.10ed2ap-5,  -0x1.0bb55ap-5,  -0x1.067ce4p-5,  -0x1.0143cep-5, </div>
+<div class="line"><a id="l00211" name="l00211"></a><span class="lineno">  211</span>    -0x1.f81432p-6,  -0x1.ed9f90p-6,  -0x1.e329bep-6,  -0x1.d8b2c0p-6,  -0x1.ce3aa0p-6,  -0x1.c3c164p-6,  -0x1.b94710p-6,  -0x1.aecbacp-6, </div>
+<div class="line"><a id="l00212" name="l00212"></a><span class="lineno">  212</span>    -0x1.a44f3ep-6,  -0x1.99d1cep-6,  -0x1.8f5360p-6,  -0x1.84d3fcp-6,  -0x1.7a53a8p-6,  -0x1.6fd26ap-6,  -0x1.65504ap-6,  -0x1.5acd4ep-6, </div>
+<div class="line"><a id="l00213" name="l00213"></a><span class="lineno">  213</span>    -0x1.50497cp-6,  -0x1.45c4dap-6,  -0x1.3b3f6ep-6,  -0x1.30b942p-6,  -0x1.263258p-6,  -0x1.1baabap-6,  -0x1.11226cp-6,  -0x1.069976p-6, </div>
+<div class="line"><a id="l00214" name="l00214"></a><span class="lineno">  214</span>    -0x1.f81fbap-7,  -0x1.e30b54p-7,  -0x1.cdf5c2p-7,  -0x1.b8df14p-7,  -0x1.a3c756p-7,  -0x1.8eae94p-7,  -0x1.7994dep-7,  -0x1.647a3ep-7, </div>
+<div class="line"><a id="l00215" name="l00215"></a><span class="lineno">  215</span>    -0x1.4f5ec2p-7,  -0x1.3a4276p-7,  -0x1.25256ap-7,  -0x1.1007a8p-7,  -0x1.f5d27ep-8,  -0x1.cb9476p-8,  -0x1.a15552p-8,  -0x1.77152ep-8, </div>
+<div class="line"><a id="l00216" name="l00216"></a><span class="lineno">  216</span>    -0x1.4cd420p-8,  -0x1.229246p-8,  -0x1.f09f74p-9,  -0x1.9c1928p-9,  -0x1.4791dep-9, -0x1.e61392p-10, -0x1.3d023cp-10, -0x1.27e048p-11, </div>
+<div class="line"><a id="l00217" name="l00217"></a><span class="lineno">  217</span>    0x1.5224fep-14,  0x1.7c696ep-11,  0x1.6746a8p-10,   0x1.082bdep-9,   0x1.5cb3c4p-9,   0x1.b13ad4p-9,   0x1.02e06cp-8,   0x1.2d22d0p-8, </div>
+<div class="line"><a id="l00218" name="l00218"></a><span class="lineno">  218</span>     0x1.576478p-8,   0x1.81a54cp-8,   0x1.abe534p-8,   0x1.d62414p-8,   0x1.0030e8p-7,   0x1.154f28p-7,   0x1.2a6cbep-7,   0x1.3f899cp-7, </div>
+<div class="line"><a id="l00219" name="l00219"></a><span class="lineno">  219</span>     0x1.54a5b4p-7,   0x1.69c0fap-7,   0x1.7edb62p-7,   0x1.93f4dcp-7,   0x1.a90d5ep-7,   0x1.be24dap-7,   0x1.d33b42p-7,   0x1.e8508ap-7, </div>
+<div class="line"><a id="l00220" name="l00220"></a><span class="lineno">  220</span>     0x1.fd64a4p-7,   0x1.093bc2p-6,   0x1.13c490p-6,   0x1.1e4cb2p-6,   0x1.28d424p-6,   0x1.335adep-6,   0x1.3de0dcp-6,   0x1.486616p-6, </div>
+<div class="line"><a id="l00221" name="l00221"></a><span class="lineno">  221</span>     0x1.52ea84p-6,   0x1.5d6e22p-6,   0x1.67f0e8p-6,   0x1.7272d0p-6,   0x1.7cf3d4p-6,   0x1.8773ecp-6,   0x1.91f312p-6,   0x1.9c7142p-6, </div>
+<div class="line"><a id="l00222" name="l00222"></a><span class="lineno">  222</span>     0x1.a6ee72p-6,   0x1.b16a9ep-6,   0x1.bbe5bep-6,   0x1.c65fcep-6,   0x1.d0d8c4p-6,   0x1.db509cp-6,   0x1.e5c74ep-6,   0x1.f03cd4p-6, </div>
+<div class="line"><a id="l00223" name="l00223"></a><span class="lineno">  223</span>     0x1.fab12ap-6,   0x1.029222p-5,   0x1.07cb12p-5,   0x1.0d035ep-5,   0x1.123b02p-5,   0x1.177200p-5,   0x1.1ca850p-5,   0x1.21ddf0p-5, </div>
+<div class="line"><a id="l00224" name="l00224"></a><span class="lineno">  224</span>     0x1.2712dep-5,   0x1.2c4716p-5,   0x1.317a96p-5,   0x1.36ad58p-5,   0x1.3bdf5ap-5,   0x1.41109ap-5,   0x1.464114p-5,   0x1.4b70c4p-5, </div>
+<div class="line"><a id="l00225" name="l00225"></a><span class="lineno">  225</span>     0x1.509fa8p-5,   0x1.55cdbcp-5,   0x1.5afafep-5,   0x1.60276ap-5,   0x1.6552fcp-5,   0x1.6a7db2p-5,   0x1.6fa788p-5,   0x1.74d07cp-5, </div>
+<div class="line"><a id="l00226" name="l00226"></a><span class="lineno">  226</span>     0x1.79f88ap-5,   0x1.7f1faep-5,   0x1.8445e6p-5,   0x1.896b2ep-5,   0x1.8e8f84p-5,   0x1.93b2e4p-5,   0x1.98d54cp-5,   0x1.9df6b6p-5, </div>
+<div class="line"><a id="l00227" name="l00227"></a><span class="lineno">  227</span>     0x1.a31722p-5,   0x1.a8368ap-5,   0x1.ad54eep-5,   0x1.b27248p-5,   0x1.b78e96p-5,   0x1.bca9d6p-5,   0x1.c1c402p-5,   0x1.c6dd1ap-5, </div>
+<div class="line"><a id="l00228" name="l00228"></a><span class="lineno">  228</span>     0x1.cbf51ap-5,   0x1.d10bfcp-5,   0x1.d621c2p-5,   0x1.db3664p-5,   0x1.e049e0p-5,   0x1.e55c36p-5,   0x1.ea6d60p-5,   0x1.ef7d5ap-5, </div>
+<div class="line"><a id="l00229" name="l00229"></a><span class="lineno">  229</span>     0x1.f48c24p-5,   0x1.f999b8p-5,   0x1.fea616p-5,   0x1.01d89cp-4,   0x1.045d8ep-4,   0x1.06e1dep-4,   0x1.09658ep-4,   0x1.0be89ap-4, </div>
+<div class="line"><a id="l00230" name="l00230"></a><span class="lineno">  230</span>     0x1.0e6b00p-4,   0x1.10ecbep-4,   0x1.136dd6p-4,   0x1.15ee42p-4,   0x1.186e04p-4,   0x1.1aed18p-4,   0x1.1d6b7ep-4,   0x1.1fe934p-4, </div>
+<div class="line"><a id="l00231" name="l00231"></a><span class="lineno">  231</span>     0x1.22663ap-4,   0x1.24e28ap-4,   0x1.275e28p-4,   0x1.29d90ep-4,   0x1.2c533cp-4,   0x1.2eccb2p-4,   0x1.31456cp-4,   0x1.33bd6ap-4, </div>
+<div class="line"><a id="l00232" name="l00232"></a><span class="lineno">  232</span>     0x1.3634acp-4,   0x1.38ab2cp-4,   0x1.3b20eep-4,   0x1.3d95eap-4,   0x1.400a26p-4,   0x1.427d9ap-4,   0x1.44f048p-4,   0x1.47622cp-4, </div>
+<div class="line"><a id="l00233" name="l00233"></a><span class="lineno">  233</span>     0x1.49d348p-4,   0x1.4c4398p-4,   0x1.4eb31ap-4,   0x1.5121d0p-4,   0x1.538fb4p-4,   0x1.55fcc6p-4,   0x1.586906p-4,   0x1.5ad472p-4, </div>
+<div class="line"><a id="l00234" name="l00234"></a><span class="lineno">  234</span>     0x1.5d3f08p-4,   0x1.5fa8c6p-4,   0x1.6211acp-4,   0x1.6479b6p-4,   0x1.66e0e6p-4,   0x1.694738p-4,   0x1.6bacaap-4,   0x1.6e113cp-4, </div>
+<div class="line"><a id="l00235" name="l00235"></a><span class="lineno">  235</span>     0x1.7074eep-4,   0x1.72d7bap-4,   0x1.7539a4p-4,   0x1.779aa6p-4,   0x1.79fac0p-4,   0x1.7c59f2p-4,   0x1.7eb838p-4,   0x1.811594p-4, </div>
+<div class="line"><a id="l00236" name="l00236"></a><span class="lineno">  236</span>     0x1.837200p-4,   0x1.85cd80p-4,   0x1.88280cp-4,   0x1.8a81a8p-4,   0x1.8cda52p-4,   0x1.8f3206p-4,   0x1.9188c2p-4,   0x1.93de88p-4, </div>
+<div class="line"><a id="l00237" name="l00237"></a><span class="lineno">  237</span>     0x1.963356p-4,   0x1.988728p-4,   0x1.9ad9fep-4,   0x1.9d2bd6p-4,   0x1.9f7cb0p-4,   0x1.a1cc8ap-4,   0x1.a41b62p-4,   0x1.a66936p-4, </div>
+<div class="line"><a id="l00238" name="l00238"></a><span class="lineno">  238</span>     0x1.a8b606p-4,   0x1.ab01d2p-4,   0x1.ad4c94p-4,   0x1.af964ep-4,   0x1.b1defep-4,   0x1.b426a2p-4,   0x1.b66d38p-4,   0x1.b8b2c2p-4, </div>
+<div class="line"><a id="l00239" name="l00239"></a><span class="lineno">  239</span>     0x1.baf73ap-4,   0x1.bd3aa2p-4,   0x1.bf7cf6p-4,   0x1.c1be38p-4,   0x1.c3fe64p-4,   0x1.c63d78p-4,   0x1.c87b74p-4,   0x1.cab856p-4, </div>
+<div class="line"><a id="l00240" name="l00240"></a><span class="lineno">  240</span>     0x1.ccf41ep-4,   0x1.cf2ecap-4,   0x1.d16858p-4,   0x1.d3a0c8p-4,   0x1.d5d816p-4,   0x1.d80e42p-4,   0x1.da434cp-4,   0x1.dc7730p-4, </div>
+<div class="line"><a id="l00241" name="l00241"></a><span class="lineno">  241</span>     0x1.dea9eep-4,   0x1.e0db86p-4,   0x1.e30bf6p-4,   0x1.e53b3ap-4,   0x1.e76954p-4,   0x1.e99640p-4,   0x1.ebc200p-4,   0x1.edec90p-4, </div>
+<div class="line"><a id="l00242" name="l00242"></a><span class="lineno">  242</span>     0x1.f015eep-4,   0x1.f23e1cp-4,   0x1.f46516p-4,   0x1.f68adap-4,   0x1.f8af6ap-4,   0x1.fad2c0p-4,   0x1.fcf4e0p-4,   0x1.ff15c4p-4, </div>
+<div class="line"><a id="l00243" name="l00243"></a><span class="lineno">  243</span>     0x1.009ab8p-3,   0x1.01a9eep-3,   0x1.02b886p-3,   0x1.03c67ep-3,   0x1.04d3d6p-3,   0x1.05e08cp-3,   0x1.06eca2p-3,   0x1.07f816p-3, </div>
+<div class="line"><a id="l00244" name="l00244"></a><span class="lineno">  244</span>     0x1.0902e6p-3,   0x1.0a0d12p-3,   0x1.0b169cp-3,   0x1.0c1f80p-3,   0x1.0d27bep-3,   0x1.0e2f56p-3,   0x1.0f3648p-3,   0x1.103c94p-3, </div>
+<div class="line"><a id="l00245" name="l00245"></a><span class="lineno">  245</span>     0x1.114236p-3,   0x1.124730p-3,   0x1.134b82p-3,   0x1.144f28p-3,   0x1.155226p-3,   0x1.165478p-3,   0x1.17561ep-3,   0x1.185716p-3, </div>
+<div class="line"><a id="l00246" name="l00246"></a><span class="lineno">  246</span>     0x1.195764p-3,   0x1.1a5702p-3,   0x1.1b55f4p-3,   0x1.1c5436p-3,   0x1.1d51c8p-3,   0x1.1e4eacp-3,   0x1.1f4adep-3,   0x1.204660p-3, </div>
+<div class="line"><a id="l00247" name="l00247"></a><span class="lineno">  247</span>     0x1.21412ep-3,   0x1.223b4cp-3,   0x1.2334b4p-3,   0x1.242d6cp-3,   0x1.25256ep-3,   0x1.261cbap-3,   0x1.271352p-3,   0x1.280934p-3, </div>
+<div class="line"><a id="l00248" name="l00248"></a><span class="lineno">  248</span>     0x1.28fe5ep-3,   0x1.29f2d2p-3,   0x1.2ae68ep-3,   0x1.2bd992p-3,   0x1.2ccbdcp-3,   0x1.2dbd6ep-3,   0x1.2eae46p-3,   0x1.2f9e62p-3, </div>
+<div class="line"><a id="l00249" name="l00249"></a><span class="lineno">  249</span>     0x1.308dc2p-3,   0x1.317c68p-3,   0x1.326a50p-3,   0x1.33577cp-3,   0x1.3443eap-3,   0x1.352f9ap-3,   0x1.361a8cp-3,   0x1.3704bep-3, </div>
+<div class="line"><a id="l00250" name="l00250"></a><span class="lineno">  250</span>     0x1.37ee30p-3,   0x1.38d6e2p-3,   0x1.39bed2p-3,   0x1.3aa602p-3,   0x1.3b8c6ep-3,   0x1.3c721ap-3,   0x1.3d5700p-3,   0x1.3e3b24p-3, </div>
+<div class="line"><a id="l00251" name="l00251"></a><span class="lineno">  251</span>     0x1.3f1e84p-3,   0x1.40011ep-3,   0x1.40e2f2p-3,   0x1.41c402p-3,   0x1.42a44ap-3,   0x1.4383ccp-3,   0x1.446286p-3,   0x1.454078p-3, </div>
+<div class="line"><a id="l00252" name="l00252"></a><span class="lineno">  252</span>     0x1.461da0p-3,   0x1.46fa00p-3,   0x1.47d598p-3,   0x1.48b064p-3,   0x1.498a64p-3,   0x1.4a639ap-3,   0x1.4b3c06p-3,   0x1.4c13a4p-3, </div>
+<div class="line"><a id="l00253" name="l00253"></a><span class="lineno">  253</span>     0x1.4cea74p-3,   0x1.4dc078p-3,   0x1.4e95aep-3,   0x1.4f6a16p-3,   0x1.503daep-3,   0x1.511078p-3,   0x1.51e272p-3,   0x1.52b39ap-3, </div>
+<div class="line"><a id="l00254" name="l00254"></a><span class="lineno">  254</span>     0x1.5383f2p-3,   0x1.545378p-3,   0x1.55222ep-3,   0x1.55f010p-3,   0x1.56bd1ep-3,   0x1.57895ap-3,   0x1.5854c2p-3,   0x1.591f56p-3, </div>
+<div class="line"><a id="l00255" name="l00255"></a><span class="lineno">  255</span>     0x1.59e914p-3,   0x1.5ab1fep-3,   0x1.5b7a12p-3,   0x1.5c414ep-3,   0x1.5d07b4p-3,   0x1.5dcd44p-3,   0x1.5e91fap-3,   0x1.5f55dap-3, </div>
+<div class="line"><a id="l00256" name="l00256"></a><span class="lineno">  256</span>     0x1.6018e0p-3,   0x1.60db0cp-3,   0x1.619c60p-3,   0x1.625cdap-3,   0x1.631c78p-3,   0x1.63db3cp-3,   0x1.649924p-3,   0x1.655630p-3, </div>
+<div class="line"><a id="l00257" name="l00257"></a><span class="lineno">  257</span>     0x1.661260p-3,   0x1.66cdb2p-3,   0x1.678828p-3,   0x1.6841c0p-3,   0x1.68fa78p-3,   0x1.69b254p-3,   0x1.6a6950p-3,   0x1.6b1f6cp-3, </div>
+<div class="line"><a id="l00258" name="l00258"></a><span class="lineno">  258</span>     0x1.6bd4a8p-3,   0x1.6c8904p-3,   0x1.6d3c7ep-3,   0x1.6def18p-3,   0x1.6ea0d0p-3,   0x1.6f51a6p-3,   0x1.700198p-3,   0x1.70b0a8p-3, </div>
+<div class="line"><a id="l00259" name="l00259"></a><span class="lineno">  259</span>     0x1.715ed6p-3,   0x1.720c1ep-3,   0x1.72b882p-3,   0x1.736402p-3,   0x1.740e9ep-3,   0x1.74b852p-3,   0x1.756122p-3,   0x1.76090cp-3, </div>
+<div class="line"><a id="l00260" name="l00260"></a><span class="lineno">  260</span>     0x1.76b00ep-3,   0x1.775628p-3,   0x1.77fb5cp-3,   0x1.789fa8p-3,   0x1.79430cp-3,   0x1.79e586p-3,   0x1.7a8718p-3,   0x1.7b27c0p-3, </div>
+<div class="line"><a id="l00261" name="l00261"></a><span class="lineno">  261</span>     0x1.7bc77ep-3,   0x1.7c6652p-3,   0x1.7d043cp-3,   0x1.7da13ap-3,   0x1.7e3d4cp-3,   0x1.7ed874p-3,   0x1.7f72aep-3,   0x1.800bfep-3, </div>
+<div class="line"><a id="l00262" name="l00262"></a><span class="lineno">  262</span>     0x1.80a45ep-3,   0x1.813bd4p-3,   0x1.81d25ap-3,   0x1.8267f2p-3,   0x1.82fc9cp-3,   0x1.839058p-3,   0x1.842324p-3,   0x1.84b502p-3, </div>
+<div class="line"><a id="l00263" name="l00263"></a><span class="lineno">  263</span>     0x1.8545f0p-3,   0x1.85d5ecp-3,   0x1.8664f8p-3,   0x1.86f314p-3,   0x1.878040p-3,   0x1.880c78p-3,   0x1.8897c0p-3,   0x1.892216p-3, </div>
+<div class="line"><a id="l00264" name="l00264"></a><span class="lineno">  264</span>     0x1.89ab78p-3,   0x1.8a33e8p-3,   0x1.8abb64p-3,   0x1.8b41eep-3,   0x1.8bc784p-3,   0x1.8c4c24p-3,   0x1.8ccfd2p-3,   0x1.8d528ap-3, </div>
+<div class="line"><a id="l00265" name="l00265"></a><span class="lineno">  265</span>     0x1.8dd44cp-3,   0x1.8e551ap-3,   0x1.8ed4f2p-3,   0x1.8f53d4p-3,   0x1.8fd1c0p-3,   0x1.904eb4p-3,   0x1.90cab2p-3,   0x1.9145b8p-3, </div>
+<div class="line"><a id="l00266" name="l00266"></a><span class="lineno">  266</span>     0x1.91bfc8p-3,   0x1.9238e0p-3,   0x1.92b0fep-3,   0x1.932826p-3,   0x1.939e54p-3,   0x1.941388p-3,   0x1.9487c4p-3,   0x1.94fb08p-3, </div>
+<div class="line"><a id="l00267" name="l00267"></a><span class="lineno">  267</span>     0x1.956d50p-3,   0x1.95de9ep-3,   0x1.964ef2p-3,   0x1.96be4cp-3,   0x1.972caap-3,   0x1.979a0ep-3,   0x1.980676p-3,   0x1.9871e2p-3, </div>
+<div class="line"><a id="l00268" name="l00268"></a><span class="lineno">  268</span>     0x1.98dc54p-3,   0x1.9945c8p-3,   0x1.99ae3ep-3,   0x1.9a15bap-3,   0x1.9a7c38p-3,   0x1.9ae1b8p-3,   0x1.9b463cp-3,   0x1.9ba9c2p-3, </div>
+<div class="line"><a id="l00269" name="l00269"></a><span class="lineno">  269</span>     0x1.9c0c4ap-3,   0x1.9c6dd4p-3,   0x1.9cce5ep-3,   0x1.9d2decp-3,   0x1.9d8c78p-3,   0x1.9dea08p-3,   0x1.9e4696p-3,   0x1.9ea226p-3, </div>
+<div class="line"><a id="l00270" name="l00270"></a><span class="lineno">  270</span>     0x1.9efcb6p-3,   0x1.9f5646p-3,   0x1.9faed6p-3,   0x1.a00666p-3,   0x1.a05cf4p-3,   0x1.a0b282p-3,   0x1.a1070ep-3,   0x1.a15a9ap-3, </div>
+<div class="line"><a id="l00271" name="l00271"></a><span class="lineno">  271</span>     0x1.a1ad24p-3,   0x1.a1feaep-3,   0x1.a24f34p-3,   0x1.a29eb8p-3,   0x1.a2ed3ap-3,   0x1.a33abap-3,   0x1.a38738p-3,   0x1.a3d2b2p-3, </div>
+<div class="line"><a id="l00272" name="l00272"></a><span class="lineno">  272</span>     0x1.a41d2ap-3,   0x1.a4669ep-3,   0x1.a4af10p-3,   0x1.a4f67ep-3,   0x1.a53ce8p-3,   0x1.a5824ep-3,   0x1.a5c6b0p-3,   0x1.a60a0ep-3, </div>
+<div class="line"><a id="l00273" name="l00273"></a><span class="lineno">  273</span>     0x1.a64c68p-3,   0x1.a68dbcp-3,   0x1.a6ce0ep-3,   0x1.a70d5ap-3,   0x1.a74ba0p-3,   0x1.a788e2p-3,   0x1.a7c51ep-3,   0x1.a80054p-3, </div>
+<div class="line"><a id="l00274" name="l00274"></a><span class="lineno">  274</span>     0x1.a83a86p-3,   0x1.a873b2p-3,   0x1.a8abd8p-3,   0x1.a8e2f8p-3,   0x1.a91912p-3,   0x1.a94e26p-3,   0x1.a98232p-3,   0x1.a9b53ap-3, </div>
+<div class="line"><a id="l00275" name="l00275"></a><span class="lineno">  275</span>     0x1.a9e73ap-3,   0x1.aa1834p-3,   0x1.aa4826p-3,   0x1.aa7712p-3,   0x1.aaa4f6p-3,   0x1.aad1d4p-3,   0x1.aafdaap-3,   0x1.ab2878p-3, </div>
+<div class="line"><a id="l00276" name="l00276"></a><span class="lineno">  276</span>     0x1.ab5240p-3,   0x1.ab7b00p-3,   0x1.aba2b8p-3,   0x1.abc968p-3,   0x1.abef10p-3,   0x1.ac13b0p-3,   0x1.ac374ap-3,   0x1.ac59dap-3, </div>
+<div class="line"><a id="l00277" name="l00277"></a><span class="lineno">  277</span>     0x1.ac7b62p-3,   0x1.ac9be0p-3,   0x1.acbb58p-3,   0x1.acd9c8p-3,   0x1.acf72ep-3,   0x1.ad138ap-3,   0x1.ad2ee0p-3,   0x1.ad492cp-3, </div>
+<div class="line"><a id="l00278" name="l00278"></a><span class="lineno">  278</span>     0x1.ad6270p-3,   0x1.ad7aaap-3,   0x1.ad91dcp-3,   0x1.ada804p-3,   0x1.adbd24p-3,   0x1.add13ap-3,   0x1.ade448p-3,   0x1.adf64cp-3, </div>
+<div class="line"><a id="l00279" name="l00279"></a><span class="lineno">  279</span>     0x1.ae0748p-3,   0x1.ae173ap-3,   0x1.ae2622p-3,   0x1.ae3400p-3,   0x1.ae40d6p-3,   0x1.ae4ca2p-3,   0x1.ae5766p-3,   0x1.ae6120p-3, </div>
+<div class="line"><a id="l00280" name="l00280"></a><span class="lineno">  280</span>     0x1.ae69cep-3,   0x1.ae7176p-3,   0x1.ae7812p-3,   0x1.ae7da6p-3,   0x1.ae8230p-3,   0x1.ae85b0p-3,   0x1.ae8826p-3,   0x1.ae8994p-3, </div>
+<div class="line"><a id="l00281" name="l00281"></a><span class="lineno">  281</span>};</div>
+</div>
+<div class="line"><a id="l00282" name="l00282"></a><span class="lineno">  282</span> </div>
+<div class="foldopen" id="foldopen00283" data-start="{" data-end="};">
+<div class="line"><a id="l00283" name="l00283"></a><span class="lineno"><a class="line" href="../../d0/d41/radaudio__mdct__tables_8inl.html#a9dcb7fbc74bd88ddc69047052c814c59">  283</a></span>FFTIndex <a class="code hl_variable" href="../../d0/d41/radaudio__mdct__tables_8inl.html#a9dcb7fbc74bd88ddc69047052c814c59">s_bit_reverse</a>[512] = {</div>
+<div class="line"><a id="l00284" name="l00284"></a><span class="lineno">  284</span>     0, 256, 128, 384,  64, 320, 192, 448,  32, 288, 160, 416,  96, 352, 224, 480, </div>
+<div class="line"><a id="l00285" name="l00285"></a><span class="lineno">  285</span>    16, 272, 144, 400,  80, 336, 208, 464,  48, 304, 176, 432, 112, 368, 240, 496, </div>
+<div class="line"><a id="l00286" name="l00286"></a><span class="lineno">  286</span>     8, 264, 136, 392,  72, 328, 200, 456,  40, 296, 168, 424, 104, 360, 232, 488, </div>
+<div class="line"><a id="l00287" name="l00287"></a><span class="lineno">  287</span>    24, 280, 152, 408,  88, 344, 216, 472,  56, 312, 184, 440, 120, 376, 248, 504, </div>
+<div class="line"><a id="l00288" name="l00288"></a><span class="lineno">  288</span>     4, 260, 132, 388,  68, 324, 196, 452,  36, 292, 164, 420, 100, 356, 228, 484, </div>
+<div class="line"><a id="l00289" name="l00289"></a><span class="lineno">  289</span>    20, 276, 148, 404,  84, 340, 212, 468,  52, 308, 180, 436, 116, 372, 244, 500, </div>
+<div class="line"><a id="l00290" name="l00290"></a><span class="lineno">  290</span>    12, 268, 140, 396,  76, 332, 204, 460,  44, 300, 172, 428, 108, 364, 236, 492, </div>
+<div class="line"><a id="l00291" name="l00291"></a><span class="lineno">  291</span>    28, 284, 156, 412,  92, 348, 220, 476,  60, 316, 188, 444, 124, 380, 252, 508, </div>
+<div class="line"><a id="l00292" name="l00292"></a><span class="lineno">  292</span>     2, 258, 130, 386,  66, 322, 194, 450,  34, 290, 162, 418,  98, 354, 226, 482, </div>
+<div class="line"><a id="l00293" name="l00293"></a><span class="lineno">  293</span>    18, 274, 146, 402,  82, 338, 210, 466,  50, 306, 178, 434, 114, 370, 242, 498, </div>
+<div class="line"><a id="l00294" name="l00294"></a><span class="lineno">  294</span>    10, 266, 138, 394,  74, 330, 202, 458,  42, 298, 170, 426, 106, 362, 234, 490, </div>
+<div class="line"><a id="l00295" name="l00295"></a><span class="lineno">  295</span>    26, 282, 154, 410,  90, 346, 218, 474,  58, 314, 186, 442, 122, 378, 250, 506, </div>
+<div class="line"><a id="l00296" name="l00296"></a><span class="lineno">  296</span>     6, 262, 134, 390,  70, 326, 198, 454,  38, 294, 166, 422, 102, 358, 230, 486, </div>
+<div class="line"><a id="l00297" name="l00297"></a><span class="lineno">  297</span>    22, 278, 150, 406,  86, 342, 214, 470,  54, 310, 182, 438, 118, 374, 246, 502, </div>
+<div class="line"><a id="l00298" name="l00298"></a><span class="lineno">  298</span>    14, 270, 142, 398,  78, 334, 206, 462,  46, 302, 174, 430, 110, 366, 238, 494, </div>
+<div class="line"><a id="l00299" name="l00299"></a><span class="lineno">  299</span>    30, 286, 158, 414,  94, 350, 222, 478,  62, 318, 190, 446, 126, 382, 254, 510, </div>
+<div class="line"><a id="l00300" name="l00300"></a><span class="lineno">  300</span>     1, 257, 129, 385,  65, 321, 193, 449,  33, 289, 161, 417,  97, 353, 225, 481, </div>
+<div class="line"><a id="l00301" name="l00301"></a><span class="lineno">  301</span>    17, 273, 145, 401,  81, 337, 209, 465,  49, 305, 177, 433, 113, 369, 241, 497, </div>
+<div class="line"><a id="l00302" name="l00302"></a><span class="lineno">  302</span>     9, 265, 137, 393,  73, 329, 201, 457,  41, 297, 169, 425, 105, 361, 233, 489, </div>
+<div class="line"><a id="l00303" name="l00303"></a><span class="lineno">  303</span>    25, 281, 153, 409,  89, 345, 217, 473,  57, 313, 185, 441, 121, 377, 249, 505, </div>
+<div class="line"><a id="l00304" name="l00304"></a><span class="lineno">  304</span>     5, 261, 133, 389,  69, 325, 197, 453,  37, 293, 165, 421, 101, 357, 229, 485, </div>
+<div class="line"><a id="l00305" name="l00305"></a><span class="lineno">  305</span>    21, 277, 149, 405,  85, 341, 213, 469,  53, 309, 181, 437, 117, 373, 245, 501, </div>
+<div class="line"><a id="l00306" name="l00306"></a><span class="lineno">  306</span>    13, 269, 141, 397,  77, 333, 205, 461,  45, 301, 173, 429, 109, 365, 237, 493, </div>
+<div class="line"><a id="l00307" name="l00307"></a><span class="lineno">  307</span>    29, 285, 157, 413,  93, 349, 221, 477,  61, 317, 189, 445, 125, 381, 253, 509, </div>
+<div class="line"><a id="l00308" name="l00308"></a><span class="lineno">  308</span>     3, 259, 131, 387,  67, 323, 195, 451,  35, 291, 163, 419,  99, 355, 227, 483, </div>
+<div class="line"><a id="l00309" name="l00309"></a><span class="lineno">  309</span>    19, 275, 147, 403,  83, 339, 211, 467,  51, 307, 179, 435, 115, 371, 243, 499, </div>
+<div class="line"><a id="l00310" name="l00310"></a><span class="lineno">  310</span>    11, 267, 139, 395,  75, 331, 203, 459,  43, 299, 171, 427, 107, 363, 235, 491, </div>
+<div class="line"><a id="l00311" name="l00311"></a><span class="lineno">  311</span>    27, 283, 155, 411,  91, 347, 219, 475,  59, 315, 187, 443, 123, 379, 251, 507, </div>
+<div class="line"><a id="l00312" name="l00312"></a><span class="lineno">  312</span>     7, 263, 135, 391,  71, 327, 199, 455,  39, 295, 167, 423, 103, 359, 231, 487, </div>
+<div class="line"><a id="l00313" name="l00313"></a><span class="lineno">  313</span>    23, 279, 151, 407,  87, 343, 215, 471,  55, 311, 183, 439, 119, 375, 247, 503, </div>
+<div class="line"><a id="l00314" name="l00314"></a><span class="lineno">  314</span>    15, 271, 143, 399,  79, 335, 207, 463,  47, 303, 175, 431, 111, 367, 239, 495, </div>
+<div class="line"><a id="l00315" name="l00315"></a><span class="lineno">  315</span>    31, 287, 159, 415,  95, 351, 223, 479,  63, 319, 191, 447, 127, 383, 255, 511, </div>
+<div class="line"><a id="l00316" name="l00316"></a><span class="lineno">  316</span>};</div>
+</div>
+<div class="line"><a id="l00317" name="l00317"></a><span class="lineno">  317</span> </div>
+<div class="ttc" id="aradaudio__common_8h_html_ac682c4b7d237992f52f66975ee413be4"><div class="ttname"><a href="../../d3/df7/radaudio__common_8h.html#ac682c4b7d237992f52f66975ee413be4">FFT_ALIGN</a></div><div class="ttdeci">#define FFT_ALIGN(type, name)</div><div class="ttdef"><b>定义</b> radaudio_common.h:17</div></div>
+<div class="ttc" id="aradaudio__mdct__tables_8inl_html_a9dcb7fbc74bd88ddc69047052c814c59"><div class="ttname"><a href="../../d0/d41/radaudio__mdct__tables_8inl.html#a9dcb7fbc74bd88ddc69047052c814c59">s_bit_reverse</a></div><div class="ttdeci">FFTIndex s_bit_reverse[512]</div><div class="ttdef"><b>定义</b> radaudio_mdct_tables.inl:283</div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+</div><!-- container -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a href="../../dir_0b6ee6e7e9547e675db4add2e5de97da.html">Engine</a></li><li class="navelem"><a href="../../dir_9579d1ecb2c7bf48cbe1049c41745cb4.html">Source</a></li><li class="navelem"><a href="../../dir_9f04efef762572853abdf73f62bebfcc.html">Runtime</a></li><li class="navelem"><a href="../../dir_9876a0d94ecff892e432d8a56ca7dcd7.html">RadAudioCodec</a></li><li class="navelem"><a href="../../dir_dc507b12713c132cbc2da7fd9f0b2525.html">SDK</a></li><li class="navelem"><a href="../../dir_ce8943f8af89bf4f0b288f56107dcd2a.html">Src</a></li><li class="navelem"><a href="../../dir_cf55f75c78466163515b76a142b20bda.html">RadAudio</a></li><li class="navelem"><a href="../../d0/d41/radaudio__mdct__tables_8inl.html">radaudio_mdct_tables.inl</a></li>
+    <li class="footer">制作者 <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.15.0 </li>
+  </ul>
+</div>
+</body>
+</html>
